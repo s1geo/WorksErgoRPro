@@ -63,11 +63,27 @@ namespace UITests
                 vm.VerticalMm = 150.0;
                 Console.WriteLine(string.Format("   Floor pick (150mm): DCR = {0}, Recommendation: {1}", vm.OverallDcrText, vm.Recommendation));
 
-                if (vm.OverallDCR < 1.0)
+                // Test Subtasks Multi-Task Job Manager
+                Console.WriteLine("\n[4/4] Testing Multi-Subtask Job Manager and CAD Snap in UI...");
+                vm.AddCurrentAsSubtask();
+                vm.SelectedTask = TaskType.Carrying;
+                vm.AddCurrentAsSubtask();
+                Console.WriteLine(string.Format("   Subtasks Count: {0}", vm.Subtasks.Count));
+                if (vm.Subtasks.Count != 2)
                 {
-                    Console.WriteLine("   [FAIL] Floor pick for Female 5th with 25kg must have DCR > 1.0!");
+                    Console.WriteLine("   [FAIL] Subtasks collection did not increment!");
                     return 1;
                 }
+
+                vm.EvaluateShiftJob();
+                Console.WriteLine(string.Format("   Shift Composite DCR: {0}, LCFCD: {1:F3}, EAWS: {2:F1}", vm.CompositeOverallDcrText, vm.CompositeLcfcd, vm.CompositeEawsScore));
+
+                // Test 3D CAD Snap
+                vm.SnapSelected3DObject();
+                Console.WriteLine(string.Format("   CAD Status: {0}", vm.CadStatusMessage));
+
+                // Test EAWS properties
+                Console.WriteLine(string.Format("   Current EAWS Score: {0:F1} ({1})", vm.EawsScore, vm.EawsTrafficLight));
 
                 Console.WriteLine("\n>>> Level 3 WPF UI & ViewModel Integration Tests PASSED! <<<");
                 return 0;

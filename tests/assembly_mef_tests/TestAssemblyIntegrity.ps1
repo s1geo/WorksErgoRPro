@@ -11,6 +11,7 @@ if (!(Test-Path $targetDll)) {
 }
 
 # 1. Verify Unsigned Assembly (StrongName = null)
+[System.Reflection.Assembly]::LoadFrom("D:\Apps\RProv222\Caliburn.Micro.dll") | Out-Null
 [System.Reflection.Assembly]::LoadFrom("D:\Apps\RProv222\UX.Shared.dll") | Out-Null
 [System.Reflection.Assembly]::LoadFrom("D:\Apps\RProv222\UX.Ribbon.dll") | Out-Null
 [System.Reflection.Assembly]::LoadFrom("D:\Apps\RProv222\Create3D.Shared.dll") | Out-Null

@@ -131,15 +131,20 @@
             <button onclick="setScenario(3)" class="px-2 py-1 rounded bg-[#1e293b] hover:bg-[#334155] text-amber-400 border border-[#475569] text-[11px]">Тест 3 (Высота)</button>
             <button onclick="setScenario(4)" class="px-2 py-1 rounded bg-[#1e293b] hover:bg-[#334155] text-purple-400 border border-[#475569] text-[11px]">Тест 4 (Эталон)</button>
             <button onclick="setScenario(5)" class="px-2 py-1 rounded bg-[#1e293b] hover:bg-[#334155] text-emerald-400 border border-emerald-500/40 text-[11px]">Тест 5 (Присед/Ноги)</button>
+            <button onclick="setScenario(6)" class="px-2 py-1 rounded bg-[#1e293b] hover:bg-[#334155] text-cyan-400 border border-cyan-500/40 text-[11px]">Тест 6 (Динамика/EAWS)</button>
           </div>
         </div>
       </div>
 
       <!-- Group 3: 3D Scene Interaction & Reports -->
       <div class="flex items-center gap-2">
+        <button id="btnSnapCadRibbon" onclick="simulateCadSnap()" class="flex flex-col items-center justify-center p-1.5 rounded bg-blue-600/30 hover:bg-blue-600/50 border border-blue-400 text-cyan-300 min-w-[75px]">
+          <span class="text-sm">&#127919;</span>
+          <span class="text-[10px] font-bold mt-0.5">CAD Захват</span>
+        </button>
         <button id="btnPickObject" class="flex flex-col items-center justify-center p-1.5 rounded bg-[#1e293b] hover:bg-[#334155] border border-[#475569] text-[#cbd5e1] min-w-[70px]">
           <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/></svg>
-          <span class="text-[10px] mt-0.5">3D Захват</span>
+          <span class="text-[10px] mt-0.5">3D Луч</span>
         </button>
         <button id="btnExportReport" class="flex flex-col items-center justify-center p-1.5 rounded bg-[#1e293b] hover:bg-[#334155] border border-[#475569] text-[#cbd5e1] min-w-[70px]">
           <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
@@ -409,6 +414,24 @@
           </div>
         </div>
 
+        <!-- EAWS Automotive Standard Card (BMW / VW / Stellantis) -->
+        <div class="bg-[#0f172a] border border-[#334155] rounded-lg p-2.5 shadow-inner">
+          <div class="flex justify-between items-center text-[10px] font-bold text-[#94a3b8] uppercase">
+            <span>Стандарт автопрома EAWS</span>
+            <span id="badgeEaws" class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">ЗЕЛЕНЫЙ (&le;25)</span>
+          </div>
+          <div class="flex items-baseline gap-2 my-1">
+            <span id="txtEawsScore" class="text-2xl font-black text-emerald-400">14.5</span>
+            <span class="text-[10px] text-[#64748b]">баллов EAWS (Автопром)</span>
+          </div>
+          <div class="grid grid-cols-2 gap-1 text-[9.5px] font-mono text-[#cbd5e1] pt-1 border-t border-[#1e293b]">
+            <div>Позы (Р1): <span id="eawsSec1" class="text-blue-400 font-bold">4.0</span></div>
+            <div>Силы (Р2): <span id="eawsSec2" class="text-blue-400 font-bold">0.0</span></div>
+            <div>Грузы (Р3): <span id="eawsSec3" class="text-blue-400 font-bold">10.5</span></div>
+            <div>Повторы (Р4): <span id="eawsSec4" class="text-blue-400 font-bold">0.0</span></div>
+          </div>
+        </div>
+
         <!-- 7-Axis Real-Time Table -->
         <div class="bg-[#0f172a] border border-[#334155] rounded-lg p-2.5 space-y-1.5 font-mono text-[11px]">
           <div class="text-[10px] font-bold text-[#94a3b8] uppercase tracking-wider mb-1">Метрики 7 осей биомеханики</div>
@@ -448,6 +471,34 @@
           <div class="flex justify-between py-0.5">
             <span class="text-[#cbd5e1]">Поза RULA / REBA:</span>
             <span id="rowRula" class="font-bold text-[#cbd5e1]">RULA 2 / REBA 2</span>
+          </div>
+        </div>
+
+        <!-- Multi-Subtask Job Manager (Shift Ergonomics) -->
+        <div class="bg-[#0f172a] border border-[#334155] rounded-lg p-2.5 space-y-2">
+          <div class="flex justify-between items-center text-[10px] font-bold text-[#94a3b8] uppercase">
+            <span>Менеджер смены (Multi-Subtask)</span>
+            <span id="subtasksBadge" class="text-[9px] font-mono bg-blue-500/20 text-blue-400 px-1.5 py-0.5 rounded">0 операций</span>
+          </div>
+          <div class="grid grid-cols-3 gap-1">
+            <button onclick="addSubtaskFromUI()" class="py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded text-[10px] font-semibold flex items-center justify-center gap-0.5">
+              <span>&#43; В смену</span>
+            </button>
+            <button onclick="evaluateShiftJobFromUI()" class="py-1 bg-purple-600 hover:bg-purple-500 text-white rounded text-[10px] font-semibold flex items-center justify-center gap-0.5">
+              <span>&#9889; Смена</span>
+            </button>
+            <button onclick="clearSubtasksFromUI()" class="py-1 bg-[#334155] hover:bg-[#475569] text-[#cbd5e1] rounded text-[10px]">
+              <span>Очистить</span>
+            </button>
+          </div>
+          <div id="subtasksContainer" class="space-y-1 max-h-24 overflow-y-auto custom-scrollbar text-[10px] font-mono">
+            <div class="text-[#64748b] italic text-center py-1">Нет добавленных операций</div>
+          </div>
+          <div id="compositeShiftSummary" class="hidden bg-[#1e293b] p-2 rounded border border-[#475569] text-[10px] font-mono space-y-0.5">
+            <div class="flex justify-between"><span class="text-[#94a3b8]">Накопл. износ LCF:</span><span id="lblCompLcf" class="font-bold text-emerald-400">0.144</span></div>
+            <div class="flex justify-between"><span class="text-[#94a3b8]">Общий DCR смены:</span><span id="lblCompDcr" class="font-bold text-emerald-400">74%</span></div>
+            <div class="flex justify-between"><span class="text-[#94a3b8]">Пик сжатия:</span><span id="lblCompPeak" class="font-bold text-blue-400">2590 Н</span></div>
+            <div class="flex justify-between"><span class="text-[#94a3b8]">Баллы EAWS смены:</span><span id="lblCompEaws" class="font-bold text-purple-400">18.5 pts</span></div>
           </div>
         </div>
 
@@ -499,6 +550,30 @@
             </div>
             <input id="sliderH" type="range" min="200" max="800" step="10" value="350" class="w-full h-1.5 bg-[#334155] rounded-lg appearance-none cursor-pointer">
           </div>
+
+          <div>
+            <div class="flex justify-between text-[11px] mb-0.5">
+              <span class="text-[#cbd5e1]">Динамика отрыва a (Kingma 1996):</span>
+              <span id="lblAccelVal" class="font-bold font-mono text-cyan-400">0.0 м/с²</span>
+            </div>
+            <input id="sliderAccel" type="range" min="0" max="3.0" step="0.1" value="0.0" class="w-full h-1.5 bg-[#334155] rounded-lg appearance-none cursor-pointer">
+          </div>
+
+          <div>
+            <div class="flex justify-between text-[11px] mb-0.5">
+              <span class="text-[#cbd5e1]">Интерфейс хвата HandPak:</span>
+            </div>
+            <select id="selectGripType" class="w-full bg-[#1e293b] border border-[#475569] text-[#cbd5e1] rounded px-2 py-1 text-[10.5px] focus:outline-none focus:border-blue-500 font-mono">
+              <option value="PowerGripMedial" selected>Power Grip (Силовой, 100%)</option>
+              <option value="PowerGripLateral">Power Grip Lateral (Боковой, 92%)</option>
+              <option value="PinchGrip">Pinch Grip (Двупальцевый щипок, 35%)</option>
+              <option value="ChuckPinch3Finger">Chuck 3-Finger (Трехпальцевый, 42%)</option>
+              <option value="KeyPinchLateral">Key Pinch (Ключевой щипок, 48%)</option>
+              <option value="HookGrip">Hook Grip (Крюковой захват, 88%)</option>
+              <option value="FlatPalmPress">Flat Palm Press (Ладонный жим, 120%)</option>
+              <option value="FrictionAssistedRubber">Friction Rubber (С резиновой накладкой, 125%)</option>
+            </select>
+          </div>
         </div>
 
       </div>
@@ -530,6 +605,8 @@
       massKg: 10.0,
       reachMm: 350.0,
       verticalMm: 750.0,
+      accelerationMs2: 0.0,
+      grip: 'PowerGripMedial',
       frequencyPerDay: 630.0,
       shiftDurationHours: 8.0,
       effectiveDurationSec: 0.922
@@ -544,6 +621,8 @@
         massKg: 10.0,
         reachMm: 350.0,
         verticalMm: 750.0,
+        accelerationMs2: 0.0,
+        grip: 'PowerGripMedial',
         frequencyPerDay: 300.0,
         statusText: "100% УСПЕШНО (PASS) &bull; Безопасная нагрузка"
       },
@@ -554,6 +633,8 @@
         massKg: 25.0,
         reachMm: 600.0,
         verticalMm: 100.0,
+        accelerationMs2: 0.0,
+        grip: 'PowerGripMedial',
         frequencyPerDay: 800.0,
         statusText: "100% УСПЕШНО (PASS) &bull; Критический риск L5/S1 обнаружен!"
       },
@@ -564,6 +645,8 @@
         massKg: 15.0,
         reachMm: 500.0,
         verticalMm: 1450.0,
+        accelerationMs2: 0.0,
+        grip: 'PowerGripMedial',
         frequencyPerDay: 400.0,
         statusText: "100% УСПЕШНО (PASS) &bull; Предупреждение плеч AFF"
       },
@@ -574,6 +657,8 @@
         massKg: 7.645,
         reachMm: 300.0,
         verticalMm: 100.0,
+        accelerationMs2: 0.0,
+        grip: 'PowerGripMedial',
         frequencyPerDay: 630.0,
         statusText: "100% УСПЕШНО (PASS) &bull; Сверен с официальным мануалом Work(s)"
       },
@@ -584,9 +669,49 @@
         massKg: 25.0,
         reachMm: 600.0,
         verticalMm: 100.0,
+        accelerationMs2: 0.0,
+        grip: 'PowerGripMedial',
         frequencyPerDay: 800.0,
         statusText: "100% УСПЕШНО (PASS) &bull; Разгрузка спины за счет ног (-1500 Н)"
+      },
+      6: {
+        title: "Сценарий 6: Динамический рывок с пола (15 кг, a=1.5 м/с², Kingma 1996)",
+        percentile: 'Female50th',
+        technique: 'StoopStraightLegs',
+        massKg: 15.0,
+        reachMm: 450.0,
+        verticalMm: 150.0,
+        accelerationMs2: 1.5,
+        grip: 'PowerGripMedial',
+        frequencyPerDay: 500.0,
+        statusText: "100% УСПЕШНО (PASS) &bull; Динамическая инерция F=m(g+a), +22% к сжатию L5/S1"
       }
+    };
+
+    const handPakMultipliers = {
+      'PowerGripMedial': 1.00,
+      'PowerGripLateral': 0.92,
+      'PinchGrip': 0.35,
+      'PalmPush': 1.15,
+      'CylindricalPowerGrip': 1.05,
+      'ChuckPinch3Finger': 0.42,
+      'TipPinch2Finger': 0.28,
+      'KeyPinchLateral': 0.48,
+      'HookGrip': 0.88,
+      'FlatPalmPress': 1.20,
+      'SphericalGrip': 0.85,
+      'DiscGrip': 0.72,
+      'DiagonalGrip': 0.95,
+      'LateralPalmSupport': 1.10,
+      'HandlePinchPrecision': 0.38,
+      'TriggerGrip': 0.32,
+      'ScissorPinch': 0.25,
+      'FingerTipPress': 0.30,
+      'WidePinchSpanning': 0.33,
+      'NarrowPowerGrip': 0.90,
+      'HeavyDutyHandle': 1.12,
+      'ErgoContouredGrip': 1.18,
+      'FrictionAssistedRubber': 1.25
     };
 
     // Scientific Biomechanics Engine (Direct translation of ErgonomicMathEngine.cs)
@@ -697,20 +822,25 @@
       if (armT_Mm > armK_Mm * 1.35) squatStyleName = "Тазодоминантный (T > K)";
       else if (armK_Mm > armT_Mm * 1.35) squatStyleName = "Коленодоминантный (K > T)";
 
+      // Dynamic lift-off acceleration (Kingma 1996: F = m(g + a))
+      const accel = Math.max(0.0, inputs.accelerationMs2 || 0.0);
+      const gEffective = g + accel;
+      const dynamicLoadN = inputs.massKg * gEffective;
+
       // Trunk segment length and center-of-mass moment arm around L5/S1
       const trunkMomentArm = Math.max(0.04, Math.abs(xTorsoCom - xHip));
       const trunkTorque = upperMass * g * trunkMomentArm;
-      const loadTorque = (inputs.massKg * g) * Math.max(0.10, Math.abs(xLoadCom - xHip));
+      const loadTorque = dynamicLoadN * Math.max(0.10, Math.abs(xLoadCom - xHip));
       const resultantMoment = trunkTorque + loadTorque;
 
       const muscleArmM = 0.0585;
       const erectorForce = resultantMoment / muscleArmM;
-      const upperPlusLoadForce = (upperMass * g) + (inputs.massKg * g);
+      const upperPlusLoadForce = (upperMass * g) + dynamicLoadN;
       const reactionComp = upperPlusLoadForce * Math.cos(thetaRad) * 0.25;
       const compressionN = erectorForce + reactionComp;
 
-      const kneeMomentNm = (bodyMass * g + inputs.massKg * g) * kneeMomentArmM * 0.45;
-      const hipMomentNm = (bodyMass * g + inputs.massKg * g) * hipMomentArmM * 0.55;
+      const kneeMomentNm = (bodyMass * g + dynamicLoadN) * kneeMomentArmM * 0.45;
+      const hipMomentNm = (bodyMass * g + dynamicLoadN) * hipMomentArmM * 0.55;
 
       const lumbarTlv = isFemale ? 3500.0 : 4270.0;
       const lumbarDcr = compressionN / lumbarTlv;
@@ -758,9 +888,10 @@
       const armMafN = baseArmMvc * potvinMae;
       const armDcr = ((inputs.massKg * 9.81) / 2.0) / armMafN;
 
-      // HandPak
-      const baseHandMvc = isFemale ? 135.2 : 216.0;
-      const handMafN = baseHandMvc * potvinMae;
+      // HandPak (Potvin & Cort 2017 - 23 interfaces)
+      const handMult = handPakMultipliers[inputs.grip || 'PowerGripMedial'] || 1.0;
+      const baseHandMvc = (isFemale ? 135.2 : 216.0) * handMult;
+      const handMafN = Math.max(10.0, baseHandMvc * potvinMae);
       const handDcr = ((inputs.massKg * 9.81) / 2.0) / handMafN;
 
       // Neck
@@ -839,6 +970,87 @@
         rebaGrand,
         rebaTableA,
         rebaTableB
+      };
+    }
+
+    // European Assessment Worksheet (EAWS - Schaub et al. 2012)
+    function calculateEAWS(inputs, res) {
+      let sec1 = 0.0;
+      if (res.forwardLeanDeg > 60.0) sec1 += 8.0;
+      else if (res.forwardLeanDeg > 20.0) sec1 += 3.5;
+
+      if ((inputs.asymmetryDeg || 0) > 20.0 || Math.abs(inputs.lateralTiltDeg || 0) > 15.0) sec1 += 2.5;
+
+      if (inputs.verticalMm < 450.0) sec1 += 2.0;
+      else if (inputs.verticalMm > 1400.0) sec1 += 5.0;
+      else if (inputs.reachMm > 550.0) sec1 += 2.5;
+
+      if (res.kneeFlexionDeg > 60.0 || inputs.technique === 'DeepSquat') sec1 += 6.0;
+
+      let sec2 = 0.0;
+      if (inputs.task === 'PushingPulling') {
+        const initN = inputs.pushInitialN || (inputs.massKg * 9.81 * 0.20);
+        const sustN = inputs.pushSustainedN || (inputs.massKg * 9.81 * 0.08);
+        if (initN > 300.0) sec2 += 12.0;
+        else if (initN > 180.0) sec2 += 6.0;
+        else if (initN > 100.0) sec2 += 3.0;
+
+        if (sustN > 150.0) sec2 += 8.0;
+        else if (sustN > 90.0) sec2 += 4.0;
+      }
+
+      let sec3 = 0.0;
+      if (inputs.task === 'LiftingLowering' || inputs.task === 'Carrying') {
+        let wPts = 1.0;
+        if (inputs.massKg >= 25.0) wPts = 24.0;
+        else if (inputs.massKg >= 18.0) wPts = 16.0;
+        else if (inputs.massKg >= 12.0) wPts = 10.0;
+        else if (inputs.massKg >= 8.0) wPts = 6.0;
+        else if (inputs.massKg >= 4.0) wPts = 2.5;
+
+        let postMult = 1.0;
+        if (inputs.verticalMm < 500.0) postMult += 0.4;
+        if (inputs.reachMm > 450.0) postMult += 0.3;
+        if ((inputs.asymmetryDeg || 0) > 20.0) postMult += 0.2;
+
+        const freqPerMin = Math.max(0.1, (inputs.frequencyPerDay || 400.0) / (8.0 * 60.0));
+        const freqFactor = Math.min(2.5, 0.5 + 0.3 * Math.sqrt(freqPerMin));
+        sec3 = Math.round(wPts * postMult * freqFactor * 10) / 10;
+      }
+
+      let sec4 = 0.0;
+      const freqPerMin = (inputs.frequencyPerDay || 400.0) / (8.0 * 60.0);
+      if (freqPerMin > 4.0 || (inputs.frequencyPerDay || 400.0) > 1500.0) {
+        sec4 = Math.min(15.0, 2.0 + (freqPerMin - 4.0) * 1.5);
+        const g = inputs.grip || 'PowerGripMedial';
+        if (g === 'PinchGrip' || g === 'ChuckPinch3Finger' || g === 'TipPinch2Finger') {
+          sec4 += 3.0;
+        }
+      }
+
+      const grandScore = Math.round((sec1 + sec2 + sec3 + sec4) * 10) / 10;
+      let trafficLight = "ЗЕЛЕНЫЙ (≤25)";
+      let badgeClass = "px-2 py-0.5 rounded text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
+      let textClass = "text-2xl font-black text-emerald-400";
+      if (grandScore > 50.0) {
+        trafficLight = "КРАСНЫЙ (>50)";
+        badgeClass = "px-2 py-0.5 rounded text-[10px] bg-rose-500/20 text-rose-400 border border-rose-500/30 animate-pulse";
+        textClass = "text-2xl font-black text-rose-400";
+      } else if (grandScore > 25.0) {
+        trafficLight = "ЖЕЛТЫЙ (26-50)";
+        badgeClass = "px-2 py-0.5 rounded text-[10px] bg-amber-500/20 text-amber-400 border border-amber-500/30";
+        textClass = "text-2xl font-black text-amber-400";
+      }
+
+      return {
+        grandScore: grandScore.toFixed(1),
+        sec1: sec1.toFixed(1),
+        sec2: sec2.toFixed(1),
+        sec3: sec3.toFixed(1),
+        sec4: sec4.toFixed(1),
+        trafficLight,
+        badgeClass,
+        textClass
       };
     }
 
@@ -1108,10 +1320,22 @@
       document.getElementById('rowBalance').textContent = `${res.cofpMm > 0 ? '+' : ''}${res.cofpMm} мм [${res.isBalanced ? res.squatStyleName : 'ПАДЕНИЕ'}]`;
       document.getElementById('rowBalance').className = res.isBalanced ? 'font-bold text-emerald-400' : 'font-bold text-rose-400 animate-pulse';
 
+      // EAWS Card Update
+      const eaws = calculateEAWS(currentInputs, res);
+      document.getElementById('txtEawsScore').textContent = eaws.grandScore;
+      document.getElementById('txtEawsScore').className = eaws.textClass;
+      document.getElementById('badgeEaws').textContent = eaws.trafficLight;
+      document.getElementById('badgeEaws').className = eaws.badgeClass;
+      document.getElementById('eawsSec1').textContent = eaws.sec1;
+      document.getElementById('eawsSec2').textContent = eaws.sec2;
+      document.getElementById('eawsSec3').textContent = eaws.sec3;
+      document.getElementById('eawsSec4').textContent = eaws.sec4;
+
       // Sliders & Labels
       document.getElementById('lblMassVal').textContent = `${currentInputs.massKg.toFixed(1)} кг`;
       document.getElementById('lblVVal').textContent = `${Math.round(currentInputs.verticalMm)} мм`;
       document.getElementById('lblHVal').textContent = `${Math.round(currentInputs.reachMm)} мм`;
+      document.getElementById('lblAccelVal').textContent = `${(currentInputs.accelerationMs2 || 0).toFixed(1)} м/с²`;
     }
 
     // Set Technique
@@ -1151,10 +1375,14 @@
       currentInputs.reachMm = sc.reachMm;
       currentInputs.verticalMm = sc.verticalMm;
       currentInputs.frequencyPerDay = sc.frequencyPerDay;
+      currentInputs.accelerationMs2 = sc.accelerationMs2 || 0.0;
+      currentInputs.grip = sc.grip || 'PowerGripMedial';
 
       document.getElementById('sliderMass').value = sc.massKg;
       document.getElementById('sliderV').value = sc.verticalMm;
       document.getElementById('sliderH').value = sc.reachMm;
+      document.getElementById('sliderAccel').value = currentInputs.accelerationMs2;
+      document.getElementById('selectGripType').value = currentInputs.grip;
       document.getElementById('ribbonDhmSelect').value = sc.percentile;
       document.getElementById('ribbonTechniqueSelect').value = currentInputs.technique;
 
@@ -1162,6 +1390,108 @@
       document.getElementById('lblAutotestStatus').innerHTML = sc.statusText;
 
       setTechnique(currentInputs.technique);
+    }
+
+    // Multi-Subtask Job Manager (Shift Ergonomics)
+    let subtasksList = [];
+
+    function addSubtaskFromUI() {
+      const currentCopy = JSON.parse(JSON.stringify(currentInputs));
+      const res = calculateErgonomics(currentCopy);
+      const eaws = calculateEAWS(currentCopy, res);
+      subtasksList.push({
+        name: `Оп. #${subtasksList.length + 1}: ${currentCopy.massKg}кг, H=${Math.round(currentCopy.reachMm)}, V=${Math.round(currentCopy.verticalMm)}`,
+        inputs: currentCopy,
+        compressionN: res.compressionN,
+        dcr: res.overallDcr,
+        eawsScore: eaws.grandScore
+      });
+      renderSubtasksList();
+    }
+
+    function clearSubtasksFromUI() {
+      subtasksList = [];
+      renderSubtasksList();
+      document.getElementById('compositeShiftSummary').classList.add('hidden');
+    }
+
+    function removeSubtask(idx) {
+      subtasksList.splice(idx, 1);
+      renderSubtasksList();
+    }
+
+    function renderSubtasksList() {
+      const container = document.getElementById('subtasksContainer');
+      const badge = document.getElementById('subtasksBadge');
+      badge.textContent = `${subtasksList.length} операций`;
+
+      if (subtasksList.length === 0) {
+        container.innerHTML = '<div class="text-[#64748b] italic text-center py-1">Нет добавленных операций</div>';
+        return;
+      }
+
+      container.innerHTML = subtasksList.map((st, idx) => `
+        <div class="flex items-center justify-between bg-[#1e293b] p-1.5 rounded border border-[#334155]">
+          <div class="truncate max-w-[170px]">
+            <div class="text-[#f8fafc] font-semibold">${st.name}</div>
+            <div class="text-[9px] text-[#94a3b8]">${st.compressionN} Н &bull; DCR ${(st.dcr * 100).toFixed(0)}% &bull; EAWS ${st.eawsScore}</div>
+          </div>
+          <button onclick="removeSubtask(${idx})" class="text-rose-400 hover:text-rose-300 px-1 text-xs font-bold">&times;</button>
+        </div>
+      `).join('');
+    }
+
+    function evaluateShiftJobFromUI() {
+      if (subtasksList.length === 0) {
+        alert("Добавьте хотя бы одну операцию в смену с помощью кнопки '+ В смену'!");
+        return;
+      }
+      let totalLcf = 0.0;
+      let peakComp = 0.0;
+      let maxDcr = 0.0;
+      let maxEaws = 0.0;
+
+      subtasksList.forEach(st => {
+        const res = calculateErgonomics(st.inputs);
+        const eaws = calculateEAWS(st.inputs, res);
+        totalLcf += parseFloat(res.cumulDcr);
+        if (res.compressionN > peakComp) peakComp = res.compressionN;
+        if (res.overallDcr > maxDcr) maxDcr = res.overallDcr;
+        if (parseFloat(eaws.grandScore) > maxEaws) maxEaws = parseFloat(eaws.grandScore);
+      });
+
+      const compDcr = Math.max(maxDcr, totalLcf);
+
+      document.getElementById('lblCompLcf').textContent = totalLcf.toFixed(3);
+      document.getElementById('lblCompDcr').textContent = `${Math.round(compDcr * 100)}%`;
+      document.getElementById('lblCompPeak').textContent = `${Math.round(peakComp)} Н`;
+      document.getElementById('lblCompEaws').textContent = `${maxEaws.toFixed(1)} pts`;
+
+      const summary = document.getElementById('compositeShiftSummary');
+      summary.classList.remove('hidden');
+    }
+
+    // 1-Click CAD Snapper Simulation (Р-Про / Visual Components Selection)
+    function simulateCadSnap() {
+      const samples = [
+        { name: "Коробка_Агрегат_33", mass: 14.5, reach: 420, v: 300, a: 1.2 },
+        { name: "Деталь_Штамповка_B12", mass: 8.2, reach: 550, v: 850, a: 0.5 },
+        { name: "Ящик_Крепеж_F4", mass: 22.0, reach: 380, v: 180, a: 1.8 },
+        { name: "Лоток_Пластик_L9", mass: 4.5, reach: 320, v: 750, a: 0.0 }
+      ];
+      const item = samples[Math.floor(Math.random() * samples.length)];
+      currentInputs.massKg = item.mass;
+      currentInputs.reachMm = item.reach;
+      currentInputs.verticalMm = item.v;
+      currentInputs.accelerationMs2 = item.a;
+
+      document.getElementById('sliderMass').value = item.mass;
+      document.getElementById('sliderH').value = item.reach;
+      document.getElementById('sliderV').value = item.v;
+      document.getElementById('sliderAccel').value = item.a;
+
+      document.getElementById('badgeActiveScenario').textContent = `Захвачено из 3D сцены Р-Про: [${item.name}]`;
+      renderCadDashboard();
     }
 
     // User Slider Listeners
@@ -1180,6 +1510,17 @@
     document.getElementById('sliderH').addEventListener('input', (e) => {
       currentInputs.reachMm = parseFloat(e.target.value);
       document.getElementById('badgeActiveScenario').textContent = 'Пользовательский ручной режим';
+      renderCadDashboard();
+    });
+
+    document.getElementById('sliderAccel').addEventListener('input', (e) => {
+      currentInputs.accelerationMs2 = parseFloat(e.target.value);
+      document.getElementById('badgeActiveScenario').textContent = 'Пользовательский ручной режим';
+      renderCadDashboard();
+    });
+
+    document.getElementById('selectGripType').addEventListener('change', (e) => {
+      currentInputs.grip = e.target.value;
       renderCadDashboard();
     });
 
@@ -1202,10 +1543,10 @@
       const interval = setInterval(() => {
         setScenario(step);
         step++;
-        if (step > 5) {
+        if (step > 6) {
           clearInterval(interval);
           setTimeout(() => {
-            statusEl.textContent = '>>> ВСЕ 5 АВТОТЕСТОВ ПРОЙДЕНЫ (100% УСПЕХ) <<<';
+            statusEl.textContent = '>>> ВСЕ 6 АВТОТЕСТОВ ПРОЙДЕНЫ (100% УСПЕХ) <<<';
             statusEl.className = 'text-emerald-400 font-bold';
           }, 800);
         }
@@ -1214,11 +1555,11 @@
 
     // 3D Pick simulation
     document.getElementById('btnPickObject').addEventListener('click', () => {
-      alert("Инструмент 3D Raycast захвата активен.\nВ Р-Про вы кликаете по любой коробке, детали или манипулятору, и ее 3D координаты (X, Y, Z) и масса мгновенно синхронизируются с панелью Works Ergo.");
+      simulateCadSnap();
     });
 
     document.getElementById('btnExportReport').addEventListener('click', () => {
-      alert("Экспорт отчета:\nСформирован Excel/PDF файл 'Work(s)_Ergo_Report.xlsx' с полным анализом 7 осей биомеханики, распределением DCR и рекомендациями.");
+      alert("Экспорт отчета:\nСформирован Excel/PDF файл 'Work(s)_Ergo_Report.xlsx' с полным анализом 7 осей биомеханики, EAWS и оценкой смены.");
     });
 
     // Initial render

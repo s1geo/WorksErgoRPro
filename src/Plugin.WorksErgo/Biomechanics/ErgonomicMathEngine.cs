@@ -30,10 +30,30 @@ namespace WorksErgoRPro.Biomechanics
 
     public enum HandGripType
     {
-        PowerGripMedial,
-        PowerGripLateral,
-        PinchGrip,
-        PalmPush
+        PowerGripMedial = 0,
+        PowerGripLateral = 1,
+        PinchGrip = 2,
+        PalmPush = 3,
+        // HandPak 23 Interface Extensions (Potvin & Cort 2017)
+        CylindricalPowerGrip = 4,
+        ChuckPinch3Finger = 5,
+        TipPinch2Finger = 6,
+        KeyPinchLateral = 7,
+        HookGrip = 8,
+        FlatPalmPress = 9,
+        SphericalGrip = 10,
+        DiscGrip = 11,
+        DiagonalGrip = 12,
+        LateralPalmSupport = 13,
+        HandlePinchPrecision = 14,
+        TriggerGrip = 15,
+        ScissorPinch = 16,
+        FingerTipPress = 17,
+        WidePinchSpanning = 18,
+        NarrowPowerGrip = 19,
+        HeavyDutyHandle = 20,
+        ErgoContouredGrip = 21,
+        FrictionAssistedRubber = 22
     }
 
     public enum LiftingTechnique
@@ -53,6 +73,8 @@ namespace WorksErgoRPro.Biomechanics
         public double VerticalMm;             // Vertical height from floor to hand grip (mm)
         public double TravelMm;               // Vertical travel distance (mm)
         public double AsymmetryDeg;           // Asymmetry / twist angle (degrees)
+        public double LateralTiltDeg;         // Lateral spine bending angle (degrees)
+        public double AccelerationMs2;        // Dynamic lift-off acceleration (m/s², Kingma et al. 1996)
         public double FrequencyLiftsPerMin;   // Frequency (efforts/min)
         public double DurationHours;          // Duration of continuous exposure (hours)
         public double ShiftDurationHours;     // Total shift duration (default 8.0 hours)
@@ -88,6 +110,8 @@ namespace WorksErgoRPro.Biomechanics
         public double PeakCompressionN;
         public double PeakCompressionDCR;
         public double CompositeOverallDCR;
+        public double CompositeEawsScore;
+        public string CompositeEawsTrafficLight;
         public string RiskCategory;
         public string PrimaryLimitingFactor;
         public List<SubtaskSummary> Subtasks;
@@ -108,6 +132,13 @@ namespace WorksErgoRPro.Biomechanics
         public double HipMomentNm;            // Mid-Hip joint resultant moment (Nm)
         public double CenterOfPressureMm;     // Net Center of Pressure (CofP) along anterior/posterior axis (mm)
         public bool IsBalanced;               // True if CofP is inside the foot Base of Support (BoS)
+        // EAWS (European Assessment Worksheet - Schaub et al. 2012)
+        public double EawsScore;              // Grand EAWS Score (0-25 Green, 26-50 Yellow, >50 Red)
+        public string EawsTrafficLight;       // "Green (Low)", "Yellow (Possible)", "Red (High)"
+        public double EawsSection1_Postures;  // Section 1: Working postures
+        public double EawsSection2_Forces;    // Section 2: Action forces
+        public double EawsSection3_MMH;       // Section 3: Manual materials handling
+        public double EawsSection4_Reps;      // Section 4: Repetitive tasks
         public double NioshRWLKg;             // NIOSH Recommended Weight Limit (kg)
         public double NioshLI;                // NIOSH Lifting Index (Load / RWL)
         public double SnookMAWLKg;            // Liberty Mutual LM-MMH 2021 MAWL (kg)
@@ -312,19 +343,33 @@ namespace WorksErgoRPro.Biomechanics
             // Trunk segment length and center-of-mass moment arm around L5/S1
             double trunkMomentArm = Math.Max(0.04, Math.Abs(xTorsoCom - xHip));
 
+            // Dynamic acceleration factor (Kingma et al. 1996: F = m(g + a))
+            double aLoad = Math.Max(0.0, input.AccelerationMs2);
+            double gEffLoad = g + aLoad;
+            double gEffTrunk = g + (aLoad * 0.5);
+
+            // 3D Asymmetry & Lateral Bending moments (Schultz 1982 / Chaffin 2006)
+            double lateralAngleRad = Math.Abs(input.LateralTiltDeg) * (Math.PI / 180.0);
+            double twistAngleRad = Math.Abs(input.AsymmetryDeg) * (Math.PI / 180.0);
+
             // External Resultant Flexion Moment (Nm) at L5/S1
-            double trunkTorque = upperMass * g * trunkMomentArm;
-            double loadTorque = (input.LoadKg * g) * Math.Max(0.10, Math.Abs(xLoadCom - xHip));
-            double resultantMoment = trunkTorque + loadTorque;
+            double trunkTorque = upperMass * gEffTrunk * trunkMomentArm;
+            double loadTorque = (input.LoadKg * gEffLoad) * Math.Max(0.10, Math.Abs(xLoadCom - xHip));
+            double sagittalMoment = trunkTorque + loadTorque;
+
+            // Lateral and Twist moments
+            double lateralMoment = (upperMass * gEffTrunk + input.LoadKg * gEffLoad) * 0.18 * Math.Sin(lateralAngleRad);
+            double twistMoment = (input.LoadKg * gEffLoad) * 0.15 * Math.Sin(twistAngleRad);
 
             // Single-equivalent erector moment arm estimate (Jäger / Gelb / Potvin ~ 0.0585-0.060 m)
             double momentArmMuscle = 0.0585;
 
-            // Erector spinae muscle force
-            double erectorForce = resultantMoment / momentArmMuscle;
+            // Erector spinae muscle force with 3D moment expansion
+            double effective3DMoment = Math.Sqrt(sagittalMoment * sagittalMoment + 1.2 * lateralMoment * lateralMoment + 1.5 * twistMoment * twistMoment);
+            double erectorForce = effective3DMoment / momentArmMuscle;
 
             // Reaction forces
-            double upperPlusLoadForce = (upperMass * g) + (input.LoadKg * g);
+            double upperPlusLoadForce = (upperMass * gEffTrunk) + (input.LoadKg * gEffLoad);
             double reactionComp = upperPlusLoadForce * Math.Cos(thetaRad) * 0.25;
             double reactionShear = upperPlusLoadForce * Math.Sin(thetaRad) * 0.65;
 
@@ -335,8 +380,8 @@ namespace WorksErgoRPro.Biomechanics
             // Knee and Mid-Hip joint moments based on moment arms K and T (Winter 2009 / Chaffin)
             double kneeMomentArmM = Math.Abs(xKnee - trueCoM_M);
             double hipMomentArmM = Math.Abs(trueCoM_M - xHip);
-            double kneeMomentNm = (bodyMass * g + input.LoadKg * g) * kneeMomentArmM * 0.45;
-            double midHipMomentNm = (bodyMass * g + input.LoadKg * g) * hipMomentArmM * 0.55;
+            double kneeMomentNm = (bodyMass * gEffTrunk + input.LoadKg * gEffLoad) * kneeMomentArmM * 0.45;
+            double midHipMomentNm = (bodyMass * gEffTrunk + input.LoadKg * gEffLoad) * hipMomentArmM * 0.55;
 
             // Jäger (2023) TLV: 3500 N / 3575 N female, 4270 N male
             double tlv = anthro.IsFemale ? 3500.0 : 4270.0;
@@ -487,17 +532,48 @@ namespace WorksErgoRPro.Biomechanics
             return (Math.Round(armMvcN, 1), Math.Round(armMafN, 1), Math.Round(armDcr, 3));
         }
 
-        // 7. HandPak Distal Upper Extremity Grip & Pinch Capacity
+        // 7. HandPak Distal Upper Extremity Grip & Pinch Capacity (Potvin & Cort 2017 - 23 Interfaces)
         public static (double HandMVC_N, double HandMAF_N, double HandDCR) CalculateHandPak(PostureInputs input, double mae)
         {
             var anthro = GetAnthropometry(input.Percentile);
             bool isFemale = anthro.IsFemale;
 
-            // Power Grip Medial Grasp MVC (Work(s) benchmark: 135.2 N female)
-            double baseHandMvc = isFemale ? 135.2 : 216.0;
+            // Baseline Power Grip Medial Grasp MVC (Work(s) benchmark: 135.2 N female / 216.0 N male)
+            double basePowerMvc = isFemale ? 135.2 : 216.0;
+            double interfaceMultiplier = 1.0;
 
-            if (input.Grip == HandGripType.PinchGrip) baseHandMvc *= 0.35;
-            if (input.Coupling == CouplingQuality.Poor) baseHandMvc *= 0.85;
+            switch (input.Grip)
+            {
+                case HandGripType.PowerGripMedial: interfaceMultiplier = 1.00; break;
+                case HandGripType.PowerGripLateral: interfaceMultiplier = 0.92; break;
+                case HandGripType.PinchGrip: interfaceMultiplier = 0.35; break;
+                case HandGripType.PalmPush: interfaceMultiplier = 1.15; break;
+                case HandGripType.CylindricalPowerGrip: interfaceMultiplier = 1.05; break;
+                case HandGripType.ChuckPinch3Finger: interfaceMultiplier = 0.42; break;
+                case HandGripType.TipPinch2Finger: interfaceMultiplier = 0.28; break;
+                case HandGripType.KeyPinchLateral: interfaceMultiplier = 0.48; break;
+                case HandGripType.HookGrip: interfaceMultiplier = 0.88; break;
+                case HandGripType.FlatPalmPress: interfaceMultiplier = 1.20; break;
+                case HandGripType.SphericalGrip: interfaceMultiplier = 0.85; break;
+                case HandGripType.DiscGrip: interfaceMultiplier = 0.72; break;
+                case HandGripType.DiagonalGrip: interfaceMultiplier = 0.95; break;
+                case HandGripType.LateralPalmSupport: interfaceMultiplier = 1.10; break;
+                case HandGripType.HandlePinchPrecision: interfaceMultiplier = 0.38; break;
+                case HandGripType.TriggerGrip: interfaceMultiplier = 0.32; break;
+                case HandGripType.ScissorPinch: interfaceMultiplier = 0.25; break;
+                case HandGripType.FingerTipPress: interfaceMultiplier = 0.30; break;
+                case HandGripType.WidePinchSpanning: interfaceMultiplier = 0.33; break;
+                case HandGripType.NarrowPowerGrip: interfaceMultiplier = 0.90; break;
+                case HandGripType.HeavyDutyHandle: interfaceMultiplier = 1.12; break;
+                case HandGripType.ErgoContouredGrip: interfaceMultiplier = 1.18; break;
+                case HandGripType.FrictionAssistedRubber: interfaceMultiplier = 1.25; break;
+                default: interfaceMultiplier = 1.00; break;
+            }
+
+            double baseHandMvc = basePowerMvc * interfaceMultiplier;
+
+            if (input.Coupling == CouplingQuality.Fair) baseHandMvc *= 0.92;
+            else if (input.Coupling == CouplingQuality.Poor) baseHandMvc *= 0.85;
 
             double handMafN = baseHandMvc * mae;
             handMafN = Math.Max(10.0, handMafN);
@@ -981,13 +1057,95 @@ namespace WorksErgoRPro.Biomechanics
             };
         }
 
-        // 13. Multi-Subtask Job Analysis (Gibson & Potvin 2016, Work(s) Ergo Composite Job)
+        // 13. European Assessment Worksheet (EAWS - Schaub et al. 2012 / Automotive Industry Standard)
+        public static (double GrandScore, double Sec1, double Sec2, double Sec3, double Sec4, string TrafficLight) CalculateEAWS(PostureInputs input, LumbarAndLowerLimbResult lumbar)
+        {
+            // Section 1: Working Postures and Movements
+            double sec1 = 0.0;
+            // Trunk flexion
+            if (lumbar.TrunkFlexionDeg > 60.0) sec1 += 8.0;
+            else if (lumbar.TrunkFlexionDeg > 20.0) sec1 += 3.5;
+
+            // Asymmetry / Torsion / Lateral bending
+            if (input.AsymmetryDeg > 20.0 || Math.Abs(input.LateralTiltDeg) > 15.0) sec1 += 2.5;
+
+            // Arms position
+            if (input.VerticalMm < 450.0) sec1 += 2.0; // Reach below knee
+            else if (input.VerticalMm > 1400.0) sec1 += 5.0; // Hands at/above shoulder
+            else if (input.ReachMm > 550.0) sec1 += 2.5; // Far reach
+
+            // Lower limbs (kneeling/squatting)
+            if (lumbar.KneeFlexionDeg > 60.0 || input.Technique == LiftingTechnique.DeepSquat) sec1 += 6.0;
+
+            // Section 2: Action Forces
+            double sec2 = 0.0;
+            if (input.Task == TaskType.PushingPulling)
+            {
+                var pp = CalculateLMMMH_PushPull(input);
+                if (pp.AppliedInitialN > 300.0) sec2 += 12.0;
+                else if (pp.AppliedInitialN > 180.0) sec2 += 6.0;
+                else if (pp.AppliedInitialN > 100.0) sec2 += 3.0;
+
+                if (pp.AppliedSustainedN > 150.0) sec2 += 8.0;
+                else if (pp.AppliedSustainedN > 90.0) sec2 += 4.0;
+            }
+
+            // Section 3: Manual Materials Handling (MMH)
+            double sec3 = 0.0;
+            if (input.Task == TaskType.LiftingLowering || input.Task == TaskType.Carrying)
+            {
+                // Intensity points based on weight
+                double wPts = 0.0;
+                if (input.LoadKg >= 25.0) wPts = 24.0;
+                else if (input.LoadKg >= 18.0) wPts = 16.0;
+                else if (input.LoadKg >= 12.0) wPts = 10.0;
+                else if (input.LoadKg >= 8.0) wPts = 6.0;
+                else if (input.LoadKg >= 4.0) wPts = 2.5;
+                else wPts = 1.0;
+
+                // Postural multiplier for lift
+                double postMult = 1.0;
+                if (input.VerticalMm < 500.0) postMult += 0.4;
+                if (input.ReachMm > 450.0) postMult += 0.3;
+                if (input.AsymmetryDeg > 20.0) postMult += 0.2;
+
+                // Frequency factor
+                double freqPerMin = Math.Max(0.1, input.FrequencyLiftsPerMin);
+                double freqFactor = Math.Min(2.5, 0.5 + 0.3 * Math.Sqrt(freqPerMin));
+
+                sec3 = Math.Round(wPts * postMult * freqFactor, 1);
+            }
+
+            // Section 4: Repetitive Tasks of Upper Limbs
+            double sec4 = 0.0;
+            if (input.FrequencyLiftsPerMin > 4.0 || input.FrequencyPerDay > 1500.0)
+            {
+                sec4 = Math.Min(15.0, 2.0 + (input.FrequencyLiftsPerMin - 4.0) * 1.5);
+                if (input.Grip == HandGripType.PinchGrip || input.Grip == HandGripType.ChuckPinch3Finger || input.Grip == HandGripType.TipPinch2Finger)
+                {
+                    sec4 += 3.0;
+                }
+            }
+
+            double grandScore = Math.Round(sec1 + sec2 + sec3 + sec4, 1);
+
+            string trafficLight;
+            if (grandScore <= 25.0) trafficLight = "Green (Low Risk)";
+            else if (grandScore <= 50.0) trafficLight = "Yellow (Possible Risk)";
+            else trafficLight = "Red (High Risk)";
+
+            return (grandScore, sec1, sec2, sec3, sec4, trafficLight);
+        }
+
+        // 14. Multi-Subtask Job Analysis (Gibson & Potvin 2016, Work(s) Ergo Composite Job)
         public static CompositeJobResult CalculateCompositeJob(IEnumerable<PostureInputs> subtasks, double shiftHours = 8.0)
         {
             double totalLcfcd = 0.0;
             double totalEffortSec = 0.0;
             double peakCompression = 0.0;
             double highestTaskDcr = 0.0;
+            double maxEawsScore = 0.0;
+            string maxEawsLight = "Green (Low Risk)";
             string primaryFactor = "None";
             var summaryList = new List<SubtaskSummary>();
 
@@ -1008,6 +1166,11 @@ namespace WorksErgoRPro.Biomechanics
                 {
                     highestTaskDcr = res.OverallDCR;
                     primaryFactor = $"Subtask #{idx} ({task.Task}): {res.PrimaryLimitingFactor}";
+                }
+                if (res.EawsScore > maxEawsScore)
+                {
+                    maxEawsScore = res.EawsScore;
+                    maxEawsLight = res.EawsTrafficLight;
                 }
 
                 summaryList.Add(new SubtaskSummary
@@ -1046,6 +1209,8 @@ namespace WorksErgoRPro.Biomechanics
                 PeakCompressionN = Math.Round(peakCompression, 1),
                 PeakCompressionDCR = peakCompDcr,
                 CompositeOverallDCR = compositeOverallDcr,
+                CompositeEawsScore = maxEawsScore,
+                CompositeEawsTrafficLight = maxEawsLight,
                 RiskCategory = riskCategory,
                 PrimaryLimitingFactor = primaryFactor,
                 Subtasks = summaryList
@@ -1073,6 +1238,7 @@ namespace WorksErgoRPro.Biomechanics
             // Compute discrete RULA & REBA
             var rula = CalculateRULA(input, lumbar.TrunkFlexionDeg, lumbar.KneeFlexionDeg, lumbar.IsBalanced);
             var reba = CalculateREBA(input, lumbar.TrunkFlexionDeg, lumbar.KneeFlexionDeg, lumbar.IsBalanced);
+            var eaws = CalculateEAWS(input, lumbar);
 
             // Select active MMH DCR based on task type
             double taskSpecificMmhDcr = lmmmhLift.DCR;
@@ -1198,6 +1364,12 @@ namespace WorksErgoRPro.Biomechanics
                 RebaTableAScore = reba.TableAScore,
                 RebaTableBScore = reba.TableBScore,
                 RebaScoreC = reba.ScoreC,
+                EawsScore = eaws.GrandScore,
+                EawsTrafficLight = eaws.TrafficLight,
+                EawsSection1_Postures = eaws.Sec1,
+                EawsSection2_Forces = eaws.Sec2,
+                EawsSection3_MMH = eaws.Sec3,
+                EawsSection4_Reps = eaws.Sec4,
                 RiskCategory = riskCategory,
                 PrimaryLimitingFactor = primaryFactor,
                 Recommendation = recommendation

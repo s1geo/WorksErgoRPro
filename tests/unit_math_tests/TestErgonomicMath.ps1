@@ -255,13 +255,63 @@ namespace MathTests
                 Console.WriteLine("   [PASS] Multi-subtask composite cumulative risk analysis successfully verified.");
             }
 
+            Console.WriteLine("\n[9/10] Testing Dynamic Lift-Off Acceleration & 3D Spine Moments (Kingma et al. 1996)...");
+            var dynamicInput = safeInput;
+            dynamicInput.AccelerationMs2 = 1.5; // Dynamic acceleration during lift-off (m/s²)
+            dynamicInput.LateralTiltDeg = 15.0; // Lateral spine bending
+            dynamicInput.AsymmetryDeg = 20.0;   // Axial twisting
+
+            var dynamicResult = ErgonomicMathEngine.Evaluate(dynamicInput);
+            Console.WriteLine($"   Static Compression: {safeResult.LumbarCompressionN} N");
+            Console.WriteLine($"   Dynamic (a=1.5 m/s², 3D) Compression: {dynamicResult.LumbarCompressionN} N");
+            double dynamicIncrease = (dynamicResult.LumbarCompressionN - safeResult.LumbarCompressionN) / safeResult.LumbarCompressionN;
+            Console.WriteLine($"   Dynamic Load Surge: +{dynamicIncrease * 100.0:F1}% (Kingma 1996 expects +20% to +50%)");
+
+            if (dynamicResult.LumbarCompressionN <= safeResult.LumbarCompressionN || dynamicIncrease < 0.15)
+            {
+                Console.WriteLine("   [FAIL] Dynamic inertial acceleration did not correctly surge lumbar compression!");
+                failed++;
+            }
+            else
+            {
+                Console.WriteLine("   [PASS] Kingma dynamic acceleration and 3D moment expansion confirmed.");
+            }
+
+            Console.WriteLine("\n[10/10] Testing European Assessment Worksheet (EAWS) & 23 HandPak Interfaces...");
+            Console.WriteLine($"   Baseline Lift EAWS: {safeResult.EawsScore} [{safeResult.EawsTrafficLight}] (Sec1: {safeResult.EawsSection1_Postures}, Sec3: {safeResult.EawsSection3_MMH})");
+            Console.WriteLine($"   Hazard Lift EAWS: {hazardResult.EawsScore} [{hazardResult.EawsTrafficLight}] (Sec1: {hazardResult.EawsSection1_Postures}, Sec3: {hazardResult.EawsSection3_MMH})");
+
+            // Test 23 HandPak interfaces
+            var handInput = safeInput;
+            handInput.Grip = HandGripType.KeyPinchLateral;
+            var handResKey = ErgonomicMathEngine.Evaluate(handInput);
+            handInput.Grip = HandGripType.ChuckPinch3Finger;
+            var handResChuck = ErgonomicMathEngine.Evaluate(handInput);
+            Console.WriteLine($"   Key Pinch Lateral MVC: {handResKey.HandStrengthMVC_N} N (DCR: {handResKey.HandDCR})");
+            Console.WriteLine($"   Chuck 3-Finger Pinch MVC: {handResChuck.HandStrengthMVC_N} N (DCR: {handResChuck.HandDCR})");
+
+            if (safeResult.EawsScore > 25.0 || hazardResult.EawsScore <= 25.0)
+            {
+                Console.WriteLine("   [FAIL] EAWS scoring did not properly separate baseline from hazard lift!");
+                failed++;
+            }
+            else if (handResKey.HandStrengthMVC_N <= 0.0 || handResChuck.HandStrengthMVC_N <= 0.0)
+            {
+                Console.WriteLine("   [FAIL] HandPak interface MVC values invalid!");
+                failed++;
+            }
+            else
+            {
+                Console.WriteLine("   [PASS] EAWS automotive certification and HandPak 23-interface database verified.");
+            }
+
             if (failed > 0)
             {
                 Console.WriteLine($"\n>>> {failed} TESTS FAILED! <<<");
                 return 1;
             }
 
-            Console.WriteLine("\n>>> ALL 8 BIOMECHANICAL BENCHMARKS & SCIENTIFIC TESTS PASSED (100%)! <<<");
+            Console.WriteLine("\n>>> ALL 10 BIOMECHANICAL BENCHMARKS & SCIENTIFIC TESTS PASSED (100%)! <<<");
             return 0;
         }
     }
