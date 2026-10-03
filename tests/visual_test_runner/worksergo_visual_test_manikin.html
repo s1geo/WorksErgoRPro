@@ -629,8 +629,12 @@
       const thighLengthM = (statureCm / 100.0) * 0.24;
       const kneeMomentNm = (bodyMass * g + inputs.massKg * g) * (thighLengthM * Math.sin(kneeAngleRad) * 0.45);
 
+      // Anatomical Pelvis Counter-Balance Shift
+      const pelvisOffsetM = 0.08 + (thighLengthM * Math.sin(kneeAngleRad * 0.5)) + (trunkMomentArm * 0.35);
+      const pelvisCounterMoment = (bodyMass * 0.35 * g) * pelvisOffsetM;
+
       const totalWeightN = (bodyMass + inputs.massKg) * g;
-      const netHorizontalMoment = trunkTorque + loadTorque - (kneeMomentNm * 0.25);
+      const netHorizontalMoment = trunkTorque + loadTorque - pelvisCounterMoment - (kneeMomentNm * 0.20);
       const cofpM = netHorizontalMoment / totalWeightN;
       const cofpMm = Math.round(cofpM * 1000.0 * 10) / 10;
       const isBalanced = (cofpMm >= -70.0 && cofpMm <= 180.0);
@@ -653,6 +657,28 @@
       const mawlKg = malN / 9.81;
       const lmMmhDcr = (inputs.massKg * 9.81) / malN;
 
+      // Push & Pull (Snook & Ciriello 1991 / LM-MMH 2021)
+      const handleH = inputs.verticalMm > 0 ? (inputs.verticalMm / 1000.0) : 1.0;
+      const pushHeightFact = Math.max(0.70, 1.0 - 0.25 * Math.abs(handleH - 1.00));
+      const pushDist = inputs.pushDistanceM || 7.5;
+      const pushDistFact = Math.max(0.70, 1.0 - 0.0075 * (pushDist - 7.5));
+      const baseInit = isFemale ? 200.0 : 300.0;
+      const baseSust = isFemale ? 110.0 : 170.0;
+      const initLimitN = Math.round(baseInit * pushHeightFact * freqFact);
+      const sustLimitN = Math.round(baseSust * pushHeightFact * pushDistFact * freqFact);
+      const appInitN = inputs.pushInitialN || (inputs.massKg * 9.81 * 0.20);
+      const appSustN = inputs.pushSustainedN || (inputs.massKg * 9.81 * 0.08);
+      const initDcr = appInitN / Math.max(10, initLimitN);
+      const sustDcr = appSustN / Math.max(10, sustLimitN);
+      const pushPullDcr = Math.max(initDcr, sustDcr);
+
+      // Carry (Snook & Ciriello 1991 / LM-MMH 2021)
+      const carryDist = inputs.carryDistanceM || 4.0;
+      const carryDistFact = Math.max(0.65, 1.0 - 0.02 * (carryDist - 2.1));
+      const baseMawc = isFemale ? 14.5 : 22.0;
+      const mawcKg = Math.round(baseMawc * carryDistFact * freqFact * 10) / 10;
+      const carryDcr = inputs.massKg / Math.max(2, mawcKg);
+
       // Arm AFF (La Delfa & Potvin 2017)
       let baseArmMvc = isFemale ? 160.5 : 256.8;
       if (hM > 0.45) baseArmMvc /= (hM / 0.45);
@@ -669,8 +695,35 @@
       const neckMat = (isFemale ? 26.1 : 41.8) * potvinMae;
       const neckDcr = neckMoment / neckMat;
 
+      // Discrete RULA (McAtamney & Corlett 1993)
+      let rulaTrunk = forwardLeanDeg > 60 ? 4 : (forwardLeanDeg > 20 ? 3 : (forwardLeanDeg > 5 ? 2 : 1));
+      let rulaNeck = forwardLeanDeg * 0.5 > 20 ? 3 : (forwardLeanDeg * 0.5 > 10 ? 2 : 1);
+      let rulaLegs = isBalanced ? 1 : 2;
+      let rulaUpperArm = hM > 0.6 || vM < 0.35 ? 4 : (hM > 0.45 ? 3 : 2);
+      let rulaLowerArm = (hM >= 0.3 && hM <= 0.5) ? 1 : 2;
+      let rulaTableA = Math.min(8, rulaUpperArm + rulaLowerArm);
+      let rulaTableB = Math.min(7, rulaNeck + rulaTrunk + rulaLegs - 1);
+      let rulaGrand = Math.min(7, Math.max(1, Math.round((rulaTableA + rulaTableB) / 2)));
+
+      // Discrete REBA (Hignett & McAtamney 2000)
+      let rebaTrunk = rulaTrunk;
+      let rebaNeck = rulaNeck > 2 ? 2 : 1;
+      let rebaLegs = isBalanced ? 1 : 2;
+      if (kneeFlexionDeg > 60) rebaLegs += 2;
+      else if (kneeFlexionDeg >= 30) rebaLegs += 1;
+      let rebaTableA = Math.min(12, rebaTrunk + rebaNeck + rebaLegs);
+      let rebaUpper = rulaUpperArm;
+      let rebaLower = rulaLowerArm;
+      let rebaTableB = Math.min(12, rebaUpper + rebaLower);
+      let rebaGrand = Math.min(15, Math.max(1, Math.round((rebaTableA + rebaTableB) * 0.65)));
+
+      // Active MMH DCR
+      let taskMmhDcr = lmMmhDcr;
+      if (inputs.task === 'PushingPulling') taskMmhDcr = pushPullDcr;
+      else if (inputs.task === 'Carrying') taskMmhDcr = carryDcr;
+
       // Overall DCR (Weakest link)
-      const overallDcr = Math.max(lumbarDcr, cumulDcr, lmMmhDcr, armDcr, handDcr, neckDcr);
+      const overallDcr = Math.max(lumbarDcr, cumulDcr, taskMmhDcr, armDcr, handDcr, neckDcr);
 
       return {
         overallDcr,
@@ -680,6 +733,9 @@
         malN: malN.toFixed(1),
         mawlKg: mawlKg.toFixed(1),
         lmMmhDcr: lmMmhDcr.toFixed(2),
+        pushPullDcr: pushPullDcr.toFixed(2),
+        carryDcr: carryDcr.toFixed(2),
+        carryLimitKg: mawcKg.toFixed(1),
         armMafN: armMafN.toFixed(1),
         armDcr: armDcr.toFixed(2),
         handMafN: handMafN.toFixed(1),
@@ -693,7 +749,13 @@
         hipHeightM,
         kneeMomentNm: Math.round(kneeMomentNm),
         cofpMm,
-        isBalanced
+        isBalanced,
+        rulaGrand,
+        rulaTableA,
+        rulaTableB,
+        rebaGrand,
+        rebaTableA,
+        rebaTableB
       };
     }
 
