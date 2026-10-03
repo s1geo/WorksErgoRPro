@@ -14,6 +14,7 @@
 | [**03_AXIS_STUDIO_MOCAP_PIPELINE.md**](03_AXIS_STUDIO_MOCAP_PIPELINE.md) | MOCAP & Записи с датчиков | Анализ реальных файлов захвата движения Axis Studio (Noitom Perception Neuron, 96 Гц) из `D:\Задания, Уроки\Запись с датчиков\`. Парсер BVH, анатомия скелета, устранение артефактов "движения манекена вокруг груза", привязка стоп к полу. |
 | [**04_AI_SURROGATE_AND_DATASET_ROADMAP.md**](04_AI_SURROGATE_AND_DATASET_ROADMAP.md) | ИИ-суррогат & Датасет | Пайплайн генерации синтетических выборок, обучение легковесной нейросети (MLP / ONNX) на реальном MOCAP и инференс 60 FPS внутри плагина Р-Про для естественной биодинамики подъема. |
 | [**05_HUMAN_POSTURE_BALANCE_AND_COM_DERIVATION.md**](05_HUMAN_POSTURE_BALANCE_AND_COM_DERIVATION.md) | Равновесие, CoM & Кинематика ног | Полный вывод многозвенного центра тяжести (Winter/Dempster), замкнутая кинематическая цепь нижних конечностей (IK), 3 стиля приседаний (тазодоминантный, коленодоминантный, сбалансированный), физическая линия гравитации (Plumb Line) и устранение падения назад на основе MoCap (22.9k кадров). |
+| [**06_BIOMECHANICS_TEXTBOOKS_AND_GLOBAL_DATASETS_COMPENDIUM.md**](06_BIOMECHANICS_TEXTBOOKS_AND_GLOBAL_DATASETS_COMPENDIUM.md) | Академический базис & Мировые датасеты | Академический компендиум биомеханических учебников (Winter 2009, Chaffin 2006, Potvin 2012-2026, Jäger 2023), обзор открытых мировых датасетов (AMASS, KIT Whole-Body, HuMoD), влияние анатомии нижних конечностей и архитектурная связь с Р-Про CAD API. |
 
 ---
 
