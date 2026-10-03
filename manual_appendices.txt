@@ -1,0 +1,205 @@
+=== PAGE 43 ===
+Work(s) User Manual v1.1 
+ 43 
+Jordan, A., Mehlsen, J., Bülow, P.M., Østergaard, K., Danneskiold-Samsøe, B., 1999. Maximal isometric strength of the cervical musculature in 
+100 healthy volunteers. Spine, 24, 1343.  
+La Delfa, N.J., Potvin, J.R., 2017. The ‘Arm Force Field’ method to predict manual arm strength based on only hand location and force direction. 
+Applied Ergonomics, 59, 410–421.  
+Lavender, S.A., Andersson, G.B.J., Schipplein, O.D., Fuentes, H.J., 2003. The effects of initial lifting height, load magnitude, and lifting speed on 
+the peak dynamic L5/S1 moments. Internatinal Joural of Industrail Ergonomics. 31, 51–59. 
+Lee, K.S., Chaffin, D.B., Herrin, G.D., Waikar, A.M., 1991. Effect of handle height on lower-back loading in cart pushing and pulling. Applied 
+Ergonomics. 22, 117–123. 
+Leva, P. de, 1996. Adjustments to Zatsiorsky-Seluyanov’s segment inertia parameters. Journal of Biomechanics 29, 1223–1230. 
+Lin, C.J., Bernard, T.M., Ayoub, M.M., 1999. A biomechanical evaluation of lifting speed using work- and moment-related measures. Ergonomics 
+42, 1051–1059. 
+NIOSH, 1981. Work Practices Guide for Manual Lifting. DHHS (NIOSH), Cincinnati, OH. 
+Potvin, J.R., 2012. Predicting maximum acceptable efforts for repetitive tasks - An equation based on duty cycle. Human Factors, 54, 175–188.  
+Potvin, J.R., Ciriello, V.M., Snook, S.H., Maynard, W.S., Brogmus, G.E., 2021. The Liberty Mutual manual materials handling (LM-MMH) 
+equations. Ergonomics, 1–17.  
+Potvin, J.R., Agnew, M.J. 2026. A lumbar compression force cumulative damage (LCFCD) equation derived directly from the Brinckmann dataset. 
+Appied Ergonomics Conference, Arlington, TX. 
+Queisser, F., Blüthner, R., Seidel, H., 1994. Control of positioning the cervical spine and its application to measuring extensor strength. Clinical 
+Biomechanics, 9, 157–161.  
+Rempel, D., Potvin, J., 2022. A design tool to estimate maximum acceptable manual arm forces for above-shoulder work. Ergonomics, 1–27.  
+Schimpl, M., Moore, C., Lederer, C., Neuhaus, A., Sambrook, J., Danesh, J., Ouwehand, W., Daumer, M., 2011. Association between Walking 
+Speed and Age in Healthy, Free-Living Individuals Using Mobile Accelerometry—A Cross-Sectional Study. PLoS ONE 6, e23299. 
+Seng, K.-Y., Peter, V.-S.L., Lam, P.-M., 2002. Neck muscle strength across the sagittal and coronal planes: an isometric study. Clinical 
+Biomechanics, 17, 545–547. 
+Snook, S.H., 1978. The design of manual handling tasks. Ergonomics, 21, 963–985.  
+Snook, S.H., Ciriello, V.M., 1991. The design of manual handling tasks: revised tables of maximum acceptable weights and forces. Ergonomics, 
+34, 1197–1213.  
+Tilley, A.R., 1993. The Measure of Man and Woman – Human Factors in Design. Henry Dreyfuss Associates. 
+Vasavada, A.N., Li, S., Delp, S.L., 2001. Three-dimensional isometric strength of neck muscles in humans. Spine, 26, 1904–1909.  
+
+=== PAGE 44 ===
+Work(s) User Manual v1.1 
+ 44 
+Waters, T.R., Putz-Anderson, V., Garg, A., Fine, L.J., 1993. Revised NIOSH equation for the design and evaluation of manual lifting tasks. 
+Ergonomics, 36, 749–776.  
+Yoganandan, N., Ray, G., Pintar, F.A., Myklebust, J.B., Sances, A., 1989. Stiffness and strain energy criteria to evaluate the threshold of injury to 
+an intervertebral joint. J. Biomech. 22, 135–142. Buchholz, B., Armstrong, T.J., Goldstein, S.A., 1992. Anthropometric data for describing 
+the kinematics of the human hand. Ergonomics, 35, 261–273.  
+  
+
+=== PAGE 45 ===
+Work(s) User Manual v1.1 
+ 45 
+Appendix A: Demand/Capacity Ratios 
+ 
+The Demand/Capacity Ratio (ie. “D/C Ratio” or “DCR”) is simply the demand of the task divided by the assumed capacity to meet that demand, 
+and it provides a unitless measure of WMDS risk from each of the ergonomics assessment tools in Work(s). The capacity may be based on a 
+single effort strength or could be corrected to account for the fatigue associated with the frequency and effort duration. Unlike most ergonomics 
+software, Work(s) doesn’t just assess one task posture, so it will have multiple demands from multiple postures (usually thousands) for any 
+analysis. The DCR Percentile represents the percentile of the DCR values used to determine if the demand for a particular variable is acceptable 
+(≤1.000) or unacceptable (>1.000). We recommend that the 25th percentile DCR be used to represent the risk for each demand variable across 
+the many feasible postures for a given task. 
+For example, if the lumbar L5/S1 joint compression 
+force demand is estimated to be 3,500 N, and the 
+L5/S1 force capacity is assumed to be 3,260 N 
+(based on data adapted from Jäger (2018) for a 45-
+year-old female), then the DCR is calculated to be 
+3,500 / 3,260 = 1.07. Since the demand is greater 
+than the capacity, the DCR is greater than 1.000 and 
+the L5/S1 compression force is considered to be 
+unacceptable. For a lifting task, if the load mass of a 
+lifted box is 10 kg and the LM-MMH Equations (Potvin 
+et al, 2022) estimate the maximum acceptable load 
+(MAL) for a lift to be 13 kg, then the DCR is 10 / 13 = 
+0.77 and, since the demand is less than the capacity, 
+the DCR is less than 1.000 and the load is considered 
+to be acceptable.  Other examples are provided in the 
+table on the right, with acceptable and unacceptable 
+DCRs highlighted in green and red, respectively.  
+ 
+Work(s) is unique in that it doesn’t only assess one posture for a task, so it will have multiple DCRs for any assessment tool used. For example, 
+for a lifting task, the L5/S1 compression force will depend on the posture and Work(s) might determine thousands of feasible compression forces 
+for a particular hand location, ranging from the lowest possible magnitude to the highest possible magnitude, and with a distribution of 
+magnitudes (and DCRs) in between. Under such circumstances, one could choose to represent the risk with the lowest DCR (based on an ideal 
+posture for that metric – though it may be improbable, and even not optimal, for a worker to adopt that posture every repetition), the highest DCR 
+(based on a terrible posture that is not likely to ever be adopted by an experienced worker) or something in between. The graphic on the next 
+page shows the range of compression forces and DCRs for the initiation of a lift from the floor.   
+
+
+=== PAGE 46 ===
+Work(s) User Manual v1.1 
+ 46 
+  
+This graphic illustrates an example of the DCRs for lumbar compression forces at the initiation of a lift from the floor. Work(s) found 4,908 
+feasible postures and calculated the compression force for each. They were then sorted from lowest (0 percentile = 2,573 N) to highest (100th 
+percentile = 4,980 N) on the left y-axis and presented as percentiles on the x-axis. Each value can be divided by the lumbar compression 
+capacity (in this case, assumed to be 3,260 N, adapted from Jäger (2018) for a 45-year-old female) to calculate the compression DCR. These are 
+presented on the right y-axis. The 25th, 50th and 95th percentile compression forces (the 1,227th, 2,454th and 4,663rd highest, respectively) were 
+3,003, 3,369 and 3,661 N, respectively and those convert to DCRs of 0.92 (acceptable), 1.03 (unacceptable) and 1.12 (unacceptable), 
+respectively. Eleven postures are overlaid on the left of the graph, from the side and from behind, for representative postures resulting in the 5th 
+to 95th compression forces, in increments of 5%. We recommend using the 25th percentile DCR to represent the WMSD risk for each variable, 
+and that posture is shown with a full manikin and a bolded stick figure. Postures with a DCR ≤1.000 are in green and those with DCRs >1.000 are 
+in red.  
+For each posture, a DCR is calculated with each ergonomics assessment tool. Then, within each posture, an Overall DCR is then calculated with 
+the highest DCR across the ergonomics tools (ie. “weakest link”). One might first expect that the Overall DCR curve at each percentile would 
+simply be the highest DCR value at that percentile across the different assessment tools. In other words, the Overall curve would surf across the 
+highest values of the other curves. However, counterintuitively, that is not the case. An example is provided below to illustrate.  
+ 
+
+
+=== PAGE 47 ===
+Work(s) User Manual v1.1 
+ 47 
+ 
+ 
+ 
+Left: This graph shows DCR data from 5 postures of a fictional task, but with only 2 risk variables (right arm & lumbar compression force) and the 
+Overall DCR from those 2 risk variables. Posture 1 has a long reach for the right arm (ie. relatively high right arm demand and DCR of 1.08) but 
+an upright trunk (ie. relatively low lumbar compression force and DCR of 0.35). As we progress from Posture 1 to Posture 5, the trunk becomes 
+more flexed (increasing the lumbar compression forces and DCRs to a maximum of 0.86), but the reach decreases (decreasing the moments of 
+force about the shoulder and elbow and decreasing the right arm DCRs to minimum of 0.35).   
+ 
+Right: This graph shows the right arm, lumbar compression force and Overall DCRs reordered from lowest (0 percentile) to highest (100th 
+percentile). If we set our DCR Percentile threshold to 25th, then threshold values for the right arm, lumbar compression force and Overall DCRs 
+are 0.46, 0.45 and 0.68, respectively. So, because of the tradeoffs that occur in the DCRs between risk variables, as postures are changed, the 
+25th Overall DCR will not necessarily be the highest of the 25th percentile values from the various risk variables from the individual ergonomics 
+assessment tools and, in fact, it will often be higher. In other words, the curve with the Overall DCR values at each percentile does not 
+necessarily just surf along the top of the risk variable curves. The Overall DCR is calculated separately for each posture (as shown in the left 
+graph), then it is sorted from lowest to highest on its own curve and the threshold value is determined from that curve (in this example, 0.68, as 
+shown in the right graph).  
+This concept is described in the “Work(s) Tutorial - The Demand-Capacity Ratio (DCR)” video in the ‘Work(s) Resources’ Google Drive.    
+
+
+=== PAGE 48 ===
+Work(s) User Manual v1.1 
+ 48 
+Appendix B: Effective Duration 
+ 
+The Effective Duration represents the best estimate of how 
+long the peak would have to be sustained so that the area 
+under its Effort-Time curve (like an impulse) is the same as 
+that under the actual Effort-Time curve. This does not include 
+the time that the hand may be hovering around the object of 
+exertion (if video is used). It is best to make this estimate 
+from measured force-time curves. It is very important that the 
+effective duration not be overestimated.  
+ 
+The most accurate method to estimate the Effective Duration 
+is to (1) measure the force time-history, (2) estimate the 
+impulse as the average force multiplied by the duration, (3) 
+divide the impulse by the peak force.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+If you don’t have a force gage that outputs the 
+force time-history, then here are some rules of 
+thumb for estimating Effective Duration.  
+ 
+ 
+  
+
+
+=== PAGE 49 ===
+Work(s) User Manual v1.1 
+ 49 
+Effective Duration (ED) can be estimated based on the shape of the effort time-history. For example, in the bottom left image, there is a slow 
+ramp up, short duration at the peak effort and then slow ramp down. In that case, the impulse (area under the curve) for the full duration of the 
+effort (t) is equal to the peak effort multiplied by 0.6t, such that the effective duration for calculating duty cycle would be 0.6t.  
+ 
+ 
+ 
+  
+ 
+  
+
+
+=== PAGE 50 ===
+Work(s) User Manual v1.1 
+ 50 
+The Effective Durations of Manual Materials Handling Tasks 
+ 
+The effective durations are required in Work(s) for the manual materials handling tasks as they are used to estimate the maximum 
+acceptable efforts for the neck and upper extremities. These can be difficult to measure or estimate, so we’ve made some assumptions 
+based on the scientific literature and estimate these durations based on the vertical displacement during lift and lower tasks and the 
+horizontal displacement for push, pull and carry tasks and.  
+ 
+Lift and Lower Tasks:  
+ 
+Based on our own pilot research, we’ve developed an algorithm to estimate the durations of lift and lowers based on vertical displacement 
+between the Bottom to Top hand contact heights. Assuming lower average velocities for smaller displacements, given the need to 
+accelerate the load at lift/lower initiation, the predicted durations increase from 0.46 s at 0.25 m to 1.67 s at 2.00 m of displacement. 
+These fall within the ranges cited by Lin et al (1999) and Lavender et al (2003). We are collaborating with researchers at Ontario Tech 
+University to further develop and validate these predictions.  
+ 
+Push and Pull Tasks:  
+ 
+We’ve assumed a Sustained phase of pushing and pulling would have an average velocity of ~2 miles per hour (0.9 m/s) based on a 
+personal communication with Vince Ciriello, as this was never stated in any of the 19 Liberty Mutual publications used for the LM-MMH 
+Equations (Potvin et al., 2021). Based on data from Lee et al (2014), we’ve estimated that the Initial phase would occur over the first 0.85 
+m over a duration of 2.00 s.  
+ 
+Carry Tasks: 
+ 
+The average carrying velocity was assumed to be 1.25 m/s based on the walking data of Schimpl et al (2011).  
+

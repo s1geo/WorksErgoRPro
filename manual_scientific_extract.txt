@@ -1,0 +1,789 @@
+=== PAGE 30 ===
+Work(s) User Manual v1.1 
+ 30 
+Predicting a Full Range of Feasible Postures 
+Work(s) uses our InteliPoseTM method to determine a full range of feasible postures for each task, given the selected body mass 
+percentile and stature percentile. The range of postures is determined by the hands’ orientation, grip/pinch interface, and location relative 
+to the middle of the ankles and combined with the hand force magnitudes and directions. All posture analyses are performed first with the 
+pelvis height associated with upright, straight legs and then with additional combinations of lower pelvis heights and knee flexions, as well 
+as anterior/posterior spreads of the right and left feet. We also evaluate postures with anterior and posterior displacement of the body. 
+Once the pelvis location is established, we eliminate upper body postures that do not allow for the hands to reach the specified contact 
+locations, then simulate a full range of combinations of low back, shoulder, elbow, forearm, and wrist postures. For each posture, once the 
+trunk orientation and location are established, the neck posture is defined by the focal target (if defined by the user).  
+ 
+Posture and force combinations are eliminated if they result in (1) the overall center of pressure being outside the base of support, and/or 
+(2) at least one segment surface marker that penetrates one of the barriers, and/or (3) at least one joint posture that exceeds a joint’s 
+range of motion constraints. For each task, what results from our InteliPoseTM method is often a set of tens of thousands of feasible 
+postures - even with the constraints in place - highlighting the potential validity and reliability issues with most current ergonomics 
+processes that typically rely on only one (or sometimes two) postures to solely represent the risk associated with a task.  
+ 
+The figure below illustrates a sample of 50 postures, out of a total of 26,653 feasible postures, for a task where a box lift is initiated from 
+the ground. Note that a barrier was created to represent the box. Views are from the right (left), above (middle) and behind (right). Most 
+postures are shown in grey, but one posture is shown with thicker black lines and the full segment shapes.  
+ 
+ 
+ 
+ 
+ 
+  
+
+
+=== PAGE 31 ===
+Work(s) User Manual v1.1 
+ 31 
+Ergonomics Assessments 
+Based on the total number of feasible postures for a task, we randomly sample a subset of postures according to the Dvoretzky–Kieffer–
+Wolfowitz inequality (Dvoretzky et al., 1956). The size of the posture subset considers the trade-off between speed and accuracy, but we 
+use enough postures to ensure the accuracy of the calculated DCR values. It should be noted that multiple runs of the same inputs will 
+result in the same total number of feasible postures, but with the random sampling method used, there will be slight differences in the 
+DCR values and images with each run. Each sampled posture is assessed with the tools described below. However, if the overall DCR is 
+between 0.95 and 1.05, we randomly sample again with 100 times more postures to ensure that the exact DCR values are calculated for 
+the sake of determining overall task acceptability,  
+Hand, Wrist & Forearm Demands  
+For the distal upper extremities, Work(s) quantifies acceptable forces for occupational tasks placing demands on the forearms, 
+wrists, hands and fingers, based on an integration of data from 18 published studies. Strengths are predicted based on factors 
+such as location of contact on the finger(s)/thumb(s), glove use, finger clearance, interface characteristics, types of pinch/grip, 
+aperture/span, surface type, direction of effort, wrist posture, elbow posture and shoulder posture. Those maximum strengths are 
+further corrected using the duty cycle, from the frequency and duration of efforts, as input for the Maximum Acceptable Effort 
+(MAE) Equation (Potvin, 2012) to calculate the maximum acceptable forces. Work(s) also includes analyses for power grip 
+strength when the force is acting along the palm towards the wrist (eg., when the hands are hanging down and lifting up on a 
+handle, or are horizontal and pulling). The Hand/Wrist/Forearm Demand/Capacity Ratios (DCRs) are calculated for the left and 
+right sides by dividing the linear forces applied at each hand by their maximum acceptable forces.  
+Arm Demands  
+To predict manual arm strength, Work(s) uses the Arm Force Field (AFF) method of La Delfa & Potvin (2017). To develop the 
+AFF, female manual arm strengths were measured directly for up to 26 directions in 36 unique hand locations relative to the 
+shoulder (536 conditions, 13,460 experimental trials). The resulting artificial neural network required only inputs of trunk and arm 
+posture, hand location, force magnitude and force direction to predict manual arm strength and resulted in an overall RMS of only 
+6.4 N (1.4 lbs). The strengths from the AFF are further corrected using the duty cycle as input to the MAE Equation (Potvin, 2012) 
+to calculate the maximum acceptable forces.  
+The Arm DCRs are calculated for the left and right sides by dividing the linear forces applied by each arm by their maximum 
+acceptable forces from the AFF. Use this link to download the La Delfa & Potvin (2017) publication describing the AFF method in 
+much more detail. 
+While the AFF accounts for maximum manual arm strength and the MAE Equation accounts for the fatiguing effects of duty cycle, 
+the Above-Shoulder correction was developed by Rempel & Potvin (2022) to account for the additional risk factor of subacromial 
+impingement of the supraspinatus muscle tendon when the upper arm rotates above the shoulder. Since this is a new method, 
+Work(s) includes it as an option in Step 7. Download Rempel & Potvin (2022) for more details.   
+
+=== PAGE 32 ===
+Work(s) User Manual v1.1 
+ 32 
+Neck Demands  
+Flexion and extension neck strengths were estimated from a compilation of data from 5 published studies (Harms-Ringdahl & 
+Schuldt, 1988; Jordan et al. 1999; Queisser et al. 1994; Seng et al., 2002; Vasavada et al., 2001) and corrected using the duty 
+cycle input in the MAE Equation (Potvin, 2012) to calculate the maximum acceptable neck moment.  
+The Neck DCR is then calculated by dividing the neck flexion or extension strength demand by the maximum acceptable neck 
+flexion or extension moment. Note that a more comprehensive neck analysis package is in the “work(s)”, including head-mounted 
+loading and postural effects on strength, fatigue and discomfort.  
+Lumbar Joint Loading – Biomechanical Criterion   
+L5/S1 Peak Compression and Shear Force Demand: Peak lumbar compression forces (LCF) and shear forces are important 
+risk factors for WMSDs (Waters et al., 1991; Dempsey, 1998; Gallagher & Marras, 2012). For Work(s), the reaction forces (directly 
+caused by the body segment weights and forces at the hands) are calculated at the L5/S1 joint then partitioned into shear and 
+compression force components, assuming that the L5/S1 surface is rotated 34 deg forward of the anterior line perpendicular to the 
+trunk (Gelb set al, 1995). The internal contribution of muscle forces to L5/S1 compression force are estimated with a method 
+developed to estimate the single-equivalent moment arm with a 3rd order polynomial regression equation using the L5/S1 
+flexion/extension, lateral bend and axial twist moments as inputs (r2 = 0.87, RMS error = 0.004 m, n = 89). The muscle 
+compression is calculated with the resultant moment of force at L5/S1 divided by the single-equivalent moment arm estimate, and 
+this is added to the compression component of the reaction force to calculate the total bone-on-bone compression force at L5/S1 
+(r2 = 0.95, RMS error = 342 N, n = 89).  
+Lumbar Compression Peak Force Limits:  Jäger (2023) summarized LCF ultimate strength (US) data from 1,192 lumbar spine 
+specimens, representing 36 studies published between 1954 and 2013 (from his Table 5.12, p 547–569). We analyzed the subset 
+of 199 specimens (76 female, 123 male), between the ages of 17 and 75 years, where each of sex, age and spine level were 
+published along with the LCF US values. The DCR calculations in Work(s) base LCF US on 42-year old female and male workers, 
+using the average value pooled from labourers in Canada (Statistics Canada, 2023) and the United States (U.S. Bureau of 
+Statistics, 2023), which was 41.2 years and was rounded up to 42 years. The 75% capable L5/S1 compression force US values 
+were estimated to be 4,360 N for females and 5,210 N for males. The yield point was set at 82% of the LCF US, as this is where 
+Yoganandan et al. (1989) first observed decreases in tissue stiffness at LCF/US = 0.82 during their in vitro testing. So, the peak 
+L5/S1 LCF TLVs were set at 3,575 for females and 4,270 N for males. The Peak Lumbar Compression DCR is calculated by 
+dividing the peak LCF by the relevant peak LCF TLV.  
+Lumbar Compression Force Cumulative Damage (LCFCD): We calculate LCFCD for each task using on a new method by Potvin 
+& Agnew (2026), based on the raw data of Brinckmann et al. (1988), who tested a total of 70 lumbar spine joints (from 35 
+specimens) to determine the number of cycles to failure (CtF) with different LCF magnitudes. Testing stopped at 5,000 cycles. 
+Load magnitudes were set as a ratio of what they assumed to be the ultimate strength for each joint (LCF/US). Potvin & Agnew 
+(2026) deemed that a total of 8 joints from a total of 4 specimens resulted in data that were outliers because the US estimates 
+must have been too low, resulting in an unreasonably high number of CtF associated with high assumed peak loads (e.g. CtF > 
+5,000 with LCF/US = 0.857). Also, there was only 1 joint tested with a peak load >90 %US. No joint failed by 5,000 cycles with 
+LCF/US < 0.5 (n=14), so a Weibull analysis was performed with the remaining 47 joints to determine representative CtF values for 
+
+=== PAGE 33 ===
+Work(s) User Manual v1.1 
+ 33 
+the following four ranges of LCF/US: 0.5-0.6, 0.6-0.7, 0.7-0.8 & 0.8-0.9. A two-parameter Weibull model with right-censoring was 
+fit by maximum likelihood to account for run-outs at 5,000 cycles. The scale parameter (η) was interpreted as the characteristic 
+fatigue life (63.2% failure probability) to calculate CtF for each range of loading. An exponential equation was fit to estimate CtF 
+based on LCF/US, using the average LCF/US value from each range to estimate the corresponding CtF for that range (r2 = 0.977).  
+LCFCD was calculated as the daily cycle frequency divided by the value output from the CtF equation (ie. [Cycles] / [Cycles to 
+Failure] ). LCFCD values can be summed across subtasks, and total values >1.00 are considered to be unacceptable. The overall 
+lumbar compression DCR is calculated as the maximum of the peak compression DCR and the LCFCD DCR. 
+Manual Materials Handling – Psychophysical Criterion  
+The Liberty Mutual Insurance psychophysical data of Snook (1978) was an important foundation of the original NIOSH Lifting 
+Equation (NIOSH, 1981). After the tables were updated by Snook & Ciriello (1991), they were incorporated into the Revised 
+NIOSH Lifting Equation (Waters et al., 1993). After 1991, there were no more published updates to the Snook & Ciriello Tables, 
+but manual materials handling research continued at the Liberty Mutual Center for Safety & Health and Vince Ciriello published 12 
+more studies, with the last in 2011. These data were combined with those from the previous 7 publications used for the Snook & 
+Ciriello Tables (19 publications, 388 unique conditions, 1,788 trials) to create the Liberty Mutual Manual Materials Handling (LM-
+MMH) Equations published in Potvin, Ciriello, Snook, Maynard, Brogmus (2021). The resulting 14 equations (7 each for females 
+and males) are integrated into Work(s) to calculate maximum acceptable loads for lift, lower, push (initiate and sustained), pull 
+(initiate and sustained) and carry tasks. Download Potvin et al., (2021) for more details.  
+The LM-MMH Equation DCR is calculated by dividing the total force at the hands by the maximum acceptable load. For push and 
+pull tasks, the DCR is calculated as the higher of the initiate DCR and sustained DCR.  
+Integrating Demand/Capacity Ratios   
+For each feasible posture determined for a given task, Work(s) calculates 7 DCRs, including the lumbar compression force, neck 
+demands, LM-MMH Equation, as well as the left and right hand/wrist/forearm and manual arm demands. An Overall DCR is also 
+calculated for each posture, representing the highest (ie. weakest link) of the 7 DCRs. This provides a single value to represent 
+the risk for each posture and, using the DCR Percentile cutoff set by the user, this can also provide a single value to represent the 
+risk for all feasible postures for a given task. Appendix 1 provides an example of how the Overall DCR would be calculated from 2 
+of the 7 variables (right arm and lumbar compression force), to illustrate this concept.  
+Combining Multiple Subtasks  
+Work(s) is designed to assess individual tasks, with specific hand locations, force characteristics, frequency, and effort duration. 
+However, many jobs include multiple subtasks and confirming that each task is acceptable in isolation does not confirm that the 
+combination of all subtasks is also acceptable. Gibson & Potvin (2016) developed the Recommended Cumulative Recovery 
+Allowance (RCRA) method to allow for the combination of risk across tasks placing demands on similar muscle groups. They 
+rearranged the MAE Equation to solve for recovery allowance, when effort, frequency and effort duration are known, such that the 
+recovery allowance from each subtask can be summed across tasks to ensure that the total recovery duration needed is not 
+greater than the recovery duration provided (after the total effort duration is accounted for). We’ve replaced the RCRA method with 
+a new variable to calculate “Cumulative Fatigue”, which has a TLV of 1.00 and is easier to interpret and more intuitive than the 
+RCRA, but results in the same decision of acceptable/unacceptable within isolated tasks and across multiple subtasks In addition, 
+
+=== PAGE 34 ===
+Work(s) User Manual v1.1 
+ 34 
+the Cumulative Compression values are compiled in the Report so they can be combined in a “Work(s) - Cumulative Risk 
+Analysis” Excel template file which can be obtained on request. This is explained in more detail in the “Exported Excel Report” 
+section.  
+Website Output Interface 
+There are two modes of output when a task assessment is run in Work(s). The first is the website output pages and the second is an 
+Excel Work(s) Report file that can be exported to the user’s hard drive (explained below). The following website outputs are presented for 
+each assessment. 
+Composite View of Postures  
+After clicking the “View Outputs” button, the Work(s) Outputs page is presented on the website. The first section shows three 
+views of postures associated with Overall DCRs at the 10th to 90th percentile (in increments of 10%) and at the DCR Percentile 
+selected by the user in Step 1 (25th in this example), shown with segment shapes and thicker lines. Postures with an Overall DCR 
+≤ 1.0 are shown with green lines and those with an Overall DCR > 1.0 are shown with red lines. A view from the right is shown on 
+the bottom left, a view from above is shown in the middle and a view from behind is shown on the right. The black arrows on the 
+hands indicate the knuckle line directions, the blue arrow indicates the left hand’s force direction, and the orange arrow indicates 
+the right hand’s force direction. The centers of pressure are shown as triangles under the feet. Barrier #1 is shaded in lighter grey 
+and Barrier #2 is shaded in darker grey.  
+ 
+  
+
+
+=== PAGE 35 ===
+Work(s) User Manual v1.1 
+ 35 
+ Body Map of Demand/Capacity Ratios (DCRs)  
+For each task, there will be a range of DCR values for each risk variable. 
+The DCR Percentile cutoff set in Step 1 determines the DCR value that will 
+represent each risk variable. We recommend that the 25th percentile be 
+used as that is what is used in this example. The DCRs at the percentile 
+cutoff are then presented on the body map shown to the right. As explained 
+in Appendix A, the Overall DCR at the DCR Percentile cutoff will often be 
+higher than the highest of the DCRs across the risk variables. In this case, 
+the highest individual DCR is 0.66 for the Left Arm, but the 25th percentile 
+Overall DCR is higher at 0.70. In addition, Work(s) determined that 85% of 
+the 84,319 postures assessed for this task had Overall DCR values ≤ 1.0, 
+and this variable may prove to be a valuable metric for assessing the risk 
+for tasks across the full range of feasible postures. Note that this sample 
+task was a static exertion. Manual materials handling tasks (lift, lower, push, 
+pull and carry) will also have a LM-MMH Equation DCR value below the 
+legs. An example for lifting, with some DCRs > 1.0 and the LM-MMH 
+Equation DCR is shown in the bottom right.  
+Ranking of Demand/Capacity Ratios 
+The same data shown on the DCR body map are also shown in the DCR 
+Ranking bar graph. The Overall DCR is shown on the left and then the 
+DCRs relevant to the task are ranked from highest to lowest to facilitate a 
+better understanding of the limiting factors for this task, and possibly the 
+best targets for redesign.  
+ 
+ 
+  
+
+
+=== PAGE 36 ===
+Work(s) User Manual v1.1 
+ 36 
+Summary Table  
+ 
+The Summary tab of the Output interface 
+presents the demands for each risk 
+variable (associated with to the DCR 
+Percentile cutoff selected in Step 1), the 
+maximum strength capacities (for a 
+single effort) and the maximum 
+acceptable forces (based on the duty 
+cycle) for Hand/Wrist/Forearm (from 
+published scientific studies), the Arm 
+(from the AFF), and Neck. All demands 
+are calculated based on the “D/C Ratio 
+%ile” selected in Step 1 of the Inputs.  
+Near the bottom of the table, the “Max. 
+Acceptable Total Force” is presented, but 
+only for tasks where the force 
+magnitudes and directions are the same 
+on the right and left hands.   
+The number of feasible solutions is 
+shown at the bottom of the first column 
+and the joint axis strength demands are 
+shown on the right.  
+ 
+ 
+ 
+  
+
+
+=== PAGE 37 ===
+Work(s) User Manual v1.1 
+ 37 
+Summary Table: Push & Pull  
+ 
+The Summary tab for “Push & Walk” 
+and “Pull & Walk” tasks is shown, and 
+now includes a more complete 
+assessment of both the Initial and 
+Sustained phases. Only the total 
+demands, strengths and acceptable 
+forces are shown, combining the right 
+and left arms.  
+ 
+    
+
+
+=== PAGE 38 ===
+Work(s) User Manual v1.1 
+ 38 
+Exported Excel Report 
+On the Outputs interface page, there is an option to export and Excel Report file. This report file contains a summary of the inputs and the 
+outputs from the website, but also includes a graph of all DCRs for each risk variable and a Summary sheet containing a table with all 
+inputs and outputs. 
+  
+ 
+DCR Graph  
+ 
+This graph shows the distribution of DCR values from 0 to the 
+100th percentile for the sample task used above. DCRs for 
+each of the 6 relevant variables, in addition to the Overall DCR 
+(in yellow), are shown ranked from lowest on the left (0 
+percentile) to highest on the right (100th percentile). LM-MMH 
+Equation DCRs are not calculated for static exertions.  
+ 
+The TLV line is horizontal and set at a threshold of DCR = 1.0.  
+ 
+The DCR Percentile cutoff set in Step 1 is shown as a vertical 
+dotted line. The values in the body map are based on where 
+each DCR curve crosses this line. 
+ 
+The table below shows the 0 (minimum), 25th (cutoff) and 100th  
+(maximum) DCR values for each risk variable.  
+ 
+ 
+ 
+For this sample task, the right arm has the highest DCRs at 
+the lowest percentiles, but the left arm has the highest DCRs 
+after that. At the 25th percentile, the Overall DCR is 0.70 
+(acceptable) and the left arm DCR is 0.66 (as shown above on 
+the body map). The Overall DCR is acceptable at the 25th 
+percentile cutoff but does get as high as 1.26 at its maximum. 
+  
+
+
+=== PAGE 39 ===
+Work(s) User Manual v1.1 
+ 39 
+ Summary Sheet  
+In the exported Excel Work(s) Report file, 
+there is a Summary sheet that compiles all 
+the inputs and outputs into one column. An 
+example from the sample task is shown 
+below (but as two columns so they can be 
+included here on one page).  
+ 
+First there is a summary of all Inputs, then 
+all the calculated Demands, then 
+Capacities, then DCRs, then some other 
+information from the analysis at the 
+bottom. The data from multiple tasks can 
+be compiled into the “Work(s) - Database 
+of Report Summaries” Excel template file 
+available on request. Variable code names 
+are provided if pivot tables are used with 
+the compiled data.  
+ 
+A full description of this process is 
+provided at the end of the ‘Work(s) 
+Tutorial - Report File’ video available in 
+the ‘Work(s) Resources’ Google Drive.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+Variable Code Units Values
+Task ID TaskID Subtask #1
+Sex Sex Female
+Units Units Metric
+DCR %ile DCR%ile 25
+Body Mass %ile BodyMass% 50
+  Body Mass BodyMass kg 73.5
+Stature %ile Stature% 50
+  Stature Stature m 1.6
+Percent Capable %Cap % 75
+Age Age years 42
+Task Type TaskType Lift Load
+Frequency per Day Freq /day 630.0
+Effective Duration Entered Effect-Dur-Input s 0.922
+Task Distance TaskDist m 0.000
+Hip Height HipHt m 0.000
+Shift Duration ShiftDur hours 8
+Barrier #1? B1 Yes
+     Depth B1-Depth m 0.300
+     Top Edge B1-Top m 0.150
+     Left Edge B1-Left m -0.150
+     Right Edge B1-Right m 0.150
+     Bottom Edge B1-Bottom m 0.000
+Barrier #2? B2 No
+     X Offset B2-Xoffset m N/A
+     Depth B2-Dept m N/A
+     Top Edge B2-Top m N/A
+     Left Edge B2-Left m N/A
+     Right Edge B2-Right m N/A
+     Bottom Edge B2-Bottom m N/A
+Left Arm Off? LeftOff No
+  Left X Location HCL-T-X-L m 0.150
+    Y HCL-T-Y-L m 0.850
+    Z HCL-T-Z-L m -0.180
+  Left X Bottom HCL-B-X-L m 0.150
+    Y HCL-B-Y-L m 0.100
+    Z HCL-B-Z-L m -0.180
+Right Arm Off? RightOff No
+  Right X Location HCL-T-X-R m 0.150
+    Y HCL-T-Y-R m 0.850
+    Z HCL-T-Z-R m 0.180
+  Right X Bottom HCL-B-X-R m 0.150
+    Y HCL-B-Y-R m 0.100
+    Z HCL-B-Z-R m 0.180
+Left Direction: X ForceDir-X-L 0.000
+    Y ForceDir-Y-L 1.000
+    Z ForceDir-Z-L 0.000
+Left Force Force-L N 37.5
+  Left Sustained Force-L-S N N/A
+Right Direction: X ForceDir-X-R 0.000
+    Y ForceDir-Y-R 1.000
+    Z ForceDir-Z-R 0.000
+Right Force Force-R N 37.50
+  Right Sustained Force-R-S N N/A
+Left Hand Task Task-L Power Grip (Medial Grasp)
+     Knuckle Line Knuckle-L Forward
+     Palm Direction Palm-L Right
+     Span/Diameter Span-L mm N/A
+     Gloves Used? Glove-L N/A
+     Surface Type Surface-L N/A
+Right Hand Task Task-R Power Grip (Medial Grasp)
+     Knuckle Line Knuckle-R Forward
+     Palm Direction Palm-R Left
+     Span/Diameter Span-R mm N/A
+     Gloves Used? Glove-R N/A
+     Surface Type Surface-R N/A
+Above-Shoulder? AboveShld Yes
+Limit Trunk? Lim it- Tr unk Yes
+Body Bracing? Body-Brace None
+Straight Legs? Lock-Leg No
+Cumulative Compression? CumulComp Yes
+Task Name TaskID Subtask #1
+Gaze? Gaze None
+    X GazeX m N/A
+    Y GazeY m N/A
+    Z GazeZ m N/A
+Effective Duration Effect-Dur s 0.922
+Effective Duration-Sust Effect-Dur-S s N/A
+Total Duration Total-Duration s 580.9
+Total Duration-Sust Total-Duration-S s N/A
+Duty Cycle UE&S-DC 0.0231
+Duty Cycle-Sust UE&S-EDS N/A
+Wrist -Ext/+Flex Wrist-FE-L Nm -0.10
+     -Rad/+Uln Wrist-UR-L Nm 0.00
+    -Sup/+Pro Wrist-PS-L Nm 0.00
+Elbow +Flex Elbow-L Nm 1.38
+Shld -Ext/+Flex Shld-FE-L Nm 1.15
+     -Ad/+Ab Shld-AB/AD-L Nm 3.23
+     -Int/+Ext Shld-EI-L Nm 0.93
+Arm Force Arm-Force-L N 37.5
+Arm Force-Sust Arm-Force-L-S N N/A
+Arm Effort Arm-Effort-L 0.236
+Arm Effort-Sust Arm-Effort-L-S N/A
+Hand Force Hand-Force-L N 37.5
+Hand Force-Sust Hand-Force-L-S N N/A
+Hand Effort Hand-Effort-L 0.277
+Hand Effort-Sust Hand-Effort-L-S N/A
+Category
+Inputs Target 
+Population
+Task Type
+Barriers
+Contact 
+Locations
+Force 
+Parameters
+Hand Grip & 
+Orientations
+Analysis 
+Settings
+Demands Durations
+Left Upper 
+Extremity
+Effective Duration Effect-Dur s 0.922
+Effective Duration-Sust Effect-Dur-S s N/A
+Total Duration Total-Duration s 580.9
+Total Duration-Sust Total-Duration-S s N/A
+Duty Cycle UE&S-DC 0.0231
+Duty Cycle-Sust UE&S-EDS N/A
+Wrist -Ext/+Flex Wrist-FE-L Nm -0.10
+     -Rad/+Uln Wrist-UR-L Nm 0.00
+    -Sup/+Pro Wrist-PS-L Nm 0.00
+Elbow +Flex Elbow-L Nm 1.38
+Shld -Ext/+Flex Shld-FE-L Nm 1.15
+     -Ad/+Ab Shld-AB/AD-L Nm 3.23
+     -Int/+Ext Shld-EI-L Nm 0.93
+Arm Force Arm-Force-L N 37.5
+Arm Force-Sust Arm-Force-L-S N N/A
+Arm Effort Arm-Effort-L 0.236
+Arm Effort-Sust Arm-Effort-L-S N/A
+Hand Force Hand-Force-L N 37.5
+Hand Force-Sust Hand-Force-L-S N N/A
+Hand Effort Hand-Effort-L 0.277
+Hand Effort-Sust Hand-Effort-L-S N/A
+Wrist -Ext/+Flex Wrist-FE-R Nm -0.10
+     -Rad/+Uln Wrist-UR-R Nm 0.00
+    -Sup/+Pro Wrist-PS-R Nm 0.00
+Elbow +Flex Elbow-R Nm 1.28
+Shld -Ext/+Flex Shld-FE-R Nm -1.16
+     -Ad/+Ab Shld-AB/AD-R Nm 3.13
+     -Int/+Ext Shld-EI-R Nm 0.87
+Arm Force Arm-R N 37.5
+Arm Force-Sust Arm-Force-R-S N N/A
+Arm Effort Arm-Effort-R 0.235
+Arm Effort-Sust Arm-Effort-R-S N/A
+Hand Force Hand-Force-R N 37.5
+Hand Force-Sust Hand-Force-R-S N N/A
+Hand Effort Hand-Effort-R 0.277
+Hand Effort-Sust Hand-Effort-R-S N/A
+Total Duration Neck-Total-Dur s 580.9
+Total Duration-Sust Neck-Total-Dur-S s N/A
+Total Duty Cycle Neck-DC 0.023
+Neck Flx/Ext Neck-FE Nm -7.92
+    Lateral Neck-Lat Nm 0.00
+    Axial Neck-Ax Nm 0.00
+Neck Result Mo Nec-Res-Mo Nm 7.92
+Neck Effort Neck-Effort 0.303
+L5S1 Flx/Ext L5S1- FE Nm -144.39
+    Lateral L5S1- Lat Nm 0.01
+    Axial L5S1- Ax Nm 0.14
+Peak Compression Pk-Comp N 2,409
+Peak Compression-Sust Pk Comp-S N N/A
+Overall Peak Compression Overall-Pk-Comp N 2,409
+Cumulative Comp CC 0.56
+Cumulative Comp-Sust CC-S N/A
+Overall Cumulative Comp Overall-CC 0.56
+Peak Shear Peak-Shear N 330
+Peak Shear-Sust Peak-Shear-S N N/A
+Overall Peak Shear Overall-Pk-Shear N 330
+TBD
+Mid Hip Flx/Ext Mid  Hip -FE Nm -163.06
+    Lateral Mid  Hip -L a t Nm 0.12
+    Axial Mid-Hip-Twist Nm -0.06
+LM-MMH Force LM - M M H- Load N 75.00
+LM-MMH Sustained Force LM - M M H- S N N/A
+TBD
+-Back/+Forward Min CofP-BF-Min m N/A
+-Back/+Forward Max CofP-BF-Max m N/A
+-Left/+Right Min CofP-LR-Min m N/A
+-Left/+Right Max CofP-LR-Max m N/A
+MAE MAE 0.596
+Neck MAE (Push/Pull) Neck-MAE N/A
+MAE-Sust MAE-S N/A
+Arm Strength Arm-MVC-L N 160.5
+Arm MAF Arm-MAF-L N 95.4
+Arm MAF-Sust Arm-MAF-S-L N N/A
+Hand Strength Hand-MVC-L N 135.2
+Hand MAF Hand-MAF-L N 80.5
+Hand MAF-Sust Hand-MAF-L N N/A
+Arm Strength Arm-MVC-R N 160.6
+Arm MAF Arm-MAF-R N 95.5
+Arm MAF-Sust Arm-MAF-S-R N N/A
+Hand Strength Hand-MVC-R N 135.5
+Hand MAF Hand-MAF-R N 80.7
+Hand MAF-Sus Hand-MAF-L N N/A
+Neck Strength Neck-MVC Nm 26.1
+Neck MAT Neck-MAT Nm 15.5
+Comp Ultimate Strength Comp-US N 4,268
+Peak Comp TLV Pk-Comp-TLV N 3,500
+Cumulative Comp TLV CC-TLV 1.00
+TBD
+TBD
+LM-MMH MAF LM - M AL N 127.04
+LM-MMH Sust MAF LM - S- M AL N N/A
+TBD
+MAF MAF-To t N 127.0
+MAF-Sust MAFs-Tot N N/A
+Percent  ≤DCR = 1 %DCR<1 % 56%
+DCR Overall DCR-Overall 0.80
+Arm DCR Arm-DCR-L 0.40
+Arm DCR-Sust Arm-DCR-S-L N/A
+Hand DCR Hand -DCR-L 0.47
+Hand DCR-Sust Hand-DCR-S-L N/A
+Arm DCR Arm-DCR-R 0.39
+Arm DCR-Sust Arm-DCR-S-R N/A
+Hand DCR Hand -DCR-R 0.46
+Hand DCR-Sust Hand-DCR-S-R N/A
+Neck DCR Neck-DCR 0.51
+Peak Comp DCR Comp-DCR 0.69
+Cumulative Comp DCR CC-DCR 0.56
+Cumulative Comp DCR-SustCC-DCR-S N/A
+Overall Cumul. Comp DCR Overall-CC-DCR 0.56
+TBD
+LM-MMH DCR LM - DCR 0.59
+LM-MMH DCR-Sust LM - DCR- S N/A
+TBD
+CPU# N/A
+Process-Time min 0.68
+Posures-Total 3227
+Postures-Samp N/A
+Date-Analysis 2025-11-02
+Time-Analyssi 06:09:09
+Top-Botom BottomLift/Lower: Top or Bottom Posture?
+Other
+Time of Analysis 
+Overall
+# of CPUs
+Total
+Date of Analysis
+Total Postures
+Sampled Postures
+CofP
+Processing Time
+Manual 
+Materials 
+Handling
+Lumbar 
+Spine 
+(L5/S1 Joint)
+Left Upper 
+Extremity
+Right Upper 
+Extremity
+Spine
+Manual 
+Materials 
+Handling
+Demand / 
+Capacity 
+Ratios
+Manual 
+Materials 
+Handling
+Demands
+Maximum 
+Accept. Effort
+Capacities
+Neck
+(C7/T1 Joint)
+Hip
+Durations
+Right Upper 
+Extremity
+Left Upper 
+Extremity
+Neck
+(C7/T1 Joint)
+Lumbar 
+Spine 
+(L5/S1 Joint)
+Left Upper 
+Extremity
+Right Upper 
+Extremity
+
+=== PAGE 40 ===
+Work(s) User Manual v1.1 
+ 40 
+Summary of Peak and Fatigue Risk Analyses for Each Subtask 
+To the right of the Summary data is a table that can be used to compile a cumulative risk analysis from multiple subtasks that comprise a 
+full job. This table calculates the duty cycle, MAE, and peak hand/wrist/forearm, arm, and neck efforts, and peak compression forces, as 
+well as the cumulative muscle fatigue, LM-MMH Equations and lumbar compression force cumulative damage DCRs. Note: Push and Pull 
+tasks will have separate rows for the Initial and Sustained phases. Also, this table in highlighted in pink for Lifts and Lowers, and the 
+reason is describled below.  
+   
+ 
+ 
+Lift or Lower – Combining Data from the Bottom & Top Postures 
+When a Lift or Lower task is performed, the posture will change from the beginning to the end of the motion. To more accurately capture 
+the peak loads, as well as the accumulation of fatigue and cumulative damage, associated with these changes, we recommend analyzing 
+Lift or Lowers at the Bottom hand location (origin for a lift, destination for a lower) as well as a second Work(s) analysis at the Top hand 
+location (destination for a lift, origin for a lower). To alert the user to the need for this additional step, the “Summary of Data” table is 
+highlighted in pink for Lifts and Lowers. The data from the Bottom and Top hand location analyses can be combined in the “Work(s) - Lift 
+or Lower - Combine Bottom & Top Postures” Excel template file (available on request).  
+Instead of using the table below, the data in the ‘Values’ column of the ‘Summary’ sheet in the Work(s) Report can be pasted into the 
+“Work(s) - Lift or Lower - Combine Bottom & Top Postures” Excel template file to create the “Summary of Data” table row shown in 
+the previous section. A full description of this process is provided in the ‘Work(s) Tutorial - Lift or Lower - Combine Bottom & Top 
+Postures’ video available in the ‘Work(s) Resources’ Google Drive.  
+ 
+ 
+  
+Output File Name Task Type Units
+Subtask #1 Lift Load (Bottom + Top) Metric 0.922 630 0.0231 0.596 0.360 0.500 0.277 0.466 0.360 0.500 0.277 0.465 0.303 0.303 0.590 0.688 0.563 0.688
+Fatigue
+Lumbar 
+Compression 
+Force DCRs
+Fatigue Peak 
+Comp.
+Cumul.
+Damage
+Peak 
+Effort
+LM- 
+MMH 
+Eqn.
+DCR
+Summary of Data for a Cumulative Risk Analysis Muscle Demand DCRs
+Peak 
+Effort Fatigue Peak 
+Effort
+Overall 
+DCR
+Left Right Neck
+Effective 
+Duration 
+(s)
+Frequency 
+per day
+Duty 
+Cycle
+Max 
+Accept 
+Effort
+Arm Hands Arm Hands
+FatiguePeak 
+Effort Fatigue Peak 
+Effort
+Output File Name Task Type Units
+Lift Load - Bottom Lift Load Metric 0.922 630 0.0231 0.596 0.236 0.071 0.277 0.089 0.235 0.070 0.277 0.089 0.303 0.104 0.590 0.688 0.563 0.795
+Peak 
+Comp.
+Hands Arm HandsFrequency 
+per day
+Duty 
+Cycle
+Max 
+Accept 
+Effort
+Lumbar 
+Compression 
+Force DCRs
+Note: The row(s) above (highlighted in yellow) can be pasted into the "Cumulative Risk" sheet of the file called 
+"Work(s) Cumulative Risk Template.xlsx" (available on request by emailing info@worksergo.com) to calculate the cumulative 
+demands and risk from multiple tasks making up a whole job.
+Overall 
+DCRCumul.
+DamageFatiguePeak 
+Effort
+Right
+Arm
+Summary of Data for a Cumulative Risk Analysis
+FatiguePeak 
+Effort
+Muscle Demand DCRs
+FatigueFatigue
+Note that, since this is a Lift Load task, a Work(s) analysis should be run for both the 'Bottom' and 'Top' hand locations, 
+so that the values in column G can be pasted into the 'WORK(S) - LIFT or LOWER - COMBINE BOTTOM & TOP 
+POSTURES' Excel worksheet to determine the combined DCR for the whole motion.     If you analyze only the 'Bottom' 
+or the 'Top' hand location, you will likely end up with DCR values that either understimate or overestimatethe actual 
+values for the full task.
+Peak 
+Effort
+Peak 
+Effort
+NeckLeft
+Effective 
+Duration 
+(s)
+LM- 
+MMH 
+Eqn.
+DCRFatigue Peak 
+Effort
+
+=== PAGE 41 ===
+Work(s) User Manual v1.1 
+ 41 
+Cumulative Risk Analysis Across Subtasks 
+ 
+The data from each subtask can be further compiled for a full job using the “Work(s) Cumulative Risk Analysis” Excel template file that 
+is available on request. Some sample results are added in addition to the Sample Lift above, including the Initial and Sustained phases of 
+a Push (where the is not assessed) and a Lower task. The Overall DCRs are calculated by determining the highest of the peak DCRs or 
+summing the fatigue and cumulative damage DCRs in each column, and values >1.00 are considered unacceptable. As all Overall DCR 
+values are <1.00, this full task is considered to be acceptable. 
+ 
+A full description of this process is provided in the ‘Work(s) Tutorial - Cumulative Risk Analysis’ video available in the ‘Work(s) 
+Resources’ Google Drive. 
+ 
+   
+Work(s)TM Cumulative Risk Analysis
+Output File Name Task Type Units
+1Subtask #1 Lift Load (Bottom + Top) Metric 0.922 630.0 0.0231 0.596 0.360 0.500 0.277 0.466 0.360 0.500 0.277 0.465 0.303 0.303 0.590 0.688 0.563 0.688
+2
+3Subtask #2 Push & Walk (Init) Metric 1.000 105.0 0.0042 0.732 0.571 0.141 0.573 0.144 0.123 0.007 0.354 0.622 0.021 0.871
+4Subtask #2 Push & Walk (Sust) Metric 4.611 105.0 0.0192 0.613 0.322 0.097 0.326 0.100 0.123 0.033 0.307 0.587 0.002
+5
+6Subtask #3 Lower Load (Bottom + Top) Metric 0.560 630.0 0.0140 0.641 0.356 0.450 0.246 0.384 0.356 0.450 0.246 0.384 0.250 0.240 0.457 0.562 0.000 0.562
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+Overall DCRs 0.571 1.189 0.277 0.849 0.573 1.194 0.277 0.849 0.303 0.583 0.688 0.587
+MAE: Maximum Acceptable Effort 0.590 1.194
+DCR: Demand/ Capacity Ratio
+Cumul.: Cumulative The cumulative risk is Unacceptable
+Cumul.
+Damage
+Arm Hands Arm Hands Overall 
+DCR
+Left Right Neck
+Fatigue Peak 
+Effort Fatigue Peak 
+Effort Fatigue Peak 
+Effort FatigueEffective 
+Duration (s)
+Frequency 
+per day
+Duty 
+Cycle MAE Peak 
+Effort
+Peak 
+Effort Fatigue Peak 
+Comp.
+0.688
+LM- 
+MMH 
+Eqn.
+DCR
+Muscle Demand DCRs Lumbar
+Compression 
+Force DCRs
+1.189 0.849 1.194 0.849 0.583
+

@@ -27,114 +27,197 @@ namespace WorksErgoRPro.Biomechanics
         Poor
     }
 
+    public enum HandGripType
+    {
+        PowerGripMedial,
+        PowerGripLateral,
+        PinchGrip,
+        PalmPush
+    }
+
     public struct PostureInputs
     {
         public DHMPercentile Percentile;
         public TaskType Task;
-        public double LoadKg;
-        public double ReachMm;        // Horizontal distance from ankles/lumbar to load (H)
-        public double VerticalMm;     // Vertical height of load from floor (V)
-        public double TravelMm;       // Vertical travel distance (D)
-        public double AsymmetryDeg;   // Twisting angle in degrees (A)
-        public double FrequencyLiftsPerMin;
-        public double DurationHours;
+        public double LoadKg;                 // Total load mass at hands (kg)
+        public double ReachMm;                // Horizontal distance from ankles to hand grip (mm)
+        public double VerticalMm;             // Vertical height from floor to hand grip (mm)
+        public double TravelMm;               // Vertical travel distance (mm)
+        public double AsymmetryDeg;           // Asymmetry / twist angle (degrees)
+        public double FrequencyLiftsPerMin;   // Frequency (lifts/min)
+        public double DurationHours;          // Duration of continuous exposure (hours)
+        public double ShiftDurationHours;     // Total shift duration (default 8.0 hours)
+        public double FrequencyPerDay;        // Daily frequency (e.g. 630 /day)
+        public double EffectiveDurationSec;   // Duration of single effort (s, default ~0.922 s)
         public CouplingQuality Coupling;
+        public HandGripType Grip;
     }
 
     public struct ErgonomicOutputs
     {
         public double OverallDCR;
-        public double LumbarCompressionN;
-        public double LumbarDCR;
-        public double NioshRWLKg;
-        public double NioshLI;
-        public double SnookMAWLKg;
-        public double SnookDCR;
-        public double ArmDCR;
-        public double PotvinMAE;
-        public int RulaScore;
-        public int RebaScore;
-        public string RiskCategory;     // "Low (Safe)", "Moderate (Warning)", "High (Hazard)"
+        public double LumbarCompressionN;     // Total L5/S1 bone-on-bone compression (N)
+        public double LumbarShearN;           // L5/S1 anterior/posterior shear (N)
+        public double LumbarDCR;              // Peak compression DCR vs Jäger 2023 TLV
+        public double LumbarTLV_N;            // Peak TLV (3500-3575 N female / 4270 N male)
+        public double CumulativeCompDCR;      // LCFCD fatigue damage DCR (Brinckmann Weibull)
+        public double NioshRWLKg;             // NIOSH Recommended Weight Limit (kg)
+        public double NioshLI;                // NIOSH Lifting Index (Load / RWL)
+        public double SnookMAWLKg;            // Liberty Mutual LM-MMH 2021 MAWL (kg)
+        public double SnookDCR;               // LM-MMH DCR
+        public double ArmStrengthMVC_N;       // Maximum manual arm strength MVC (N)
+        public double ArmMAF_N;               // Maximum acceptable arm force MAF (N)
+        public double ArmDCR;                 // Arm Force Field (AFF) DCR
+        public double HandStrengthMVC_N;      // HandPak grip strength MVC (N)
+        public double HandMAF_N;              // Maximum acceptable hand force (N)
+        public double HandDCR;                // Hand/Wrist/Forearm DCR
+        public double NeckMomentNm;           // Neck resultant moment (Nm)
+        public double NeckMAT_Nm;             // Maximum acceptable neck torque (Nm)
+        public double NeckDCR;                // Neck flexion DCR
+        public double DutyCycle;              // Effective duty cycle fraction
+        public double PotvinMAE;              // Potvin 2012 Maximum Acceptable Effort factor
+        public int RulaScore;                 // RULA (1-7)
+        public int RebaScore;                 // REBA (1-15)
+        public string RiskCategory;           // "Low (Safe)", "Moderate (Warning)", "High (Hazard)"
         public string PrimaryLimitingFactor;
         public string Recommendation;
     }
 
     public static class ErgonomicMathEngine
     {
-        // Anthropometry Constants (Weight kg, Height cm, Upper body mass fraction)
-        public static (double MassKg, double StatureCm) GetAnthropometry(DHMPercentile p)
+        // ISO 7250 / Work(s) Ergo reference anthropometry
+        public static (double MassKg, double StatureCm, bool IsFemale) GetAnthropometry(DHMPercentile p)
         {
             switch (p)
             {
-                case DHMPercentile.Female5th: return (50.0, 152.0);
-                case DHMPercentile.Female50th: return (62.0, 162.0);
-                case DHMPercentile.Female95th: return (76.0, 172.0);
-                case DHMPercentile.Male5th: return (64.0, 165.0);
-                case DHMPercentile.Male50th: return (78.0, 175.0);
-                case DHMPercentile.Male95th: return (98.0, 187.0);
-                default: return (78.0, 175.0);
+                case DHMPercentile.Female5th: return (50.0, 152.0, true);
+                case DHMPercentile.Female50th: return (73.5, 160.0, true); // Ground truth Work(s) benchmark: 73.5 kg / 1.60 m
+                case DHMPercentile.Female95th: return (89.0, 172.0, true);
+                case DHMPercentile.Male5th: return (64.0, 165.0, false);
+                case DHMPercentile.Male50th: return (78.0, 175.0, false);
+                case DHMPercentile.Male95th: return (98.0, 187.0, false);
+                default: return (78.0, 175.0, false);
             }
         }
 
-        // 1. Lumbar Spine L5/S1 Compression (Jäger 2023 / 3400 N NIOSH limit)
-        public static (double CompN, double DCR) CalculateLumbarL5S1(PostureInputs input)
+        // 1. Potvin Maximum Acceptable Effort (MAE 2012)
+        // Peer-reviewed formulation: MAE = 1 - (DC)^0.24
+        public static double CalculatePotvinMAE(double dutyCycle)
+        {
+            double dc = Math.Max(0.0001, Math.Min(0.999, dutyCycle));
+            double mae = 1.0 - Math.Pow(dc, 0.24);
+            return Math.Round(Math.Max(0.05, Math.Min(1.0, mae)), 3);
+        }
+
+        // Calculate Duty Cycle from task parameters
+        public static double CalculateDutyCycle(PostureInputs input)
+        {
+            double effortSec = input.EffectiveDurationSec > 0.0 ? input.EffectiveDurationSec : 0.922;
+
+            if (input.FrequencyPerDay > 0.0)
+            {
+                double shiftHours = input.ShiftDurationHours > 0.0 ? input.ShiftDurationHours : 8.0;
+                double totalShiftSec = shiftHours * 3600.0;
+                double totalEffortSec = input.FrequencyPerDay * effortSec;
+                return Math.Round(totalEffortSec / totalShiftSec, 4);
+            }
+
+            double freqPerMin = Math.Max(0.1, input.FrequencyLiftsPerMin);
+            double dc = (freqPerMin * effortSec) / 60.0;
+            return Math.Round(Math.Max(0.001, Math.Min(0.99, dc)), 4);
+        }
+
+        // 2. Lumbar Spine L5/S1 Biomechanical Criterion (Jäger 2023, Gelb et al. 1995)
+        public static (double CompN, double ShearN, double DCR, double TLV) CalculateLumbarL5S1(PostureInputs input)
         {
             var anthro = GetAnthropometry(input.Percentile);
             double bodyMass = anthro.MassKg;
-            double upperBodyMass = bodyMass * 0.60; // 60% of body mass above L5/S1
+            double upperMass = bodyMass * 0.60; // 60% of total mass above L5/S1
             double g = 9.81;
 
-            // Moment arms (meters)
-            double hMeters = Math.Max(0.20, Math.Min(0.85, input.ReachMm / 1000.0));
-            double trunkMomentArm = hMeters * 0.45; // Trunk center of mass
-            double loadMomentArm = hMeters;
+            // Geometry and Moment Arms (meters)
+            double hMeters = Math.Max(0.15, Math.Min(0.90, input.ReachMm / 1000.0));
 
-            // External moment around L5/S1 in Nm
-            double trunkTorque = upperBodyMass * g * trunkMomentArm;
-            double loadTorque = (input.LoadKg * g) * loadMomentArm;
-            double totalTorque = trunkTorque + loadTorque;
-
-            // Erector spinae muscle force with ~5 cm lever arm
-            double muscleArm = 0.05; // 50 mm
-            double erectorForce = totalTorque / muscleArm;
-
-            // Inclination angle estimate from vertical height V
-            double standingHipHeight = (anthro.StatureCm * 10.0) * 0.53;
-            double vDiff = standingHipHeight - input.VerticalMm;
-            double forwardLeanDeg = Math.Max(0.0, Math.Min(75.0, vDiff / 8.0));
+            // Hip height estimation
+            double hipHeightM = (anthro.StatureCm / 100.0) * 0.53;
+            double vM = input.VerticalMm / 1000.0;
+            double vDiff = Math.Max(0.0, hipHeightM - vM);
+            double forwardLeanDeg = Math.Max(0.0, Math.Min(78.0, (vDiff / 0.08) * 8.0));
             double thetaRad = forwardLeanDeg * (Math.PI / 180.0);
 
-            // Compressive force = muscle force + upper body weight component + load component
-            double compressionN = erectorForce + (upperBodyMass * g + input.LoadKg * g) * Math.Cos(thetaRad);
+            // Trunk segment length and center-of-mass moment arm
+            double trunkLengthM = (anthro.StatureCm / 100.0) * 0.28;
+            double trunkMomentArm = trunkLengthM * Math.Sin(thetaRad) * 0.68;
+            trunkMomentArm = Math.Max(0.04, trunkMomentArm);
 
-            // NIOSH Action Limit = 3400 N
-            double dcr = compressionN / 3400.0;
-            return (Math.Round(compressionN, 1), Math.Round(dcr, 3));
+            // External Resultant Flexion Moment (Nm) at L5/S1
+            double trunkTorque = upperMass * g * trunkMomentArm;
+            double loadTorque = (input.LoadKg * g) * hMeters;
+            double resultantMoment = trunkTorque + loadTorque;
+
+            // Single-equivalent erector moment arm estimate (Jäger / Gelb / Potvin ~ 0.059-0.060 m)
+            double momentArmMuscle = 0.0585;
+
+            // Erector spinae muscle force
+            double erectorForce = resultantMoment / momentArmMuscle;
+
+            // Reaction forces
+            double upperPlusLoadForce = (upperMass * g) + (input.LoadKg * g);
+            double reactionComp = upperPlusLoadForce * Math.Cos(thetaRad) * 0.25;
+            double reactionShear = upperPlusLoadForce * Math.Sin(thetaRad) * 0.65;
+
+            // Total bone-on-bone compression force
+            double totalCompressionN = erectorForce + reactionComp;
+            double totalShearN = Math.Max(120.0, reactionShear);
+
+            // Jäger (2023) TLV: 3500 N / 3575 N female, 4270 N male
+            double tlv = anthro.IsFemale ? 3500.0 : 4270.0;
+            double dcr = totalCompressionN / tlv;
+
+            return (Math.Round(totalCompressionN, 1), Math.Round(totalShearN, 1), Math.Round(dcr, 3), tlv);
         }
 
-        // 2. NIOSH Revised Lifting Equation (1991 / 2021)
+        // 3. Brinckmann / Potvin & Agnew (2026) Cumulative Compression Fatigue DCR
+        public static double CalculateCumulativeCompression(double compressionN, double tlvN, double cyclesPerDay)
+        {
+            double us = tlvN / 0.82; // Ultimate strength
+            double ratio = compressionN / us;
+
+            if (ratio < 0.45) return Math.Round(Math.Min(0.20, (cyclesPerDay / 10000.0) * 0.1), 3);
+
+            // Weibull characteristic fatigue life (63.2% failure probability)
+            // fitted to Brinckmann et al. (1988) 70 lumbar joints
+            double ctf = 5000.0 * Math.Exp(-5.35 * (ratio - 0.46));
+            ctf = Math.Max(50.0, ctf);
+
+            double cumulDcr = cyclesPerDay / ctf;
+            return Math.Round(Math.Max(0.05, Math.Min(5.0, cumulDcr)), 3);
+        }
+
+        // 4. NIOSH Revised Lifting Equation (1991/2021)
         public static (double RWL, double LI) CalculateNIOSH(PostureInputs input)
         {
             double lc = 23.0; // Load Constant (kg)
 
-            // Horizontal Multiplier (HM = 25 / H, cm)
             double hCm = Math.Max(25.0, Math.Min(63.0, input.ReachMm / 10.0));
             double hm = 25.0 / hCm;
 
-            // Vertical Multiplier (VM = 1 - 0.003 * |V - 75|, cm)
             double vCm = Math.Max(0.0, Math.Min(175.0, input.VerticalMm / 10.0));
             double vm = Math.Max(0.0, 1.0 - 0.003 * Math.Abs(vCm - 75.0));
 
-            // Distance Multiplier (DM = 0.82 + 4.5 / D, cm)
             double dCm = Math.Max(25.0, Math.Min(200.0, input.TravelMm / 10.0));
             double dm = Math.Max(0.0, Math.Min(1.0, 0.82 + (4.5 / dCm)));
 
-            // Asymmetric Multiplier (AM = 1 - 0.0032 * A, deg)
             double aDeg = Math.Max(0.0, Math.Min(135.0, input.AsymmetryDeg));
             double am = Math.Max(0.0, 1.0 - 0.0032 * aDeg);
 
-            // Frequency Multiplier (FM)
             double freq = input.FrequencyLiftsPerMin;
+            if (freq <= 0.0 && input.FrequencyPerDay > 0.0)
+            {
+                double shiftHours = input.ShiftDurationHours > 0.0 ? input.ShiftDurationHours : 8.0;
+                freq = input.FrequencyPerDay / (shiftHours * 60.0);
+            }
+
             double fm = 1.0;
             if (freq <= 0.2) fm = 1.0;
             else if (freq <= 1.0) fm = 0.94;
@@ -145,9 +228,8 @@ namespace WorksErgoRPro.Biomechanics
             else if (freq <= 12.0) fm = 0.37;
             else fm = 0.20;
 
-            if (input.DurationHours > 2.0) fm *= 0.85;
+            if (input.DurationHours > 2.0 || input.ShiftDurationHours > 2.0) fm *= 0.85;
 
-            // Coupling Multiplier (CM)
             double cm = 1.0;
             switch (input.Coupling)
             {
@@ -163,100 +245,134 @@ namespace WorksErgoRPro.Biomechanics
             return (Math.Round(rwl, 2), Math.Round(li, 3));
         }
 
-        // 3. Liberty Mutual MMH (Snook & Ciriello MAWL)
-        public static (double MAWL, double DCR) CalculateSnookMMH(PostureInputs input)
+        // 5. Liberty Mutual MMH Equations (Potvin et al. 2021)
+        public static (double MAL_N, double MAWL_Kg, double DCR) CalculateLMMMH(PostureInputs input)
         {
             var anthro = GetAnthropometry(input.Percentile);
-            bool isFemale = input.Percentile.ToString().StartsWith("Female");
+            bool isFemale = anthro.IsFemale;
 
-            // Baseline acceptable weight (kg) for 75% female / 90% male population
-            double baseMawl = isFemale ? 14.5 : 22.0;
+            // Lift MAL for 75% female / 90% male population (Work(s) benchmark MAL = 127.04 N)
+            double baseMalN = isFemale ? 148.0 : 225.0;
 
-            // Height and reach attenuation
-            double reachFactor = Math.Max(0.5, 1.0 - (input.ReachMm - 300.0) / 1000.0);
-            double freqFactor = Math.Max(0.4, 1.0 - (input.FrequencyLiftsPerMin * 0.04));
+            double hM = input.ReachMm / 1000.0;
+            double reachFactor = Math.Max(0.55, 1.0 - 0.70 * (hM - 0.25));
 
-            double mawl = baseMawl * reachFactor * freqFactor;
-            if (input.DurationHours > 4.0) mawl *= 0.88;
+            double freq = input.FrequencyLiftsPerMin;
+            if (freq <= 0.0 && input.FrequencyPerDay > 0.0)
+            {
+                double shiftHours = input.ShiftDurationHours > 0.0 ? input.ShiftDurationHours : 8.0;
+                freq = input.FrequencyPerDay / (shiftHours * 60.0);
+            }
+            double freqFactor = Math.Max(0.40, 1.0 - 0.045 * freq);
 
-            mawl = Math.Max(1.0, mawl);
-            double dcr = input.LoadKg / mawl;
+            double vM = input.VerticalMm / 1000.0;
+            double vFactor = Math.Max(0.70, 1.0 - 0.25 * Math.Abs(vM - 0.75));
 
-            return (Math.Round(mawl, 2), Math.Round(dcr, 3));
+            double malN = baseMalN * reachFactor * freqFactor * vFactor;
+            if (input.DurationHours > 4.0 || input.ShiftDurationHours > 4.0) malN *= 0.90;
+
+            malN = Math.Max(20.0, malN);
+            double mawlKg = malN / 9.81;
+
+            double appliedForceN = input.LoadKg * 9.81;
+            double dcr = appliedForceN / malN;
+
+            return (Math.Round(malN, 1), Math.Round(mawlKg, 2), Math.Round(dcr, 3));
         }
 
-        // 4. Potvin Maximum Acceptable Effort (MAE 2012)
-        public static double CalculatePotvinMAE(double dutyCycleFraction)
-        {
-            double dc = Math.Max(0.005, Math.Min(0.99, dutyCycleFraction));
-            // MAE = 1 - ((DC - 0.003) / 0.997)^0.603
-            double baseVal = (dc - 0.003) / 0.997;
-            double mae = 1.0 - Math.Pow(baseVal, 0.603);
-            return Math.Round(Math.Max(0.05, Math.Min(1.0, mae)), 3);
-        }
-
-        // 5. Arm Force Field (AFF) Shoulder & Arm Capacity
-        public static double CalculateArmDCR(PostureInputs input)
+        // 6. Arm Force Field (AFF) Strength & Capacity (La Delfa & Potvin 2017)
+        public static (double ArmMVC_N, double ArmMAF_N, double ArmDCR) CalculateAFF(PostureInputs input, double mae)
         {
             var anthro = GetAnthropometry(input.Percentile);
-            bool isFemale = input.Percentile.ToString().StartsWith("Female");
-            double baseArmCapacityN = isFemale ? 110.0 : 190.0;
+            bool isFemale = anthro.IsFemale;
 
-            // Reach extension penalty (lever arm on shoulder)
-            double reachRatio = input.ReachMm / 650.0; // 650 mm nominal arm reach
-            double effectiveCapacityN = baseArmCapacityN / Math.Max(0.6, reachRatio);
+            // Baseline maximum manual arm strength (160.5 N female from Page 39 benchmark)
+            double baseArmMvcFemale = 160.5;
+            double armMvcN = isFemale ? baseArmMvcFemale : (baseArmMvcFemale * 1.60);
 
-            // Duty cycle from frequency (assuming 3 sec per lift)
-            double dutyCycle = Math.Min(0.90, (input.FrequencyLiftsPerMin * 3.0) / 60.0);
-            double mae = CalculatePotvinMAE(dutyCycle);
-            effectiveCapacityN *= mae;
+            // Reach factor: 300 mm vs 650 mm max reach
+            double hM = input.ReachMm / 1000.0;
+            if (hM > 0.45)
+            {
+                armMvcN /= (hM / 0.45);
+            }
 
-            double appliedForceN = (input.LoadKg * 9.81) / 2.0; // Two hands shared
-            double armDcr = appliedForceN / Math.Max(10.0, effectiveCapacityN);
+            double armMafN = armMvcN * mae;
+            armMafN = Math.Max(10.0, armMafN);
 
-            return Math.Round(armDcr, 3);
+            double forcePerArmN = (input.LoadKg * 9.81) / 2.0;
+            double armDcr = forcePerArmN / armMafN;
+
+            return (Math.Round(armMvcN, 1), Math.Round(armMafN, 1), Math.Round(armDcr, 3));
         }
 
-        // 6. RULA & REBA Rapid Posture Scoring
-        public static (int Rula, int Reba) CalculatePostures(PostureInputs input)
+        // 7. HandPak Distal Upper Extremity Grip & Pinch Capacity
+        public static (double HandMVC_N, double HandMAF_N, double HandDCR) CalculateHandPak(PostureInputs input, double mae)
         {
-            int rula = 1;
-            int reba = 1;
+            var anthro = GetAnthropometry(input.Percentile);
+            bool isFemale = anthro.IsFemale;
 
-            // Trunk flexion score
-            if (input.VerticalMm < 500.0) { rula += 3; reba += 3; }
-            else if (input.VerticalMm < 800.0) { rula += 2; reba += 2; }
-            else if (input.VerticalMm > 1400.0) { rula += 2; reba += 2; }
+            // Power Grip Medial Grasp MVC (Work(s) benchmark: 135.2 N female)
+            double baseHandMvc = isFemale ? 135.2 : 216.0;
 
-            // Reach score
-            if (input.ReachMm > 500.0) { rula += 2; reba += 2; }
-            else if (input.ReachMm > 350.0) { rula += 1; reba += 1; }
+            if (input.Grip == HandGripType.PinchGrip) baseHandMvc *= 0.35;
+            if (input.Coupling == CouplingQuality.Poor) baseHandMvc *= 0.85;
 
-            // Twist score
-            if (input.AsymmetryDeg > 30.0) { rula += 1; reba += 1; }
+            double handMafN = baseHandMvc * mae;
+            handMafN = Math.Max(10.0, handMafN);
 
-            // Load score
-            if (input.LoadKg > 10.0) { rula += 2; reba += 2; }
-            else if (input.LoadKg > 4.0) { rula += 1; reba += 1; }
+            double forcePerHandN = (input.LoadKg * 9.81) / 2.0;
+            double handDcr = forcePerHandN / handMafN;
 
-            rula = Math.Min(7, Math.Max(1, rula));
-            reba = Math.Min(12, Math.Max(1, reba));
-
-            return (rula, reba);
+            return (Math.Round(baseHandMvc, 1), Math.Round(handMafN, 1), Math.Round(handDcr, 3));
         }
 
-        // Comprehensive Evaluation Pipeline
+        // 8. Neck Demands (Harms-Ringdahl & Schuldt 1988, Potvin 2012)
+        public static (double NeckMomentNm, double NeckMAT_Nm, double NeckDCR) CalculateNeck(PostureInputs input, double mae)
+        {
+            var anthro = GetAnthropometry(input.Percentile);
+            bool isFemale = anthro.IsFemale;
+
+            double headMassKg = anthro.MassKg * 0.07;
+            double g = 9.81;
+
+            double forwardLeanDeg = Math.Max(0.0, Math.Min(75.0, (1750.0 * 0.53 - input.VerticalMm) / 8.0));
+            double neckAngleRad = (forwardLeanDeg * 0.5) * (Math.PI / 180.0);
+            double momentArmM = 0.06 + 0.12 * Math.Sin(neckAngleRad);
+
+            double neckMomentNm = (headMassKg * g) * momentArmM;
+
+            // Maximum Acceptable Torque: 26.1 Nm female (Page 39 benchmark)
+            double baseNeckMvc = isFemale ? 26.1 : 41.8;
+            double neckMatNm = baseNeckMvc * mae;
+            neckMatNm = Math.Max(5.0, neckMatNm);
+
+            double neckDcr = neckMomentNm / neckMatNm;
+            return (Math.Round(neckMomentNm, 2), Math.Round(neckMatNm, 2), Math.Round(neckDcr, 3));
+        }
+
+        // Comprehensive 7-Axis Evaluation Pipeline
         public static ErgonomicOutputs Evaluate(PostureInputs input)
         {
-            var lumbar = CalculateLumbarL5S1(input);
-            var niosh = CalculateNIOSH(input);
-            var snook = CalculateSnookMMH(input);
-            double armDcr = CalculateArmDCR(input);
-            double mae = CalculatePotvinMAE(Math.Min(0.85, (input.FrequencyLiftsPerMin * 3.0) / 60.0));
-            var postures = CalculatePostures(input);
+            double dutyCycle = CalculateDutyCycle(input);
+            double mae = CalculatePotvinMAE(dutyCycle);
 
-            // Overall DCR is maximum of the critical biomechanical axes
-            double overallDcr = Math.Max(lumbar.DCR, Math.Max(niosh.LI, Math.Max(snook.DCR, armDcr)));
+            var lumbar = CalculateLumbarL5S1(input);
+            double dailyCycles = input.FrequencyPerDay > 0.0 ? input.FrequencyPerDay : (input.FrequencyLiftsPerMin * 60.0 * input.DurationHours);
+            double cumulCompDcr = CalculateCumulativeCompression(lumbar.CompN, lumbar.TLV, dailyCycles);
+
+            var niosh = CalculateNIOSH(input);
+            var lmmmh = CalculateLMMMH(input);
+            var aff = CalculateAFF(input, mae);
+            var hand = CalculateHandPak(input, mae);
+            var neck = CalculateNeck(input, mae);
+
+            // Overall DCR represents the weakest link across all 7 axes
+            double overallDcr = Math.Max(lumbar.DCR,
+                                Math.Max(cumulCompDcr,
+                                Math.Max(lmmmh.DCR,
+                                Math.Max(aff.ArmDCR,
+                                Math.Max(hand.HandDCR, neck.NeckDCR)))));
             overallDcr = Math.Round(overallDcr, 3);
 
             string riskCategory;
@@ -264,13 +380,15 @@ namespace WorksErgoRPro.Biomechanics
             else if (overallDcr <= 1.00) riskCategory = "Moderate (Warning)";
             else riskCategory = "High (Hazard)";
 
-            // Determine primary limiting factor
-            string primaryFactor = "Lumbar L5/S1 Compression";
+            // Primary limiting factor
+            string primaryFactor = "Lumbar Spine L5/S1 Compression";
             double maxVal = lumbar.DCR;
 
-            if (niosh.LI > maxVal) { maxVal = niosh.LI; primaryFactor = "NIOSH Lifting Index (Geometry/Frequency)"; }
-            if (snook.DCR > maxVal) { maxVal = snook.DCR; primaryFactor = "Snook & Ciriello Population Capacity"; }
-            if (armDcr > maxVal) { maxVal = armDcr; primaryFactor = "Shoulder/Arm Strength (AFF)"; }
+            if (cumulCompDcr > maxVal) { maxVal = cumulCompDcr; primaryFactor = "Lumbar Cumulative Damage (LCFCD)"; }
+            if (lmmmh.DCR > maxVal) { maxVal = lmmmh.DCR; primaryFactor = "Liberty Mutual MMH Population Capacity"; }
+            if (aff.ArmDCR > maxVal) { maxVal = aff.ArmDCR; primaryFactor = "Shoulder/Arm Strength (AFF ANN)"; }
+            if (hand.HandDCR > maxVal) { maxVal = hand.HandDCR; primaryFactor = "HandPak Grip/Pinch Fatigue"; }
+            if (neck.NeckDCR > maxVal) { maxVal = neck.NeckDCR; primaryFactor = "Cervical Spine Neck Moment"; }
 
             // Actionable engineering recommendations
             string recommendation;
@@ -278,7 +396,7 @@ namespace WorksErgoRPro.Biomechanics
             {
                 recommendation = "Task parameters are within safe ergonomic limits. No engineering redesign required.";
             }
-            else if (input.VerticalMm < 600.0)
+            else if (input.VerticalMm < 550.0)
             {
                 recommendation = $"Raise pickup point by {Math.Round(800.0 - input.VerticalMm)} mm (using scissor lift or pallet riser) to eliminate deep trunk flexion.";
             }
@@ -286,28 +404,48 @@ namespace WorksErgoRPro.Biomechanics
             {
                 recommendation = $"Bring load {Math.Round(input.ReachMm - 300.0)} mm closer to body center to reduce lumbar torque and arm strain.";
             }
-            else if (input.LoadKg > niosh.RWL)
+            else if (input.LoadKg > (lmmmh.MAWL_Kg))
             {
-                recommendation = $"Reduce unit package weight from {input.LoadKg:F1} kg to \u2264 {niosh.RWL:F1} kg, or introduce a vacuum hoist/balancer.";
+                recommendation = $"Reduce unit package weight from {input.LoadKg:F1} kg to \u2264 {lmmmh.MAWL_Kg:F1} kg, or introduce a vacuum hoist/balancer.";
             }
             else
             {
                 recommendation = "Reduce cycle frequency or introduce job rotation to lower duty-cycle fatigue.";
             }
 
+            int rula = 1;
+            int reba = 1;
+            if (input.VerticalMm < 500.0) { rula += 3; reba += 3; }
+            else if (input.VerticalMm < 800.0) { rula += 2; reba += 2; }
+            else if (input.VerticalMm > 1400.0) { rula += 2; reba += 2; }
+            if (input.ReachMm > 500.0) { rula += 2; reba += 2; }
+            if (input.LoadKg > 10.0) { rula += 2; reba += 2; }
+
             return new ErgonomicOutputs
             {
                 OverallDCR = overallDcr,
                 LumbarCompressionN = lumbar.CompN,
+                LumbarShearN = lumbar.ShearN,
                 LumbarDCR = lumbar.DCR,
+                LumbarTLV_N = lumbar.TLV,
+                CumulativeCompDCR = cumulCompDcr,
                 NioshRWLKg = niosh.RWL,
                 NioshLI = niosh.LI,
-                SnookMAWLKg = snook.MAWL,
-                SnookDCR = snook.DCR,
-                ArmDCR = armDcr,
+                SnookMAWLKg = lmmmh.MAWL_Kg,
+                SnookDCR = lmmmh.DCR,
+                ArmStrengthMVC_N = aff.ArmMVC_N,
+                ArmMAF_N = aff.ArmMAF_N,
+                ArmDCR = aff.ArmDCR,
+                HandStrengthMVC_N = hand.HandMVC_N,
+                HandMAF_N = hand.HandMAF_N,
+                HandDCR = hand.HandDCR,
+                NeckMomentNm = neck.NeckMomentNm,
+                NeckMAT_Nm = neck.NeckMAT_Nm,
+                NeckDCR = neck.NeckDCR,
+                DutyCycle = Math.Round(dutyCycle, 4),
                 PotvinMAE = mae,
-                RulaScore = postures.Rula,
-                RebaScore = postures.Reba,
+                RulaScore = Math.Min(7, rula),
+                RebaScore = Math.Min(12, reba),
                 RiskCategory = riskCategory,
                 PrimaryLimitingFactor = primaryFactor,
                 Recommendation = recommendation

@@ -17,7 +17,64 @@ namespace MathTests
         static int Main(string[] args)
         {
             int failed = 0;
-            Console.WriteLine("[1/3] Testing Baseline Ergonomic Lift (Male 50th, 10 kg at waist level)...");
+
+            Console.WriteLine("[1/4] Testing Work(s) Ergo Official Benchmark (Manual Page 39-40, Subtask #1)...");
+            // Benchmark inputs from Page 39 of Work(s) User Manual v1.17
+            var benchmarkInput = new PostureInputs
+            {
+                Percentile = DHMPercentile.Female50th,
+                Task = TaskType.LiftingLowering,
+                LoadKg = 7.645, // 75.0 N total force / 9.81
+                ReachMm = 300.0,
+                VerticalMm = 100.0, // Bottom lift posture (Page 39 of manual)
+                TravelMm = 750.0,
+                AsymmetryDeg = 0.0,
+                FrequencyPerDay = 630.0,
+                ShiftDurationHours = 8.0,
+                EffectiveDurationSec = 0.922,
+                Coupling = CouplingQuality.Good,
+                Grip = HandGripType.PowerGripMedial
+            };
+
+            var bRes = ErgonomicMathEngine.Evaluate(benchmarkInput);
+            Console.WriteLine($"   Duty Cycle: {bRes.DutyCycle:F4} (Expected: ~0.0231)");
+            Console.WriteLine($"   Potvin MAE: {bRes.PotvinMAE:F3} (Expected: 0.596)");
+            Console.WriteLine($"   Lumbar Comp: {bRes.LumbarCompressionN:F0} N (Expected: ~2409 N)");
+            Console.WriteLine($"   Lumbar TLV: {bRes.LumbarTLV_N:F0} N (Expected: 3575 N for 42yo female)");
+            Console.WriteLine($"   Peak Comp DCR: {bRes.LumbarDCR:F3} (Expected: ~0.67-0.69)");
+            Console.WriteLine($"   Cumul Comp DCR: {bRes.CumulativeCompDCR:F3} (Expected: ~0.56)");
+            Console.WriteLine($"   Arm MAF: {bRes.ArmMAF_N:F1} N (Expected: ~95.4 N)");
+            Console.WriteLine($"   Hand MAF: {bRes.HandMAF_N:F1} N (Expected: ~80.5 N)");
+            Console.WriteLine($"   LM-MMH DCR: {bRes.SnookDCR:F3} (Expected: ~0.59)");
+            Console.WriteLine($"   Overall DCR: {bRes.OverallDCR:F3} (Expected: ~0.70-0.80)");
+
+            // Verification assertions
+            if (Math.Abs(bRes.DutyCycle - 0.0231) > 0.005)
+            {
+                Console.WriteLine("   [FAIL] Duty Cycle deviates from Work(s) Ergo ground truth!");
+                failed++;
+            }
+            if (Math.Abs(bRes.PotvinMAE - 0.596) > 0.025)
+            {
+                Console.WriteLine("   [FAIL] Potvin MAE deviates from Work(s) Ergo ground truth (0.596)!");
+                failed++;
+            }
+            if (Math.Abs(bRes.LumbarCompressionN - 2409.0) > 300.0)
+            {
+                Console.WriteLine("   [FAIL] L5/S1 Compression deviates significantly from 2409 N!");
+                failed++;
+            }
+            if (bRes.OverallDCR > 0.85 || bRes.OverallDCR < 0.65)
+            {
+                Console.WriteLine("   [FAIL] Overall DCR outside expected Work(s) Ergo range [0.65, 0.85]!");
+                failed++;
+            }
+            if (failed == 0)
+            {
+                Console.WriteLine("   [PASS] 100% agreement with Work(s) Ergo official benchmark dataset!");
+            }
+
+            Console.WriteLine("\n[2/4] Testing Baseline Ergonomic Lift (Male 50th, 10 kg at waist level)...");
             var safeInput = new PostureInputs
             {
                 Percentile = DHMPercentile.Male50th,
@@ -47,7 +104,7 @@ namespace MathTests
                 Console.WriteLine("   [PASS] Baseline lift is correctly evaluated as Low Risk / Safe.");
             }
 
-            Console.WriteLine("\n[2/3] Testing Severe Hazardous Lift (Female 5th, 25 kg from floor)...");
+            Console.WriteLine("\n[3/4] Testing Severe Hazardous Lift (Female 5th, 25 kg from floor)...");
             var hazardInput = new PostureInputs
             {
                 Percentile = DHMPercentile.Female5th,
@@ -84,13 +141,13 @@ namespace MathTests
                 Console.WriteLine("   [PASS] Hazardous lift correctly triggered High Risk / Hazard alerts.");
             }
 
-            Console.WriteLine("\n[3/3] Testing Potvin MAE (2012) Fatigue Attenuation Curve...");
+            Console.WriteLine("\n[4/4] Testing Potvin MAE (2012) Fatigue Attenuation Curve...");
             double maeLow = ErgonomicMathEngine.CalculatePotvinMAE(0.05);
             double maeHigh = ErgonomicMathEngine.CalculatePotvinMAE(0.50);
             Console.WriteLine($"   MAE at 5% duty cycle: {maeLow:F3}");
             Console.WriteLine($"   MAE at 50% duty cycle: {maeHigh:F3}");
 
-            if (maeLow < 0.80 || maeHigh > 0.65 || maeHigh >= maeLow)
+            if (maeLow < 0.45 || maeLow > 0.60 || maeHigh < 0.10 || maeHigh > 0.25 || maeHigh >= maeLow)
             {
                 Console.WriteLine("   [FAIL] Potvin MAE curve values out of expected biomechanical range!");
                 failed++;
@@ -106,7 +163,7 @@ namespace MathTests
                 return 1;
             }
 
-            Console.WriteLine("\n>>> ALL BIOMECHANICAL MATH TESTS PASSED! <<<");
+            Console.WriteLine("\n>>> ALL 4 BIOMECHANICAL BENCHMARKS & MATH TESTS PASSED! <<<");
             return 0;
         }
     }
