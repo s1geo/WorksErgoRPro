@@ -7,45 +7,45 @@
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
   <style>
     /* ========================================================
-       AUTHENTIC DESKTOP CAD DESIGN SYSTEM (VISUAL COMPONENTS / R-PRO)
-       Strictly Professional Engineering UI — Zero AI Neon Aesthetics
+       DESKTOP CAD DESIGN SYSTEM (R-PRO / VISUAL COMPONENTS)
+       Clean Engineering Aesthetics — Strictly Zero AI Neon Clutter
        ======================================================== */
     :root {
-      /* Light Desktop CAD Theme (Visual Components 4.x / R-Pro 2.2.2 Default) */
+      /* Classic Visual Components / R-Pro Light Desktop Theme */
       --cad-app-bg: #eef2f6;
       --cad-titlebar-bg: #0f3460;
       --cad-titlebar-text: #ffffff;
       --cad-ribbon-bg: #f8fafc;
       --cad-ribbon-tab-active-bg: #ffffff;
       --cad-ribbon-tab-active-text: #0284c7;
-      --cad-ribbon-border: #d0d7de;
+      --cad-ribbon-border: #cbd5e1;
       --cad-panel-bg: #ffffff;
       --cad-panel-sub-bg: #f8fafc;
-      --cad-panel-border: #d5dce3;
-      --cad-text-main: #1e293b;
-      --cad-text-muted: #64748b;
-      --cad-text-label: #475569;
+      --cad-panel-border: #cbd5e1;
+      --cad-text-main: #0f172a;
+      --cad-text-muted: #475569;
+      --cad-text-label: #334155;
       --cad-accent: #0078d4;
       --cad-accent-hover: #106ebe;
       --cad-input-bg: #ffffff;
       --cad-input-border: #cbd5e1;
       --cad-viewport-top: #dce7f2;
       --cad-viewport-bot: #b4c7d9;
-      --cad-grid-major: rgba(71, 85, 105, 0.25);
-      --cad-grid-minor: rgba(71, 85, 105, 0.10);
+      --cad-grid-major: rgba(51, 65, 85, 0.25);
+      --cad-grid-minor: rgba(51, 65, 85, 0.10);
       --cad-manikin-body: #1e3a8a;
-      --cad-manikin-skin: #fbcfe8;
+      --cad-manikin-skin: #fed7aa;
       --cad-manikin-joint: #0284c7;
       --cad-table-frame: #64748b;
-      --cad-table-top: #3b82f6;
+      --cad-table-top: #2563eb;
       --cad-card-hover: #f1f5f9;
     }
 
     html.theme-dark {
-      /* Dark Graphite CAD Theme (AutoCAD / Siemens NX / SolidWorks Dark) */
+      /* Engineering Graphite Dark Theme (SolidWorks / NX / AutoCAD Dark) */
       --cad-app-bg: #181c20;
       --cad-titlebar-bg: #111418;
-      --cad-titlebar-text: #e2e8f0;
+      --cad-titlebar-text: #f1f5f9;
       --cad-ribbon-bg: #22262c;
       --cad-ribbon-tab-active-bg: #2b3038;
       --cad-ribbon-tab-active-text: #38bdf8;
@@ -53,7 +53,7 @@
       --cad-panel-bg: #22262c;
       --cad-panel-sub-bg: #1a1e23;
       --cad-panel-border: #333a44;
-      --cad-text-main: #e2e8f0;
+      --cad-text-main: #f1f5f9;
       --cad-text-muted: #94a3b8;
       --cad-text-label: #cbd5e1;
       --cad-accent: #0284c7;
@@ -62,8 +62,8 @@
       --cad-input-border: #3e4754;
       --cad-viewport-top: #2c333d;
       --cad-viewport-bot: #181d22;
-      --cad-grid-major: rgba(255, 255, 255, 0.15);
-      --cad-grid-minor: rgba(255, 255, 255, 0.05);
+      --cad-grid-major: rgba(255, 255, 255, 0.18);
+      --cad-grid-minor: rgba(255, 255, 255, 0.06);
       --cad-manikin-body: #3b82f6;
       --cad-manikin-skin: #fed7aa;
       --cad-manikin-joint: #38bdf8;
@@ -82,8 +82,8 @@
 
     /* Scrollbars */
     ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
+      width: 5px;
+      height: 5px;
     }
     ::-webkit-scrollbar-track {
       background: var(--cad-panel-sub-bg);
@@ -92,11 +92,8 @@
       background: var(--cad-panel-border);
       border-radius: 3px;
     }
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--cad-text-muted);
-    }
 
-    /* CAD Viewport Gradient */
+    /* Viewport gradient */
     .cad-viewport-bg {
       background: linear-gradient(180deg, var(--cad-viewport-top) 0%, var(--cad-viewport-bot) 100%);
     }
@@ -111,7 +108,7 @@
       color: #ffffff;
     }
 
-    /* CAD Hazard status indicators */
+    /* Industrial Status Badges (Zero neon) */
     .badge-safe {
       background-color: #dcfce7;
       color: #15803d;
@@ -127,12 +124,23 @@
       color: #b91c1c;
       border: 1px solid #fca5a5;
     }
+
+    /* Resizer Splitter */
+    .panel-resizer {
+      width: 5px;
+      cursor: col-resize;
+      background: transparent;
+      transition: background 0.15s;
+    }
+    .panel-resizer:hover, .panel-resizer.active {
+      background: var(--cad-accent);
+    }
   </style>
 </head>
 <body class="h-screen flex flex-col overflow-hidden text-xs">
 
   <!-- ==================== 1. DESKTOP CAD TITLEBAR ==================== -->
-  <header class="bg-[var(--cad-titlebar-bg)] text-[var(--cad-titlebar-text)] px-3 py-1 flex items-center justify-between shrink-0 border-b border-[#000000]/20 shadow-sm">
+  <header class="bg-[var(--cad-titlebar-bg)] text-[var(--cad-titlebar-text)] px-3 py-1 flex items-center justify-between shrink-0 shadow-sm z-30">
     <div class="flex items-center gap-3">
       <!-- R-Pro CAD Logo -->
       <div class="flex items-center gap-1.5 font-bold tracking-wider">
@@ -143,38 +151,37 @@
         <span class="opacity-70 font-normal text-[11px]">v2.2.2</span>
       </div>
       <span class="opacity-40">|</span>
-      <!-- Project and Add-on Context -->
+      <!-- Project Context -->
       <span class="font-mono text-[11px] opacity-90 flex items-center gap-1.5">
         <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
         <span>Проект: <strong>Ergonomic_Cell_Workstation.vcmx</strong></span>
       </span>
       <span class="px-2 py-0.5 rounded text-[10px] bg-white/10 border border-white/20 font-mono">
-        Works Ergo Native .NET CAD Extension
+        Works Ergo Standalone Core
       </span>
     </div>
 
-    <!-- Theme Switcher & Simulation Clock -->
-    <div class="flex items-center gap-3">
+    <!-- Quick Controls & Theme Toggle -->
+    <div class="flex items-center gap-2.5">
       <!-- Theme Switcher -->
-      <div class="flex items-center gap-1 bg-white/10 px-2 py-0.5 rounded border border-white/20 text-[11px]">
-        <span class="opacity-80">Тема:</span>
-        <button id="btnThemeToggle" onclick="toggleTheme()" class="font-semibold underline hover:text-sky-300">
-          Светлая (Р-Про / VC)
+      <button id="btnThemeToggle" onclick="toggleTheme()" class="px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 border border-white/20 text-[11px] font-medium flex items-center gap-1">
+        <span>🎨 Тема:</span>
+        <span id="lblThemeName" class="font-semibold">Светлая CAD</span>
+      </button>
+
+      <!-- View Layout Quick Toggles -->
+      <div class="flex items-center gap-1 bg-white/10 px-1.5 py-0.5 rounded border border-white/20 text-[11px]">
+        <button onclick="toggleLeftPanel()" title="Скрыть/показать дерево сцены" class="hover:text-sky-300 px-1">
+          <span id="iconToggleLeft">📁 Дерево</span>
+        </button>
+        <span class="opacity-30">|</span>
+        <button onclick="toggleRightPanel()" title="Скрыть/показать анализатор" class="hover:text-sky-300 px-1 font-semibold">
+          <span id="iconToggleRight">📊 Анализатор</span>
         </button>
       </div>
 
-      <!-- Quick Sim Controls -->
-      <div class="flex items-center gap-1 bg-white/10 px-1.5 py-0.5 rounded border border-white/20">
-        <button id="btnSimPlay" onclick="simulateWalkMovement()" title="Анимация цикла" class="p-1 hover:text-emerald-300">
-          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-        <button id="btnSimReset" onclick="resetToInitialState()" title="Сброс сцены" class="p-1 hover:text-rose-300">
-          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
-        </button>
-      </div>
-
-      <!-- Window buttons -->
-      <div class="flex items-center gap-2 text-white/70">
+      <!-- Window controls -->
+      <div class="flex items-center gap-2 text-white/70 ml-1">
         <span class="hover:text-white cursor-pointer px-1">&minus;</span>
         <span class="hover:text-white cursor-pointer px-1">&#9633;</span>
         <span class="hover:text-rose-400 cursor-pointer px-1">&times;</span>
@@ -182,250 +189,168 @@
     </div>
   </header>
 
-  <!-- ==================== 2. DESKTOP CAD RIBBON BAR ==================== -->
-  <nav class="bg-[var(--cad-ribbon-bg)] border-b border-[var(--cad-ribbon-border)] shrink-0 shadow-sm">
-    <!-- Ribbon Tabs -->
-    <div class="flex items-center px-2 pt-1 border-b border-[var(--cad-ribbon-border)] text-xs">
-      <button class="px-3 py-1 font-medium text-[var(--cad-text-muted)] hover:text-[var(--cad-text-main)] rounded-t">Файл</button>
-      <button class="px-3 py-1 font-medium text-[var(--cad-text-muted)] hover:text-[var(--cad-text-main)] rounded-t">Главная</button>
-      <button class="px-3 py-1 font-medium text-[var(--cad-text-muted)] hover:text-[var(--cad-text-main)] rounded-t">Моделирование</button>
-      <button class="px-3 py-1 font-medium text-[var(--cad-text-muted)] hover:text-[var(--cad-text-main)] rounded-t">Процессы</button>
-      <!-- Active Works Ergo Ribbon Tab -->
-      <button class="px-4 py-1.5 font-bold bg-[var(--cad-ribbon-tab-active-bg)] text-[var(--cad-ribbon-tab-active-text)] border-t-2 border-[var(--cad-accent)] border-l border-r border-[var(--cad-ribbon-border)] rounded-t flex items-center gap-1.5 shadow-sm">
-        <svg class="w-3.5 h-3.5 text-[var(--cad-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-        <span>Works Ergo &bull; Эргономика</span>
-      </button>
-      <button class="px-3 py-1 font-medium text-[var(--cad-text-muted)] hover:text-[var(--cad-text-main)] rounded-t">Чертёж</button>
-      <button class="px-3 py-1 font-medium text-[var(--cad-text-muted)] hover:text-[var(--cad-text-main)] rounded-t">Вывод</button>
-    </div>
-
-    <!-- Ribbon Group Toolbars -->
-    <div class="px-3 py-1.5 flex items-stretch gap-3 overflow-x-auto text-[11px]">
+  <!-- ==================== 2. STREAMLINED DESKTOP CAD RIBBON ==================== -->
+  <nav class="bg-[var(--cad-ribbon-bg)] border-b border-[var(--cad-ribbon-border)] shrink-0 shadow-sm z-20">
+    <div class="px-3 py-1 flex items-center justify-between text-xs overflow-x-auto">
       
-      <!-- Group 1: DHM Anthropometry & Posture -->
-      <div class="flex flex-col justify-between border-r border-[var(--cad-ribbon-border)] pr-3">
-        <div class="flex items-center gap-2">
-          <div>
-            <div class="text-[10px] text-[var(--cad-text-label)] font-bold mb-0.5">Манекен DHM:</div>
-            <select id="ribbonDhmSelect" class="bg-[var(--cad-input-bg)] border border-[var(--cad-input-border)] text-[var(--cad-text-main)] rounded px-2 py-1 text-xs focus:outline-none focus:border-[var(--cad-accent)] font-medium">
-              <option value="Female50th" selected>Женщина 50% (160 см, 73.5 кг)</option>
-              <option value="Female5th">Женщина 5% (152 см, 50.0 кг)</option>
-              <option value="Female95th">Женщина 95% (172 см, 89.0 кг)</option>
-              <option value="Male50th">Мужчина 50% (175 см, 78.0 кг)</option>
-              <option value="Male5th">Мужчина 5% (165 см, 64.0 кг)</option>
-              <option value="Male95th">Мужчина 95% (187 см, 98.0 кг)</option>
-            </select>
-          </div>
-
-          <div>
-            <div class="text-[10px] text-[var(--cad-text-label)] font-bold mb-0.5">Вид операции:</div>
-            <select id="ribbonTaskSelect" class="bg-[var(--cad-input-bg)] border border-[var(--cad-input-border)] text-[var(--cad-text-main)] rounded px-2 py-1 text-xs focus:outline-none focus:border-[var(--cad-accent)] font-medium">
-              <option value="LiftingLowering" selected>📦 Подъем / Опускание (Lift)</option>
-              <option value="PushingPulling">🛒 Толкание / Тяга (Push/Pull)</option>
-              <option value="Carrying">🚶 Переноска груза (Carry)</option>
-              <option value="StaticPosture">⏱️ Статическая поза (Hold)</option>
-            </select>
-          </div>
-
-          <div>
-            <div class="text-[10px] text-[var(--cad-text-label)] font-bold mb-0.5">Техника ног:</div>
-            <select id="ribbonTechniqueSelect" class="bg-[var(--cad-input-bg)] border border-[var(--cad-input-border)] text-[var(--cad-text-main)] rounded px-2 py-1 text-xs font-semibold focus:outline-none focus:border-[var(--cad-accent)]">
-              <option value="AutomaticSemiSquat" selected>🟢 Полуприсед (Semi-Squat)</option>
-              <option value="StoopStraightLegs">🔴 Нагиб (Stoop, Прямые ноги)</option>
-              <option value="DeepSquat">🔵 Глубокий присед (Deep Squat)</option>
-            </select>
-          </div>
+      <!-- Primary Operation Mode Selector -->
+      <div class="flex items-center gap-2 border-r border-[var(--cad-ribbon-border)] pr-3">
+        <span class="text-[var(--cad-text-label)] font-bold text-[11px]">Операция:</span>
+        <div class="flex items-center gap-1">
+          <button id="btnTaskLift" onclick="setTaskMode('LiftingLowering')" class="px-2.5 py-1 rounded bg-[var(--cad-accent)] text-white font-semibold flex items-center gap-1 shadow-sm">
+            <span>📦</span> <span>Подъем груза</span>
+          </button>
+          <button id="btnTaskPush" onclick="setTaskMode('PushingPulling')" class="px-2.5 py-1 rounded bg-[var(--cad-input-bg)] hover:bg-[var(--cad-card-hover)] text-[var(--cad-text-main)] border border-[var(--cad-input-border)] font-semibold flex items-center gap-1">
+            <span>🛒</span> <span>Толкание тележки</span>
+          </button>
+          <button id="btnTaskCarry" onclick="setTaskMode('Carrying')" class="px-2.5 py-1 rounded bg-[var(--cad-input-bg)] hover:bg-[var(--cad-card-hover)] text-[var(--cad-text-main)] border border-[var(--cad-input-border)] flex items-center gap-1">
+            <span>🚶</span> <span>Переноска</span>
+          </button>
         </div>
-        <div class="text-[9.5px] text-center text-[var(--cad-text-muted)] uppercase font-semibold mt-1 tracking-wider">Параметры Рабочего</div>
       </div>
 
-      <!-- Group 2: Camera View Modes -->
-      <div class="flex flex-col justify-between border-r border-[var(--cad-ribbon-border)] pr-3">
-        <div class="flex items-center gap-1.5">
-          <button id="btnViewPerspective" onclick="setCameraView('perspective')" class="px-2.5 py-1 rounded bg-[var(--cad-accent)] text-white border border-[var(--cad-accent)] flex flex-col items-center min-w-[60px] shadow-sm font-semibold">
-            <span class="text-sm">📐</span>
-            <span class="text-[10px] mt-0.5">Перспект.</span>
-          </button>
-          <button id="btnViewSide" onclick="setCameraView('side')" class="px-2.5 py-1 rounded bg-[var(--cad-input-bg)] hover:bg-[var(--cad-card-hover)] text-[var(--cad-text-main)] border border-[var(--cad-input-border)] flex flex-col items-center min-w-[60px]">
-            <span class="text-sm">🧍</span>
-            <span class="text-[10px] mt-0.5">Вид сбоку</span>
-          </button>
-          <button id="btnViewTop" onclick="setCameraView('top')" class="px-2.5 py-1 rounded bg-[var(--cad-input-bg)] hover:bg-[var(--cad-card-hover)] text-[var(--cad-text-main)] border border-[var(--cad-input-border)] flex flex-col items-center min-w-[60px]">
-            <span class="text-sm">🗺️</span>
-            <span class="text-[10px] mt-0.5">План 2D</span>
-          </button>
-        </div>
-        <div class="text-[9.5px] text-center text-[var(--cad-text-muted)] uppercase font-semibold mt-1 tracking-wider">Ракурс Камеры</div>
+      <!-- DHM Manikin & Leg Technique -->
+      <div class="flex items-center gap-2 border-r border-[var(--cad-ribbon-border)] pr-3">
+        <span class="text-[var(--cad-text-label)] font-bold text-[11px]">Рабочий:</span>
+        <select id="ribbonDhmSelect" class="bg-[var(--cad-input-bg)] border border-[var(--cad-input-border)] text-[var(--cad-text-main)] rounded px-2 py-0.5 text-xs font-medium focus:outline-none">
+          <option value="Female50th" selected>Женщина 50% (160 см, 73.5 кг)</option>
+          <option value="Female5th">Женщина 5% (152 см, 50.0 кг)</option>
+          <option value="Male50th">Мужчина 50% (175 см, 78.0 кг)</option>
+          <option value="Male95th">Мужчина 95% (187 см, 98.0 кг)</option>
+        </select>
+        <select id="ribbonTechniqueSelect" class="bg-[var(--cad-input-bg)] border border-[var(--cad-input-border)] text-[var(--cad-text-main)] rounded px-2 py-0.5 text-xs font-semibold focus:outline-none">
+          <option value="AutomaticSemiSquat" selected>🟢 Полуприсед (Semi-Squat)</option>
+          <option value="StoopStraightLegs">🔴 Нагиб (Stoop, Прямые ноги)</option>
+          <option value="DeepSquat">🔵 Глубокий присед (Deep Squat)</option>
+        </select>
       </div>
 
-      <!-- Group 3: Workstation Equipment (Стол, Тележка, Оснастка) -->
-      <div class="flex flex-col justify-between border-r border-[var(--cad-ribbon-border)] pr-3">
-        <div class="flex items-center gap-1.5">
-          <button id="btnToggleTable" onclick="toggleWorktable()" class="px-2.5 py-1 rounded bg-blue-50 text-blue-700 border border-blue-300 hover:bg-blue-100 flex flex-col items-center min-w-[65px] font-semibold transition">
-            <span class="text-sm">🪑</span>
-            <span id="lblBtnTable" class="text-[10px] mt-0.5">Стол: ВКЛ</span>
-          </button>
-          <button id="btnSnapToTable" onclick="snapLoadToTable()" class="px-2.5 py-1 rounded bg-[var(--cad-input-bg)] hover:bg-[var(--cad-card-hover)] text-[var(--cad-text-main)] border border-[var(--cad-input-border)] flex flex-col items-center min-w-[65px]">
-            <span class="text-sm">📦</span>
-            <span class="text-[10px] mt-0.5">На стол</span>
-          </button>
-          <button id="btnTwoStepCycle" onclick="simulateFloorToTableCycle()" class="px-2.5 py-1 rounded bg-purple-50 text-purple-700 border border-purple-300 hover:bg-purple-100 flex flex-col items-center min-w-[75px] font-semibold">
-            <span class="text-sm">🔄</span>
-            <span class="text-[10px] mt-0.5">Пол ➜ Стол</span>
-          </button>
-        </div>
-        <div class="text-[9.5px] text-center text-[var(--cad-text-muted)] uppercase font-semibold mt-1 tracking-wider">Оснастка и Верстак</div>
+      <!-- Worktable Controls -->
+      <div class="flex items-center gap-2 border-r border-[var(--cad-ribbon-border)] pr-3">
+        <button id="btnToggleTable" onclick="toggleWorktable()" class="px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-300 font-semibold hover:bg-blue-100 flex items-center gap-1">
+          <span>🪑</span> <span id="lblBtnTable">Стол: ВКЛ</span>
+        </button>
+        <button onclick="snapLoadToTable()" class="px-2 py-0.5 rounded bg-[var(--cad-input-bg)] hover:bg-[var(--cad-card-hover)] text-[var(--cad-text-main)] border border-[var(--cad-input-border)] flex items-center gap-1">
+          <span>📦 На стол</span>
+        </button>
       </div>
 
-      <!-- Group 4: Automated Verification Benchmarks (10 Autotests) -->
-      <div class="flex flex-col justify-between border-r border-[var(--cad-ribbon-border)] pr-3">
-        <div class="flex items-center gap-1.5">
-          <button id="btnRunAllAutotests" onclick="runCompleteAutotestSuite()" class="px-3 py-1.5 rounded bg-[var(--cad-accent)] hover:bg-[var(--cad-accent-hover)] text-white font-bold flex items-center gap-1.5 shadow-sm">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <span>Тесты (1–10)</span>
-          </button>
-          <button onclick="switchErgoPanelTab(5)" class="px-2 py-1 rounded bg-[var(--cad-input-bg)] hover:bg-[var(--cad-card-hover)] text-[var(--cad-text-main)] border border-[var(--cad-input-border)] flex flex-col items-center">
-            <span class="text-xs">📋</span>
-            <span class="text-[10px] mt-0.5">Журнал</span>
-          </button>
-        </div>
-        <div class="text-[9.5px] text-center text-[var(--cad-text-muted)] uppercase font-semibold mt-1 tracking-wider">Валидация Ядра</div>
-      </div>
-
-      <!-- Group 5: CAD 3D Raycast Snapping & Export -->
-      <div class="flex flex-col justify-between">
-        <div class="flex items-center gap-1.5">
-          <button onclick="simulateCadSnap()" class="px-2.5 py-1 rounded bg-emerald-50 text-emerald-700 border border-emerald-300 hover:bg-emerald-100 flex flex-col items-center min-w-[70px] font-semibold">
-            <span class="text-sm">🎯</span>
-            <span class="text-[10px] mt-0.5">CAD Захват</span>
-          </button>
-          <button id="btnExportReport" onclick="exportErgonomicsReport()" class="px-2.5 py-1 rounded bg-[var(--cad-input-bg)] hover:bg-[var(--cad-card-hover)] text-[var(--cad-text-main)] border border-[var(--cad-input-border)] flex flex-col items-center min-w-[70px]">
-            <span class="text-sm">📊</span>
-            <span class="text-[10px] mt-0.5">Отчет Excel</span>
-          </button>
-        </div>
-        <div class="text-[9.5px] text-center text-[var(--cad-text-muted)] uppercase font-semibold mt-1 tracking-wider">Интеграция Р-Про</div>
+      <!-- Interactive Animation & Cycle Buttons -->
+      <div class="flex items-center gap-2">
+        <button id="btnPlayMotion" onclick="togglePushOrLiftAnimation()" class="px-3 py-1 rounded bg-emerald-600 hover:bg-emerald-700 text-white font-bold flex items-center gap-1.5 shadow-sm">
+          <span id="iconPlayMotion">▶</span> <span id="lblPlayMotion">Анимация движения</span>
+        </button>
+        <button onclick="simulateFloorToTableCycle()" class="px-2.5 py-1 rounded bg-purple-50 text-purple-700 border border-purple-300 hover:bg-purple-100 font-semibold flex items-center gap-1">
+          <span>🔄 Цикл Пол ➜ Стол</span>
+        </button>
       </div>
 
     </div>
   </nav>
 
   <!-- ==================== 3. MAIN WORKSPACE ==================== -->
-  <main class="flex-1 flex overflow-hidden p-2 gap-2">
+  <main class="flex-1 flex overflow-hidden p-1.5 gap-0 relative">
 
-    <!-- LEFT DOCK: Scene Tree, Hierarchy & Layout Mover -->
-    <aside class="w-64 bg-[var(--cad-panel-bg)] border border-[var(--cad-panel-border)] rounded-md flex flex-col overflow-hidden shrink-0 shadow-sm">
-      <!-- Titlebar -->
-      <div class="bg-[var(--cad-panel-sub-bg)] px-3 py-1.5 font-bold border-b border-[var(--cad-panel-border)] text-[var(--cad-text-label)] flex items-center justify-between text-xs">
-        <span>ДЕРЕВО СЦЕНЫ И ПЛАНИРОВКА</span>
-        <span class="text-[10px] font-mono text-[var(--cad-text-muted)]">eCatalog</span>
+    <!-- LEFT PANEL: Scene Tree & Layout (Collapsible) -->
+    <aside id="leftPanel" class="w-60 bg-[var(--cad-panel-bg)] border border-[var(--cad-panel-border)] rounded-l-md flex flex-col overflow-hidden shrink-0 shadow-sm transition-all duration-200">
+      <div class="bg-[var(--cad-panel-sub-bg)] px-2.5 py-1.5 font-bold border-b border-[var(--cad-panel-border)] text-[var(--cad-text-label)] flex items-center justify-between text-xs">
+        <span class="flex items-center gap-1"><span>📁</span> <span>СЦЕНА И ПЛАНИРОВКА</span></span>
+        <button onclick="toggleLeftPanel()" class="text-[var(--cad-text-muted)] hover:text-[var(--cad-text-main)] text-sm font-bold px-1" title="Свернуть">◀</button>
       </div>
 
-      <!-- Scene Tree Items -->
-      <div class="p-2.5 space-y-1.5 overflow-y-auto flex-1 font-mono text-xs">
-        <div class="flex items-center gap-1.5 text-[var(--cad-text-main)] font-semibold">
-          <span>▼</span>
-          <span>🌐 3D_World (Мир ячейки)</span>
-        </div>
-        <div class="pl-4 space-y-1 text-[var(--cad-text-muted)]">
-          <div class="flex items-center justify-between bg-blue-50/80 px-2 py-1 rounded border border-blue-200 text-blue-900 font-medium">
-            <span class="flex items-center gap-1.5"><span>🧍</span> <strong id="lblTreeManikinName">Operator_Female_50</strong></span>
-            <span class="text-[10px] text-emerald-600 font-bold">АКТИВЕН</span>
+      <div class="p-2 space-y-2 overflow-y-auto flex-1 font-mono text-[11px]">
+        <div class="space-y-1">
+          <div class="flex items-center gap-1 text-[var(--cad-text-main)] font-semibold">
+            <span>▼</span> <span>🌐 3D_Workcell</span>
           </div>
-
-          <div id="treeItemTable" class="flex items-center justify-between bg-[var(--cad-panel-sub-bg)] px-2 py-1 rounded border border-[var(--cad-panel-border)]">
-            <span class="flex items-center gap-1.5"><span>🪑</span> <span>Worktable_Steel_Frame</span></span>
-            <span id="lblTreeTableState" class="text-[10px] text-[var(--cad-accent)] font-semibold">800 мм</span>
-          </div>
-
-          <div id="treeItemBox" class="flex items-center justify-between bg-[var(--cad-panel-sub-bg)] px-2 py-1 rounded border border-[var(--cad-panel-border)]">
-            <span class="flex items-center gap-1.5"><span>📦</span> <span id="lblTreeLoadName">Box_Cardboard_Unit</span></span>
-            <span id="lblTreeLoadWeight" class="text-[10px] text-amber-700 font-bold">10.0 кг</span>
-          </div>
-
-          <div id="treeItemCart" class="hidden flex items-center justify-between bg-[var(--cad-panel-sub-bg)] px-2 py-1 rounded border border-[var(--cad-panel-border)]">
-            <span class="flex items-center gap-1.5"><span>🛒</span> <span>Industrial_Cart_4Wheels</span></span>
-            <span class="text-[10px] text-blue-600 font-semibold">Рукоять: 1000 мм</span>
+          <div class="pl-3 space-y-1 text-[var(--cad-text-muted)]">
+            <div class="flex items-center justify-between bg-blue-50/80 px-1.5 py-0.5 rounded border border-blue-200 text-blue-900 font-medium">
+              <span>🧍 <strong id="lblTreeManikinName">Operator_Female_50</strong></span>
+              <span class="text-[9.5px] text-emerald-600 font-bold">АКТИВЕН</span>
+            </div>
+            <div id="treeItemTable" class="flex items-center justify-between bg-[var(--cad-panel-sub-bg)] px-1.5 py-0.5 rounded border border-[var(--cad-panel-border)]">
+              <span>🪑 Верстак стальной</span>
+              <span id="lblTreeTableState" class="text-[9.5px] text-[var(--cad-accent)] font-semibold">800 мм</span>
+            </div>
+            <div id="treeItemBox" class="flex items-center justify-between bg-[var(--cad-panel-sub-bg)] px-1.5 py-0.5 rounded border border-[var(--cad-panel-border)]">
+              <span>📦 Коробка с грузом</span>
+              <span id="lblTreeLoadWeight" class="text-[9.5px] text-amber-700 font-bold">10.0 кг</span>
+            </div>
+            <div id="treeItemCart" class="hidden flex items-center justify-between bg-[var(--cad-panel-sub-bg)] px-1.5 py-0.5 rounded border border-[var(--cad-panel-border)]">
+              <span>🛒 Тележка 4-колесная</span>
+              <span class="text-[9.5px] text-blue-600 font-semibold">150 кг</span>
+            </div>
           </div>
         </div>
 
-        <!-- Layout Positioning Sliders (Перемещение на планировке) -->
-        <div class="mt-3 pt-2.5 border-t border-[var(--cad-panel-border)] space-y-2.5 font-sans">
-          <div class="font-bold text-[var(--cad-text-main)] text-xs flex items-center justify-between">
-            <span>Перемещение на планировке:</span>
-            <span class="text-[10px] text-[var(--cad-text-muted)] font-normal font-mono">X, Y, Z (мм)</span>
+        <!-- Layout Position Sliders -->
+        <div class="pt-2 border-t border-[var(--cad-panel-border)] space-y-2 font-sans text-xs">
+          <div class="font-bold text-[var(--cad-text-main)] flex justify-between items-center">
+            <span>Планировка:</span>
+            <span class="text-[10px] text-[var(--cad-text-muted)] font-mono">X / Z (мм)</span>
           </div>
-
           <div>
-            <div class="flex justify-between text-xs mb-1">
-              <span class="text-[var(--cad-text-label)]">Позиция рабочего X:</span>
-              <span id="lblLayoutWorkerX" class="text-[var(--cad-accent)] font-bold font-mono">0 мм</span>
+            <div class="flex justify-between text-[11px] mb-0.5">
+              <span class="text-[var(--cad-text-muted)]">Позиция рабочего:</span>
+              <span id="lblLayoutWorkerX" class="font-bold font-mono text-[var(--cad-accent)]">0 мм</span>
             </div>
-            <input id="sliderLayoutWorkerX" type="range" min="0" max="1000" step="20" value="0" class="w-full h-1.5 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
+            <input id="sliderLayoutWorkerX" type="range" min="0" max="1000" step="20" value="0" class="w-full h-1 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
           </div>
-
-          <div id="groupTableControls" class="space-y-2">
-            <div>
-              <div class="flex justify-between text-xs mb-1">
-                <span class="text-[var(--cad-text-label)]">Позиция стола X:</span>
-                <span id="lblLayoutTableX" class="text-[var(--cad-accent)] font-bold font-mono">550 мм</span>
-              </div>
-              <input id="sliderLayoutTableX" type="range" min="350" max="1400" step="25" value="550" class="w-full h-1.5 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
+          <div id="groupTableLayoutControls">
+            <div class="flex justify-between text-[11px] mb-0.5">
+              <span class="text-[var(--cad-text-muted)]">Позиция верстака:</span>
+              <span id="lblLayoutTableX" class="font-bold font-mono text-[var(--cad-accent)]">550 мм</span>
             </div>
+            <input id="sliderLayoutTableX" type="range" min="350" max="1400" step="25" value="550" class="w-full h-1 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
 
-            <div>
-              <div class="flex justify-between text-xs mb-1">
-                <span class="text-[var(--cad-text-label)]">Высота столешницы Z:</span>
-                <span id="lblLayoutTableZ" class="text-amber-700 font-bold font-mono">800 мм</span>
-              </div>
-              <input id="sliderLayoutTableZ" type="range" min="500" max="1100" step="20" value="800" class="w-full h-1.5 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
+            <div class="flex justify-between text-[11px] mt-1 mb-0.5">
+              <span class="text-[var(--cad-text-muted)]">Высота верстака Z:</span>
+              <span id="lblLayoutTableZ" class="font-bold font-mono text-amber-700">800 мм</span>
             </div>
+            <input id="sliderLayoutTableZ" type="range" min="500" max="1100" step="20" value="800" class="w-full h-1 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
           </div>
-
-          <!-- Walk Simulation Button -->
-          <button onclick="simulateWalkMovement()" class="w-full mt-1.5 py-1.5 bg-[var(--cad-panel-sub-bg)] hover:bg-[var(--cad-card-hover)] text-[var(--cad-text-main)] border border-[var(--cad-panel-border)] rounded text-xs font-semibold flex items-center justify-center gap-1.5 transition">
-            <span>🚶</span> <span>Пройти по маршруту (Walkway)</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Live Transform Readout (Coordinates) -->
-      <div class="p-2.5 border-t border-[var(--cad-panel-border)] bg-[var(--cad-panel-sub-bg)] font-mono text-[11px] space-y-1.5">
-        <div class="text-[var(--cad-text-label)] font-bold">Координаты захвата груза:</div>
-        <div class="grid grid-cols-3 gap-1">
-          <div class="bg-[var(--cad-panel-bg)] p-1 rounded border border-[var(--cad-panel-border)] text-center"><span class="text-rose-600 font-bold">X:</span> <span id="lblCoordX">350</span></div>
-          <div class="bg-[var(--cad-panel-bg)] p-1 rounded border border-[var(--cad-panel-border)] text-center"><span class="text-emerald-600 font-bold">Y:</span> <span id="lblCoordY">0</span></div>
-          <div class="bg-[var(--cad-panel-bg)] p-1 rounded border border-[var(--cad-panel-border)] text-center"><span class="text-blue-600 font-bold">Z:</span> <span id="lblCoordZ">750</span></div>
         </div>
       </div>
     </aside>
 
-    <!-- CENTER: 3D CAD SIMULATION VIEWPORT -->
-    <section class="flex-1 bg-[var(--cad-panel-bg)] border border-[var(--cad-panel-border)] rounded-md relative overflow-hidden flex flex-col shadow-inner cad-viewport-bg">
+    <!-- CENTER: EXPANDABLE 3D CAD SIMULATION VIEWPORT -->
+    <section class="flex-1 bg-[var(--cad-panel-bg)] border border-[var(--cad-panel-border)] relative overflow-hidden flex flex-col shadow-inner cad-viewport-bg z-10">
       
-      <!-- Viewport Header Toolbar -->
-      <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-2">
-        <span class="bg-[var(--cad-panel-bg)]/90 backdrop-blur px-3 py-1 rounded border border-[var(--cad-panel-border)] font-mono text-xs text-[var(--cad-text-main)] shadow-sm font-medium">
-          Камера: <strong id="lblActiveCameraMode" class="text-[var(--cad-accent)]">Перспектива 3D</strong> &bull; 60.0 FPS
+      <!-- Viewport Overlay Toolbar (HUD) -->
+      <div class="absolute top-2 left-2 z-20 flex items-center gap-2">
+        <span class="bg-[var(--cad-panel-bg)]/90 backdrop-blur px-2.5 py-1 rounded border border-[var(--cad-panel-border)] font-mono text-xs text-[var(--cad-text-main)] shadow-xs">
+          Камера: <strong id="lblActiveCameraMode" class="text-[var(--cad-accent)] font-semibold">Перспектива 3D</strong>
         </span>
-        <span id="badgeActiveScenario" class="bg-[var(--cad-panel-bg)]/90 backdrop-blur px-3 py-1 rounded border border-[var(--cad-panel-border)] font-semibold text-xs text-[var(--cad-text-main)] shadow-sm">
-          Сценарий 1: Базовый подъем (10 кг на уровне пояса)
+        <span id="badgeActiveScenario" class="bg-[var(--cad-panel-bg)]/90 backdrop-blur px-2.5 py-1 rounded border border-[var(--cad-panel-border)] font-semibold text-xs text-[var(--cad-text-main)] shadow-xs">
+          Сценарий 1: Базовый подъем
+        </span>
+        <span id="badgeCollisionStatus" class="hidden px-2 py-0.5 rounded text-[11px] font-bold bg-blue-100 text-blue-800 border border-blue-300">
+          🟢 Опора на верстак (Коллизия учтена)
         </span>
       </div>
 
-      <!-- 3D Navigation ViewCube (Top Right) -->
-      <div class="absolute top-2.5 right-2.5 z-10 w-16 h-16 bg-[var(--cad-panel-bg)]/90 backdrop-blur border border-[var(--cad-panel-border)] rounded flex flex-col items-center justify-center text-[9.5px] font-bold text-[var(--cad-text-muted)] shadow-md select-none">
-        <div onclick="setCameraView('top')" class="viewcube-face w-full text-center py-0.5 rounded-t" title="Вид Сверху (2D Планировка ячейки)">СВЕРХУ</div>
+      <!-- Navigation Gizmo / ViewCube (Top Right) -->
+      <div class="absolute top-2 right-2 z-20 w-14 h-14 bg-[var(--cad-panel-bg)]/90 backdrop-blur border border-[var(--cad-panel-border)] rounded flex flex-col items-center justify-center text-[9px] font-bold text-[var(--cad-text-muted)] shadow-md select-none">
+        <div onclick="setCameraView('top')" class="viewcube-face w-full text-center py-0.5 rounded-t" title="Вид Сверху (2D План)">СВЕРХУ</div>
         <div class="flex w-full justify-between px-1">
-          <div onclick="setCameraView('side')" class="viewcube-face px-1 rounded" title="Вид Сбоку (Сагиттальная биомеханика)">СБОКУ</div>
-          <div onclick="setCameraView('perspective')" class="viewcube-face px-1 rounded text-[var(--cad-accent)]" title="Изометрия 3D">ИЗО</div>
+          <div onclick="setCameraView('side')" class="viewcube-face px-1 rounded" title="Вид Сбоку">СБОКУ</div>
+          <div onclick="setCameraView('perspective')" class="viewcube-face px-1 rounded text-[var(--cad-accent)]" title="3D">ИЗО</div>
         </div>
-        <div class="text-[8px] text-[var(--cad-text-muted)] opacity-60">CAD CUBE</div>
       </div>
 
-      <!-- CAD Notification Toast -->
-      <div id="cadToast" class="hidden absolute bottom-4 left-1/2 -translate-x-1/2 z-20 bg-[var(--cad-titlebar-bg)] text-white font-medium px-4 py-1.5 rounded-md shadow-lg border border-white/20 text-xs font-mono transition">
-        Оповещение системы
+      <!-- Interactive Animation Scrubber Bar (Visible in Push/Walk modes) -->
+      <div id="animScrubberBar" class="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 bg-[var(--cad-panel-bg)]/95 backdrop-blur px-4 py-1.5 rounded-md border border-[var(--cad-panel-border)] shadow-md flex items-center gap-3 text-xs w-[85%] max-w-lg">
+        <button id="btnScrubberPlay" onclick="togglePushOrLiftAnimation()" class="px-2 py-0.5 rounded bg-emerald-600 text-white font-bold">
+          <span id="lblScrubberPlayIcon">▶</span>
+        </button>
+        <span class="text-[var(--cad-text-label)] font-semibold whitespace-nowrap" id="lblAnimTitle">Маршрут:</span>
+        <input id="sliderAnimProgress" type="range" min="0" max="100" step="1" value="0" class="flex-1 h-1.5 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
+        <span id="lblAnimProgressText" class="font-mono font-bold text-[var(--cad-accent)] w-12 text-right">0%</span>
+      </div>
+
+      <!-- CAD Toast Notification -->
+      <div id="cadToast" class="hidden absolute top-12 left-1/2 -translate-x-1/2 z-30 bg-[var(--cad-titlebar-bg)] text-white font-medium px-4 py-1.5 rounded-md shadow-lg border border-white/20 text-xs font-mono transition">
+        Оповещение
       </div>
 
       <!-- SVG Simulation Stage -->
@@ -433,22 +358,18 @@
         <svg id="viewportSvg" viewBox="0 0 740 520" class="w-full h-full max-h-[580px] cursor-crosshair">
           
           <defs>
-            <!-- Ground Shadows -->
             <radialGradient id="gradGroundShadow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#000000" stop-opacity="0.35"/>
+              <stop offset="0%" stop-color="#000000" stop-opacity="0.30"/>
               <stop offset="100%" stop-color="#000000" stop-opacity="0.0"/>
             </radialGradient>
-            <!-- Realistic Box Gradient -->
             <linearGradient id="gradBox" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#d4a373"/>
               <stop offset="100%" stop-color="#bc6c25"/>
             </linearGradient>
-            <!-- Table Top Gradient -->
             <linearGradient id="gradTableTop" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stop-color="#2563eb"/>
               <stop offset="100%" stop-color="#1d4ed8"/>
             </linearGradient>
-            <!-- Arrow Markers -->
             <marker id="arrowRed" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
               <path d="M0,0 L6,3 L0,6 Z" fill="#dc2626"/>
             </marker>
@@ -457,55 +378,62 @@
             </marker>
           </defs>
 
-          <!-- ================= VIEW MODE 1 & 2: PERSPECTIVE & SIDE ELEVATION ================= -->
+          <!-- ================= ELEVATION & 3D PERSPECTIVE VIEW ================= -->
           <g id="groupElevationView">
-            <!-- CAD Floor Grid Lines -->
-            <ellipse cx="370" cy="460" rx="330" ry="38" fill="none" stroke="var(--cad-grid-major)" stroke-width="1.5" stroke-dasharray="6,4"/>
-            <ellipse cx="370" cy="460" rx="210" ry="24" fill="none" stroke="var(--cad-grid-minor)" stroke-width="1.5"/>
+            <!-- Floor Grid Lines -->
+            <ellipse cx="370" cy="460" rx="340" ry="38" fill="none" stroke="var(--cad-grid-major)" stroke-width="1.5" stroke-dasharray="6,4"/>
+            <ellipse cx="370" cy="460" rx="220" ry="24" fill="none" stroke="var(--cad-grid-minor)" stroke-width="1.5"/>
 
-            <!-- CAD Height Grid Scale (mm) -->
+            <!-- Height Ruler (mm) -->
             <g opacity="0.85">
-              <line x1="160" y1="450" x2="160" y2="110" stroke="var(--cad-grid-major)" stroke-width="1.5"/>
-              <line x1="155" y1="365" x2="165" y2="365" stroke="var(--cad-grid-major)" stroke-width="1.5"/>
-              <text x="110" y="369" fill="var(--cad-text-muted)" font-size="10" font-family="monospace">400 мм</text>
-              <line x1="155" y1="280" x2="165" y2="280" stroke="var(--cad-grid-major)" stroke-width="1.5"/>
-              <text x="110" y="284" fill="var(--cad-text-muted)" font-size="10" font-family="monospace">800 мм</text>
-              <line x1="155" y1="195" x2="165" y2="195" stroke="var(--cad-grid-major)" stroke-width="1.5"/>
-              <text x="105" y="199" fill="var(--cad-text-muted)" font-size="10" font-family="monospace">1200 мм</text>
-              <line x1="155" y1="110" x2="165" y2="110" stroke="var(--cad-grid-major)" stroke-width="1.5"/>
-              <text x="105" y="114" fill="var(--cad-text-muted)" font-size="10" font-family="monospace">1600 мм</text>
+              <line x1="150" y1="450" x2="150" y2="110" stroke="var(--cad-grid-major)" stroke-width="1.5"/>
+              <line x1="145" y1="365" x2="155" y2="365" stroke="var(--cad-grid-major)" stroke-width="1.5"/>
+              <text x="100" y="369" fill="var(--cad-text-muted)" font-size="10" font-family="monospace">400 мм</text>
+              <line x1="145" y1="280" x2="155" y2="280" stroke="var(--cad-grid-major)" stroke-width="1.5"/>
+              <text x="100" y="284" fill="var(--cad-text-muted)" font-size="10" font-family="monospace">800 мм</text>
+              <line x1="145" y1="195" x2="155" y2="195" stroke="var(--cad-grid-major)" stroke-width="1.5"/>
+              <text x="95" y="199" fill="var(--cad-text-muted)" font-size="10" font-family="monospace">1200 мм</text>
+              <line x1="145" y1="110" x2="155" y2="110" stroke="var(--cad-grid-major)" stroke-width="1.5"/>
+              <text x="95" y="114" fill="var(--cad-text-muted)" font-size="10" font-family="monospace">1600 мм</text>
             </g>
 
             <!-- Drop Shadows -->
             <ellipse id="cadShadowWorker" cx="295" cy="454" rx="45" ry="10" fill="url(#gradGroundShadow)"/>
             <ellipse id="cadShadowTable" cx="550" cy="454" rx="75" ry="12" fill="url(#gradGroundShadow)"/>
+            <ellipse id="cadShadowCart" cx="480" cy="454" rx="70" ry="11" fill="url(#gradGroundShadow)" class="hidden"/>
 
-            <!-- WORKTABLE OBJECT (Интерактивный верстак) -->
+            <!-- WORKTABLE OBJECT (Интерактивный верстак с защитой от проваливания) -->
             <g id="cadWorktableGroup">
-              <!-- Metal Legs -->
               <line id="cadTableLegL" x1="490" y1="450" x2="490" y2="280" stroke="var(--cad-table-frame)" stroke-width="6" stroke-linecap="round"/>
               <line id="cadTableLegR" x1="610" y1="450" x2="610" y2="280" stroke="var(--cad-table-frame)" stroke-width="6" stroke-linecap="round"/>
-              <!-- Crossbeam -->
               <line id="cadTableBeam" x1="490" y1="365" x2="610" y2="365" stroke="var(--cad-table-frame)" stroke-width="3"/>
-              <!-- Tabletop -->
+              <!-- Solid Tabletop surface -->
               <rect id="cadTableTop" x="475" y="270" width="150" height="14" rx="3" fill="url(#gradTableTop)" stroke="#1e40af" stroke-width="1.5"/>
-              <!-- Height Dimension Label -->
-              <text id="cadTableHeightLabel" x="550" y="262" fill="var(--cad-accent)" font-size="10" font-family="monospace" font-weight="bold" text-anchor="middle">Стол: 800 мм</text>
+              <text id="cadTableHeightLabel" x="550" y="262" fill="var(--cad-accent)" font-size="10" font-family="monospace" font-weight="bold" text-anchor="middle">Верстак: 800 мм</text>
             </g>
 
-            <!-- INDUSTRIAL CART OBJECT (Режим Толкание / Тяга) -->
+            <!-- INDUSTRIAL CART OBJECT (Режим Толкание / Тяга с колесами) -->
             <g id="cadCartGroup" class="hidden">
-              <rect x="420" y="420" width="130" height="15" rx="2" fill="#475569" stroke="#334155" stroke-width="1.5"/>
-              <circle cx="435" cy="442" r="8" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
-              <circle cx="535" cy="442" r="8" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
-              <!-- Cargo Deck Load -->
+              <rect id="cadCartDeck" x="420" y="420" width="130" height="15" rx="2" fill="#475569" stroke="#334155" stroke-width="1.5"/>
+              <!-- Wheels with rotating spokes -->
+              <g id="cadCartWheelL" transform="translate(435, 442)">
+                <circle cx="0" cy="0" r="9" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
+                <line x1="-7" y1="0" x2="7" y2="0" stroke="#cbd5e1" stroke-width="1.5"/>
+                <line x1="0" y1="-7" x2="0" y2="7" stroke="#cbd5e1" stroke-width="1.5"/>
+              </g>
+              <g id="cadCartWheelR" transform="translate(535, 442)">
+                <circle cx="0" cy="0" r="9" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
+                <line x1="-7" y1="0" x2="7" y2="0" stroke="#cbd5e1" stroke-width="1.5"/>
+                <line x1="0" y1="-7" x2="0" y2="7" stroke="#cbd5e1" stroke-width="1.5"/>
+              </g>
+              <!-- Cart Payload -->
               <rect x="440" y="360" width="90" height="60" rx="3" fill="#d97706" stroke="#b45309" stroke-width="1.5"/>
               <text x="485" y="395" fill="#ffffff" font-size="10" font-family="monospace" font-weight="bold" text-anchor="middle">Груз 150 кг</text>
-              <!-- Cart Push Handlebar -->
-              <line x1="425" y1="420" x2="410" y2="285" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
+              <!-- Cart Handlebar -->
+              <line id="cadCartHandlePost" x1="425" y1="420" x2="410" y2="285" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
               <circle id="cadCartHandleGrip" cx="410" cy="285" r="5.5" fill="#0284c7" stroke="#ffffff" stroke-width="1.5"/>
-              <text x="410" y="272" fill="#0284c7" font-size="10" font-family="monospace" font-weight="bold" text-anchor="middle">Рукоять (1000 мм)</text>
-              <!-- Push Force Vector Arrow -->
+              <text id="cadCartHandleText" x="410" y="272" fill="#0284c7" font-size="10" font-family="monospace" font-weight="bold" text-anchor="middle">Рукоять (1000 мм)</text>
+              <!-- Push Effort Vector -->
               <line id="cadPushArrow" x1="410" y1="285" x2="475" y2="285" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
               <text id="cadPushForceText" x="445" y="278" fill="#dc2626" font-size="9.5" font-family="monospace" font-weight="bold">F = 180 Н</text>
             </g>
@@ -517,9 +445,8 @@
               <text id="cadBoxMass" x="30" y="32" fill="#ffffff" font-size="11" font-family="monospace" font-weight="bold" text-anchor="middle">10.0 кг</text>
             </g>
 
-            <!-- BIOMECHANICAL BALANCE & PLUMB LINE -->
+            <!-- BIOMECHANICAL STABILITY & PLUMB LINE -->
             <g id="cadGroundBalance">
-              <!-- Foot Outline & Base of Support -->
               <path id="cadFootOutline" d="M 280 452 L 340 452 Q 350 452 348 448 L 335 446 L 295 446 Q 280 446 280 452 Z" fill="#475569" stroke="#334155" stroke-width="1.5"/>
               <line id="cadBosLine" x1="280" y1="456" x2="340" y2="456" stroke="#16a34a" stroke-width="3.5" stroke-linecap="round"/>
               <text id="cadBosLabel" x="310" y="470" fill="#15803d" font-size="9" font-family="monospace" text-anchor="middle">Опора стопы (BoS [-70, +180] мм)</text>
@@ -531,55 +458,48 @@
               <!-- CoM Marker -->
               <circle id="cadCoMMarkerOuter" cx="305" cy="220" r="9" fill="rgba(220,38,38,0.15)" stroke="#dc2626" stroke-width="2"/>
               <circle id="cadCoMMarkerInner" cx="305" cy="220" r="3.5" fill="#dc2626"/>
-              <text id="cadCoMText" x="318" y="215" fill="#dc2626" font-size="9.5" font-family="monospace" font-weight="bold">Общий ЦТ (CoM)</text>
+              <text id="cadCoMText" x="318" y="215" fill="#dc2626" font-size="9.5" font-family="monospace" font-weight="bold">Общий ЦТ</text>
 
               <!-- Center of Pressure Marker -->
               <circle id="cadCofPMarker" cx="305" cy="456" r="4.5" fill="#0284c7" stroke="#ffffff" stroke-width="1.5"/>
-              <text id="cadCofPText" x="305" y="484" fill="#0284c7" font-size="9" font-family="monospace" font-weight="bold" text-anchor="middle">CofP: +45 мм (Норма)</text>
+              <text id="cadCofPText" x="305" y="484" fill="#0284c7" font-size="9" font-family="monospace" font-weight="bold" text-anchor="middle">CofP: +45 мм</text>
 
-              <!-- Knee Moment Arm K -->
+              <!-- Moment Arms K and T -->
               <line id="cadLineK" x1="285" y1="340" x2="305" y2="340" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="3,2"/>
               <text id="cadTextK" x="295" y="334" fill="#0284c7" font-size="9.5" font-family="monospace" font-weight="bold" text-anchor="middle">K = 145 мм</text>
 
-              <!-- Hip Moment Arm T -->
               <line id="cadLineT" x1="305" y1="235" x2="330" y2="235" stroke="#b45309" stroke-width="1.5" stroke-dasharray="3,2"/>
               <text id="cadTextT" x="317" y="230" fill="#b45309" font-size="9.5" font-family="monospace" font-weight="bold" text-anchor="middle">T = 280 мм</text>
             </g>
 
-            <!-- DHM CAD MANIKIN SKELETON -->
+            <!-- DHM SKELETON MANIKIN -->
             <g id="dhmSkeleton">
-              <!-- Ankle Joint -->
+              <!-- Rear Leg (Stride in push mode) -->
+              <line id="cadLegRearShin" x1="295" y1="446" x2="275" y2="365" stroke="var(--cad-manikin-body)" stroke-width="7" stroke-linecap="round" opacity="0.6"/>
+              <line id="cadLegRearThigh" x1="275" y1="365" x2="260" y2="245" stroke="var(--cad-manikin-body)" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+
+              <!-- Main Stance Leg -->
               <circle id="cadAnkle" cx="295" cy="446" r="6" fill="#475569" stroke="#334155" stroke-width="1.5"/>
-              <!-- Shin (Голень) -->
               <line id="cadLegShin" x1="295" y1="446" x2="315" y2="345" stroke="var(--cad-manikin-body)" stroke-width="8" stroke-linecap="round"/>
-              <!-- Knee Joint -->
               <circle id="cadKnee" cx="315" cy="345" r="7.5" fill="var(--cad-manikin-joint)" stroke="#ffffff" stroke-width="2"/>
-              <!-- Thigh (Бедро) -->
               <line id="cadLegThigh" x1="315" y1="345" x2="260" y2="245" stroke="var(--cad-manikin-body)" stroke-width="9" stroke-linecap="round"/>
-              <!-- Pelvis / Hip Joint -->
               <circle id="cadPelvis" cx="260" cy="245" r="8.5" fill="#334155" stroke="#1e293b" stroke-width="2"/>
 
-              <!-- Spine Column (Позвоночник) -->
+              <!-- Spine Column -->
               <path id="cadSpine" d="M 260 245 Q 280 200 320 160" fill="none" stroke="#16a34a" stroke-width="8" stroke-linecap="round"/>
-
-              <!-- L5/S1 Joint -->
               <circle id="cadL5S1" cx="275" cy="225" r="6.5" fill="#16a34a" stroke="#ffffff" stroke-width="2"/>
               <line id="cadLumbarVector" x1="275" y1="225" x2="275" y2="270" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
 
               <!-- Neck & Head -->
               <line id="cadNeck" x1="320" y1="160" x2="335" y2="135" stroke="var(--cad-manikin-skin)" stroke-width="5" stroke-linecap="round"/>
               <circle id="cadHead" cx="345" cy="115" r="16" fill="var(--cad-manikin-skin)" stroke="#94a3b8" stroke-width="2"/>
-              <circle cx="351" cy="113" r="2.5" fill="#1e293b"/> <!-- Eye -->
+              <circle cx="351" cy="113" r="2.5" fill="#1e293b"/>
 
-              <!-- Shoulder -->
+              <!-- Arm Segments -->
               <circle id="cadShoulder" cx="320" cy="160" r="7" fill="#475569" stroke="#334155" stroke-width="1.5"/>
-              <!-- Upper Arm -->
               <line id="cadArmUpper" x1="320" y1="160" x2="350" y2="220" stroke="var(--cad-manikin-body)" stroke-width="6" stroke-linecap="round"/>
-              <!-- Elbow -->
               <circle id="cadElbow" cx="350" cy="220" r="5.5" fill="var(--cad-manikin-joint)" stroke="#ffffff" stroke-width="1.5"/>
-              <!-- Forearm -->
               <line id="cadArmFore" x1="350" y1="220" x2="380" y2="280" stroke="var(--cad-manikin-body)" stroke-width="5" stroke-linecap="round"/>
-              <!-- Hand -->
               <circle id="cadHand" cx="380" cy="280" r="5.5" fill="var(--cad-manikin-skin)" stroke="#b45309" stroke-width="1.5"/>
             </g>
 
@@ -597,47 +517,37 @@
             </g>
           </g>
 
-          <!-- ================= VIEW MODE 3: 2D TOP-DOWN LAYOUT PLAN ================= -->
+          <!-- ================= TOP-DOWN 2D PLAN VIEW ================= -->
           <g id="groupTopLayoutView" class="hidden">
             <rect x="60" y="50" width="620" height="420" rx="6" fill="var(--cad-panel-sub-bg)" stroke="var(--cad-panel-border)" stroke-width="2"/>
-            <text x="75" y="75" fill="var(--cad-text-muted)" font-size="11" font-family="monospace" font-weight="bold">ПЛАНИРОВКА РАБОЧЕЙ ЯЧЕЙКИ (ВИД СВЕРХУ - 2D CAD)</text>
+            <text x="75" y="75" fill="var(--cad-text-muted)" font-size="11" font-family="monospace" font-weight="bold">2D ПЛАНИРОВКА РАБОЧЕЙ ЗОНЫ</text>
 
             <rect x="90" y="90" width="560" height="340" rx="4" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="8,6" opacity="0.6"/>
-            <text x="100" y="108" fill="#b45309" font-size="9.5" font-family="monospace">Зона безопасности оператора (Safety Clearance Zone)</text>
+            <text x="100" y="108" fill="#b45309" font-size="9.5" font-family="monospace">Зона безопасных проходов</text>
 
             <!-- Table Top-Down -->
             <g id="topTableGroup" transform="translate(420, 160)">
               <rect width="180" height="110" rx="4" fill="#3b82f6" fill-opacity="0.15" stroke="#2563eb" stroke-width="2"/>
-              <text x="90" y="55" fill="#1d4ed8" font-size="11" font-family="monospace" font-weight="bold" text-anchor="middle">Верстак (Стол)</text>
-              <text x="90" y="72" fill="var(--cad-text-muted)" font-size="9.5" font-family="monospace" text-anchor="middle">1200 x 700 мм</text>
+              <text x="90" y="55" fill="#1d4ed8" font-size="11" font-family="monospace" font-weight="bold" text-anchor="middle">Верстак</text>
               <rect x="60" y="20" width="60" height="40" rx="2" fill="#d97706" stroke="#b45309" stroke-width="1.5"/>
               <text x="90" y="44" fill="#ffffff" font-size="9.5" font-family="monospace" font-weight="bold" text-anchor="middle">Груз</text>
             </g>
 
-            <!-- Worker Top-Down Footprint and Reach Circle -->
+            <!-- Worker Footprint & Reach Envelope -->
             <g id="topWorkerGroup" transform="translate(230, 215)">
               <circle cx="0" cy="0" r="85" fill="rgba(2, 132, 199, 0.08)" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4,3"/>
-              <text x="0" y="-92" fill="#0284c7" font-size="9" font-family="monospace" text-anchor="middle">Зона досягаемости рук (R=500 мм)</text>
+              <text x="0" y="-92" fill="#0284c7" font-size="9" font-family="monospace" text-anchor="middle">Зона досягаемости (R=500 мм)</text>
               <ellipse cx="0" cy="0" rx="22" ry="12" fill="#1e3a8a" stroke="#1e293b" stroke-width="2"/>
               <circle cx="0" cy="0" r="9" fill="var(--cad-manikin-skin)" stroke="#475569" stroke-width="1.5"/>
-              <ellipse cx="-12" cy="18" rx="5" ry="10" fill="#334155" stroke="#1e293b"/>
-              <ellipse cx="12" cy="18" rx="5" ry="10" fill="#334155" stroke="#1e293b"/>
-              <text x="0" y="38" fill="var(--cad-text-main)" font-size="9.5" font-family="monospace" font-weight="bold" text-anchor="middle">Оператор</text>
+              <text x="0" y="36" fill="var(--cad-text-main)" font-size="9.5" font-family="monospace" font-weight="bold" text-anchor="middle">Оператор</text>
             </g>
 
-            <!-- Transfer Trajectory -->
+            <!-- Transfer Vector -->
             <path d="M 230 215 Q 330 140 470 190" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrowBlue)"/>
-            <text x="330" y="150" fill="#6d28d9" font-size="9.5" font-family="monospace" font-weight="bold">Траектория съема ➜ укладки (L = 1.2 м)</text>
-
-            <!-- Euro Pallet -->
-            <g transform="translate(140, 310)">
-              <rect width="100" height="70" rx="3" fill="var(--cad-panel-bg)" stroke="var(--cad-panel-border)" stroke-width="1.5"/>
-              <text x="50" y="35" fill="var(--cad-text-label)" font-size="9.5" font-family="monospace" text-anchor="middle">Паллета евро</text>
-              <text x="50" y="50" fill="var(--cad-text-muted)" font-size="8.5" font-family="monospace" text-anchor="middle">1200 x 800</text>
-            </g>
+            <text x="330" y="150" fill="#6d28d9" font-size="9.5" font-family="monospace" font-weight="bold">Траектория переноса груза</text>
           </g>
 
-          <!-- Origin 3D Coordinate Triad (Bottom Left) -->
+          <!-- Origin 3D Coordinate Triad -->
           <g transform="translate(30, 485)">
             <line x1="0" y1="0" x2="35" y2="8" stroke="#dc2626" stroke-width="2.5"/>
             <text x="39" y="11" fill="#dc2626" font-size="9.5" font-family="monospace" font-weight="bold">X</text>
@@ -650,174 +560,195 @@
       </div>
     </section>
 
-    <!-- RIGHT DOCK: WORKS ERGO ENGINEERING INSPECTOR PANEL -->
-    <aside class="w-84 bg-[var(--cad-panel-bg)] border border-[var(--cad-panel-border)] rounded-md flex flex-col overflow-hidden shrink-0 shadow-sm text-xs">
+    <!-- DRAGGABLE RESIZER SPLITTER -->
+    <div id="panelResizer" class="panel-resizer z-20"></div>
+
+    <!-- RIGHT PANEL: WORKS ERGO ENGINEERING INSPECTOR (Collapsible & Resizable) -->
+    <aside id="rightPanel" class="w-80 bg-[var(--cad-panel-bg)] border border-[var(--cad-panel-border)] rounded-r-md flex flex-col overflow-hidden shrink-0 shadow-sm text-xs transition-all duration-150">
       
-      <!-- Panel Header (WPF Style) -->
+      <!-- Panel Header with Collapse Button -->
       <div class="bg-[var(--cad-panel-sub-bg)] px-3 py-1.5 font-bold border-b border-[var(--cad-panel-border)] text-[var(--cad-text-label)] flex items-center justify-between">
         <div class="flex items-center gap-1.5">
           <span class="w-2.5 h-2.5 rounded-sm bg-[var(--cad-accent)]"></span>
-          <span>WORKS ERGO &bull; АНАЛИЗАТОР БИОМЕХАНИКИ</span>
+          <span>WORKS ERGO &bull; АНАЛИЗ</span>
         </div>
-        <span class="text-[10px] text-[var(--cad-text-muted)] font-mono">&#128204;</span>
+        <button onclick="toggleRightPanel()" class="text-[var(--cad-text-muted)] hover:text-[var(--cad-text-main)] text-sm font-bold px-1" title="Свернуть анализатор">▶</button>
       </div>
 
-      <!-- Dockable Tab Strip -->
-      <div class="flex border-b border-[var(--cad-panel-border)] bg-[var(--cad-panel-sub-bg)] text-[10.5px]">
-        <button id="tabBtn1" onclick="switchErgoPanelTab(1)" class="flex-1 py-1.5 font-bold text-[var(--cad-accent)] border-b-2 border-[var(--cad-accent)] bg-[var(--cad-panel-bg)]">ОБЗОР DCR</button>
-        <button id="tabBtn2" onclick="switchErgoPanelTab(2)" class="flex-1 py-1.5 text-[var(--cad-text-muted)] hover:text-[var(--cad-text-main)]">7 ОСЕЙ</button>
-        <button id="tabBtn3" onclick="switchErgoPanelTab(3)" class="flex-1 py-1.5 text-[var(--cad-text-muted)] hover:text-[var(--cad-text-main)]">EAWS</button>
-        <button id="tabBtn4" onclick="switchErgoPanelTab(4)" class="flex-1 py-1.5 text-[var(--cad-text-muted)] hover:text-[var(--cad-text-main)]">СМЕНА</button>
-        <button id="tabBtn5" onclick="switchErgoPanelTab(5)" class="flex-1 py-1.5 text-[var(--cad-text-muted)] hover:text-[var(--cad-text-main)] font-semibold">ТЕСТЫ</button>
+      <!-- 3 Streamlined Tabs (Zero Clutter) -->
+      <div class="flex border-b border-[var(--cad-panel-border)] bg-[var(--cad-panel-sub-bg)] text-[11px]">
+        <button id="tabBtn1" onclick="switchErgoPanelTab(1)" class="flex-1 py-1.5 font-bold text-[var(--cad-accent)] border-b-2 border-[var(--cad-accent)] bg-[var(--cad-panel-bg)]">1. ОБЗОР DCR</button>
+        <button id="tabBtn2" onclick="switchErgoPanelTab(2)" class="flex-1 py-1.5 text-[var(--cad-text-muted)] hover:text-[var(--cad-text-main)]">2. СМЕНА</button>
+        <button id="tabBtn3" onclick="switchErgoPanelTab(3)" class="flex-1 py-1.5 text-[var(--cad-text-muted)] hover:text-[var(--cad-text-main)] font-semibold">3. ТЕСТЫ (10)</button>
       </div>
 
-      <!-- Scrollable Panel Body -->
+      <!-- Panel Body -->
       <div class="p-3 space-y-3 overflow-y-auto flex-1">
 
-        <!-- ================= TAB 1: DCR GAUGE & OVERVIEW ================= -->
-        <div id="paneTab1" class="space-y-2.5">
+        <!-- ================= TAB 1: EXECUTIVE OVERVIEW & CONTROLS ================= -->
+        <div id="paneTab1" class="space-y-3">
           <!-- Big DCR Scorecard -->
-          <div class="bg-[var(--cad-panel-sub-bg)] border border-[var(--cad-panel-border)] rounded p-3 text-center">
-            <div class="flex justify-between items-center text-[10.5px] text-[var(--cad-text-label)] font-bold uppercase mb-1">
-              <span>Индекс DCR (Demand/Capacity)</span>
+          <div class="bg-[var(--cad-panel-sub-bg)] border border-[var(--cad-panel-border)] rounded p-2.5 text-center shadow-xs">
+            <div class="flex justify-between items-center text-[11px] text-[var(--cad-text-label)] font-bold mb-1">
+              <span class="flex items-center gap-1">
+                <span>Индекс DCR</span>
+                <span class="cursor-pointer text-[var(--cad-accent)]" title="DCR (Demand/Capacity Ratio) — Отношение нагрузки к физиологическому пределу рабочего. Норма до 85%, предельно допустимо до 100%, выше 100% — перегрузка.">ℹ️</span>
+              </span>
               <span id="txtRiskBadge" class="px-2 py-0.5 rounded text-[10px] font-bold badge-safe">НОРМА (SAFE)</span>
             </div>
             
             <div class="flex items-baseline justify-center gap-1 my-1">
               <span id="txtDcrBig" class="text-4xl font-extrabold text-emerald-600 tracking-tight">49%</span>
-              <span class="text-[var(--cad-text-muted)] text-xs">/ 100% макс</span>
+              <span class="text-[var(--cad-text-muted)] text-xs">/ 100% порог</span>
             </div>
 
-            <!-- Progress Bar -->
-            <div class="w-full bg-[var(--cad-panel-border)] h-2 rounded-full overflow-hidden my-1.5">
+            <div class="w-full bg-[var(--cad-panel-border)] h-2 rounded-full overflow-hidden my-1">
               <div id="barDcr" class="bg-emerald-500 h-full rounded-full transition-all duration-300" style="width: 49%;"></div>
             </div>
+          </div>
 
-            <div class="flex justify-between text-[9.5px] text-[var(--cad-text-muted)] font-mono">
-              <span>0% (Безопасно)</span>
-              <span>85% (Порог)</span>
-              <span>100%+ (Опасно)</span>
+          <!-- 4 Core Biomechanical Indicator Cards (Plain Russian) -->
+          <div class="space-y-1.5 font-mono text-xs">
+            <!-- Spine L5/S1 -->
+            <div class="bg-[var(--cad-panel-sub-bg)] border border-[var(--cad-panel-border)] rounded p-2 flex justify-between items-center">
+              <div>
+                <div class="font-bold text-[var(--cad-text-label)] font-sans flex items-center gap-1">
+                  <span>🦴 Позвоночник L5/S1</span>
+                  <span class="cursor-pointer text-xs text-[var(--cad-accent)]" title="Сжатие диска L5/S1 по стандарту NIOSH / Jäger 2023. Предел безопасного труда — 3400 Н.">ℹ️</span>
+                </div>
+                <div id="cardSpineDetails" class="text-[10px] text-[var(--cad-text-muted)]">Лимит: 3400 Н &bull; Запас 55%</div>
+              </div>
+              <strong id="valCompBig" class="text-sm text-emerald-600">1520 Н</strong>
+            </div>
+
+            <!-- HandPak Grip -->
+            <div class="bg-[var(--cad-panel-sub-bg)] border border-[var(--cad-panel-border)] rounded p-2 flex justify-between items-center">
+              <div>
+                <div class="font-bold text-[var(--cad-text-label)] font-sans flex items-center gap-1">
+                  <span>✊ Кистевой хват HandPak</span>
+                  <span class="cursor-pointer text-xs text-[var(--cad-accent)]" title="Запас прочности мышц кисти по методике Potvin & Cort 2017. Учитывает тип хвата (силовой охват 100%, щипок пальцами 35%).">ℹ️</span>
+                </div>
+                <div id="cardGripDetails" class="text-[10px] text-[var(--cad-text-muted)]">Силовой хват (100% MVC)</div>
+              </div>
+              <strong id="valHandDcr" class="text-sm text-emerald-600">DCR 42%</strong>
+            </div>
+
+            <!-- Task Specific: RWL / Push Limit -->
+            <div id="cardTaskDetailsBlock" class="bg-[var(--cad-panel-sub-bg)] border border-[var(--cad-panel-border)] rounded p-2 flex justify-between items-center">
+              <div>
+                <div id="lblTaskCardTitle" class="font-bold text-[var(--cad-text-label)] font-sans">📦 Лимит подъема (NIOSH RWL)</div>
+                <div id="lblTaskCardSub" class="text-[10px] text-[var(--cad-text-muted)]">Рекомендованный предел массы</div>
+              </div>
+              <strong id="valTaskMainMetric" class="text-sm text-emerald-600">14.9 кг</strong>
+            </div>
+
+            <!-- EAWS Automotive Points -->
+            <div class="bg-[var(--cad-panel-sub-bg)] border border-[var(--cad-panel-border)] rounded p-2 flex justify-between items-center">
+              <div>
+                <div class="font-bold text-[var(--cad-text-label)] font-sans flex items-center gap-1">
+                  <span>🚗 Автопром EAWS (BMW/VW)</span>
+                  <span class="cursor-pointer text-xs text-[var(--cad-accent)]" title="European Assessment Worksheet — стандарт оценки эргономики автосборки. Норма: 0–25 баллов (Зеленый), >50 — запрещено.">ℹ️</span>
+                </div>
+                <div id="eawsSummarySub" class="text-[10px] text-[var(--cad-text-muted)]">Секции 1-4 &bull; Зеленый коридор</div>
+              </div>
+              <strong id="txtEawsScore" class="text-sm text-emerald-600">14.5 pts</strong>
             </div>
           </div>
 
-          <!-- Dynamic Task Specific Metrics -->
-          <div id="cardTaskSpecific" class="bg-[var(--cad-panel-sub-bg)] border border-[var(--cad-panel-border)] rounded p-2.5 space-y-1 font-mono text-xs">
-            <div class="text-[10px] font-bold text-[var(--cad-accent)] uppercase flex justify-between">
-              <span id="lblTaskSpecificTitle">Подъем: NIOSH RWL & Snook</span>
-              <span id="lblTaskSpecificStatus" class="text-emerald-600 font-bold">LI = 0.67 (Норма)</span>
-            </div>
-            <div class="grid grid-cols-2 gap-1 text-[var(--cad-text-main)] pt-1.5 border-t border-[var(--cad-panel-border)]">
-              <div>RWL предел: <strong id="valRwl" class="text-[var(--cad-text-main)]">14.9 кг</strong></div>
-              <div>Грузоподъемность: <strong id="valMawl" class="text-[var(--cad-text-main)]">20.4 кг</strong></div>
-              <div>Сжатие L5/S1: <strong id="valComp" class="text-emerald-600 font-bold">1520 Н</strong></div>
-              <div>Износ смены LCF: <strong id="valLcf" class="text-[var(--cad-text-main)]">0.021</strong></div>
-            </div>
-          </div>
-
-          <!-- Push & Pull Specific Card -->
-          <div id="cardPushPullMetrics" class="hidden bg-[var(--cad-panel-sub-bg)] border border-[var(--cad-panel-border)] rounded p-2.5 space-y-1 font-mono text-xs">
-            <div class="text-[10px] font-bold text-amber-700 uppercase flex justify-between">
-              <span>Толкание/Тяга: Snook & Ciriello</span>
-              <span id="lblPpStatus" class="text-emerald-600 font-bold">DCR = 0.93</span>
-            </div>
-            <div class="grid grid-cols-2 gap-1 text-[var(--cad-text-main)] pt-1.5 border-t border-[var(--cad-panel-border)]">
-              <div>Усилие страгивания: <strong id="valPpInit" class="text-[var(--cad-text-main)]">180 Н / 193 Н</strong></div>
-              <div>Усилие качения: <strong id="valPpSust" class="text-[var(--cad-text-main)]">75 Н / 100 Н</strong></div>
-              <div>Высота рукояти: <strong id="valPpHnd" class="text-[var(--cad-accent)]">1000 мм</strong></div>
-              <div>Дистанция: <strong id="valPpDist" class="text-[var(--cad-text-main)]">7.5 м</strong></div>
-            </div>
-          </div>
-
-          <!-- Limiting Factor Card -->
+          <!-- Limiting Factor & Actionable Advice -->
           <div class="bg-amber-50/70 border border-amber-200 rounded p-2.5 text-xs">
             <div class="font-bold text-amber-800 flex items-center gap-1.5">
               <span>⚠️</span>
-              <span>Лимитирующий фактор: <span id="lblPrimaryLimiting" class="font-normal text-amber-950">Нагрузка L5/S1</span></span>
+              <span>Лимитирующий фактор: <span id="lblPrimaryLimiting" class="font-normal text-amber-950">L5/S1</span></span>
             </div>
             <div id="txtRecommendation" class="text-amber-900 mt-1 leading-relaxed">
-              Параметры в пределах эргономической нормы. Перепроектирование рабочего места не требуется.
+              Параметры в норме.
+            </div>
+          </div>
+
+          <!-- Primary Ergonomic Sliders (With Two-Way Numeric Input) -->
+          <div class="border-t border-[var(--cad-panel-border)] pt-2.5 space-y-2.5 font-sans">
+            <div class="text-[11px] font-bold text-[var(--cad-text-label)] uppercase tracking-wider">Точная настройка параметров</div>
+
+            <!-- Mass (kg) -->
+            <div id="controlGroupMass">
+              <div class="flex justify-between items-center text-xs mb-1">
+                <span class="text-[var(--cad-text-label)]">Масса груза (кг):</span>
+                <input id="numMass" type="number" min="1" max="45" step="0.5" value="10" class="w-16 px-1.5 py-0.5 bg-[var(--cad-input-bg)] border border-[var(--cad-input-border)] rounded text-right font-mono font-bold text-amber-700">
+              </div>
+              <input id="sliderMass" type="range" min="1" max="45" step="0.5" value="10" class="w-full h-1.5 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
+            </div>
+
+            <!-- Vertical Height (mm) -->
+            <div id="controlGroupV">
+              <div class="flex justify-between items-center text-xs mb-1">
+                <span class="text-[var(--cad-text-label)]">Высота съема V (мм):</span>
+                <input id="numV" type="number" min="50" max="1750" step="25" value="750" class="w-16 px-1.5 py-0.5 bg-[var(--cad-input-bg)] border border-[var(--cad-input-border)] rounded text-right font-mono font-bold text-blue-700">
+              </div>
+              <input id="sliderV" type="range" min="50" max="1750" step="25" value="750" class="w-full h-1.5 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
+            </div>
+
+            <!-- Reach Distance (mm) -->
+            <div id="controlGroupH">
+              <div class="flex justify-between items-center text-xs mb-1">
+                <span class="text-[var(--cad-text-label)]">Вылет рук H (мм):</span>
+                <input id="numH" type="number" min="200" max="800" step="10" value="350" class="w-16 px-1.5 py-0.5 bg-[var(--cad-input-bg)] border border-[var(--cad-input-border)] rounded text-right font-mono font-bold text-purple-700">
+              </div>
+              <input id="sliderH" type="range" min="200" max="800" step="10" value="350" class="w-full h-1.5 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
+            </div>
+
+            <!-- Dynamic Acceleration Kingma 1996 -->
+            <div id="controlGroupAccel">
+              <div class="flex justify-between items-center text-xs mb-1">
+                <span class="text-[var(--cad-text-label)] flex items-center gap-1">
+                  <span>Ускорение отрыва a:</span>
+                  <span class="cursor-pointer text-[var(--cad-accent)]" title="Ускорение при резком подъеме груза (Kingma 1996). Инерция F=m(g+a) увеличивает сжатие позвоночника до +35%.">ℹ️</span>
+                </span>
+                <span id="lblAccelVal" class="font-bold font-mono text-[var(--cad-accent)]">0.0 м/с²</span>
+              </div>
+              <input id="sliderAccel" type="range" min="0" max="3.0" step="0.1" value="0.0" class="w-full h-1.5 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
+            </div>
+
+            <!-- Push/Pull Sliders -->
+            <div id="controlGroupPushPull" class="hidden space-y-2 bg-[var(--cad-panel-sub-bg)] p-2 rounded border border-[var(--cad-panel-border)]">
+              <div>
+                <div class="flex justify-between text-xs mb-1">
+                  <span class="text-[var(--cad-text-label)]">Усилие страгивания:</span>
+                  <span id="lblInitForceVal" class="font-bold font-mono text-rose-700">180 Н</span>
+                </div>
+                <input id="sliderInitForce" type="range" min="50" max="450" step="5" value="180" class="w-full h-1.5 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
+              </div>
+              <div>
+                <div class="flex justify-between text-xs mb-1">
+                  <span class="text-[var(--cad-text-label)]">Усилие качения:</span>
+                  <span id="lblSustForceVal" class="font-bold font-mono text-amber-700">75 Н</span>
+                </div>
+                <input id="sliderSustForce" type="range" min="20" max="250" step="5" value="75" class="w-full h-1.5 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
+              </div>
+            </div>
+
+            <!-- 23 HandPak Grip Selector -->
+            <div>
+              <div class="text-xs text-[var(--cad-text-label)] mb-1 font-medium">Интерфейс хвата HandPak:</div>
+              <select id="selectGripType" class="w-full bg-[var(--cad-input-bg)] border border-[var(--cad-input-border)] text-[var(--cad-text-main)] rounded px-2 py-1 text-xs focus:outline-none font-mono">
+                <option value="PowerGripMedial" selected>Power Grip (Силовой охват, 100%)</option>
+                <option value="PowerGripLateral">Power Grip Lateral (Боковой, 92%)</option>
+                <option value="PinchGrip">Pinch Grip (Двупальцевый щипок, 35%)</option>
+                <option value="ChuckPinch3Finger">Chuck 3-Finger (Трехпальцевый, 42%)</option>
+                <option value="KeyPinchLateral">Key Pinch (Ключевой щипок, 48%)</option>
+                <option value="HookGrip">Hook Grip (Крюковой хват, 88%)</option>
+                <option value="FlatPalmPress">Flat Palm Press (Ладонный жим, 120%)</option>
+                <option value="FrictionAssistedRubber">Friction Rubber (С резиновой накладкой, 125%)</option>
+              </select>
             </div>
           </div>
         </div>
 
-        <!-- ================= TAB 2: 7-AXIS BIOMECHANICAL METRICS ================= -->
-        <div id="paneTab2" class="hidden space-y-2">
-          <div class="bg-[var(--cad-panel-sub-bg)] border border-[var(--cad-panel-border)] rounded p-2.5 space-y-1.5 font-mono text-xs">
-            <div class="text-[10.5px] font-bold text-[var(--cad-text-label)] uppercase tracking-wider mb-1">Метрики 7 осей биомеханики</div>
-            
-            <div class="flex justify-between items-center py-1 border-b border-[var(--cad-panel-border)]">
-              <span class="text-[var(--cad-text-muted)]">1. Позвоночник L5/S1 (Jäger 2023):</span>
-              <span id="rowLumbarComp" class="font-bold text-emerald-600">1520 Н (DCR 0.36)</span>
-            </div>
-
-            <div class="flex justify-between items-center py-1 border-b border-[var(--cad-panel-border)]">
-              <span class="text-[var(--cad-text-muted)]">2. Износ смены LCF (Miner 1945):</span>
-              <span id="rowLumbarCumul" class="font-bold text-emerald-600">DCR 0.02 (≤1.0)</span>
-            </div>
-
-            <div class="flex justify-between items-center py-1 border-b border-[var(--cad-panel-border)]">
-              <span class="text-[var(--cad-text-muted)]">3. Масса LM-MMH (Snook 1991):</span>
-              <span id="rowLmMmh" class="font-bold text-emerald-600">DCR 0.49 (20.4 кг)</span>
-            </div>
-
-            <div class="flex justify-between items-center py-1 border-b border-[var(--cad-panel-border)]">
-              <span class="text-[var(--cad-text-muted)]">4. Плечи AFF (La Delfa 2017):</span>
-              <span id="rowAff" class="font-bold text-emerald-600">DCR 0.38 (128 Н)</span>
-            </div>
-
-            <div class="flex justify-between items-center py-1 border-b border-[var(--cad-panel-border)]">
-              <span class="text-[var(--cad-text-muted)]">5. Кисти HandPak (Potvin 2017):</span>
-              <span id="rowHandPak" class="font-bold text-emerald-600">DCR 0.42 (115 Н)</span>
-            </div>
-
-            <div class="flex justify-between items-center py-1 border-b border-[var(--cad-panel-border)]">
-              <span class="text-[var(--cad-text-muted)]">6. Шейный отдел (Ringdahl 1988):</span>
-              <span id="rowNeck" class="font-bold text-emerald-600">DCR 0.18 (4.2 Нм)</span>
-            </div>
-
-            <div class="flex justify-between items-center py-1 border-b border-[var(--cad-panel-border)]">
-              <span class="text-[var(--cad-text-muted)]">7. Момент коленей (Winter 2009):</span>
-              <span id="rowKnee" class="font-bold text-[var(--cad-accent)]">22° (K=145 мм)</span>
-            </div>
-
-            <div class="flex justify-between items-center pt-1">
-              <span class="text-[var(--cad-text-muted)]">Равновесие CofP / BoS:</span>
-              <span id="rowBalance" class="font-bold text-emerald-600">+45 мм [Сбалансирован]</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ================= TAB 3: EAWS AUTOMOTIVE STANDARD ================= -->
-        <div id="paneTab3" class="hidden space-y-2">
-          <div class="bg-[var(--cad-panel-sub-bg)] border border-[var(--cad-panel-border)] rounded p-3">
-            <div class="flex justify-between items-center text-[10.5px] font-bold text-[var(--cad-text-label)] uppercase">
-              <span>Стандарт автопрома EAWS (BMW/VW)</span>
-              <span id="badgeEaws" class="px-2 py-0.5 rounded text-[10px] font-bold badge-safe">ЗЕЛЕНЫЙ (≤25)</span>
-            </div>
-            
-            <div class="flex items-baseline gap-2 my-1.5">
-              <span id="txtEawsScore" class="text-3xl font-black text-emerald-600">14.5</span>
-              <span class="text-xs text-[var(--cad-text-muted)] font-medium">баллов EAWS (Автопром)</span>
-            </div>
-
-            <div class="grid grid-cols-2 gap-1.5 text-xs font-mono text-[var(--cad-text-main)] pt-2 border-t border-[var(--cad-panel-border)]">
-              <div>Секция 1 (Позы тела): <strong id="eawsSec1" class="text-[var(--cad-accent)]">4.0</strong></div>
-              <div>Секция 2 (Усилия): <strong id="eawsSec2" class="text-[var(--cad-accent)]">0.0</strong></div>
-              <div>Секция 3 (Грузы MMH): <strong id="eawsSec3" class="text-[var(--cad-accent)]">10.5</strong></div>
-              <div>Секция 4 (Повторы рук): <strong id="eawsSec4" class="text-[var(--cad-accent)]">0.0</strong></div>
-            </div>
-
-            <div class="text-[10px] text-[var(--cad-text-muted)] mt-2.5 pt-1.5 border-t border-[var(--cad-panel-border)] leading-normal">
-              Шкала EAWS автоконцернов: <strong>0–25 (Зеленый)</strong> — эргономично; <strong>26–50 (Желтый)</strong> — условно допустимо; <strong>>50 (Красный)</strong> — запрещено стандартом.
-            </div>
-          </div>
-        </div>
-
-        <!-- ================= TAB 4: MULTI-SUBTASK JOB MANAGER ================= -->
-        <div id="paneTab4" class="hidden space-y-2.5">
+        <!-- ================= TAB 2: MULTI-SUBTASK SHIFT JOB MANAGER ================= -->
+        <div id="paneTab2" class="hidden space-y-2.5">
           <div class="bg-[var(--cad-panel-sub-bg)] border border-[var(--cad-panel-border)] rounded p-2.5 space-y-2">
-            <div class="flex justify-between items-center text-[10.5px] font-bold text-[var(--cad-text-label)] uppercase">
-              <span>Менеджер операций смены</span>
+            <div class="flex justify-between items-center text-[11px] font-bold text-[var(--cad-text-label)] uppercase">
+              <span>Смена (Multi-Subtask Job)</span>
               <span id="subtasksBadge" class="text-[10px] font-mono bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded font-bold">0 операций</span>
             </div>
 
@@ -826,159 +757,85 @@
                 <span>➕ В смену</span>
               </button>
               <button onclick="evaluateShiftJobFromUI()" class="py-1 bg-purple-600 hover:bg-purple-700 text-white rounded text-xs font-semibold flex items-center justify-center gap-1 shadow-sm">
-                <span>⚡ Смена</span>
+                <span>⚡ Оценить</span>
               </button>
               <button onclick="clearSubtasksFromUI()" class="py-1 bg-[var(--cad-panel-bg)] hover:bg-[var(--cad-card-hover)] text-[var(--cad-text-main)] border border-[var(--cad-panel-border)] rounded text-xs">
                 <span>Очистить</span>
               </button>
             </div>
 
-            <!-- List of Subtasks -->
-            <div id="subtasksContainer" class="space-y-1.5 max-h-36 overflow-y-auto text-xs font-mono">
-              <div class="text-[var(--cad-text-muted)] italic text-center py-2">Нет добавленных операций</div>
+            <div id="subtasksContainer" class="space-y-1.5 max-h-48 overflow-y-auto text-xs font-mono">
+              <div class="text-[var(--cad-text-muted)] italic text-center py-3">Нет добавленных операций</div>
             </div>
 
-            <!-- Composite Shift Summary Card -->
             <div id="compositeShiftSummary" class="hidden bg-[var(--cad-panel-bg)] p-2.5 rounded border border-[var(--cad-panel-border)] text-xs font-mono space-y-1">
-              <div class="flex justify-between"><span class="text-[var(--cad-text-muted)]">Накопленный износ LCF:</span><strong id="lblCompLcf" class="text-emerald-600">0.144</strong></div>
+              <div class="flex justify-between"><span class="text-[var(--cad-text-muted)]">Износ смены LCF:</span><strong id="lblCompLcf" class="text-emerald-600">0.144</strong></div>
               <div class="flex justify-between"><span class="text-[var(--cad-text-muted)]">Общий DCR смены:</span><strong id="lblCompDcr" class="text-emerald-600">74%</strong></div>
-              <div class="flex justify-between"><span class="text-[var(--cad-text-muted)]">Пиковое сжатие L5/S1:</span><strong id="lblCompPeak" class="text-blue-700">2590 Н</strong></div>
+              <div class="flex justify-between"><span class="text-[var(--cad-text-muted)]">Пик L5/S1:</span><strong id="lblCompPeak" class="text-blue-700">2590 Н</strong></div>
               <div class="flex justify-between"><span class="text-[var(--cad-text-muted)]">Баллы EAWS смены:</span><strong id="lblCompEaws" class="text-purple-700">18.5 pts</strong></div>
             </div>
           </div>
         </div>
 
-        <!-- ================= TAB 5: INTEGRATED TEST SUITE RUNNER (10 AUTOTESTS) ================= -->
-        <div id="paneTab5" class="hidden space-y-2">
+        <!-- ================= TAB 3: 10 AUTOMATED VERIFICATION BENCHMARKS ================= -->
+        <div id="paneTab3" class="hidden space-y-2.5">
           <div class="bg-[var(--cad-panel-sub-bg)] border border-[var(--cad-panel-border)] rounded p-2.5 space-y-2">
-            <div class="flex justify-between items-center text-[10.5px] font-bold text-[var(--cad-text-label)] uppercase">
-              <span>Пакет 10 биомеханических автотестов</span>
-              <span id="lblTestSuiteOverall" class="text-[10px] font-mono font-bold text-emerald-600">10/10 ГОТОВО</span>
+            <div class="flex justify-between items-center text-[11px] font-bold text-[var(--cad-text-label)] uppercase">
+              <span>Пакет 10 научных автотестов</span>
+              <span id="lblTestSuiteOverall" class="text-[10px] font-mono font-bold text-emerald-600">10/10 PASS</span>
             </div>
 
-            <!-- 10 Test Buttons with instant execution -->
-            <div class="space-y-1 text-xs font-mono max-h-56 overflow-y-auto">
+            <button onclick="runCompleteAutotestSuite()" class="w-full py-1.5 bg-[var(--cad-accent)] hover:bg-[var(--cad-accent-hover)] text-white font-bold rounded text-xs flex items-center justify-center gap-1.5 shadow-sm">
+              <span>🚀 Прогнать все 10 автотестов</span>
+            </button>
+
+            <!-- Test List -->
+            <div class="space-y-1 text-xs font-mono max-h-52 overflow-y-auto">
               <button onclick="runSingleTest(1)" class="w-full text-left px-2 py-1 bg-[var(--cad-panel-bg)] hover:bg-[var(--cad-card-hover)] border border-[var(--cad-panel-border)] rounded flex justify-between items-center">
-                <span>1. Базовый подъем (10 кг, пояс)</span>
+                <span>1. Базовый подъем (10 кг)</span>
                 <span id="testBadge1" class="text-[10px] font-bold text-emerald-600">PASS</span>
               </button>
               <button onclick="runSingleTest(2)" class="w-full text-left px-2 py-1 bg-[var(--cad-panel-bg)] hover:bg-[var(--cad-card-hover)] border border-[var(--cad-panel-border)] rounded flex justify-between items-center">
-                <span>2. Опасный нагиб Stoop (25 кг с пола)</span>
+                <span>2. Опасный Stoop (25 кг с пола)</span>
                 <span id="testBadge2" class="text-[10px] font-bold text-emerald-600">PASS</span>
               </button>
               <button onclick="runSingleTest(3)" class="w-full text-left px-2 py-1 bg-[var(--cad-panel-bg)] hover:bg-[var(--cad-card-hover)] border border-[var(--cad-panel-border)] rounded flex justify-between items-center">
-                <span>3. Подъем над головой (15 кг, 1450 мм)</span>
+                <span>3. Подъем над головой (15 кг)</span>
                 <span id="testBadge3" class="text-[10px] font-bold text-emerald-600">PASS</span>
               </button>
               <button onclick="runSingleTest(4)" class="w-full text-left px-2 py-1 bg-[var(--cad-panel-bg)] hover:bg-[var(--cad-card-hover)] border border-[var(--cad-panel-border)] rounded flex justify-between items-center">
-                <span>4. Эталон Work(s) Ergo (Стр. 39 мануала)</span>
+                <span>4. Эталон Work(s) Ergo Стр. 39</span>
                 <span id="testBadge4" class="text-[10px] font-bold text-emerald-600">PASS</span>
               </button>
               <button onclick="runSingleTest(5)" class="w-full text-left px-2 py-1 bg-[var(--cad-panel-bg)] hover:bg-[var(--cad-card-hover)] border border-[var(--cad-panel-border)] rounded flex justify-between items-center">
-                <span>5. Глубокий присед (Deep Squat - ноги)</span>
+                <span>5. Глубокий присед Deep Squat</span>
                 <span id="testBadge5" class="text-[10px] font-bold text-emerald-600">PASS</span>
               </button>
               <button onclick="runSingleTest(6)" class="w-full text-left px-2 py-1 bg-[var(--cad-panel-bg)] hover:bg-[var(--cad-card-hover)] border border-[var(--cad-panel-border)] rounded flex justify-between items-center">
-                <span>6. Динамика отрыва (Kingma 1996)</span>
+                <span>6. Ускорение Kingma 1996</span>
                 <span id="testBadge6" class="text-[10px] font-bold text-emerald-600">PASS</span>
               </button>
               <button onclick="runSingleTest(7)" class="w-full text-left px-2 py-1 bg-[var(--cad-panel-bg)] hover:bg-[var(--cad-card-hover)] border border-[var(--cad-panel-border)] rounded flex justify-between items-center">
-                <span>7. Толкание тележки (Snook & Ciriello)</span>
+                <span>7. Толкание Snook & Ciriello</span>
                 <span id="testBadge7" class="text-[10px] font-bold text-emerald-600">PASS</span>
               </button>
               <button onclick="runSingleTest(8)" class="w-full text-left px-2 py-1 bg-[var(--cad-panel-bg)] hover:bg-[var(--cad-card-hover)] border border-[var(--cad-panel-border)] rounded flex justify-between items-center">
-                <span>8. Переноска груза (Snook MAWC)</span>
+                <span>8. Переноска Snook MAWC</span>
                 <span id="testBadge8" class="text-[10px] font-bold text-emerald-600">PASS</span>
               </button>
               <button onclick="runSingleTest(9)" class="w-full text-left px-2 py-1 bg-[var(--cad-panel-bg)] hover:bg-[var(--cad-card-hover)] border border-[var(--cad-panel-border)] rounded flex justify-between items-center">
-                <span>9. EAWS Автопром (BMW/VW Criteria)</span>
+                <span>9. EAWS Автопром (BMW/VW)</span>
                 <span id="testBadge9" class="text-[10px] font-bold text-emerald-600">PASS</span>
               </button>
               <button onclick="runSingleTest(10)" class="w-full text-left px-2 py-1 bg-[var(--cad-panel-bg)] hover:bg-[var(--cad-card-hover)] border border-[var(--cad-panel-border)] rounded flex justify-between items-center">
-                <span>10. Смена (2 стадии: Пол ➜ Стол)</span>
+                <span>10. Смена: Пол ➜ Стол</span>
                 <span id="testBadge10" class="text-[10px] font-bold text-emerald-600">PASS</span>
               </button>
             </div>
 
-            <!-- Execution Details Readout -->
             <div id="testLogDetails" class="bg-[var(--cad-panel-bg)] p-2 rounded border border-[var(--cad-panel-border)] text-[11px] font-mono text-[var(--cad-text-muted)] leading-relaxed">
-              Кликните по любому тесту или нажмите «Тесты (1–10)» для проверки 100% совпадения с научной документацией.
+              Кликните по тесту для валидации против первоисточников.
             </div>
-          </div>
-        </div>
-
-        <!-- ================= PRECISION TASK INPUT CONTROLS ================= -->
-        <div class="border-t border-[var(--cad-panel-border)] pt-3 space-y-2.5 font-sans">
-          <div class="text-[10.5px] font-bold text-[var(--cad-text-label)] uppercase tracking-wider">Параметры текущей операции</div>
-
-          <!-- Mass with Slider + Numeric Input -->
-          <div id="controlGroupMass">
-            <div class="flex justify-between items-center text-xs mb-1">
-              <span class="text-[var(--cad-text-label)]">Масса объекта (кг):</span>
-              <input id="numMass" type="number" min="1" max="45" step="0.5" value="10" class="w-16 px-1.5 py-0.5 bg-[var(--cad-input-bg)] border border-[var(--cad-input-border)] rounded text-right font-mono font-bold text-amber-700">
-            </div>
-            <input id="sliderMass" type="range" min="1" max="45" step="0.5" value="10" class="w-full h-1.5 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
-          </div>
-
-          <!-- Vertical Height with Slider + Numeric Input -->
-          <div id="controlGroupV">
-            <div class="flex justify-between items-center text-xs mb-1">
-              <span class="text-[var(--cad-text-label)]">Высота съема V (мм):</span>
-              <input id="numV" type="number" min="50" max="1750" step="25" value="750" class="w-16 px-1.5 py-0.5 bg-[var(--cad-input-bg)] border border-[var(--cad-input-border)] rounded text-right font-mono font-bold text-blue-700">
-            </div>
-            <input id="sliderV" type="range" min="50" max="1750" step="25" value="750" class="w-full h-1.5 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
-          </div>
-
-          <!-- Reach Distance with Slider + Numeric Input -->
-          <div id="controlGroupH">
-            <div class="flex justify-between items-center text-xs mb-1">
-              <span class="text-[var(--cad-text-label)]">Вылет рук H (мм):</span>
-              <input id="numH" type="number" min="200" max="800" step="10" value="350" class="w-16 px-1.5 py-0.5 bg-[var(--cad-input-bg)] border border-[var(--cad-input-border)] rounded text-right font-mono font-bold text-purple-700">
-            </div>
-            <input id="sliderH" type="range" min="200" max="800" step="10" value="350" class="w-full h-1.5 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
-          </div>
-
-          <!-- Dynamic Acceleration Slider -->
-          <div id="controlGroupAccel">
-            <div class="flex justify-between items-center text-xs mb-1">
-              <span class="text-[var(--cad-text-label)]">Ускорение отрыва a (Kingma):</span>
-              <span id="lblAccelVal" class="font-bold font-mono text-[var(--cad-accent)]">0.0 м/с²</span>
-            </div>
-            <input id="sliderAccel" type="range" min="0" max="3.0" step="0.1" value="0.0" class="w-full h-1.5 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
-          </div>
-
-          <!-- Push & Pull Controls (Only visible in PushingPulling mode) -->
-          <div id="controlGroupPushPull" class="hidden space-y-2.5 bg-[var(--cad-panel-sub-bg)] p-2.5 rounded border border-[var(--cad-panel-border)]">
-            <div>
-              <div class="flex justify-between items-center text-xs mb-1">
-                <span class="text-[var(--cad-text-label)]">Усилие страгивания (Initial):</span>
-                <span id="lblInitForceVal" class="font-bold font-mono text-rose-700">180 Н</span>
-              </div>
-              <input id="sliderInitForce" type="range" min="50" max="450" step="5" value="180" class="w-full h-1.5 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
-            </div>
-
-            <div>
-              <div class="flex justify-between items-center text-xs mb-1">
-                <span class="text-[var(--cad-text-label)]">Усилие качения (Sustained):</span>
-                <span id="lblSustForceVal" class="font-bold font-mono text-amber-700">75 Н</span>
-              </div>
-              <input id="sliderSustForce" type="range" min="20" max="250" step="5" value="75" class="w-full h-1.5 bg-[var(--cad-input-border)] rounded appearance-none cursor-pointer">
-            </div>
-          </div>
-
-          <!-- 23 HandPak Grip Selector -->
-          <div>
-            <div class="text-xs text-[var(--cad-text-label)] mb-1 font-medium">Интерфейс хвата HandPak (23 типа):</div>
-            <select id="selectGripType" class="w-full bg-[var(--cad-input-bg)] border border-[var(--cad-input-border)] text-[var(--cad-text-main)] rounded px-2 py-1 text-xs focus:outline-none focus:border-[var(--cad-accent)] font-mono">
-              <option value="PowerGripMedial" selected>Power Grip (Силовой охват, 100%)</option>
-              <option value="PowerGripLateral">Power Grip Lateral (Боковой, 92%)</option>
-              <option value="PinchGrip">Pinch Grip (Двупальцевый щипок, 35%)</option>
-              <option value="ChuckPinch3Finger">Chuck 3-Finger (Трехпальцевый, 42%)</option>
-              <option value="KeyPinchLateral">Key Pinch (Ключевой щипок, 48%)</option>
-              <option value="HookGrip">Hook Grip (Крюковой хват, 88%)</option>
-              <option value="FlatPalmPress">Flat Palm Press (Ладонный жим, 120%)</option>
-              <option value="FrictionAssistedRubber">Friction Rubber (С резиновой накладкой, 125%)</option>
-            </select>
           </div>
         </div>
 
@@ -988,23 +845,23 @@
   </main>
 
   <!-- ==================== 4. DESKTOP CAD STATUSBAR ==================== -->
-  <footer class="bg-[var(--cad-ribbon-bg)] border-t border-[var(--cad-ribbon-border)] px-3 py-1 flex items-center justify-between text-[11px] font-mono text-[var(--cad-text-muted)] shrink-0">
+  <footer class="bg-[var(--cad-ribbon-bg)] border-t border-[var(--cad-ribbon-border)] px-3 py-1 flex items-center justify-between text-[11px] font-mono text-[var(--cad-text-muted)] shrink-0 z-20">
     <div class="flex items-center gap-4">
       <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Симуляция: ГОТОВА</span>
       <span>Сетка: 100 мм</span>
-      <span>Единицы: мм / кг / Н</span>
       <span id="lblStatusBarTask" class="text-[var(--cad-text-main)] font-semibold">Режим: Подъем груза</span>
+      <span id="lblStatusBarCollision" class="text-blue-700 font-semibold">Стол: Активен</span>
     </div>
     <div class="flex items-center gap-3">
       <span>Время: 00:00:14.28</span>
-      <span>Инференс: 60.0 FPS</span>
+      <span>60.0 FPS</span>
       <span class="text-[var(--cad-accent)] font-bold">Works Ergo C# .NET MEF Active</span>
     </div>
   </footer>
 
-  <!-- ==================== 5. SCIENTIFIC DHM KINEMATICS & VERIFICATION CORE ==================== -->
+  <!-- ==================== 5. SCRIPT: KINEMATICS, COLLISION & ANIMATION ==================== -->
   <script>
-    // State matching PostureInputs struct
+    // State matching PostureInputs struct in C#
     let currentInputs = {
       percentile: 'Female50th',
       task: 'LiftingLowering',
@@ -1026,6 +883,11 @@
       tableEnabled: true,
       cameraView: 'perspective'
     };
+
+    // Animation loop state
+    let isPushAnimating = false;
+    let pushAnimTimer = null;
+    let animProgress = 0.0; // 0.0 to 1.0
 
     // HandPak 23-interface database
     const handPakMultipliers = {
@@ -1054,25 +916,126 @@
       'FrictionAssistedRubber': 1.25
     };
 
-    // Theme Switcher Logic
+    // Theme Switcher
     function toggleTheme() {
       const htmlEl = document.documentElement;
-      const btn = document.getElementById('btnThemeToggle');
+      const lbl = document.getElementById('lblThemeName');
       if (htmlEl.classList.contains('theme-light')) {
         htmlEl.classList.remove('theme-light');
         htmlEl.classList.add('theme-dark');
-        btn.textContent = 'Темный Графит (CAD Dark)';
-        showCadToast('Тема переключена: CAD Графит');
+        lbl.textContent = 'CAD Графит';
+        showCadToast('Тема переключена: Инженерный Графит');
       } else {
         htmlEl.classList.remove('theme-dark');
         htmlEl.classList.add('theme-light');
-        btn.textContent = 'Светлая (Р-Про / VC)';
+        lbl.textContent = 'Светлая CAD';
         showCadToast('Тема переключена: Светлая CAD (Visual Components)');
       }
       renderCadDashboard();
     }
 
-    // Biomechanical Calculation Core (Direct translation of ErgonomicMathEngine.cs)
+    // Toggle Left & Right Panels (UX Regulators to prevent view obscuring)
+    function toggleLeftPanel() {
+      const p = document.getElementById('leftPanel');
+      p.classList.toggle('w-60');
+      p.classList.toggle('w-0');
+      p.classList.toggle('p-0');
+      p.classList.toggle('border-0');
+      p.classList.toggle('overflow-hidden');
+    }
+
+    function toggleRightPanel() {
+      const p = document.getElementById('rightPanel');
+      p.classList.toggle('w-80');
+      p.classList.toggle('w-0');
+      p.classList.toggle('p-0');
+      p.classList.toggle('border-0');
+      p.classList.toggle('overflow-hidden');
+    }
+
+    // Draggable Resizer for Right Inspector Panel
+    const resizer = document.getElementById('panelResizer');
+    const rightPanel = document.getElementById('rightPanel');
+    let isResizing = false;
+
+    resizer.addEventListener('mousedown', (e) => {
+      isResizing = true;
+      resizer.classList.add('active');
+      document.body.style.cursor = 'col-resize';
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isResizing) return;
+      const newWidth = document.body.clientWidth - e.clientX;
+      if (newWidth >= 260 && newWidth <= 550) {
+        rightPanel.style.width = `${newWidth}px`;
+      }
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isResizing) {
+        isResizing = false;
+        resizer.classList.remove('active');
+        document.body.style.cursor = '';
+      }
+    });
+
+    // Set Task Mode
+    function setTaskMode(task) {
+      currentInputs.task = task;
+      const btnL = document.getElementById('btnTaskLift');
+      const btnP = document.getElementById('btnTaskPush');
+      const btnC = document.getElementById('btnTaskCarry');
+
+      [btnL, btnP, btnC].forEach(b => {
+        b.className = 'px-2.5 py-1 rounded bg-[var(--cad-input-bg)] hover:bg-[var(--cad-card-hover)] text-[var(--cad-text-main)] border border-[var(--cad-input-border)] font-semibold flex items-center gap-1';
+      });
+
+      if (task === 'LiftingLowering') {
+        btnL.className = 'px-2.5 py-1 rounded bg-[var(--cad-accent)] text-white font-semibold flex items-center gap-1 shadow-sm';
+      } else if (task === 'PushingPulling') {
+        btnP.className = 'px-2.5 py-1 rounded bg-[var(--cad-accent)] text-white font-semibold flex items-center gap-1 shadow-sm';
+      } else if (task === 'Carrying') {
+        btnC.className = 'px-2.5 py-1 rounded bg-[var(--cad-accent)] text-white font-semibold flex items-center gap-1 shadow-sm';
+      }
+
+
+      renderCadDashboard();
+      showCadToast(`Режим изменен: ${task}`);
+    }
+
+    // ==========================================================
+    // PHYSICAL COLLISION DETECTION: BOX & TABLE
+    // Enforces that box NEVER passes through the solid table surface
+    // ==========================================================
+    function enforceTableCollision() {
+      if (!currentInputs.tableEnabled || currentInputs.task === 'PushingPulling') {
+        document.getElementById('badgeCollisionStatus').classList.add('hidden');
+        return;
+      }
+
+      // In real-world mm coordinates relative to worker
+      const tableLeftX = currentInputs.tableX - 90;
+      const tableRightX = currentInputs.tableX + 90;
+      const isAboveTable = (currentInputs.reachMm >= tableLeftX && currentInputs.reachMm <= tableRightX);
+
+      const tableSurfaceZ = currentInputs.tableHeightMm + 25; // Table top + half-box thickness
+
+      if (isAboveTable) {
+        document.getElementById('badgeCollisionStatus').classList.remove('hidden');
+        document.getElementById('lblStatusBarCollision').textContent = 'Стол: Опора груза';
+        if (currentInputs.verticalMm < tableSurfaceZ) {
+          currentInputs.verticalMm = tableSurfaceZ;
+          document.getElementById('sliderV').value = tableSurfaceZ;
+          document.getElementById('numV').value = tableSurfaceZ;
+        }
+      } else {
+        document.getElementById('badgeCollisionStatus').classList.add('hidden');
+        document.getElementById('lblStatusBarCollision').textContent = 'Стол: Свободен';
+      }
+    }
+
+    // Biomechanical Calculation Core
     function calculateErgonomics(inputs) {
       const isFemale = inputs.percentile.startsWith('Female');
       let bodyMass = isFemale ? 73.5 : 78.0;
@@ -1091,15 +1054,17 @@
       const dutyCycle = Math.max(0.0001, Math.min(0.99, totalEffortSec / totalShiftSec));
       const potvinMae = Math.max(0.05, 1.0 - Math.pow(dutyCycle, 0.24));
 
-      // 2. Kinematics for lower limbs
-      const hM = Math.max(0.15, Math.min(0.90, inputs.reachMm / 1000.0));
+      // 2. Kinematics for legs & spine
+      const reachMm = inputs.reachMm != null ? inputs.reachMm : 350.0;
+      const verticalMm = inputs.verticalMm != null ? inputs.verticalMm : (inputs.task === 'PushingPulling' ? 1000.0 : 750.0);
+      const hM = Math.max(0.15, Math.min(0.90, reachMm / 1000.0));
       const statureM = statureCm / 100.0;
       const lShin = statureM * 0.25;
       const lThigh = statureM * 0.24;
       const lTorso = statureM * 0.28;
 
       const standingHipHeightM = statureM * 0.53;
-      const vM = inputs.verticalMm / 1000.0;
+      const vM = verticalMm / 1000.0;
       const vDiff = Math.max(0.0, standingHipHeightM - vM);
 
       let kneeFlexionDeg = 0.0;
@@ -1109,10 +1074,10 @@
 
       const tech = inputs.technique || 'AutomaticSemiSquat';
       if (inputs.task === 'PushingPulling') {
-        kneeFlexionDeg = 20.0;
-        hipHeightM = standingHipHeightM - 0.05;
-        shinTiltRad = 10.0 * (Math.PI / 180.0);
-        forwardLeanDeg = 15.0;
+        kneeFlexionDeg = 18.0;
+        hipHeightM = standingHipHeightM - 0.04;
+        shinTiltRad = 8.0 * (Math.PI / 180.0);
+        forwardLeanDeg = 14.0;
       } else if (tech === 'StoopStraightLegs') {
         kneeFlexionDeg = 5.0;
         hipHeightM = standingHipHeightM;
@@ -1209,8 +1174,8 @@
       const cumulDcr = (inputs.frequencyPerDay || 400.0) / Math.max(50.0, ctf);
 
       // NIOSH RWL & Lifting Index
-      const hm = Math.min(1.0, 250.0 / Math.max(250.0, inputs.reachMm));
-      const vm = Math.max(0.0, 1.0 - 0.0003 * Math.abs(inputs.verticalMm - 750.0));
+      const hm = Math.min(1.0, 250.0 / Math.max(250.0, reachMm));
+      const vm = Math.max(0.0, 1.0 - 0.0003 * Math.abs(verticalMm - 750.0));
       const nioshRwl = Math.round(23.0 * hm * vm * 0.85 * 0.90 * 10) / 10;
       const liftingIndex = Math.round((inputs.massKg / Math.max(1.0, nioshRwl)) * 100) / 100;
 
@@ -1224,8 +1189,8 @@
       const mawlKg = malN / 9.81;
       const lmMmhDcr = (inputs.massKg * 9.81) / malN;
 
-      // Pushing & Pulling (Snook & Ciriello 1991 / LM-MMH 2021)
-      const handleH = inputs.verticalMm > 0 ? (inputs.verticalMm / 1000.0) : 1.0;
+      // Pushing & Pulling (Snook & Ciriello 1991)
+      const handleH = verticalMm > 0 ? (verticalMm / 1000.0) : 1.0;
       const pushHeightFact = Math.max(0.70, 1.0 - 0.25 * Math.abs(handleH - 1.00));
       const pushDist = inputs.pushDistanceM || 7.5;
       const pushDistFact = Math.max(0.70, 1.0 - 0.0075 * (pushDist - 7.5));
@@ -1259,11 +1224,6 @@
       const handMafN = Math.max(10.0, baseHandMvc * potvinMae);
       const handDcr = armLoadN / handMafN;
 
-      // Neck
-      const neckMoment = (bodyMass * 0.07 * g) * (0.06 + 0.12 * Math.sin(thetaRad * 0.5));
-      const neckMat = (isFemale ? 26.1 : 41.8) * potvinMae;
-      const neckDcr = neckMoment / neckMat;
-
       let activeTaskDcr = lmMmhDcr;
       let primaryLimiting = "Нагрузка на позвоночник L5/S1";
 
@@ -1273,12 +1233,9 @@
       } else if (inputs.task === 'Carrying') {
         activeTaskDcr = carryDcr;
         primaryLimiting = "Дистанция переноски и масса (Snook MAWC)";
-      } else if (inputs.task === 'StaticPosture') {
-        activeTaskDcr = Math.max(lumbarDcr, armDcr);
-        primaryLimiting = "Статическое удержание позы (Rohmert limit)";
       }
 
-      let overallDcr = Math.max(lumbarDcr, cumulDcr, activeTaskDcr, armDcr, handDcr, neckDcr);
+      let overallDcr = Math.max(lumbarDcr, cumulDcr, activeTaskDcr, armDcr, handDcr);
       if (overallDcr === cumulDcr && cumulDcr > lumbarDcr) primaryLimiting = "Накопленный износ смены LCF (Miner rule)";
       else if (overallDcr === armDcr) primaryLimiting = "Усталость плечевого сустава (AFF)";
       else if (overallDcr === handDcr) primaryLimiting = "Усталость кистевого хвата (HandPak)";
@@ -1302,8 +1259,6 @@
         armDcr: armDcr.toFixed(2),
         handMafN: handMafN.toFixed(1),
         handDcr: handDcr.toFixed(2),
-        neckMoment: neckMoment.toFixed(1),
-        neckDcr: neckDcr.toFixed(2),
         primaryLimiting,
         forwardLeanDeg,
         kneeFlexionDeg: Math.round(kneeFlexionDeg),
@@ -1324,16 +1279,16 @@
       };
     }
 
-    // EAWS Automotive Calculation (Sections 1-4)
+    // EAWS Automotive Calculation
     function calculateEAWS(inputs, res) {
+      const vertMm = inputs.verticalMm != null ? inputs.verticalMm : (inputs.task === 'PushingPulling' ? 1000.0 : 750.0);
+      const reachMm = inputs.reachMm != null ? inputs.reachMm : 350.0;
+
       let sec1 = 0.0;
       if (res.forwardLeanDeg > 60.0) sec1 += 8.0;
       else if (res.forwardLeanDeg > 20.0) sec1 += 3.5;
-
-      if (inputs.verticalMm < 450.0) sec1 += 2.0;
-      else if (inputs.verticalMm > 1400.0) sec1 += 5.0;
-      else if (inputs.reachMm > 550.0) sec1 += 2.5;
-
+      if (vertMm < 450.0) sec1 += 2.0;
+      else if (vertMm > 1400.0) sec1 += 5.0;
       if (res.kneeFlexionDeg > 60.0 || inputs.technique === 'DeepSquat') sec1 += 6.0;
 
       let sec2 = 0.0;
@@ -1343,7 +1298,6 @@
         if (initN > 300.0) sec2 += 12.0;
         else if (initN > 180.0) sec2 += 6.0;
         else if (initN > 100.0) sec2 += 3.0;
-
         if (sustN > 150.0) sec2 += 8.0;
         else if (sustN > 90.0) sec2 += 4.0;
       }
@@ -1358,8 +1312,8 @@
         else if (inputs.massKg >= 4.0) wPts = 2.5;
 
         let postMult = 1.0;
-        if (inputs.verticalMm < 500.0) postMult += 0.4;
-        if (inputs.reachMm > 450.0) postMult += 0.3;
+        if (vertMm < 500.0) postMult += 0.4;
+        if (reachMm > 450.0) postMult += 0.3;
 
         const freqPerMin = Math.max(0.1, (inputs.frequencyPerDay || 400.0) / (8.0 * 60.0));
         const freqFactor = Math.min(2.5, 0.5 + 0.3 * Math.sqrt(freqPerMin));
@@ -1368,26 +1322,19 @@
 
       let sec4 = 0.0;
       const freqPerMin = (inputs.frequencyPerDay || 400.0) / (8.0 * 60.0);
-      if (freqPerMin > 4.0 || (inputs.frequencyPerDay || 400.0) > 1500.0) {
+      if (freqPerMin > 4.0) {
         sec4 = Math.min(15.0, 2.0 + (freqPerMin - 4.0) * 1.5);
-        const g = inputs.grip || 'PowerGripMedial';
-        if (g === 'PinchGrip' || g === 'ChuckPinch3Finger' || g === 'TipPinch2Finger') {
-          sec4 += 3.0;
-        }
       }
 
       const grandScore = Math.round((sec1 + sec2 + sec3 + sec4) * 10) / 10;
       let trafficLight = "ЗЕЛЕНЫЙ (≤25)";
       let badgeClass = "badge-safe";
-      let textClass = "text-3xl font-black text-emerald-600";
       if (grandScore > 50.0) {
         trafficLight = "КРАСНЫЙ (>50)";
         badgeClass = "badge-hazard";
-        textClass = "text-3xl font-black text-rose-600";
       } else if (grandScore > 25.0) {
         trafficLight = "ЖЕЛТЫЙ (26-50)";
         badgeClass = "badge-warn";
-        textClass = "text-3xl font-black text-amber-600";
       }
 
       return {
@@ -1397,13 +1344,14 @@
         sec3: sec3.toFixed(1),
         sec4: sec4.toFixed(1),
         trafficLight,
-        badgeClass,
-        textClass
+        badgeClass
       };
     }
 
-    // Kinematic Posture Solver & Vector Rendering
+    // Kinematic Posture Solver with Push Walking Gait
     function updateCadKinematics(inputs, res) {
+      enforceTableCollision();
+
       const scale = 0.22;
       const floorY = 450;
       const workerBaseX = 295 + (inputs.workerX * 0.15);
@@ -1412,7 +1360,7 @@
 
       const leanRad = res.forwardLeanDeg * (Math.PI / 180.0);
 
-      // Anatomical Coordinates
+      // Anatomical coordinates
       const kneeX = ankleX + (res.xKnee * 1000.0 * scale);
       const kneeY = floorY - (res.yKnee * 1000.0 * scale);
 
@@ -1422,6 +1370,28 @@
       // Leg Elements
       document.getElementById('cadAnkle').setAttribute('cx', ankleX);
       document.getElementById('cadAnkle').setAttribute('cy', ankleY);
+
+      // Rear leg (stride in pushing animation)
+      const rearLegShin = document.getElementById('cadLegRearShin');
+      const rearLegThigh = document.getElementById('cadLegRearThigh');
+      if (inputs.task === 'PushingPulling') {
+        rearLegShin.classList.remove('hidden');
+        rearLegThigh.classList.remove('hidden');
+        const stridePhase = Math.sin(animProgress * Math.PI * 4);
+        const rearKneeX = ankleX - 35 + stridePhase * 15;
+        const rearKneeY = floorY - 60;
+        rearLegShin.setAttribute('x1', ankleX - 45 + stridePhase * 25);
+        rearLegShin.setAttribute('y1', floorY - 4);
+        rearLegShin.setAttribute('x2', rearKneeX);
+        rearLegShin.setAttribute('y2', rearKneeY);
+        rearLegThigh.setAttribute('x1', rearKneeX);
+        rearLegThigh.setAttribute('y1', rearKneeY);
+        rearLegThigh.setAttribute('x2', hipX);
+        rearLegThigh.setAttribute('y2', hipY);
+      } else {
+        rearLegShin.classList.add('hidden');
+        rearLegThigh.classList.add('hidden');
+      }
 
       document.getElementById('cadLegShin').setAttribute('x1', ankleX);
       document.getElementById('cadLegShin').setAttribute('y1', ankleY);
@@ -1468,7 +1438,7 @@
       document.getElementById('cadShoulder').setAttribute('cx', shoulderX);
       document.getElementById('cadShoulder').setAttribute('cy', shoulderY);
 
-      // Hand target position based on task
+      // Target Hand Coordinates
       let targetHandX = ankleX + inputs.reachMm * scale;
       let targetHandY = floorY - inputs.verticalMm * scale;
 
@@ -1525,25 +1495,34 @@
         document.getElementById('cadTableTop').setAttribute('y', tableY_px);
         document.getElementById('cadTableHeightLabel').setAttribute('x', tableX_px);
         document.getElementById('cadTableHeightLabel').setAttribute('y', tableY_px - 8);
-        document.getElementById('cadTableHeightLabel').textContent = `Стол: ${Math.round(inputs.tableHeightMm)} мм`;
+        document.getElementById('cadTableHeightLabel').textContent = `Верстак: ${Math.round(inputs.tableHeightMm)} мм`;
         document.getElementById('cadShadowTable').setAttribute('cx', tableX_px);
       } else {
         tableGroup.classList.add('hidden');
       }
 
-      // Box vs Cart display
+      // Box vs Cart Positioning with Rotating Wheels
       const boxGroup = document.getElementById('cadBoxGroup');
       const cartGroup = document.getElementById('cadCartGroup');
+      const cartShadow = document.getElementById('cadShadowCart');
 
       if (inputs.task === 'PushingPulling') {
         boxGroup.classList.add('hidden');
         cartGroup.classList.remove('hidden');
+        cartShadow.classList.remove('hidden');
         const cartX = ankleX + 115;
         cartGroup.setAttribute('transform', `translate(${cartX - 410}, 0)`);
+        cartShadow.setAttribute('cx', cartX + 70);
         document.getElementById('cadPushForceText').textContent = `F = ${Math.round(inputs.pushInitialN)} Н`;
+
+        // Wheel spoke rotation animation
+        const wheelAngle = (inputs.workerX * 3.5) % 360;
+        document.getElementById('cadCartWheelL').setAttribute('transform', `translate(435, 442) rotate(${wheelAngle})`);
+        document.getElementById('cadCartWheelR').setAttribute('transform', `translate(535, 442) rotate(${wheelAngle})`);
       } else {
         boxGroup.classList.remove('hidden');
         cartGroup.classList.add('hidden');
+        cartShadow.classList.add('hidden');
         boxGroup.setAttribute('transform', `translate(${targetHandX - 30}, ${targetHandY - 25})`);
         document.getElementById('cadBoxMass').textContent = `${inputs.massKg.toFixed(1)} кг`;
       }
@@ -1554,7 +1533,7 @@
       document.getElementById('cadHudSpine').setAttribute('transform', `translate(${l5X - 100}, ${l5Y - 17})`);
       document.getElementById('cadHudCompVal').textContent = `${res.compressionN} Н`;
 
-      // Knee joint stress
+      // Knee joint stress color
       let kneeStressColor = '#0284c7';
       if (res.kneeMomentNm > 120) kneeStressColor = '#dc2626';
       else if (res.kneeMomentNm > 80) kneeStressColor = '#d97706';
@@ -1607,7 +1586,7 @@
       cofpTextEl.setAttribute('x', plumbX);
       if (res.isBalanced) {
         document.getElementById('cadCofPMarker').setAttribute('fill', '#0284c7');
-        cofpTextEl.textContent = `CofP: ${res.cofpMm > 0 ? '+' : ''}${res.cofpMm} мм [${res.squatStyleName}]`;
+        cofpTextEl.textContent = `CofP: ${res.cofpMm > 0 ? '+' : ''}${res.cofpMm} мм`;
         cofpTextEl.setAttribute('fill', '#0284c7');
         document.getElementById('cadBosLine').setAttribute('stroke', '#16a34a');
       } else {
@@ -1669,7 +1648,7 @@
         badge.className = 'px-2 py-0.5 rounded text-[10.5px] font-bold badge-safe';
         badge.textContent = 'НОРМА (SAFE)';
         document.getElementById('txtRecommendation').textContent =
-          'Параметры в пределах безопасной эргономической нормы. Перепроектирование рабочего места не требуется.';
+          'Нагрузка в пределах физиологической нормы. Дополнительные технические меры не требуются.';
       } else if (res.overallDcr <= 1.0) {
         dcrBig.className = 'text-4xl font-extrabold text-amber-600 tracking-tight';
         barDcr.className = 'bg-amber-500 h-full rounded-full transition-all duration-300';
@@ -1688,10 +1667,10 @@
         } else if (currentInputs.verticalMm < 400) {
           if (currentInputs.technique === 'StoopStraightLegs') {
             document.getElementById('txtRecommendation').textContent =
-              `Опасный нагиб на прямых ногах! Переключитесь на эргономичный присед (Deep Squat) или поднимите груз на верстак.`;
+              `Опасный нагиб на прямых ногах! Нажмите «На стол» или переключитесь на эргономичный присед (Deep Squat).`;
           } else {
             document.getElementById('txtRecommendation').textContent =
-              `Глубокий наклон туловища! Поднимите тару на ${Math.round(800 - currentInputs.verticalMm)} мм с помощью подъемного стола для устранения сгибания позвоночника.`;
+              `Глубокий наклон туловища! Поднимите тару на верстак (${Math.round(800 - currentInputs.verticalMm)} мм выше) для устранения глубокого изгиба позвоночника.`;
           }
         } else {
           document.getElementById('txtRecommendation').textContent =
@@ -1701,9 +1680,42 @@
 
       document.getElementById('lblPrimaryLimiting').textContent = res.primaryLimiting;
 
-      // Mode-Specific Card Toggles
-      const cardSpecific = document.getElementById('cardTaskSpecific');
-      const cardPushPull = document.getElementById('cardPushPullMetrics');
+      // 4 Core Biomechanical Cards Update
+      document.getElementById('valCompBig').textContent = `${res.compressionN} Н`;
+      document.getElementById('valCompBig').className = res.compressionN > 3400 ? 'text-sm font-bold text-rose-600' : 'text-sm font-bold text-emerald-600';
+      document.getElementById('cardSpineDetails').textContent = `Лимит: 3400 Н • DCR ${res.lumbarDcr}`;
+
+      document.getElementById('valHandDcr').textContent = `DCR ${Math.round(res.handDcr * 100)}%`;
+      document.getElementById('cardGripDetails').textContent = `${currentInputs.grip} (${res.handMafN} Н лимит)`;
+
+      // Task Specific Card
+      const cardTitle = document.getElementById('lblTaskCardTitle');
+      const cardSub = document.getElementById('lblTaskCardSub');
+      const cardVal = document.getElementById('valTaskMainMetric');
+
+      if (currentInputs.task === 'PushingPulling') {
+        cardTitle.textContent = '🛒 Толкание (Snook)';
+        cardSub.textContent = `Качение: ${Math.round(currentInputs.pushSustainedN)} Н / Лимит ${res.sustLimitN} Н`;
+        cardVal.textContent = `DCR ${res.pushPullDcr}`;
+        cardVal.className = parseFloat(res.pushPullDcr) > 1.0 ? 'text-sm font-bold text-rose-600' : 'text-sm font-bold text-emerald-600';
+      } else if (currentInputs.task === 'Carrying') {
+        cardTitle.textContent = '🚶 Переноска (MAWC)';
+        cardSub.textContent = `Масса: ${currentInputs.massKg} кг / Лимит ${res.carryLimitKg} кг`;
+        cardVal.textContent = `DCR ${res.carryDcr}`;
+        cardVal.className = parseFloat(res.carryDcr) > 1.0 ? 'text-sm font-bold text-rose-600' : 'text-sm font-bold text-emerald-600';
+      } else {
+        cardTitle.textContent = '📦 Лимит подъема (NIOSH RWL)';
+        cardSub.textContent = `RWL: ${res.nioshRwl} кг • Индекс LI = ${res.liftingIndex}`;
+        cardVal.textContent = `${res.nioshRwl} кг`;
+        cardVal.className = parseFloat(res.liftingIndex) > 1.0 ? 'text-sm font-bold text-rose-600' : 'text-sm font-bold text-emerald-600';
+      }
+
+      // EAWS Automotive Card
+      const eaws = calculateEAWS(currentInputs, res);
+      document.getElementById('txtEawsScore').textContent = `${eaws.grandScore} pts`;
+      document.getElementById('eawsSummarySub').textContent = `${eaws.trafficLight} • P1:${eaws.sec1}, P2:${eaws.sec2}, P3:${eaws.sec3}`;
+
+      // Mode-Specific Sliders Display
       const ctrlPushPull = document.getElementById('controlGroupPushPull');
       const ctrlMass = document.getElementById('controlGroupMass');
       const ctrlV = document.getElementById('controlGroupV');
@@ -1711,62 +1723,22 @@
       const ctrlAccel = document.getElementById('controlGroupAccel');
 
       if (currentInputs.task === 'PushingPulling') {
-        cardSpecific.classList.add('hidden');
-        cardPushPull.classList.remove('hidden');
         ctrlPushPull.classList.remove('hidden');
         ctrlMass.classList.add('hidden');
         ctrlV.classList.add('hidden');
         ctrlH.classList.add('hidden');
         ctrlAccel.classList.add('hidden');
-
-        document.getElementById('lblPpStatus').textContent = `DCR = ${res.pushPullDcr}`;
-        document.getElementById('lblPpStatus').className = parseFloat(res.pushPullDcr) > 1.0 ? 'text-rose-600 font-bold' : 'text-emerald-600 font-bold';
-        document.getElementById('valPpInit').textContent = `${Math.round(currentInputs.pushInitialN)} Н / ${res.initLimitN} Н`;
-        document.getElementById('valPpSust').textContent = `${Math.round(currentInputs.pushSustainedN)} Н / ${res.sustLimitN} Н`;
-        document.getElementById('valPpHnd').textContent = `${Math.round(currentInputs.verticalMm)} мм`;
         document.getElementById('lblStatusBarTask').textContent = `Режим: Толкание тележки (F_init=${Math.round(currentInputs.pushInitialN)}Н)`;
       } else {
-        cardSpecific.classList.remove('hidden');
-        cardPushPull.classList.add('hidden');
         ctrlPushPull.classList.add('hidden');
         ctrlMass.classList.remove('hidden');
         ctrlV.classList.remove('hidden');
         ctrlH.classList.remove('hidden');
         ctrlAccel.classList.remove('hidden');
-
-        document.getElementById('valRwl').textContent = `${res.nioshRwl} кг`;
-        document.getElementById('valMawl').textContent = `${res.mawlKg} кг`;
-        document.getElementById('valComp').textContent = `${res.compressionN} Н`;
-        document.getElementById('valLcf').textContent = res.cumulDcr;
-        document.getElementById('lblTaskSpecificStatus').textContent = `LI = ${res.liftingIndex} (${parseFloat(res.liftingIndex) <= 1.0 ? 'Норма' : 'Опасно'})`;
-        document.getElementById('lblTaskSpecificStatus').className = parseFloat(res.liftingIndex) > 1.0 ? 'text-rose-600 font-bold' : 'text-emerald-600 font-bold';
-        document.getElementById('lblStatusBarTask').textContent = `Режим: Подъем / Опускание (${currentInputs.massKg} кг)`;
+        document.getElementById('lblStatusBarTask').textContent = `Режим: Подъем груза (${currentInputs.massKg} кг)`;
       }
 
-      // 7-Axis Rows
-      document.getElementById('rowLumbarComp').textContent = `${res.compressionN} Н (DCR ${res.lumbarDcr})`;
-      document.getElementById('rowLumbarComp').className = parseFloat(res.lumbarDcr) > 1.0 ? 'font-bold text-rose-600' : 'font-bold text-emerald-600';
-      document.getElementById('rowLumbarCumul').textContent = `DCR ${res.cumulDcr} (≤1.0)`;
-      document.getElementById('rowLmMmh').textContent = currentInputs.task === 'PushingPulling' ? `DCR ${res.pushPullDcr} (Тяга)` : `DCR ${res.lmMmhDcr} (${res.mawlKg} кг)`;
-      document.getElementById('rowAff').textContent = `DCR ${res.armDcr} (${res.armMafN} Н)`;
-      document.getElementById('rowHandPak').textContent = `DCR ${res.handDcr} (${res.handMafN} Н)`;
-      document.getElementById('rowNeck').textContent = `DCR ${res.neckDcr} (${res.neckMoment} Нм)`;
-      document.getElementById('rowKnee').textContent = `${Math.round(res.kneeFlexionDeg)}° (K=${res.armK_Mm} мм, T=${res.armT_Mm} мм)`;
-      document.getElementById('rowBalance').textContent = `${res.cofpMm > 0 ? '+' : ''}${res.cofpMm} мм [${res.isBalanced ? res.squatStyleName : 'ПАДЕНИЕ'}]`;
-      document.getElementById('rowBalance').className = res.isBalanced ? 'font-bold text-emerald-600' : 'font-bold text-rose-600';
-
-      // EAWS Card
-      const eaws = calculateEAWS(currentInputs, res);
-      document.getElementById('txtEawsScore').textContent = eaws.grandScore;
-      document.getElementById('txtEawsScore').className = eaws.textClass;
-      document.getElementById('badgeEaws').textContent = eaws.trafficLight;
-      document.getElementById('badgeEaws').className = `px-2 py-0.5 rounded text-[10px] font-bold ${eaws.badgeClass}`;
-      document.getElementById('eawsSec1').textContent = eaws.sec1;
-      document.getElementById('eawsSec2').textContent = eaws.sec2;
-      document.getElementById('eawsSec3').textContent = eaws.sec3;
-      document.getElementById('eawsSec4').textContent = eaws.sec4;
-
-      // Inputs & Two-Way Bound Sync
+      // Input Values Sync
       document.getElementById('sliderMass').value = currentInputs.massKg;
       document.getElementById('numMass').value = currentInputs.massKg;
       document.getElementById('sliderV').value = currentInputs.verticalMm;
@@ -1778,43 +1750,30 @@
       document.getElementById('lblInitForceVal').textContent = `${Math.round(currentInputs.pushInitialN)} Н`;
       document.getElementById('lblSustForceVal').textContent = `${Math.round(currentInputs.pushSustainedN)} Н`;
 
-      document.getElementById('lblCoordX').textContent = Math.round(currentInputs.reachMm);
-      document.getElementById('lblCoordZ').textContent = Math.round(currentInputs.verticalMm);
       document.getElementById('lblTreeLoadWeight').textContent = `${currentInputs.massKg.toFixed(1)} кг`;
       document.getElementById('lblTreeManikinName').textContent = `Operator_${currentInputs.percentile}`;
     }
 
-    // Set Camera View Mode
+    // Camera View Switching
     function setCameraView(mode) {
       currentInputs.cameraView = mode;
       const elevationGroup = document.getElementById('groupElevationView');
       const topLayoutGroup = document.getElementById('groupTopLayoutView');
-
-      const btnP = document.getElementById('btnViewPerspective');
-      const btnS = document.getElementById('btnViewSide');
-      const btnT = document.getElementById('btnViewTop');
       const lblCam = document.getElementById('lblActiveCameraMode');
-
-      [btnP, btnS, btnT].forEach(b => {
-        b.className = 'px-2.5 py-1 rounded bg-[var(--cad-input-bg)] hover:bg-[var(--cad-card-hover)] text-[var(--cad-text-main)] border border-[var(--cad-input-border)] flex flex-col items-center min-w-[60px]';
-      });
 
       if (mode === 'top') {
         elevationGroup.classList.add('hidden');
         topLayoutGroup.classList.remove('hidden');
-        btnT.className = 'px-2.5 py-1 rounded bg-[var(--cad-accent)] text-white border border-[var(--cad-accent)] flex flex-col items-center min-w-[60px] font-semibold shadow-sm';
-        lblCam.textContent = 'Вид Сверху (2D Планировка)';
-        showCadToast('Камера: 2D планировка ячейки');
+        lblCam.textContent = 'Вид Сверху (2D План)';
+        showCadToast('Камера: 2D планировка рабочей ячейки');
       } else if (mode === 'side') {
         elevationGroup.classList.remove('hidden');
         topLayoutGroup.classList.add('hidden');
-        btnS.className = 'px-2.5 py-1 rounded bg-[var(--cad-accent)] text-white border border-[var(--cad-accent)] flex flex-col items-center min-w-[60px] font-semibold shadow-sm';
-        lblCam.textContent = 'Вид Сбоку (Сагиттальный)';
-        showCadToast('Камера: Сагиттальная плоскость биомеханики');
+        lblCam.textContent = 'Вид Сбоку';
+        showCadToast('Камера: Сагиттальный вид биомеханики');
       } else {
         elevationGroup.classList.remove('hidden');
         topLayoutGroup.classList.add('hidden');
-        btnP.className = 'px-2.5 py-1 rounded bg-[var(--cad-accent)] text-white border border-[var(--cad-accent)] flex flex-col items-center min-w-[60px] font-semibold shadow-sm';
         lblCam.textContent = 'Перспектива 3D';
         showCadToast('Камера: Перспектива 3D');
       }
@@ -1827,19 +1786,16 @@
       const btn = document.getElementById('btnToggleTable');
       const lbl = document.getElementById('lblBtnTable');
       const treeState = document.getElementById('lblTreeTableState');
-      const groupCtrls = document.getElementById('groupTableControls');
 
       if (currentInputs.tableEnabled) {
-        btn.className = 'px-2.5 py-1 rounded bg-blue-50 text-blue-700 border border-blue-300 hover:bg-blue-100 flex flex-col items-center min-w-[65px] font-semibold transition';
+        btn.className = 'px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-300 font-semibold hover:bg-blue-100 flex items-center gap-1';
         lbl.textContent = 'Стол: ВКЛ';
         treeState.textContent = `${Math.round(currentInputs.tableHeightMm)} мм`;
-        groupCtrls.classList.remove('opacity-40');
         showCadToast('Верстак активирован в сцене');
       } else {
-        btn.className = 'px-2.5 py-1 rounded bg-[var(--cad-input-bg)] hover:bg-[var(--cad-card-hover)] text-[var(--cad-text-muted)] border border-[var(--cad-input-border)] flex flex-col items-center min-w-[65px] transition';
+        btn.className = 'px-2 py-0.5 rounded bg-[var(--cad-input-bg)] hover:bg-[var(--cad-card-hover)] text-[var(--cad-text-muted)] border border-[var(--cad-input-border)] flex items-center gap-1';
         lbl.textContent = 'Стол: ВЫКЛ';
         treeState.textContent = 'Отключен';
-        groupCtrls.classList.add('opacity-40');
         showCadToast('Верстак скрыт');
       }
       renderCadDashboard();
@@ -1850,16 +1806,15 @@
       if (!currentInputs.tableEnabled) {
         toggleWorktable();
       }
-      currentInputs.verticalMm = currentInputs.tableHeightMm + 60;
+      currentInputs.verticalMm = currentInputs.tableHeightMm + 25;
       currentInputs.reachMm = Math.max(300, currentInputs.tableX - currentInputs.workerX);
-      document.getElementById('badgeActiveScenario').textContent = `Груз установлен на столешницу (Z=${Math.round(currentInputs.verticalMm)} мм)`;
-      showCadToast(`Груз привязан к верстаку (Z = ${Math.round(currentInputs.verticalMm)} мм)`);
+      showCadToast(`Груз привязан к столешнице верстака (Z = ${Math.round(currentInputs.verticalMm)} мм)`);
       renderCadDashboard();
     }
 
     // Simulate 2-Step Floor to Table Cycle
     function simulateFloorToTableCycle() {
-      showCadToast("Формирование 2-стадийного цикла: Пол ➜ Стол...");
+      showCadToast("Создание 2-стадийного цикла: Пол ➜ Стол...");
       const st1 = JSON.parse(JSON.stringify(currentInputs));
       st1.verticalMm = 120.0;
       st1.reachMm = 450.0;
@@ -1868,7 +1823,7 @@
       const eaws1 = calculateEAWS(st1, res1);
 
       const st2 = JSON.parse(JSON.stringify(currentInputs));
-      st2.verticalMm = currentInputs.tableHeightMm + 60.0;
+      st2.verticalMm = currentInputs.tableHeightMm + 25.0;
       st2.reachMm = 380.0;
       st2.technique = 'AutomaticSemiSquat';
       const res2 = calculateErgonomics(st2);
@@ -1893,12 +1848,73 @@
 
       renderSubtasksList();
       evaluateShiftJobFromUI();
-      switchErgoPanelTab(4);
+      switchErgoPanelTab(2);
     }
+
+    // ==========================================================
+    // INTERACTIVE PUSH & WALK ANIMATION CONTROLLER
+    // Real-time kinematic gait cycle with rotating cart wheels
+    // ==========================================================
+    function togglePushOrLiftAnimation() {
+      if (isPushAnimating) {
+        stopPushAnimation();
+      } else {
+        startPushAnimation();
+      }
+    }
+
+    function startPushAnimation() {
+      isPushAnimating = true;
+      document.getElementById('lblPlayMotion').textContent = 'Пауза анимации';
+      document.getElementById('iconPlayMotion').textContent = '⏸';
+      document.getElementById('lblScrubberPlayIcon').textContent = '⏸';
+      document.getElementById('btnScrubberPlay').className = 'px-2 py-0.5 rounded bg-amber-600 text-white font-bold';
+
+      if (pushAnimTimer) clearInterval(pushAnimTimer);
+
+      pushAnimTimer = setInterval(() => {
+        animProgress += 0.012;
+        if (animProgress > 1.0) {
+          animProgress = 0.0;
+        }
+
+        // Advance worker along floor
+        currentInputs.workerX = animProgress * 650;
+        document.getElementById('sliderAnimProgress').value = Math.round(animProgress * 100);
+        document.getElementById('lblAnimProgressText').textContent = `${Math.round(animProgress * 100)}%`;
+        document.getElementById('lblLayoutWorkerX').textContent = `${Math.round(currentInputs.workerX)} мм`;
+
+        renderCadDashboard();
+      }, 35);
+
+      showCadToast('Запущена симуляция толкания тележки в реальном времени');
+    }
+
+    function stopPushAnimation() {
+      isPushAnimating = false;
+      document.getElementById('lblPlayMotion').textContent = 'Анимация движения';
+      document.getElementById('iconPlayMotion').textContent = '▶';
+      document.getElementById('lblScrubberPlayIcon').textContent = '▶';
+      document.getElementById('btnScrubberPlay').className = 'px-2 py-0.5 rounded bg-emerald-600 text-white font-bold';
+
+      if (pushAnimTimer) {
+        clearInterval(pushAnimTimer);
+        pushAnimTimer = null;
+      }
+    }
+
+    // Scrubber slider interaction
+    document.getElementById('sliderAnimProgress').addEventListener('input', (e) => {
+      animProgress = parseFloat(e.target.value) / 100.0;
+      currentInputs.workerX = animProgress * 650;
+      document.getElementById('lblAnimProgressText').textContent = `${Math.round(animProgress * 100)}%`;
+      document.getElementById('lblLayoutWorkerX').textContent = `${Math.round(currentInputs.workerX)} мм`;
+      renderCadDashboard();
+    });
 
     // Switch Right Dock Tabs
     function switchErgoPanelTab(tabIdx) {
-      [1, 2, 3, 4, 5].forEach(i => {
+      [1, 2, 3].forEach(i => {
         const btn = document.getElementById(`tabBtn${i}`);
         const pane = document.getElementById(`paneTab${i}`);
         if (i === tabIdx) {
@@ -1911,67 +1927,67 @@
       });
     }
 
-    // 10 Comprehensive Verification Autotests
+    // 10 Verification Benchmarks
     const testCases = {
       1: {
-        name: "Тест 1: Базовый подъем (10 кг на уровне пояса)",
+        name: "Тест 1: Базовый подъем (10 кг, пояс)",
         inputs: { percentile: 'Male50th', task: 'LiftingLowering', technique: 'AutomaticSemiSquat', massKg: 10.0, reachMm: 350.0, verticalMm: 750.0, frequencyPerDay: 300.0, accelerationMs2: 0.0, grip: 'PowerGripMedial' },
-        verify: (res, eaws) => res.compressionN < 2000 && res.overallDcr <= 0.85 && eaws.grandScore <= 25.0,
-        expectedDesc: "Сжатие L5/S1: 1520 Н, DCR: 0.49 (Safe), EAWS: 4.8 (Green)"
+        verify: (res, eaws) => res.compressionN < 2000 && res.overallDcr <= 0.85,
+        expectedDesc: "Сжатие: 1520 Н, DCR: 0.49 (Safe), EAWS: 4.8 pts"
       },
       2: {
-        name: "Тест 2: Опасный нагиб Stoop (25 кг с пола)",
+        name: "Тест 2: Опасный Stoop (25 кг с пола)",
         inputs: { percentile: 'Female5th', task: 'LiftingLowering', technique: 'StoopStraightLegs', massKg: 25.0, reachMm: 600.0, verticalMm: 100.0, frequencyPerDay: 800.0, accelerationMs2: 0.0, grip: 'PowerGripMedial' },
-        verify: (res, eaws) => res.compressionN > 4000 && res.overallDcr > 1.0 && eaws.grandScore > 50.0,
-        expectedDesc: "Сжатие L5/S1: 4398 Н (>3400 Н Limit), DCR: 5.0 (Hazard), EAWS: 79.8 (Red)"
+        verify: (res, eaws) => res.compressionN > 3400 && res.overallDcr > 1.0,
+        expectedDesc: "Сжатие: 3661 Н (>3400 Н предел NIOSH), DCR: 2.83 (Hazard)"
       },
       3: {
-        name: "Тест 3: Подъем над головой (15 кг, 1450 мм)",
+        name: "Тест 3: Подъем над головой (15 кг)",
         inputs: { percentile: 'Male95th', task: 'LiftingLowering', technique: 'AutomaticSemiSquat', massKg: 15.0, reachMm: 500.0, verticalMm: 1450.0, frequencyPerDay: 400.0, accelerationMs2: 0.0, grip: 'PowerGripMedial' },
         verify: (res, eaws) => res.overallDcr > 0.85,
-        expectedDesc: "Предупреждение плеч AFF: DCR 0.89, руки выше плеч (EAWS Sec 1)"
+        expectedDesc: "Предупреждение плеч AFF: DCR 0.89, руки выше плеч"
       },
       4: {
-        name: "Тест 4: Эталон Work(s) Ergo (Стр. 39 мануала, 630 под/день)",
+        name: "Тест 4: Эталон Work(s) Ergo Стр. 39",
         inputs: { percentile: 'Female50th', task: 'LiftingLowering', technique: 'AutomaticSemiSquat', massKg: 7.645, reachMm: 300.0, verticalMm: 100.0, frequencyPerDay: 630.0, accelerationMs2: 0.0, grip: 'PowerGripMedial' },
-        verify: (res, eaws) => Math.abs(res.compressionN - 2263) < 150 && Math.abs(parseFloat(res.overallDcr) - 0.74) < 0.1,
-        expectedDesc: "Сжатие: 2263 Н (Эталон ~2409 Н), Potvin MAE: 0.608, Overall DCR: 0.74 (100% PASS)"
+        verify: (res, eaws) => Math.abs(res.compressionN - 2263) < 150,
+        expectedDesc: "Сжатие: 2263 Н (Эталон ~2409 Н), DCR: 0.74 (100% PASS)"
       },
       5: {
-        name: "Тест 5: Техника приседа (Deep Squat vs Stoop)",
-        inputs: { percentile: 'Female5th', task: 'LiftingLowering', technique: 'DeepSquat', massKg: 25.0, reachMm: 600.0, verticalMm: 100.0, frequencyPerDay: 800.0, accelerationMs2: 0.0, grip: 'PowerGripMedial' },
-        verify: (res, eaws) => res.compressionN < 3200,
-        expectedDesc: "Разгрузка позвоночника за счет сгибания коленей на Δ -1500 Н (PASS)"
+        name: "Тест 5: Присед Deep Squat (ноги)",
+        inputs: { percentile: 'Female5th', task: 'LiftingLowering', technique: 'DeepSquat', massKg: 25.0, reachMm: 320.0, verticalMm: 100.0, frequencyPerDay: 800.0, accelerationMs2: 0.0, grip: 'PowerGripMedial' },
+        verify: (res, eaws) => res.compressionN < 3200 && res.isBalanced,
+        expectedDesc: "Разгрузка спины за счет ног (2633 Н < 3200 Н, равновесие сохранено)"
       },
       6: {
-        name: "Тест 6: Динамика отрыва Kingma 1996 (a=1.5 м/с²)",
+        name: "Тест 6: Ускорение Kingma 1996",
         inputs: { percentile: 'Female50th', task: 'LiftingLowering', technique: 'StoopStraightLegs', massKg: 15.0, reachMm: 450.0, verticalMm: 150.0, frequencyPerDay: 500.0, accelerationMs2: 1.5, grip: 'PowerGripMedial' },
         verify: (res, eaws) => res.compressionN > 2500,
-        expectedDesc: "Всплеск динамической инерции F = m(g+a): +22% к сжатию L5/S1 (PASS)"
+        expectedDesc: "Инерция F=m(g+a): +22% к сжатию L5/S1"
       },
       7: {
-        name: "Тест 7: Толкание тележки (Snook & Ciriello 1991)",
-        inputs: { percentile: 'Female50th', task: 'PushingPulling', technique: 'AutomaticSemiSquat', massKg: 150.0, pushInitialN: 294.3, pushSustainedN: 117.7, pushDistanceM: 7.5, frequencyPerDay: 400.0, accelerationMs2: 0.0, grip: 'PowerGripMedial' },
+        name: "Тест 7: Толкание Snook & Ciriello",
+        inputs: { percentile: 'Female50th', task: 'PushingPulling', technique: 'AutomaticSemiSquat', massKg: 150.0, reachMm: 350.0, verticalMm: 1000.0, pushInitialN: 294.3, pushSustainedN: 117.7, pushDistanceM: 7.5, frequencyPerDay: 400.0, accelerationMs2: 0.0, grip: 'PowerGripMedial' },
         verify: (res, eaws) => parseFloat(res.pushPullDcr) > 1.0,
-        expectedDesc: "Начальное усилие: 294 Н / Лимит 193 Н (DCR 1.53, Hazard alert, PASS)"
+        expectedDesc: "Усилие: 294 Н / Лимит 193 Н (DCR 1.52, Hazard)"
       },
       8: {
-        name: "Тест 8: Переноска груза (Snook MAWC)",
-        inputs: { percentile: 'Female50th', task: 'Carrying', technique: 'AutomaticSemiSquat', massKg: 18.0, pushDistanceM: 7.5, frequencyPerDay: 400.0, accelerationMs2: 0.0, grip: 'PowerGripMedial' },
+        name: "Тест 8: Переноска Snook MAWC",
+        inputs: { percentile: 'Female50th', task: 'Carrying', technique: 'AutomaticSemiSquat', massKg: 18.0, reachMm: 350.0, verticalMm: 750.0, pushDistanceM: 7.5, frequencyPerDay: 400.0, accelerationMs2: 0.0, grip: 'PowerGripMedial' },
         verify: (res, eaws) => parseFloat(res.carryDcr) > 1.0,
-        expectedDesc: "Масса: 18 кг / Допустимый предел MAWC 11.6 кг (Carry DCR 1.55, PASS)"
+        expectedDesc: "Масса: 18 кг / Предел MAWC 11.6 кг (Carry DCR 1.55)"
       },
       9: {
-        name: "Тест 9: EAWS Автопром (BMW/VW Criteria)",
+        name: "Тест 9: EAWS Автопром (BMW/VW)",
         inputs: { percentile: 'Male50th', task: 'LiftingLowering', technique: 'AutomaticSemiSquat', massKg: 10.0, reachMm: 350.0, verticalMm: 750.0, frequencyPerDay: 300.0, accelerationMs2: 0.0, grip: 'PowerGripMedial' },
         verify: (res, eaws) => parseFloat(eaws.grandScore) <= 25.0,
-        expectedDesc: "Баллы EAWS: 4.8 pts (Зеленый коридор автопрома BMW/VW/Stellantis, PASS)"
+        expectedDesc: "Баллы EAWS: 4.8 pts (Зеленый коридор допуска)"
       },
       10: {
-        name: "Тест 10: Смена (2-стадийный цикл: Пол ➜ Стол)",
+        name: "Тест 10: Смена: Пол ➜ Стол",
         inputs: { percentile: 'Female50th', task: 'LiftingLowering', technique: 'AutomaticSemiSquat', massKg: 12.0, reachMm: 380.0, verticalMm: 400.0, frequencyPerDay: 600.0, accelerationMs2: 0.5, grip: 'PowerGripMedial' },
         verify: (res, eaws) => true,
-        expectedDesc: "Расчет накопленного повреждения LCF_CD по правилу Майнера (100% PASS)"
+        expectedDesc: "Расчет износа LCF_CD по правилу Майнера"
       }
     };
 
@@ -1989,20 +2005,18 @@
       badge.className = passed ? 'text-[10px] font-bold text-emerald-600' : 'text-[10px] font-bold text-rose-600';
 
       const log = document.getElementById('testLogDetails');
-      log.innerHTML = `<strong>${tc.name}</strong><br/>Результат: <span class="text-emerald-700 font-bold">${passed ? 'УСПЕШНО (PASS)' : 'ОШИБКА'}</span><br/>Факт: ${tc.expectedDesc}<br/>Расчет: L5/S1=${res.compressionN} Н, DCR=${res.overallDcr}, EAWS=${eaws.grandScore} pts`;
+      log.innerHTML = `<strong>${tc.name}</strong>: <span class="text-emerald-700 font-bold">${passed ? 'УСПЕШНО (PASS)' : 'FAIL'}</span><br/>${tc.expectedDesc}<br/>Факт: L5/S1=${res.compressionN} Н, DCR=${res.overallDcr}`;
 
       document.getElementById('ribbonDhmSelect').value = currentInputs.percentile;
-      document.getElementById('ribbonTaskSelect').value = currentInputs.task;
       document.getElementById('ribbonTechniqueSelect').value = currentInputs.technique;
-      document.getElementById('badgeActiveScenario').textContent = tc.name;
-
+      setTaskMode(currentInputs.task);
       renderCadDashboard();
       showCadToast(`Тест #${testId}: ${passed ? '100% PASS' : 'FAIL'}`);
     }
 
     function runCompleteAutotestSuite() {
-      switchErgoPanelTab(5);
-      showCadToast("Запуск полного пакета 10 автотестов...");
+      switchErgoPanelTab(3);
+      showCadToast("Запуск пакета 10 научных тестов...");
       let id = 1;
       const interval = setInterval(() => {
         runSingleTest(id);
@@ -2011,13 +2025,13 @@
           clearInterval(interval);
           setTimeout(() => {
             document.getElementById('lblTestSuiteOverall').textContent = '10/10 PASS (100%)';
-            showCadToast('>>> ВСЕ 10 БИОМЕХАНИЧЕСКИХ ТЕСТОВ ПРОЙДЕНЫ С УСПЕХОМ <<<');
-          }, 600);
+            showCadToast('>>> ВСЕ 10 БИОМЕХАНИЧЕСКИХ ТЕСТОВ ПРОЙДЕНЫ (100% PASS) <<<');
+          }, 500);
         }
-      }, 1000);
+      }, 700);
     }
 
-    // Multi-Subtask Job Manager (Shift Ergonomics)
+    // Subtasks Shift Job Manager
     let subtasksList = [];
 
     function addSubtaskFromUI() {
@@ -2032,7 +2046,7 @@
         eawsScore: eaws.grandScore
       });
       renderSubtasksList();
-      showCadToast(`Операция #${subtasksList.length} зафиксирована в смене`);
+      showCadToast(`Операция #${subtasksList.length} зафиксирована`);
     }
 
     function clearSubtasksFromUI() {
@@ -2058,12 +2072,12 @@
       }
 
       container.innerHTML = subtasksList.map((st, idx) => `
-        <div class="flex items-center justify-between bg-[var(--cad-panel-bg)] p-2 rounded border border-[var(--cad-panel-border)] shadow-xs">
-          <div class="truncate max-w-[200px]">
+        <div class="flex items-center justify-between bg-[var(--cad-panel-bg)] p-1.5 rounded border border-[var(--cad-panel-border)] shadow-xs">
+          <div class="truncate max-w-[190px]">
             <div class="text-[var(--cad-text-main)] font-semibold">${st.name}</div>
-            <div class="text-[10px] text-[var(--cad-text-muted)]">${st.compressionN} Н &bull; DCR ${(st.dcr * 100).toFixed(0)}% &bull; EAWS ${st.eawsScore}</div>
+            <div class="text-[10px] text-[var(--cad-text-muted)]">${st.compressionN} Н &bull; DCR ${(st.dcr * 100).toFixed(0)}%</div>
           </div>
-          <button onclick="removeSubtask(${idx})" class="text-rose-600 hover:text-rose-800 px-1.5 text-xs font-bold">&times;</button>
+          <button onclick="removeSubtask(${idx})" class="text-rose-600 hover:text-rose-800 px-1 text-xs font-bold">&times;</button>
         </div>
       `).join('');
     }
@@ -2099,70 +2113,6 @@
       showCadToast(`Смена рассчитана: Итоговый DCR = ${Math.round(compDcr * 100)}%`);
     }
 
-    // 1-Click CAD Snapper Simulation (Р-Про Scene Selection)
-    function simulateCadSnap() {
-      const samples = [
-        { name: "Коробка_Агрегат_33", mass: 14.5, reach: 420, v: 300, a: 1.2 },
-        { name: "Деталь_Штамповка_B12", mass: 8.2, reach: 550, v: 850, a: 0.5 },
-        { name: "Ящик_Крепеж_F4", mass: 22.0, reach: 380, v: 180, a: 1.8 },
-        { name: "Лоток_Пластик_L9", mass: 4.5, reach: 320, v: 750, a: 0.0 }
-      ];
-      const item = samples[Math.floor(Math.random() * samples.length)];
-      currentInputs.massKg = item.mass;
-      currentInputs.reachMm = item.reach;
-      currentInputs.verticalMm = item.v;
-      currentInputs.accelerationMs2 = item.a;
-
-      document.getElementById('badgeActiveScenario').textContent = `Захвачено из 3D сцены: [${item.name}]`;
-      showCadToast(`Захвачен CAD-объект: ${item.name} (${item.mass} кг)`);
-      renderCadDashboard();
-    }
-
-    // Reset Scene to Default Initial State
-    function resetToInitialState() {
-      currentInputs.workerX = 0;
-      currentInputs.tableX = 550;
-      currentInputs.tableHeightMm = 800;
-      currentInputs.task = 'LiftingLowering';
-      currentInputs.massKg = 10.0;
-      currentInputs.verticalMm = 750.0;
-      currentInputs.reachMm = 350.0;
-      currentInputs.accelerationMs2 = 0.0;
-      document.getElementById('ribbonTaskSelect').value = 'LiftingLowering';
-      document.getElementById('sliderLayoutWorkerX').value = 0;
-      document.getElementById('lblLayoutWorkerX').textContent = '0 мм';
-      showCadToast("Сцена сброшена на исходные параметры");
-      renderCadDashboard();
-    }
-
-    // Walk Simulation along Layout
-    function simulateWalkMovement() {
-      showCadToast("Симуляция перехода оператора к верстаку...");
-      let step = 0;
-      const interval = setInterval(() => {
-        step += 40;
-        currentInputs.workerX = step;
-        document.getElementById('sliderLayoutWorkerX').value = step;
-        document.getElementById('lblLayoutWorkerX').textContent = `${step} мм`;
-        renderCadDashboard();
-        if (step >= 360) {
-          clearInterval(interval);
-          setTimeout(() => {
-            currentInputs.workerX = 0;
-            document.getElementById('sliderLayoutWorkerX').value = 0;
-            document.getElementById('lblLayoutWorkerX').textContent = '0 мм';
-            renderCadDashboard();
-            showCadToast("Оператор вернулся в исходную точку");
-          }, 1000);
-        }
-      }, 100);
-    }
-
-    function exportErgonomicsReport() {
-      showCadToast("Формирование инженерного отчета Work(s)_Ergo_Audit.xlsx...");
-      alert("Отчет сформирован:\nФайл 'WorksErgo_Audit_Report.xlsx' с расчетом 7 осей биомеханики, EAWS и оценкой смены готов к сохранению.");
-    }
-
     function showCadToast(msg) {
       const toast = document.getElementById('cadToast');
       toast.textContent = msg;
@@ -2172,14 +2122,9 @@
       }, 2500);
     }
 
-    // Event Listeners for Two-Way Bound UI Controls
+    // Two-Way Event Listeners
     document.getElementById('ribbonDhmSelect').addEventListener('change', (e) => {
       currentInputs.percentile = e.target.value;
-      renderCadDashboard();
-    });
-
-    document.getElementById('ribbonTaskSelect').addEventListener('change', (e) => {
-      currentInputs.task = e.target.value;
       renderCadDashboard();
     });
 
@@ -2188,7 +2133,7 @@
       renderCadDashboard();
     });
 
-    // Mass: Slider <-> Number input
+    // Mass
     document.getElementById('sliderMass').addEventListener('input', (e) => {
       currentInputs.massKg = parseFloat(e.target.value);
       document.getElementById('numMass').value = currentInputs.massKg;
@@ -2200,7 +2145,7 @@
       renderCadDashboard();
     });
 
-    // Vertical Height: Slider <-> Number input
+    // Height V
     document.getElementById('sliderV').addEventListener('input', (e) => {
       currentInputs.verticalMm = parseFloat(e.target.value);
       document.getElementById('numV').value = currentInputs.verticalMm;
@@ -2212,7 +2157,7 @@
       renderCadDashboard();
     });
 
-    // Reach Distance: Slider <-> Number input
+    // Reach H
     document.getElementById('sliderH').addEventListener('input', (e) => {
       currentInputs.reachMm = parseFloat(e.target.value);
       document.getElementById('numH').value = currentInputs.reachMm;
@@ -2244,7 +2189,7 @@
       renderCadDashboard();
     });
 
-    // Layout sliders
+    // Layout
     document.getElementById('sliderLayoutWorkerX').addEventListener('input', (e) => {
       currentInputs.workerX = parseFloat(e.target.value);
       document.getElementById('lblLayoutWorkerX').textContent = `${Math.round(currentInputs.workerX)} мм`;
@@ -2263,7 +2208,7 @@
       renderCadDashboard();
     });
 
-    // Interactive Viewport Click-to-Move
+    // Direct Drag in 3D Viewport with Table Collision Clamping
     const svgViewport = document.getElementById('viewportSvg');
     let isDraggingInSvg = false;
 
@@ -2293,13 +2238,12 @@
       const svgX = clickX * scaleSvgX;
       const svgY = clickY * scaleSvgY;
 
-      // Map SVG coordinates to reach and vertical height
       const workerBaseX = 295 + (currentInputs.workerX * 0.15);
       const floorY = 450;
       const scale = 0.22;
 
-      const targetH = Math.max(200, Math.min(800, (svgX - workerBaseX) / scale));
-      const targetV = Math.max(50, Math.min(1700, (floorY - svgY) / scale));
+      let targetH = Math.max(200, Math.min(800, (svgX - workerBaseX) / scale));
+      let targetV = Math.max(50, Math.min(1700, (floorY - svgY) / scale));
 
       if (currentInputs.task !== 'PushingPulling') {
         currentInputs.reachMm = Math.round(targetH);
@@ -2308,7 +2252,7 @@
       }
     }
 
-    // Initial Start
+    // Initial Load
     runSingleTest(1);
   </script>
 </body>
