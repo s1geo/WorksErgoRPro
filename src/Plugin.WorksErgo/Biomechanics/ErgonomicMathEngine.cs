@@ -220,49 +220,101 @@ namespace WorksErgoRPro.Biomechanics
             // Geometry and Moment Arms (meters)
             double hMeters = Math.Max(0.15, Math.Min(0.90, input.ReachMm / 1000.0));
 
-            // Lower limb kinematics and hip height based on lifting technique
-            double standingHipHeightM = (anthro.StatureCm / 100.0) * 0.53;
+            // Anatomical segment lengths (Winter 2009 / Dempster 1955)
+            double statureM = anthro.StatureCm / 100.0;
+            double lShin = statureM * 0.25;
+            double lThigh = statureM * 0.24;
+            double lTorso = statureM * 0.28;
+
+            double standingHipHeightM = statureM * 0.53;
             double vM = input.VerticalMm / 1000.0;
             double vDiff = Math.Max(0.0, standingHipHeightM - vM);
 
             double kneeFlexionDeg = 0.0;
             double hipHeightM = standingHipHeightM;
+            double shinTiltRad = 0.0;
             double forwardLeanDeg = 0.0;
 
             switch (input.Technique)
             {
                 case LiftingTechnique.StoopStraightLegs:
-                    kneeFlexionDeg = 5.0; // Straight legs
+                    // Hip-dominant (T > K): straight locked knees, hips near heels, deep trunk flexion
+                    kneeFlexionDeg = 5.0;
                     hipHeightM = standingHipHeightM;
+                    shinTiltRad = 2.0 * (Math.PI / 180.0);
                     forwardLeanDeg = Math.Max(0.0, Math.Min(82.0, (vDiff / 0.08) * 8.5));
                     break;
 
                 case LiftingTechnique.DeepSquat:
-                    // Knees bend deeply, pelvis drops down, spine stays upright
-                    kneeFlexionDeg = Math.Max(10.0, Math.Min(105.0, (vDiff / 0.007)));
-                    hipHeightM = Math.Max(0.35, standingHipHeightM - (kneeFlexionDeg / 105.0) * 0.45);
+                    // Knee-dominant (K > T): knees push forward past toes, hips drop between heels, trunk upright
+                    kneeFlexionDeg = Math.Max(10.0, Math.Min(105.0, 15.0 + (vDiff / 0.006)));
+                    hipHeightM = Math.Max(0.38, standingHipHeightM - (kneeFlexionDeg / 105.0) * 0.48);
+                    shinTiltRad = Math.Min(32.0, (kneeFlexionDeg / 105.0) * 32.0) * (Math.PI / 180.0);
                     forwardLeanDeg = Math.Max(5.0, Math.Min(35.0, (vDiff / 0.025)));
                     break;
 
                 case LiftingTechnique.AutomaticSemiSquat:
                 default:
-                    // Natural physiological compromise
-                    kneeFlexionDeg = Math.Max(5.0, Math.Min(65.0, (vDiff / 0.012)));
-                    hipHeightM = Math.Max(0.45, standingHipHeightM - (kneeFlexionDeg / 65.0) * 0.25);
+                    // Balanced (T ≈ K): industrial ergonomics standard (NIOSH / Work(s) Ergo)
+                    kneeFlexionDeg = Math.Max(5.0, Math.Min(70.0, 10.0 + (vDiff / 0.010)));
+                    hipHeightM = Math.Max(0.50, standingHipHeightM - (kneeFlexionDeg / 70.0) * 0.32);
+                    shinTiltRad = Math.Min(22.0, (kneeFlexionDeg / 70.0) * 22.0) * (Math.PI / 180.0);
                     forwardLeanDeg = Math.Max(0.0, Math.Min(74.0, (vDiff / 0.08) * 7.8));
                     break;
             }
 
+            // Closed-chain lower limb coordinates relative to ankle (X=0, Y=0)
+            double xKnee = lShin * Math.Sin(shinTiltRad);
+            double yKnee = lShin * Math.Cos(shinTiltRad);
+
+            double dyThigh = hipHeightM - yKnee;
+            double dxThigh = -Math.Sqrt(Math.Max(0.001, (lThigh * lThigh) - (dyThigh * dyThigh)));
+            double xHip = xKnee + dxThigh;
+
             double thetaRad = forwardLeanDeg * (Math.PI / 180.0);
 
-            // Trunk segment length and center-of-mass moment arm
-            double trunkLengthM = (anthro.StatureCm / 100.0) * 0.28;
-            double trunkMomentArm = trunkLengthM * Math.Sin(thetaRad) * 0.68;
-            trunkMomentArm = Math.Max(0.04, trunkMomentArm);
+            // Shoulder and upper body positions
+            double xShoulder = xHip + lTorso * Math.Sin(thetaRad);
+            double yShoulder = hipHeightM + lTorso * Math.Cos(thetaRad);
+
+            // True Multi-Segment Center of Mass (CoM) via Dempster (1955) & Winter (2009)
+            double xShankCom = xKnee * 0.567;
+            double xThighCom = xHip + 0.433 * (xKnee - xHip);
+            double xTorsoCom = xHip + 0.500 * (xShoulder - xHip);
+            double xHeadCom = xShoulder + 0.150 * Math.Sin(0.5 * thetaRad);
+            double xFootCom = 0.050; // 50 mm ahead of ankle in mid-foot
+            double xLoadCom = hMeters;
+            double xArmsCom = (xShoulder + xLoadCom) / 2.0;
+
+            double mFoot = bodyMass * 0.029;
+            double mShank = bodyMass * 0.093;
+            double mThigh = bodyMass * 0.200;
+            double mTorso = bodyMass * 0.497;
+            double mHead = bodyMass * 0.081;
+            double mArms = bodyMass * 0.100;
+            double mLoad = input.LoadKg;
+
+            double totalSystemMass = bodyMass + mLoad;
+            double sumMassMoments = (mFoot * xFootCom) +
+                                    (mShank * xShankCom) +
+                                    (mThigh * xThighCom) +
+                                    (mTorso * xTorsoCom) +
+                                    (mHead * xHeadCom) +
+                                    (mArms * xArmsCom) +
+                                    (mLoad * xLoadCom);
+
+            double trueCoM_M = sumMassMoments / totalSystemMass;
+            double cofpMm = Math.Round(trueCoM_M * 1000.0, 1);
+
+            // Base of Support (BoS): heels at -70 mm, toes at +180 mm relative to ankle center
+            bool isBalanced = (cofpMm >= -70.0 && cofpMm <= 180.0);
+
+            // Trunk segment length and center-of-mass moment arm around L5/S1
+            double trunkMomentArm = Math.Max(0.04, Math.Abs(xTorsoCom - xHip));
 
             // External Resultant Flexion Moment (Nm) at L5/S1
             double trunkTorque = upperMass * g * trunkMomentArm;
-            double loadTorque = (input.LoadKg * g) * hMeters;
+            double loadTorque = (input.LoadKg * g) * Math.Max(0.10, Math.Abs(xLoadCom - xHip));
             double resultantMoment = trunkTorque + loadTorque;
 
             // Single-equivalent erector moment arm estimate (Jäger / Gelb / Potvin ~ 0.0585-0.060 m)
@@ -280,24 +332,11 @@ namespace WorksErgoRPro.Biomechanics
             double totalCompressionN = erectorForce + reactionComp;
             double totalShearN = Math.Max(120.0, reactionShear);
 
-            // Knee and Mid-Hip joint moments
-            double kneeAngleRad = kneeFlexionDeg * (Math.PI / 180.0);
-            double thighLengthM = (anthro.StatureCm / 100.0) * 0.24;
-            double kneeMomentNm = (bodyMass * g + input.LoadKg * g) * (thighLengthM * Math.Sin(kneeAngleRad) * 0.45);
-            double midHipMomentNm = resultantMoment + (bodyMass * 0.14 * g * 0.10);
-
-            // Pelvis and lower-body counter-balancing shift (natural human postural reflex)
-            // As the torso leans forward, the pelvis shifts backward to keep CofP within the feet Base of Support
-            double pelvisOffsetM = 0.08 + (thighLengthM * Math.Sin(kneeAngleRad * 0.5)) + (trunkMomentArm * 0.35);
-            double pelvisCounterMoment = (bodyMass * 0.35 * g) * pelvisOffsetM;
-
-            // Center of Pressure (CofP) along anterior/posterior axis from ankle center
-            double totalWeightN = (bodyMass + input.LoadKg) * g;
-            double netHorizontalMoment = trunkTorque + loadTorque - pelvisCounterMoment - (kneeMomentNm * 0.20);
-            double cofpM = netHorizontalMoment / totalWeightN;
-            double cofpMm = Math.Round(cofpM * 1000.0, 1);
-            // Base of Support (BoS): heels at -70 mm, toes at +180 mm relative to ankle center
-            bool isBalanced = (cofpMm >= -70.0 && cofpMm <= 180.0);
+            // Knee and Mid-Hip joint moments based on moment arms K and T (Winter 2009 / Chaffin)
+            double kneeMomentArmM = Math.Abs(xKnee - trueCoM_M);
+            double hipMomentArmM = Math.Abs(trueCoM_M - xHip);
+            double kneeMomentNm = (bodyMass * g + input.LoadKg * g) * kneeMomentArmM * 0.45;
+            double midHipMomentNm = (bodyMass * g + input.LoadKg * g) * hipMomentArmM * 0.55;
 
             // Jäger (2023) TLV: 3500 N / 3575 N female, 4270 N male
             double tlv = anthro.IsFemale ? 3500.0 : 4270.0;

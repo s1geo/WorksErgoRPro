@@ -258,14 +258,35 @@
           <g id="cadGroundBalance">
             <!-- Foot Contour & Base of Support -->
             <path id="cadFootOutline" d="M 280 452 L 340 452 Q 350 452 348 448 L 335 446 L 295 446 Q 280 446 280 452 Z" fill="#334155" stroke="#64748b" stroke-width="1.5"/>
-            <!-- BoS Safe Limit Line (Heel to Toe) -->
-            <line id="cadBosLine" x1="280" y1="456" x2="345" y2="456" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
-            <text id="cadBosLabel" x="312" y="467" fill="#10b981" font-size="8" font-family="monospace" text-anchor="middle">Опора стопы (BoS)</text>
+            <!-- BoS Safe Limit Line (Heel -70mm to Toe +180mm) -->
+            <line id="cadBosLine" x1="280" y1="456" x2="340" y2="456" stroke="#10b981" stroke-width="3.5" stroke-linecap="round"/>
+            <text id="cadBosLabel" x="310" y="468" fill="#10b981" font-size="8" font-family="monospace" text-anchor="middle">Опора стопы (BoS [-70, +180] мм)</text>
 
-            <!-- Center of Pressure (CofP) Dynamic Indicator -->
-            <line id="cadCofPLine" x1="305" y1="438" x2="305" y2="456" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="2,2"/>
+            <!-- Red Vertical Plumb Line (Отвес центра массы по Демпстеру-Винтеру) -->
+            <line id="cadPlumbLine" x1="305" y1="40" x2="305" y2="456" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,3"/>
+            <!-- Plumb Line Arrowhead pointing down to mid-foot -->
+            <polygon id="cadPlumbArrow" points="300,454 310,454 305,463" fill="#ef4444"/>
+
+            <!-- Net CoM Bullseye Marker -->
+            <circle id="cadCoMMarkerOuter" cx="305" cy="220" r="9" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="2"/>
+            <circle id="cadCoMMarkerInner" cx="305" cy="220" r="3.5" fill="#ef4444"/>
+            <text id="cadCoMText" x="318" y="215" fill="#f87171" font-size="9" font-family="monospace" font-weight="bold">Общий ЦТ (CoM)</text>
+
+            <!-- Center of Pressure (CofP) Indicator on Ground -->
             <circle id="cadCofPMarker" cx="305" cy="456" r="4.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5"/>
-            <text id="cadCofPText" x="305" y="479" fill="#38bdf8" font-size="8.5" font-family="monospace" font-weight="bold" text-anchor="middle">CofP: +45 мм (OK)</text>
+            <text id="cadCofPText" x="305" y="482" fill="#38bdf8" font-size="8.5" font-family="monospace" font-weight="bold" text-anchor="middle">CofP: +45 мм (OK)</text>
+
+            <!-- Knee Moment Arm K Dimension Line (Knee <-> Plumb Line) -->
+            <g id="cadGroupK">
+              <line id="cadLineK" x1="285" y1="340" x2="305" y2="340" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3,2"/>
+              <text id="cadTextK" x="295" y="334" fill="#38bdf8" font-size="9" font-family="monospace" font-weight="bold" text-anchor="middle">K = 145 мм</text>
+            </g>
+
+            <!-- Hip Moment Arm T Dimension Line (Hip <-> Plumb Line) -->
+            <g id="cadGroupT">
+              <line id="cadLineT" x1="305" y1="235" x2="330" y2="235" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3,2"/>
+              <text id="cadTextT" x="317" y="230" fill="#f59e0b" font-size="9" font-family="monospace" font-weight="bold" text-anchor="middle">T = 280 мм</text>
+            </g>
           </g>
 
           <!-- DHM Skeleton Model -->
@@ -585,59 +606,111 @@
       const dutyCycle = Math.max(0.001, Math.min(0.99, totalEffortSec / totalShiftSec));
       const potvinMae = Math.max(0.05, 1.0 - Math.pow(dutyCycle, 0.24));
 
-      // 2. L5/S1 Compression & Lower Limb Kinematics (Jäger 2023, Gelb 1995)
-      const hM = inputs.reachMm / 1000.0;
-      const standingHipHeightM = (statureCm / 100.0) * 0.53;
+      // 2. L5/S1 Compression & Closed-Chain Lower Limb Kinematics (Jäger 2023, Dempster 1955, Winter 2009)
+      const hM = Math.max(0.15, Math.min(0.90, inputs.reachMm / 1000.0));
+      const statureM = statureCm / 100.0;
+      const lShin = statureM * 0.25;
+      const lThigh = statureM * 0.24;
+      const lTorso = statureM * 0.28;
+
+      const standingHipHeightM = statureM * 0.53;
       const vM = inputs.verticalMm / 1000.0;
       const vDiff = Math.max(0.0, standingHipHeightM - vM);
 
       let kneeFlexionDeg = 0.0;
       let hipHeightM = standingHipHeightM;
+      let shinTiltRad = 0.0;
       let forwardLeanDeg = 0.0;
 
       const tech = inputs.technique || 'AutomaticSemiSquat';
       if (tech === 'StoopStraightLegs') {
-        kneeFlexionDeg = 5.0; // Straight locked legs
+        // Hip-dominant (T > K): straight locked legs, hips back, deep trunk lean
+        kneeFlexionDeg = 5.0;
         hipHeightM = standingHipHeightM;
+        shinTiltRad = 2.0 * (Math.PI / 180.0);
         forwardLeanDeg = Math.max(0.0, Math.min(82.0, (vDiff / 0.08) * 8.5));
       } else if (tech === 'DeepSquat') {
-        kneeFlexionDeg = Math.max(10.0, Math.min(105.0, vDiff / 0.007));
-        hipHeightM = Math.max(0.35, standingHipHeightM - (kneeFlexionDeg / 105.0) * 0.45);
+        // Knee-dominant (K > T): knees push forward past toes, hips drop between heels, trunk upright
+        kneeFlexionDeg = Math.max(10.0, Math.min(105.0, 15.0 + (vDiff / 0.006)));
+        hipHeightM = Math.max(0.38, standingHipHeightM - (kneeFlexionDeg / 105.0) * 0.48);
+        shinTiltRad = Math.min(32.0, (kneeFlexionDeg / 105.0) * 32.0) * (Math.PI / 180.0);
         forwardLeanDeg = Math.max(5.0, Math.min(35.0, vDiff / 0.025));
       } else {
-        // AutomaticSemiSquat
-        kneeFlexionDeg = Math.max(5.0, Math.min(65.0, vDiff / 0.012));
-        hipHeightM = Math.max(0.45, standingHipHeightM - (kneeFlexionDeg / 65.0) * 0.25);
+        // AutomaticSemiSquat: balanced (T ≈ K)
+        kneeFlexionDeg = Math.max(5.0, Math.min(70.0, 10.0 + (vDiff / 0.010)));
+        hipHeightM = Math.max(0.50, standingHipHeightM - (kneeFlexionDeg / 70.0) * 0.32);
+        shinTiltRad = Math.min(22.0, (kneeFlexionDeg / 70.0) * 22.0) * (Math.PI / 180.0);
         forwardLeanDeg = Math.max(0.0, Math.min(74.0, (vDiff / 0.08) * 7.8));
       }
 
+      // Closed-chain lower limb coordinates relative to ankle (X=0, Y=0)
+      const xKnee = lShin * Math.sin(shinTiltRad);
+      const yKnee = lShin * Math.cos(shinTiltRad);
+
+      const dyThigh = hipHeightM - yKnee;
+      const dxThigh = -Math.sqrt(Math.max(0.001, (lThigh * lThigh) - (dyThigh * dyThigh)));
+      const xHip = xKnee + dxThigh;
+
       const thetaRad = forwardLeanDeg * (Math.PI / 180.0);
 
-      const trunkLenM = (statureCm / 100.0) * 0.28;
-      const trunkMomentArm = Math.max(0.04, trunkLenM * Math.sin(thetaRad) * 0.68);
+      // Shoulder and upper body positions
+      const xShoulder = xHip + lTorso * Math.sin(thetaRad);
+      const yShoulder = hipHeightM + lTorso * Math.cos(thetaRad);
+
+      // True Multi-Segment Center of Mass (CoM) via Dempster (1955) & Winter (2009)
+      const xShankCom = xKnee * 0.567;
+      const xThighCom = xHip + 0.433 * (xKnee - xHip);
+      const xTorsoCom = xHip + 0.500 * (xShoulder - xHip);
+      const xHeadCom = xShoulder + 0.150 * Math.sin(0.5 * thetaRad);
+      const xFootCom = 0.050; // 50 mm ahead of ankle in mid-foot
+      const xLoadCom = hM;
+      const xArmsCom = (xShoulder + xLoadCom) / 2.0;
+
+      const mFoot = bodyMass * 0.029;
+      const mShank = bodyMass * 0.093;
+      const mThigh = bodyMass * 0.200;
+      const mTorso = bodyMass * 0.497;
+      const mHead = bodyMass * 0.081;
+      const mArms = bodyMass * 0.100;
+      const mLoad = inputs.massKg;
+
+      const totalSystemMass = bodyMass + mLoad;
+      const sumMassMoments = (mFoot * xFootCom) +
+                             (mShank * xShankCom) +
+                             (mThigh * xThighCom) +
+                             (mTorso * xTorsoCom) +
+                             (mHead * xHeadCom) +
+                             (mArms * xArmsCom) +
+                             (mLoad * xLoadCom);
+
+      const trueCoM_M = sumMassMoments / totalSystemMass;
+      const cofpMm = Math.round(trueCoM_M * 1000.0 * 10) / 10;
+      const isBalanced = (cofpMm >= -70.0 && cofpMm <= 180.0);
+
+      // Moment arms K and T relative to the vertical plumb line (Winter 2009 / Chaffin 2006)
+      const kneeMomentArmM = Math.abs(xKnee - trueCoM_M);
+      const hipMomentArmM = Math.abs(trueCoM_M - xHip);
+      const armK_Mm = Math.round(kneeMomentArmM * 1000.0);
+      const armT_Mm = Math.round(hipMomentArmM * 1000.0);
+
+      let squatStyleName = "Сбалансированный (T ≈ K)";
+      if (armT_Mm > armK_Mm * 1.35) squatStyleName = "Тазодоминантный (T > K)";
+      else if (armK_Mm > armT_Mm * 1.35) squatStyleName = "Коленодоминантный (K > T)";
+
+      // Trunk segment length and center-of-mass moment arm around L5/S1
+      const trunkMomentArm = Math.max(0.04, Math.abs(xTorsoCom - xHip));
       const trunkTorque = upperMass * g * trunkMomentArm;
-      const loadTorque = (inputs.massKg * g) * hM;
+      const loadTorque = (inputs.massKg * g) * Math.max(0.10, Math.abs(xLoadCom - xHip));
       const resultantMoment = trunkTorque + loadTorque;
 
       const muscleArmM = 0.0585;
       const erectorForce = resultantMoment / muscleArmM;
-      const reactionComp = ((upperMass * g) + (inputs.massKg * g)) * Math.cos(thetaRad) * 0.25;
+      const upperPlusLoadForce = (upperMass * g) + (inputs.massKg * g);
+      const reactionComp = upperPlusLoadForce * Math.cos(thetaRad) * 0.25;
       const compressionN = erectorForce + reactionComp;
 
-      // Knee joint moment and balance / Center of Pressure
-      const kneeAngleRad = kneeFlexionDeg * (Math.PI / 180.0);
-      const thighLengthM = (statureCm / 100.0) * 0.24;
-      const kneeMomentNm = (bodyMass * g + inputs.massKg * g) * (thighLengthM * Math.sin(kneeAngleRad) * 0.45);
-
-      // Anatomical Pelvis Counter-Balance Shift
-      const pelvisOffsetM = 0.08 + (thighLengthM * Math.sin(kneeAngleRad * 0.5)) + (trunkMomentArm * 0.35);
-      const pelvisCounterMoment = (bodyMass * 0.35 * g) * pelvisOffsetM;
-
-      const totalWeightN = (bodyMass + inputs.massKg) * g;
-      const netHorizontalMoment = trunkTorque + loadTorque - pelvisCounterMoment - (kneeMomentNm * 0.20);
-      const cofpM = netHorizontalMoment / totalWeightN;
-      const cofpMm = Math.round(cofpM * 1000.0 * 10) / 10;
-      const isBalanced = (cofpMm >= -70.0 && cofpMm <= 180.0);
+      const kneeMomentNm = (bodyMass * g + inputs.massKg * g) * kneeMomentArmM * 0.45;
+      const hipMomentNm = (bodyMass * g + inputs.massKg * g) * hipMomentArmM * 0.55;
 
       const lumbarTlv = isFemale ? 3500.0 : 4270.0;
       const lumbarDcr = compressionN / lumbarTlv;
@@ -748,8 +821,18 @@
         kneeFlexionDeg: Math.round(kneeFlexionDeg),
         hipHeightM,
         kneeMomentNm: Math.round(kneeMomentNm),
+        hipMomentNm: Math.round(hipMomentNm),
         cofpMm,
         isBalanced,
+        trueCoM_M,
+        xKnee,
+        yKnee,
+        xHip,
+        xShoulder,
+        yShoulder,
+        armK_Mm,
+        armT_Mm,
+        squatStyleName,
         rulaGrand,
         rulaTableA,
         rulaTableB,
@@ -768,24 +851,12 @@
 
       const leanRad = res.forwardLeanDeg * (Math.PI / 180.0);
 
-      // Lower Limb Kinematic Articulation
-      const shinLen = 105;
-      const thighLen = 110;
-      const kneeAngleRad = (res.kneeFlexionDeg || 0) * (Math.PI / 180.0);
+      // Anatomical Closed-Chain Screen Coordinates
+      const kneeX = ankleX + (res.xKnee * 1000.0 * scale);
+      const kneeY = floorY - (res.yKnee * 1000.0 * scale);
 
-      // Knee translates forward and down based on flexion
-      const shinTilt = kneeAngleRad * 0.35;
-      const kneeX = ankleX + shinLen * Math.sin(shinTilt);
-      const kneeY = ankleY - shinLen * Math.cos(shinTilt);
-
-      // Pelvis / Hip height drops directly according to res.hipHeightM
-      const hipHeightMm = res.hipHeightM ? (res.hipHeightM * 1000.0) : 850.0;
-      const hipY = floorY - hipHeightMm * scale;
-      
-      // Calculate hipX to preserve anatomical thigh length
-      const dyThigh = hipY - kneeY;
-      const dxThigh = -Math.sqrt(Math.max(100, (thighLen * thighLen) - (dyThigh * dyThigh)));
-      const hipX = kneeX + dxThigh;
+      const hipX = ankleX + (res.xHip * 1000.0 * scale);
+      const hipY = floorY - (res.hipHeightM * 1000.0 * scale);
 
       // Update Leg SVG Elements
       document.getElementById('cadAnkle').setAttribute('cx', ankleX);
@@ -808,9 +879,8 @@
       document.getElementById('cadPelvis').setAttribute('cy', hipY);
 
       // Spine Column
-      const torsoLen = 120;
-      const shoulderX = hipX + torsoLen * Math.sin(leanRad);
-      const shoulderY = hipY - torsoLen * Math.cos(leanRad);
+      const shoulderX = ankleX + (res.xShoulder * 1000.0 * scale);
+      const shoulderY = floorY - (res.yShoulder * 1000.0 * scale);
 
       const spineMidX = (hipX + shoulderX) / 2 - 14 * Math.sin(leanRad);
       const spineMidY = (hipY + shoulderY) / 2;
@@ -888,23 +958,54 @@
       document.getElementById('cadHudKneeVal').textContent = `${Math.round(res.kneeFlexionDeg)}° / ${Math.round(res.kneeMomentNm)} Нм`;
       document.getElementById('cadHudKneeVal').setAttribute('fill', kneeStressColor);
 
-      // Center of Pressure (CofP) Ground Projection
-      const cofpScreenX = ankleX + (res.cofpMm * scale);
-      document.getElementById('cadCofPLine').setAttribute('x1', cofpScreenX);
-      document.getElementById('cadCofPLine').setAttribute('x2', cofpScreenX);
-      document.getElementById('cadCofPMarker').setAttribute('cx', cofpScreenX);
+      // Red Vertical Plumb Line through True CoM (Image 2 Paradigm)
+      const plumbX = ankleX + (res.cofpMm * scale);
+      document.getElementById('cadPlumbLine').setAttribute('x1', plumbX);
+      document.getElementById('cadPlumbLine').setAttribute('x2', plumbX);
+      document.getElementById('cadPlumbArrow').setAttribute('points', `${plumbX-5},454 ${plumbX+5},454 ${plumbX},463`);
 
+      // Net CoM Bullseye Marker
+      const comY = (hipY + shoulderY) / 2.0;
+      document.getElementById('cadCoMMarkerOuter').setAttribute('cx', plumbX);
+      document.getElementById('cadCoMMarkerOuter').setAttribute('cy', comY);
+      document.getElementById('cadCoMMarkerInner').setAttribute('cx', plumbX);
+      document.getElementById('cadCoMMarkerInner').setAttribute('cy', comY);
+      document.getElementById('cadCoMText').setAttribute('x', plumbX + 14);
+      document.getElementById('cadCoMText').setAttribute('y', comY - 4);
+
+      // Knee Moment Arm K (Dimension line Knee <-> Plumb line)
+      const lineK = document.getElementById('cadLineK');
+      const textK = document.getElementById('cadTextK');
+      lineK.setAttribute('x1', kneeX);
+      lineK.setAttribute('y1', kneeY);
+      lineK.setAttribute('x2', plumbX);
+      lineK.setAttribute('y2', kneeY);
+      textK.setAttribute('x', (kneeX + plumbX) / 2);
+      textK.setAttribute('y', kneeY - 6);
+      textK.textContent = `K = ${res.armK_Mm} мм`;
+
+      // Hip Moment Arm T (Dimension line Hip <-> Plumb line)
+      const lineT = document.getElementById('cadLineT');
+      const textT = document.getElementById('cadTextT');
+      lineT.setAttribute('x1', hipX);
+      lineT.setAttribute('y1', hipY);
+      lineT.setAttribute('x2', plumbX);
+      lineT.setAttribute('y2', hipY);
+      textT.setAttribute('x', (hipX + plumbX) / 2);
+      textT.setAttribute('y', hipY - 6);
+      textT.textContent = `T = ${res.armT_Mm} мм`;
+
+      // Ground Center of Pressure (CofP) & Base of Support
+      document.getElementById('cadCofPMarker').setAttribute('cx', plumbX);
       const cofpTextEl = document.getElementById('cadCofPText');
-      cofpTextEl.setAttribute('x', cofpScreenX);
+      cofpTextEl.setAttribute('x', plumbX);
       if (res.isBalanced) {
         document.getElementById('cadCofPMarker').setAttribute('fill', '#38bdf8');
-        document.getElementById('cadCofPLine').setAttribute('stroke', '#38bdf8');
-        cofpTextEl.textContent = `CofP: ${res.cofpMm > 0 ? '+' : ''}${res.cofpMm} мм (OK)`;
+        cofpTextEl.textContent = `CofP: ${res.cofpMm > 0 ? '+' : ''}${res.cofpMm} мм [${res.squatStyleName}]`;
         cofpTextEl.setAttribute('fill', '#38bdf8');
         document.getElementById('cadBosLine').setAttribute('stroke', '#10b981');
       } else {
         document.getElementById('cadCofPMarker').setAttribute('fill', '#ef4444');
-        document.getElementById('cadCofPLine').setAttribute('stroke', '#ef4444');
         cofpTextEl.textContent = `CofP: ${res.cofpMm > 0 ? '+' : ''}${res.cofpMm} мм (ОПАСНО: ПАДЕНИЕ!)`;
         cofpTextEl.setAttribute('fill', '#ef4444');
         document.getElementById('cadBosLine').setAttribute('stroke', '#ef4444');
@@ -1003,8 +1104,8 @@
       document.getElementById('rowNeck').textContent = `DCR ${res.neckDcr} (${res.neckMoment} Нм)`;
 
       // Knee & Balance rows
-      document.getElementById('rowKnee').textContent = `${Math.round(res.kneeFlexionDeg)}° (${Math.round(res.kneeMomentNm)} Нм)`;
-      document.getElementById('rowBalance').textContent = `${res.cofpMm > 0 ? '+' : ''}${res.cofpMm} мм [${res.isBalanced ? 'Стабилен' : 'ОПАСНОСТЬ'}]`;
+      document.getElementById('rowKnee').textContent = `${Math.round(res.kneeFlexionDeg)}° (K=${res.armK_Mm} мм, T=${res.armT_Mm} мм)`;
+      document.getElementById('rowBalance').textContent = `${res.cofpMm > 0 ? '+' : ''}${res.cofpMm} мм [${res.isBalanced ? res.squatStyleName : 'ПАДЕНИЕ'}]`;
       document.getElementById('rowBalance').className = res.isBalanced ? 'font-bold text-emerald-400' : 'font-bold text-rose-400 animate-pulse';
 
       // Sliders & Labels

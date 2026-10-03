@@ -40,7 +40,7 @@ namespace UITests
             {
                 Console.WriteLine("[1/3] Instantiating WorksErgoPaneViewModel...");
                 var vm = new WorksErgoPaneViewModel();
-                Console.WriteLine($"   Default DCR: {vm.OverallDcrText}, Risk: {vm.RiskCategory}");
+                Console.WriteLine(string.Format("   Default DCR: {0}, Risk: {1}", vm.OverallDcrText, vm.RiskCategory));
 
                 Console.WriteLine("[2/3] Instantiating WorksErgoPaneView and binding DataContext...");
                 var view = new WorksErgoPaneView { DataContext = vm };
@@ -48,7 +48,7 @@ namespace UITests
                 Console.WriteLine("[3/3] Simulating interactive user parameter changes...");
                 // Increase load to 25 kg
                 vm.LoadWeightKg = 25.0;
-                Console.WriteLine($"   After 25kg load: DCR = {vm.OverallDcrText}, Risk = {vm.RiskCategory}, Limiting = {vm.LimitingFactor}");
+                Console.WriteLine(string.Format("   After 25kg load: DCR = {0}, Risk = {1}, Limiting = {2}", vm.OverallDcrText, vm.RiskCategory, vm.LimitingFactor));
                 if (vm.OverallDCR <= 0.85)
                 {
                     Console.WriteLine("   [FAIL] 25kg load should trigger warning or hazard!");
@@ -57,11 +57,11 @@ namespace UITests
 
                 // Change percentile to Female 5th
                 vm.SelectedPercentile = DHMPercentile.Female5th;
-                Console.WriteLine($"   Female 5th percentile: DCR = {vm.OverallDcrText}, RWL = {vm.NioshRWLKg} kg");
+                Console.WriteLine(string.Format("   Female 5th percentile: DCR = {0}, RWL = {1} kg", vm.OverallDcrText, vm.NioshRWLKg));
 
                 // Lower vertical height to floor (150 mm)
                 vm.VerticalMm = 150.0;
-                Console.WriteLine($"   Floor pick (150mm): DCR = {vm.OverallDcrText}, Recommendation: {vm.Recommendation}");
+                Console.WriteLine(string.Format("   Floor pick (150mm): DCR = {0}, Recommendation: {1}", vm.OverallDcrText, vm.Recommendation));
 
                 if (vm.OverallDCR < 1.0)
                 {
@@ -74,7 +74,7 @@ namespace UITests
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"FATAL UI EXCEPTION: {ex.Message}\n{ex.StackTrace}");
+                Console.WriteLine(string.Format("FATAL UI EXCEPTION: {0}\n{1}", ex.Message, ex.StackTrace));
                 return 2;
             }
         }
@@ -88,8 +88,8 @@ $testExe = Join-Path $testDir "TestUI.exe"
 $testSource = Join-Path $testDir "TestUIProgram.cs"
 Set-Content -Path $testSource -Value $testScript
 
-$cscPath = "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Roslyn\csc.exe"
-if (!(Test-Path $cscPath)) { $cscPath = "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe" }
+$cscPath = "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
+if (!(Test-Path $cscPath)) { $cscPath = "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Roslyn\csc.exe" }
 
 $netFw = "C:\Windows\Microsoft.NET\Framework64\v4.0.30319"
 $wpfDir = "$netFw\WPF"
