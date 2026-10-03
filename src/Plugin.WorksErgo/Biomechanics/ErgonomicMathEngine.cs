@@ -35,10 +35,18 @@ namespace WorksErgoRPro.Biomechanics
         PalmPush
     }
 
+    public enum LiftingTechnique
+    {
+        AutomaticSemiSquat,
+        StoopStraightLegs,
+        DeepSquat
+    }
+
     public struct PostureInputs
     {
         public DHMPercentile Percentile;
         public TaskType Task;
+        public LiftingTechnique Technique;    // Lifting style: SemiSquat (optimal), Stoop (straight legs), Squat (deep bend)
         public double LoadKg;                 // Total load mass at hands (kg)
         public double ReachMm;                // Horizontal distance from ankles to hand grip (mm)
         public double VerticalMm;             // Vertical height from floor to hand grip (mm)
@@ -61,6 +69,13 @@ namespace WorksErgoRPro.Biomechanics
         public double LumbarDCR;              // Peak compression DCR vs Jäger 2023 TLV
         public double LumbarTLV_N;            // Peak TLV (3500-3575 N female / 4270 N male)
         public double CumulativeCompDCR;      // LCFCD fatigue damage DCR (Brinckmann Weibull)
+        public double KneeFlexionDeg;         // Articulated knee flexion angle (degrees)
+        public double TrunkFlexionDeg;        // Trunk forward lean angle (degrees)
+        public double HipHeightMm;            // Pelvis vertical height above ground (mm)
+        public double KneeMomentNm;           // Knee joint flexion moment (Nm)
+        public double HipMomentNm;            // Mid-Hip joint resultant moment (Nm)
+        public double CenterOfPressureMm;     // Net Center of Pressure (CofP) along anterior/posterior axis (mm)
+        public bool IsBalanced;               // True if CofP is inside the foot Base of Support (BoS)
         public double NioshRWLKg;             // NIOSH Recommended Weight Limit (kg)
         public double NioshLI;                // NIOSH Lifting Index (Load / RWL)
         public double SnookMAWLKg;            // Liberty Mutual LM-MMH 2021 MAWL (kg)
@@ -127,8 +142,23 @@ namespace WorksErgoRPro.Biomechanics
             return Math.Round(Math.Max(0.001, Math.Min(0.99, dc)), 4);
         }
 
-        // 2. Lumbar Spine L5/S1 Biomechanical Criterion (Jäger 2023, Gelb et al. 1995)
-        public static (double CompN, double ShearN, double DCR, double TLV) CalculateLumbarL5S1(PostureInputs input)
+    public struct LumbarAndLowerLimbResult
+    {
+        public double CompN;
+        public double ShearN;
+        public double DCR;
+        public double TLV;
+        public double KneeFlexionDeg;
+        public double TrunkFlexionDeg;
+        public double HipHeightMm;
+        public double KneeMomentNm;
+        public double HipMomentNm;
+        public double CenterOfPressureMm;
+        public bool IsBalanced;
+    }
+
+        // 2. Lumbar Spine L5/S1 & Articulated Lower Limb Kinematics (Jäger 2023, Gelb 1995, Work(s) Ergo)
+        public static LumbarAndLowerLimbResult CalculateLumbarL5S1(PostureInputs input)
         {
             var anthro = GetAnthropometry(input.Percentile);
             double bodyMass = anthro.MassKg;
@@ -138,11 +168,39 @@ namespace WorksErgoRPro.Biomechanics
             // Geometry and Moment Arms (meters)
             double hMeters = Math.Max(0.15, Math.Min(0.90, input.ReachMm / 1000.0));
 
-            // Hip height estimation
-            double hipHeightM = (anthro.StatureCm / 100.0) * 0.53;
+            // Lower limb kinematics and hip height based on lifting technique
+            double standingHipHeightM = (anthro.StatureCm / 100.0) * 0.53;
             double vM = input.VerticalMm / 1000.0;
-            double vDiff = Math.Max(0.0, hipHeightM - vM);
-            double forwardLeanDeg = Math.Max(0.0, Math.Min(78.0, (vDiff / 0.08) * 8.0));
+            double vDiff = Math.Max(0.0, standingHipHeightM - vM);
+
+            double kneeFlexionDeg = 0.0;
+            double hipHeightM = standingHipHeightM;
+            double forwardLeanDeg = 0.0;
+
+            switch (input.Technique)
+            {
+                case LiftingTechnique.StoopStraightLegs:
+                    kneeFlexionDeg = 5.0; // Straight legs
+                    hipHeightM = standingHipHeightM;
+                    forwardLeanDeg = Math.Max(0.0, Math.Min(82.0, (vDiff / 0.08) * 8.5));
+                    break;
+
+                case LiftingTechnique.DeepSquat:
+                    // Knees bend deeply, pelvis drops down, spine stays upright
+                    kneeFlexionDeg = Math.Max(10.0, Math.Min(105.0, (vDiff / 0.007)));
+                    hipHeightM = Math.Max(0.35, standingHipHeightM - (kneeFlexionDeg / 105.0) * 0.45);
+                    forwardLeanDeg = Math.Max(5.0, Math.Min(35.0, (vDiff / 0.025)));
+                    break;
+
+                case LiftingTechnique.AutomaticSemiSquat:
+                default:
+                    // Natural physiological compromise
+                    kneeFlexionDeg = Math.Max(5.0, Math.Min(65.0, (vDiff / 0.012)));
+                    hipHeightM = Math.Max(0.45, standingHipHeightM - (kneeFlexionDeg / 65.0) * 0.25);
+                    forwardLeanDeg = Math.Max(0.0, Math.Min(74.0, (vDiff / 0.08) * 7.8));
+                    break;
+            }
+
             double thetaRad = forwardLeanDeg * (Math.PI / 180.0);
 
             // Trunk segment length and center-of-mass moment arm
@@ -155,7 +213,7 @@ namespace WorksErgoRPro.Biomechanics
             double loadTorque = (input.LoadKg * g) * hMeters;
             double resultantMoment = trunkTorque + loadTorque;
 
-            // Single-equivalent erector moment arm estimate (Jäger / Gelb / Potvin ~ 0.059-0.060 m)
+            // Single-equivalent erector moment arm estimate (Jäger / Gelb / Potvin ~ 0.0585-0.060 m)
             double momentArmMuscle = 0.0585;
 
             // Erector spinae muscle force
@@ -170,11 +228,38 @@ namespace WorksErgoRPro.Biomechanics
             double totalCompressionN = erectorForce + reactionComp;
             double totalShearN = Math.Max(120.0, reactionShear);
 
+            // Knee and Mid-Hip joint moments
+            double kneeAngleRad = kneeFlexionDeg * (Math.PI / 180.0);
+            double thighLengthM = (anthro.StatureCm / 100.0) * 0.24;
+            double kneeMomentNm = (bodyMass * g + input.LoadKg * g) * (thighLengthM * Math.Sin(kneeAngleRad) * 0.45);
+            double midHipMomentNm = resultantMoment + (bodyMass * 0.14 * g * 0.10);
+
+            // Center of Pressure (CofP) along anterior/posterior axis from ankle center
+            double totalWeightN = (bodyMass + input.LoadKg) * g;
+            double netHorizontalMoment = trunkTorque + loadTorque - (kneeMomentNm * 0.25);
+            double cofpM = netHorizontalMoment / totalWeightN;
+            double cofpMm = Math.Round(cofpM * 1000.0, 1);
+            // Base of Support (BoS): heels at -70 mm, toes at +180 mm relative to ankle center
+            bool isBalanced = (cofpMm >= -70.0 && cofpMm <= 180.0);
+
             // Jäger (2023) TLV: 3500 N / 3575 N female, 4270 N male
             double tlv = anthro.IsFemale ? 3500.0 : 4270.0;
             double dcr = totalCompressionN / tlv;
 
-            return (Math.Round(totalCompressionN, 1), Math.Round(totalShearN, 1), Math.Round(dcr, 3), tlv);
+            return new LumbarAndLowerLimbResult
+            {
+                CompN = Math.Round(totalCompressionN, 1),
+                ShearN = Math.Round(totalShearN, 1),
+                DCR = Math.Round(dcr, 3),
+                TLV = tlv,
+                KneeFlexionDeg = Math.Round(kneeFlexionDeg, 1),
+                TrunkFlexionDeg = Math.Round(forwardLeanDeg, 1),
+                HipHeightMm = Math.Round(hipHeightM * 1000.0, 1),
+                KneeMomentNm = Math.Round(kneeMomentNm, 1),
+                HipMomentNm = Math.Round(midHipMomentNm, 1),
+                CenterOfPressureMm = cofpMm,
+                IsBalanced = isBalanced
+            };
         }
 
         // 3. Brinckmann / Potvin & Agnew (2026) Cumulative Compression Fatigue DCR
@@ -429,6 +514,13 @@ namespace WorksErgoRPro.Biomechanics
                 LumbarDCR = lumbar.DCR,
                 LumbarTLV_N = lumbar.TLV,
                 CumulativeCompDCR = cumulCompDcr,
+                KneeFlexionDeg = lumbar.KneeFlexionDeg,
+                TrunkFlexionDeg = lumbar.TrunkFlexionDeg,
+                HipHeightMm = lumbar.HipHeightMm,
+                KneeMomentNm = lumbar.KneeMomentNm,
+                HipMomentNm = lumbar.HipMomentNm,
+                CenterOfPressureMm = lumbar.CenterOfPressureMm,
+                IsBalanced = lumbar.IsBalanced,
                 NioshRWLKg = niosh.RWL,
                 NioshLI = niosh.LI,
                 SnookMAWLKg = lmmmh.MAWL_Kg,

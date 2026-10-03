@@ -27,6 +27,13 @@ namespace WorksErgoRPro.ViewModels
         private double _lumbarDcr = 0.0;
         private double _nioshRwlKg = 0.0;
         private double _nioshLi = 0.0;
+        private LiftingTechnique _selectedTechnique = LiftingTechnique.AutomaticSemiSquat;
+        private double _kneeFlexionDeg = 0.0;
+        private double _trunkFlexionDeg = 0.0;
+        private double _hipHeightMm = 0.0;
+        private double _kneeMomentNm = 0.0;
+        private double _centerOfPressureMm = 0.0;
+        private bool _isBalanced = true;
         private double _snookMawlKg = 0.0;
         private double _snookDcr = 0.0;
         private double _armDcr = 0.0;
@@ -60,6 +67,48 @@ namespace WorksErgoRPro.ViewModels
         {
             get => _selectedTask;
             set { if (_selectedTask != value) { _selectedTask = value; NotifyOfPropertyChange(nameof(SelectedTask)); Recalculate(); } }
+        }
+
+        public LiftingTechnique SelectedTechnique
+        {
+            get => _selectedTechnique;
+            set { if (_selectedTechnique != value) { _selectedTechnique = value; NotifyOfPropertyChange(nameof(SelectedTechnique)); Recalculate(); } }
+        }
+
+        public double KneeFlexionDeg
+        {
+            get => _kneeFlexionDeg;
+            private set { _kneeFlexionDeg = value; NotifyOfPropertyChange(nameof(KneeFlexionDeg)); }
+        }
+
+        public double TrunkFlexionDeg
+        {
+            get => _trunkFlexionDeg;
+            private set { _trunkFlexionDeg = value; NotifyOfPropertyChange(nameof(TrunkFlexionDeg)); }
+        }
+
+        public double HipHeightMm
+        {
+            get => _hipHeightMm;
+            private set { _hipHeightMm = value; NotifyOfPropertyChange(nameof(HipHeightMm)); }
+        }
+
+        public double KneeMomentNm
+        {
+            get => _kneeMomentNm;
+            private set { _kneeMomentNm = value; NotifyOfPropertyChange(nameof(KneeMomentNm)); }
+        }
+
+        public double CenterOfPressureMm
+        {
+            get => _centerOfPressureMm;
+            private set { _centerOfPressureMm = value; NotifyOfPropertyChange(nameof(CenterOfPressureMm)); }
+        }
+
+        public bool IsBalanced
+        {
+            get => _isBalanced;
+            private set { _isBalanced = value; NotifyOfPropertyChange(nameof(IsBalanced)); }
         }
 
         public double LoadWeightKg
@@ -180,6 +229,7 @@ namespace WorksErgoRPro.ViewModels
             {
                 Percentile = _selectedPercentile,
                 Task = _selectedTask,
+                Technique = _selectedTechnique,
                 LoadKg = _loadWeightKg,
                 ReachMm = _reachMm,
                 VerticalMm = _verticalMm,
@@ -196,6 +246,12 @@ namespace WorksErgoRPro.ViewModels
             RiskCategory = res.RiskCategory;
             LumbarCompN = res.LumbarCompressionN;
             LumbarDCR = res.LumbarDCR;
+            KneeFlexionDeg = res.KneeFlexionDeg;
+            TrunkFlexionDeg = res.TrunkFlexionDeg;
+            HipHeightMm = res.HipHeightMm;
+            KneeMomentNm = res.KneeMomentNm;
+            CenterOfPressureMm = res.CenterOfPressureMm;
+            IsBalanced = res.IsBalanced;
             NioshRWLKg = res.NioshRWLKg;
             NioshLI = res.NioshLI;
             SnookMAWLKg = res.SnookMAWLKg;

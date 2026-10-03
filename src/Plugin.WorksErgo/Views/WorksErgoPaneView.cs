@@ -132,6 +132,15 @@ namespace WorksErgoRPro.Views
             dhmStack.Children.Add(new TextBlock { Text = "Operation Type:", FontSize = 11 });
             dhmStack.Children.Add(taskCombo);
 
+            var techCombo = new ComboBox
+            {
+                Margin = new Thickness(0, 4, 0, 4),
+                ItemsSource = Enum.GetValues(typeof(LiftingTechnique))
+            };
+            techCombo.SetBinding(ComboBox.SelectedItemProperty, new Binding("SelectedTechnique") { Mode = BindingMode.TwoWay });
+            dhmStack.Children.Add(new TextBlock { Text = "Lifting Technique (Leg Mechanics):", FontSize = 11 });
+            dhmStack.Children.Add(techCombo);
+
             dhmGroup.Content = dhmStack;
             root.Children.Add(dhmGroup);
 
@@ -153,6 +162,9 @@ namespace WorksErgoRPro.Views
 
             bioStack.Children.Add(CreateMetricRow("Lumbar L5/S1 Compression:", "LumbarCompN", "{0:F0} N (Limit 3400 N)"));
             bioStack.Children.Add(CreateMetricRow("Lumbar DCR:", "LumbarDCR", "{0:F2}"));
+            bioStack.Children.Add(CreateMetricRow("Knee Flexion Angle:", "KneeFlexionDeg", "{0:F1}\u00b0"));
+            bioStack.Children.Add(CreateMetricRow("Knee Joint Moment:", "KneeMomentNm", "{0:F1} Nm"));
+            bioStack.Children.Add(CreateMetricRow("Center of Pressure (CofP):", "CenterOfPressureMm", "{0:F1} mm from ankle"));
             bioStack.Children.Add(CreateMetricRow("NIOSH Rec. Weight (RWL):", "NioshRWLKg", "{0:F1} kg"));
             bioStack.Children.Add(CreateMetricRow("NIOSH Lifting Index (LI):", "NioshLI", "{0:F2}"));
             bioStack.Children.Add(CreateMetricRow("Snook MAWL (Liberty Mutual):", "SnookMAWLKg", "{0:F1} kg"));

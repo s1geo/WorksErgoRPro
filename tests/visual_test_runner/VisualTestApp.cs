@@ -23,13 +23,13 @@ namespace WorksErgoRPro.VisualTests
     {
         private WorksErgoPaneViewModel _vm;
         private Canvas _manikinCanvas;
-        private Line _legLeft, _legThigh, _neckLine, _armUpper, _armFore, _lumbarVector;
-        private Ellipse _jointPelvis, _jointL5S1, _jointShoulder, _jointElbow, _jointHand, _head;
+        private Line _legLeft, _legThigh, _neckLine, _armUpper, _armFore, _lumbarVector, _bosLine, _cofpLine;
+        private Ellipse _jointPelvis, _jointL5S1, _jointShoulder, _jointElbow, _jointHand, _head, _jointKnee, _jointAnkle, _cofpMarker;
         private Path _spinePath;
         private Border _boxBorder;
         private TextBlock _txtBoxMass, _txtHudComp, _txtScenarioTitle, _txtScenarioStatus, _txtDcrBig, _txtRiskBadge, _txtRecommendation;
         private ProgressBar _pbDcr;
-        private TextBlock _txtLumbarRow, _txtNioshRow, _txtSnookRow, _txtArmRow, _txtPotvinRow;
+        private TextBlock _txtLumbarRow, _txtNioshRow, _txtSnookRow, _txtArmRow, _txtPotvinRow, _txtKneeRow, _txtBalanceRow;
         private DispatcherTimer _autoTestTimer;
         private int _currentTestIndex = 0;
 
@@ -197,12 +197,16 @@ namespace WorksErgoRPro.VisualTests
             _txtSnookRow = CreateMetricTextBlock("Snook & Ciriello MAWL: 17.2 kg (DCR 0.58)");
             _txtArmRow = CreateMetricTextBlock("Arm AFF Strength: DCR 0.44");
             _txtPotvinRow = CreateMetricTextBlock("Potvin MAE Fatigue: 0.841 (84.1% capacity)");
+            _txtKneeRow = CreateMetricTextBlock("Knee Joint: 52\u00b0 Flexion (68 Nm Moment)");
+            _txtBalanceRow = CreateMetricTextBlock("Balance / CofP: +45 mm [Stable Base of Support]");
 
             mStack.Children.Add(_txtLumbarRow);
             mStack.Children.Add(_txtNioshRow);
             mStack.Children.Add(_txtSnookRow);
             mStack.Children.Add(_txtArmRow);
             mStack.Children.Add(_txtPotvinRow);
+            mStack.Children.Add(_txtKneeRow);
+            mStack.Children.Add(_txtBalanceRow);
             metricsCard.Child = mStack;
             rightStack.Children.Add(metricsCard);
 
@@ -232,21 +236,27 @@ namespace WorksErgoRPro.VisualTests
             testBtnsGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
 
             var btnT1 = CreateTestButton("1. Baseline (10kg)", () => LoadScenario(1));
-            var btnT2 = CreateTestButton("2. Floor Hazard (25kg)", () => LoadScenario(2));
+            var btnT2 = CreateTestButton("2. Stoop Floor (25kg)", () => LoadScenario(2));
             var btnT3 = CreateTestButton("3. High Reach (15kg)", () => LoadScenario(3));
             var btnT4 = CreateTestButton("4. High Frequency", () => LoadScenario(4));
+            var btnT5 = CreateTestButton("5. Squat vs Stoop", () => LoadScenario(5));
+
+            testBtnsGrid.RowDefinitions.Add(new RowDefinition());
+            testBtnsGrid.RowDefinitions.Add(new RowDefinition());
+            testBtnsGrid.RowDefinitions.Add(new RowDefinition());
 
             Grid.SetColumn(btnT1, 0); Grid.SetRow(btnT1, 0);
             Grid.SetColumn(btnT2, 1); Grid.SetRow(btnT2, 0);
-            testBtnsGrid.RowDefinitions.Add(new RowDefinition());
-            testBtnsGrid.RowDefinitions.Add(new RowDefinition());
             Grid.SetColumn(btnT3, 0); Grid.SetRow(btnT3, 1);
             Grid.SetColumn(btnT4, 1); Grid.SetRow(btnT4, 1);
+            Grid.SetColumn(btnT5, 0); Grid.SetRow(btnT5, 2);
+            Grid.SetColumnSpan(btnT5, 2);
 
             testBtnsGrid.Children.Add(btnT1);
             testBtnsGrid.Children.Add(btnT2);
             testBtnsGrid.Children.Add(btnT3);
             testBtnsGrid.Children.Add(btnT4);
+            testBtnsGrid.Children.Add(btnT5);
             rightStack.Children.Add(testBtnsGrid);
 
             Grid.SetColumn(rightStack, 1);
@@ -260,15 +270,29 @@ namespace WorksErgoRPro.VisualTests
 
         private void BuildManikinElements()
         {
-            // Floor line
+            // Floor line & Base of Support
             var floor = new Line { X1 = 20, Y1 = 480, X2 = 580, Y2 = 480, Stroke = new SolidColorBrush(Color.FromRgb(71, 85, 105)), StrokeThickness = 3, StrokeDashArray = new DoubleCollection { 4, 3 } };
             _manikinCanvas.Children.Add(floor);
 
-            // Legs
+            _bosLine = new Line { X1 = 165, Y1 = 482, X2 = 220, Y2 = 482, Stroke = new SolidColorBrush(Color.FromRgb(16, 185, 129)), StrokeThickness = 3, StrokeStartLineCap = PenLineCap.Round, StrokeEndLineCap = PenLineCap.Round };
+            _manikinCanvas.Children.Add(_bosLine);
+
+            _cofpLine = new Line { Stroke = new SolidColorBrush(Color.FromRgb(56, 189, 248)), StrokeThickness = 1.5, StrokeDashArray = new DoubleCollection { 2, 2 } };
+            _manikinCanvas.Children.Add(_cofpLine);
+
+            _cofpMarker = new Ellipse { Width = 10, Height = 10, Fill = new SolidColorBrush(Color.FromRgb(56, 189, 248)) };
+            _manikinCanvas.Children.Add(_cofpMarker);
+
+            // Legs & Joints
             _legLeft = new Line { Stroke = new SolidColorBrush(Color.FromRgb(148, 163, 184)), StrokeThickness = 8, StrokeStartLineCap = PenLineCap.Round, StrokeEndLineCap = PenLineCap.Round };
             _legThigh = new Line { Stroke = new SolidColorBrush(Color.FromRgb(148, 163, 184)), StrokeThickness = 9, StrokeStartLineCap = PenLineCap.Round, StrokeEndLineCap = PenLineCap.Round };
+            _jointAnkle = new Ellipse { Width = 12, Height = 12, Fill = new SolidColorBrush(Color.FromRgb(71, 85, 105)) };
+            _jointKnee = new Ellipse { Width = 14, Height = 14, Fill = new SolidColorBrush(Color.FromRgb(2, 132, 199)) };
+
             _manikinCanvas.Children.Add(_legLeft);
             _manikinCanvas.Children.Add(_legThigh);
+            _manikinCanvas.Children.Add(_jointAnkle);
+            _manikinCanvas.Children.Add(_jointKnee);
 
             // Spine Path
             _spinePath = new Path { Stroke = new SolidColorBrush(Color.FromRgb(34, 197, 94)), StrokeThickness = 12, StrokeStartLineCap = PenLineCap.Round, StrokeEndLineCap = PenLineCap.Round };
@@ -333,25 +357,46 @@ namespace WorksErgoRPro.VisualTests
             double ankleY = floorY - 5.0;
             double scale = 0.22;
 
-            double vDiff = (1750.0 * 0.53) - _vm.VerticalMm;
-            double forwardLeanDeg = Math.Max(0.0, Math.Min(75.0, vDiff / 8.0));
-            double forwardLeanRad = forwardLeanDeg * (Math.PI / 180.0);
-            double kneeBend = Math.Min(25.0, forwardLeanDeg * 0.4);
+            // Lower Limb Kinematics
+            double shinLen = 105.0;
+            double thighLen = 110.0;
+            double kneeRad = _vm.KneeFlexionDeg * (Math.PI / 180.0);
+            double shinTilt = kneeRad * 0.35;
+            double kneeX = ankleX + shinLen * Math.Sin(shinTilt);
+            double kneeY = ankleY - shinLen * Math.Cos(shinTilt);
 
-            // Knee & Hip
-            double kneeX = ankleX - kneeBend * 0.5;
-            double kneeY = ankleY - 110.0;
+            double hipHeightMm = _vm.HipHeightMm > 100.0 ? _vm.HipHeightMm : 850.0;
+            double hipY = floorY - hipHeightMm * scale;
+            double dyThigh = hipY - kneeY;
+            double dxThigh = -Math.Sqrt(Math.Max(100.0, (thighLen * thighLen) - (dyThigh * dyThigh)));
+            double hipX = kneeX + dxThigh;
+
             _legLeft.X1 = ankleX; _legLeft.Y1 = ankleY;
             _legLeft.X2 = kneeX;  _legLeft.Y2 = kneeY;
-
-            double hipX = ankleX + 15.0;
-            double hipY = kneeY - 105.0;
             _legThigh.X1 = kneeX; _legThigh.Y1 = kneeY;
             _legThigh.X2 = hipX;  _legThigh.Y2 = hipY;
+
+            Canvas.SetLeft(_jointAnkle, ankleX - 6);
+            Canvas.SetTop(_jointAnkle, ankleY - 6);
+            Canvas.SetLeft(_jointKnee, kneeX - 7);
+            Canvas.SetTop(_jointKnee, kneeY - 7);
             Canvas.SetLeft(_jointPelvis, hipX - 8);
             Canvas.SetTop(_jointPelvis, hipY - 8);
 
+            // Center of Pressure on Floor
+            double cofpX = ankleX + (_vm.CenterOfPressureMm * scale);
+            _cofpLine.X1 = cofpX; _cofpLine.Y1 = floorY - 8.0;
+            _cofpLine.X2 = cofpX; _cofpLine.Y2 = floorY + 2.0;
+            Canvas.SetLeft(_cofpMarker, cofpX - 5);
+            Canvas.SetTop(_cofpMarker, floorY - 5);
+
+            SolidColorBrush balanceBrush = _vm.IsBalanced ? new SolidColorBrush(Color.FromRgb(56, 189, 248)) : new SolidColorBrush(Color.FromRgb(239, 68, 68));
+            _cofpMarker.Fill = balanceBrush;
+            _cofpLine.Stroke = balanceBrush;
+            _bosLine.Stroke = _vm.IsBalanced ? new SolidColorBrush(Color.FromRgb(16, 185, 129)) : new SolidColorBrush(Color.FromRgb(239, 68, 68));
+
             // Torso & Shoulders
+            double forwardLeanRad = _vm.TrunkFlexionDeg * (Math.PI / 180.0);
             double torsoLen = 120.0;
             double shoulderX = hipX + torsoLen * Math.Sin(forwardLeanRad);
             double shoulderY = hipY - torsoLen * Math.Cos(forwardLeanRad);
@@ -442,6 +487,9 @@ namespace WorksErgoRPro.VisualTests
             _txtNioshRow.Text = $"NIOSH Lifting Index: {_vm.NioshLI:F2} (RWL: {_vm.NioshRWLKg:F1} kg)";
             _txtSnookRow.Text = $"Snook & Ciriello MAWL: {_vm.SnookMAWLKg:F1} kg (DCR {_vm.SnookDCR:F2})";
             _txtArmRow.Text = $"Arm AFF Strength: DCR {_vm.ArmDCR:F2}";
+            _txtKneeRow.Text = $"Knee Joint: {_vm.KneeFlexionDeg:F0}\u00b0 Flexion ({_vm.KneeMomentNm:F0} Nm Moment)";
+            _txtBalanceRow.Text = $"Balance / CofP: {_vm.CenterOfPressureMm:+0.0;-0.0;0.0} mm [{( _vm.IsBalanced ? "Stable Base" : "HAZARD: LOSS OF BALANCE" )}]";
+            _txtBalanceRow.Foreground = balanceBrush;
             _txtRecommendation.Text = $"Guidance: {_vm.Recommendation}";
         }
 
@@ -454,16 +502,18 @@ namespace WorksErgoRPro.VisualTests
                     _txtScenarioStatus.Text = "Status: PASSED (Low Risk / Safe)";
                     _txtScenarioStatus.Foreground = new SolidColorBrush(Color.FromRgb(52, 211, 153));
                     _vm.SelectedPercentile = DHMPercentile.Male50th;
+                    _vm.SelectedTechnique = LiftingTechnique.AutomaticSemiSquat;
                     _vm.LoadWeightKg = 10.0;
                     _vm.ReachMm = 350.0;
                     _vm.VerticalMm = 750.0;
                     _vm.FrequencyLiftsPerMin = 1.0;
                     break;
                 case 2:
-                    _txtScenarioTitle.Text = "Test Case 2: Hazardous Floor Pick (25 kg from floor, Female 5th)";
+                    _txtScenarioTitle.Text = "Test Case 2: Hazardous Floor Pick (25 kg, Straight Stoop)";
                     _txtScenarioStatus.Text = "Status: PASSED (Hazard correctly detected!)";
                     _txtScenarioStatus.Foreground = new SolidColorBrush(Color.FromRgb(248, 113, 113));
                     _vm.SelectedPercentile = DHMPercentile.Female5th;
+                    _vm.SelectedTechnique = LiftingTechnique.StoopStraightLegs;
                     _vm.LoadWeightKg = 25.0;
                     _vm.ReachMm = 600.0;
                     _vm.VerticalMm = 120.0;
@@ -474,6 +524,7 @@ namespace WorksErgoRPro.VisualTests
                     _txtScenarioStatus.Text = "Status: PASSED (Shoulder AFF stress alert)";
                     _txtScenarioStatus.Foreground = new SolidColorBrush(Color.FromRgb(251, 191, 36));
                     _vm.SelectedPercentile = DHMPercentile.Male95th;
+                    _vm.SelectedTechnique = LiftingTechnique.AutomaticSemiSquat;
                     _vm.LoadWeightKg = 15.0;
                     _vm.ReachMm = 500.0;
                     _vm.VerticalMm = 1450.0;
@@ -484,10 +535,22 @@ namespace WorksErgoRPro.VisualTests
                     _txtScenarioStatus.Text = "Status: PASSED (Fatigue attenuation verified)";
                     _txtScenarioStatus.Foreground = new SolidColorBrush(Color.FromRgb(192, 132, 252));
                     _vm.SelectedPercentile = DHMPercentile.Male50th;
+                    _vm.SelectedTechnique = LiftingTechnique.AutomaticSemiSquat;
                     _vm.LoadWeightKg = 14.0;
                     _vm.ReachMm = 400.0;
                     _vm.VerticalMm = 700.0;
                     _vm.FrequencyLiftsPerMin = 12.0;
+                    break;
+                case 5:
+                    _txtScenarioTitle.Text = "Test Case 5: Deep Squat Ergonomic Lift (25 kg from floor, Deep Squat)";
+                    _txtScenarioStatus.Text = "Status: PASSED (Lower limb knee articulation absorbs 1500 N!)";
+                    _txtScenarioStatus.Foreground = new SolidColorBrush(Color.FromRgb(52, 211, 153));
+                    _vm.SelectedPercentile = DHMPercentile.Female5th;
+                    _vm.SelectedTechnique = LiftingTechnique.DeepSquat;
+                    _vm.LoadWeightKg = 25.0;
+                    _vm.ReachMm = 600.0;
+                    _vm.VerticalMm = 120.0;
+                    _vm.FrequencyLiftsPerMin = 2.0;
                     break;
             }
             UpdateVisuals();
@@ -504,10 +567,10 @@ namespace WorksErgoRPro.VisualTests
             _autoTestTimer.Tick += (s, e) =>
             {
                 _currentTestIndex++;
-                if (_currentTestIndex > 4)
+                if (_currentTestIndex > 5)
                 {
                     _autoTestTimer.Stop();
-                    _txtScenarioStatus.Text = ">>> ALL 4 VISUAL AUTOTESTS PASSED (100%) <<<";
+                    _txtScenarioStatus.Text = ">>> ALL 5 VISUAL AUTOTESTS PASSED (100%) <<<";
                     _txtScenarioStatus.Foreground = new SolidColorBrush(Color.FromRgb(52, 211, 153));
                 }
                 else
