@@ -18,6 +18,7 @@
 | [**07_COMPREHENSIVE_SCIENTIFIC_REGISTRY_36_SOURCES.md**](07_COMPREHENSIVE_SCIENTIFIC_REGISTRY_36_SOURCES.md) | Полный реестр & Рецензия ядра | Детальная декомпозиция всех 36 публикаций и 7 эмпирических датасетов Work(s) Ergo, глубокая рецензия текущего кода, анализ ограничений (квазистатика, примитивные коллизии) и манифест архитектуры Next-Gen Ergonomics Engine. |
 | [**08_MASTER_ENCYCLOPEDIA_OF_ERGONOMICS_AND_DHM.md**](08_MASTER_ENCYCLOPEDIA_OF_ERGONOMICS_AND_DHM.md) | Генеральная энциклопедия DHM | Фундаментальный синтез 6 дисциплин (вычислительная кинематика FABRIK/QP-IK, пространственная динамика RNEA, мышечные модели Хилла, 3D антропометрия SMPL-X/CAESAR, моторный контроль Flash-Hogan, стандарты ISO/EAWS/OCRA). |
 | [**09_CRITICAL_PEER_REVIEW_AND_NEXTGEN_CORE_SPECIFICATION.md**](09_CRITICAL_PEER_REVIEW_AND_NEXTGEN_CORE_SPECIFICATION.md) | Рецензия & Спецификация ядра | Бескомпромиссный аудит кодовой базы, математические уравнения 3D EMA полинома L5/S1, выборки ДКВ, 23 хватов HandPak и пошаговый план модернизации ядра. |
+| [**10_INDUSTRIAL_DHM_SOFTWARE_ARCHITECTURE_AND_BEST_PRACTICES.md**](10_INDUSTRIAL_DHM_SOFTWARE_ARCHITECTURE_AND_BEST_PRACTICES.md) | Промышленная архитектура DHM | Анализ передовых систем (Siemens Jack, Dassault DELMIA, AnyBody), 5-уровневая архитектура CAD-аддона, двухуровневая кинематика, динамика $F=m(g+a)$, бессерверное ядро и нулевой опрос сцены. |
 
 ---
 
