@@ -1,0 +1,19 @@
+# Binaries and build artifacts
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.suo
+*.user
+
+# Python bytecode and caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Local databases and models
+*.db-journal
+*.log
