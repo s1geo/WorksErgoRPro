@@ -96,8 +96,68 @@ $$\text{MAE} = 1.0 - (\text{Duty Cycle})^{0.24}$$
 #### Момент в коленном суставе:
 $$M_{\text{knee}} = (m_{\text{body}} + m_{\text{load}}) \cdot g \cdot \left(L_{\text{thigh}} \cdot \sin(\theta_{\text{knee}}) \cdot 0.45\right)$$
 
-#### Центр давления (Center of Pressure — CofP):
-$$x_{\text{CofP}} = \frac{M_{\text{trunk}} + M_{\text{load}} - 0.25 \cdot M_{\text{knee}}}{(m_{\text{body}} + m_{\text{load}}) \cdot g}$$
+#### Центр давления (Center of Pressure — CofP) и противовес таза:
+При наклоне вперед таз рефлекторно отводится назад на величину $\Delta X_{\text{pelvis}} = 0.08 + L_{\text{thigh}} \sin(0.5 \theta_{\text{knee}}) + 0.35 d_{\text{trunk}}$, создавая удерживающий контр-момент массы нижней части тела:
+$$M_{\text{pelvis\_counter}} = (0.35 \cdot m_{\text{body}} \cdot g) \cdot \Delta X_{\text{pelvis}}$$
+$$x_{\text{CofP}} = \frac{M_{\text{trunk}} + M_{\text{load}} - M_{\text{pelvis\_counter}} - 0.20 \cdot M_{\text{knee}}}{(m_{\text{body}} + m_{\text{load}}) \cdot g}$$
 * **Условие устойчивости (Base of Support — BoS):**
   $$-70\text{ мм (пятка)} \le x_{\text{CofP}} \le +180\text{ мм (носок)}$$
   При $x_{\text{CofP}} > +180\text{ мм}$ происходит потеря равновесия и падение вперед.
+
+---
+
+### 2.5. Толкание и тяга (Pushing & Pulling — Snook & Ciriello 1991 / LM-MMH 2021)
+
+Для операций горизонтального перемещения тележек и контейнеров оцениваются две критические фазы:
+1. **Начальное усилие (Initial Force):** преодоление инерции покоя и трения страгивания:
+   * Базовый предел для 75% женской популяции: $\approx 200\text{ Н}$, мужской: $\approx 300\text{ Н}$.
+   * Поправочные коэффициенты:
+     $$F_{\text{init\_limit}} = F_{\text{base\_init}} \cdot \left(1.0 - 0.25 |V_{\text{handle}} - 1.0|\right) \cdot \left(1.0 - 0.035 \cdot \text{Freq}\right)$$
+2. **Усилие поддержания движения (Sustained Force):** равномерное качение:
+   * Базовый предел для 75% женской популяции: $\approx 110\text{ Н}$, мужской: $\approx 170\text{ Н}$.
+   * Поправка на дистанцию ($D = 2.1\text{ м} \to 1.15, 7.5\text{ м} \to 1.00, 15\text{ м} \to 0.88, 30\text{ м} \to 0.78$):
+     $$F_{\text{sust\_limit}} = F_{\text{base\_sust}} \cdot \left(1.0 - 0.25 |V_{\text{handle}} - 1.0|\right) \cdot \left(1.0 - 0.0075 (D - 7.5)\right) \cdot \left(1.0 - 0.035 \cdot \text{Freq}\right)$$
+3. **Итоговый индекс:**
+   $$DCR_{\text{push/pull}} = \max\left(\frac{F_{\text{init}}}{F_{\text{init\_limit}}}, \frac{F_{\text{sust}}}{F_{\text{sust\_limit}}}\right)$$
+
+---
+
+### 2.6. Переноска груза (Carrying — Snook & Ciriello 1991 / LM-MMH 2021)
+
+Определяет максимально допустимую массу переносимого в руках груза (Maximum Acceptable Weight of Carry — MAWC):
+* Базовый предел на дистанции $2.1\text{ м}$ (75% женщин): $\approx 14.5\text{ кг}$, мужчины: $\approx 22.0\text{ кг}$.
+* Дистанционное затухание ($2.1\text{ м} \to 1.00, 4.3\text{ м} \to 0.90, 8.5\text{ м} \to 0.82, 15\text{ м} \to 0.74$):
+  $$DM = \max(0.65, 1.0 - 0.02 \cdot (D_{\text{carry}} - 2.1))$$
+* Итоговая грузоподъемность переноски:
+  $$\text{MAWC} = \text{MAWC}_{\text{base}} \cdot DM \cdot FM \cdot HM$$
+  $$DCR_{\text{carry}} = \frac{M_{\text{load}}}{\text{MAWC}}$$
+
+---
+
+### 2.7. Нормативные дискретные матрицы RULA и REBA
+
+* **RULA (Rapid Upper Limb Assessment — McAtamney & Corlett 1993):**
+  * Таблица A: Upper Arm $[1..6] \times$ Lower Arm $[1..3] \times$ Wrist $[1..4] \times$ Wrist Twist $[1..2] \to$ Постуральный балл A.
+  * Балл C = Постуральный балл A + мышечная статичность + нагрузка ($<2\text{ кг} \to 0, 2..10\text{ кг} \to 1/2, >10\text{ кг} \to 3$).
+  * Таблица B: Neck $[1..6] \times$ Trunk $[1..6] \times$ Legs $[1..2] \to$ Постуральный балл B.
+  * Балл D = Постуральный балл B + мышечная статичность + нагрузка.
+  * Таблица C: Балл C $[1..8] \times$ Балл D $[1..7] \to$ Итоговый Grand Score $[1..7]$ (Action Levels 1–4).
+* **REBA (Rapid Entire Body Assessment — Hignett & McAtamney 2000):**
+  * Таблица A: Trunk $[1..5] \times$ Neck $[1..3] \times$ Legs $[1..4] \to$ Балл A. Балл A' = Балл A + Load Score.
+  * Таблица B: Upper Arm $[1..6] \times$ Lower Arm $[1..2] \times$ Wrist $[1..3] \to$ Балл B. Балл B' = Балл B + Coupling Score.
+  * Таблица C: Балл A' $[1..12] \times$ Балл B' $[1..12] \to$ Балл C.
+  * Итоговый REBA Grand Score = Балл C + Activity Score $[1..15]$ (Risk Levels 0–4).
+
+---
+
+### 2.8. Многоэтапный композитный анализ техпроцесса (Composite Job Analysis — Gibson & Potvin 2016)
+
+Оценка сменного цикла, состоящего из $N$ подзадач (Lift $\to$ Carry $\to$ Place):
+1. **Кумулятивное разрушение замыкательной пластинки L5/S1 по смене:**
+   $$\text{LCFCD}_{\text{composite}} = \sum_{i=1}^{N} \frac{\text{Cycles}_i}{\text{CtF}_i} \le 1.00$$
+2. **Суммарный фактор мышечной усталости (Duty Cycle):**
+   $$\text{DutyCycle}_{\text{composite}} = \frac{\sum_{i=1}^{N} \text{Cycles}_i \cdot t_{\text{effort}, i}}{T_{\text{shift}} \cdot 3600}$$
+   $$\text{Potvin MAE}_{\text{composite}} = 1.0 - (\text{DutyCycle}_{\text{composite}})^{0.24}$$
+3. **Итоговый сменный DCR (Weakest Link):**
+   $$DCR_{\text{composite}} = \max\left(\frac{\max_i(F_{\text{compression}, i})}{\text{TLV}}, \text{LCFCD}_{\text{composite}}, \max_i(DCR_i)\right)$$
+
