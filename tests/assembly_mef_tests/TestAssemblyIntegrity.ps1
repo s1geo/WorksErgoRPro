@@ -47,4 +47,18 @@ foreach ($req in $requiredContracts) {
     Write-Host " [PASS] Found MEF Export for $req -> $($exportMap[$req])" -ForegroundColor Green
 }
 
+# 3. Verify MEF DirectoryCatalog Discovery (Simulating R-Pro Bootstrapper)
+Add-Type -AssemblyName System.ComponentModel.Composition
+$binDir = Split-Path $targetDll -Parent
+$catalog = New-Object System.ComponentModel.Composition.Hosting.DirectoryCatalog($binDir, "Plugin.WorksErgo.dll")
+
+foreach ($req in $requiredContracts) {
+    $part = $catalog.Parts | Where-Object { $_.ExportDefinitions.ContractName -eq $req }
+    if (!$part) {
+        throw "DirectoryCatalog Failure: Part for $req was not discovered by MEF scanner!"
+    }
+    Write-Host " [PASS] MEF DirectoryCatalog discovered part for $req" -ForegroundColor Green
+}
+
 Write-Host "`n>>> All Level 2 Assembly Integrity Tests PASSED! <<<`n" -ForegroundColor Green
+
