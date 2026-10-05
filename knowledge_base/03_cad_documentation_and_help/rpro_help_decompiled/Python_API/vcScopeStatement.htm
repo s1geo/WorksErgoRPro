@@ -1,0 +1,58 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="while statement,looping">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcScopeStatement</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcScopeStatement</h1>
+<p>vcScopeStatement is a robot statement that can execute its own scope 
+ of statements.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcStatement.htm">vcStatement</a></p>
+<h2>Statement Specific Properties</h2>
+<h3>While</h3>
+<p>A While statement is a <a href="vcScopeStatement.htm">vcScopeStatement</a> 
+ that can execute a scope of statements in a loop as long as its condition 
+ is true.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Condition</td>
+		<td><p>Expression</p></td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns a True or 
+		 False value. 
+		<p class="TableNormal">A True value means the statement will execute 
+		 its scope of statements and loop back, evaluating its condition 
+		 before each iteration.</p>
+		<p class="TableNormal">A False value means the statement has been 
+		 completed and will not execute its scope of statements.</p>
+		<p class="TableNormal"><span class="Strong">Note:</span> In order 
+		 to avoid an endless loop, use a condition that references a robot 
+		 variable, port in robot, Break statement or a controller property.</p></td>
+	</tr>
+	<tr>
+		<td>Scope</td>
+		<td><a href="vcScope.htm">vcScope</a></td>
+		<td>R</td>
+		<td>Gets the scope of statements executed by the statement.</td>
+	</tr>
+</table>
+</body>
+</html>

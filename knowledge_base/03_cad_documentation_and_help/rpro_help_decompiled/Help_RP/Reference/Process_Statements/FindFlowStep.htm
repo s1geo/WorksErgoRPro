@@ -1,0 +1,85 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Find Flow Step</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>FindFlowStep</h1>
+<p>Finds next or previous process flow steps relative to an existing flow 
+ step. </p>
+<p>Reads in a <span class="hcp1">ProcessFlowInfo</span> 
+ object from a process variable and creates a new <span class="hcp1">ProcessFlowInfo</span> 
+ into another process variable. The created <span class="hcp1">ProcessFlowInfo</span> 
+ points to same process sequence as the input <span class="hcp1">ProcessFlowInfo</span>, 
+ but to a different flow step.</p>
+<p>If the process variable identified by <span class="hcp1">SourceFlowInfoVariableName</span> 
+ is <span class="hcp1">ProcessFlowInfo</span> then output 
+ will be a single <span class="hcp1">ProcessFlowInfo</span> 
+ object. Otherwise, if the process variable identified by <span class="hcp1">SourceFlowInfoVariableName</span> 
+ is a list of <span class="hcp1">ProcessFlowInfo</span> 
+ then the statement produces a <span class="hcp1">ProcessFlowInfo</span> 
+ for each input separately and outputs them as a list in the same order. 
+ </p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>SourceFlowInfoVariableName </td>
+		<td>Name of the Process variable where to get flow step info used 
+		 as a reference.</td>
+	</tr>
+	<tr>
+		<td>TargetFlowInfoVariableName </td>
+		<td>Name of the Process variable where to store the result.</td>
+	</tr>
+	<tr>
+		<td>Mode</td>
+		<td>Selection for how the new flow step info is defined.</td>
+	</tr>
+	<tr>
+		<td>ProcessToFind </td>
+		<td>The process group to search for.</td>
+	</tr>
+	<tr>
+		<td>SearchDirection </td>
+		<td>Selection for search direction in the process sequence.</td>
+	</tr>
+	<tr>
+		<td>LoopingSearch </td>
+		<td>When evaluates to True, the flow step search can loop from 
+		 end of the sequence to the start and from the start of the sequence 
+		 to the end.</td>
+	</tr>
+	<tr>
+		<td>ReturnStepOffset </td>
+		<td>The evaluated value determines an offset in number of flow 
+		 steps forward or backward applied to the result.</td>
+	</tr>
+	<tr>
+		<td>SkipOptionalSteps </td>
+		<td>When evaluates to True, an optional flow step can never be 
+		 returned. The search and offset logic will skip over all optional 
+		 steps and may fail if a non-optional flow step was not found.</td>
+	</tr>
+</table>
+</body>
+</html>

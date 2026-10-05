@@ -1,0 +1,312 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcHelpers.Application</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+p.hcp1 { margin-left:20px; }
+-->
+</style>
+</head>
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcHelpers.Application</h1>
+<p>vcHelpers.Application is a library of useful classes and methods designed to simplify common application related tasks. For example, the library contains methods for creating modal and non-modal dialog boxes as well as other methods involving user interaction and feedback.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot12476" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot12476', 'MTPOPUP12476');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP12476" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Non-modal Dialog Box</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark3" >Constructors</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark4" >Properties</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark5" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark6" >Modal Dialog Box</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark7" >Constructors</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark8" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark9" >Miscellaneous Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark10" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Non-modal Dialog Box</h2>
+<p>Non-modal dialog box is a dialog that allows a user to interact with the 3D world while the dialog is open in the current session. Properties can be added to show or enter information.</p>
+<p>See <a href="vcHelpers.Application1.htm#Example_NonModalDialog">Example. Create a non-modal dialog box with tabs</a> for a basic implementation of this dialog type.</p>
+<h3><a name="MiniTOCBookMark3"></a>Constructors</h3>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>getDialog</td>
+<td>
+<p>vcHelpers.Application.DialogObject</p>
+</td>
+<td>[String <span class="Italic">caption</span>]</td>
+<td>Creates a new DialogObject object representing a non-modal dialog box.
+<p class="TableNormal">An option <span class="Italic">caption</span> argument can be given to define the title caption of the dialog.</p>
+</td>
+</tr>
+</table>
+<h3><a name="MiniTOCBookMark4"></a>Properties</h3>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>CurrentTab</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines the active tab in the dialog.
+<p class="TableNormal">This property can be overridden by using the showTabs() method.</p>
+</td>
+</tr>
+<tr>
+<td>GeneralTabCaption</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines the label for the first tab in the dialog.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines the text displayed in the title bar of the dialog.</td>
+</tr>
+</table>
+<h3><a name="MiniTOCBookMark5"></a>Methods</h3>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>addProperty</td>
+<td>None</td>
+<td>String <span class="Italic">name</span>, Enumeration <span class="Italic">type</span>, String <span class="Italic">onchanged</span>, Enumeration <span class="Italic">constraints</span></td>
+<td>Adds a new property to the dialog.
+<p class="TableNormal">If a property with the given <span class="Italic">name</span> exists, that property is deleted and replaced with the new property.</p>
+<p class="TableNormal">The <span class="Italic">onchanged</span> argument can be used to call a function for handling property value changes; otherwise give a None value.</p>
+<p class="TableNormal">A tab is added to the dialog when you add a property using the following format for its <span class="Italic">name</span> argument.</p>
+<p class="TableNormal">[TabName]::[PropertyName]</p>
+<p class="TableNormal">See <a href="Constants.htm#Property_Constants">Property Constants</a> for more information on property types and constraints.</p>
+</td>
+</tr>
+<tr>
+<td>destroyWindow</td>
+<td>None</td>
+<td>None</td>
+<td>Hides and destroys the dialog.</td>
+</tr>
+<tr>
+<td>getProperty</td>
+<td><a href="vcProperty.htm">vcProperty</a></td>
+<td>String <span class="Italic">name</span></td>
+<td>Returns a property of the dialog matching the given <span class="Italic">name</span>; otherwise returns None.</td>
+</tr>
+<tr>
+<td>hide</td>
+<td>None</td>
+<td>None</td>
+<td>Hides the dialog.</td>
+</tr>
+<tr>
+<td>show</td>
+<td>None</td>
+<td>None</td>
+<td>Shows the dialog.</td>
+</tr>
+<tr>
+<td>showTabs</td>
+<td>None</td>
+<td>[String <span class="Italic">tabName</span>]</td>
+<td>Shows the dialog and its tabs.
+<p class="TableNormal">An optional <span class="Italic">tabName</span> argument can be used to define which tab is listed first and active in the dialog.</p>
+<p class="TableNormal">If there is no tab matching the given <span class="Italic">tabName</span> or the method is called without any argument, the first listed tab is used in the dialog. By default, the first tab is named General.</p>
+</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark6"></a>Modal Dialog Box</h2>
+<p>The modal dialog box is a dialog used to request essential information for a user. When this type of dialog is shown, interaction with the 3D world cannot proceed until a user closes the dialog.</p>
+<p>See <a href="vcHelpers.Application1.htm#Example_ModalDialog">Example. Command to create a modal dialog box with tabs</a> for a basic implementation of this dialog type.</p>
+<h3><a name="MiniTOCBookMark7"></a>Constructors</h3>
+<p>None. This type of dialog box is created by using the displayPropertyDialog() method to call a modal dialog box bound to a <a href="vcCommand.htm">vcCommand</a> type object which acts as the owner of the dialog and its properties.</p>
+<h3><a name="MiniTOCBookMark8"></a>Methods</h3>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>addLimitProperty</td>
+<td><a href="vcProperty.htm">vcProperty</a></td>
+<td><a href="vcCommand.htm">vcCommand</a> <span class="Italic">owner</span>, Enumeration <span class="Italic">type</span>, String <span class="Italic">name</span>, Boolean <span class="Italic">visible</span>, Boolean <span class="Italic">rebuild</span>, Boolean <span class="Italic">update</span>, var* <span class="Italic">value</span>, String <span class="Italic">onchanged</span>, var* <span class="Italic">units</span>, var* <span class="Italic">min</span>, var* <span class="Italic">max</span></td>
+<td>Adds a property with defined limits to the dialog's <span class="Italic">owner</span>.
+<p class="TableNormal">If a property with the given <span class="Italic">name</span> exists, that property is deleted and replaced with the new property.</p>
+<p class="TableNormal">The <span class="Italic">onchanged</span> argument can be used to call a function for handling property value changes; otherwise give a None value.</p>
+<p class="TableNormal">A tab is added to the dialog when you add a property using the following format for its <span class="Italic">name</span> argument.</p>
+<p class="TableNormal"><span class="Term">[TabName]::[PropertyName]</span></p>
+<p class="TableNormal">The <span class="Italic">rebuild</span> argument can be used to rebuild geometry referencing the property's value; otherwise give a False value.</p>
+<p class="TableNormal">The <span class="Italic">update</span> argument can be used to update a simulation when changing the property's value; otherwise give a False value.</p>
+<p class="TableNormal">The <span class="Italic">value</span> argument defines the initial value of the property, whereas the <span class="Italic">min</span> and <span class="Italic">max</span> arguments define the property's limits.</p>
+<p class="TableNormal">The <span class="Italic">units</span> argument can given as an empty string "" or a unit associated with the property's <span class="Italic">type</span>.</p>
+<p class="TableNormal">To show/hide the property in the dialog, use the <span class="Italic">visible</span> argument.</p>
+<p class="TableNormal">See <a href="Constants.htm#Property_Constants">Property Constants</a> for more information.</p>
+</td>
+</tr>
+<tr>
+<td>addProperty</td>
+<td><a href="vcProperty.htm">vcProperty</a></td>
+<td><a href="vcCommand.htm">vcCommand</a> <span class="Italic">owner</span>, Enumeration <span class="Italic">type</span>, String <span class="Italic">name</span>, Boolean <span class="Italic">visible</span>, Boolean <span class="Italic">rebuild</span>, Boolean <span class="Italic">update</span>, var* <span class="Italic">value</span>, String <span class="Italic">onchanged</span>, var* <span class="Italic">units</span></td>
+<td>Adds a property to the dialog's <span class="Italic">owner</span>.
+<p class="TableNormal">If a property with the given <span class="Italic">name</span> exists, that property is deleted and replaced with the new property.</p>
+<p class="TableNormal">The <span class="Italic">onchanged</span> argument can be used to call a function for handling property value changes; otherwise give a None value.</p>
+<p class="TableNormal">A tab is added to the dialog when you add a property using the following format for its <span class="Italic">name</span> argument.</p>
+<p class="TableNormal"><span class="Term">[TabName]::[PropertyName]</span></p>
+<p class="TableNormal">The <span class="Italic">rebuild</span> argument can be used to rebuild geometry referencing the property's value; otherwise give a False value.</p>
+<p class="TableNormal">The <span class="Italic">update</span> argument can be used to update a simulation when changing the property's value; otherwise give a False value.</p>
+<p class="TableNormal">The <span class="Italic">value</span> argument defines the initial value of the property.</p>
+<p class="TableNormal">The <span class="Italic">units</span> argument can given as an empty string "" or a unit associated with the property's <span class="Italic">type</span>.</p>
+<p class="TableNormal">To show/hide the property in the dialog, use the <span class="Italic">visible</span> argument.</p>
+<p class="TableNormal">See <a href="Constants.htm#Property_Constants">Property Constants</a> for more information.</p>
+</td>
+</tr>
+<tr>
+<td>addStepProperty</td>
+<td><a href="vcProperty.htm">vcProperty</a></td>
+<td><a href="vcCommand.htm">vcCommand</a> <span class="Italic">owner</span>, Enumeration <span class="Italic">type</span>, String <span class="Italic">name</span>, Boolean <span class="Italic">visible</span>, Boolean <span class="Italic">rebuild</span>, Boolean <span class="Italic">update</span>, var* <span class="Italic">value</span>, String <span class="Italic">onchanged</span>, var* <span class="Italic">units</span>, List* [<span class="Italic">value1, ...</span>]</td>
+<td>Adds a property with defined values to the dialog's <span class="Italic">owner</span>.
+<p class="TableNormal">If a property with the given <span class="Italic">name</span> exists, that property is deleted and replaced with the new property.</p>
+<p class="TableNormal">The <span class="Italic">onchanged</span> argument can be used to call a function for handling property value changes; otherwise give a None value.</p>
+<p class="TableNormal">A tab is added to the dialog when you add a property using the following format for its <span class="Italic">name</span> argument.</p>
+<p class="TableNormal"><span class="Term">[TabName]::[PropertyName]</span></p>
+<p class="TableNormal">The <span class="Italic">rebuild</span> argument can be used to rebuild geometry referencing the property's value; otherwise give a False value.</p>
+<p class="TableNormal">The <span class="Italic">update</span> argument can be used to update a simulation when changing the property's value; otherwise give a False value.</p>
+<p class="TableNormal">The <span class="Italic">value</span> argument defines the initial value of the property, whereas possible values are given as optional values in a list.</p>
+<p class="TableNormal">The <span class="Italic">units</span> argument can given as an empty string "" or a unit associated with the property's <span class="Italic">type</span>.</p>
+<p class="TableNormal">To show/hide the property in the dialog, use the <span class="Italic">visible</span> argument.</p>
+<p class="TableNormal">See <a href="Constants.htm#Property_Constants">Property Constants</a> for more information.</p>
+</td>
+</tr>
+<tr>
+<td>displayPropertyDialog</td>
+<td>Boolean</td>
+<td>String <span class="Italic">cmdName</span>, String <span class="Italic">title</span>, String <span class="Italic">firstTabName</span></td>
+<td>Shows a modal property dialog bound to a command matching the given <span class="Italic">cmdName</span>.
+<p class="TableNormal">The <span class="Italic">cmdName</span> argument is used to find a command owning the dialog and its properties.</p>
+<p class="TableNormal">The <span class="Italic">title</span> argument defines the caption of the dialog's title bar.</p>
+<p class="TableNormal">The <span class="Italic">firstTabName</span> argument defines the first and active tab of the dialog. You can given an empty string "" if no tabs are required in the dialog.</p>
+</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark9"></a>Miscellaneous Methods</h2>
+<p>The following methods are available when importing the vcHelpers.Application library.</p>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>copyProperties</td>
+<td>None</td>
+<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">comp1</span>, <a href="vcComponent.htm">vcComponent</a> <span class="Italic">comp2</span></td>
+<td>Copies the properties of a component to another component.
+<p class="TableNormal">The <span class="Italic">comp1</span> argument defines the component whose properties are copied.</p>
+<p class="TableNormal">The <span class="Italic">comp2</span> argument defines the component which gets the copied properties.</p>
+</td>
+</tr>
+<tr>
+<td>endMessage</td>
+<td>None</td>
+<td>String <span class="Italic">message</span></td>
+<td>Prints a given <span class="Italic">message</span> to the Output panel and unblocks the application.</td>
+</tr>
+<tr>
+<td>findCommand</td>
+<td><a href="vcCommand.htm">vcCommand</a></td>
+<td>String <span class="Italic">name</span></td>
+<td>Returns a command in the application matching the given <span class="Italic">name</span>; otherwise returns None.</td>
+</tr>
+<tr>
+<td>progressMessage</td>
+<td>None</td>
+<td>String <span class="Italic">message</span>, Real <span class="Italic">fraction</span></td>
+<td>Prints a given <span class="Italic">message</span> to the Output panel and updates the value of the progress bar based on a given <span class="Italic">fraction</span> ranging from 0.0 to 1.0.
+<p class="TableNormal">Generally, this is used to provide feedback to a user about the progress of one or actions.</p>
+<p class="TableNormal">This method does not unblock the application.</p>
+</td>
+</tr>
+<tr>
+<td>progressStdMessage</td>
+<td>None</td>
+<td>Real <span class="Italic">completed</span>, Real <span class="Italic">total</span></td>
+<td>Displays the status of an operation based on a given amount of work <span class="Italic">completed</span> in relation to the <span class="Italic">total</span> amount of work.
+<p class="TableNormal">This method does not unblock the application.</p>
+</td>
+</tr>
+<tr>
+<td>startMessage</td>
+<td>None</td>
+<td>String message</td>
+<td>Prints a given message to the Output panel.
+<p class="TableNormal">Using this method, progressMessage() or progressStdMessage() will block the application, thereby preventing user interaction.</p>
+<p class="TableNormal">To unblock the application, use the endMessage() method.</p>
+</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark10"></a>Examples</h2>
+<p><span class="Example"><a name="Example_NonModalDialog" id="Example_NonModalDialog">Example. Create a non-modal dialog box with tabs</a></span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col>
+<tr>
+<td>### first create a button property in a component, name it 'Button_1' and &#160; <br>### then copy paste following script to test non-modal dialog box <br>from vcScript import * <br>from vcHelpers.Application import * <br>&#160;&#160; <br>def button_event_1(arg): <br>&#160;&#160;global diag <br>&#160;&#160;diag = getDialog() <br>&#160;&#160; <br>&#160;&#160;par1 = diag.addProperty('Text 1',VC_STRING, None) &#160;&#160;&#160; <br>&#160;&#160;par2 = diag.addProperty('Text 2',VC_STRING, None) &#160;&#160;&#160; <br>&#160;&#160;par3 = diag.addProperty('Text 3',VC_STRING, None) <br>&#160;&#160;par4 = diag.addProperty('Button', VC_BUTTON, button_event_1) <br>&#160;&#160; <br>&#160;&#160;par2_1 = diag.addProperty('Tab2::Text2_1',VC_STRING, None) &#160;&#160;&#160; <br>&#160;&#160;par2_2 = diag.addProperty('Tab2::Text 2_2',VC_STRING, None) &#160;&#160;&#160; <br>&#160;&#160;par2_3 = diag.addProperty('Tab2::Text 2_3',VC_STRING, None) &#160;&#160;&#160; <br>&#160;&#160;par3_1 = diag.addProperty('Tab3::Property1',VC_BOOLEAN, None) <br>&#160;&#160; <br>&#160;&#160;diag.Name = "Test non-modal Dialog" <br>&#160;&#160;diag.GeneralTabCaption = 'Tab1' <br>&#160;&#160;diag.showTabs() <br>&#160;&#160;diag.show() <br>comp = getComponent() <br>button_ = comp.getProperty('Button_1') <br>button_.OnChanged = button_event_1</td>
+</tr>
+</table>
+<p><span class="Example"><a name="Example_ModalDialog" id="Example_ModalDialog">Example. Command to create a modal dialog box with tabs</a></span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col>
+<tr>
+<td><span>from vcScript import *</span> <br><span>from vcHelpers.Application import *</span> <br><span>from vcCommand import *</span> <br>&#160; <br><span>cmd = getCommand()</span> <br>&#160; <br><span>def create_cmd_properties():</span> <br>&#160; <br><span>#Read command existing properties &#160;&#160;</span> <br><span>&#160;&#160;props = cmd.Properties</span> <br>&#160; <br><span>&#160;&#160;#First lets delete all the properties of the command &#160;&#160;</span> <br><span>&#160;&#160;while(len(props)&gt;0): &#160;&#160;&#160;&#160;</span> <br><span>&#160;&#160;&#160;&#160;p = props.pop() &#160;&#160;&#160;&#160;</span> <br><span>&#160;&#160;&#160;&#160;try: &#160;&#160;&#160;&#160;&#160;&#160;</span> <br><span>&#160;&#160;&#160;&#160;&#160;&#160;cmd.deleteProperty(p.Name) &#160;&#160;&#160;&#160;</span> <br><span>&#160;&#160;&#160;&#160;except: &#160;&#160;&#160;&#160;&#160;&#160;</span> <br><span>&#160;&#160;&#160;&#160;&#160;&#160;pass</span> <br>&#160; <br><span># Create some properties for Tab 1 &#160;&#160;</span> <br><span>&#160;&#160;par1 = addProperty(cmd,VC_STRING,'Text 1',True,False,False,'',None,'') &#160;&#160;</span> <br><span>&#160;&#160;par2 = addProperty(cmd,VC_STRING,'Text 2',True,False,False,'',None,'') &#160;&#160;</span> <br><span>&#160;&#160;par3 = addProperty(cmd,VC_STRING,'Text 3',True,False,False,'',None,'')</span> <br>&#160; <br><span># For generating more Tabs just add properties with names as "Tab2::Property1","Tab3::Property2"... &#160;&#160;</span> <br>&#160; <br><span>&#160;&#160;par2_1 = addProperty(cmd,VC_STRING,'Tab2::Text 2_1',True,False,False,'',None,'') &#160;&#160;</span> <br><span>&#160;&#160;par2_2 = addProperty(cmd,VC_STRING,'Tab2::Text 2_2',True,False,False,'',None,'') &#160;&#160;</span> <br><span>&#160;&#160;par2_3 = addProperty(cmd,VC_STRING,'Tab2::Text 2_3',True,False,False,'',None,'') &#160;&#160;</span> <br><span>&#160;&#160;par3_1 = addProperty(cmd,VC_STRING,'Tab3::Property',True,False,False,'',None,'')</span> <br>&#160; <br><span># Method that displays the dialog waits until a button is pressed</span> <br><span>def display_command_properties(): &#160;&#160;</span> <br><span>&#160;&#160;ok = displayPropertyDialog(cmd.Name,'Tabs Example', 'Tab 1') &#160;&#160;</span> <br><span>&#160;&#160;if not ok: &#160;&#160;&#160;&#160;</span> <br><span>&#160;&#160;&#160;&#160;print 'Aborted' &#160;&#160;&#160;&#160;</span> <br><span>&#160;&#160;&#160;&#160;return False &#160;&#160;</span> <br><span>&#160;&#160;return True</span> <br>&#160; <br><span>def first_State(): &#160;&#160;</span> <br>&#160; <br><span>#Call the method that creates the properties &#160;&#160;</span> <br><span>&#160;&#160;create_cmd_properties() &#160;&#160;</span> <br><span>&#160;&#160;display_command_properties()</span> <br>&#160; <br><span>cmd.addState(first_State)</span></td>
+</tr>
+</table>
+</body>
+</html>

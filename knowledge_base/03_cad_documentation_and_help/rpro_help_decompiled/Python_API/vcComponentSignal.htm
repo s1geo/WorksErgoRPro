@@ -1,0 +1,60 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcComponentSignal</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcComponentSignal</h1>
+<p>vcComponentSignal is a signal that can send a <a href="vcComponent.htm">vcComponent</a> object.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a>, <a href="vcSignal.htm">vcSignal</a></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Value</td>
+<td><a href="vcComponent.htm">vcComponent</a></td>
+<td>RW</td>
+<td>Defines the value of signal.
+<p class="TableNormal">Setting this value does not trigger the OnSignal event unless you use the signal() method.</p>
+</td>
+</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>signal</td>
+<td>&#160;</td>
+<td>[<a href="vcComponent.htm" title="vcComponent">vcComponent</a> <span class="Italic">value</span>]</td>
+<td>Signals the current value of signal to all connected behaviors, thereby triggering the OnSignal event.
+<p class="TableNormal">An optional <span class="Italic">value</span> argument can be given to set the Value property of the signal.</p>
+</td>
+</tr>
+</table>
+</body>
+</html>

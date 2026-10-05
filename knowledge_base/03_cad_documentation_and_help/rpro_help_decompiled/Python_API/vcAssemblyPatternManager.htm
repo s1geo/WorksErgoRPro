@@ -1,0 +1,102 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="vcAssemblyPatternManager, AssemblyPatternManager, Assembly Pattern Manager">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcAssemblyPatternManager</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcAssemblyPatternManager</h1>
+<p>vcAssemblyPatternManager is used to create, modify, and delete assembly 
+ patterns (<a href="vcAssemblyPattern.htm">vcAssemblyPattern</a>).</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Patterns</td>
+		<td>List of <a href="vcAssemblyPattern.htm">vcAssemblyPattern</a></td>
+		<td>R</td>
+		<td>List of all assembly patterns.</td>
+	</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createPattern</td>
+		<td><a href="vcAssemblyPattern.htm">vcAssemblyPattern</a></td>
+		<td>String <i>name</i></td>
+		<td>Creates a new assembly pattern with given <i>name</i>. Names 
+		 must be unique.</td>
+	</tr>
+	<tr>
+		<td>deletePattern</td>
+		<td>None</td>
+		<td>String <i>name</i>, <a href="vcAssemblyPattern.htm">vcAssemblyPattern</a> 
+		 <i>pattern</i></td>
+		<td>Deletes the <i>pattern</i> given explicitly, or deletes pattern 
+		 by <i>name</i>.</td>
+	</tr>
+	<tr>
+		<td>clonePattern</td>
+		<td><a href="vcAssemblyPattern.htm">vcAssemblyPattern</a></td>
+		<td>String <i>name</i>, <a href="vcAssemblyPattern.htm">vcAssemblyPattern</a> 
+		 <i>pattern</i></td>
+		<td>Creates a copy of the <i>pattern</i> given explicitly, or found 
+		 pattern with given <i>name</i>.</td>
+	</tr>
+	<tr>
+		<td>findPattern</td>
+		<td><a href="vcAssemblyPattern.htm">vcAssemblyPattern</a></td>
+		<td>String <i>name</i></td>
+		<td>Returns an assembly pattern with given <i>name</i>, if it exists.</td>
+	</tr>
+</table>
+<h2>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.33%;">
+	<col style="width: 33.33%;">
+	<col style="width: 33.33%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnPatternAdded</td>
+		<td><a href="vcAssemblyPattern.htm">vcAssemblyPattern</a></td>
+		<td>Triggered when a pattern has been added to Pattern Manager.</td>
+	</tr>
+	<tr>
+		<td>OnPatternRemoving</td>
+		<td><a href="vcAssemblyPattern.htm">vcAssemblyPattern</a></td>
+		<td>Triggered when a pattern is being removed from Pattern Manager.</td>
+	</tr>
+</table>
+</body>
+</html>

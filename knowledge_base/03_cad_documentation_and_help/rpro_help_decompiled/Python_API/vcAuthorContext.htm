@@ -1,0 +1,107 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="modeling,context">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcAuthorContext</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcAuthorContext</h1>
+<p>vcAuthorContext is the context of the application for component modeling.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcContext.htm">vcContext</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot31507" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot31507', 'MTPOPUP31507');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP31507" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>ActiveComponent</td>
+<td><a href="vcComponent.htm">vcComponent</a></td>
+<td>RW</td>
+<td>Defines the active component in context, thereby clearing ActiveNode and ActiveFeatures properties.</td>
+</tr>
+<tr>
+<td>ActiveFeatures</td>
+<td>List of 2-tuple (<a href="vcNode.htm">vcNode</a>, List of <a href="vcFeature.htm">vcFeature</a>)</td>
+<td>R</td>
+<td>Gets a list of active features in context and pairs them with containing node.</td>
+</tr>
+<tr>
+<td>ActiveNode</td>
+<td><a href="vcNode.htm">vcNode</a></td>
+<td>RW</td>
+<td>Defines the active node in context, thereby clearing the ActiveFeatures properties.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>setActiveFeature</td>
+<td>None</td>
+<td><a href="vcFeature.htm">vcFeature</a> <span class="Italic">activeFeature</span>, <a href="vcNode.htm">vcNode</a> <span class="Italic">activeNode</span></td>
+<td>Sets a given feature in a given node as the active feature in context.</td>
+</tr>
+<tr>
+<td>setActiveFeatures</td>
+<td>None</td>
+<td>List of 2-tuple (<a href="vcNode.htm">vcNode</a>, List of <a href="vcFeature.htm">vcFeature</a> &#160;<span class="Italic">activeFeatures</span><span>)</span></td>
+<td>Sets a given list of features in nodes as the active features in context.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 33.333%;">
+<col style="width: 33.333%;">
+<col style="width: 33.333%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>ActiveComponentChanged</td>
+<td>None</td>
+<td>Triggered when a different component becomes the active component in context.</td>
+</tr>
+<tr>
+<td>ActiveFeaturesChanged</td>
+<td>None</td>
+<td>Triggered when a different feature or set of features become the active feature(s) in context.</td>
+</tr>
+</table>
+</body>
+</html>

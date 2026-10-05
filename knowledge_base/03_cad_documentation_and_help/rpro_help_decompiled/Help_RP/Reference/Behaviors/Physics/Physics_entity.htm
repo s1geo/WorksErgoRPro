@@ -1,0 +1,127 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="physics entity,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Physics Entity</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Physics Entity</h1>
+<p>A Physics Entity allows you to define a node in a component as a physical 
+ body that is affected by the physics of the 3D world.</p>
+<p><img src="../../../English/Links/PhysicsEntity.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the entity.</td>
+	</tr>
+	<tr>
+		<td>Physics Type</td>
+		<td>Defines how the entity is affected by physics during simulation. 
+		 
+		<p class="TableNormal"><span class="Term">#In Physics</span><br>
+		Entity is affected by gravity and other forces.</p>
+		<p class="TableNormal"><span class="Term">#Out of Physics</span><br>
+		Entity is not affected by physics.</p>
+		<p class="TableNormal"><span class="Term">#Kinematic</span><br>
+		Entity is not affected by gravity, but can be driven by other forces, 
+		 for example paths and servos.</p>
+		<p class="TableNormal"><span class="Term">#In Container</span><br>
+		Similar to #In Physics but used for tracking the containment of 
+		 entity, for example from one path to another.</p></td>
+	</tr>
+	<tr>
+		<td>Material Density</td>
+		<td>Defines the density of entity, thereby affecting its mass. 
+		 
+		<p class="TableNormal">Density is measured in kg/m^3. The system 
+		 default is 0.2 and is used if value is 0.</p></td>
+	</tr>
+	<tr>
+		<td>Static Friction</td>
+		<td>Defines the static friction of entity as a coefficient for 
+		 calculating its frictional force. 
+		<p class="TableNormal">Value is between 0 and 1 with a default 
+		 of 0.5. This is used when entity and the object it is touching 
+		 are not moving relative to one another.</p></td>
+	</tr>
+	<tr>
+		<td>Dynamic Friction</td>
+		<td>Defines the dynamic (kinetic) friction of entity as a coefficient 
+		 for calculating its frictional force. 
+		<p class="TableNormal">Value is between 0 and 1 with a default 
+		 of 0.5. This is used when entity and/or object it is touching 
+		 are moving relative to one another.</p></td>
+	</tr>
+	<tr>
+		<td>Restitution</td>
+		<td>Defines the bounciness of entity as a factor for its speed 
+		 before and after colliding with another object. 
+		<p class="TableNormal">Value is between 0 and 1 with a default 
+		 of 0.1. A value of 1 is very bouncy (elastic collision). A value 
+		 less than 1 is less bouncy (inelastic collision).</p></td>
+	</tr>
+	<tr>
+		<td>Linear Damping</td>
+		<td>Defines the linear damping of entity as a coefficient for calculating 
+		 its resistance to linear motion. 
+		<p class="TableNormal">Value is between 0 and 1 with a default 
+		 of 0.</p></td>
+	</tr>
+	<tr>
+		<td>Angular Damping</td>
+		<td>Defines the angular damping of entity as a coefficient for 
+		 calculating its resistance to rotational motion.</td>
+	</tr>
+	<tr>
+		<td>Solver Position Iterations</td>
+		<td>Defines the number of iterations used for solving position 
+		 of entity. 
+		<p class="TableNormal">The system default is 4 and is used if value 
+		 is 0.</p></td>
+	</tr>
+	<tr>
+		<td>Solver Velocity Iterations</td>
+		<td>Defines the number of iterations used for solving velocity 
+		 of entity. 
+		<p class="TableNormal">The system default is 1 and is used if value 
+		 is 0.</p></td>
+	</tr>
+	<tr>
+		<td>Scene Id</td>
+		<td>Defines the id of scene the entity belongs to in 3D world. 
+		 
+		<p class="TableNormal">By default, all entities and the floor of 
+		 3D world have a scene id of 0. A scene in this context is abstract 
+		 and more or less a layer. Entities in different scenes will not 
+		 collide with one another.</p></td>
+	</tr>
+	<tr>
+		<td>Collision Group</td>
+		<td>Limits the collision of entity with other objects to those 
+		 belonging to the same group.</td>
+	</tr>
+	<tr>
+		<td>Smoothing Steps</td>
+		<td>Defines the number of steps for smoothing the animation of 
+		 entity, for example when it is moving.</td>
+	</tr>
+</table>
+</body>
+</html>

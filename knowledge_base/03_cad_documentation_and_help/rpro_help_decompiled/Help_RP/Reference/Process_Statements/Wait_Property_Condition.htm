@@ -1,0 +1,54 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Wait Property Condition</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Wait Property Condition</h1>
+<p>WaitPropertyCondition statement allows you to wait for a variable to 
+ have specified value. VariableName and Condition property values form 
+ a single expression that is evaluated every time the value of the variable 
+ defined by VariableName changes. Variable name property can refer to process 
+ variables or component properties of the owner component.</p>
+<p>The process execution is blocked until the whole expression evaluates 
+ to True. If the variable is not found, the process execution continues. 
+ </p>
+<p>Generally, this statement is used with <a href="Get_Property.htm">Get 
+ Property statement</a>.</p>
+<p><img src="../../English/Links/ReferenceProcessStatementsWaitPropertyCondition.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>VariableName</td>
+		<td><p>Name of the variable which value is used to compare against 
+		 the expression of Condition. Variable name property can refer 
+		 to process variables (both static and runtime variables) or component 
+		 properties of the owner component. </p>
+		<p>See also <a href="../../English/Tasks/Process_Modeling/Using_process_variables.htm">Using 
+		 Process variables</a>.</p></td>
+	</tr>
+	<tr>
+		<td><p>Condition</p></td>
+		<td><p>A string property that is parsed into a comparison operator 
+		 and its calculated value is compared with the value of the property 
+		 defined by VariableName.</p>
+		<p>See also <a href="../Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</p></td>
+	</tr>
+</table>
+</body>
+</html>

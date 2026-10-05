@@ -1,0 +1,78 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcRslProcessStatement</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<p id="warning"><span class="Strong">(Deprecated)</span> use <a 
+	 href="vcPositionStatement.htm">vcPositionStatement</a></p>
+<h1>vcRslProcessStatement</h1>
+<p>vcRslProcessStatement is a statement that can execute a defined RSL 
+ Process Handler behavior.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcRslStatement.htm">vcRslStatement</a></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Process</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of process to be executed by statement.</td>
+	</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String <span class="Italic">type</span>, String <span class="Italic">name</span>, 
+		 [Enumeration <span class="Italic">constraints</span>]</td>
+		<td>Adds a new property of a given <span class="Italic">type</span> 
+		 and <span class="Italic">name</span> to statement. 
+		<p class="TableNormal">An optional <span class="Italic">constraints</span> 
+		 argument can be given to defines constraints for the new property, 
+		 which must be done at the time of creation.</p></td>
+	</tr>
+	<tr>
+		<td>deleteProperty</td>
+		<td>None</td>
+		<td><a href="vcProperty.htm">vcProperty</a> <span class="Italic">property</span></td>
+		<td>Deletes a given <span class="Italic">property</span> from statement.</td>
+	</tr>
+	<tr>
+		<td>getProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Returns the first property matching the given <span class="Italic">name</span> 
+		 in statement; otherwise returns None.</td>
+	</tr>
+</table>
+</body>
+</html>

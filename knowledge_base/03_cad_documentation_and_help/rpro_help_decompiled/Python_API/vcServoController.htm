@@ -1,0 +1,216 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcServoController</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcServoController</h1>
+<p>vcServoController is a controller for driving independent joints. The controller itself only supports forward kinematics and cannot be used in robots rather with them. For example, a servo controller can be used for external axis systems, grippers, fixtures, weld guns, and other simple mechanical structures.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot32552" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot32552', 'MTPOPUP32552');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP32552" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>FlangeNode</td>
+<td><a href="vcNode.htm">vcNode</a></td>
+<td>RW</td>
+<td>Defines the flange node of servo, for example the mount plate or carriage for other kinematic structures.</td>
+</tr>
+<tr>
+<td>HeartbeatTime</td>
+<td>Real</td>
+<td>RW</td>
+<td>If UseHeartbeat is set to True, defines the interval or pulse for updating joints.</td>
+</tr>
+<tr>
+<td>JointCount</td>
+<td>Integer</td>
+<td>R</td>
+<td>Gets the number of joints in servo.</td>
+</tr>
+<tr>
+<td>Joints</td>
+<td>List of <a href="vcJoint.htm">vcJoint</a></td>
+<td>R</td>
+<td>Gets a list of all joints referenced by servo.</td>
+</tr>
+<tr>
+<td>RootNode</td>
+<td><a href="vcNode.htm">vcNode</a></td>
+<td>RW</td>
+<td>Defines the root node of servo, thereby the fixed base of kinematic structure.</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>Real</td>
+<td>RW</td>
+<td>Defines joint speed as a percentage of maximum speed for driving joints in range 0 to 100.</td>
+</tr>
+<tr>
+<td>UseHeartbeat</td>
+<td>Boolean</td>
+<td>RW</td>
+<td>Turns on/off the use of a heartbeat or pulse to drive and update joints.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>calcMotionTime</td>
+<td>Real</td>
+<td>None</td>
+<td>Returns the calculated motion time of servo using current joint values and listed targets.</td>
+</tr>
+<tr>
+<td>createJoint</td>
+<td><a href="vcJoint.htm">vcJoint</a></td>
+<td>None</td>
+<td>Adds a new joint in servo.
+<p class="TableNormal"><span class="Strong">(Deprecated)</span></p>
+</td>
+</tr>
+<tr>
+<td>deleteJoint</td>
+<td>None</td>
+<td><a href="vcJoint.htm">vcJoint</a> <span class="Italic">joint</span>
+<p class="TableNormal">or</p>
+<p class="TableNormal">Integer <span class="Italic">joint_index</span></p>
+</td>
+<td>Removes a given <span class="Italic">joint</span> or one at a given <span class="Italic">index</span> from servo.
+<p class="TableNormal"><span class="Strong">(Deprecated)</span></p>
+</td>
+</tr>
+<tr>
+<td>findJoint</td>
+<td><a href="vcJoint.htm">vcJoint</a></td>
+<td>String <span class="Italic">joint_name</span></td>
+<td>Returns the first joint matching a given name in servo; otherwise returns None.</td>
+</tr>
+<tr>
+<td>getJoint</td>
+<td><a href="vcJoint.htm">vcJoint</a></td>
+<td>Integer <span class="Italic">joint_index</span></td>
+<td>Returns a joint at a given index in servo.</td>
+</tr>
+<tr>
+<td>getJointTarget</td>
+<td>Real</td>
+<td>Integer <span class="Italic">joint_index</span></td>
+<td>Returns the target value of a joint at a given index in servo.</td>
+</tr>
+<tr>
+<td>getJointValue</td>
+<td>Real</td>
+<td>Integer <span class="Italic">joint_index</span></td>
+<td>Returns the current value of a joint at a given index in servo.</td>
+</tr>
+<tr>
+<td>move</td>
+<td>Real</td>
+<td>[Real <span class="Italic">joint_0</span>, ... Real <span class="Italic">joint_n</span>]</td>
+<td>Drives all joints in servo to target values, and then returns the actual motion time.
+<p class="TableNormal">Target values for each joint in servo can be given as separate, optional arguments.</p>
+</td>
+</tr>
+<tr>
+<td>moveImmediate</td>
+<td>None</td>
+<td>[Real <span class="Italic">joint_0</span>, ... Real <span class="Italic">joint_n</span>]</td>
+<td>Drives all joints in servo to target values in zero simulation time.
+<p class="TableNormal">Target values for each joint in servo can be given as separate, optional arguments.</p>
+</td>
+</tr>
+<tr>
+<td>moveJoint</td>
+<td>Real</td>
+<td>Integer <span class="Italic">joint_index</span>, Real <span class="Italic">joint_value</span></td>
+<td>Moves a joint at a given index in servo to a given value, and then returns the actual motion time.</td>
+</tr>
+<tr>
+<td>setJointTarget</td>
+<td>None</td>
+<td>Integer <span class="Italic">joint_index</span>, Real <span class="Italic">joint_value</span></td>
+<td>Sets the target value of a joint at a given index in servo to a given value.</td>
+</tr>
+<tr>
+<td>setMotionTime</td>
+<td>None</td>
+<td>Real <span class="Italic">time</span></td>
+<td>Forces the servo to execute joint movements at a given motion time.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 33.333%;">
+<col style="width: 33.333%;">
+<col style="width: 33.333%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>OnHeartbeat</td>
+<td><a href="vcServoController.htm">vcServoController</a> <span class="Italic">servo</span>, Enumeration <span class="Italic">event_type</span></td>
+<td>Triggered when a pulse or heartbeat is generated by servo.
+<p class="TableNormal">See <a href="Constants.htm#Controller_Constants">Controller Constants</a> for more information.</p>
+<p class="TableNormal"><span class="Strong">Note:</span> This event handler can be used by a <a href="vcRobotController.htm">vcRobotController</a> object executing a <a href="vcRslProcessStatement.htm">vcRslProcessStatement</a> object in robot program.</p>
+</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Create joint and assign it to servo</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td>from vcScript import * <br>&#160; <br>comp = getComponent() <br>node = comp.findNode("Link_1") <br>node.JointType = VC_JOINTTYPE_CUSTOM <br>&#160; <br>servo = comp.findBehaviour("ServoController") <br>node.Dof.Controller = servo</td>
+</tr>
+</table>
+<p><span class="Example">Example. Calculate motion time and targets for motion</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td>from vcScript import * <br>&#160; <br>def OnRun(): <br>&#160;&#160;comp = getComponent() <br>&#160;&#160;servo = comp.findBehaviour('ServoController') <br>&#160;&#160;# moves j1 to 200 and j2 to 350 <br>&#160;&#160;servo.move(200, 350) <br>&#160; <br>&#160;&#160;# moves j2 to 100 (index 0 = j1, index 1 = j2, ...) <br>&#160;&#160;servo.moveJoint(1, 100) <br>&#160; <br>&#160;&#160;# J1: sets the target for next move but doesn't move yet <br>&#160;&#160;servo.setJointTarget(0,1200) <br>&#160;&#160;servo.setJointTarget(1,1400) <br>&#160; <br>&#160;&#160;# calculate motion time according to given joint targets and joint speeds <br>&#160;&#160;# and accelerations <br>&#160;&#160;predicted_motion_time = servo.calcMotionTime() <br>&#160;&#160;print predicted_motion_time <br>&#160;&#160;if predicted_motion_time &gt; 6: <br>&#160;&#160;&#160;&#160;# override given accelerations and speeds forcing the motion time to given value <br>&#160;&#160;&#160;&#160;servo.setMotionTime( 6.0 ) <br>&#160; <br>&#160;&#160;# call motion to set targets <br><span>&#160;</span><span>&#160;</span><span>servo.move()</span></td>
+</tr>
+</table>
+</body>
+</html>

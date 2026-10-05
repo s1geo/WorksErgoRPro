@@ -1,0 +1,163 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="paint,robot programming">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Painting</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+li.hcp2 { list-style:none;
+display:inline; }
+img.hcp3 { border:none; }
+-->
+</style>
+</head>
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Painting</h1>
+<p>The Paint add-on allows you to prepare, simulate and analyze the results of paint processes using a robot and paint gun.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot8665" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot8665', 'MTPOPUP8665');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP8665" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Enable Add-on</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Access Paint View</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Prepare Components</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark8" >Define Visualization of Paint</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark11" >Measure Paint Thickness</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark12" >Remove Paint</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark13" >Paint Distribution and Simulation</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Enable Add-on</h2>
+<p>The Paint add-on can be turned on/off using a backstage option.</p>
+<ol>
+<li class="Ordered">Click the <span class="Strong">File</span> tab, and then on the <span class="Strong">Navigation</span> pane, click <span class="Strong">Options</span>.</li>
+<li class="Ordered">Click <span class="Strong">Add On</span>, and then in <span class="Strong">Paint</span>, do one of the following:
+<ul class="hcp1">
+<li class="Unordered">To enable the add-on, click <span class="Strong">Enable</span>.</li>
+<li class="Unordered">To disable the add-on, click <span class="Strong">Disable</span>.</li>
+</ul>
+</li>
+</ol>
+<h2><a name="MiniTOCBookMark3"></a>Access Paint View</h2>
+<p>The Paint add-on and its commands can be accessed from a contextual Paint tab that appears when you are programming a robot.</p>
+<ul class="hcp1">
+<li class="Unordered">Click the <span class="Strong">Program</span> tab, and then under <span class="Strong">Paint Tools</span>, click the <span class="Strong">Paint</span> tab.</li>
+</ul>
+<h2><a name="MiniTOCBookMark4"></a>Prepare Components</h2>
+<p>If you want to paint a component, you need to prepare its geometry, material and surface for painting.</p>
+<h3><a name="MiniTOCBookMark5"></a>Level of Detail</h3>
+<p>The geometry of a component can be tessellated to a desired level of detail for applying paint.</p>
+<ol>
+<li class="Ordered">On the <span class="Strong">Paint</span> tab, in the <span class="Strong">Prepare Geometry</span> group, click <span class="Strong">Prepare Components for Painting</span>.</li>
+<li class="Ordered">In the 3D world, directly select the component(s) you want to paint during a simulation.</li>
+<li class="Ordered">In the <span class="Strong">Prepare for Painting</span> task pane, set <span class="Strong">Max Edge Length</span> to the desired value, and then click <span class="Strong">Prepare Selected Components</span>.</li>
+</ol>
+<h3><a name="MiniTOCBookMark6"></a>Coating</h3>
+<p>The material of a prepared component is defined by a color map that assigns materials to geometry based on paint thickness. Generally, a prepared component has no paint, so its material is the material mapped to a paint thickness of zero.</p>
+<ol>
+<li class="Ordered">On the <span class="Strong">Paint</span> tab, in the <span class="Strong">Show Paint</span> group, click <span class="Strong">Edit Color Maps</span>.</li>
+<li class="Ordered">In the <span class="Strong">Color Maps Editor</span> task pane, <span class="Strong">Map</span> table, find the row with a paint thickness of <span class="Strong">0</span>, and then set its <span class="Strong">Color</span> field to the desired material.</li>
+</ol>
+<h3><a name="MiniTOCBookMark7"></a>Masking</h3>
+<p>Any surface area of a prepared component that is covered by another component will not be painted with some exceptions. The level of detail in a prepared component can affect paint bleeding in which the edges of masked areas are not clean and contain some paint. Generally, this occurs when the edge length of component geometry is too long. Some paint guns might not support ambient occlusion, so masked areas would still be painted.</p>
+<h2><a name="MiniTOCBookMark8"></a>Define Visualization of Paint</h2>
+<p>During a simulation, a paint gun will dynamically add texture coordinates to the geometry of prepared components. These coordinates are used to define the thickness of paint on surfaces. That means you can change the visualization of paint before and after it has been rendered in the 3D world.</p>
+<h3><a name="MiniTOCBookMark9"></a>Color Mapping</h3>
+<p>There are two modes for visualizing paint on surfaces. One mode is to use a gradient of colors mapped to paint thickness values. This would blend colors and visualize the application of paint like in the real world. Another mode is to use colors mapped to intervals of paint thickness values. This would allow you to clearly delimit paint thickness on surfaces. For example, a surface area with a paint thickness value of X could be assigned a material of Y according to these rules: X&lt;=0, Y is white; 0&lt;X&lt;=0.5, Y is blue; and 0.5&lt;X&lt;=1, Y is red.</p>
+<ol>
+<li class="Ordered">On the <span class="Strong">Paint</span> tab, in the <span class="Strong">Show Paint</span> group, click <span class="Strong">Edit Color Maps</span>.</li>
+<li class="Ordered">In the <span class="Strong">Color Maps Editor</span> task pane, set <span class="Strong">Map</span> to one of the following:
+<ul class="hcp1">
+<li class="Unordered">To define settings for visualizing paint with a color gradient, click <span class="Strong">Color paint visualization</span>.</li>
+<li class="Unordered">To define settings for visualizing paint with a color interval, click <span class="Strong">Thickness paint visualization</span>.</li>
+</ul>
+</li>
+<li class="Ordered">In the <span class="Strong">Map</span> table, do one or more of the following:
+<ul class="hcp1">
+<li class="Unordered">To edit a mapping, find the row you want to edit, and then edit the fields of that row.</li>
+<li class="Unordered">To delete a mapping, find the row you want to remove, and then in the <span class="Strong">Paint Thickness</span> field, click the <span class="Strong">Trash</span> icon.</li>
+<li class="Unordered">To add a mapping, edit the last row of the table. Every valid row must have a defined paint thickness value.</li>
+</ul>
+</li>
+</ol>
+<h3><a name="MiniTOCBookMark10"></a>Rendering</h3>
+<p>The rendering of the 3D world will affect the visualization of paint but not its color. You can toggle between different color modes at any time and show/hide paint on surfaces.</p>
+<ul>
+<li class="Unordered">On the <span class="Strong">Paint</span> tab, in the <span class="Strong">Show Paint</span> group, do one of the following:</li>
+<li class="hcp2">
+<ul class="hcp1">
+<li class="Unordered">To not show any paint, select <span class="Strong">None</span>.</li>
+<li class="Unordered">To show paint using a color gradient, select <span class="Strong">Color</span>.</li>
+<li class="Unordered">To show paint using a color interval, select <span class="Strong">Thickness</span>.</li>
+</ul>
+</li>
+</ul>
+<h2><a name="MiniTOCBookMark11"></a>Measure Paint Thickness</h2>
+<p>A Paint Thickness tool can be used to measure and record the thickness of paint at any surface point of a painted component. By default, paint thickness is measured in microns or micrometers (&#956;m).</p>
+<ol>
+<li class="Ordered">On the <span class="Strong">Paint</span> tab, in the <span class="Strong">Measure</span> group, click <span class="Strong">Paint Thickness</span>.</li>
+<li class="Ordered">In the 3D world, do one of the following:
+<ul>
+<li class="Unordered">To display a measurement, point at a painted surface.</li>
+<li class="Unordered">To record a measurement, click a point on a painted surface. This adds a temporary annotation for that point of measurement.</li>
+</ul>
+</li>
+</ol>
+<h2><a name="MiniTOCBookMark12"></a>Remove Paint</h2>
+<p>Paint can be removed from a component. That is, you can remove texture coordinates added to component geometry by a paint gun.</p>
+<ul class="hcp1">
+<li class="Unordered">On the <span class="Strong">Paint</span> tab, in the <span class="Strong">Remove Paint</span> group, do one of the following:</li>
+<li class="hcp2">
+<ul class="hcp1">
+<li class="Unordered">If you want to remove paint from a selected component, click <span class="Strong">Selected</span>. You would need to first select the component in the 3D world, and then use the Selected command to remove the paint.</li>
+<li class="Unordered">If you want to remove paint from all components in the 3D world, click <span class="Strong">All</span>. Remember, this only affects components that were prepared for painting.</li>
+<li class="Unordered">If you want to automatically remove all paint when you reset a simulation, select the <span class="Strong">Remove on Reset</span> check box.</li>
+<li class="Unordered">If you do not want to remove any paint when you reset a simulation, clear the <span class="Strong">Remove on Reset</span> check box.</li>
+</ul>
+</li>
+</ul>
+<h2><a name="MiniTOCBookMark13"></a>Paint Distribution and Simulation</h2>
+<p>A paint gun is a component that can add paint to components during a simulation. Generally, all paint guns have somewhat similar properties. Refer to this section as needed when using any paint gun.</p>
+<h3><a name="MiniTOCBookMark14"></a>Simulation Properties</h3>
+<p>Some properties of a paint gun define how often painting is updated in the 3D world during a simulation. Other properties define the minimum and maximum distances for paint to be rendered given the distance of gun nozzle from a surface.</p>
+<ul class="hcp1">
+<li class="Unordered"><span class="Strong">Refresh Rate</span> - The frequency (Hz) of calculating paint distribution during a simulation. A higher frequency yields a more detailed simulation, yet slower rendering of paint distribution. Generally, this was an issue in previous product versions, so newer paint gun models might not have this property.</li>
+<li class="Unordered"><span class="Strong">Spray Min Distance</span> - The minimum distance at which paint is distributed on a surface. In most cases, a Frame feature is used to show this distance in the 3D world.</li>
+<li class="Unordered"><span class="Strong">Spray Max Distance</span> - The maximum distance at which paint is distributed. In most cases, a Frame feature is used to show this distance in the 3D world. Paint is distributed on surfaces within the defined min and max spray distances.</li>
+</ul>
+<h3><a name="MiniTOCBookMark15"></a>Calibration Properties</h3>
+<p>A paint gun is calibrated to know its a normal distribution of paint using certain properties. Older versions of paint guns required you to perform calibration, but now calibration is handled for you. In most cases, it is assumed a paint gun has a symmetric cone-like shape representing the profile or area of its paint distribution.</p>
+<ul class="hcp1">
+<li class="Unordered"><span class="Strong">Gun Efficiency</span> - The overall transfer efficiency of paint by the paint gun. A smaller value means less paint is transferred to a surface with respect to time. The unit of this property might be a percentage or scale, for example 50% or 0.5.</li>
+<li class="Unordered"><span class="Strong">Spray Distance</span> - The distance of the pain gun nozzle from a surface in a robot program. That is, how far the nozzle is from a surface when painting with a robot. Generally, you would already know this distance when teaching a robot or the nominal spraying distance of the paint gun.</li>
+</ul>
+<p>Depending on the version of your paint gun, paint is thickest at the mean and less thick for each deviation. Also, a profile distance value may correspond to a thickness value (in microns). Two profiles can be used for non-symmetric or skewed distribution.</p>
+<p><img src="../../Links/SprayProfiles.png" alt="" border="0"><br>
+A circular thickness pattern is generated using profiles X and Y, which emanate from the center of the circle. The distance values determine the spread and radius of the pattern. The thickness values determine the deposition of paint based on the direction of the radius, for example when a paint gun sweeps across a surface.</p>
+<p><img src="../../Links/VelocityAccumatedThickness.png" alt="" border="0" class="hcp3"></p>
+<p>A mean offset and standard deviation are calculated for profiles X and Y to properly project the path of paint droplets from their source to a surface. As a result, both affect the distribution of paint for a calculated pattern.</p>
+<p><img src="../../Links/PaintPattern.png" alt="" border="0" class="hcp3"></p>
+<p>Newer versions of paint guns may allow you to map distance values to a loaded profile image.</p>
+<h3><a name="MiniTOCBookMark16"></a>Calculated Properties</h3>
+<p>Some properties of a paint gun can be used to fine tune the distribution of paint.</p>
+<ul class="hcp1">
+<li class="Unordered"><span class="Strong">Flow Rate</span> - The volume of paint per second (cm^3/s) based on the paint profile and the linear speed and efficiency of the paint gun.</li>
+<li class="Unordered"><span class="Strong">Spray Diameter X</span> and <span class="Strong">Spray Diameter Y</span> - The diameter of the spray cone based on X and Y profiles. For example, one profile can be used for symmetric, normal distribution of paint. So if the X value is 160mm, the spray diameter is 320mm.<br>
+<img class="step_image" src="../../Links/SprayDiameter.png" alt="" style="border: none;" border="0"></li>
+<li class="Unordered"><span class="Strong">Max Display Thickness</span> - Scales the thickness of paint color being used based on paint profile.</li>
+<li class="Unordered"><span class="Strong">Mean Offset</span> - An offset from the center of paint gun in the direction of its radius, which affects the normal distribution of paint. This affects the paint distribution of a sweep and relates to the arc paint travels from the paint gun to a surface.<br>
+<img class="step_image" src="../../Links/PaintMeanOffset.png" alt="" style="border: none;" border="0"></li>
+</ul>
+</body>
+</html>

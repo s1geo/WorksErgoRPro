@@ -1,0 +1,88 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="component flow proxy,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Component Flow Proxy</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Component Flow Proxy</h1>
+<p>A Component Flow Proxy allows you to manage the flow of components to 
+ and from different behaviors using any number of ports.</p>
+<p><img src="../../../English/Links/ComponentFlowProxy.png" alt="" border="0" class="hcp1"></p>
+<p>The ports of a Component Flow Proxy are added and removed using shortcuts 
+ and listed with the behavior in the Component Graph panel.</p>
+<p><img src="../../../English/Links/ComponentFlowProxyPorts.png" alt="" border="0" class="hcp1"></p>
+<p>Each port of a Component Flow Proxy has a hidden internal port, which 
+ should be used to connect the proxy to behaviors in the same component.</p>
+<div class="task_image">
+	<img src="../../../English/Links/ComponentFlowProxyInternalPort.png" alt="" border="0" class="hcp1"> 
+	<p>Input port of a One Way Path connected to internal port of Component 
+	 Flow Proxy</p>
+</div>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the proxy.</td>
+	</tr>
+	<tr>
+		<td>Statistics</td>
+		<td>Defines the Statistics behavior the collects statistics generated 
+		 by the proxy.</td>
+	</tr>
+	<tr>
+		<td>ComponentSignal</td>
+		<td>Defines the Component Signal used to signal what component 
+		 is trying to enter the proxy.</td>
+	</tr>
+	<tr>
+		<td>PortSignal</td>
+		<td>Defines the Integer Signal used to signal from which port a 
+		 component is trying to enter the proxy.</td>
+	</tr>
+	<tr>
+		<td>DynamicConnections</td>
+		<td>Turns on/off the use of connectors defined by a Python Script. 
+		 That is, during a simulation a Python Script may connect the proxy's 
+		 ports to connectors in other behaviors based on certain logic, 
+		 for example a turn table that needs to route components to different 
+		 paths. 
+		<p class="TableNormal">A True value means the proxy will dynamically 
+		 form connections during a simulation, which in most cases requires 
+		 the use of a Python Script. A False value means the proxy will 
+		 transfer components per the connection of its internal and external 
+		 ports. For example, if a proxy's internal port receives a component, 
+		 the component will be transferred from the internal port to its 
+		 paired external port, and then elsewhere if the external port 
+		 (a connector added to the proxy) is connected to a transfer point, 
+		 such as the Input connector of a path.</p></td>
+	</tr>
+	<tr>
+		<td >RetainOffset</td>
+		<td >Turns on/off the ability to retain position of component as 
+		 it passes through route.</td>
+	</tr>
+</table>
+</body>
+</html>

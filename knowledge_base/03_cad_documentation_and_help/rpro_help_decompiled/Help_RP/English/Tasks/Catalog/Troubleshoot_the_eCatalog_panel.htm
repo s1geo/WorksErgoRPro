@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Troubleshoot the eCatalog panel</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords 
+content="eCatalog panel,sources,indexing,mapping,database">
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+
+<STYLE title=hcp type=text/css>
+<!--
+img.hcp1 { border:none; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>Troubleshoot the eCatalog panel</H1>
+<P>In some cases, you might need to troubleshoot the eCatalog panel.</P>
+<DIV class=Contents>
+<P align=left>Contents&nbsp;<A id=MTHotSpot56928 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot56928', 'MTPOPUP56928');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP56928 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">Traffic</A></P>
+<P align=left><A href="#MiniTOCBookMark3">Refresh</A></P>
+<P align=left><A href="#MiniTOCBookMark4">Log</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>Traffic</H2>
+<P>The eCatalog panel acts like a web browser and uses HTTP (port 443).</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../Links/eCatalogAppTrafficEN.png"></P>
+<P>Your network and firewall(s) must allow traffic from R-Pro 2.1. In some 
+cases, you may need to contact your network administrator to allow this 
+action.</P>
+<P><SPAN class=Example>Example. Allow traffic using Windows Defender 
+Firewall</SPAN></P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../Links/eCatalogWindowsDefenderAppControl.png"></P>
+<P><SPAN class=Example>Example. Allow traffic using third-party 
+software</SPAN></P>
+<P>In other cases, you could connect to a Home or less secure network when the 
+eCatalog needs to communicate with remote resources, for example to download an 
+online library.</P>
+<P><IMG 
+style="BORDER-TOP: 1px solid; BORDER-RIGHT: 1px solid; BORDER-BOTTOM: 1px solid; BORDER-LEFT: 1px solid" 
+border=1 alt="" src="../../Links/eCatalogNetworkInternetStatus.png"></P>
+<P>If the computer running R-Pro 2.1 does not have access to the Internet and 
+your eCatalog panel is empty, contact support and request an "eCat package" 
+which is an offline copy of the library shipped with R-Pro 2.1.</P>
+<H2><A name=MiniTOCBookMark3></A>Refresh</H2>
+<P>The eCatalog panel links to sources of files. A source can be a local folder 
+or a resource defined by a URI.</P>
+<P><IMG class=hcp1 border=0 alt="" src="../../Links/eCatalogSourceEN.png"></P>
+<P>All sources are indexed by the eCatalog panel and saved to a database file. 
+R-Pro 2.1 uses a SQLite memory database.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../Links/eCatalogSourceIndex.png"></P>
+<P>In some cases, you may need to refresh a source or collection to index files 
+and update mappings.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../Links/eCatalogRefreshSourceVC.png"></P>
+<P>In other cases, you might need to refresh all resources.</P>
+<P><SPAN><IMG class=hcp1 border=0 alt="" 
+src="../../Links/eCatalogRefreshAllSources.png"></SPAN></P>
+<H2><A name=MiniTOCBookMark4></A>Log</H2>
+<P>The eCatalog panel logs events. For example, when you run R-Pro 2.1 the 
+eCatalog panel will execute an update to synchronize files in sources.</P>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 100%">
+  <TBODY>
+  <TR>
+    <TD>[Log opening] <BR>2018-02-16 14:50:55,785 INFO &nbsp;- Run Offline 
+      eCat updater <BR>2018-02-16 14:50:56,450 INFO &nbsp;- Scanning the local 
+      folder... <BR>2018-02-16 14:50:56,451 INFO &nbsp;- XML loaded, starting to 
+      scan local folder in C:\Users\Public\Documents\... <BR>2018-02-16 
+      14:50:57,160 INFO &nbsp;- Scanning the local folder has finished! 
+      <BR>2018-02-16 14:50:57,180 INFO &nbsp;- Added files : 0 <BR>2018-02-16 
+      14:50:57,180 INFO &nbsp;- Updated files : 0 <BR>2018-02-16 14:50:57,180 
+      INFO &nbsp;- Removed files : 0 <BR>2018-02-16 14:50:57,181 INFO &nbsp;- No 
+      changes to files : 458 <BR>2018-02-16 14:50:57,181 INFO &nbsp;- 
+      Synchronization finished. <BR>2018-02-16 14:50:57,181 INFO &nbsp;- Offline 
+      eCat updater finished! <BR>[Log closing]</TD></TR></TBODY></TABLE>
+</BODY></HTML>

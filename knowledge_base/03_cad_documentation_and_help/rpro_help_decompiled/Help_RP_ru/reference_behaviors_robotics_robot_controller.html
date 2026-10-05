@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Контроллер робота</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Контроллер робота позволяет настраивать механизмы робота и управлять ими." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Контроллер робота</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Контроллер робота позволяет настраивать механизмы робота и управлять ими.</p>
+<p class="p_Normal"><img alt="ClipboardImg213" style="margin:0;width:7.2292in;height:9.8958in;border:none" src="clipboardimg213.png"/></p>
+<p class="p_Normal">Системы координат баз и инструментов контроллера робота перечислены вместе с поведением на панели Диаграммы компонентов.</p>
+<p class="p_Normal"><img alt="ClipboardImg214" style="margin:0;width:3.3333in;height:2.0000in;border:none" src="clipboardimg214.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.9375in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.4792in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет наименование контроллера.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Соединения</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет список соединений, определенных в узлах, используемых контроллером.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ИспользоватьТакт</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Включает/выключает использование такта для управления событиями.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ВремяТакта</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет время между каждым тактом (в секундах), если ИспользоватьТакт включен.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">КорневойУзел</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет звено/узел, который выступает в качестве основы механической структуры.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ФланцевыйУзел</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Если вы используете внешнюю систему координат, определяет звено/узел, используемый в качестве монтажной пластины для других кинематических структур. Если вы используете дорожку, определяет звено/узел, используемый в качестве каретки.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">КорневоеСмещение</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет смещение от начала корневого узла в кинематике. Как правило, это используется для запуска кинематики от центра узла, а не от его стороны.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СмещениеФланца</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет смещение от начала координат ФланцевыйУзел для правильного монтажа других кинематических структур.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">НачальнаяБаза</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет базу по умолчанию в контроллере.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">НачальныйИнструмент</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет систему координат инструмента по умолчанию в контроллере.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Кинематика</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет кинематический решатель (поведение), используемый для расчета и предоставления контроллеру свойств, связанных с инверсной кинематикой.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">МакДекартоваСкорость</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет максимальную декартову скорость, используемую для линейной интерполяции.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">МакДекартовоУскорение</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет максимальное декартово ускорение, используемое для линейной интерполяции.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">МакУгловаяСкорость</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет максимальную угловую скорость, используемую для линейной интерполяции.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">МакУгловоеУскорение</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет максимальное угловое ускорение, используемое для линейной интерполяции.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ВремяЗадержки</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет временную задержку, используемую для линейной интерполяции.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">РасчетноеВремя</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет время установления, используемое для линейной интерполяции.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">РежимОриентацииИнтерполяции</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет режим расчета ориентации робота во время линейных перемещений, в котором значения вращения робота основаны на одной, двух или трех осях.</p>
+<p class="p_Normal">Одна ось использует ось с наименьшим углом поворота для текущей центральной точки инструмента.</p>
+<p class="p_Normal">Две оси использует одну из осей XYZ и ее направление в текущей центральной точке инструмента. В этом режиме сначала применяется угол поворота для выбранной оси, а затем другие повороты основаны на этой оси.</p>
+<p class="p_Normal">Три оси интерполирует рыскание, тангаж и крен (WPR) или углы Эйлера (ZYZ) положения, а затем вычисляет последовательность вращений для робота.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">РежимКонфигурации</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет режим определения конфигурации робота при интерполяции линейного движения.</p>
+<p class="p_Normal">Фиксированный - использует текущую конфигурацию робота для достижения позиции.</p>
+<p class="p_Normal">Фрейм следования - пытается сохранить текущую конфигурацию робота, поэтому для достижения позиции могут произойти небольшие изменения.</p>
+<p class="p_Normal">Интерполировать значения соединений - означает, что робот использует конфигурацию, основанную на двухточечной интерполяции своих суставов, чтобы достичь положения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">РежимОтслеживанияСистемыКоординатМира</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет рамку мира робота, когда робот установлен на гусенице.</p>
+<p class="p_Normal">Исходная точка Трека - помещает кадр мира в начало дорожки.</p>
+<p class="p_Normal">Система координат Мира Робота - сохраняет позицию Мирового фрейма в роботе.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

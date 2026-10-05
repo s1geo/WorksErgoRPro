@@ -1,0 +1,51 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="wait for binary input,robot statement,inputs">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Wait for Binary Input</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Wait for Binary Input</h1>
+<p>A Wait for Binary Input statement delays the execution of a robot program 
+ until the value of a signal mapped to an input port in robot has a specific 
+ value. The evaluation of an input port can be cyclic or triggered by a 
+ signal event.</p>
+<p><img src="../../English/Links/WaitStatement.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>InputPort</td>
+		<td>Defines the input port of robot evaluated by statement.</td>
+	</tr>
+	<tr>
+		<td>InputValue</td>
+		<td>Defines if value of InputPort needs to be true or false to 
+		 complete the statement.</td>
+	</tr>
+	<tr>
+		<td>WaitTrigger</td>
+		<td>Defines the evaluation mode for InputPort. 
+		<p class="TableNormal">A True value waits for a signal event or 
+		 trigger, whereas a False value will not wait to check the value 
+		 of InputPort.</p>
+		<p class="TableNormal"><span class="Strong">Note:</span> A signal 
+		 event or trigger must occur while the robot is executing the statement, 
+		 otherwise the robot will miss the event.</p></td>
+	</tr>
+</table>
+</body>
+</html>

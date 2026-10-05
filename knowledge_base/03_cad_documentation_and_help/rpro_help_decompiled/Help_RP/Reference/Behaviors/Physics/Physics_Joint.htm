@@ -1,0 +1,61 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="d6 joint,physics, behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Physics Joint</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Physics Joint</h1>
+<p>A Physics Joint allows you to configure a D6 joint with multiple degrees of freedom for a component in the 3D world.</p>
+<p><img src="../../../English/Links/PhysicsJointD6.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr class="t1st">
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Defines the name of the joint.</td>
+</tr>
+<tr>
+<td>Attached to</td>
+<td>Defines the node that the joint is attached to in the component.
+<p class="TableNormal">In some cases, this would be the parent of the node containing the joint. For example, a Physics Joint in the node of the second axis for a robot could be attached to the node of the first axis.</p>
+<p class="TableNormal">In other cases, your customization of the joint will determine which node it should attach itself to in a component.</p>
+</td>
+</tr>
+<tr>
+<td>Constraints</td>
+<td>A set of properties for customizing the joint. That is, constraints for translations and rotations in the axes of a coordinate system.
+<p class="TableNormal">Each property can be assigned its own constraint.</p>
+<p class="TableNormal"><span class="Term">#Free</span><br>
+Does not constrain movement.</p>
+<p class="TableNormal"><span class="Term">#Limited</span><br>
+Attempts to limit movement.</p>
+<p class="TableNormal"><span class="Term">#Locked</span><br>
+Attempts to restrict all movement.</p>
+</td>
+</tr>
+<tr>
+<td>Breakage</td>
+<td>A set of properties for defining the integrity of the joint.</td>
+</tr>
+<tr>
+<td>Drive Settings</td>
+<td>A set of advanced properties for customizing the physics of the joint and its degrees of freedom.</td>
+</tr>
+</table>
+</body>
+</html>

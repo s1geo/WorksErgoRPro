@@ -1,0 +1,56 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="collision detection,robot programming,collision,collisions,collision detector">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Detecting collisions</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Detecting Collisions</h1>
+<p>Collisions between a robot and other components can be detected in the 
+ 3D world using global settings and detectors.</p>
+<p>A detector is a collision test between two lists, A and B, with each 
+ list containing nodes. The geometry of nodes in list A is compared to 
+ the geometry of nodes in list B in order to detect a collision. The scope 
+ of a detector can be one, multiple or all components in the 3D world.</p>
+<p>A default collision test/detector is Selection vs World. This allows 
+ you to compare a selected component to all other components in the 3D 
+ world. The selection will automatically include any child components, 
+ for example selecting a robot with a mounted tool would include the tool 
+ component in that detector.</p>
+<p>In some cases, you may want a child component or node to be excluded 
+ from a collision test. In such cases, you will need to create a new detector 
+ and possibly disable other collision tests. When creating a new detector, 
+ nodes in list A will be highlighted green and nodes in list B will be 
+ highlighted blue.</p>
+<p>A simulation does not need to be running in order to detect a collision. 
+ For example, you can detect collisions while teaching a robot. When a 
+ collision occurs, the geometry of the colliding nodes in the 3D world 
+ are colored yellow. When running a simulation, it is important to note 
+ that the speed of a simulation can affect the rate at which collisions 
+ are detected in the 3D world.<br>
+</p>
+<p>Steps</p>
+<ol>
+	<li class="Ordered">Go to Program tab.</li>
+	<li class="Ordered">Ensure that the Enable Detectors is active.</li>
+	<li class="Ordered">Open Collision Detectors panel from Edit Detectors.</li>
+	<li class="Ordered">Create and configure the detectors.</li>
+	<br>
+	
+</ol>
+<p>See also <a href="../../User_Interface/Panels/Collision_Detectors.htm">Collision 
+ Detectors</a> panel.</p>
+<p><span class="Strong">Note:</span> A collision detector is a type of 
+ layout item and can be saved with a layout.</p>
+</body>
+</html>

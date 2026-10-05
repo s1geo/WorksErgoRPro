@@ -1,0 +1,143 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Buffer</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Buffer</h1>
+<p>A Buffer statement allows you to create a temporary storage for products in a grid pattern. Multiple products can be coming in and leaving the buffer in parallel. Transport of products is handled similarly to the Transport statements.</p>
+<p>The statement continues execution until the break condition is met and the buffer has emptied.</p>
+<p>&#160;</p>
+<p><img src="../../English/Links/ReferenceProcessStatementsBuffer.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ReservedProductVariableName </td>
+		<td><p>Variable containing products already reserved using Reserve 
+		 Product statement. The buffer will be first filled using these 
+		 products and then will continue to receive further products as 
+		 defined by the Source property.</p>
+		<p><span style="font-weight: bold;">Note:</span> The product filtering 
+		 defined by properties AcceptAllProductTypes, AcceptedFlowGroups 
+		 and AcceptedProductTypes is not applied to the pre-reserved products.</p></td>
+	</tr>
+	<tr>
+		<td><p>AcceptAllProductTypes </p></td>
+		<td>If selected, any product is accepted.</td>
+	</tr>
+	<tr>
+		<td><p>AcceptedFlowGroups </p></td>
+		<td>Allows only the selected flow groups.</td>
+	</tr>
+	<tr>
+		<td>AcceptedProductTypes </td>
+		<td>Allows only the selected product types.</td>
+	</tr>
+	<tr>
+		<td>Source </td>
+		<td><p>Defines which source is used to transport product in. </p>
+		<p><span class="Term">From Previous Process</span><br>
+		A product matching the product filter is first reserved and then 
+		 brought in using the transport system.</p>
+		<p><span class="Term">From Component Container</span><br>
+		Waits for a product that matches the product filter to arrive to 
+		 the component container connected to the transport node. Typically, 
+		 in case of in-line process, product arrives to the component container 
+		 by conveyor path. This mode needs to be used to receive the &#160;products 
+		 sent out from some other process by using &quot;To Transport Node&quot; 
+		 mode.</p></td>
+	</tr>
+	<tr>
+		<td>Destination </td>
+		<td><p>Defines the destination to where product is transported 
+		 out. </p>
+		<p><span class="Term">To Next Process</span><br>
+		Product is transported out to the next process using the transport 
+		 system. Transportation is pull-type, meaning that the next process 
+		 requests a product once it has capacity.</p>
+		<p><span class="Term">To Component Container</span><br>
+		Product is placed to the component container defined by DestinationContainer. 
+		 If the DestinationContainer has an output port connected to another 
+		 container behavior, the product flows through the DestinationContainer 
+		 to its connected container. Transportation is push-type, meaning 
+		 that product is transported out as soon as the destination container 
+		 has capacity. Typically, this is used in an in-line process to 
+		 buffer products on a conveyor. </p>
+		<p><span class="Term">To Transport Node</span><br>
+		Product is transported out to the defined transport node&#160;using 
+		 the transport system. With this mode, it is possible to use transport 
+		 system in push mode, meaning that products are transported to 
+		 the target node using conveyor as a buffer. </p></td>
+	</tr>
+	<tr>
+		<td>DestinationContainer</td>
+		<td>Component container whose output connection is used to place 
+		 the outgoing products in container mode. </td>
+	</tr>
+	<tr>
+		<td>ProductPositionFrame </td>
+		<td><p>Frame location where the products are placed. </p></td>
+	</tr>
+	<tr>
+		<td>InputResourcePositionFrame </td>
+		<td>Defines resource position offset from product position and 
+		 XY plane on which resource position is projected to while filling 
+		 the buffer.</td>
+	</tr>
+	<tr>
+		<td>OutputResourcePositionFrame </td>
+		<td>Defines resource position offset from product position and 
+		 XY plane on which resource position is projected to while emptying 
+		 the buffer.</td>
+	</tr>
+	<tr>
+		<td>Offset </td>
+		<td>Offset of the first product from product position frame</td>
+	</tr>
+	<tr>
+		<td><p>PatternCount </p></td>
+		<td>Number of product per X,Y,Z axis</td>
+	</tr>
+	<tr>
+		<td>PatternStep </td>
+		<td>Step between products in pattern per X,Y,Z axis</td>
+	</tr>
+	<tr>
+		<td>BufferMode </td>
+		<td><p class="MsoNormal">Defines the product access order of the 
+		 buffer.</p>
+		<p class="TableNormal"><span class="Term">First-In-First-Out (FIFO)</span><br>
+		The first entered instance is transported out first. </p>
+		<p class="TableNormal"><span class="Term">Last-In-First-Out (LIFO)</span><br>
+		The last entered instance is transported out first.</p></td>
+	</tr>
+	<tr>
+		<td><p>ParallelInputLimit </p></td>
+		<td>Defines how many products can fill the buffer in parallel</td>
+	</tr>
+	<tr>
+		<td>ParallelOutputLimit </td>
+		<td>Defines how many products can leave the buffer in parallel</td>
+	</tr>
+	<tr>
+		<td>BreakCondition </td>
+		<td>When evaluates to True, the buffer stops accepting products 
+		 and empties. </td>
+	</tr>
+</table>
+</body>
+</html>

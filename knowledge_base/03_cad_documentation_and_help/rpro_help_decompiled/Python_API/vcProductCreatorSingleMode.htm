@@ -1,0 +1,84 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProductCreatorSingleMode</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcProductCreatorSingleMode</h1>
+<p>Configuration for single feed mode in <a href="vcProductCreator.htm">vcProductCreator</a>. 
+ Creates instances of a single <a href="vcProductType.htm">vcProductType</a> 
+ at a given time interval until the limit is reached. </p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot13249" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot13249', 'MTPOPUP13249');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP13249" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><p>Part</p></td>
+		<td><a href="vcProductType.htm">vcProductType</a></td>
+		<td>RW</td>
+		<td><p>The product type to create instances of.</p></td>
+	</tr>
+	<tr>
+		<td>Limit</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Number of products to create. Must be 0 or greater.</td>
+	</tr>
+	<tr>
+		<td>Interval</td>
+		<td>Distribution expression</td>
+		<td>RW</td>
+		<td><p>Time to wait in seconds between creating products. </p>
+		<p><span style="font-weight: bold;">Note: </span>Real-valued distribution 
+		 property.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><p>getProperty </p></td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String name</td>
+		<td>Returns a property matching a given <span style="font-style: italic;">name</span>; 
+		 otherwise returns None. </td>
+	</tr>
+</table>
+</body>
+</html>

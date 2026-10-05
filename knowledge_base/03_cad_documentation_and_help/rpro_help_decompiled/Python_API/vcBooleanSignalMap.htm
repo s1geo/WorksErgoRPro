@@ -1,0 +1,267 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcBooleanSignalMap</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcBooleanSignalMap</h1>
+<p>vcBooleanSignalMap allows you to map Boolean signals to ports in a continuous 
+ IO space.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot41853" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot41853', 'MTPOPUP41853');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP41853" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a><a name="vcBooleanSignalMapProperties">Properties</a></h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Listeners</td>
+		<td>List of <a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td>RW</td>
+		<td>Defines a list of behaviors using the signal map.</td>
+	</tr>
+	<tr>
+		<td>Direction</td>
+		<td><a href="Constants.htm#SignalMap_Constants">Enumeration integer</a></td>
+		<td>RW</td>
+		<td>Defines the direction of ports in the signal map. Ports can 
+		 be set as inputs, outputs or undefined. If ports are defined as 
+		 inputs, they cannot be used as outputs or vice versa. To set the 
+		 direction it is recommended to use the <span style="font-style: italic;">trySetDirection</span> 
+		 Method instead.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of the signal map.</td>
+	</tr>
+	<tr>
+		<td>StartIndex</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the start index of ports in the signal map. It can 
+		 be used in conjunction with EndIndex to define the amount of ports&#160;in 
+		 the signal map.</td>
+	</tr>
+	<tr>
+		<td>EndIndex</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the end index of ports in the signal map. Its value 
+		 is updated automatically when setting Ports or PortCount.</td>
+	</tr>
+	<tr>
+		<td>PortCount</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Same as Ports, defines the number of ports in map.</td>
+	</tr>
+	<tr>
+		<td>Ports</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Same as PortCount, defines the number of ports in the signal 
+		 map.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addPort</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">index</span>, <a href="vcBoolSignal.htm">vcBoolSignal</a> 
+		 <span class="Italic">signal</span></td>
+		<td>Connects a port at a given index to a given signal. 
+		<p class="TableNormal">The port index starts from 0. The PortCount 
+		 property should have enough ports. In other words, to add a boolean 
+		 signal to port 3 the PortCount value should be at least 4 (ports 
+		 0-3), otherwise calling this method will return an error.</p></td>
+	</tr>
+	<tr>
+		<td>connect</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">indexPort1</span>, <a href="vcBooleanSignalMap.htm">vcBooleanSignalMap</a> 
+		 <span class="Italic">SignalMap2</span>, Integer <span class="Italic">indexPort2</span> 
+		 
+		<p class="TableNormal">-or-</p>
+		<p class="TableNormal">Integer <span class="Italic">indexPort1</span>, 
+		 <a href="vcBoolSignal.htm">vcBoolSignal</a> <span class="Italic">signal</span> 
+		 &#160;</p></td>
+		<td>Creates a remote connection with another signal map or signal. 
+		 
+		<p class="TableNormal">If a port is connected to a signal, refer 
+		 to the abstract interface of the connection to disconnect only 
+		 that signal. Otherwise, the disconnect() method will disconnect 
+		 all signals connected to the port.</p>
+		<p class="TableNormal">Signals in components can act as abstract 
+		 interfaces between ports, sending and receiving information via 
+		 signal maps. &#160;</p>
+		<img src="Images/vcBooleanSignalMap/Boolean%20Signal%20Interface.png" alt="" style="border: none; margin-right: 0px; margin-top: 10px; 
+			 margin-bottom: 0px; margin-left: 12px;" border="0"> 
+		<p class="TableNormal">See <a href="vcBoolSignal.htm">vcBoolSignal</a> 
+		 for more information.</p></td>
+	</tr>
+	<tr>
+		<td>disconnect</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Disconnects a port at a given <span class="Italic">index</span> 
+		 from its connections.</td>
+	</tr>
+	<tr>
+		<td>getAllConnectedPorts</td>
+		<td>List of integers</td>
+		<td>None</td>
+		<td>Returns a list of all connected ports in the signal map.</td>
+	</tr>
+	<tr>
+		<td>getPortName</td>
+		<td>String</td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns the name of a port at a given <span class="Italic">index</span><span>.</span> 
+		 
+		<p class="TableNormal"><span class="Strong">Note:</span> If the 
+		 port has no signal then its name is an empty string.</p></td>
+	</tr>
+	<tr>
+		<td>getInternalPortSignal</td>
+		<td><a href="vcBoolSignal.htm">vcBoolSignal</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns the signal connected to a port at <span>given</span> 
+		 <span class="Italic">index</span><span>; otherwise returns None.</span></td>
+	</tr>
+	<tr>
+		<td>getConnectedExternalSignals</td>
+		<td>List of <a href="vcBoolSignal.htm">vcBoolSignal</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns a list of all signals in other components connected 
+		 to a local port at the given index in the signal map; otherwise 
+		 returns an empty list.</td>
+	</tr>
+	<tr>
+		<td>getConnectedExternalPorts</td>
+		<td>List of 2-tuple (<a href="vcBooleanSignalMap.htm">vcBooleanSignalMap</a>, 
+		 Integer)</td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns a list of all ports in other components connected to 
+		 a local port at a given index in the signal map; otherwise returns 
+		 an empty list.</td>
+	</tr>
+	<tr>
+		<td>input</td>
+		<td>Boolean</td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns the value of a port at a given <span class="Italic">index</span>.</td>
+	</tr>
+	<tr>
+		<td>output</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">index</span><span>, Boolean</span> 
+		 <span class="Italic">value</span></td>
+		<td>Sets the value of a port at a given <span class="Italic">index</span> 
+		 to a given <span class="Italic">value</span>. <span class="Italic">&#160;</span></td>
+	</tr>
+	<tr>
+		<td>setPortName</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">index</span><span>, String</span> 
+		 <span class="Italic">name</span></td>
+		<td>Sets the name of a port at a given <span class="Italic">index</span> 
+		 to a given <span class="Italic">name</span>. 
+		<p class="TableNormal"><span class="Strong">Note:</span> The port 
+		 must have a signal in order to be assigned a name.</p></td>
+	</tr>
+	<tr>
+		<td>setPortSignal</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">index</span>, [<a href="vcBoolSignal.htm">vcBoolSignal</a> 
+		 <span class="Italic">signal</span><span>]</span></td>
+		<td>Sets the signal of a port at a given <span class="Italic">index</span>. 
+		 
+		<p class="TableNormal">An optional <span class="Italic">signal</span> 
+		 argument can be given to assign the port a signal in its component. 
+		 Otherwise, the port is assigned a dynamic, application signal.</p></td>
+	</tr>
+	<tr>
+		<td>trySetDirection</td>
+		<td>Boolean</td>
+		<td>Enumeration <i>type</i></td>
+		<td>Tries to set a direction for 
+		 the Boolean Signal Map. 
+		<br><br>
+		 If setting the direction was successful, returns True. Otherwise, 
+		 returns False. 
+		<br>&#160; 
+		<br>To see the valid string options for this method, 
+		 see <a href="Constants.htm#SignalMap_Constants">Signal 
+		 Map Constants</a>.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnDirectionChanged</td>
+		<td><a 
+		 href="vcBooleanSignalMap.htm">vcBooleanSignalMap</a> 
+		 <span class="Italic">signal_map</span>, Integer <span class="Italic">oldValue</span>, 
+		 Boolean <span class="Italic">newValue</span></td>
+		<td>Triggered when the value of 
+		 the Direction property is changed.</td>
+	</tr>
+	<tr>
+		<td>OnSignalTrigger</td>
+		<td><a href="vcBooleanSignalMap.htm">vcBooleanSignalMap</a> <span 
+		 class="Italic">signal_map</span>, Integer <span class="Italic">port</span>, 
+		 Boolean <span class="Italic">value</span></td>
+		<td>Triggered when the value of a signal mapped to a port has a 
+		 new value.</td>
+	</tr>
+</table>
+<p>&#160;</p>
+</body>
+</html>

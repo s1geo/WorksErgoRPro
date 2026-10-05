@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Components</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content=component>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>Components</H1>
+<P>A component is an object that occupies space in the 3D world and has a unique 
+VCID.</P>
+<DIV class=Contents>
+<P align=left>Contents&nbsp;<A id=MTHotSpot16389 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot16389', 'MTPOPUP16389');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP16389 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">Component Structure</A></P>
+<P align=left><A href="#MiniTOCBookMark3">Manipulation</A></P>
+<P align=left><A href="#MiniTOCBookMark4">Containment</A></P>
+<P align=left><A href="#MiniTOCBookMark5">File Structure</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>Component Structure</H2>
+<P>The structure of a component is a tree consisting of nodes. Each node 
+contains a set of behaviors and features. The root node contains its own set of 
+properties and is the origin of a component. Each node linked to the root node 
+has its own offset and joint, which defines the range of motion and degrees of 
+freedom for that node. Behaviors in different nodes can be connected to and 
+referenced by one another. Features in nodes form a hierarchy and can be nested 
+with one another to perform operations that manipulate the geometry of a feature 
+and the object itself.</P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD><A href="Nodes.htm">Node</A></TD>
+    <TD>Container and building block of component. Every component has at 
+      least one node, its root. 
+      <P class=TableNormal>A node attached to another node in a component is 
+      also known as a link.</P>
+      <P class=TableNormal><SPAN class=Strong>Note:</SPAN> A component with 
+      movable parts may have multiple nodes linked together to form a kinematic 
+      chain, for example the nodes of an articulated robot. Components attached 
+      to one another in a layout are linked together by their nodes, for example 
+      the root node of an EOAT component attached to a node in a 
+robot.</P></TD></TR>
+  <TR>
+    <TD><A href="Properties.htm">Property</A></TD>
+    <TD>Variable and attribute of component.</TD></TR>
+  <TR>
+    <TD><A href="Behaviors/Behaviors.htm">Behavior</A></TD>
+    <TD>Action or task that can be performed by component.</TD></TR>
+  <TR>
+    <TD><A href="Features.htm">Feature</A></TD>
+    <TD>Visual representation of geometry and other data in 
+  component.</TD></TR></TBODY></TABLE>
+<H2><A name=MiniTOCBookMark3></A>Manipulation</H2>
+<P>A component is the sum of its parts. Each part can be described as a 
+component or object composing the whole component. The concept of manipulating 
+objects is important to understand when building a layout with components, 
+modeling a component with nodes and features, programming a robot to reach 
+positions based on a tool center point, and designing drawings with views, 
+annotations and dimensions.</P>
+<H2><A name=MiniTOCBookMark4></A>Containment</H2>
+<P>A component can be described as a set of containers for storing objects. The 
+concept of containing objects is important to understand when attaching 
+components to one another in a layout, modeling the nodes of a component to move 
+in relation to one another or evaluating the features of nodes to render 
+geometry, signaling a robot to grasp and release components, and creating a bill 
+of materials based of the items of a drawing.</P>
+<H2><A name=MiniTOCBookMark5></A>File Structure</H2>
+<P>A component is a native archive file of R-Pro 2.1 with a .rpro file 
+extension. Every component contains at least four files.</P>
+<UL style="LIST-STYLE-TYPE: disc">
+  <LI class=Unordered><SPAN class=Strong>component.rsc</SPAN> contains the data 
+  needed by R-Pro 2.1 to generate the component. 
+  <LI class=Unordered><SPAN class=Strong>component.dat</SPAN> contains the 
+  component's metadata, which includes the component's VCID. 
+  <LI class=Unordered><SPAN class=Strong>component_preview_icon.tga</SPAN> is 
+  the image displayed when you preview the component in the eCatalog panel. 
+  <LI class=Unordered><SPAN class=Strong>component_icon.tga</SPAN> is the icon 
+  representing the component in the eCatalog panel. </LI></UL></BODY></HTML>

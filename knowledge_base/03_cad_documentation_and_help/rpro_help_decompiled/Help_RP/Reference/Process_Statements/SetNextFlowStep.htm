@@ -1,0 +1,61 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>SetNextFlowStep</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Set Next Flow Step</h1>
+<p>Overwrites the next process information in product instances, enabling 
+ jumps and loops. </p>
+<p>If the process variable identified by <span class="hcp1">FlowStepVariableName</span> 
+ is a list of <span class="hcp1">ProcessFlowInfo</span> 
+ then the process variable identified by <span class="hcp1">ProductVariableName</span> 
+ should be a list of<span class="hcp1"> Products </span>with 
+ the same number of elements. The <span class="hcp1">ProcessFlowInfo</span> 
+ objects are applied to the product instances in a sequence. </p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><p>FlowInfoVariableName</p></td>
+		<td>Name of the Process variable where to get the flow step info 
+		 object.</td>
+	</tr>
+	<tr>
+		<td><p>ProductVariableName</p></td>
+		<td>Name of the Process variable where to get the Product instances.</td>
+	</tr>
+	<tr>
+		<td><p>ForceExactFlowStep</p></td>
+		<td>When expression evaluates to true, the Product must go to a 
+		 process from the specified flow step, ignoring any optional steps 
+		 evaluation logic. </td>
+	</tr>
+	<tr>
+		<td><p>ForceExactProcessGroup</p></td>
+		<td>When expression evaluates to true, the Product instance must 
+		 go to a specific Process within specific flow step, ignoring any 
+		 optional steps or alternative Processes. </td>
+	</tr>
+</table>
+</body>
+</html>

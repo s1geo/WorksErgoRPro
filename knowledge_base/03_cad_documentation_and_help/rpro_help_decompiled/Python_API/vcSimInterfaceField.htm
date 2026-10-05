@@ -1,0 +1,431 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcSimInterfaceField</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcSimInterfaceField</h1>
+<p>vcSimInterfaceField is a connector for allowing a certain type of data 
+ to be transferred in an interface section.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot15572" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot15572', 'MTPOPUP15572');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP15572" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Common Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Field Specific Properties</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Common Properties</h2>
+<p>The following properties are common to all field types.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Index</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the index of field in section. 
+		<p class="TableNormal"><span class="Strong">Important:</span> The 
+		 order of fields in a section is evaluated when establishing a 
+		 connection between sections. For example, sections may have compatible 
+		 fields but cannot connect because the order of fields differ in 
+		 each section.</p></td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of field.</td>
+	</tr>
+	<tr>
+		<td>Properties</td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td>Gets a list of all properties in the field.</td>
+	</tr>
+	<tr>
+		<td>Section</td>
+		<td><a href="vcSimInterfaceSection.htm">vcSimInterfaceSection</a></td>
+		<td>R</td>
+		<td>Gets the section of field.</td>
+	</tr>
+	<tr>
+		<td>Type</td>
+		<td>Enumeration</td>
+		<td>R</td>
+		<td>Gets the field type. 
+		<p class="TableNormal">See <a href="Constants.htm#Interface_Constants">Interface 
+		 Constants</a> for more information.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Field Specific Properties</h2>
+<h3><a name="MiniTOCBookMark4"></a>Action Field</h3>
+<p>An Action field allows you to send, receive and queue pending actions 
+ between Action Containers.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Actions</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of Action Container in component used by field.</td>
+	</tr>
+	<tr>
+		<td>Connection</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the role of field. 
+		<p class="TableNormal"><span class="Term">1</span><br>
+		Client requesting actions.</p>
+		<p class="TableNormal"><span class="Term">2</span><br>
+		Provider accepting action requests.</p>
+		<p class="TableNormal"><span class="Term">3</span><br>
+		Broker acting as an intermediary for relaying actions between clients 
+		 and providers.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark5"></a>Base Export</h3>
+<p>A Base Export field allows you to import or export base frames.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>BaseList</td>
+		<td><a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td>RW</td>
+		<td>Defines the behavior in component used by field. 
+		<p class="TableNormal">The behavior must have the ability to store 
+		 base frames, for example a Base Container or Robot Controller 
+		 behavior.</p></td>
+	</tr>
+	<tr>
+		<td>Export</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>If True, exports base frames of BaseList; otherwise imports 
+		 base frames to BaseList.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark6"></a>Flow Field</h3>
+<p>A Flow field allows you to transfer components.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Container</td>
+		<td><a href="vcContainer.htm">vcContainer</a></td>
+		<td>RW</td>
+		<td>Defines the <a href="vcFlow.htm">vcFlow</a> type behavior in 
+		 component used by the field.</td>
+	</tr>
+	<tr>
+		<td>Port</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines which connector of Container is used by field, thereby 
+		 defining if field transfers components into or out of Container.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark7"></a>Hierarchy Field</h3>
+<p>A Hierarchy field allows you to connect and attach nodes, thereby forming 
+ parent-child relationships.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Frame</td>
+		<td><a href="vcFeature.htm">vcFeature</a></td>
+		<td>RW</td>
+		<td>Defines an offset for attaching Node. 
+		<p class="TableNormal">If None, Node origin is used by field.</p></td>
+	</tr>
+	<tr>
+		<td>Node</td>
+		<td><a href="vcNode.htm">vcNode</a></td>
+		<td>RW</td>
+		<td>If Parent is set to True, defines node in component that will 
+		 become parent of an attached node; otherwise must be root node 
+		 of component.</td>
+	</tr>
+	<tr>
+		<td>Parent</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if Node is to be parent of an attached node or will 
+		 be attached as a child node.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark8"></a>Integer Compatibility Field</h3>
+<p>An Integer Compatibility field allows you to limit connections to fields 
+ with matching integer values.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Value</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the value of field.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark9"></a>Joint Export Field</h3>
+<p>A Joint Export field allows you to import or export joints.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Controller</td>
+		<td><a href="vcRobotController.htm">vcRobotController</a> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcServoController.htm">vcServoController</a></p></td>
+		<td>RW</td>
+		<td>Defines either a Robot or Servo Controller in component used 
+		 by field.</td>
+	</tr>
+	<tr>
+		<td>Export</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>If True, field exports joint data of Controller; otherwise 
+		 imports joint data to Controller.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark10"></a>Processor Field</h3>
+<p>A Processor field allows you to connect a component with a Component 
+ Path or Process Point Sensor behavior to a component with a <a href="vcContainer.htm">vcContainer</a> 
+ type behavior or vice versa.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Parent</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>If True, field uses Path to connect sensors; otherwise field 
+		 uses Sensor to connect to paths and other types of containers.</td>
+	</tr>
+	<tr>
+		<td>Path</td>
+		<td><a href="vcContainer.htm">vcContainer</a></td>
+		<td>RW</td>
+		<td>If Parent is set to True, defines the path or container in 
+		 component used by field.</td>
+	</tr>
+	<tr>
+		<td>Sensor</td>
+		<td><a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td>RW</td>
+		<td>If Parent is set to False, defines the sensor in component 
+		 used by field.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark11"></a>RSL Field</h3>
+<p>A RSL field allows you to publish or subscribe to robot programs, thereby 
+ enabling remote routine call and wait type statements.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Publish</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the publishing of Publisher robot program to a 
+		 connected section.</td>
+	</tr>
+	<tr>
+		<td>Publisher</td>
+		<td><a href="vcRslProgramExecutor.htm">vcRslProgramExecutor</a></td>
+		<td>RW</td>
+		<td>Defines the robot executor in component used by field.</td>
+	</tr>
+	<tr>
+		<td>Subscribe</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the ability of Publisher to access robot program 
+		 of a connected section.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark12"></a>signal Field</h3>
+<p>A Signal field allows you to connect and send signals.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Connection</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the connection type of Signal. 
+		<p class="TableNormal"><span class="Term">0</span><br>
+		Normal signal.</p>
+		<p class="TableNormal"><span class="Term">1</span><br>
+		Beginning signal of a network.</p>
+		<p class="TableNormal"><span class="Term">2</span><br>
+		End signal of a network.</p></td>
+	</tr>
+	<tr>
+		<td>Signal</td>
+		<td><a href="vcSignal.htm">vcSignal</a></td>
+		<td>RW</td>
+		<td>Defines the signal in component used by field.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark13"></a>Tool Export Field</h3>
+<p>A Tool Export field allows you to import or export tool frames.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Export</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>If True, exports tool frames of ToolList; otherwise imports 
+		 tool frames to ToolList.</td>
+	</tr>
+	<tr>
+		<td>ToolList</td>
+		<td><a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td>RW</td>
+		<td>Defines the behavior in component used by field. 
+		<p class="TableNormal">The behavior must have the ability to store 
+		 tool frames, for example a Tool Container or Robot Controller 
+		 behavior.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark14"></a>Transport field</h3>
+<p>A Transport field allows you to send, receive and queue pending transportation 
+ tasks between Transport Protocols.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Connection</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the role of field. 
+		<p class="TableNormal"><span class="Term">1</span><br>
+		Client requesting transport requests.</p>
+		<p class="TableNormal"><span class="Term">2</span><br>
+		Provider accepting transport requests.</p>
+		<p class="TableNormal"><span class="Term">3</span><br>
+		Broker acting as an intermediary for relaying transport tasks between 
+		 clients and providers.</p></td>
+	</tr>
+	<tr>
+		<td>Transport</td>
+		<td><a href="vcTransport.htm">vcTransport</a></td>
+		<td>RW</td>
+		<td>Defines the Transport Protocol in component used by field.</td>
+	</tr>
+</table>
+<!--======================================Properties==================================-->
+</body>
+</html>

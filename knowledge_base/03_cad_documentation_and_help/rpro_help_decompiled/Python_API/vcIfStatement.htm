@@ -1,0 +1,107 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="if statement,conditional statement">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcIfStatement</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcIfStatement</h1>
+<p>A vcIfStatement is a robot statement that execute one of two scopes 
+ of statements based on a condition. If the condition is true, the statement 
+ executes its ThenScope of statements. If the condition is false, the statement 
+ executes is ElseScope of statements. In 
+ robot programming, you can also add one or more ElseIfScopes (<a 
+	 href="vcElseIfScope.htm">vcElseIfScope</a>) 
+ between ThenScope and ElseScope.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcStatement.htm">vcStatement</a></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st" style="height: 34px;">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr style="height: 153px;">
+		<td>Condition</td>
+		<td><p>Expression</p></td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns a True or 
+		 False value. 
+		<p class="TableNormal">A True value means the statement will execute 
+		 its ThenScope of statements.</p>
+		<p class="TableNormal">A False value means the statement will execute 
+		 its ElseScope of statements.</p></td>
+	</tr>
+	<tr style="height: 53px;">
+		<td>ThenScope</td>
+		<td><a href="vcScope.htm">vcScope</a></td>
+		<td>R</td>
+		<td>Gets the scope of statements executed by the statement if Condition 
+		 is true.</td>
+	</tr>
+	<tr style="height: 24px;">
+		<td>ElseIfScopes</td>
+		<td>List of <a 
+		 href="vcElseIfScope.htm">vcElseIfScope</a></td>
+		<td>R</td>
+		<td>Gets a list of ElseIfScopes 
+		 in the statement.</td>
+	</tr>
+	<tr style="height: 53px;">
+		<td>ElseScope</td>
+		<td><a href="vcScope.htm">vcScope</a>
+		<br>&#160;</td>
+		<td>R</td>
+		<td>Gets the scope of statements executed by the statement if Condition 
+		 is false.</td>
+	</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return value</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addElseIfScope</td>
+		<td><p><a href="vcElseIfScope.htm">vcElseIfScope</a></p></td>
+		<td><p>[Integer <span class="hcp1">index</span>]</p></td>
+		<td><p>Adds <a href="vcElseIfScope.htm">vcElseIfScope</a> to the 
+		 statement and returns that scope. </p>
+		<p>The default value of <span class="hcp1">index 
+		 </span>is -1, so a new <a href="vcElseIfScope.htm">vcElseIfScope</a> 
+		 is inserted immediately before ElseScope.</p></td>
+	</tr>
+	<tr>
+		<td>deleteElseIfScope</td>
+		<td><p>None</p></td>
+		<td><p><a href="vcElseIfScope.htm">vcElseIfScope</a> <span class="hcp1">scope</span></p></td>
+		<td><p>Deletes given <span class="hcp1">scope</span> 
+		 from the statement.</p></td>
+	</tr>
+</table>
+</body>
+</html>

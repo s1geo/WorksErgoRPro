@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Использование переменных подпрограммы</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Переменные можно добавлять в подпрограммы в программе робота, а затем использовать для усложнения и определения условий для операторов If и While. Переменная подпрограммы — это..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><a name="minitocbookmark1" class="hmanchor"></a><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Использование переменных подпрограммы</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Переменные можно добавлять в подпрограммы в программе робота, а затем использовать для усложнения и определения условий для операторов If и While. Переменная подпрограммы — это локальная переменная программы робота, и ее нельзя использовать в другой подпрограмме.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0.0625in;"><table cellpadding="0" cellspacing="0" style="border:none;border-spacing:0;padding:0;line-height: normal;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:0.1875in"><a name="mthotspot22796" class="hmanchor"></a><img id="toggle0186a1_ICON" class="dropdown-toggle-icon" alt="hmtoggle_plus1" style="margin:0;width:0.0938in;height:0.0938in;border:none" src="hmtoggle_plus1.gif"/></td><td style="border:none;padding:0"><a class="dropdown-toggle" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;" href="javascript:HMToggle('toggle','toggle0186a1','toggle0186a1_ICON')">СОДЕРЖАНИЕ</a></td></tr></table></div>
+<div id="toggle0186a1" class="dropdown-toggle-body" style="text-align: left; padding: 0 0 0 0; margin: 0 0 0.0417in 0.2500in;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_robots_using_routine_variables.html#minitocbookmark2" class="topiclink">ДОБАВИТЬ ПЕРЕМЕННУЮ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_robots_using_routine_variables.html#minitocbookmark3" class="topiclink">ИЗМЕНИТЬ ПЕРЕМЕННУЮ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_robots_using_routine_variables.html#minitocbookmark4" class="topiclink">ПРИСВОИТЬ ЗНАЧЕНИЕ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_robots_using_routine_variables.html#minitocbookmark5" class="topiclink">ОПРЕДЕЛЕНИЕ УСЛОВНОГО ОПЕРАТОРА</a></p>
+</td>
+</tr>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark2" class="hmanchor"></a><span style="font-size: 18pt;">Добавить переменную</span></h2>
+<p class="p_Normal">Поддерживаемые типы переменных (логические, целочисленные, вещественные и строковые) можно добавлять в любую подпрограмму программы робота. Как только переменная добавлена в подпрограмму, вы не можете изменить тип этой переменной.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>Нажмите на вкладку <span style="font-weight: bold;">Программирование, </span>а затем используйте команду <span style="font-weight: bold;">Взаимодействие</span> для выбора робота.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>На панели <span style="font-weight: bold;">Редактор программ,</span> выберите процедуру.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>На панели <span style="font-weight: bold;">Свойства операции,</span> в <span style="font-weight: bold;">Добавить новые переменные,</span> выберите тип переменной, которую вы хотите добавить в подпрограмму.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark3" class="hmanchor"></a><span style="font-size: 18pt;">Изменить переменную</span></h2>
+<p class="p_Normal">Имя переменной можно редактировать напрямую, обращаясь к свойствам ее подпрограммы.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>Нажмите на вкладку <span style="font-weight: bold;">Программирование,</span> а затем используйте команду <span style="font-weight: bold;">Взаимодействие</span> для выбора робота.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>На панели <span style="font-weight: bold;">Редактор программ,</span> выберите процедуру.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>На панели <span style="font-weight: bold;">Свойства операции,</span> Таблица <span style="font-weight: bold;">Переменные,</span> отредактируйте поле Имя, которые вы хотите обновить в подпрограмме.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание: </span>При старте переменные инициализируются пустым значением (0, False, &quot; &quot;) &nbsp;Когда вы сбрасываете симуляцию, программные переменные возвращается к пустому значению.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark4" class="hmanchor"></a><span style="font-size: 18pt;">Присвоить значение</span></h2>
+<p class="p_Normal">Оператор <a href="reference_robot_statements_assign_robot_variable.html" class="topiclink">Назначить переменную </a> позволяет вам установить значение переменной робота, которая включает в себя стандартные переменные. В некоторых случаях вы должны присваивать значения переменным в начале симуляции или когда подпрограмма выполняется в своей программе. В других случаях вы должны увеличить значение переменных, используемых в цикле или подпроцессе подпрограммы.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>Нажмите на вкладку <span style="font-weight: bold;">Программирование,</span> а затем используйте команду <span style="font-weight: bold;">Взаимодействие</span> для выбора робота.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>На панели <span style="font-weight: bold;">Редактор программ,</span> выберите процедуру, содержащую переменную, которой вы хотите присвоить значение, а затем добавьте утверждение <span style="font-weight: bold;">Присвоить переменную</span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>На панели <span style="font-weight: bold;">Свойства Выражения,</span> выполните все следующие действия:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Задайте в <span style="font-weight: bold;">ЦелевоеСвойство </span>имя переменной, которой вы хотите присвоить значение.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>В разделе <span style="font-weight: bold;">ВыражениеЗначение,</span> определите выражение, которое при вычислении возвращает значение, которое нужно присвоить целевой переменной.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark5" class="hmanchor"></a><span style="font-size: 18pt;">Определение условного оператора</span></h2>
+<p class="p_Normal">Переменные в подпрограмме можно использовать для определения условия выполнения операторов If и While.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>Нажмите на вкладку <span style="font-weight: bold;">Программирование,</span> а затем используйте команду <span style="font-weight: bold;">Взаимодействие</span> для выбора робота.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>На панели <span style="font-weight: bold;">Редактор программ,</span> выберите процедуру, а затем сделайте одно из следующих действий:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы добавить условный оператор для выполнения одной из двух ветвей операторов, добавьте оператор <span style="font-weight: bold;">If.</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы добавить условный оператор для повторения выполнения ветки операторов, добавьте оператор <span style="font-weight: bold;">While.</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>На панели <span style="font-weight: bold;">Свойства Выражения,</span> в <span style="font-weight: bold;">Условие,</span> определите выражение, которое при оценке возвращает значение True или False. Если вам нужна помощь в написании выражения, нажмите CTRL+ПРОБЕЛ, чтобы включить автозаполнение; <a href="reference_expressions_expressions.html" class="topiclink">Выражения.</a></p>
+<p class="p_Normal"><span style="font-weight: bold;">Подсказка: </span>Порты ввода-вывода робота могут использоваться любым условным оператором в программе робота. Например, IN[100] будет относиться к входному порту 100 в роботе.</p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+if (window.topicInitScriptAvailable) {
+function HMInitToggleStates() {
+HMInitToggle('toggle0186a1_ICON','hm.type','dropdown','hm.state','0','hm.src0','hmtoggle_plus0.gif','hm.src1','hmtoggle_plus1.gif','onclick','HMToggle(\'toggle\',\'toggle0186a1\',\'toggle0186a1_ICON\')');
+HMInitToggle('toggle0186a1','hm.type','dropdown','hm.state','0');
+
+}
+var checkTimer=setTimeout("HMInitToggleStates()", 0);
+}
+</script>
+</body>
+</html>

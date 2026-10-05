@@ -1,0 +1,58 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcDataContainer</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcDataContainer</h1>
+<p>General purpose Python wrapper for data such as event arguments. The 
+ available Properties are different depending on each use case.</p>
+<h2><a name="Examples" id="Examples"></a>Examples</h2>
+<p class="Example"><span class="Example">Example. Custom transport controller 
+ to handle &quot;Work&quot; statements</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td><br>from vcScript import *
+		<br>global events
+		<br>events = []
+		<br>comp = getComponent() &#160;
+		<br>def my_work(data_cont_): 
+		<br>&#160;&#160;# gets an event when &quot;Work&quot; statement gets executed
+		<br>&#160;&#160;# store the &quot;Work&quot; data to &quot;events&quot; global list 
+		<br>&#160;&#160;global events
+		<br>&#160;&#160;data = [&quot;Work&quot;, data_cont_]
+		<br>&#160;&#160;events.append(data)
+		<br>&#160;&#160;trigger.signal(True)
+		<br>def OnRun():
+		<br>&#160;&#160;# simulation starts
+		<br>&#160;&#160;global events
+		<br>&#160;&#160;while True:
+		<br>&#160;&#160;&#160;&#160;# waits until &quot;events&quot; global list has content
+		<br>&#160;&#160;&#160;&#160;condition(lambda: events)
+		<br>&#160;&#160;&#160;&#160;event = events.pop(0)
+		<br>&#160;&#160;&#160;&#160;if event[0] == &quot;Work&quot;:
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;data_cont = event[1]
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;# read data_cont (vcDataContainer) 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;work_id = data_cont.RequestId 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;work_time = data_cont.ProcessTime
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;resource_mtx = data_cont.ResourcePositionMatrix
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;#move_resource(resource_mtx) # not implemented
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;delay(work_time)
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;tc.workDone(work_id)
+		<br># initialize variables
+		<br>tc = comp.findBehaviour(&quot;TransportController&quot;)
+		<br>tc.OnBeginWorkEx = my_work
+		<br>trigger = comp.findBehaviour('Trigger')</td>
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,528 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Unit Specification</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=generator content="Adobe RoboHelp 2017"><LINK rel=StyleSheet 
+type=text/css href="../../default.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../ehlpdhtm.js"></SCRIPT>
+
+<STYLE title=hcp type=text/css>
+<!--
+span.hcp1 { vertical-align:Super;
+font-size:10pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>Unit Specification</H1>
+<P>Unit specification allows you to specify the unit of a given value, which may 
+or may not be a canonical unit.</P>
+<DIV class=Contents>
+<P align=left>Contents&nbsp;<A id=MTHotSpot29975 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot29975', 'MTPOPUP29975');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP29975 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">Usage</A></P>
+<P align=left><A href="#MiniTOCBookMark3">Built-in Units</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>Usage</H2>
+<P>Generally, unit specifications are used in expressions when defining a 
+certain quantity. This allows you specify any applicable unit to a value while 
+the underlying calculations remain the same. That is, unit specification cannot 
+be used to convert a value from one unit to another.</P>
+<P>A unit specification consists of a unit name enclosed in curly braces. This 
+can be done for numerical values (integer and real) and the result is always a 
+real type value.</P>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 100%">
+  <TBODY>
+  <TR>
+    <TD><CODE>10{cm} 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100.0 
+      &nbsp;&nbsp;&nbsp;&nbsp;millimeter is canonical unit for 
+      distance</CODE><BR><CODE>(3+4){m} 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7000.0 
+      &nbsp;&nbsp;&nbsp;units can be applied to 
+      subexpressions</CODE><BR><CODE>15{in} + 45{mm} &nbsp;&nbsp;&nbsp;426.0 
+      &nbsp;&nbsp;&nbsp;&nbsp;mixing units in an expression is 
+      allowed</CODE><BR><CODE>30{centimetres} &nbsp;&nbsp;&nbsp;300.0 
+      &nbsp;&nbsp;&nbsp;&nbsp;you can use unit name in 
+  specification</CODE></TD></TR></TBODY></TABLE>
+<H2><A name=MiniTOCBookMark3></A>Built-in Units</H2>
+<P>Both built-in and custom units can be used in unit specification. Some 
+built-in units have suffixes, for example degree° and mircosecond µs, and 
+alternative forms that can be used in expressions. Units marked "Canonical" are 
+canonical units for quantities and used internally by R-Pro 2.1 to store and 
+calculate values.</P>
+<P><SPAN class=Strong>Note:</SPAN> Internally, 1 unit of Time is 1 second, 1 
+unit of Distance (Length) is 1 millimeter, and 1 unit of Speed is 1 millimeter 
+per second.</P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 20%">
+  <COL style="WIDTH: 20%">
+  <COL style="WIDTH: 20%">
+  <COL style="WIDTH: 20%">
+  <COL style="WIDTH: 20%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Suffix</TD>
+    <TD>Quantity</TD>
+    <TD>Note</TD>
+    <TD>Alternative</TD></TR>
+  <TR>
+    <TD>centimetres</TD>
+    <TD>cm</TD>
+    <TD>Distance</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>centimetres</TD>
+    <TD>cm/s</TD>
+    <TD>Velocity</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>cubic centimetres</TD>
+    <TD>cm<SPAN class=hcp1>3</SPAN></TD>
+    <TD>Volume</TD>
+    <TD>None</TD>
+    <TD>cm^3</TD></TR>
+  <TR>
+    <TD>cubic decimetres</TD>
+    <TD>dm<SPAN class=hcp1>3</SPAN></TD>
+    <TD>Volume</TD>
+    <TD>None</TD>
+    <TD>dm^3</TD></TR>
+  <TR>
+    <TD>cubic feet</TD>
+    <TD>cu ft</TD>
+    <TD>Volume</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>cubic inches</TD>
+    <TD>cu in</TD>
+    <TD>Volume</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>cubic metres</TD>
+    <TD>m<SPAN class=hcp1>3</SPAN></TD>
+    <TD>Volume</TD>
+    <TD>None</TD>
+    <TD>m^3</TD></TR>
+  <TR>
+    <TD>cubic yards</TD>
+    <TD>cu yd</TD>
+    <TD>Volume</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>cups</TD>
+    <TD>cp</TD>
+    <TD>Volume.Liquid</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>days</TD>
+    <TD>days</TD>
+    <TD>Time</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>degrees</TD>
+    <TD>°</TD>
+    <TD>Angle</TD>
+    <TD>Canonical</TD>
+    <TD>deg</TD></TR>
+  <TR>
+    <TD>degrees Celsius</TD>
+    <TD>°C</TD>
+    <TD>Temperature</TD>
+    <TD>None</TD>
+    <TD>degC</TD></TR>
+  <TR>
+    <TD>degreesFahrenheit</TD>
+    <TD>°F</TD>
+    <TD>Temperature</TD>
+    <TD>None</TD>
+    <TD>degF</TD></TR>
+  <TR>
+    <TD>degrees per second</TD>
+    <TD>°/s</TD>
+    <TD>Angular velocity</TD>
+    <TD>Canonical</TD>
+    <TD>deg/s</TD></TR>
+  <TR>
+    <TD>degrees per second squared</TD>
+    <TD>°/s<SPAN class=hcp1>2</SPAN></TD>
+    <TD>Angular acceleration</TD>
+    <TD>Canonical</TD>
+    <TD>deg/s^2</TD></TR>
+  <TR>
+    <TD>drams</TD>
+    <TD>dr</TD>
+    <TD>Mass</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>feet</TD>
+    <TD>ft</TD>
+    <TD>Distance</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>feet per second squared</TD>
+    <TD>ft/s<SPAN class=hcp1>2</SPAN></TD>
+    <TD>Acceleration</TD>
+    <TD>None</TD>
+    <TD>ft/s^2</TD></TR>
+  <TR>
+    <TD>fluid drams</TD>
+    <TD>fl dr</TD>
+    <TD>Volume.Liquid</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>fluid ounces</TD>
+    <TD>fl oz</TD>
+    <TD>Volume.Liquid</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>foot pounds force</TD>
+    <TD>ftlbf</TD>
+    <TD>Torque</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>gallons</TD>
+    <TD>gal</TD>
+    <TD>Volume.Liquid</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>grads</TD>
+    <TD>grad</TD>
+    <TD>Angle</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>grads per second</TD>
+    <TD>grad/s</TD>
+    <TD>Angular velocity</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>grads per second squared</TD>
+    <TD>grad/s<SPAN class=hcp1>2</SPAN></TD>
+    <TD>Angular acceleration</TD>
+    <TD>None</TD>
+    <TD>grad/s^2</TD></TR>
+  <TR>
+    <TD>gram degrees per second</TD>
+    <TD>g°/s</TD>
+    <TD>Angular momentum</TD>
+    <TD>None</TD>
+    <TD>gdeg/s</TD></TR>
+  <TR>
+    <TD>gram grads per second</TD>
+    <TD>ggrad/s</TD>
+    <TD>Angular momentum</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>gram metres per second</TD>
+    <TD>gm/s</TD>
+    <TD>Momentum</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>gram radians per second</TD>
+    <TD>g rad/s</TD>
+    <TD>Angular momentum</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>grams</TD>
+    <TD>g</TD>
+    <TD>Mass</TD>
+    <TD>Canonical</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>hours</TD>
+    <TD>hr</TD>
+    <TD>Time</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>hundredweights</TD>
+    <TD>cwt</TD>
+    <TD>Mass</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>inch pounds force</TD>
+    <TD>inlbf</TD>
+    <TD>Torque</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>inches</TD>
+    <TD>in</TD>
+    <TD>Distance</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>inches per second squared</TD>
+    <TD>in/s<SPAN class=hcp1>2</SPAN></TD>
+    <TD>Acceleration</TD>
+    <TD>None</TD>
+    <TD>in/s^2</TD></TR>
+  <TR>
+    <TD>Kelvin</TD>
+    <TD>K</TD>
+    <TD>Temperature</TD>
+    <TD>Canonical</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>kilogram degrees per second</TD>
+    <TD>kg°/s</TD>
+    <TD>Angular momentum</TD>
+    <TD>Canonical</TD>
+    <TD>kgdeg/s</TD></TR>
+  <TR>
+    <TD>kilogram grads per second</TD>
+    <TD>kggrad/s</TD>
+    <TD>Angular momentum</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>kilogram metres per second</TD>
+    <TD>kgm/s</TD>
+    <TD>Momentum</TD>
+    <TD>Canonical</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>kilogram radians per second</TD>
+    <TD>kg rad/s</TD>
+    <TD>Angular momentum</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>kilograms</TD>
+    <TD>kg</TD>
+    <TD>Mass</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>kilonewtons</TD>
+    <TD>kN</TD>
+    <TD>Force</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>litres</TD>
+    <TD>l</TD>
+    <TD>Volume.Liquid</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>metres</TD>
+    <TD>m</TD>
+    <TD>Distance</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>metres per second</TD>
+    <TD>m/s</TD>
+    <TD>Velocity</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>metres per second squared</TD>
+    <TD>m/s<SPAN class=hcp1>2</SPAN></TD>
+    <TD>Acceleration</TD>
+    <TD>None</TD>
+    <TD>m/s^2</TD></TR>
+  <TR>
+    <TD>microseconds</TD>
+    <TD>µs</TD>
+    <TD>Time</TD>
+    <TD>None</TD>
+    <TD>mus</TD></TR>
+  <TR>
+    <TD>millilitres</TD>
+    <TD>ml</TD>
+    <TD>Volume.Liquid</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>millimetres</TD>
+    <TD>mm</TD>
+    <TD>Distance</TD>
+    <TD>Canonical</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>millimetres per second</TD>
+    <TD>mm/s</TD>
+    <TD>Speed, Velocity</TD>
+    <TD>Canonical</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>millimetres per second squared</TD>
+    <TD>mm/s<SPAN class=hcp1>2</SPAN></TD>
+    <TD>Acceleration</TD>
+    <TD>Canonical</TD>
+    <TD>mm/s^2</TD></TR>
+  <TR>
+    <TD>milliseconds</TD>
+    <TD>ms</TD>
+    <TD>Time</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>minutes</TD>
+    <TD>min</TD>
+    <TD>Time</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>newton centimetres</TD>
+    <TD>Ncm</TD>
+    <TD>Torque</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>newton metres</TD>
+    <TD>Nmm</TD>
+    <TD>Torque</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>newton millimetres</TD>
+    <TD>Nmm</TD>
+    <TD>Torque</TD>
+    <TD>Canonical</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>newtons</TD>
+    <TD>N</TD>
+    <TD>Force</TD>
+    <TD>Canonical</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>ounces</TD>
+    <TD>oz</TD>
+    <TD>Mass</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>pints</TD>
+    <TD>pt</TD>
+    <TD>Volume.Liquid</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>pound degrees per second</TD>
+    <TD>lb°/s</TD>
+    <TD>Angular momentum</TD>
+    <TD>None</TD>
+    <TD>lbdeg/s</TD></TR>
+  <TR>
+    <TD>pounds</TD>
+    <TD>lb</TD>
+    <TD>Mass</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>pounds force</TD>
+    <TD>lbf</TD>
+    <TD>Force</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>quarts</TD>
+    <TD>qt</TD>
+    <TD>Volume.Liquid</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>radians</TD>
+    <TD>rad</TD>
+    <TD>Angle</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>radians per second</TD>
+    <TD>rad/s</TD>
+    <TD>Angular velocity</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>radians per second squared</TD>
+    <TD>rad/s<SPAN class=hcp1>2</SPAN></TD>
+    <TD>Angular acceleration</TD>
+    <TD>None</TD>
+    <TD>rad/s^2</TD></TR>
+  <TR>
+    <TD>seconds</TD>
+    <TD>s</TD>
+    <TD>Time</TD>
+    <TD>Canonical</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>short tons</TD>
+    <TD>t</TD>
+    <TD>Mass</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>square centimetres</TD>
+    <TD>cm<SPAN class=hcp1>2</SPAN></TD>
+    <TD>Area</TD>
+    <TD>none</TD>
+    <TD>cm^2</TD></TR>
+  <TR>
+    <TD>square feet</TD>
+    <TD>sqft</TD>
+    <TD>Area</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>square inches</TD>
+    <TD>sqin</TD>
+    <TD>Area</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>square metres</TD>
+    <TD>m<SPAN class=hcp1>2</SPAN></TD>
+    <TD>Area</TD>
+    <TD>None</TD>
+    <TD>m^2</TD></TR>
+  <TR>
+    <TD>square millimetres</TD>
+    <TD>mm<SPAN class=hcp1>2</SPAN></TD>
+    <TD>Area</TD>
+    <TD>None</TD>
+    <TD>mm^2</TD></TR>
+  <TR>
+    <TD>tonnes</TD>
+    <TD>t</TD>
+    <TD>Mass</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>weeks</TD>
+    <TD>wks</TD>
+    <TD>Time</TD>
+    <TD>None</TD>
+    <TD>None</TD></TR></TBODY></TABLE>
+<P>&nbsp;</P></BODY></HTML>

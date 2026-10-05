@@ -1,0 +1,80 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="physics path,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Physics Path</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Physics Path</h1>
+<p>A Physics Path allows you to contain and move physical objects along 
+ a path defined by Frame features in one direction.</p>
+<p><img src="../../../English/Links/PhysicsPath.png" alt="" border="0" class="hcp1"></p>
+<p>The ports of a Physics Path are listed with the behavior in the Component 
+ Graph panel.</p>
+<p><img src="../../../English/Links/PhysicsPathConnectors.gif" alt="" border="0" class="hcp1"></p>
+<p>The node of a Physics Path requires at least one Physics Entity behavior. 
+ By default, any feature with a collider in the same component as the Physics 
+ Path will apply a pushing force. Objects are pushed in the direction of 
+ path. You can limit the pushing force by associating one or more features 
+ with the path.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the path.</td>
+	</tr>
+	<tr>
+		<td>Statistics</td>
+		<td>Defines a Statistics behavior that collects statistics generated 
+		 by the path.</td>
+	</tr>
+	<tr>
+		<td>TransitionSignal</td>
+		<td>Defines a Boolean Signal behavior that signals the arrival 
+		 and departure of physical objects to and from the path. A True 
+		 value signals the arrival of a physical object. A False value 
+		 signals the departure of a physical object.</td>
+	</tr>
+	<tr>
+		<td>Path</td>
+		<td>Defines an ordered list of Frame features in the component 
+		 of path that act as waypoints. The sequence of frames is important 
+		 at defining the beginning and end of the path. The direction of 
+		 path is interpolated along the X-axis of each frame.</td>
+	</tr>
+	<tr>
+		<td>PushingFeatures</td>
+		<td>Defines a list of features used for blocking and/or colliding 
+		 with physical objects on the path. Generally, this is used to 
+		 define which features in the component act as the driving force 
+		 of path, for example its belt.</td>
+	</tr>
+	<tr>
+		<td>Speed</td>
+		<td>Defines the speed (mm/s) at which physical objects move along 
+		 the path.</td>
+	</tr>
+</table>
+</body>
+</html>

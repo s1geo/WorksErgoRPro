@@ -1,0 +1,140 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcTransportLink</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcTransportLink</h1>
+<p>Transport link is a single-directional logical connection between two 
+ transport nodes that defines navigability and transportation parameters 
+ for a specific flow group of products. Each link has to be associated 
+ with a <a href="vcTransportController.htm">vcTransportController</a> that 
+ implements the link and can add its own custom properties to it. </p>
+<p>Transport links are owned by a <a href="vcTransportSystem.htm">vcTransportSystem</a> 
+ and thus are created and deleted through its methods.</p>
+<p>For easier tracking of transport graph navigability changes, only the 
+ Implementer can be changed after the link has been created. To change 
+ the other properties of a transport link user needs to create a copy and 
+ delete the original instead. Any dynamically created properties can be 
+ edited at will, but adding and removing properties is usually only done 
+ by the implementing transport controller.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Source </td>
+		<td><a href="vcTransportNode.htm">vcTransportNode</a> </td>
+		<td>R</td>
+		<td>The transport node to start moving from.</td>
+	</tr>
+	<tr>
+		<td>Destination </td>
+		<td><a href="vcTransportNode.htm">vcTransportNode</a></td>
+		<td>R</td>
+		<td>The destination transport node.</td>
+	</tr>
+	<tr>
+		<td>Implementer </td>
+		<td><a href="vcTransportController.htm">vcTransportController</a></td>
+		<td>RW</td>
+		<td><p>The controller that will take care of moving the product 
+		 through this link.</p>
+		<p>Note that when reassigning the implementer, the transport controllers 
+		 usually modify the link’s properties immediately in event handlers.</p></td>
+	</tr>
+	<tr>
+		<td>SupportedGroup </td>
+		<td><a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> </td>
+		<td>R</td>
+		<td>Only product types belonging to this flow group can travel 
+		 through this link.</td>
+	</tr>
+	<tr>
+		<td>Properties </td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td>Gets the properties that have <a href="vcProperty.htm">vcProperty</a> 
+		 implementation.</td>
+	</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createProperty </td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td><span><a href="vcProperty.htm">vcProperty</a></span> <span class="hcp1">property</span></td>
+		<td><p class="TableNormal">Creates a new dynamic property to this 
+		 transport link.</p></td>
+	</tr>
+	<tr>
+		<td>getProperty </td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String <span class="hcp1">propertyName</span> 
+		 </td>
+		<td>Returns a property from this transport link.</td>
+	</tr>
+	<tr>
+		<td>deleteProperty </td>
+		<td>None</td>
+		<td><span><a href="vcProperty.htm">vcProperty</a></span> <span class="hcp1">property</span></td>
+		<td>Deletes a property from this transport link.</td>
+	</tr>
+</table>
+<h2><a name="Examples" id="Examples"></a>Examples</h2>
+<p class="Example"><span class="Example">Example. Reset transport time 
+ to 10s for all.</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td># transport links using interpolation. 
+		<br>from vcScript import * 
+		<br>sim = getSimulation() 
+		<br>tsystem = sim.ProcessController.TransportSystem 
+		<br># Get interpolating controller 
+		<br>icontroller = None 
+		<br>for controller in tsystem.Controllers: 
+		<br>&#160;&#160;if controller.Type == VC_INTERPOLATINGTRANSPORTCONTROLLER: 
+		<br>&#160;&#160;&#160;&#160;icontroller = controller 
+		<br>&#160;&#160;&#160;&#160;break 
+		<br># Change links 
+		<br>for link in tsystem.Links: 
+		<br>&#160;&#160;prop = link.getProperty('TransportTime') 
+		<br>&#160;&#160;if link.Implementer == icontroller and prop: 
+		<br>&#160;&#160;&#160;&#160;prop.Value = 10.0</td>
+	</tr>
+</table>
+</body>
+</html>

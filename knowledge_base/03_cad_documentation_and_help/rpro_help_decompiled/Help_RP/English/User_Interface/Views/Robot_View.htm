@@ -1,0 +1,317 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Robot</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content="robot programming,workspace,robot view">
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+
+<STYLE title=hcp type=text/css>
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>Robot</H1>
+<P>The Robot view allows you to teach and manipulate robots in the 3D world.</P>
+<P><IMG src="Screenshot_3.png"></P>
+<P>&nbsp;</P>
+<DIV class=Contents>
+<P align=left>Contents&nbsp;<A id=MTHotSpot39552 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot39552', 'MTPOPUP39552');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP39552 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">Access</A></P>
+<P align=left><A href="#MiniTOCBookMark3">Panels</A></P>
+<P align=left><A href="#MiniTOCBookMark4">Context</A></P>
+<P align=left><A href="#MiniTOCBookMark5">Commands</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>Access</H2>
+<P>To access the Robot view:</P>
+<UL class=hcp1>
+  <LI class=Unordered>Click the <SPAN class=Strong>Program</SPAN> tab. </LI></UL>
+<H2><A name=MiniTOCBookMark3></A>Panels</H2>
+<P>The Robot view shows, by default, the following panels:</P>
+<UL class=hcp1>
+  <LI class=Unordered><SPAN class=Strong>Program Editor</SPAN> for reading, 
+  writing and editing the programs of robots and other components in a layout. 
+  <LI class=Unordered><SPAN class=Strong>Jog</SPAN> for teaching a selected 
+  robot in a layout. 
+  <LI class=Unordered><SPAN class=Strong>Properties</SPAN> for reading and 
+  writing properties of selected objects in a layout. This includes components, 
+  robot controller data, and robot actions such as motion statements. </LI></UL>
+<H2><A name=MiniTOCBookMark4></A>Context</H2>
+<P>The context of the Robot view is robot programming.</P>
+<P>You can:</P>
+<UL class=hcp1>
+  <LI class=Unordered>Teach positions, paths and other actions to a selected 
+  robot and any external joint. 
+  <LI class=Unordered>Read, write and edit robot programs and controller data. 
+  <LI class=Unordered>Perform offline programming, collision detection, limit 
+  testing, calibration and optimization. 
+  <LI class=Unordered>Visualize and edit robot IO using wire connections. 
+  <LI class=Unordered>Select, edit and manipulate robot positions. </LI></UL>
+<H2><A name=MiniTOCBookMark5></A>Commands</H2>
+<H3><A name=MiniTOCBookMark6></A>Program</H3>
+<P>By default, the following commands are shown in the Ribbon when you click the 
+Program tab.</P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Acceleration</TD>
+    <TD>Turns on/off acceleration limits for robots and other components in 3D 
+      world.</TD></TR>
+  <TR>
+    <TD>Align</TD>
+    <TD>Aligns a selected object using two points. Additional options are 
+      displayed in a task pane. 
+      <P class=TableNormal><SPAN class=Term>Settings</SPAN><BR>Align position, 
+      orientation or both and in what axis.</P>
+      <P class=TableNormal><SPAN class=Term>Snap Type</SPAN><BR>Define the type 
+      of point to select in the 3D world.</P></TD></TR>
+  <TR>
+    <TD>Always Snap</TD>
+    <TD>Turns on/off the automatic snapping of a selected object along an axis 
+      or plane at intervals when using the manipulator.</TD></TR>
+  <TR>
+    <TD>Automatic Size</TD>
+    <TD>Turns on/off the automatic calculation of intervals for snapping a 
+      selected object along an axis or plane when using the manipulator.</TD></TR>
+  <TR>
+    <TD>Color Highlights</TD>
+    <TD>Highlights node in 3D world exceeding its limits.</TD></TR>
+  <TR>
+    <TD>Connecting Lines</TD>
+    <TD>Turns on/off the display of lines in the 3D world that connect and 
+      show the order of points to be reached by a selected robot when executing 
+      its Main routine, including calls to subroutines.</TD></TR>
+  <TR>
+    <TD>Copy</TD>
+    <TD>Copies the current selection to the clipboard.</TD></TR>
+  <TR>
+    <TD>Delete</TD>
+    <TD>Deletes the current selection.</TD></TR>
+  <TR>
+    <TD>Detectors</TD>
+    <TD>Displays a list of options and tools for managing collision tests. 
+      <P class=TableNormal><SPAN class=Term>Detect collision</SPAN><BR>Detect 
+      first or all collisions.</P>
+      <P class=TableNormal><SPAN class=Term>Collision Tolerance</SPAN><BR>Detect 
+      collision at impact or within a distance tolerance.</P>
+      <P class=TableNormal><SPAN class=Term>Show Minimum Distance</SPAN><BR>If 
+      using collision tolerance, show/hide the shortest distance between objects 
+      in a detected collision.</P>
+      <P class=TableNormal><SPAN class=Term>Selection vs World</SPAN><BR>Detect 
+      if selected component collides with any other component in 3D world.</P>
+      <P class=TableNormal><SPAN class=Term>Create detector</SPAN><BR>Creates a 
+      new collision detector. Additional options are displayed in a task pane, 
+      which can be accessed by clicking a listed detector. Click a component in 
+      3D world, and then use Mini toolbar or task pane to add component to 
+      either list A or B in detector. In task pane, use A and B tabs and node 
+      check boxes to include/exclude nodes from detector.</P>
+      <P class=TableNormal><SPAN class=Strong>Note:</SPAN> Select the check box 
+      of listed detector to use the detector in collision test.</P></TD></TR>
+  <TR>
+    <TD>Detectors Active</TD>
+    <TD>Turns on/off all detectors in collision test.</TD></TR>
+  <TR>
+    <TD>
+      <P>Exchange Robots</P></TD>
+    <TD>Allows the active robot to be exchanged with a robot selected in the 
+      3D world, thereby the robots swap positions and programs. Additional 
+      options are displayed in a task pane. 
+      <P class=TableNormal><SPAN class=Term>Exchange Base/Tool 
+      Names</SPAN><BR>Turn on/off the exchange of base and tool frame 
+      properties.</P>
+      <P class=TableNormal><SPAN class=Term>Apply</SPAN><BR>Exchange a selected 
+      robot highlighted green with the active robot.</P></TD></TR>
+  <TR>
+    <TD>
+      <P>Interfaces</P></TD>
+    <TD>
+      <P>Allows components to be remotely connected in the 3D world using 
+      abstract interfaces. Additional options are displayed in a task pane. </P>
+      <P class=TableNormal><SPAN class=Term>Component</SPAN><BR>Select component 
+      that has the ability to remotely connect with other components. Only 
+      components with this capability are displayed as options.</P>
+      <P class=TableNormal><SPAN class=Term>Interface</SPAN><BR>Select interface 
+      in component used for remote connections.</P>
+      <P class=TableNormal><SPAN class=Term>Connections</SPAN><BR>Define 
+      connections to interface of component. An available connection is 
+      highlighted yellow in 3D world, whereas an active connection is 
+      highlighted green. Only compatible interfaces are displayed as 
+options.</P>
+      <P class=TableNormal><SPAN class=Term>Display Network Map</SPAN><BR>Turn 
+      on/off the display of interface editors in the 3D world. If active, editor 
+      of selected component is visible as are the editors of connected 
+      components. Other components with compatible interfaces will display their 
+      editors, by default, as unfold buttons.</P>
+      <P class=TableNormal><SPAN class=Term>Show Connection Lines</SPAN><BR>Turn 
+      on/off the visibility of wires connecting interface editors in the 3D 
+      world. This option is also available on the editor of the selected 
+      component.</P>
+      <P class=TableNormal><SPAN class=Term>Show Non-abstract 
+      Interfaces</SPAN><BR>Turn on/off the option of using non-abstract 
+      interfaces. Generally, this is used to show and edit physical 
+      connections.</P>
+      <P class=TableNormal><SPAN class=Strong>Note:</SPAN> By default, interface 
+      editors (nodes) for components are not displayed unless they have two 
+      matching interfaces with the selection. You can change this by editing 
+      "interfacesNodeVisibilityThreshold" in the app.config file.</P></TD></TR>
+  <TR>
+    <TD>Jog</TD>
+    <TD>Allows the pointer to jog and interact with the joints of robots and 
+      other components in 3D world as well as directly select a robot, and then 
+      use manipulator to teach robot. 
+      <P class=TableNormal><SPAN class=Strong>Note:</SPAN> The origin of 
+      manipulator depends on robot configuration in the Jog panel. For example, 
+      if a tool frame is used as a moveable TCP, manipulator will be at origin 
+      of tool coordinate system, the tool frame will move with the manipulator, 
+      and the location of tool frame will be referenced as the point and 
+      orientation for defining robot positions relative to robot/base coordinate 
+      system.</P></TD></TR>
+  <TR>
+    <TD>Joint</TD>
+    <TD>Turns on/off joint limits for robots and other components in 3D 
+    world.</TD></TR>
+  <TR>
+    <TD>Measure</TD>
+    <TD>Measures the distance and/or angle between two points in 3D world. 
+      Additional options are displayed in a task pane. 
+      <P class=TableNormal><SPAN class=Term>Mode</SPAN><BR>Measure distance, 
+      angle or both.</P>
+      <P class=TableNormal><SPAN class=Term>Settings</SPAN><BR>Define how to 
+      visualize a measurement and in which coordinate system to base measured 
+      values.</P>
+      <P class=TableNormal><SPAN class=Term>Snap Type</SPAN><BR>Define type of 
+      point to select in 3D world.</P>
+      <P class=TableNormal><SPAN class=Strong>Tip:</SPAN> The results of a 
+      measurement are sent to Output panel.</P></TD></TR>
+  <TR>
+    <TD>Message Panel Output</TD>
+    <TD>Sends info on exceeded limit to Output panel.</TD></TR>
+  <TR>
+    <TD>Move</TD>
+    <TD>Allows a selected object to be moved along an axis or plane, rotated 
+      around an axis, and snapped and aligned to a point in 3D world.</TD></TR>
+  <TR>
+    <TD>Move Robot World Frame</TD>
+    <TD>Allows the Robot World frame of a selected robot to be manipulated in 
+      3D world.</TD></TR>
+  <TR>
+    <TD>Paste</TD>
+    <TD>Adds the contents of clipboard to active area or field of workspace 
+      depending on data type.</TD></TR>
+  <TR>
+    <TD>Restore Windows</TD>
+    <TD>Restores the workspace of current view to its default setting.</TD></TR>
+  <TR>
+    <TD>Select</TD>
+    <TD>Allows for direct and indirect selection of robot positions in the 3D 
+      world using listed commands. 
+      <P class=TableNormal><SPAN class=Term>Rectangular 
+      selection</SPAN><BR>Select by drawing a selection box.</P>
+      <P class=TableNormal><SPAN class=Term>Free-form selection</SPAN><BR>Select 
+      by drawing a selection path to form a closed loop.</P>
+      <P class=TableNormal><SPAN class=Term>Select all</SPAN><BR>Selects all 
+      robot positions.</P>
+      <P class=TableNormal><SPAN class=Term>Invert selection</SPAN><BR>Forms a 
+      new selection of every robot position not in current selection.</P></TD></TR>
+  <TR>
+    <TD>Show</TD>
+    <TD>Displays a list of panels that can be shown/hidden from the current 
+      view of workspace.</TD></TR>
+  <TR>
+    <TD>
+      <P>Signals</P></TD>
+    <TD>
+      <P>Allows signals of components and I/O of robot to be connected to one 
+      another in 3D world. Additional options are displayed in a task pane. </P>
+      <P class=TableNormal><SPAN class=Term>Component</SPAN><BR>Select component 
+      that has Boolean signals. Only components with this capability are 
+      displayed as options.</P>
+      <P class=TableNormal><SPAN class=Term>Signal</SPAN><BR>Signal of 
+      component. If component is robot, inputs are labeled "In" and outputs are 
+      labeled "Out". You can sort signals by direction and name. You can filter 
+      signals that are inputs and outputs as well as those with an active 
+      connection.</P>
+      <P class=TableNormal><SPAN class=Term>Connections</SPAN><BR>Define 
+      connections to signal of component. If signal in other component, select 
+      other component and then the signal. If input or output in other robot, 
+      select other robot and then the input or output. If action in robot, 
+      select output of robot and then use the Actions Configuration section to 
+      define the action. You have the option to disconnect all signals in 
+      component. If component is robot, you have the option to clear all 
+      actions, but use caution to avoid removing predefined actions for outputs 
+      1 through 81.</P>
+      <P class=TableNormal><SPAN class=Strong>Tip:</SPAN> For inputs and outputs 
+      of robot, we recommend using signals 100 onward for new signal connections 
+      and actions. This helps avoid conflict with predefined actions for 
+      robots.</P>
+      <P class=TableNormal><SPAN class=Term>Display Network Map</SPAN><BR>Turn 
+      on/off the display of signal editors in the 3D world. If active, editor of 
+      selected component is visible as are the editors of connected components. 
+      Other components with compatible signals will display their editors, by 
+      default, as unfold buttons.</P>
+      <P class=TableNormal><SPAN class=Term>Show Connection Lines</SPAN><BR>Turn 
+      on/off the visibility of wires connecting signal editors in the 3D world. 
+      This option is also available on the editor of the selected component.</P>
+      <P class=TableNormal><SPAN class=Term>Enable Signal 
+      Toggling</SPAN><BR>Turn on/off the ability to set value of connected 
+      signals during simulation. Click the connector (circle) of signal in task 
+      pane or editor in 3D world to toggle the value. Connector is green when 
+      value is true.</P></TD></TR>
+  <TR>
+    <TD>Singularity</TD>
+    <TD>Turns on/off singularity&nbsp;limits for robots and other components 
+      in 3D world.</TD></TR>
+  <TR>
+    <TD>Size</TD>
+    <TD>Defines the interval for snapping a selected object along an axis or 
+      plane when using the manipulator.</TD></TR>
+  <TR>
+    <TD>Snap</TD>
+    <TD>Allows a selected object or arm/TCP of a selected robot to be snapped 
+      to a location in 3D world by using one to three points. Additional options 
+      are displayed in a task pane. 
+      <P class=TableNormal><SPAN class=Term>Mode</SPAN><BR>Snap to one point, 
+      the midpoint of two points, or the center of an arc made by three 
+      points.</P>
+      <P class=TableNormal><SPAN class=Term>Settings</SPAN><BR>Affect position, 
+      orientation or both and in what axis.</P>
+      <P class=TableNormal><SPAN class=Term>Snap Type</SPAN><BR>Define the type 
+      of point to select in the 3D world.</P></TD></TR>
+  <TR>
+    <TD>Speed</TD>
+    <TD>Turns on/off speed&nbsp;limits for robots and other components in 3D 
+      world.</TD></TR>
+  <TR>
+    <TD>Stop at limits</TD>
+    <TD>Stop a running simulation when an object exceeds any of its 
+  limits.</TD></TR>
+  <TR>
+    <TD>Stop on collision</TD>
+    <TD>Stops a running simulation when there is a detected collision.</TD></TR>
+  <TR>
+    <TD>To Reference</TD>
+    <TD>Locks robot positions to referenced coordinate system, thereby 
+      positions move with robot/parent in 3D world.</TD></TR>
+  <TR>
+    <TD>To World</TD>
+    <TD>Locks robot positions to 3D world, thereby positions do not move with 
+      robot/parent.</TD></TR>
+  <TR>
+    <TD>Traces</TD>
+    <TD>Turns on/off the visibility of traced motion paths for a selected 
+      robot in 3D world.</TD></TR></TBODY></TABLE></BODY></HTML>

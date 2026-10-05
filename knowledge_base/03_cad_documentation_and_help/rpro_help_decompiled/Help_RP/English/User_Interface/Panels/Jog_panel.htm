@@ -1,0 +1,138 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="jog panel">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Jog panel</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Jog</h1>
+<p>The Jog panel is used with the Jog command to allow you to manipulate, 
+ configure and teach a robot in the 3D world.</p>
+<p><img src="../../Links/JogPanelVCEN.png" alt="" border="0" class="hcp1"></p>
+<table id="callouts" cellspacing="0">
+	<col>
+	<col>
+	<tr>
+		<td>&#160;1.</td>
+		<td>Name of Selected Robot</td>
+	</tr>
+	<tr>
+		<td>&#160;2.</td>
+		<td>Position Values of TCP/End of Arm</td>
+	</tr>
+	<tr>
+		<td>&#160;3.</td>
+		<td>Orientation Values of TCP/End of Arm</td>
+	</tr>
+	<tr>
+		<td>&#160;4.</td>
+		<td>Configuration of Robot and Manipulator</td>
+	</tr>
+	<tr>
+		<td>&#160;5.</td>
+		<td>Joints of Selected Robot</td>
+	</tr>
+	<tr>
+		<td>&#160;6.</td>
+		<td>Connected External Joints</td>
+	</tr>
+	<tr>
+		<td>&#160;7.</td>
+		<td>Snap Options for Manipulator</td>
+	</tr>
+	<tr>
+		<td>&#160;8.</td>
+		<td>Min and Max Values Reached by Joint in Current State</td>
+	</tr>
+	<tr>
+		<td>&#160;9.</td>
+		<td>Min and Max Range of Joint</td>
+	</tr>
+	<tr>
+		<td>10.</td>
+		<td>Joint Value</td>
+	</tr>
+	<tr>
+		<td>11.</td>
+		<td>Increment Joint Value</td>
+	</tr>
+	<tr>
+		<td>12.</td>
+		<td>Select Active Base/Tool in 3D World</td>
+	</tr>
+	<tr>
+		<td>13.</td>
+		<td>Coordinate System</td>
+	</tr>
+</table>
+<h2>Manipulator</h2>
+<p>The manipulator of a robot allows you to jog a robot and teach positions 
+ using base and tool frames. A base frame acts as a fixed point in space 
+ for simplifying robot positions. Generally, base frames are located at 
+ a Robot World Frame, which is either at the bottom or belly of a robot. 
+ In some cases, base frames can be attached to nodes in other components. 
+ For example, base frames can be attached to pallets, workpieces and nodes 
+ in an external kinematics component connected to a robot.</p>
+<p><img src="../../Links/RobotWorldFrameExternalBase.png" alt="" border="0" class="hcp1"></p>
+<p>A tool frame acts as a tool center point (TCP) and for teaching robot 
+ positions. Generally, tool frames are located at the flange node/mount 
+ plate of a robot or at the center point and tip of a mounted tool. In 
+ most cases, a tool frame is used as the origin of the manipulator, which 
+ can then be used to move both the robot and tool frame in the 3D world. 
+ The large arrows of the manipulator will reference the active coordinate 
+ system in the Jog panel, while the smaller arrows will reference the tool 
+ coordinate system.</p>
+<p><img src="../../Links/ToolFrameManipulator.png" alt="" border="0" class="hcp1"></p>
+<p>One method of teaching a position is to reference a base coordinate 
+ system and calculate the distance to the active tool frame and its orientation. 
+ In those cases, the manipulator moves a robot and active tool frame to 
+ that position. A base frame is the parent of that position, so moving 
+ the base frame would in turn move that and any other position attached 
+ to it. If you were to select a robot position in the 3D world or in the Program 
+ Editor panel, the robot would snap to that position.</p>
+<p><span class="Strong">Tip:</span> Use the <span class="Italic">Lock Positions 
+ To World</span> command to not have robot positions move in the 3D world 
+ when you change the location of a robot, base frame or any other object 
+ referenced by those positions. Use the Select command to select a robot 
+ position and not have its owning robot snap to that position.</p>
+<p><img src="../../Links/RobotPositionCoordinatesVCEN.png" alt="" border="0" class="hcp1"></p>
+<p>In some cases, a tool frame can be attached to nodes in other components 
+ and used as an external TCP. For example, you can attach a tool frame 
+ to a stationary tool, thereby a robot orients itself around a fixed point 
+ in space. In some cases, the roles of base and tool frames would be switched, 
+ so that a tool frame is used as a BASE and a base frame is used as a TCP. 
+ As a result, a robot position would inherit the orientation of a base 
+ frame.</p>
+<p><img src="../../Links/ExternalTCP.png" alt="" border="0" class="hcp1"></p>
+<p>When snapping the manipulator, the Approach Axis property of the robot 
+ defines how to orient the robot based on the orientation of the active 
+ tool frame. For example, a common orientation for a tool frame is to point 
+ down along its positive Z-axis direction.</p>
+<p><img src="../../Links/ApproachAxisFrame.png" alt="" border="0" class="hcp1"></p>
+<p>Generally, you would change the approach axis of a robot to get different 
+ results.</p>
+<p><img src="../../Links/ApproachAxisOptions.png" alt="" border="0" class="hcp1"></p>
+<p>When you try to move the manipulator to a point that is unreachable 
+ by a robot, an error will be displayed in the 3D world and point back 
+ to the origin of the manipulator.</p>
+<p><img src="../../Links/UnreachableByRobot.png" alt="" border="0" class="hcp1"></p>
+<p>Likewise, an unreachable robot position in the 3D world will be highlighted 
+ red.</p>
+<p><img src="../../Links/UnreachablePoints.png" alt="" border="0" class="hcp1"></p>
+</body>
+</html>

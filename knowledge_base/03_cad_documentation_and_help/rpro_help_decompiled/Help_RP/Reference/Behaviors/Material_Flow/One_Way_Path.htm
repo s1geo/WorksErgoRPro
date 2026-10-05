@@ -1,0 +1,185 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="one way path,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>One Way Path</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>One Way Path</h1>
+<p>A One Way Path allows you to contain and move components forward along 
+ a path defined by Frame features.</p>
+<p><img src="../../../English/Links/OneWayPath2.png" alt="" border="0" class="hcp1"></p>
+<p>The ports of a One Way Path are listed with the behavior in the Component 
+ Graph panel.</p>
+<p><img src="../../../English/Links/OneWayPathPorts.png" alt="" border="0" class="hcp1"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the path.</td>
+	</tr>
+	<tr>
+		<td>Statistics</td>
+		<td>Defines a Statistics behavior that collects statistics generated 
+		 by the path.</td>
+	</tr>
+	<tr>
+		<td>Capacity</td>
+		<td>Defines the amount of components the path can contain at any 
+		 given time.</td>
+	</tr>
+	<tr>
+		<td>CapacityBlocks</td>
+		<td>Defines a list of Capacity Controller behaviors for globally 
+		 defining the path's capacity. Generally, a Capacity Controller 
+		 is used as a variable for controlling the capacity of one or more 
+		 containers in order to avoid deadlock situations.</td>
+	</tr>
+	<tr>
+		<td>TransitionSignal</td>
+		<td>Defines a Boolean Signal behavior that signals the arrival 
+		 and departure of components to and from the path. A True value 
+		 signals the arrival of a component. A False value signals the 
+		 departure of a component.</td>
+	</tr>
+	<tr>
+		<td>Speed</td>
+		<td>Defines the speed at which components move along the path. 
+		 In order to allow components to overtake one another, you need 
+		 to override the path's Speed using a Python Script.</td>
+	</tr>
+	<tr>
+		<td>Acceleration</td>
+		<td>Defines the maximum acceleration for moving components along 
+		 the path. A value of zero disables the path's Acceleration.</td>
+	</tr>
+	<tr>
+		<td>Deceleration</td>
+		<td>Defines the maximum deceleration for moving components along 
+		 the path. A value of zero disables the path's Deceleration.</td>
+	</tr>
+	<tr>
+		<td>Interpolation</td>
+		<td>Defines a mode for controlling how the path acts when moving 
+		 components. 
+		<p class="TableNormal"><span class="Term">Step</span> <br>
+		Snaps components to and from waypoints at a time interval (linear 
+		 distance of the path divided by the path's Speed).</p>
+		<p class="TableNormal"><span class="Term">Linear</span><br>
+		Moves components to and from waypoints in a straight line.</p>
+		<p class="TableNormal"><span class="Term">Cubic</span><br>
+		Moves components to and from waypoints along a chain of cubic splines, 
+		 for example a curved path. Generally, the curvature of a path 
+		 is more defined when the path has a higher amount of waypoints 
+		 (Frame features).</p></td>
+	</tr>
+	<tr>
+		<td>Accumulate</td>
+		<td>Defines if the path is disabled when a component is blocked 
+		 from leaving. A True value stops the path. A False value will 
+		 not stop the path.</td>
+	</tr>
+	<tr>
+		<td>SegmentSize</td>
+		<td>Defines the length and use of the path's segments. For example, 
+		 if the linear distance of the path is 1000 {mm}, a SegmentSize 
+		 of 100 would form 10 segments and limit the movement of components 
+		 to and from each segment. That is, one component per segment. 
+		 A value of zero disables the use of segments.</td>
+	</tr>
+	<tr>
+		<td>RetainOffset</td>
+		<td>Turns on/off the ability of a component to retain its position 
+		 upon entering the path. For example, a batch of components placed 
+		 randomly along the width of a conveyor belt can maintain their 
+		 distribution instead of snapping to the line of the path.</td>
+	</tr>
+	<tr>
+		<td>SpaceUtilization</td>
+		<td>Turns on/off the overlapping of components on the path. A True 
+		 value means components can border one another but not overtake 
+		 each other in the same path segment. A Fale value means components 
+		 can be placed side-by-side one another and overlap. 
+		<p class="TableNormal">The indexing of components on the path is 
+		 not affected by SpaceUtilization. So a False value does not mean 
+		 components will overtake one another in a list. You can use a 
+		 Python Script to manipulate indexing for buffering, stacking, 
+		 routing and so forth.</p></td>
+	</tr>
+	<tr>
+		<td>FastScheduling</td>
+		<td><p>Turns on/off the optimization of moving components on the 
+		 path. If True, the path limits the amount of generated events, 
+		 thereby improving simulation performance. If False, the path moves 
+		 components at shorter increments, thereby increasing the amount 
+		 of events and decreasing simulation performance. </p>
+		<span style="font-weight: bold;">Note</span>: You need to enable 
+		 this option manually in components made with older product versions.</td>
+	</tr>
+	<tr>
+		<td>Sensors</td>
+		<td>Defines a list of behaviors connected to the path and used 
+		 for detecting components on the path. Each behavior must be a 
+		 type of sensor and define its location relative to the path, for 
+		 example the sensor's distance along the path or at one of the 
+		 path's Frame features.</td>
+	</tr>
+	<tr>
+		<td>Path</td>
+		<td>Defines an ordered list of Frame features in the path's component 
+		 that act as the path's waypoints. The sequence of frames is important 
+		 at defining the beginning and end of the path.</td>
+	</tr>
+	<tr>
+		<td>PathAxis</td>
+		<td>Defines the orientation of the path's waypoints in relation 
+		 to a calculated axis. 
+		<p class="TableNormal"><span class="Term">Automatic</span><br>
+		Uses the orientation of each waypoint to calculate an appropriate 
+		 axis. Generic will be used if the waypoints differ considerably 
+		 in terms of orientation.</p>
+		<p class="TableNormal"><span class="Term">X-Positive</span><br>
+		Uses the distance from the path's component's origin to the positive 
+		 X-axis limit of that component's bound box.</p>
+		<p class="TableNormal"><span class="Term">Y-Positive</span><br>
+		Uses the distance from the path's component's origin to the positive 
+		 Y-axis limit of that component's bound box.</p>
+		<p class="TableNormal"><span class="Term">Z-Positive</span><br>
+		Uses the distance from the path's component's origin to the positive 
+		 Z-axis limit of that component's bound box.</p>
+		<p class="TableNormal"><span class="Term">X-Negative</span><br>
+		Uses the distance from the path's component's origin to the negative 
+		 X-axis limit of that component's bound box.</p>
+		<p class="TableNormal"><span class="Term">Y-Negative</span><br>
+		Uses the distance from the path's component's origin to the negative 
+		 Y-axis limit of that component's bound box.</p>
+		<p class="TableNormal"><span class="Term">Z-Negative</span><br>
+		Uses the distance from the path's component's origin to the negative 
+		 Z-axis limit of that component's bound box.</p>
+		<p class="TableNormal"><span class="Term">Generic</span> <br>
+		Uses a worst-case estimation based on the component's bound box.</p></td>
+	</tr>
+</table>
+</body>
+</html>

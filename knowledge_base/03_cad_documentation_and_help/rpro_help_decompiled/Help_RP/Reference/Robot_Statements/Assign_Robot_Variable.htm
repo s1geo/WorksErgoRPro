@@ -1,0 +1,86 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="assign variable,robot statement">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Assign Robot Variable</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Assign Variable</h1>
+<p>An Assign Variable statement sets the value of a robot variable.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot31226" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot31226', 'MTPOPUP31226');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP31226" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Robot Variables</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark6" >Properties</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Robot Variables</h2>
+<h3><a name="MiniTOCBookMark3"></a>Routine Variables</h3>
+<p>A robot routine variable is a local variable in a robot program specific 
+ to a routine. For example, a variable in Main routine can only be set 
+ and referred to in the Main routine.</p>
+<p><img src="../../English/Links/AssignVariableStatement.png" alt="" border="0" class="hcp1"></p>
+<h3><a name="MiniTOCBookMark4"></a>Program Variables</h3>
+<p>A program variable is a property and global variable of a robot program. 
+ You can add program variables using API. For example, you can add a global 
+ counter variable to a <a href="Python_API.chm::/vcProgram.htm">vcProgram</a> 
+ object and use it in the Main routine and subroutines of that program.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>robotExecutor = comp.findBehaviour(&quot;Executor&quot;) 
+		<br>robotProgram = robotExecutor.Program 
+		<br>&#160; 
+		<br>#find or create global counter in robot program 
+		<br>counter = robotProgram.getProperty(&quot;counter&quot;) 
+		<br>if not counter: 
+		<br>&#160;&#160;counter = robotProgram.createProperty(VC_INTEGER, &quot;counter&quot;)</td>
+	</tr>
+</table>
+<p><img src="../../English/Links/ProgramVariables.png" alt="" border="0" class="hcp1"></p>
+<h3><a name="MiniTOCBookMark5"></a>Component Properties</h3>
+<p>A component property is a global variable of a robot and its program. 
+ A default or general property can be referenced by name, whereas a grouped 
+ property needs to be referenced using the syntax <span class="Term">&lt;group 
+ name&gt;::&lt;property name&gt;</span>.</p>
+<p><img src="../../English/Links/AssignVariableComponentProperties.png" alt="" border="0" class="hcp1"></p>
+<h2><a name="MiniTOCBookMark6"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>TargetProperty</td>
+		<td>Defines the name of variable to assign a value.</td>
+	</tr>
+	<tr>
+		<td>ValueExpression</td>
+		<td>Defines an expression that when evaluated returns the value 
+		 to assign TargetProperty.</td>
+	</tr>
+</table>
+</body>
+</html>

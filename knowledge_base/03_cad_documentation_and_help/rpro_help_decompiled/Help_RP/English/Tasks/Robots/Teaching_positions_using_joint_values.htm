@@ -1,0 +1,37 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="forward kinematics,jog,joint position">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Teaching positions using joint values</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Teaching Positions using Joint Values</h1>
+<p>The Jog command and the Jog panel are used to teach a robot positions as well as configure the robot's joints. This includes external joints connected to the robot.</p>
+<ol>
+<li class="Ordered">On the <span class="Strong">Program</span> tab, in the <span class="Strong">Manipulation</span> group, click <span class="Strong">Jog</span>.</li>
+<li class="Ordered">Select the robot you want to program.</li>
+<li class="Ordered">In the <span class="Strong">Jog</span> panel, <span class="Strong">Robot</span> section, do all of the following:
+<ul style="list-style: disc;">
+<li class="Ordered">In <span class="Strong">Base</span>, click the base frame you want to reference.</li>
+<li class="Ordered">In <span class="Strong">Tool</span>, click the tool frame (tool center point) you want to reference.</li>
+<li class="Ordered">In <span class="Strong">Coordinates</span>, click the coordinate system you want to reference.</li>
+<li class="Ordered">In <span class="Strong">Configuration</span>, click an available joint configuration that you want to use or reference.</li>
+<li class="Ordered">In <span class="Strong">ExternalTCP</span>, click True if you need to use an external tool configuration, for example a tool frame in a component that will not move; otherwise leave the setting at False. Generally, some base and tool frames are designed specifically for an external tcp configuration. In those cases, the value of ExternalTCP would automatically update to reflect the intended use of the configured base frame and/or tool frame.</li>
+</ul>
+</li>
+<li class="Ordered">In the <span class="Strong">Joints</span> section, edit one or more joint properties. A slider is used to show the current value and soft limits for each joint in a robot.</li>
+<li class="Ordered">
+<p>In the <span class="Strong">Program Editor</span> panel, <span class="Strong">Statements</span> toolbar, create a statement for the type of motion that you want to use for the current position of robot. Generally, you would create a PTP statement or PTPHome statement to define a new Home position for the active robot.</p>
+</li>
+</ol>
+</body>
+</html>

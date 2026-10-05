@@ -1,0 +1,266 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcRslProcessHandler</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<p id="warning"><span class="Strong">(Deprecated)</span> use <a href="vcPythonProcessHandler.htm">vcPythonProcessHandler</a></p>
+<h1><a name="MiniTOCBookMark1"></a>vcRslProcessHandler</h1>
+<p>vcPythonProcessHandler is a behavior that allows you to define a custom 
+ robot statement written in Python. The process handler must to be connected 
+ to a robot's executor in order to be called using a <a href="vcRslProcessStatement.htm">vcRslProcessStatement</a> 
+ object.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot37050" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot37050', 'MTPOPUP37050');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP37050" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Icon</td>
+		<td><a href="vcBitMap.htm">vcBitMap</a></td>
+		<td>RW</td>
+		<td>Defines an icon for the process when referenced by a process 
+		 statement in the GUI.</td>
+	</tr>
+	<tr>
+		<td>Process</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name and id of process.</td>
+	</tr>
+	<tr>
+		<td>Script</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the executable Python code of process.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>condition</td>
+		<td>None</td>
+		<td>Function <span class="Italic">condition</span> [Real <span 
+		 class="Italic">timeout</span>]</td>
+		<td>Runs a conditional test that stops process execution until 
+		 a given function returns a True value. 
+		<p class="TableNormal">The given function can either be a lambda 
+		 function or one defined in Script.</p>
+		<p class="TableNormal">Evaluation of <span class="Italic">condition</span> 
+		 is done continuously.</p></td>
+	</tr>
+	<tr>
+		<td>delay</td>
+		<td>None</td>
+		<td>Real <span class="Italic">time</span></td>
+		<td>Executes timed delay during process execution.</td>
+	</tr>
+	<tr>
+		<td>getApplication</td>
+		<td><a href="vcApplication.htm">vcApplication</a></td>
+		<td>None</td>
+		<td>Returns the application object.</td>
+	</tr>
+	<tr>
+		<td>getComponent</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td>None</td>
+		<td>Returns the component containing the process handler.</td>
+	</tr>
+	<tr>
+		<td>getSimulation</td>
+		<td><a href="vcSimulation.htm">vcSimulation</a></td>
+		<td>None</td>
+		<td>Returns the simulation object.</td>
+	</tr>
+	<tr>
+		<td>getTrigger</td>
+		<td><a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td>None</td>
+		<td>Returns the object triggering an event in Script; otherwise 
+		 returns None. 
+		<p class="TableNormal">This method is only useful in a condition 
+		 function passed to condition() and triggerCondition() methods.</p>
+		<p class="TableNormal"><span class="Strong">Note:</span> A trigger, 
+		 for example, is a signal or action connected to process handler.</p></td>
+	</tr>
+	<tr>
+		<td>resumeRun</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Resumes the execution of a suspended OnRun() function.</td>
+	</tr>
+	<tr>
+		<td>suspendRun</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Stops the execution of an OnRun() function.</td>
+	</tr>
+	<tr>
+		<td>triggerCondition</td>
+		<td>None</td>
+		<td>Function <span class="Italic">condition</span>, [Real <span 
+		 class="Italic">timeout</span>]</td>
+		<td>Runs a conditional test, triggered during a simulation, that 
+		 stops process execution until a given function returns a True 
+		 value. 
+		<p class="TableNormal">The given function can either be a lambda 
+		 function or one defined in Script.</p>
+		<p class="TableNormal">Evaluation of condition is done each time 
+		 a trigger of process handler occurs during a simulation.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnContinue</td>
+		<td>None</td>
+		<td>Triggered when a simulation resumes running after being stopped.</td>
+	</tr>
+	<tr>
+		<td>OnDestroy</td>
+		<td>None</td>
+		<td>Triggered when an object is destroyed in 3D world.</td>
+	</tr>
+	<tr>
+		<td>OnEvaluate</td>
+		<td>None</td>
+		<td>Triggered when component feature tree of process handler is 
+		 rebuilt.</td>
+	</tr>
+	<tr>
+		<td>OnStatementExecute</td>
+		<td><a href="vcRslProgramExecutor.htm">vcRslProgramExecutor</a> 
+		 <span class="Italic">executor</span>, <a href="vcRslProcessStatement.htm">vcRslProcessStatement</a> 
+		 <span class="Italic">process_statement</span></td>
+		<td>Triggered when process statement referring to this process 
+		 handler is executed during a simulation. 
+		<p class="TableNormal">Time consuming methods, for example delay() 
+		 and condition(), may only be executed in this event handler or 
+		 in functions called from this event handler.</p>
+		<p class="TableNormal"><span class="Strong">Note:</span> A process 
+		 handler can only be executed at one given time, so multiple calls 
+		 to the same process will return immediately.</p></td>
+	</tr>
+	<tr>
+		<td>OnFinalize</td>
+		<td>None</td>
+		<td>Triggered when layout or component is being loaded in 3D world.
+		<p class="TableNormal">The event occurs, for example, when copying 
+		 a component, or loading a layout of components. The event is triggered 
+		 before the needed components are attached to the 3D world.</p></td>
+	</tr>
+	<tr>
+		<td>OnReset</td>
+		<td>None</td>
+		<td>Triggered when simulation is reset.</td>
+	</tr>
+	<tr>
+		<td>OnSignal</td>
+		<td><a href="vcSignal.htm">vcSignal</a> <span class="Italic">signal</span></td>
+		<td>Triggered when the value of a signal connected to process handler 
+		 is changing.</td>
+	</tr>
+	<tr>
+		<td>OnStart</td>
+		<td>None</td>
+		<td>Triggered at the start of a running simulation.</td>
+	</tr>
+	<tr>
+		<td>OnStatementAdd</td>
+		<td><p><a href="vcRslProcessStatement.htm">vcRslProcessStatement</a> 
+		 <span class="Italic">statement</span></p></td>
+		<td>Triggered when a process statement referring to this process 
+		 handler is created in robot program. 
+		<p class="TableNormal">Generally, this is used to initialize a 
+		 <a href="vcRslProcessStatement.htm">vcRslProcessStatement</a> 
+		 object referring to this process handler with new properties and 
+		 initial values.</p></td>
+	</tr>
+	<tr>
+		<td>OnStatementDialog</td>
+		<td><a href="vcRslProcessStatement.htm">vcRslProcessStatement</a> 
+		 <span class="Italic">statement</span></td>
+		<td>Triggered when there is an attempt to access properties dialog 
+		 of process statement referring to this process handler. 
+		<p class="TableNormal">In this case, you need to return True to 
+		 use standard properties dialog; otherwise return False.</p></td>
+	</tr>
+	<tr>
+		<td>OnStatementModified</td>
+		<td><a href="vcRslProcessStatement.htm">vcRslProcessStatement</a> 
+		 <span class="Italic">statement</span></td>
+		<td>Triggered after properties dialog of process statement referring 
+		 to this process handler is closed.</td>
+	</tr>
+	<tr>
+		<td>OnStatementRemove</td>
+		<td><a href="vcRslProcessStatement.htm">vcRslProcessStatement</a> 
+		 <span class="Italic">statement</span></td>
+		<td>Triggered when reference to process handler in a process statement 
+		 is removed.</td>
+	</tr>
+	<tr>
+		<td>OnStop</td>
+		<td>None</td>
+		<td>Triggered when simulation is stopped.</td>
+	</tr>
+</table>
+<p><span class="Strong">Notes:</span></p>
+<ul style="list-style: disc;">
+	<li class="Unordered">OnStatementAdd and OnStatementRemove are allowed 
+	 to change the process name of a statement, but doing so will not cause 
+	 any further calls to either event handler.</li>
+	<li class="Unordered">OnStatementAdd and OnStatementRemove must not 
+	 destroy a given statement.</li>
+</ul>
+<p>&#160;</p>
+<!--======================================Events========================================-->
+</body>
+</html>

@@ -1,0 +1,507 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="path statement,robot program,curve selection tool">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcPathStatement</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcPathStatement</h1>
+<p>A vcPathStatement is a type of robot statement that can execute a set 
+ of positions. It allows you to manage a large amount of data used for 
+ robot motion planning.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcStatement.htm">vcStatement</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot21016" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot21016', 'MTPOPUP21016');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP21016" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Path Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Schema Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark6" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark7" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Path Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Base</td>
+		<td><a href="vcBaseFrame.htm">vcBaseFrame</a></td>
+		<td>RW</td>
+		<td>Defines the base frame of the path statement.</td>
+	</tr>
+	<tr>
+		<td>FrameNameField</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the index of schema property used for labeling position 
+		 in 3D world. 
+		<p class="TableNormal">The schema property should be a string data 
+		 type.</p>
+		<p class="TableNormal">The default is -1. This means the position 
+		 will not be labeled with its custom name rather the number of 
+		 position in path.</p></td>
+	</tr>
+	<tr>
+		<td><p>FrameNameVisibleField</p></td>
+		<td><p>Integer</p></td>
+		<td><p>RW</p></td>
+		<td><p>Defines the index of schema property used for controlling 
+		 the visibility of position label in 3D world. </p>
+		<p class="TableNormal">The schema property should be a Boolean 
+		 data type.</p>
+		<p class="TableNormal">The default is -1. This means the labels 
+		 are visible.</p></td>
+	</tr>
+	<tr>
+		<td>ExternalTCP</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if external tcp mode is used for the path statement.</td>
+	</tr>
+	<tr>
+		<td>Positions</td>
+		<td><a href="vcPositionFrameIterator.htm">vcPositionFrameIterator</a></td>
+		<td>R</td>
+		<td>Gets an iterator for positions in the path statement. 
+		<p class="TableNormal">Each position is of type <a href="vcSchemaPositionFrame.htm">vcSchemaPositionFrame</a>.</p></td>
+	</tr>
+	<tr>
+		<td>ProcessHandler</td>
+		<td><a href="vcPythonProcessHandler.htm">vcPythonProcessHandler</a></td>
+		<td>RW</td>
+		<td>Defines the process handler used by robot to execute path statement.</td>
+	</tr>
+	<tr>
+		<td>SchemaProperties</td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td>Gets a list of schema properties for path statement. 
+		<p class="TableNormal">See &quot;Schema Properties&quot; section 
+		 for more information.</p></td>
+	</tr>
+	<tr>
+		<td>ShowReferenceFrames</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off visibility of positions marked as reference points.</td>
+	</tr>
+	<tr>
+		<td>Tool</td>
+		<td><a href="vcBaseFrame.htm">vcBaseFrame</a></td>
+		<td>RW</td>
+		<td>Defines the tool frame of the path statement.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Schema Properties</h2>
+<p>The positions of a vcPathStatement are linear motions and defined using 
+ schema properties, which are fields in a schema database (table) unique 
+ to each vcPathStatement object.</p>
+<h3><a name="MiniTOCBookMark4"></a>Default</h3>
+<p>By default, each path position (record) is defined by seven, built-in 
+ schema properties as well additional properties for any external joint 
+ values. Each built-in property is mapped to an internal Field property, 
+ for example Position is mapped to PositionField. The mapping is done by 
+ referencing the index of a schema property. For example, PositionField 
+ has a default value of 0 since Position is the first property/field in 
+ schema of path position. We recommend that you do not modify any internal 
+ Field properties for built-in schema properties.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>FrameVisible</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the visibility of the position in 3D world.</td>
+	</tr>
+	<tr>
+		<td>IsContinuous</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if robot motion to and from position should be one 
+		 continuous motion.</td>
+	</tr>
+	<tr>
+		<td>IsReference</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Indicates if position is used as reference for calculating 
+		 adjustments to path positions.</td>
+	</tr>
+	<tr>
+		<td>LineColor</td>
+		<td><a href="vcVector.htm">vcVector</a> 
+		<br>&#160;</td>
+		<td>RW</td>
+		<td>Defines the color of line to position.</td>
+	</tr>
+	<tr>
+		<td>LineVisible</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if line to position is visible in 3D world.</td>
+	</tr>
+	<tr>
+		<td>Position</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines the position matrix of position.</td>
+	</tr>
+	<tr>
+		<td>PositionStatus</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Indicates the status of position, for example whether or not 
+		 it is unreachable. 
+		<p class="TableNormal">Status is determined by three flags.</p>
+		<p class="TableNormal"><span class="Term">1</span><br>
+		Reachable</p>
+		<p class="TableNormal"><span class="Term">2</span><br>
+		Within joint limits of robot</p>
+		<p class="TableNormal"><span class="Term">4</span><br>
+		No singularity</p>
+		<p class="TableNormal">The default is 7. The status is not updated 
+		 automatically by application. You would need to manually test 
+		 the position as a <a href="vcMotionTarget.htm">vcMotionTarget</a> 
+		 object and evaluate configuration warnings. The configuration 
+		 warning and position status values are flipped, so a configuration 
+		 warning of 0 would be a status of 7.</p>
+		<p class="TableNormal">If you do not modify LineColor, the color 
+		 of position in 3D world will automatically be updated based on 
+		 PositionStatus. For example, green is reachable and red is unreachable.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Configuration_Warnings">Configuration 
+		 Warnings</a> constants for more information or review the example 
+		 in <a href="vcSchemaPositionFrame.htm">vcSchemaPositionFrame</a>.</p></td>
+	</tr>
+	<tr>
+		<td>E1 ... EN</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines one or more external joint values for the position.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark5"></a>Optional</h3>
+<p>If you add any of the following schema properties by name, the property 
+ will automatically be mapped to an internal Field property and affect 
+ a robot motioning to positions. The same recommendation applies to not 
+ modify the internal Field property.</p>
+<p><span class="Strong">Note:</span> If you create a Path statement using 
+ the GUI, MaxSpeed, Acceleration, Deceleration, AccuracyMethod and AccuracyValue 
+ will automatically be added as schema properties.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Acceleration</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum Cartesian acceleration of motion (units/s^2) 
+		 used to calculate target trajectory.</td>
+	</tr>
+	<tr>
+		<td>AccuracyMethod</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the zone of accuracy type to use for the position, 
+		 for example distance, time or velocity. 
+		<p class="TableNormal">See <a href="Constants.htm#Motion_Target_Constants">Motion 
+		 Target Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>AccuracyValue</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the limit used in AccuracyMethod.</td>
+	</tr>
+	<tr>
+		<td>AngularAcceleration</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum angular acceleration of motion (degrees/s^2) 
+		 used to calculate target trajectory.</td>
+	</tr>
+	<tr>
+		<td>AngularDeceleration</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum angular deceleration of motion (degrees/s^2) 
+		 used to calculate target trajectory.</td>
+	</tr>
+	<tr>
+		<td>Deceleration</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum Cartesian deceleration of motion (units/s^2) 
+		 used to calculate target trajectory.</td>
+	</tr>
+	<tr>
+		<td>MaxAngularSpeed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum angular speed (degrees/s^2) used to calculate 
+		 target trajectory.</td>
+	</tr>
+	<tr>
+		<td>MaxSpeed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum Cartesian speed (units/s) used to calculate 
+		 target trajectory.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark6"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addSchemaProperties</td>
+		<td>List of Integer</td>
+		<td>List of Enumeration <span class="Italic">type</span> and String 
+		 <span class="Italic">name</span></td>
+		<td>Adds a list of custom properties for each position in path 
+		 statement, and then returns a list of indices for the added properties 
+		 in SchemaProperties. 
+		<p class="TableNormal">The format for each new property is its 
+		 <span class="Italic">type</span> followed a given <span class="Italic">name</span>.</p></td>
+	</tr>
+	<tr>
+		<td>beginBatchUpdate</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">schema_size</span></td>
+		<td>Sets the initial amount of schema database entries, for example 
+		 100 entries for 100 path positions. This is done to allocate enough 
+		 memory for storing schema property values for each path position. 
+		 
+		<p class="TableNormal"><span class="Strong">Note:</span> This method 
+		 is required if there is no existing schema database. If the database 
+		 exists, this is optional.</p>
+		<p class="TableNormal" style="font-weight: bold;">Note: <span style="font-weight: normal;">Using 
+		 size value -1 doesn't allocate space for new schema items and 
+		 doesn't reset current data. It only blocks notify events when 
+		 items are updated between this call and EndBatchUpdate.</span></p></td>
+	</tr>
+	<tr>
+		<td>clearPositions</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Removes all positions from path statement, thereby removing 
+		 all schema database entries.</td>
+	</tr>
+	<tr>
+		<td>endBatchUpdate</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">schema_size</span></td>
+		<td>Sets the final amount of schema database entries, for example 
+		 96 entries for 96 path positions. This is done to not allocate 
+		 more memory than is needed to store schema property values for 
+		 each path position. </td>
+	</tr>
+	<tr>
+		<td>getSchemaSize</td>
+		<td>Integer</td>
+		<td>None</td>
+		<td>Returns the total amount of entries for schema database of 
+		 path statement.</td>
+	</tr>
+	<tr>
+		<td>getSchemaValue</td>
+		<td>&lt;Type&gt;</td>
+		<td>Integer <span class="Italic">position_index</span>, String 
+		 <span class="Italic">property_name</span></td>
+		<td>Returns the value of schema property for path position.</td>
+	</tr>
+	<tr>
+		<td>setSchemaValues</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">position_index</span>, String 
+		 <span class="Italic">property_name</span>, &lt;Type&gt; <span 
+		 class="Italic">value</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">Integer <span class="Italic">position_index</span>, 
+		 List of Integer <span class="Italic">property_indices</span>, 
+		 List of &lt;Type&gt; <span class="Italic">values</span></p></td>
+		<td>Sets one or more schema properties for path position. 
+		<p class="TableNormal"><span class="Strong">Note:</span> The method 
+		 should not be called when there are no rows in the schema database 
+		 or if the row's index value does not exist.</p></td>
+	</tr>
+	<tr>
+		<td>removeSchemaProperties</td>
+		<td>None</td>
+		<td>List of String <span class="Italic">property_names</span> 
+		<p class="TableNormal"><span>or</span></p>
+		<p class="TableNormal">List of <a href="vcProperty.htm">vcProperty</a><span 
+		 class="Italic"> properties</span></p></td>
+		<td>Removes properties referenced by <span class="Italic">property_names</span> 
+		 list or <span class="Italic">properties</span> list arguments 
+		 </td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark7"></a>Examples</h2>
+<p><span class="Example"><a name="PathStatementExample" id="PathStatementExample"></a>Example. 
+ Add path statement and populate position table</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>import vcMatrix 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>executor = comp.findBehaviour(&quot;Executor&quot;) 
+		<br>routine = executor.Program.MainRoutine 
+		<br>&#160; 
+		<br>#add path statement 
+		<br>path_statement = routine.addStatement('Path', 0) 
+		<br>&#160; 
+		<br>#clear path table 
+		<br>path_statement.clearPositions() 
+		<br>&#160; 
+		<br>#add schema properties/fields for table 
+		<br>my_props = [VC_MATRIX, &#160;&quot;Position&quot;,\ 
+		<br>VC_INTEGER, &quot;MotionType&quot;,\ 
+		<br>VC_INTEGER, &quot;OriginalIndex&quot;,\ 
+		<br>VC_REAL, &quot;Speed&quot;] 
+		<br>prop_indices = path_statement.addSchemaProperties(my_props) 
+		<br>&#160; 
+		<br>#add data to path table 
+		<br>path_statement.beginBatchUpdate(100) 
+		<br>for point_index in range(100): 
+		<br>&#160;&#160;position = vcMatrix.new() 
+		<br>&#160;&#160;motion_type = 1 
+		<br>&#160;&#160;speed = 200.0 
+		<br>&#160;&#160;position_values = (position, motion_type, point_index, speed) 
+		<br>&#160;&#160;path_statement.setSchemaValues(point_index, prop_indices, position_values) 
+		<br>&#160;&#160;path_statement.setSchemaValues(0, &quot;IsReference&quot;, True) 
+		<br>&#160;&#160;path_statement.setSchemaValues(99, &quot;IsReference&quot;, True) 
+		<br>path_statement.endBatchUpdate(100) 
+		<br>&#160; 
+		<br>path_handler = comp.getBehaviour(&quot;MyHandler&quot;) 
+		<br>path_statement.ProcessHandler = path_handler 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>app.SelectionManager.clear() 
+		<br>app.SelectionManager.setSelection(path_statement) 
+		<br>app.render()</td>
+	</tr>
+</table>
+<p><span class="Example"><a name="CustomNamePathPositions"></a>Example. 
+ Customize name of positions</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>import vcMatrix 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>rx = comp.findBehaviour(&quot;Executor&quot;) 
+		<br>mr = rx.Program.MainRoutine 
+		<br>&#160; 
+		<br>mr.clear() 
+		<br>path = mr.addStatement(&quot;Path&quot;) 
+		<br>&#160; 
+		<br>#add schema property for custom name 
+		<br>#assign the index of that property to FrameNameField 
+		<br>index = path.addSchemaProperties([VC_STRING,&quot;ExampleName&quot;])[0] 
+		<br>path.FrameNameField = index 
+		<br>&#160; 
+		<br>#this will label positions P1...P10 i.e. default labeling of positions 
+		<br>#path.FrameNameField = -1 
+		<br>&#160; 
+		<br>path.beginBatchUpdate(10) 
+		<br>for i in range(10): 
+		<br>&#160;&#160;#define position 
+		<br>&#160;&#160;position = vcMatrix.new() 
+		<br>&#160;&#160;position.translateAbs(1000,i*100,1000) 
+		<br>&#160;&#160;path.setSchemaValues(i,&quot;Position&quot;,position) 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;#frame of position must be visible, otherwise name is also hidden 
+		<br>&#160;&#160;path.setSchemaValues(i,&quot;FrameVisible&quot;,True) 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;#will label positions T1...T10 
+		<br>&#160;&#160;path.setSchemaValues(i,&quot;ExampleName&quot;,&quot;T&quot;+str(i+1)) 
+		<br>path.endBatchUpdate(10) 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>app.render()</td>
+	</tr>
+</table>
+<p><span class="Example"><a name="LabelVisibilityPathPositions"></a>Example. 
+ Toggle visibility of position labels</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>import vcMatrix 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>rx = comp.findBehaviour(&quot;Executor&quot;) 
+		<br>mr = rx.Program.MainRoutine 
+		<br>&#160; 
+		<br>mr.clear() 
+		<br>path = mr.addStatement(&quot;Path&quot;) 
+		<br>&#160; 
+		<br>index = path.addSchemaProperties([VC_BOOLEAN,&quot;ExampleNameVisible&quot;])[0] 
+		<br>path.FrameNameVisibleField = index 
+		<br>&#160; 
+		<br>path.beginBatchUpdate(10) 
+		<br>for i in range(10): 
+		<br>&#160;&#160;#define position 
+		<br>&#160;&#160;position = vcMatrix.new() 
+		<br>&#160;&#160;position.translateAbs(1000,i*100,1000) 
+		<br>&#160;&#160;path.setSchemaValues(i,&quot;Position&quot;,position) 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;#frame of position must be visible, otherwise name is also hidden 
+		<br>&#160;&#160;path.setSchemaValues(i,&quot;FrameVisible&quot;,True) 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;#frames are visible but not the labels 
+		<br>&#160;&#160;path.setSchemaValues(i,&quot;ExampleNameVisible&quot;,False) 
+		<br>path.endBatchUpdate(10) 
+		<br>app = getApplication() 
+		<br>app.render()</td>
+	</tr>
+</table>
+</body>
+</html>

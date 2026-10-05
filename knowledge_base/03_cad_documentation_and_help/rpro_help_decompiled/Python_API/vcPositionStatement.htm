@@ -1,0 +1,99 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="position, robot program, statement">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcPositionStatement</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcPositionStatement</h1>
+<p>vcPositionStatement is an abstract class used for creating robot positions 
+ executed by motion type statements. For example, you can create a custom 
+ statement by implementing a vcPositionStatement as a <a href="vcPythonProcessHandler.htm">process 
+ handler</a>.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcStatement.htm">vcStatement</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot35717" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot35717', 'MTPOPUP35717');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP35717" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Hierarchy</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Hierarchy</h2>
+<p style="margin-left: 40px;"><a href="vcPositionStatement.htm">vcPositionStatement</a></p>
+<p style="margin-left: 80px;"><a href="vcMotionStatement.htm">vcMotionStatement</a></p>
+<h2><a name="MiniTOCBookMark3"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Base</td>
+		<td><a href="vcBaseFrame.htm">vcBaseFrame</a></td>
+		<td>RW</td>
+		<td>Defines the base frame of the statement.</td>
+	</tr>
+	<tr>
+		<td>ExternalTCP</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if external tcp mode is used for the statement.</td>
+	</tr>
+	<tr>
+		<td>Positions</td>
+		<td>List of <a href="vcPositionFrame.htm">vcPositionFrame</a></td>
+		<td>R</td>
+		<td>Gets the list of positions in the statement.</td>
+	</tr>
+	<tr>
+		<td>Tool</td>
+		<td><a href="vcBaseFrame.htm">vcBaseFrame</a></td>
+		<td>RW</td>
+		<td>Defines the tool frame of the statement.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createPosition</td>
+		<td><a href="vcPositionFrame.htm">vcPositionFrame</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Creates a new position with a given <span class="Italic">name</span>.</td>
+	</tr>
+	<tr>
+		<td>deletePosition</td>
+		<td>None</td>
+		<td><a href="vcPositionFrame.htm">vcPositionFrame</a> <span class="Italic">position</span></td>
+		<td>Deletes a given <span class="Italic">position</span>.</td>
+	</tr>
+</table>
+</body>
+</html>

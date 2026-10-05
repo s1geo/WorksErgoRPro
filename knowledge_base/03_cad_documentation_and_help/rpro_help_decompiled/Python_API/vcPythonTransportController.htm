@@ -1,0 +1,307 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcPythonTransportController</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+span.hcp2 { font-weight:bold; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcPythonTransportController</h1>
+<p class="MsoNormal">This is a transport controller behavior that delegates 
+ the concrete implementation to user-made Python script(s), which allows 
+ creating specialized and custom transport controllers. The behaviour provides 
+ events and methods required to handle transport and work tasks. Python 
+ transport controller behaviours can be added to static components.</p>
+<p class="MsoNormal">The script implementation should subscribe to the 
+ OnBeginTransport and OnBeginWorkEx events. When these events are triggered, 
+ the script is expected to create tasks to some internal queue and process 
+ them asynchronously. Transport controllers must accept and handle all 
+ “assigned” transport and work tasks to completion, there is no task rejection 
+ or cancellation mechanism. If and how a transport controller uses separate 
+ resources for completing the tasks is entirely up to the specific implementation 
+ to decide.</p>
+<p class="MsoNormal">A transport task is considered done when the product 
+ instance is placed into the target component container. The target container 
+ and position should be queried from the target transport node using the 
+ method <a href="vcTransportNode.htm">vcTransportNode</a>.getTransportTarget(<a 
+	 href="vcProduct.htm">vcProduct</a> product).</p>
+<p class="MsoNormal">Work tasks need to be completed by calling the workDone 
+ method using the RequestId that was received in the OnBeginWorkEx event.</p>
+<p class="MsoNormal">Transport controllers get an event when the controller 
+ is assigned as an implementer of a transport link, and similarly when 
+ a link is assigned some other controller. These events (OnLinkAssociated 
+ and OnLinkDisassociated) allow the controller to create any custom properties 
+ into all transport links it implements.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcTransportController.htm">vcTransportController</a>, 
+ <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<p>Type constant: VC_PYTHONTRANSPORTCONTROLLER</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot38573" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot38573', 'MTPOPUP38573');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP38573" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><p>Icon </p></td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p>The icon file used to represent this transport controller 
+		 in UI.</p>
+		<p>Defines either filesystem path to the SVG image file or an SVG 
+		 path data. Both relative and absolute paths with/without .svg 
+		 extension are allowed. Relative paths are relative to the Icons 
+		 or Icons. Additional folder under VC installation folder.</p>
+		<p>Example: “UPM/pDroneTransportController”</p></td>
+	</tr>
+	<tr>
+		<td>IconColor </td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p>Fill color applied to the of the Icon in ARGB, RGB or unqualified-color-name 
+		 format.</p>
+		<p>(e.g. #FFFF0000 or #FF0000 or Red)</p></td>
+	</tr>
+	<tr>
+		<td>IsSystem </td>
+		<td>Boolean </td>
+		<td>R</td>
+		<td><p>Always returns False.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>workDone </td>
+		<td>None</td>
+		<td>Integer <span class="hcp1">workId</span> </td>
+		<td><p>Notifies the Work statement that work has been done so the 
+		 process can continue executing.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>LinkAssociated</td>
+		<td><p><a href="vcTransportLink.htm">vcTransportLink</a> <span class="hcp1">link</span></p></td>
+		<td><p><span class="Strong">(Deprecated)</span> Use OnLinkAssociated.</p></td>
+	</tr>
+	<tr>
+		<td>LinkDisassociated</td>
+		<td><p><a href="vcTransportLink.htm">vcTransportLink</a> <span class="hcp1">link</span></p></td>
+		<td><p><span class="Strong">(Deprecated)</span> Use OnLinkDisassociated.</p></td>
+	</tr>
+	<tr>
+		<td>OnBeginTransport </td>
+		<td><p>List of 2-tuple (<a href="vcTransportLink.htm">vcTransportLink</a> 
+		 <span class="hcp1">link, </span><a href="vcProduct.htm">vcProduct</a> 
+		 <span class="hcp1">product</span>)</p></td>
+		<td><p>Triggered when the transport controller is asked to transport 
+		 one or more products. Each product should be transported to the 
+		 Destination node of the respective transport link.</p></td>
+	</tr>
+	<tr>
+		<td><p>OnBeginWork</p></td>
+		<td><p>Integer <span class="hcp1">workId</span>, 
+		 </p>
+		<p><a href="vcProperty.htm">vcProperty</a> <span class="hcp1">processTime</span>,</p>
+		<p><a href="vcMatrix.htm">vcMatrix</a> <span class="hcp1">resourcePosition</span>,</p>
+		<p style="font-style: italic;"><a href="vcMatrix.htm" style="font-style: normal;">vcMatrix</a> 
+		 workPosition</p></td>
+		<td><p><span class="hcp2">(DEPRECATED)</span> Use 
+		 the extended version OnBeginWorkEx instead.</p>
+		<p>Triggered when a Work statement gets executed. workDone with 
+		 correct workId must be called at some point for Work statement 
+		 to continue execution. If a handler is not registered, Work statement 
+		 might wait indefinitely.</p>
+		<p><span class="hcp1">workId</span> is a unique 
+		 (within this transport controller) identifier of this work assignment.</p>
+		<p><span class="hcp1">processTime</span> is a property 
+		 that defines how long the work itself should take in seconds.</p>
+		<p><span class="hcp1">resourcePosition</span> defines 
+		 a position hint in world coordinates where the working resource 
+		 is expected to be while doing the work.</p>
+		<p><span class="hcp1">workPosition</span> defines 
+		 a position hint in world coordinates where the actual work is 
+		 expected to happen.</p></td>
+	</tr>
+	<tr>
+		<td><p><a name="OnBeginWorkEx"></a>OnBeginWorkEx</p></td>
+		<td><p><a href="vcDataContainer.htm">vcDataContainer</a> <span class="hcp1">arguments</span></p></td>
+		<td><p>Triggered when a Work statement gets executed. workDone 
+		 with correct request id must be called at some point for Work 
+		 statement to continue execution. If a handler is <span class="hcp2">not</span> 
+		 registered, Work statement might wait indefinitely.</p>
+		<p>The arguments object has the following attributes:<br>
+		</p>
+		<table class="Property" cellspacing="0px" width="100%">
+			<col style="width: 25%;">
+			<col style="width: 25%;">
+			<col style="width: 25%;">
+			<col style="width: 25%;">
+			<tr class="t1st">
+				<td>Name</td>
+				<td>Type</td>
+				<td>Access</td>
+				<td>Description</td>
+			</tr>
+			<tr>
+				<td>RequestId</td>
+				<td>Integer</td>
+				<td>R</td>
+				<td><p>Unique (within this transport controller) identifier 
+				 of this work assignment.</p></td>
+			</tr>
+			<tr>
+				<td>RequestingProcess</td>
+				<td><a href="vcProcessRoutine.htm">vcProcessRoutine</a></td>
+				<td>R</td>
+				<td><p>The process implementation that requested this work.</p></td>
+			</tr>
+			<tr>
+				<td>ProcessTime</td>
+				<td>Real</td>
+				<td>R</td>
+				<td><p>A value that defines how long the work itself should 
+				 take in seconds.</p></td>
+			</tr>
+			<tr>
+				<td>ResourcePositionMatrix</td>
+				<td><a href="vcMatrix.htm">vcMatrix</a></td>
+				<td>R</td>
+				<td><p>Position hint in world coordinates where the actual 
+				 work is expected to happen.</p></td>
+			</tr>
+			<tr>
+				<td>WorkPositionMatrix</td>
+				<td><a href="vcMatrix.htm">vcMatrix</a></td>
+				<td>R</td>
+				<td><p>Position hint in world coordinates where the working 
+				 resource is expected to be while doing the work.</p></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td>OnLinkAssociated</td>
+		<td><a href="vcTransportLink.htm">vcTransportLink</a> <span class="hcp1">link</span></td>
+		<td>Raised when a transport link is associated with this controller. 
+		 If a handler is not registered, the default internal implementation 
+		 is called. </td>
+	</tr>
+	<tr>
+		<td>OnLinkDisassociated</td>
+		<td><p><a href="vcTransportLink.htm">vcTransportLink</a> <span class="hcp1">link</span></p></td>
+		<td>Raised when a transport link is disassociated from this controller. 
+		 If a handler is not registered, the default internal implementation 
+		 is called. </td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a>Examples</h2>
+<p><span class="Example">Example. Defining Custom-Made Transport Controller</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col>
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br># Minimal transport controller script. 
+		<br># Product simply jumps to the target container and position 
+		<br># transportation time is defined in transport link property MyTime 
+		<br>&#160; 
+		<br>&#160; 
+		<br>def transport_request_event(request_list): 
+		<br>&#160;&#160;# Event executed when transportation is requested from this controller 
+		<br>&#160;&#160;for transport_link, product in request_list: 
+		<br>&#160;&#160;&#160;&#160;queue.append([transport_link, product]) 
+		<br>&#160;&#160;trigger.signal(True) # dummy boolean signal connected to the script to trigger condition in onrun 
+		<br>&#160; 
+		<br>&#160; 
+		<br>def OnStart(): 
+		<br>&#160;&#160;global queue 
+		<br>&#160;&#160;queue = [] 
+		<br>&#160;&#160; 
+		<br>&#160;&#160; 
+		<br>def OnRun(): 
+		<br>&#160;&#160;while True: 
+		<br>&#160;&#160;&#160;&#160;condition(lambda: queue) 
+		<br>&#160;&#160;&#160;&#160;transport_link, product = queue.pop(0) 
+		<br>&#160;&#160;&#160;&#160;destination = transport_link.Destination # additional info can be accessed via trasportlink 
+		<br>&#160;&#160;&#160;&#160;target_container = destination.ComponentContainer 
+		<br>&#160;&#160;&#160;&#160;target_matrix = destination.getTransportTarget(product).ProductPosition 
+		<br>&#160;&#160;&#160;&#160;part = product.Component 
+		<br>&#160;&#160;&#160;&#160;delay(transport_link.MyTime) 
+		<br>&#160;&#160;&#160;&#160;sim.World.attach(part) # attach to world as matrix is given in world coords 
+		<br>&#160;&#160;&#160;&#160;part.PositionMatrix = target_matrix 
+		<br>&#160;&#160;&#160;&#160;target_container.grab(part) 
+		<br>def link_associated_event(transport_link): 
+		<br>&#160;&#160;prop = transport_link.createProperty(VC_REAL, 'MyTime') 
+		<br>def link_disassociated_event(transport_link): 
+		<br>&#160;&#160;prop = transport_link.getProperty('MyTime') 
+		<br>&#160;&#160;if prop: 
+		<br>&#160;&#160;&#160;&#160;transport_link.deleteProperty(prop) 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>sim = getSimulation() 
+		<br>trigger = comp.findBehaviour('TriggerSignal') 
+		<br>transport_controller = comp.findBehaviour('PythonTransportController') 
+		<br>transport_controller.OnBeginTransport = transport_request_event 
+		<br>transport_controller.LinkAssociated = link_associated_event 
+		<br>transport_controller.LinkDisassociated = link_disassociated_event 
+		<br>&#160; 
+		<br>#creating product properties that not supported in UI 
+		<br># 1. create a distribution property to a product type 
+		<br># 2. during simulation, take a sample of the distribution 
+		<br># 3. use that sample value to a Real type property in the Product instance. 
+		<p>&#160;</p></td>
+	</tr>
+</table>
+</body>
+</html>

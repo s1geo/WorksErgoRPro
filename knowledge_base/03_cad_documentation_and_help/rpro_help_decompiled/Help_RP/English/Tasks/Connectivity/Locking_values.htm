@@ -1,0 +1,60 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="locking,connectivity,variable group">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+ 
+<title>Locking values</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Locking Values</h1>
+<p>Locking allows you to set fixed values for variable pairs. The fixed 
+ or locked value is used when the source and destination variables in the 
+ pair synchronize with one another. The values of simulation and server 
+ variables in the pair can change during a simulation, but when they synchronize 
+ with one another, the fixed value, not the value of the source variable, 
+ is used to update the destination variable.</p>
+<p>This is helpful for manually testing scenarios and specific control 
+ signal values. For example, you could test and simulate the result of 
+ sensor failure as well as a condition where a motor is never turned off. 
+ Note that you can lock and unlock values during a simulation.</p>
+<p><img src="../../Links/LockValuesEN.png" alt="" style="border: none;" border="0"></p>
+<p>To lock/unlock a value:</p>
+<ol>
+	<li class="Ordered">Select the variable pairs you want to lock.</li>
+	<li class="Ordered">Right-click, and then do one of the following:</li>
+	<ul style="list-style: disc;">
+		<li class="Unordered">To lock the value, click <span class="Strong">Lock 
+		 Selected</span>. The value of the simulation variable is used 
+		 as the fixed value.</li>
+		<li class="Unordered">To unlock the value, click <span class="Strong">Unlock 
+		 Selected</span>. This means the value of the source variable is 
+		 used to update the destination variable.</li>
+		<li class="Unordered">To lock using a prepared value, click <span 
+		 class="Strong">Lock Prepared Values</span>. This means the value 
+		 in the Prepared value column is used as the fixed value. Generally, 
+		 this is used to set the value of a variable that is constantly 
+		 changing.</li>
+	</ul>
+</ol>
+<p>To edit a prepared value:</p>
+<ol>
+	<li class="Ordered">Double-click the cell in the Prepared value column.</li>
+	<li class="Ordered">Input the value. If the variable type is Boolean, 
+	 click the cell to set either a true or false value.</li>
+	<li class="Ordered">Repeat steps 1 and 2 as needed for other variable 
+	 pairs.</li>
+	<li class="Ordered">Right-click, and then click <span class="Strong">Write 
+	 Prepared Values</span>. Values in the Prepared value column are then 
+	 assigned to simulation variables.</li>
+</ol>
+</body>
+</html>

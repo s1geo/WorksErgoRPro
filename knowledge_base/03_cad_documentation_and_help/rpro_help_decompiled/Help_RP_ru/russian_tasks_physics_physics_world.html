@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Мир физики</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="В Рациональном Производстве в трехмерной среде существует мир симуляции и мир физики. Такое сосуществование позволяет компонентам действовать независимо от физических сил...." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Мир физики&nbsp;</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">В Рациональном Производстве в трехмерной среде существует мир симуляции и мир физики. Такое сосуществование позволяет компонентам действовать независимо от физических сил. Кроме того, компоненты могут перемещаться в мир симуляции и из него в мир физики. Обычно это происходит, когда компоненты прикреплены к физическому объекту или содержатся в нем, например, поведение Physics Path.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Моделирование физики</span></h2>
+<p class="p_Normal">Эффекты физического мира отключены, когда вы не запускаете симуляцию. Следовательно, симуляция должна быть запущена, чтобы активировать физику и силы, влияющие на физические объекты и свойства в трехмерной среде. Эффекты, которые физика оказала на физические объекты, отменяются при сбросе симуляции. Например, статические компоненты будут возвращены в исходное состояние в начале симуляции.</p>
+<p class="p_Normal">Физика, смоделированная в Рациональном Производстве, не должна восприниматься как реалистичная, а скорее является приближением, которое пытается отобразить условия и результаты реального мира. В Рациональном Производстве используется физический движок. <a href="http://docs.nvidia.com/gameworks/content/gameworkslibrary/physx/guide/Manual/Index.html" target="_blank" class="weblink">Nvidia PhysX</a>.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Твердые тела</span></h2>
+<p class="p_Normal">Если узел в компоненте имеет поведение<span style="font-weight: bold;"> Физический объект</span> (Physics Entity), вы можете определить, как этот узел относится к миру симуляции и физики, отредактировав его свойство Physics Type.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">#В физике</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Узел и его геометрия содержатся в физическом мире.</p>
+<p class="p_Normal">В этом режиме на узел будет воздействовать сила тяжести. Например, компонент будет падать в зависимости от направления силы тяжести.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">#Вне Физики</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Узел и его геометрия содержатся в мире симуляции.</p>
+<p class="p_Normal">Как правило, этот режим используется для отключения эффектов физики, которые могут оказывать воздействие на компонент и любой из его узлов.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">#Кинематический</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Узел и его геометрия содержатся в физическом мире и игнорируют внутренние силы. То есть сила тяжести не будет воздействовать на узел.</p>
+<p class="p_Normal">Как правило, этот режим используется, когда узел и его соединение управляются контроллером или пневматической системой.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">#В Контейнере</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Узел и его геометрия являются частью физического мира и могут отслеживаться как объекты в контейнерах.</p>
+<p class="p_Normal">Хотя эффекты этого режима аналогичны #В физике, преимущество заключается в том, что система трехмерной среды может распознавать перемещение физических объектов в контейнеры и из них.</p>
+<p class="p_Normal">В некоторых случаях может потребоваться избежать отслеживания компонентов при их перемещении из одного контейнера в другой во время симуляции. В других случаях вы можете захотеть оптимизировать физику компонента и его узлов для обработки материалов, транспортировки и других случаев, подходящих для локализации и отслеживания.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

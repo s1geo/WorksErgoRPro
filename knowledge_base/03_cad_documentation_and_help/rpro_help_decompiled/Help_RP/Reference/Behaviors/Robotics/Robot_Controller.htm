@@ -1,0 +1,128 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="robot controller,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Robot Controller</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Robot Controller</h1>
+<p>A Robot Controller allows you to configure and control a robot's mechanisms.</p>
+<p><img src="../../../English/Links/RobotController.png" alt="" border="0" class="hcp1"></p>
+<p>Base and tool frames of a Robot Controller are listed with the behavior in the Component Graph panel.</p>
+<p><img src="../../../English/Links/RobotControllerFrames.png" alt="" border="0" class="hcp1"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Defines the name of the controller.</td>
+</tr>
+<tr>
+<td>Joints</td>
+<td>Defines a list of joints defined in nodes used by the controller.</td>
+</tr>
+<tr>
+<td>UseHeartbeat</td>
+<td>Turns on/off the use of a pulse to drive events.</td>
+</tr>
+<tr>
+<td>HeartbeatTime</td>
+<td>Defines the time between each pulse (in seconds) if UseHeartbeat is enabled.</td>
+</tr>
+<tr>
+<td>RootNode</td>
+<td>Defines the link/node that acts as the base of the mechanical structure.</td>
+</tr>
+<tr>
+<td>FlangeNode</td>
+<td>If you are using an external axis system, defines the link/node used as a mounting plate for other kinematic structures. If you are using a track, defines the link/node used as the carriage.</td>
+</tr>
+<tr>
+<td>RootOffset</td>
+<td>Defines an offset from RootNode origin in the kinematics. Generally, this is used to start kinematics from the center of a node instead of its side.</td>
+</tr>
+<tr>
+<td>FlangeOffset</td>
+<td>Defines an offset from FlangeNode origin in order to properly mount other kinematic structures.</td>
+</tr>
+<tr>
+<td>InitialBase</td>
+<td>Defines the default base frame in the controller.</td>
+</tr>
+<tr>
+<td>InitialTool</td>
+<td>Defines the default tool frame in the controller.</td>
+</tr>
+<tr>
+<td>Kinematics</td>
+<td>Defines the kinematics solver (behavior) used to calculate and provide inverse kinematics related properties to the controller.</td>
+</tr>
+<tr>
+<td>MaxCartesianSpeed</td>
+<td>Defines the maximum Cartesian speed used for linear interpolation.</td>
+</tr>
+<tr>
+<td>MaxCartesianAccel</td>
+<td>Defines the maximum Cartesian acceleration used for linear interpolation.</td>
+</tr>
+<tr>
+<td>MaxAngularSpeed</td>
+<td>Defines the maximum angular speed used for linear interpolation.</td>
+</tr>
+<tr>
+<td>MaxAngularAccel</td>
+<td>Defines the maximum angular acceleration used for linear interpolation.</td>
+</tr>
+<tr>
+<td>LagTime</td>
+<td>Defines the time lag used for linear interpolation.</td>
+</tr>
+<tr>
+<td>SettleTime</td>
+<td>Defines the settling time used for linear interpolation.</td>
+</tr>
+<tr>
+<td>OrientationInterpolationMode</td>
+<td>Defines a mode for calculating the robot's orientation during linear motions in which the rotational values of the robot are based around one, two or three axes.
+<p class="TableNormal"><span class="Term">One Axis</span> uses an axis with the smallest angle of rotation for the current tool center point.</p>
+<p class="TableNormal"><span class="Term">Two Axis</span> uses one of the XYZ axes and its direction at the current tool center point. In this mode, the angle of rotation for the selected axis is applied first, and then other rotations are based around that axis.</p>
+<p class="TableNormal"><span class="Term">Three Axis</span> interpolates either the yaw, pitch and roll (WPR) or Euler angles (ZYZ) of a position, and then calculates a sequence of rotations for the robot.</p>
+</td>
+</tr>
+<tr>
+<td>ConfigurationMode</td>
+<td>Defines the mode for determining the robot's configuration during linear motion interpolation.
+<p class="TableNormal"><span class="Term">Fixed</span> uses the robot's current configuration to reach a position.</p>
+<p class="TableNormal"><span class="Term">Follow frame</span> tries to maintain the robot's current configuration, so small changes may occur to reach a position.</p>
+<p class="TableNormal"><span class="Term">Interpolate joint values</span> means the robot uses a configuration based on a point-to-point interpolation of its joints to reach a position.</p>
+</td>
+</tr>
+<tr>
+<td>TrackWorldFrameMode</td>
+<td>Defines the robot's World frame when the robot is mounted on a track.
+<p class="TableNormal"><span class="Term">TrackOrigin</span> places the World frame at the track's origin.</p>
+<p class="TableNormal"><span class="Term">RobotWorldFrame</span> retains the position of the World frame in the robot.</p>
+</td>
+</tr>
+</table>
+</body>
+</html>

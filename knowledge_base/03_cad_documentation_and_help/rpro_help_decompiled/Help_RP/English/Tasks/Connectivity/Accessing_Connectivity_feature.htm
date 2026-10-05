@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Accessing Connectivity feature</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content=connectivity,PLC,server>
+<META name=generator content="Adobe RoboHelp 2017"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+
+<STYLE title=hcp type=text/css>
+<!--
+p.hcp1 { margin-left:20px; }
+p.hcp2 { margin-left:40px; }
+ul.hcp3 { list-style:disc; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>Accessing Connectivity Feature</H1>
+<P>The Connectivity feature and its commands can be accessed from a Connectivity 
+tab that appears above the Ribbon. If the Connectivity tab is not visible, you 
+either need to enable the feature or restart R-Pro 2.1.</P>
+<DIV class=Contents>
+<P align=left>Contents&nbsp;<A id=MTHotSpot18568 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot18568', 'MTPOPUP18568');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP18568 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">Commands</A></P>
+<P align=left><A href="#MiniTOCBookMark3">Panels</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>Commands</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Add Group</TD>
+    <TD>Adds and lists a new variable group with a selected connection.</TD></TR>
+  <TR>
+    <TD>Add Server</TD>
+    <TD>Adds a new connection for a selected plugin.</TD></TR>
+  <TR>
+    <TD>Add Variables</TD>
+    <TD>Opens an editor for connecting simulation variables to server 
+      variables.</TD></TR>
+  <TR>
+    <TD>Clear</TD>
+    <TD>Removes all connections for each plugin.</TD></TR>
+  <TR>
+    <TD>Disconnect</TD>
+    <TD>Disconnects R-Pro 2.1 from a selected connection.</TD></TR>
+  <TR>
+    <TD>Edit Connection</TD>
+    <TD>Displays options in a task pane for editing or troubleshooting a 
+      selected connection.</TD></TR>
+  <TR>
+    <TD>Export</TD>
+    <TD>Exports the configuration of all connections in an XML format.</TD></TR>
+  <TR>
+    <TD>Import</TD>
+    <TD>Imports an XML or CFG file that defines the configuration of one or 
+      more connections.</TD></TR>
+  <TR>
+    <TD>Reconnect</TD>
+    <TD>Attempts to reconnect R-Pro 2.1 to a selected connection.</TD></TR>
+  <TR>
+    <TD>(Server) Remove</TD>
+    <TD>Removes a selected connection.</TD></TR>
+  <TR>
+    <TD>(Variable) Remove</TD>
+    <TD>Removes a selected variable group.</TD></TR>
+  <TR>
+    <TD>Restore Windows</TD>
+    <TD>Restores the workspace of current view to its default setting.</TD></TR>
+  <TR>
+    <TD>Show</TD>
+    <TD>Displays a list of panels that can be shown/hidden from the current 
+      view of workspace.</TD></TR>
+  <TR>
+    <TD>Show Variables</TD>
+    <TD>Shows a panel for managing the connection between simulation and 
+      server variables.</TD></TR></TBODY></TABLE>
+<H2><A name=MiniTOCBookMark3></A>Panels</H2>
+<H3><A name=MiniTOCBookMark4></A>Connectivity Configuration</H3>
+<P>The Connectivity Configuration panel allows you to manage connections for 
+supported plugins. The structure of content in the Connectivity panel is as 
+follows:</P>
+<UL class=hcp3>
+  <LI class=Unordered><SPAN class=Strong>Level 1 - Plugin</SPAN>. This refers to 
+  a communication protocol supported by R-Pro 2.1 used for connecting a PLC or 
+  server. Currently, you can establish connections using Beckhoff ADS and OPC UA 
+  protocols. If you are using Beckhoff ADS, you must either install a TC1000 
+  package or have a full TwinCAT 3 installation on the device running R-Pro 2.1. 
+  Otherwise, you will not be able to establish a connection to a TwinCAT 2/3 
+  PLC. In most cases, the ADS libraries are installed with a PLC, so a 
+  workaround is to run R-Pro 2.1 and the TwinCAT PLC on the same device. 
+  <LI class=Unordered><SPAN class=Strong>Level 2 - Connection</SPAN>. This is an 
+  added connection for a PLC or server using a plugin. Listed with every 
+  connection is a button that you can use to turn on/off the connection. 
+  <LI class=Unordered><SPAN class=Strong>Level 3 - Variable Group</SPAN>. This a 
+  group of variables for a connection that allows you to pair (map) variables of 
+  components in the 3D world to variables of a PLC/server on the other side of 
+  the connection. Listed with every variable group is a data flow arrow, an 
+  update mode indicator, and a button for turning on/off the variable group. A 
+  <SPAN class=Italic>data flow arrow</SPAN> is set by the Transmission direction 
+  property of a variable group and can be <SPAN class=Italic>Simulation to 
+  server</SPAN> (right arrow, sends out simulation variable values) or <SPAN 
+  class=Italic>Server to simulation</SPAN> (left arrow, reads in server variable 
+  value). The <SPAN class=Italic>update mode indicator</SPAN> is set by the 
+  Update mode property of a variable group and can be <SPAN 
+  class=Italic>cyclic</SPAN> (updates data using time set by Cyclic update 
+  interval property of variable group) or <SPAN class=Italic>event-based</SPAN> 
+  (updates data when there is a change in value for a variable in the group). By 
+  default, every new connection has two variable groups for reading in and 
+  sending out variable values. </LI></UL>
+<H3><A name=MiniTOCBookMark5></A>Connected Variables</H3>
+<P>The Connected Variables panel allows you to manage and debug issues related 
+to the pairing of simulation and server variables in all connections. The top 
+and middle sections of the Connected Variables panel contain a table related to 
+paired variables. The bottom section of the Connected Variables panel contains 
+two sets of controls on opposing ends.</P>
+<H4><A name=MiniTOCBookMark6></A>Variable Pair Table</H4>
+<P>The table contains column headers which are split into two fields. The first 
+field is the column header name, and the second field contains column filtering 
+and sorting options.</P>
+<UL class=hcp3>
+  <LI class=Unordered><SPAN class=Strong>Structure</SPAN>. Lists a connection 
+  with its variable groups and paired variables. By default, the name of a 
+  variable pair is the name of its simulation variable. You can click a variable 
+  pair field to edit its name. 
+  <LI class=Unordered><SPAN class=Strong>Simulation variable</SPAN>. &nbsp;The 
+  id of a paired simulation variable, which is defined by the level of the 
+  variable in its component's hierarchy. An id may contain up to four parts and 
+  uses a dot separator. The first part of an id is a <SPAN 
+  class=Italic>component name</SPAN>, which is colored red and always included 
+  in the id. A <SPAN class=Italic>DOF</SPAN> name, which is colored green, may 
+  follow and is used to identify joint properties. A <SPAN 
+  class=Italic>behavior</SPAN> or <SPAN class=Italic>signal name</SPAN> is 
+  colored green. A <SPAN class=Italic>property name</SPAN> is colored blue. 
+  <LI class=Unordered><SPAN class=Strong>Simulation type</SPAN>. The data type 
+  of a paired simulation variable, which is indicated by an icon. 
+  <LI class=Unordered><SPAN class=Strong>Simulation value</SPAN>. The current 
+  value of a paired simulation variable. Real values are shown with maximum 
+  precision, and the field of a Boolean value is highlighted with either a TRUE 
+  or FALSE value. 
+  <LI class=Unordered><SPAN class=Strong>Prepared value</SPAN>. The value you 
+  want to assign a paired simulation variable. All prepared values are assigned 
+  at once using the Write Prepared Values command or its shortcut, which you can 
+  access by right-clicking anywhere in the table. In some cases, you would 
+  assign prepared values to debug the behavior of a simulation. 
+  <LI class=Unordered><SPAN class=Strong>Latest value</SPAN>. The most recent 
+  value of a paired simulation variable based on the last successful sync with 
+  its server variable counterpart. For server to simulation, the value is the 
+  result of a conversion to the simulation variable's data type. For simulation 
+  to server, the value is converted to a .NET data type that is the closest 
+  match to the server variable's data type. The current and latest value of a 
+  paired simulation variable may differ in two ways. First, the current value 
+  can update faster than a value set to or received from a connection. Second, 
+  the value conversion between integer, double and float data types may reduce 
+  precision. 
+  <LI class=Unordered><SPAN class=Strong>Status</SPAN>. Any error associated 
+  with the variable pair. You can point at an error to get a short description 
+  about the error. 
+  <LI class=Unordered><SPAN class=Strong>Server variable</SPAN>. The id of a 
+  paired server variable in a readable format, which depends on the plugin of 
+  the connection. For example, an OPC UA connection would show the variable node 
+  name and any array index value (Example[0]) if the variable node is found on 
+  the main OPC UA server. For a Beckhoff ADS connection, a variable name would 
+  be its full textual id. 
+  <LI class=Unordered><SPAN class=Strong>Server type</SPAN>. The data type of a 
+  paired server variable using terminology specific to the PLC or server 
+  connection. This is provided in order to id potential value conversion errors. 
+  </LI></UL>
+<H4><A name=MiniTOCBookMark7></A>Performance Statistics</H4>
+<P>The left-side set of controls are indicators for <SPAN 
+class=Italic>performance statistics</SPAN>, which include:</P>
+<UL class=hcp3>
+  <LI class=Unordered><SPAN class=Strong>Average update time</SPAN>. The average 
+  amount of time it took to process an update for a variable pair. 
+  <LI class=Unordered><SPAN class=Strong>Average plugin time</SPAN>. The average 
+  amount of time it took the plugin to process an update for a variable pair. 
+  <LI class=Unordered><SPAN class=Strong>Max update time</SPAN>. The maximum 
+  amount of time it took to process an update for a variable pair. 
+  <LI class=Unordered><SPAN class=Strong>Max plugin time</SPAN>. The maximum 
+  amount of time it took the plugin to process an update for a variable pair. 
+  <LI class=Unordered><SPAN class=Strong>Pairs with errors</SPAN>. The number of 
+  variable pairs with an error status. This value will never exceed the total 
+  number of variable pairs you have for your current session. 
+  <LI class=Unordered><SPAN class=Strong>Errors on this run</SPAN>. The total 
+  number of errors that occurred in current or last simulation. </LI></UL>
+<P><SPAN class=Italic>Update time</SPAN> covers the entire process of changing a 
+simulation variable to confirmation from a PLC/server that the value was written 
+for that update. Time may start from each tick in a cyclic update timer or a 
+value change event received by the simulation from a PLC/server.</P>
+<P><SPAN class=Strong>Note:</SPAN> An event-based update from server to 
+simulation would not include the latency or communication delay in the server, 
+data transfer over the network, and inside the library used by R-Pro 2.1 for 
+implementing the plugin connection.</P>
+<P><SPAN class=Italic>Plugin time</SPAN> is a subset of total update time and 
+only includes the time spent by the plugin itself. Generally, plugin time is 
+closer to the communication delay R-Pro 2.1 has with a PLC/server. Plugin time 
+excludes the delays from synchronization with a simulation thread, for examples 
+spikes from rendering the 3D world that would pause all other processes.</P>
+<P><SPAN class=Strong>Technical:</SPAN> Statistics are calculated at 10Hz, but 
+variables may update at 1000Hz. Each update operation for a variable pair is 
+tracked separately and includes timing information. For example, you may get 
+1000 times the total number of variable pairs worth of timing data each second. 
+The calculation itself uses the latest available timing values for each variable 
+pair. Some variable pairs may have gone through several updates in between each 
+statistics update, while others none, which is why only the latest value is 
+stored and used in averages.</P>
+<H4><A name=MiniTOCBookMark8></A>Variable Pair Options</H4>
+<P>The right-side set of controls are commands manipulating variable pairs 
+listed in the table.</P>
+<UL class=hcp3>
+  <LI class=Unordered><SPAN class=Strong>Add Variable Pairs</SPAN>. Same as Add 
+  Variables command listed in the Ribbon. 
+  <LI class=Unordered><SPAN class=Strong>Write Prepared Values</SPAN>. Sets the 
+  current value of a variable pair to its prepared value. This is done for all 
+  variable pairs. 
+  <LI class=Unordered><SPAN class=Strong>Move Variables</SPAN>. Allows you to 
+  move selected variable pairs to another connection that has the same plugin. 
+  <LI class=Unordered><SPAN class=Strong>Delete Selected</SPAN>. Permanently 
+  removes selected variable pairs from a connection. This deletes the connection 
+  between two variables not the variables themselves. 
+  <LI class=Unordered><SPAN class=Strong>Update Selected</SPAN>. Updates the 
+  variable pairs of a selected variable group. </LI></UL></BODY></HTML>

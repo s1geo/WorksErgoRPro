@@ -1,0 +1,249 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="component graph panel">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Component Graph</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Component Graph</h1>
+<p>The Component Graph panel provides an outline of a selected component 
+ in the 3D world, including component nodes, behaviors, properties and 
+ features.</p>
+<p><img src="../../Links/ComponentGraphPanelEN.png" alt="" border="0" class="hcp1"></p>
+<table id="callouts" cellspacing="0">
+	<col>
+	<col>
+	<tr>
+		<td>&#160;1.</td>
+		<td>Search Box for Component Node Tree</td>
+	</tr>
+	<tr>
+		<td>&#160;2.</td>
+		<td>Expand Options for Component Node Tree</td>
+	</tr>
+	<tr>
+		<td>&#160;3.</td>
+		<td>Root Node of Selected Component</td>
+	</tr>
+	<tr>
+		<td>&#160;4.</td>
+		<td>Component Properties</td>
+	</tr>
+	<tr>
+		<td>&#160;5.</td>
+		<td>Node Behaviors</td>
+	</tr>
+	<tr>
+		<td>&#160;6.</td>
+		<td>Child Node (Link) and Joint</td>
+	</tr>
+	<tr>
+		<td>&#160;7.</td>
+		<td>Search Box for Node Feature Tree</td>
+	</tr>
+	<tr>
+		<td>&#160;8.</td>
+		<td>Expand Options for Node Feature Tree</td>
+	</tr>
+	<tr>
+		<td>&#160;9.</td>
+		<td>Feature Tree</td>
+	</tr>
+	<tr>
+		<td>10.</td>
+		<td>Frame Feature</td>
+	</tr>
+	<tr>
+		<td>11.</td>
+		<td>Node Feature Tree pane</td>
+	</tr>
+	<tr>
+		<td>12.</td>
+		<td>Subfeature of Operation</td>
+	</tr>
+	<tr>
+		<td>13.</td>
+		<td>Operation Type Feature</td>
+	</tr>
+	<tr>
+		<td>14.</td>
+		<td>Root Feature of Active Node</td>
+	</tr>
+	<tr>
+		<td>15.</td>
+		<td>Component Node Tree pane</td>
+	</tr>
+	<tr>
+		<td>16.</td>
+		<td>Behavior Sub-element Item</td>
+	</tr>
+	<tr>
+		<td>17.</td>
+		<td>Behavior Sub-element</td>
+	</tr>
+	<tr>
+		<td>18.</td>
+		<td>Selected Item in Component</td>
+	</tr>
+	<tr>
+		<td>19.</td>
+		<td>Filters of Component Node Tree</td>
+	</tr>
+</table>
+<p>&#160;</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot52092" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot52092', 'MTPOPUP52092');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP52092" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Component Node Tree</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Node Feature Tree</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Property Editing</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Component Node Tree</h2>
+<p>The structure of a component is a tree containing nodes. At the top 
+ of the tree is the root node of a component, which contains component 
+ properties. Other nodes are linked together and formed under the root 
+ node. Each node contains its own collection of behaviors, which are listed 
+ with a node in the tree. Some behaviors have sub-elements that perform 
+ special actions or contain other elements. For example, some behaviors 
+ have ports that allow the internal and external transfer of components 
+ between behaviors, whereas other behaviors have containers for other types 
+ of data. With the exception of the root node, each node defines its own 
+ joint, offset and mechanism for movement using the Properties panel.</p>
+<p><img src="../../Links/NodePropertiesVCEN.png" alt="" border="0" class="hcp1"></p>
+<p>Component properties can be referenced within the scope of a component 
+ to assign values and write expressions. This allows you to make the geometry 
+ of a node and other properties parametric. Behavior properties that have 
+ unique names can also be referenced by using this syntax, <span class="Term">&lt;BehaviorName&gt;::&lt;BehaviorProperty&gt;</span>. 
+ Additional joint properties are added to a node when its joint is assigned 
+ to a controller.</p>
+<p><img src="../../Links/JointsAssignedToController.png" alt="" border="0" class="hcp1"></p>
+<p>When the node structure of a component is visualized in the 3D world, 
+ a node offset and its degree of freedom is shown as a rig that forms the 
+ skeleton of a component. A node is made interactive by its joint properties, 
+ so when the joint of a node is defined you can use the Interact command 
+ to jog and interact with that joint.</p>
+<p><img src="../../Links/NodeStructureInteraction.png" alt="" border="0" class="hcp1"></p>
+<p>Nodes in a component can be attached to one another by dragging a node 
+ onto another node in the Component Node Tree pane. This will move the 
+ node and its hierarchy, including behaviors and features.</p>
+<p><span class="Strong">Tip:</span> When moving a node or feature in the 
+ Component Graph panel, you can hold down SHIFT to retain its 3D world 
+ position.</p>
+<p>The geometry of a selected node will be highlighted blue in the 3D world. 
+ Generally, the node structure of a component is defined before splitting 
+ and moving geometry into those nodes. Another approach is to use extraction 
+ for forming new nodes with selected geometry.</p>
+<p><img src="../../Links/NodeMovedIntoNode.png" alt="" border="0" class="hcp1"></p>
+<p><span class="Strong">Note:</span> The Move mode of the Modeling view 
+ will not affect the attachment of nodes to different nodes. Move mode 
+ is used for controlling whether or not the hierarchy of a selected object 
+ moves with the object in the 3D world.</p>
+<p>Behaviors in a component can reference and connect to one another and 
+ do not need to be contained in the same node. Some behaviors are used 
+ to add functionality to another behavior or need to be used with other 
+ behaviors in order to perform tasks. For example, sensors can be connected 
+ to a path and use signals to notify other behaviors when triggered by 
+ a component moving on that path.</p>
+<p><img src="../../Links/BehaviorsReferenced.png" alt="" border="0" class="hcp1"></p>
+<p>If you want to connect behaviors in a component to behaviors in another 
+ component, use interfaces. An interface is a type of connector that can 
+ connect to one or many other connectors. In order to form a connection 
+ between two interfaces, they must be compatible and have available ports. 
+ That is, the section and fields of the interfaces must match up with one 
+ another and support the connection. A section is like an electrical plug 
+ and its fields are like the pins of that plug. Any number of sections 
+ can be used to support different types of connections. The order and types 
+ of fields used in a section are important since they define the logic 
+ of the connector. For example, you can connect the output of a path in 
+ one component to the input of a path in a different component. If you 
+ were to do this internally, you would use the port sub-elements of flow 
+ type behaviors.</p>
+<p><img src="../../Links/BehaviorsExternalConnection.png" alt="" border="0" class="hcp1"></p>
+<p>For components to physically connect to one another, their interfaces 
+ must plug into one another at a point in both components, which is defined 
+ by the SectionFrame property of each interface. For components to remotely 
+ connect to one another, their interfaces must be abstract or virtual, 
+ which is defined by the IsAbstract property of each interface.</p>
+<p><span class="Strong">Note:</span> The PnP command is used for handling 
+ the plug and play of components, for example a conveyor line and end-of-arm 
+ tool mounted on a robot. The Show Interfaces command is used for displaying 
+ connection editors that can wire up abstract interfaces, for example external 
+ axis components and digital signals remotely connected to a robot.</p>
+<h2><a name="MiniTOCBookMark3"></a>Node Feature Tree</h2>
+<p>The geometry of a node is a tree containing features. At the top of 
+ the tree is the root feature of a node. Other features can be linked together 
+ and formed under the root feature. That is, each feature in a tree is 
+ evaluated, and then passed to its parent until finally reaching the root 
+ feature of a node. This is how an operation type feature is applied: its 
+ subfeatures are evaluted, and then affected by the operation, and finally 
+ passed to the parent of the operation type feature.</p>
+<p>Feature tree evaluation is an important modeling concept and is illustrated 
+ in the following example. A Block feature is added to a node, transformed 
+ along the X-axis, and then transformed around the Z-axis relative to the 
+ operation, thereby using a radius and angle to manipulate the location 
+ of the Block. Next, the Block is cloned along the X-axis of an operation, 
+ and then extruded along the Y-axis of another operation. Finally, the 
+ Node Origin frame and hierarchy the Block belongs to is passed to the 
+ Root feature of its node.</p>
+<p><img src="../../Links/FeatureTreeEvaluation.png" alt="" border="0" class="hcp1"></p>
+<p>Primitive type features are simple shapes, whereas a Geometry feature 
+ is a container of either collapsed or imported geometry. Any type of feature 
+ can be collapsed into and formed as a Geometry feature. In this form, 
+ geometry can be edited directly and regrouped into different Geometry 
+ features. The geometry of a selected feature and its subfeatures are highlighted 
+ green and olive respectively in the 3D world.</p>
+<p><img src="../../Links/CollapsedGeometrySelected.png" alt="" border="0" class="hcp1"></p>
+<p>A feature can be moved to a different node in a component by dragging 
+ the feature from the Node Feature Tree pane onto a node listed in the 
+ Component Node Tree pane. This will move the feature and its hierarchy 
+ to the node. By default, a feature will retain its location, but you can 
+ press and hold SHIFT when dragging a feature in order for the offset of 
+ a node to affect the feature's location. Likewise, features and nodes 
+ can be extracted to form new nodes and components.</p>
+<p><span class="Strong">Note:</span> The Move mode of the Modeling view 
+ will not affect the movement of features to different nodes. Move mode 
+ is used for controlling whether or not the hierarchy of a selected object 
+ moves with the object in the 3D world.</p>
+<h2><a name="MiniTOCBookMark4"></a>Property Editing</h2>
+<p>When you select a property in the Component Node Tree, a Property task 
+ pane is displayed and is used to edit that property. Depending on the 
+ type of property, you can set constraints by using a dash (-) for a min 
+ and max range, a semi-colon (;) for a set of values, and a line break 
+ for each string of characters. The name of property can be used to generate 
+ a property tab in the Component Properties panel. The syntax is <span 
+	 class="Term">&lt;tabname::propertyname&gt;</span> and the tab will 
+ be displayed if at least one property using that tab name is visible and 
+ not hidden in a component.</p>
+<p><img src="../../Links/PropertyTaskPaneVCEN.png" alt="" border="0" class="hcp1"></p>
+<p>Component properties can be referenced within the scope of a component 
+ to assign values and write expressions. This allows you to make the geometry 
+ of a node and other properties parametric. Depending on the type of property, 
+ you can assign a quantity and unit prefix to a property, which will automatically 
+ be based on the global Unit Family setting.</p>
+<p><img src="../../Links/QuantityUnitProperty.png" alt="" border="0" class="hcp1"></p>
+<p>In some cases, you may want to form your own units or calculations using 
+ Expression properties, which are generally hidden and/or referenced in 
+ a read-only property that can display the calculated value of the expression.</p>
+<p><img src="../../Links/ExpressionProperty.png" alt="" border="0" class="hcp1"></p>
+</body>
+</html>

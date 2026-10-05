@@ -1,0 +1,456 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Functions</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Functions</h1>
+<p>A supported function can be used to write an expression.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot31841" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot31841', 'MTPOPUP31841');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP31841" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Trigonometric functions</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark7" >Power functions</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark8" >Hyperbolic functions</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark9" >Vector and matrix construction functions</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark10" >Miscellaneous functions</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark11" >Pseudo-random distribution functions</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Trigonometric functions</h2>
+<p>Each function returns a real number value. By default, trigonometric 
+ functions use radians to calculate angles. You can append a function name 
+ with a &quot;d&quot; character to use degrees, for example sind(), sasad() 
+ and sasssa1d().</p>
+<p>All standard trigonometric functions are implemented to resemble functions 
+ in standard C math library as close as possible. Therefore, radians are 
+ the default unit for calculations. This differs from matrix transformation 
+ functions, which operate using degrees.</p>
+<p>You can perform unit specification, but remember to always use the canonical 
+ unit of angles. For example, sin(45 {deg}) and sind(.5 {rad}) are valid 
+ expressions.</p>
+<h3><a name="MiniTOCBookMark3"></a>Unit circle</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>sin(a)</td>
+		<td>Sine function.</td>
+	</tr>
+	<tr>
+		<td>cos(a)</td>
+		<td>Cosine function.</td>
+	</tr>
+	<tr>
+		<td>tan(a)</td>
+		<td>Tangent function.</td>
+	</tr>
+	<tr>
+		<td>asin(a)</td>
+		<td>Inverse sine function.</td>
+	</tr>
+	<tr>
+		<td>acos(a)</td>
+		<td>Inverse cosine function.</td>
+	</tr>
+	<tr>
+		<td>atan(a)</td>
+		<td>Inverse tangent function.</td>
+	</tr>
+	<tr>
+		<td>atan2(a, b)</td>
+		<td>If <span class="Italic">a</span> is not zero, calculates inverse 
+		 tangent of <span class="Italic">b/a</span>; otherwise returns 
+		 <span class="Italic">pi/2</span>.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark4"></a>Generic triangles</h3>
+<p><img src="../../English/Links/Trigonometric%20Example1.png" alt="" border="0" class="hcp1"></p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>sasa(a, beta, c)</td>
+		<td>Returns the value of alpha.</td>
+	</tr>
+	<tr>
+		<td>sass(a, beta, c)</td>
+		<td>Returns the value of b.</td>
+	</tr>
+	<tr>
+		<td>sssa(a, b, c)</td>
+		<td>Returns the value of alpha.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark5"></a>Quadrilaterals</h3>
+<p><img src="../../English/Links/fourlinks.png" alt="" border="0" class="hcp1"></p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>sasasa(A, a, B, b, C)</td>
+		<td>Returns the value of c.</td>
+	</tr>
+	<tr>
+		<td>sasass(A, a, B, b, C)</td>
+		<td>Returns the value of D.</td>
+	</tr>
+	<tr>
+		<td>sasssa1(A, a, B, C, D)</td>
+		<td>Returns the value of b.</td>
+	</tr>
+	<tr>
+		<td>sasssa2(A, a, B, C, D)</td>
+		<td>Returns the value of c.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark6"></a>Angle conversion functions</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>degree(a)</td>
+		<td>Converts a given radian value to degree value.</td>
+	</tr>
+	<tr>
+		<td>radian(a)</td>
+		<td>Converts a given degree value to a radian value.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark7"></a>Power functions</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>pow(a, b)</td>
+		<td>Returns <span class="Italic">a</span> to the power of <span 
+		 class="Italic">b</span>.</td>
+	</tr>
+	<tr>
+		<td>sqrt(a)</td>
+		<td>Returns the square root of <span class="Italic">a</span>.</td>
+	</tr>
+	<tr>
+		<td>exp(a)</td>
+		<td>Returns the e value to the power of <span class="Italic">a</span>.</td>
+	</tr>
+	<tr>
+		<td>log(a)</td>
+		<td>Returns the natural logarithm of <span class="Italic">a</span>.</td>
+	</tr>
+	<tr>
+		<td>log10(a)</td>
+		<td>Returns the logarithm base 10 of <span class="Italic">a</span>.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark8"></a>Hyperbolic functions</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>sinh(a)</td>
+		<td>Hyperbolic sine function.</td>
+	</tr>
+	<tr>
+		<td>cosh(a)</td>
+		<td>Hyperbolic cosine function.</td>
+	</tr>
+	<tr>
+		<td>tanh(a)</td>
+		<td>Hyperbolic tangent function.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark9"></a>Vector and matrix construction functions</h2>
+<p>The following functions can be used to return a vector or matrix in 
+ an expression.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AxisAngle(i, j, k, angle)</td>
+		<td>Returns identity matrix rotated around a given axis and angle.</td>
+	</tr>
+	<tr>
+		<td>Euler(a, b, c)</td>
+		<td>Returns a matrix with given Euler angles and a zero position.</td>
+	</tr>
+	<tr>
+		<td>Identity()</td>
+		<td>Returns identity matrix.</td>
+	</tr>
+	<tr>
+		<td>IJK(i, j, k)</td>
+		<td>Returns identity matrix with its approach axis (Z-axis) parallel 
+		 to a given vector.</td>
+	</tr>
+	<tr>
+		<td>Pos(x, y, z)</td>
+		<td>Returns identity matrix translated to a given position.</td>
+	</tr>
+	<tr>
+		<td>Quaternion(q1, q2, q3, q4)</td>
+		<td>Returns identity matrix rotated with given quaternion values.</td>
+	</tr>
+	<tr>
+		<td>Rx(angle)</td>
+		<td>Returns identity matrix rotated around X-axis by a given angle.</td>
+	</tr>
+	<tr>
+		<td>Ry(angle)</td>
+		<td>Returns identity matrix rotated around Y-axis by a given angle.</td>
+	</tr>
+	<tr>
+		<td>Rz(angle)</td>
+		<td>Returns identity matrix rotated around Z-axis by a given angle.</td>
+	</tr>
+	<tr>
+		<td>Set(v1, v2, ..., v16)</td>
+		<td>Returns matrix initialized with given values where v1...v4 
+		 are N vector values, v5...v8 are O vector values, v9...v12 are 
+		 A vector values, and v13...16 are P vector values.</td>
+	</tr>
+	<tr>
+		<td>Sx(factor)</td>
+		<td>Returns identity matrix scaled along X-axis by a given factor.</td>
+	</tr>
+	<tr>
+		<td>Sy(factor)</td>
+		<td>Returns identity matrix scaled along Y-axis by a given factor.</td>
+	</tr>
+	<tr>
+		<td>Sz(factor)</td>
+		<td>Returns identity matrix scaled along Z-axis by a given factor.</td>
+	</tr>
+	<tr>
+		<td>Tx(dist)</td>
+		<td>Returns identity matrix translated along X-axis by a given 
+		 distance.</td>
+	</tr>
+	<tr>
+		<td>Ty(dist)</td>
+		<td>Returns identity matrix translated along Y-axis by a given 
+		 distance.</td>
+	</tr>
+	<tr>
+		<td>Tz(dist)</td>
+		<td>Returns identity matrix translated along Z-axis by a given 
+		 distance.</td>
+	</tr>
+	<tr>
+		<td>Vector(x, y, z)</td>
+		<td>Returns vector with given XYZ coordinates.</td>
+	</tr>
+	<tr>
+		<td>Vector(x, y, z, w)</td>
+		<td>Returns vector with a given XYZ coordinates and W value.</td>
+	</tr>
+	<tr>
+		<td>WPR(w, p, r)</td>
+		<td>Returns identity matrix rotated by given yaw, pitch, and roll 
+		 angles.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark10"></a>Miscellaneous functions</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>abs(x)</td>
+		<td><p class="TableNormal">Returns the absolute value |x|.</p></td>
+	</tr>
+	<tr>
+		<td>ceil(x)</td>
+		<td>Returns the smallest integer that is larger or equal to x. 
+		 
+		<p class="TableNormal"><span class="Strong">Note:</span> The return 
+		 type is a real value.</p></td>
+	</tr>
+	<tr>
+		<td>floor(x)</td>
+		<td>Returns the largest integer that is smaller or equal to x. 
+		 
+		<p class="TableNormal"><span class="Strong">Note:</span> &#160;The 
+		 return type is a real value.</p></td>
+	</tr>
+	<tr>
+		<td>inrange(a, b, c)</td>
+		<td>Returns True if <span class="Italic">b</span> is within range 
+		 of <span class="Italic">a</span> and <span class="Italic">c</span>; 
+		 otherwise returns False.</td>
+	</tr>
+	<tr>
+		<td>max(a, b)</td>
+		<td>Returns <span class="Italic">a</span> or <span class="Italic">b</span>, 
+		 whichever is the largest value.</td>
+	</tr>
+	<tr>
+		<td>min(a, b)</td>
+		<td>Returns <span class="Italic">a</span> or <span class="Italic">b</span>, 
+		 whichever is the smallest value.</td>
+	</tr>
+	<tr>
+		<td>mod(a, b)</td>
+		<td>Returns the remainder of <span class="Italic">a/b</span>.</td>
+	</tr>
+	<tr>
+		<td><p>ramp(x, x1, y1, x2, y2)</p></td>
+		<td>Returns the y value corresponding to x on the line (x1, y1) 
+		 - (x2, y2).</td>
+	</tr>
+	<tr>
+		<td>range(a, b, c)</td>
+		<td>Returns <span class="Italic">a</span> if <span class="Italic">b</span> 
+		 is less than <span class="Italic">a</span>. 
+		<p class="TableNormal">Returns <span class="Italic">b</span> if 
+		 <span class="Italic">b</span> is within range of <span class="Italic">a</span> 
+		 and <span class="Italic">c</span>.</p>
+		<p class="TableNormal">Returns <span class="Italic">c</span> if 
+		 <span class="Italic">b</span> is greater than <span class="Italic">c</span>.</p></td>
+	</tr>
+	<tr>
+		<td>round(x)</td>
+		<td>Returns the integer nearest to x. This function rounds up in 
+		 case x is exactly halfway between integers. 
+		<p class="TableNormal"><span class="Strong">Note:</span> The return 
+		 type is a real value.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark11"></a>Pseudo-random distribution functions</h2>
+<span class="strong">Note</span>: Only random streams function in Process 
+ Modeling Statements. 
+<h3><a name="MiniTOCBookMark12"></a>Distribution</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>normal(u, s)</td>
+		<td>Normal distribution for mean value of <span class="Italic">u</span> 
+		 and standard deviation of <span class="Italic">s</span>.</td>
+	</tr>
+	<tr>
+		<td>lognormal(u, s)</td>
+		<td>Log normal distribution for mean value of <span class="Italic">u</span> 
+		 and standard deviation of <span class="Italic">s</span>.</td>
+	</tr>
+	<tr>
+		<td>uniform(a, b)</td>
+		<td>Uniform distribution in range <span class="Italic">a</span> 
+		 &lt;= x &lt; <span class="Italic">b</span>.</td>
+	</tr>
+	<tr>
+		<td>exponential(lambda)</td>
+		<td>Exponential distribution where mean is 1/<span class="Italic">lambda</span> 
+		 and variance is 1/<span class="Italic">lambda</span>^2.</td>
+	</tr>
+	<tr>
+		<td>gamma(k, theta)</td>
+		<td>Gamma distribution with shape <span class="Italic">k</span> 
+		 and scale <span class="Italic">theta</span>.</td>
+	</tr>
+	<tr>
+		<td>triangular(min, mode, max)</td>
+		<td>Triangular distribution for given <span class="Italic">min</span>, 
+		 <span class="Italic">mode</span> and <span class="Italic">max</span> 
+		 values.</td>
+	</tr>
+	<tr>
+		<td>weibull(k, lambda)</td>
+		<td>Weibull distribution with shape <span class="Italic">k</span> 
+		 and scale <span class="Italic">lambda</span>.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark13"></a>Random Stream</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>normal(stream, u, s)</td>
+		<td rowspan="7" style="vertical-align: middle;">Same as Distribution 
+		 functions but with stream argument.</td>
+	</tr>
+	<tr>
+		<td>lognormal(stream, u, s)</td>
+		
+	</tr>
+	<tr>
+		<td>uniform(stream, a, b)</td>
+		
+	</tr>
+	<tr>
+		<td>exponential(stream, lambda)</td>
+		
+	</tr>
+	<tr>
+		<td>gamma(stream, k, theta)</td>
+		
+	</tr>
+	<tr>
+		<td>triangular(stream, min, mode, max)</td>
+		
+	</tr>
+	<tr>
+		<td>weibull(stream, k, lambda)</td>
+		
+	</tr>
+</table>
+</body>
+</html>

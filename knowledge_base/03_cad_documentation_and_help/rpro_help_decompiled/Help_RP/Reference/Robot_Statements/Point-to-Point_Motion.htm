@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Point-to-Point Motion</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content="point-to-point motion,robot statement">
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"><LINK rel=StyleSheet 
+type=text/css href="../../default.css"></HEAD>
+<BODY>
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../ehlpdhtm.js"></SCRIPT>
+
+<H1>Point-to-Point Motion</H1>
+<P>A Point-to-Point Motion statement is a motion in which a robot interpolates 
+its joint values to reach a position.</P>
+<P><IMG 
+style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none" 
+border=0 alt="" src="../../English/Links/PointToPointMotionStatement.png" 
+width=761 height=499></P>
+<P><SPAN class=Example>Example. Point-to-point motion of robot from P1 to 
+P2</SPAN></P>
+<P><IMG src="dsjkjlbj3.png"></P>
+<H2>Properties</H2>
+<H3>Position</H3>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Position</TD>
+    <TD>Defines the position matrix using XYZ coordinates and Rx,Ry and Rz 
+      rotational values.</TD></TR>
+  <TR>
+    <TD>Name</TD>
+    <TD>Defines the name of position.</TD></TR>
+  <TR>
+    <TD>Configuration</TD>
+    <TD>Defines the configuration of the robot at position. 
+      <P class=TableNormal>The configuration names are defined by the kinematics 
+      behavior of the robot and can be manufacturer 
+specific.</P></TD></TR></TBODY></TABLE>
+<H3>Statement</H3>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Base</TD>
+    <TD>Defines the base frame used by robot for the statement.</TD></TR>
+  <TR>
+    <TD>Tool</TD>
+    <TD>Defines the tool frame used by robot for the statement.</TD></TR>
+  <TR>
+    <TD>ExternalTCP</TD>
+    <TD>Defines the interpolation mode for position. 
+      <P class=TableNormal><SPAN class=Term>False</SPAN> uses Base to Tool 
+      interpolation.</P>
+      <P class=TableNormal><SPAN class=Term>True</SPAN> uses Tool to Base 
+      interpolation.</P></TD></TR>
+  <TR>
+    <TD>CycleTime</TD>
+    <TD>Defines the total elapsed time for motion, beginning to end. 
+      <P class=TableNormal>A zero value means robot ignores cycle time.</P>
+      <P class=TableNormal>A value greater than zero means robot overrides speed 
+      settings to scale motion to cycle time. For example, a cycle time of 5 
+      seconds means a motion that might otherwise take 2 seconds will now take 5 
+      seconds.</P></TD></TR>
+  <TR>
+    <TD>JointSpeed</TD>
+    <TD>Defines the maximum speed for joints driven by robot controller as a 
+      percentage of nominal joint speed.</TD></TR>
+  <TR>
+    <TD>JointForce</TD>
+    <TD>Defines the percentage of joint acceleration and deceleration values 
+      to use in statement.</TD></TR>
+  <TR>
+    <TD>AccuracyMethod</TD>
+    <TD>Defines the zone of accuracy type to use for the position.</TD></TR>
+  <TR>
+    <TD>AccuracyValue</TD>
+    <TD>Defines the limit used in 
+AccuracyMethod.</TD></TR></TBODY></TABLE></BODY></HTML>

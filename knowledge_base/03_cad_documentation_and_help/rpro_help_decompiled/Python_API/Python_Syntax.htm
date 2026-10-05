@@ -1,0 +1,198 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Python Syntax</title>
+<link rel="stylesheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</style>
+</head>
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Python Syntax</h1>
+<p>Python is an interpreted, object-oriented, high-level programming language optimized for quality, productivity, portability and integration. Developed by the open source community and arbitrated by Guido van Rossum, the creator of Python. Python is now used by hundreds of thousands of developers around the world. The available libraries combined with Python's high-level built in data structures and dynamic typing make it very attractive for rapid application development, and the ideal scripting language to extend and customize the application simulation framework and components.</p>
+<p>The application uses a "stackless" version of Python 2.7.1 which can be downloaded at <a href="http://www.python.org/download/releases/" target="_blank">http://www.python.org/download/releases/</a>. Links to the 3rd party documentation, tutorials and modules are available at <a href="http://www.python.org" target="_top">http://www.python.org</a> as well. The Python community has developed a substantially large set of resources to help all levels of users from an absolute beginner to an experienced coder learn Python in the most efficient way. Before purchasing a user manual we recommend checking this web site first.</p>
+<p>For more information about stackless Python itself, you should visit the stackless Python web site at <a href="http://www.stackless.com">http://www.stackless.com</a>.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot59543" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot59543', 'MTPOPUP59543');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP59543" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Modules</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Modules</h2>
+<p>A module is a file containing Python definitions and statements. The name of the file (without the .py or .pyc) extension is used as the name of the module. Definitions from a module can be imported into other modules using the import statement. A module can contain executable statements as well as function definitions. These statements are intended to initialize the module. They are executed only the first time the module is imported somewhere.</p>
+<h3><a name="MiniTOCBookMark3"></a>Standard Modules</h3>
+<p>Python comes with a library of standard modules, described in Python Library Reference, available at <a href="http://www.python.org" target="_top">http://www.python.org</a>. The integrated Python also includes main application framework specific modules or API such as <a href="vcScript.htm">vcScript</a>, <a href="vcApplication.htm">vcApplication</a> and <a href="vcPythonKinematics.htm">vcKinematics</a>. These and other API modules are described in the Python API reference guide.</p>
+<h3><a name="MiniTOCBookMark4"></a>3rd Party Modules</h3>
+<p>Common 3rd party modules (TCP/IP communication, ODBC, Win32, COM, TkInter) are also installed with the product.</p>
+<p>If you use any extensions that are not included in the product installer, you must copy the extension package into the main application's Python library directory, usually located at <span class="Term">C:\Program Files\[Provider]\[Product Name]\Python</span>.</p>
+<p>Python scripts are copied to the <span class="Strong">lib\</span> subdirectory. Python assemblies can be copied to the <span class="Strong">DLLs\</span> subdirectory.</p>
+<p>Modules are imported using the import statement with the module name. The definitions from a module can then be accessed by prefixing the module name to the function name.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col>
+<tr>
+<td># Fibonacci numbers module <br># write Fibonacci series up to n <br>def fib(n): <br>&#160;&#160;a, b = 0, 1 &#160;&#160;&#160;&#160;&#160; <br>&#160;&#160;while b &lt; n: &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br>&#160;&#160;print b, &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br>&#160;&#160;a, b = b, a+b <br>&#160;&#160; <br># return Fibonacci series up to n <br>def fib2(n): <br>&#160;&#160;result = [] <br>&#160;&#160;a, b = 0, 1 <br>&#160;&#160;while b &lt; n: <br>&#160;&#160;&#160;&#160;result.append(b) <br>&#160;&#160;&#160;&#160;a, b = b, a+b <br>&#160;&#160;return result</td>
+</tr>
+</table>
+<p><span class="Example">Example. Import and use a module</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col>
+<tr>
+<td>import fibo <br>fibo.fib2(8)</td>
+</tr>
+</table>
+<p>A user can also import specific or all definitions from a module, after which they can be accessed directly.</p>
+<p><span class="Example">Example. Import all definitions and use a module</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col>
+<tr>
+<td>from fibo import * <br>fib2(8)</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a>Methods</h2>
+<p>Python has a remarkably simple, readable and maintainable syntax, which makes it easy to learn for the application engineer, while at the same time powerful enough for the software developer. The following is a brief overview of the syntax used in Python.</p>
+<p><span class="Strong">Note:</span> Python uses indentation for conclusion of logical sequences so there are no <span class="Term">end-for</span>, <span class="Term">endif</span> or <span class="Term">endwhile</span> type statements.</p>
+<h3><a name="MiniTOCBookMark6"></a>Built-in Types (objects)</h3>
+<p>Python supports the following built-in types:</p>
+<ul class="hcp1">
+<li class="Unordered">Numbers (integer, floating point and complex)</li>
+<li class="Unordered">Strings</li>
+<li class="Unordered">Lists</li>
+<li class="Unordered">Dictionaries</li>
+<li class="Unordered">Files</li>
+</ul>
+<h3><a name="MiniTOCBookMark7"></a>Variables</h3>
+<p>Variables do not have a type and users are not required to declare them. Variables are initialized when you first use them. Assignment is done using the <tt class="literal">=</tt> operator.</p>
+<p><span class="Example">Example. Assign value with = operator</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col>
+<tr>
+<td>a=5 <br>a=6.7</td>
+</tr>
+</table>
+<p>A user can assign the same value to multiple variables.</p>
+<p><span class="Example">Example. Assign same value to multiple variables</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col>
+<tr>
+<td>x=y=z=8</td>
+</tr>
+</table>
+<p>A user can also assign multiple values to several variables.</p>
+<p><span class="Example">Example. Assign multiple values to several variables</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col>
+<tr>
+<td>x=y=z=8</td>
+</tr>
+</table>
+<h3><a name="MiniTOCBookMark8"></a>Expressions</h3>
+<p>Python uses infix notation with standard order of evaluation (i.e. <tt class="literal">*</tt> and <tt class="literal">/</tt> before <tt class="literal">+</tt> and <tt class="literal">-</tt>) with the order of evaluation changed using parenthesis.</p>
+<p>Supported operations include but not limited to:</p>
+<ul class="hcp1">
+<li class="Unordered">Arithmetic<br>
+&lt; &#160;- &#160;+ &#160;&gt;</li>
+<li class="Unordered">Logical<br>
+and &#160;or &#160;not</li>
+<li class="Unordered">Bitwise<br>
+&amp; &#160;| &#160;^</li>
+<li class="Unordered">Membership<br>
+in</li>
+<li class="Unordered">Shifts<br>
+&lt;&lt; &#160;&gt;&gt;</li>
+<li class="Unordered">Comparison<br>
+&lt; &#160;== &#160;!= &#160;&lt;= &#160;&gt;=</li>
+</ul>
+<p><span class="Example">Example. Expression</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col>
+<tr>
+<td>2*(5-3)</td>
+</tr>
+</table>
+<h3><a name="MiniTOCBookMark9"></a>Statements</h3>
+<p>Python does not use an explicit end of statement token; the end of the line marks the end of the statement. A semi-colon (;) is used as a statement separator for writing more than one statement on a line.</p>
+<p><span class="Example">Example. Statements with statement separator</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col>
+<tr>
+<td>a=5 <br>b=a+8 <br>a=5; b=a+8</td>
+</tr>
+</table>
+<h3><a name="MiniTOCBookMark10"></a>Statement Blocks</h3>
+<p>Block markers are grouped using indentation. That is, statements on the same indentation level belong to the same statement group or code block. Indentation of statements and code can be referred to as <span style="font-weight: bold;">nesting statements</span>.</p>
+<p><span class="Example">Example. Python</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col>
+<tr>
+<td>a=5 <br>b=a+8 <br>c = b-3</td>
+</tr>
+</table>
+<h3><a name="MiniTOCBookMark11"></a>Control Structures</h3>
+<p>The following are examples of the types of control structures often used by a user.</p>
+<p><span class="Example">Example. IF</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col>
+<tr>
+<td>if test: <br>&#160;&#160;#statements <br>elif test: <br>&#160;&#160;#statements <br>elif test: &#160;&#160;&#160;&#160; <br>&#160;&#160;#statements <br>else: &#160;&#160;&#160;&#160; <br>&#160;&#160;#statements</td>
+</tr>
+</table>
+<p>In an <span class="Term">if</span> statment, <span class="Term">elif</span> and <span class="Term">else</span> are optional.</p>
+<p><span class="Example">Example. WHILE</span></p>
+<table class="CodeBlock" width="100%">
+<col>
+<tr>
+<td>while test: &#160;&#160;&#160;&#160; <br>&#160;&#160;#statements <br>else: &#160;&#160;&#160;&#160; <br>&#160;&#160;#statements <br>&#160;&#160;#statements are only executed if the loop exits normally from the while statement</td>
+</tr>
+</table>
+<p><span class="Example">Example. FOR</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col>
+<tr>
+<td>for target in objects: &#160;&#160;&#160;&#160; <br>&#160;&#160;#statements <br>else: &#160;&#160;&#160;&#160; <br>&#160;&#160;#statements</td>
+</tr>
+</table>
+<p><span class="Example">Example. BREAK</span></p>
+<table class="CodeBlock" width="100%">
+<col>
+<tr>
+<td>a = 0 <br>&#160; <br>#Breaks the innermost loop. <br>#Execution continues with the statement following the loop (else statements are not executed) <br>while a &lt; 5: &#160;&#160;&#160;&#160; <br>&#160;&#160;a = a + 1 &#160;&#160;&#160;&#160; <br>&#160;&#160;if a == 3: &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br>&#160;&#160;&#160;&#160;break <br>&#160; <br># prints 3 <br>print a &#160;</td>
+</tr>
+</table>
+<p><span class="Example">Example. CONTINUE</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td>#print all numbers in range except 3 <br>for i in range(8): <br>&#160;&#160;if i == 3: <br>&#160;&#160;&#160;&#160;continue &#160;#continues to the next iteration of loop <br>&#160;&#160;print i</td>
+</tr>
+</table>
+<p><span class="Example">Example. PASS</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td>#if number in range is 3, do nothing <br>for i in range(8): <br>&#160;&#160;if i == 3: <br>&#160;&#160;&#160;&#160;pass <br>&#160;&#160;else: <br>&#160;&#160;&#160;&#160;print i</td>
+</tr>
+</table>
+<h3><a name="MiniTOCBookMark12"></a>Functions</h3>
+<p>Functions are defined using a <span class="Term">def</span> keyword and a format shown in the following example.</p>
+<p><span class="Example">Example. Function</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td>def functionname(arguments): <br>&#160;&#160;#statements <br>&#160; <br>&#160; <br>def div(x,y): <br>&#160;&#160;return x / y</td>
+</tr>
+</table>
+</body>
+</html>

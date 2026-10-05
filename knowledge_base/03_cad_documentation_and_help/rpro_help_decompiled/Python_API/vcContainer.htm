@@ -1,0 +1,489 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcContainer</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+p.hcp1 { margin-left:80px; }
+span.hcp2 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcContainer</h1>
+<p>vcContainer is a base class for all behaviors that can contain components, 
+ for example buffers, stackers and conveyors.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a>, 
+ <a href="vcFlow.htm">vcFlow</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot13615" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot13615', 'MTPOPUP13615');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP13615" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Hierarchy</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Common Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Behavior Specific Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark11" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark12" >Events</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Hierarchy</h2>
+<p>Some container type behaviors have specific implementations, while others 
+ have additional properties.</p>
+<p style="margin-left: 40px;"><a href="vcContainer.htm" title="vcContainer">vcContainer</a></p>
+<p class="hcp1"><a href="vcContainer.htm">vcComponentContainer</a></p>
+<p style="margin-left: 120px;"><a href="vcPatternContainer.htm">vcPatternContainer</a></p>
+<p class="hcp1"><a href="vcComponentsCreator.htm" title="vcComponentCreator">vcComponentCreator</a></p>
+<p class="hcp1"><a href="vcMotionPath.htm" title="vcMotionPath">vcMotionPath</a></p>
+<p class="hcp1"><a href="vcContainer.htm">vcOneDirectionalPath</a></p>
+<p class="hcp1"><a href="vcRoutingRule.htm" title="vcRoutingRule">vcRoutingRule</a></p>
+<p class="hcp1"><a href="vcContainer.htm">vcTwoDirectionalPath</a></p>
+<p class="hcp1"><a href="vcTransport.htm">vcTransport</a></p>
+<h2><a name="MiniTOCBookMark3"></a>Common Properties</h2>
+<p>The following are properties common to all container type behaviors.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Capacity</td>
+		<td><span>Integer</span></td>
+		<td>RW</td>
+		<td>Defines the maximum number of components that can be stored 
+		 in the container at any given time. That is, the logical capacity 
+		 of the container.</td>
+	</tr>
+	<tr>
+		<td>CapacityBlocks</td>
+		<td><span>List of <a href="vcBehaviour.htm#Capacity_Controller">vcBehaviour</a></span></td>
+		<td>RW</td>
+		<td>Defines a list of Capacity Controller type behaviors that globally 
+		 control the capacity of the container. 
+		<p class="TableNormal">This property overrides the container's 
+		 Capacity.</p></td>
+	</tr>
+	<tr>
+		<td>ComponentCount</td>
+		<td><span>Integer</span></td>
+		<td>R</td>
+		<td>Gets the amount of components stored in the container.</td>
+	</tr>
+	<tr>
+		<td>Components</td>
+		<td><span>List of <a href="vcComponent.htm">vcComponent</a></span></td>
+		<td>R</td>
+		<td>Gets a list of components stored in the container.</td>
+	</tr>
+	<tr>
+		<td>ContentVisible</td>
+		<td><span>Boolean</span></td>
+		<td>W</td>
+		<td>Sets the visibility of components stored in the container.</td>
+	</tr>
+	<tr>
+		<td>HeadComponent</td>
+		<td><span><a href="vcComponent.htm">vcComponent</a></span></td>
+		<td>R</td>
+		<td>Gets a component stored at the head of the container.</td>
+	</tr>
+	<tr>
+		<td>Statistics</td>
+		<td><span><a href="vcStatistics.htm" title="vcStatistics">vcStatistics</a></span></td>
+		<td>RW</td>
+		<td>Defines a Statistics behavior that collects data generated 
+		 by the container during a simulation.
+		</td>
+	</tr>
+	<tr>
+		<td>TailComponent</td>
+		<td><span><a href="vcComponent.htm">vcComponent</a></span></td>
+		<td>R</td>
+		<td>Gets a component stored at the tail of the container.</td>
+	</tr>
+	<tr>
+		<td>TransitionSignal</td>
+		<td><a href="vcBoolSignal.htm">vcBoolSignal</a></td>
+		<td>RW</td>
+		<td>Defines the signal used for signaling when a component enters/exits 
+		 the container. 
+		<p class="TableNormal">A True value means a component has entered 
+		 the container, whereas a False value means a component has exited 
+		 the container.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Behavior Specific Properties</h2>
+<h3><a name="MiniTOCBookMark5"></a>Bucket Path</h3>
+<p>Bucket Path is a type of path that contains components in buckets which 
+ are defined by two Geometry features. Generally, a Bucket Path is used 
+ as a conveyor that supports indexing and continuous modes of material 
+ flow.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>BackBucket</td>
+		<td><span><a href="vcGeometryFeature.htm" title="vcGeometryFeature">vcGeometryFeature</a></span></td>
+		<td>RW</td>
+		<td>Defines a Geometry feature that represents the back section 
+		 of each bucket. 
+		<p class="TableNormal">The geometry will be visible only if the 
+		 ShowContent property of the feature is set to False.</p></td>
+	</tr>
+	<tr>
+		<td>Buckets</td>
+		<td><span>Integer</span></td>
+		<td>RW</td>
+		<td>Defines the amount of buckets used in the path.</td>
+	</tr>
+	<tr>
+		<td>BucketSize</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the minimum distance between each bucket.</td>
+	</tr>
+	<tr>
+		<td>Direction</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the direction buckets move along the path. 
+		<p class="TableNormal">See <a href="Constants.htm#Conveyor_Direction_Modes">Conveyor 
+		 Direction Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>FrontBucket</td>
+		<td><span><a href="vcGeometryFeature.htm" title="vcGeometryFeature">vcGeometryFeature</a></span></td>
+		<td>RW</td>
+		<td>Defines a Geometry feature that represents the front section 
+		 of each bucket. 
+		<p class="TableNormal">The geometry will be visible only if the 
+		 ShowContent property of the feature is set to False.</p></td>
+	</tr>
+	<tr>
+		<td>Interpolation</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the mode of interpolating the motion of each bucket 
+		 along the path. 
+		<p class="TableNormal">See <a href="Constants.htm#Conveyor_Interpolation_Modes">Conveyor 
+		 Interpolation Mode Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>OutFrame</td>
+		<td><span><a href="vcFeature.htm" title="vcFeature">vcFeature</a></span></td>
+		<td>RW</td>
+		<td>Defines a Frame feature that is referenced as the location 
+		 of the path's output port. 
+		<p class="TableNormal">The path must have a defined output port 
+		 in order to empty the contents of a passing bucket. Therefore, 
+		 the OutFrame must be included in the Path property's list of frames.</p></td>
+	</tr>
+	<tr>
+		<td>Path</td>
+		<td><span>List of <a href="vcFeature.htm">vcFeature</a></span></td>
+		<td>RW</td>
+		<td>Defines an ordered list of Frame features that represent waypoints 
+		 of the path.</td>
+	</tr>
+	<tr>
+		<td>PulseDriven</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the path is pulse driven in which a connected Integer 
+		 signal sends a step size for moving each bucket.</td>
+	</tr>
+	<tr>
+		<td>RetainOffset</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the location of a component is retained when the 
+		 component is placed or transferred onto the path. 
+		<p class="TableNormal">A True value means a component is not snapped 
+		 to the axis of the path defined by its waypoints.</p></td>
+	</tr>
+	<tr>
+		<td>Sensors</td>
+		<td><span>List of <a href="vcBehaviour.htm">vcBehaviour</a></span></td>
+		<td>RW</td>
+		<td>Defines a list of sensor type behaviors connected to the path.</td>
+	</tr>
+	<tr>
+		<td>Speed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the speed (mm/s) of the path.</td>
+	</tr>
+	<tr>
+		<td>StatusSignal</td>
+		<td><a href="vcBoolSignal.htm">vcBoolSignal</a></td>
+		<td>RW</td>
+		<td>Defines a signal that signals when the path is moving/not moving 
+		 in pulse mode.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark6"></a><a name="Component_Container" id="Component_Container"></a>Component 
+ Container</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Material_Flow/Component_Container.htm">Component 
+ Container</a> is a static container of components with no additional properties. 
+ Generally, a Component Container is used for simulating buffers and storage 
+ areas and is often used to contain components grasped by a robot's end-of-arm 
+ tool.</p>
+<h3><a name="MiniTOCBookMark7"></a><a name="One_Directional_Path" id="One_Directional_Path"></a>One Directional 
+ Path</h3>
+<p>One Directional Path is a deprecated motion path that is similar to 
+ a One Way Path behavior but with less functionality.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Interpolation</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the mode of interpolating the motion of components 
+		 along the path. 
+		<p class="TableNormal">See <a href="Constants.htm#Conveyor_Interpolation_Modes">Conveyor 
+		 Interpolation Mode Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Path</td>
+		<td><span>List of <a href="vcFeature.htm">vcFeature</a></span></td>
+		<td>RW</td>
+		<td>Defines an ordered list of Frame features that represent waypoints 
+		 of the path.</td>
+	</tr>
+	<tr>
+		<td>RetainOffset</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the location of a component is retained when the 
+		 component is placed or transferred onto the path. 
+		<p class="TableNormal">A True value means a component is not snapped 
+		 to the axis of the path defined by its waypoints.</p></td>
+	</tr>
+	<tr>
+		<td>Sensors</td>
+		<td><span>List of <a href="vcBehaviour.htm">vcBehaviour</a></span></td>
+		<td>RW</td>
+		<td>Defines a list of sensor type behaviors connected to the path. 
+		 
+		<p class="TableNormal">This type of path only supports Component 
+		 Path and Process Point sensors.</p></td>
+	</tr>
+	<tr>
+		<td>Speed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the speed (mm/s) of the path.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark8"></a>One Way Path</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Material_Flow/One_Way_Path.htm">One 
+ Way Path</a> is a motion path that can move contained components in one 
+ direction. See <a href="vcMotionPath.htm" title="vcMotionPath">vcMotionPath</a> 
+ for more information.</p>
+<h3><a name="MiniTOCBookMark9"></a><a name="Two_Directional_Path" id="Two_Directional_Path"></a> Two 
+ Directional Path</h3>
+<p>Two Directional Path is a deprecated motion path that is similar to 
+ a Two Way Path behavior but with less functionality.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Direction</td>
+		<td><span>Enumeration</span></td>
+		<td>RW</td>
+		<td>Defines the direction components move along the path. 
+		<p class="TableNormal">See <a href="Constants.htm#Conveyor_Direction_Modes">Conveyor 
+		 Direction Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Interpolation</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the mode of interpolating the motion of components 
+		 along the path. 
+		<p class="TableNormal">See <a href="Constants.htm#Conveyor_Interpolation_Modes">Conveyor 
+		 Interpolation Mode Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Path</td>
+		<td><span>List of <a href="vcFeature.htm">vcFeature</a></span></td>
+		<td>RW</td>
+		<td>Defines an ordered list of Frame features that represent waypoints 
+		 of the path.</td>
+	</tr>
+	<tr>
+		<td>RetainOffset</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the location of a component is retained when the 
+		 component is placed or transferred onto the path. 
+		<p class="TableNormal">A True value means a component is not snapped 
+		 to the axis of the path defined by its waypoints.</p></td>
+	</tr>
+	<tr>
+		<td>Sensors</td>
+		<td><span>List of <a href="vcBehaviour.htm">vcBehaviour</a></span></td>
+		<td>RW</td>
+		<td>Defines a list of sensor type behaviors connected to the path. 
+		 
+		<p class="TableNormal">This type of path only supports Component 
+		 Path and Process Point sensors.</p></td>
+	</tr>
+	<tr>
+		<td>Speed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the speed (mm/s) of the path.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark10"></a>Two Way Path</h3>
+<p>Two Way Path is a motion path that can move contained components in 
+ a forward and/or backward direction. See <a href="vcMotionPath.htm" title="vcMotionPath">vcMotionPath</a> 
+ for more information.</p>
+<h2><a name="MiniTOCBookMark11"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getComponent</td>
+		<td><span><a href="vcComponent.htm">vcComponent</a></span></td>
+		<td>Integer <span class="Italic">component_index</span></td>
+		<td>Returns a component at a given index stored in the container.</td>
+	</tr>
+	<tr>
+		<td>getPathPosition</td>
+		<td><span><a href="vcMatrix.htm" title="vcMatrix">vcMatrix</a></span></td>
+		<td>Real <span class="hcp2">path_distance</span></td>
+		<td>Returns a position matrix for a point on the path at a given 
+		 distance. 
+		<p class="TableNormal">The position matrix is based in the node 
+		 coordinate system of the container.</p></td>
+	</tr>
+	<tr>
+		<td>getContainerProximity</td>
+		<td>Real</td>
+		<td><span><a href="vcVector.htm" title="vcVector">vcVector</a></span> 
+		 <span class="Italic">position</span></td>
+		<td>Returns the orthogonal distance from a given <span class="Italic">position</span> 
+		 to the container. 
+		<p class="TableNormal"><span class="Strong">Note:</span> If the 
+		 container is static, this method may return a very large value 
+		 for any position.</p></td>
+	</tr>
+	<tr>
+		<td>grab</td>
+		<td>None</td>
+		<td><span><a href="vcComponent.htm" title="vcComponent">vcComponent</a></span> 
+		 <span class="hcp2">component</span><span>, [Enumeration</span> 
+		 <span class="hcp2">assembly_mode</span><span>]</span></td>
+		<td>Attaches a given <span class="Italic">component</span> to this 
+		 container. 
+		<p class="TableNormal">If the container is static, the component 
+		 will automatically retain its location.</p>
+		<p class="TableNormal">If the Assembly feature is used in Process 
+		 Modeling, the optional <span class="Italic">assembly_mode</span> 
+		 argument defines how the Assembly Instance is handled when grabbing 
+		 the product. See <a href="Constants.htm#Grab_Constants">Grab Constants</a> 
+		 for more information.</p></td>
+	</tr>
+	<tr>
+		<td>startFailure</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Sets the state of container to failure. 
+		<p class="TableNormal">In a failure state, a container cannot react 
+		 to anything during a simulation until its shifted to a different 
+		 state.</p></td>
+	</tr>
+	<tr>
+		<td>stopFailure</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Shifts state of component to a different state, thereby ending 
+		 a failure. 
+		<p class="TableNormal">Generally, this method is used to end a 
+		 failure state and mark the end of a repair made to the container.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark12"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnTransition</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span>, 
+		 Boolean <span class="Italic">arrive_leave</span></td>
+		<td>Triggered when a component is transferred to or from the container. 
+		 
+		<p class="TableNormal">The <span class="Italic">component</span> 
+		 argument is the component in question, and the <span class="Italic">arrive_leave</span> 
+		 argument is a Boolean value that is True if the component has 
+		 arrived to the container or False if the component has departed.</p>
+		<p class="TableNormal">If the OnTransition() event is triggered 
+		 with an <span class="Italic">arrive_leave</span> value True, the 
+		 component has just been added and is in a well-defined state with 
+		 respect to its container. It is then safe to manipulate the component.</p>
+		<p class="TableNormal">If <span class="Italic">arrive_leave</span> 
+		 value is False, the component is in the process of being removed 
+		 and its <span>Container</span> is not well-defined. In this case, 
+		 <span class="Strong">DO NOT</span> use the Container property 
+		 of the component being transferred.</p></td>
+	</tr>
+</table>
+</body>
+</html>

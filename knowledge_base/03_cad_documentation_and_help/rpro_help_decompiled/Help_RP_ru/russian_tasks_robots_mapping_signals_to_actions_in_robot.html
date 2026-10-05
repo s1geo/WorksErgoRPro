@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Сопоставление сигналов с действиями в роботе</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Ввод-вывод робота можно сопоставить с базой и инструментальной рамкой для выполнения действий, специфичных для инструмента. Например, вы можете использовать оператор Set Binary..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Сопоставление сигналов с действиями в роботе</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Ввод-вывод робота можно сопоставить с базой и инструментальной рамкой для выполнения действий, специфичных для инструмента. Например, вы можете использовать оператор Set Binary Output, чтобы сигнализировать о захвате и освобождении, трассировке, а также о монтаже и демонтаже компонентов инструмента. Обратите внимание, что во всех случаях цифровые (логические) сигналы используются для обозначения действий со значением True или False.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>В трехмерном мире выберите робота в качестве компонента.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>На панели <span style="font-weight: bold;">Свойства, </span>разверните раздел <span style="font-weight: bold;">Конфигурация действий</span>.</p>
+<p class="p_Normal" style="text-indent: -0.1771in; margin: 0 0 0.0417in 0.4167in;"><img alt="Robots009" style="margin:0;width:4.1979in;height:3.0521in;border:none" src="robots009.png"/></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>Под <span style="font-weight: bold;">Сигнальные действия, </span>выполните все следующие действия:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>В <span style="font-weight: bold;">Выводе, </span>щелкните сигнал робота, который вы хотите использовать для подачи сигнала. Большинство компонентов робота имеют Сценарий действия поведения, при котором сигналы с 1 по 48 автоматически сопоставляются с рамкой инструментов, а сигналы с 49 по 80 — с базовыми рамками. Это означает, что существуют предопределенные действия сигналов, которые вы можете использовать без необходимости настраивать новые. В большинстве случаев сигналы с 1 по 16 сигнализируют действия <span style="font-style: italic;">схватить и отпустить</span>, сигналы от 17 до 32 действия <span style="font-style: italic;">трассировки</span> и сигналы с 33 по 48 <span style="font-style: italic;">действия монтажа и демонтажа</span> инструмента. Как правило, вам не нужно использовать базовые рамки, поэтому использование сигнала 50 и выше не вызовет проблем. В противном случае вы можете использовать сигнал 100 и далее, что в любом случае упрощает поиск и ссылку на то, какие сигналы используются для действий.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>На <span style="font-weight: bold;">Истинном, </span>щелкните действие, которое вы хотите выполнить, когда значение сигнала равно True. Это отобразит раздел параметров для выбранного действия.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>На <span style="font-weight: bold;">Ложном, </span>щелкните действие, которое вы хотите выполнить, когда значение сигнала равно False. Это отобразит раздел параметров для выбранного действия.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">4.</span>Выполните любое из следующих действий, которые относятся к действию На Истинном, выбранному на шаге 3.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Если действие выбрано как <span style="font-weight: bold;">Схватить, </span>определите рамку инструмента и область обнаружения, которые будут использоваться для захвата компонентов. Область обнаружения - это объемная область, определенная с помощью координат XYZ в системе координат инструментальной рамки. Это позволяет роботу знать, какие компоненты можно и нельзя захватывать в трехмерном мире.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Если действие выбрано как <span style="font-weight: bold;">Трассировка включена, </span>определите материал и инструмент, которые будут использоваться для отслеживания траектории движения робота. Затем определите, хотите ли вы присоединить наборы линий трассировки к 3D-миру (корневому узлу симуляции) или к узлу компонента. Как правило, наборы трассируемых линий привязываются к 3D-миру, поскольку робот может перемещаться во время симуляции, например, роботы, установленные на рельсах.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Если действие выбрано как <span style="font-weight: bold;">Закрепить инструмент, </span>определите инструмент, область обнаружения и интерфейс, которые будут использоваться для закрепления компонентов инструмента. Обратите внимание, что используемый интерфейс должен быть совместим с интерфейсом в компоненте инструмента, иначе компонент инструмента не будет установлен на роботе.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">5.</span>Выполните любое из следующих действий, применимых к действию На Ложном, которое вы выбрали на шаге 3.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Если действие <span style="font-weight: bold;">Отпустить, </span>установите свойство <span style="font-weight: bold;">Дистанция присоединения</span> как расстояние от нижней части захваченного компонента до контейнера, к которому компонент может быть прикреплен в 3D-мире. Если контейнер не найден, компонент освобождается и прикрепляется к 3D-миру (корневой узел симуляции).</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Если действие <span style="font-weight: bold;">Трассировка выключена, </span>определите, для какого инструмента должна быть отключена трассировка.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Если действие <span style="font-weight: bold;">Открепить инструмент, </span>установите свойство <span style="font-weight: bold;">Дистанция присоединения </span>как расстояние от нижней части связанного блока компонента инструмента до контейнера, к которому компонент инструмента может быть прикреплен в 3D-мире. Если контейнер не найден, компонент освобождается и прикрепляется к 3D-миру (корневому узлу симуляции). Далее определите, от какого интерфейса в роботе отсоединен компонент инструмента. Если компонент инструмента заблокирован от редактирования, вы не сможете отсоединить инструмент от робота.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">6.</span>В программе робота добавьте оператор <span style="font-weight: bold;">Установить бинарный вывод</span>, сигнализирующий о действии. Например, установите для сигнала 17 значение True, чтобы включить трассировку, а затем используйте другой оператор <span style="font-weight: bold;">Установить бинарный вывод</span>, чтобы отключить трассировку.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Подсказка:</span> Если вы хотите использовать импортированную инструментальную рамку, мы рекомендуем переместить одну из инструментальных рамок робота в местоположение импортированной инструментальной рамки. Это позволит вам избежать действий по перенастройке, а также случаев, когда импортированная инструментальная рамка недоступна в роботе.</p>
+
+</td></tr></table>
+
+</body>
+</html>

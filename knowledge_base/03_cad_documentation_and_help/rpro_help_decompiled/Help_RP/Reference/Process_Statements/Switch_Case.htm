@@ -1,0 +1,85 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Switch Case</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Switch Case</h1>
+<p>A SwitchCase statement allows you to execute one of the predefined case scopes, based 
+ on evaluated value of the Condition expression. Each case 
+ scope defines a test for the condition value, and the first case where 
+ the test is passed, i.e. evaluates to True, gets executed.</p>
+<p>The default case scope is executed if no other case test passes.</p>
+<h2>Define variables</h2>
+<p>Process variables are often used in switch case expressions. </p>
+<p>To define a new static variable, select a process routine. In Routine 
+ Properties, click Add new variables drop-down menu, and then select the 
+ type. New variable appears in panel, which name and value can be edited. 
+ Change only the name and use <a href="Assign_Process_Variable.htm">Assign 
+ statement</a> to define its value.</p>
+<p>&#160;<img src="../../English/Links/ReferenceProcessStatementsSwitchCase2.png" alt="" border="0" class="hcp1"></p>
+<h2>Switch Condition</h2>
+<p>Select the switch case statement and define Condition expression. The 
+ calculated value of the expression is compared against case conditions. 
+ Both static and runtime variables can be used in the expression. </p>
+<p>&#160;<img src="../../English/Links/ReferenceProcessStatementsSwitchCase3.png" alt="" border="0" class="hcp1"></p>
+<h2>Add a Case </h2>
+<p>To add a new case, point to switch statement in a process routine, then 
+ right-click and select Add case.</p>
+<h2>&#160;<img src="../../English/Links/ReferenceProcessStatementsSwitchCase.png" alt="" border="0" class="hcp1"></h2>
+<h2>Case Condition </h2>
+<p>Select a case and define the <span style="font-weight: bold;">CaseCondition</span> 
+ property value. It is a string property that is parsed into a comparison 
+ operator and the actual value expression. </p>
+<p>The syntax is</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>&lt;operator&gt; &lt;actual_value_expression&gt;</td>
+	</tr>
+</table>
+<p>If the operator is omitted, the equals operator (==) is used. </p>
+<p>An expression can have multiple operators and variables. See <a href="../Expressions/Operator_Precedence.htm">operator 
+ precedence.</a></p>
+<p>The actual value expression can be either a constant value or an expression 
+ consisting of variables.</p>
+<p><img src="../../English/Links/ReferenceProcessStatementsSwitchCase4.png" alt="" border="0" class="hcp1"></p>
+<h2>Default case</h2>
+<p>One of the cases may be specified as the default case, which will be 
+ executed if no other case condition is accepted. This is done by typing 
+ &quot;Default&quot; into the case condition (not case sensitive).</p>
+<p><img src="../../English/Links/ReferenceProcessStatementsSwitchCase5.png" alt="" border="0" class="hcp1"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Condition </td>
+		<td><p>Defines a comparison expression to evaluate each case against.</p>
+		<p>See also <a href="../Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</p></td>
+	</tr>
+	<tr>
+		<td><p>CaseCondition </p></td>
+		<td><p>Defines a comparison expression to evaluate against the 
+		 Condition.</p></td>
+	</tr>
+</table>
+</body>
+</html>

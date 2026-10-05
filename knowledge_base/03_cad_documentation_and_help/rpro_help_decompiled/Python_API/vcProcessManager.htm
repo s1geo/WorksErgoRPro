@@ -1,0 +1,166 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProcessManager</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcProcessManager </h1>
+<p>The process manager service automatically creates, updates and removes 
+ process groups (<a href="vcProcessGroup.htm">vcProcessGroup</a>) when 
+ process implementations (<a href="vcProcessRoutine.htm">vcProcessRoutine</a>) 
+ are added, renamed or removed within its parent process controller. The 
+ process groups can be used to easily find all implementations of a process. 
+ </p>
+<p>Process implementations are owned by <a href="vcProcessExecutor.htm">vcProcessExecutor</a> 
+ instances.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot57466" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot57466', 'MTPOPUP57466');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP57466" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Controller </td>
+		<td><a href="vcProcessController.htm">vcProcessController</a> </td>
+		<td>R</td>
+		<td>Gets the process controller owner.</td>
+	</tr>
+	<tr>
+		<td>ProcessGroups </td>
+		<td>List of <a href="vcProcessGroup.htm">vcProcessGroup</a></td>
+		<td>R</td>
+		<td>Gets a list of all current processes in this process controller.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>findProcessGroup </td>
+		<td><a href="vcProcessGroup.htm">vcProcessGroup</a></td>
+		<td><p>String <span class="hcp1">processId</span> 
+		 </p></td>
+		<td><p>Tries to find a process group that contains all processes 
+		 with the given id. </p>
+		<p>Returns None if no such processes exist.</p></td>
+	</tr>
+	<tr>
+		<td>changeGroupId </td>
+		<td><p>None</p></td>
+		<td><p><a href="vcProcessGroup.htm">vcProcessGroup</a> <span class="hcp1">group</span>,</p>
+		<p>String <span class="hcp1">newId</span></p></td>
+		<td><p>Tries to rename a process i.e. change id of all process 
+		 implementations in a process group. This can fail non-trivially 
+		 if some process executor already contains a process with the new 
+		 id.</p>
+		<p>Either the rename succeeds fully or no changes are made, throws 
+		 an exception if the operation didn’t succeed.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnProcessAdded</td>
+		<td><p><a href="vcProcessRoutine.htm">vcProcessRoutine</a> <span class="hcp1">process</span>,</p>
+		<p><a href="vcProcessGroup.htm">vcProcessGroup</a> <span class="hcp1">group</span></p></td>
+		<td><p>Triggered when a new <span class="hcp1">process</span> 
+		 implementation has been added.</p></td>
+	</tr>
+	<tr>
+		<td><p>OnProcessRemoving </p></td>
+		<td><p><a href="vcProcessRoutine.htm">vcProcessRoutine</a> <span class="hcp1">process</span>,</p>
+		<p><a href="vcProcessGroup.htm">vcProcessGroup</a> <span class="hcp1">group</span></p></td>
+		<td><p>Triggered when a <span class="hcp1">process</span> 
+		 implementation is about to be removed.</p></td>
+	</tr>
+	<tr>
+		<td><p>OnGroupIdChanged </p></td>
+		<td><p><a href="vcProcessGroup.htm">vcProcessGroup</a> <span class="hcp1">group</span>,</p>
+		<p>String <span class="hcp1">previousId</span></p></td>
+		<td><p>Triggered when all processes within a <span class="hcp1">group</span> 
+		 changed their id. The usual case is when the group only contains 
+		 a single process implementation and its id gets changed.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p class="Example"><span class="Example">Example. Get the event when adding/removing/changing 
+ name of a process routine from the process manager</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>#Get process manager in the component 
+		<br>comp = getComponent() 
+		<br>process_executor = comp.findBehavioursByType('rProcessExecutor')[0] 
+		<br>process_controller = process_executor.ProcessController 
+		<br>process_manager = process_controller.ProcessManager 
+		<br>#Get the list of all process groups that belongs to this process manager 
+		<br>process_groups = process_manager.ProcessGroups 
+		<br>#print process_groups 
+		<br>''' 
+		<br>#Find the process group and change the name 
+		<br>process_old = process_manager.findProcessGroup(&quot;Process #1&quot;) 
+		<br>process_manager.changeGroupId(process_old, &quot;Process New&quot;) 
+		<br>''' 
+		<br>#Get event when adding a process routine to the process manager 
+		<br>def ProcessAdded(routine, group): 
+		<br>&#160;&#160;print &quot;Process Group - {} is added to {}::{}&quot;.format(routine.Name, comp.Name, process_executor.Name) 
+		<br>#Get event when removing a process routine to the process manager 
+		<br>def ProcessRemoved(routine, group): 
+		<br>&#160;&#160;print &quot;Process Group - {} is removed from, {}::{}&quot;.format(routine.Name, comp.Name, process_executor.Name) 
+		<br>process_manager.OnProcessAdded = ProcessAdded 
+		<br>process_manager.OnProcessRemoving = ProcessRemoved</td>
+	</tr>
+</table>
+</body>
+</html>

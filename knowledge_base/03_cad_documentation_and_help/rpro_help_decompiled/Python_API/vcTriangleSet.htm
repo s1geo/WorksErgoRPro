@@ -1,0 +1,580 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name="search-keywords" content="TriangleSet">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcTriangleSet</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border-left-style:Solid;
+border-left-width:1px;
+border-right-style:Solid;
+border-right-width:1px;
+border-top-style:Solid;
+border-top-width:1px;
+border-bottom-style:Solid;
+border-bottom-width:1px; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcTriangleSet</h1>
+<p>vcTriangleSet is a geometry set used for creating and storing a collection 
+ of triangles and tessellated surface data.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcGeometrySet.htm">vcGeometrySet</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot55054" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot55054', 'MTPOPUP55054');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP55054" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>CreaseAngle</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines angle tolerance for triangle edge shading in which 
+		 edge angles less than tolerance are rendered as smooth surfaces 
+		 during light calculations.</td>
+	</tr>
+	<tr>
+		<td>DynamicTextureCoordinates1</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if texture coordinates of set can be updated during 
+		 simulation.</td>
+	</tr>
+	<tr>
+		<td>DynamicUpdate</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if geometry of set can be updated during simulation.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of set.</td>
+	</tr>
+	<tr>
+		<td>PointCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the total number of points in set.</td>
+	</tr>
+	<tr>
+		<td>PolygonCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the total number of triangles in set.</td>
+	</tr>
+	<tr>
+		<td>PolygonTable</td>
+		<td>List of Integer</td>
+		<td>RW</td>
+		<td>Defines a polygon table in the form of an ordered list used 
+		 for generating triangles of set. 
+		<p class="TableNormal">In order to generate triangles, the vertex 
+		 count of polygon is given first followed by the index for each 
+		 vertex and so on for each subsequent polygon. For example, [3,0,1,2,3,0,2,3] 
+		 would define two polygons with each having three vertices in which 
+		 two are shared. Any polygon with four or more vertices will be 
+		 tessellated.</p>
+		<p class="TableNormal">The actual positions of vertices are defined 
+		 in PositionTable.</p>
+		<p class="TableNormal">See <a href="#ExamplePolygonTable">Example. 
+		 Use polygon table to generate triangles</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>PositionTable</td>
+		<td>List of Real</td>
+		<td>RW</td>
+		<td>Defines a position table in the form of an ordered list used 
+		 for generating triangles of set. 
+		<p class="TableNormal">In order to generate triangles, position 
+		 values should have a known index and be in XYZ order. For example, 
+		 [123.0,45.0,4.5,15.0,45.0,90.0] would define the position of two 
+		 points which are aligned on Y-axis.</p>
+		<p class="TableNormal">If the number of entries is not enough for 
+		 all points in set, those points will be deleted from set as a 
+		 clean up operation.</p>
+		<p class="TableNormal">If number is more than is needed for points, 
+		 additional points are created in set.</p></td>
+	</tr>
+	<tr>
+		<td>TextureCoordinateTable</td>
+		<td>List of Real</td>
+		<td>RW</td>
+		<td>Gets/Sets texture coordinates for points in set. 
+		<p class="TableNormal">f the number of entries is not enough for 
+		 all points in set, those points will be deleted from set as a 
+		 clean up operation.</p>
+		<p class="TableNormal">If number is more than is needed for points, 
+		 additional points are created in set.</p></td>
+	</tr>
+	<tr>
+		<td>Topology</td>
+		<td><a 
+		 href="vcTopology.htm">vcTopology</a></td>
+		<td>R</td>
+		<td>Gets the container of 
+		 topology data for points in set.</td>
+	</tr>
+	<tr>
+		<td>TriangleCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the total number of triangles in set.</td>
+	</tr>
+	<tr>
+		<td>TriangleTable</td>
+		<td>List of Integer</td>
+		<td>RW</td>
+		<td>Gets/Sets the triangle table of set, which is an ordered list 
+		 of vertex indices for each triangle.</td>
+	</tr>
+	<tr>
+		<td>UseTextureCoordinates1</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the use of texture coordinates in set.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addPoint</td>
+		<td>Integer</td>
+		<td><a href="vcVector.htm">vcVector</a> <span class="Italic">vector</span> 
+		 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">Real <span class="Italic">x</span>, Real 
+		 <span class="Italic">y</span>, Real <span class="Italic">z</span></p></td>
+		<td>Adds a point to set, and then returns index of point in set.</td>
+	</tr>
+	<tr>
+		<td>addTriangle</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">vertex1</span>, Integer <span 
+		 class="Italic">vertex2</span>, Integer <span class="Italic">vertex3</span></td>
+		<td>Adds a triangle to set, and then returns new triangle count 
+		 of set. 
+		<p class="TableNormal">See <a href="vcTriangleSet.htm#ExampleSphere">Example. 
+		 Create sphere with triangle sets</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>collapsePoint</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">indexPoint1</span>, Integer <span 
+		 class="Italic">indexPoint2</span></td>
+		<td>Collapses a point at a given index into another point at a 
+		 given index in set, thereby updating triangles referencing first 
+		 point to now reference second point. 
+		<p class="TableNormal">Generally, this is used to clean up redundant 
+		 vertices, reduce data count or simplify geometry.</p></td>
+	</tr>
+	<tr>
+		<td>convexHull</td>
+		<td><a href="vcTriangleSet.htm">vcTriangleSet</a></td>
+		<td>Boolean <span class="Italic">value</span></td>
+		<td>Creates a convex hull from geometry of set. 
+		<p class="TableNormal">If <span class="Italic">value</span> is 
+		 True, returns a new triangle set containing the resultant geometry.</p>
+		<p class="TableNormal">If <span class="Italic">value</span> is 
+		 False, modifies the current geometry of set and returns the same 
+		 set.</p></td>
+	</tr>
+	<tr>
+		<td>decimate</td>
+		<td>Real</td>
+		<td>Real <span class="Italic">quality</span>, Real <span class="Italic">maxError</span></td>
+		<td>Simplifies triangles of set by merging points within a given 
+		 <span class="Italic">maxError</span> tolerance until a given <span 
+		 class="Italic">quality</span> level is achieved or tolerance is 
+		 exceeded.</td>
+	</tr>
+	<tr>
+		<td>decompose</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Regroups triangles in set into different sets based on the 
+		 connection of each triangle to one another.</td>
+	</tr>
+	<tr>
+		<td>deleteTriangle</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Deletes a triangle at a given <span class="Italic">index</span> 
+		 in set. 
+		<p class="TableNormal">You should call the update() method after 
+		 deleting one or more triangles from set.</p></td>
+	</tr>
+	<tr>
+		<td>getClosestPointAndNormal</td>
+		<td>2-tuple (<a 
+		 href="vcVector.htm">vcVector</a> point, <a 
+		 href="vcVector.htm">vcVector</a> normal)</td>
+		<td><a 
+		 href="vcVector.htm">vcVector</a> <span class="Italic">referencePoint</span></td>
+		<td>Returns the closest point 
+		 to a given <span class="Italic">referencePoint</span> <span>in 
+		 the set. The object coordinate system of the set is used to find 
+		 the point, which is returned along with its surface normal.</span></td>
+	</tr>
+	<tr>
+		<td>getTexCoord1</td>
+		<td>2-tuple (Real u, Real v)</td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns the texture coordinates of a point at a given <span 
+		 class="Italic">index</span> in set.</td>
+	</tr>
+	<tr>
+		<td>getTextureCoordinates</td>
+		<td>List of 2-tuple (Real 
+		 u, Real v)</td>
+		<td>List of Integer <span 
+		 class="Italic">indices</span></td>
+		<td>Returns a list containing 
+		 an ordered pair of UV coordinates for points at given indices 
+		 in set.</td>
+	</tr>
+	<tr>
+		<td>getPoint</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns the position vector of point at a given <span class="Italic">index</span> 
+		 in set.</td>
+	</tr>
+	<tr>
+		<td>getPointIndexesWithin</td>
+		<td>List of Integer</td>
+		<td><a 
+		 href="vcVector.htm">vcVector</a> <span class="Italic">position</span>, 
+		 Real <span class="Italic">side_length</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a 
+		 href="vcVector.htm">vcVector</a> <span class="Italic">position</span>, 
+		 Real <span class="Italic">side_length</span>, <a 
+		 href="vcVector.htm">vcVector</a> <span class="Italic">normal</span></p></td>
+		<td>Returns a list of indices 
+		 for points in set within an area defined by a given <span class="Italic">position</span> 
+		 and <span class="Italic">side_length</span>. 
+		<p class="TableNormal">A <span class="Italic">normal</span> argument 
+		 can be given to filter points with the same surface normal.</p>
+		<p class="TableNormal">See 
+		 <a href="vcTriangleSet.htm#ExamplePointIndexRadius">Example. 
+		 Get position of points</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>getPointNormals</td>
+		<td>List of <a 
+		 href="vcVector.htm">vcVector</a></td>
+		<td>List of Integer <span 
+		 class="Italic">indices</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">List 
+		 of Integer <span class="Italic">indices</span>, <a 
+		 href="vcMatrix.htm">vcMatrix</a> <span class="Italic">convert</span></p></td>
+		<td>Returns a list of surface 
+		 normal vectors for points at a given list of <span class="Italic">indices</span> 
+		 in set. 
+		<p class="TableNormal">A <span class="Italic">convert</span> argument 
+		 can be used to transform each vector by a given matrix.</p></td>
+	</tr>
+	<tr>
+		<td>getPointPositions</td>
+		<td>List of <a 
+		 href="vcVector.htm">vcVector</a></td>
+		<td>List of Integer <span 
+		 class="Italic">indices</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">List 
+		 of Integer <span class="Italic">indices</span>, <a 
+		 href="vcMatrix.htm">vcMatrix</a> <span class="Italic">convert</span></p></td>
+		<td>Returns a list of position 
+		 vectors for points at a given list of <span class="Italic">indices</span> 
+		 in set. 
+		<p class="TableNormal">A <span class="Italic">convert</span> argument 
+		 can be used to transform each vector by a given matrix.</p></td>
+	</tr>
+	<tr>
+		<td>getTriangle</td>
+		<td>3-tuple (Integer vertex1, Integer vertex2, Integer vertex3)</td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns the indices of vertices for a triangle at a given <span 
+		 class="Italic">index</span> in set.</td>
+	</tr>
+	<tr>
+		<td><p>getTriangleEdgeNeighbor</p></td>
+		<td><p>2-tuple (Integer triangle_index, Integer vertex_index)</p></td>
+		<td><p>Integer <span class="Italic">index</span>, Integer <span 
+		 class="Italic">vertex</span></p></td>
+		<td><p>Returns the index of a triangle neighboring another triangle 
+		 at a given <span class="Italic">index</span> and <span class="Italic">vertex</span> 
+		 in set. </p>
+		<p class="TableNormal">The <span class="Italic">vertex</span> argument 
+		 should be either 0, 1 or 2.</p>
+		<p class="TableNormal">The returned value is an ordered pair identifying 
+		 neighboring triangle and shared vertex in set.</p></td>
+	</tr>
+	<tr>
+		<td><p>getTriangleEdgeType</p></td>
+		<td><p>Enumeration</p></td>
+		<td><p>Integer <span class="Italic">index</span>, Integer <span 
+		 class="Italic">vertex</span></p></td>
+		<td><p>Returns the type of edge for a triangle at a given index 
+		 and vertex in set. </p>
+		<p class="TableNormal">The <span class="Italic">vertex</span> argument 
+		 should be either 0, 1 or 2.</p>
+		<p class="TableNormal">The returned type is one of seven possibilities:</p>
+		<p class="TableNormal"><span class="Term">0 = UNKOWN</span><br>
+		Type is unknown.</p>
+		<p class="TableNormal"><span class="Term">1 = LINE</span><br>
+		No triangle attached to edge.</p>
+		<p class="TableNormal"><span class="Term">2 = CO_PLANAR</span><br>
+		Two triangles attached to edge and their surface normals are parallel.</p>
+		<p class="TableNormal"><span class="Term">3 = SOFT</span><br>
+		Two triangles attached to edge and angle between surface normals 
+		 is within angle tolerance of set, that is smooth surface.</p>
+		<p class="TableNormal"><span class="Term">4 = HARD</span><br>
+		Two triangles attached to edge and angle between surface normals 
+		 is outside angle tolerance of set, that is coarse surface.</p>
+		<p class="TableNormal"><span class="Term">5 = BOUNDARY</span><br>
+		One triangle attached to edge.</p>
+		<p class="TableNormal"><span class="Term">6 = NON_MANIFOLD</span><br>
+		More than two triangles attached to edge.</p></td>
+	</tr>
+	<tr>
+		<td><p>getTriangleNormal</p></td>
+		<td><p><a href="vcVector.htm">vcVector</a></p></td>
+		<td><p>Integer <span class="Italic">index</span></p></td>
+		<td><p>Returns the surface normal of a triangle at a given <span 
+		 class="Italic">index</span> in set.</p></td>
+	</tr>
+	<tr>
+		<td><p>mergePoints</p></td>
+		<td><p>None</p></td>
+		<td><p>Real <span class="Italic">tolerance</span> </p>
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">Real <span class="Italic">tolerance</span>, 
+		 Boolean <span class="Italic">onlyBoundaryPoints</span></p></td>
+		<td><p>Merges points of triangles within a given <span class="Italic">tolerance</span> 
+		 that are not connected to one another by adding lines. </p>
+		<p class="TableNormal">A <span class="Italic">onlyBoundaryPoints</span> 
+		 argument can be used to only merge points that border one another 
+		 and that are within the given <span class="Italic">tolerance</span>.</p></td>
+	</tr>
+	<tr>
+		<td><p>setPoint</p></td>
+		<td><p>None</p></td>
+		<td><p>Integer <span class="Italic">index</span>, <a href="vcVector.htm">vcVector</a> 
+		 <span class="Italic">vector</span></p></td>
+		<td><p>Sets the position vector of a point at a given <span class="Italic">index</span> 
+		 in set.</p></td>
+	</tr>
+	<tr>
+		<td><p>setTexCoord1</p></td>
+		<td><p>None</p></td>
+		<td><p>Integer <span class="Italic">index</span>, Real <span class="Italic">u</span>, 
+		 Real <span class="Italic">v</span></p></td>
+		<td><p>Sets the texture coordinates of a point at a given <span 
+		 class="Italic">index</span> in set.</p></td>
+	</tr>
+	<tr>
+		<td>setTextureCoordinates</td>
+		<td>None</td>
+		<td>List of Integer <span 
+		 class="Italic">indices</span>, List of 2-tuple (Real <span class="Italic">u</span>, 
+		 Real <span class="Italic">v</span>)</td>
+		<td>Sets the texture coordinates 
+		 of points at a given list of <span class="Italic">indices</span> 
+		 in set.</td>
+	</tr>
+	<tr>
+		<td><p>setTriangle</p></td>
+		<td><p>None</p></td>
+		<td><p>Integer <span class="Italic">index</span>, Integer <span 
+		 class="Italic">vertex1</span>, Integer <span class="Italic">vertex2</span>, 
+		 Integer <span class="Italic">vertex3</span></p></td>
+		<td><p>Sets the vertex indices of a triangle at a given <span class="Italic">index</span> 
+		 in set.</p></td>
+	</tr>
+	<tr>
+		<td><p>subdivide</p></td>
+		<td><p>None</p></td>
+		<td><p>Real <span class="Italic">max_edge_length</span> </p>
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">Real <span class="Italic">max_edge_length</span>, 
+		 Integer <span class="Italic">max_triangles</span></p></td>
+		<td><p>Modifies triangles in set into smaller triangles with edge 
+		 lengths smaller or equal to a given <span class="Italic">max_edge_length</span>. 
+		 </p>
+		<p class="TableNormal">A <span class="Italic">max_triangles</span> 
+		 argument can be given to stop subdivision when triangle count 
+		 reaches a maximum limit.</p></td>
+	</tr>
+	<tr>
+		<td><p>update</p></td>
+		<td><p>None</p></td>
+		<td><p>None</p></td>
+		<td><p>Updates the set and its bound box.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example"><a name="ExamplePolygonTable" id="ExamplePolygonTable"></a>Example. 
+ Use a polygon table to generate triangles</span></p>
+<p><span class="Example"><img src="Images/vcTriangleSet/PolygonTable.png" alt="" border="0"></span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcCommand import * 
+		<br>&#160;&#160; 
+		<br>def first_state(): 
+		<br>&#160;&#160;app = getApplication() 
+		<br>&#160;&#160;comp = app.createComponent() 
+		<br>&#160;&#160;feat = comp.RootFeature.createFeature(VC_GEOMETRY,'Geometry') 
+		<br>&#160;&#160;tset = feat.Geometry.createGeometrySet(VC_TRIANGLESET) 
+		<br>&#160;&#160;tset.PositionTable = [0.0,0.0,0.0,100.0,0.0,0.0,100.0,100.0,0.0,0.0,100.0,0.0] 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;#Uncomment any of the three following lines to product the same result 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;#tset.TriangleTable = [0,1,2,0,2,3] 
+		<br>&#160;&#160;#tset.PolygonTable = [3,0,1,2,3,0,2,3] 
+		<br>&#160;&#160;#tset.PolygonTable = [4,0,1,2,3] 
+		<br>&#160;&#160;tset.update() 
+		<br>&#160;&#160;feat.rebuild() 
+		<br>&#160;&#160;comp.rebuild() 
+		<br>&#160;&#160;app.render() 
+		<br>&#160;&#160; 
+		<br>#------------------------------------------------------------------------------ 
+		<br>addState( first_state ) 
+		<br><span>#------------------------------------------------------------------------------</span></td>
+	</tr>
+</table>
+<p><span class="Example"><a name="ExamplePointIndexRadius" 
+	 id="ExamplePointIndexRadius"></a>Example. Get position of points within 
+ an area filtered by direction</span></p>
+<p><img src="Images/vcTriangleSet/PointIndexWithin.png" alt="" border="1" class="hcp1"></p>
+<p>Clear cube and position frame 
+ are used to represent the area defined in getPointIndexesWithin() method 
+ with position and radius.</p>
+<table class="CodeBlock" cellspacing="0" 
+											 width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>import vcVector 
+		<br>&#160;&#160; 
+		<br>#create block and collapse to quickly create triangle set 
+		<br>comp = getComponent() 
+		<br>gf = comp.findFeature('Geometry') 
+		<br>if gf == None: 
+		<br>&#160;&#160;gf = comp.RootFeature.createFeature(VC_BLOCK, 'Geometry') 
+		<br>&#160;&#160;gf.collapse() 
+		<br>&#160;&#160; 
+		<br>#get triangle set 
+		<br>gc = gf.Geometry 
+		<br>tset = gc.GeometrySets[0] 
+		<br>&#160;&#160; 
+		<br>#use PositionTable to get position of every point in TriangleSet 
+		<br>tset_points = tset.PositionTable 
+		<br>&#160;&#160; 
+		<br>#use position and radius to get position of points within area 
+		<br>position = vcVector.new(50,100,100) 
+		<br>point_index = tset.getPointIndexesWithin(position, 50.0) 
+		<br>point_positions = tset.getPointPositions(point_index) 
+		<br>print point_index 
+		<br>&#160;&#160; 
+		<br>#get point normals to filter 
+		<br>point_normals = tset.getPointNormals(tset.TriangleTable) 
+		<br>for i in range(len(point_normals)): 
+		<br>&#160;&#160;for filter in point_normals: 
+		<br>&#160;&#160;&#160;&#160;point_index = tset.getPointIndexesWithin(position, 50.0, filter) 
+		<br>&#160;&#160;&#160;&#160;print point_index</td>
+	</tr>
+</table>
+<p><span class="Example"><a name="ExampleSphere" id="ExampleSphere"></a>Example. 
+ Create sphere with triangle sets</span></p>
+<p><img src="vcTriangleSetExample.png" alt="" border="1" class="hcp1"></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>import vcVector 
+		<br>import vcMatrix 
+		<br>&#160; 
+		<br>r = vcVector.new(100.0,0.0,0.0) # Radius of the sphere is 100.0 
+		<br>m = vcMatrix.new() 
+		<br>&#160; 
+		<br>geofeat = getComponent().RootFeature.createFeature(VC_GEOMETRY,'MyGeometry') 
+		<br>tset = geofeat.Geometry.createGeometrySet(VC_TRIANGLESET) 
+		<br>&#160; 
+		<br>for i in range(0,361,15): # Step every 15 degrees around Z (first and last coincident) 
+		<br>&#160;&#160;for j in range(90,-91,-15): # Half circle in 12 sections around Y, 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;# starting from south pole 
+		<br>&#160;&#160;&#160;&#160;m.identity() # always reset the origin before rotate 
+		<br>&#160;&#160;&#160;&#160;m.rotateRelZ(i) 
+		<br>&#160;&#160;&#160;&#160;m.rotateRelY(j) 
+		<br>&#160;&#160;&#160;&#160;p = m * r &#160;&#160;&#160;&#160;&#160;&#160;# transform the radius vector with reoriented origin 
+		<br>&#160;&#160;&#160;&#160;tset.addPoint(p) 
+		<br>&#160;&#160;&#160; 
+		<br>for i in range(26): # i is the section around Z (12 in each) 
+		<br>&#160;&#160;for j in range(12): # is around the rotating y axis 
+		<br>&#160;&#160;&#160;&#160;tset.addTriangle(i*12+j,(i+1)*12+j,(i+1)*12+j+1) 
+		<br>&#160;&#160;&#160;&#160;tset.addTriangle(i*12+j+1,i*12+j,(i+1)*12+j+1) 
+		<br>&#160; 
+		<br><span>geofeat.rebuild()</span> 
+		<br><span>getApplication().render()</span></td>
+	</tr>
+</table>
+<p><span class="Example">Example. Access geometry and polygon data</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>geoFea = comp.findFeature(&quot;Geometry&quot;) 
+		<br>geoCont = geoFea.Geometry 
+		<br>for i in geoCont.GeometrySets: 
+		<br>&#160;&#160;print i.PolygonTable 
+		<br>&#160;&#160;print i.PolygonCount 
+		<br>&#160;&#160;print i.PointCount</td>
+	</tr>
+</table>
+</body>
+</html>

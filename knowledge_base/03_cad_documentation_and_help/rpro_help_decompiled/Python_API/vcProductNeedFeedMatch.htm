@@ -1,0 +1,146 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="vcProductNeedFeedMatch, ProductNeedFeedMatch, Product Need Feed Match">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProductNeedFeedMatch</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { color:#000000; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcProductNeedFeedMatch</h1>
+<p>vcProductNeedFeedMatch is created when vcProductMatcher matches a need 
+ and a feed with each other. vcProductNeedFeedMatch stores the properties 
+ of the mached need and feed, and controls the state of the match.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>State</td>
+		<td>ProductMatchState</td>
+		<td>R</td>
+		<td>State of the match. 
+		<br>&#160; 
+		<br>See the match state options in <a href="Constants.htm#ProductMatcher_Constants">Product 
+		 Matcher Constants</a>.</td>
+	</tr>
+	<tr>
+		<td><span class="hcp1">SelectedProcessFlowInfo</span></td>
+		<td><a href="vcNextProcessFlowInfo.htm">vcNextProcessFlowInfo</a></td>
+		<td><span class="hcp1">R</span></td>
+		<td><span class="hcp1">FlowInfo that was selected in 
+		 the Feed-Need matching process.</span></td>
+	</tr>
+	<tr>
+		<td>MatchedNeed</td>
+		<td><a href="vcProductNeedInfo.htm">vcProductNeedInfo</a></td>
+		<td>R</td>
+		<td>Properties of the matched need. 
+		<br>&#160; 
+		<br>After a match has been disposed, the value is 
+		 None.</td>
+	</tr>
+	<tr>
+		<td>MatchedFeed</td>
+		<td><a href="vcProductFeedInfo.htm">vcProductFeedInfo</a></td>
+		<td>R</td>
+		<td>Properties of the matched feed. 
+		<br>&#160; 
+		<br>After a match has been disposed, the value is 
+		 None.</td>
+	</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>tryCancelMatch</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Attempt to cancel the match. Returns true if cancelling is 
+		 successful. 
+		<br>&#160; 
+		<br>A match cannot be cancelled after the match has 
+		 been finalized.</td>
+	</tr>
+	<tr>
+		<td>finalizeMatch</td>
+		<td>None</td>
+		<td>[<a href="vcProductNeed.htm">vcProductNeed</a> <i>receivingNeed</i>]</td>
+		<td>Sets the match state to Finalized. Normally, done by the need 
+		 owner in vcProductNeed.OnMatched event handler. 
+		<br>&#160; 
+		<br>Optionally, can replace the MatchedNeed if receivingNeed 
+		 is given.</td>
+	</tr>
+	<tr>
+		<td>dispose</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Disposes a completed or cancelled match, so that the vcProductNeed 
+		 and vcProductFeed objects can be reused for another match. 
+		<br>&#160; 
+		<br>Changes the State to Disposed and sets the values 
+		 of MatchedNeed and MatchedFeed to None. 
+		<br>&#160; 
+		<br>If dispose is called from within a state change 
+		 event handler, disposing is delayed and will only be executed 
+		 after all event handlers have been called. dispose can only be 
+		 called when the State is Finalized, Cancelled, or Disposed. If 
+		 the State is already Disposed, dispose does nothing.</td>
+	</tr>
+</table>
+<h2>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnStateChanged</td>
+		<td><a href="vcProductNeedFeedMatch.htm">vcProductNeedFeedMatch</a> 
+		 <i>match</i>, ProductMatchState <i>state</i></td>
+		<td>Triggered when the state of the match has been changed. 
+		<br>&#160; 
+		<br>See the match state options in <a href="Constants.htm#ProductMatcher_Constants">Product 
+		 Matcher Constants</a>.</td>
+	</tr>
+	<tr>
+		<td>OnNeedOrFeedDead</td>
+		<td><a href="vcProductNeedFeedMatch.htm">vcProductNeedFeedMatch</a> 
+		 <i>match</i></td>
+		<td>Triggered when the value of either MatchedNeed or MatchedFeed 
+		 is set to None.</td>
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,63 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="snap,robot position,jog">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Teaching positions using snap options</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</style>
+</head>
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Teaching Positions using Snap Options</h1>
+<p>The Jog command allows you to use a manipulator for teaching robots positions. At the origin of the manipulator is a magenta colored torus (ring) which allows you to move and snap a robot to points on other components.</p>
+<ol>
+<li class="Ordered">On the <span class="Strong">Program</span> tab, in the <span class="Strong">Manipulation</span> group, click <span class="Strong">Jog</span>.</li>
+<li class="Ordered">Select the robot you want to program.</li>
+<li class="Ordered">In the <span class="Strong">Jog</span> panel, <span class="Strong">Robot</span> section, do all of the following:
+<ul class="hcp1">
+<li class="Ordered">In <span class="Strong">Base</span>, click the base frame you want to reference.</li>
+<li class="Ordered">In <span class="Strong">Tool</span>, click the tool frame (tool center point) you want to reference.</li>
+<li class="Ordered">In <span class="Strong">Coordinates</span>, click the coordinate system you want to reference.</li>
+</ul>
+</li>
+<li class="Ordered">In the <span class="Strong">Snap Options</span> section, do one of the following:
+<ul class="hcp1">
+<li class="Ordered">To snap a robot to a point on an edge, click <span class="Strong">Edge</span>.</li>
+<li class="Ordered">To snap a robot to a point on a face, click <span class="Strong">Face</span>.</li>
+<li class="Ordered">To snap a robot to either an edge or face, click <span class="Strong">Edge &amp; Face</span>.</li>
+<li class="Ordered">To snap a robot to a point of reference, for example a robot position or Frame feature, click <span class="Strong">Frame</span>.</li>
+<li class="Ordered">To snap a robot to the origin of a component, click <span class="Strong">Origin</span>.</li>
+<li class="Ordered">To snap a robot to a corner point of a minimum bounding box for a node, click <span class="Strong">Bound</span>.</li>
+<li class="Ordered">To snap a robot to a bisector of component geometry, click <span class="Strong">Bisector</span>.</li>
+</ul>
+</li>
+<li class="Ordered">In the <span class="Strong">Snap Options</span> section, do one or more of the following:
+<ul class="hcp1">
+<li class="Ordered">To maintain the current orientation of a robot and limit changes its joint configuration, clear the <span class="Strong">Set Orientation</span> check box.</li>
+<li class="Ordered">To adjust the orientation of a robot, select the <span class="Strong">Set Orientation</span> check box, and then in the <span class="Strong">Robot</span> section, set <span class="Strong">Approach Axis</span> to the preferred axis of alignment. Generally, the Z-axis of the active TCP aligns with the surface normal of a target location.</li>
+</ul>
+</li>
+<li class="Ordered">In the 3D world, on the <span class="Strong">manipulator</span>, point inside the torus until it expands.</li>
+<li class="Ordered">Drag pointer to move the robot to a desired location based on your snap options. During this operation, the robot and/or its mounted tool will use X-ray rendering to not obstruct your view of other objects in the scene. More importantly, you are moving the robot not previewing its location as if you were using the Snap or Align command. If the torus is dragged outside the reach of a robot's arm, a red arrow will point back to the active TCP in the robot to indicate the location is not reachable. If the torus is dragged within reach of a robot arm, the location itself will provide feedback on its surface type, for example a point along an edge or bisector of two faces.</li>
+<li class="Ordered">In the <span class="Strong">Jog</span> panel, do one or more of the following:
+<ul class="hcp1">
+<li class="Ordered">In <span class="Strong">Configuration</span>, click the preferred joint configuration for the current position of robot.</li>
+<li class="Ordered">In the <span class="Strong">Joints</span> section, edit one or more joint properties.</li>
+</ul>
+</li>
+<li class="Ordered">In the <span class="Strong">Program Editor</span> panel, <span class="Strong">Statements</span> toolbar, create a statement for the type of motion that you want to use for the current position of robot.</li>
+</ol>
+<p><span class="Strong">Tip:</span> If the Jog command is enabled, you can use the "Snap" and "Align" commands to use different snap modes and preview robot positions. You can also use a shortcut to snap and align the robot just as you would when moving a component. This is often used to align components that are being grasped by an end-of-arm tool.</p>
+</body>
+</html>

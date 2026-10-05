@@ -1,0 +1,110 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="raycast sensor,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Raycast Sensor</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Raycast Sensor</h1>
+<p>A Raycast Sensor allows you to cast a ray in the 3D world for measuring 
+ distances and detecting components.</p>
+<p><img src="../../../English/Links/RaycastSensor.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the sensor.</td>
+	</tr>
+	<tr>
+		<td>UpdateScene</td>
+		<td>Defines if the simulation world (all components) is updated 
+		 on each sample (SampleTime). A True value is needed when detecting 
+		 moving components. And if True, for better performance, assign 
+		 DetectionContainer to update only the components contained there, 
+		 instead of the whole World. Otherwise, for performance, use a 
+		 False value.</td>
+	</tr>
+	<tr>
+		<td>TestParent</td>
+		<td>Defines if the sensor detects geometry in the node it is attached 
+		 to in the 3D world. Generally, a True value is used to detect 
+		 self collisions, for examples doors in a machine colliding with 
+		 one another.</td>
+	</tr>
+	<tr>
+		<td>ShowRay</td>
+		<td>Turns on/off the visibility of the ray in the 3D world.</td>
+	</tr>
+	<tr>
+		<td>UseSampling</td>
+		<td>Defines if the sensor operates using a sampling interval or 
+		 pulse driven by a received signal. A True value uses sampling 
+		 mode and is further defined using SampleTime. A False value uses 
+		 pulse mode in which a signal acts as a trigger for detecting components. 
+		 In pulse mode, the Connections property of a signal type behavior 
+		 has the sensor listed as a connection and some kind of iteration 
+		 is used to operate the sensor, for example a loop written in a 
+		 Python Script or some logic defining the signal's frequency.</td>
+	</tr>
+	<tr>
+		<td>SampleTime</td>
+		<td>Defines the time interval between each sample if UseSampling 
+		 is enabled. That is, the sampling interval of the sensor.</td>
+	</tr>
+	<tr>
+		<td>MaxRange</td>
+		<td>Defines the range used by the sensor for measuring distances. 
+		 For example, if a detected component is closer than MaxRange, 
+		 the sensor will signal the component's distance using RangeSignal.</td>
+	</tr>
+	<tr>
+		<td>DetectionThreshold</td>
+		<td>Defines the range used by the sensor for detecting components. 
+		 For example, if a detected component is closer than DetectionThreshold, 
+		 the sensor will trigger ComponentSignal and BoolSignal.</td>
+	</tr>
+	<tr>
+		<td>DetectionContainer</td>
+		<td>Defines if the sensor only detects components in a specified 
+		 container, for example a path in the sensor's component.</td>
+	</tr>
+	<tr>
+		<td>RangeSignal</td>
+		<td>Defines the Real Signal used to signal the length of the sensor's 
+		 ray to a detected component.</td>
+	</tr>
+	<tr>
+		<td>ComponentSignal</td>
+		<td>Defines the Component Signal used to signal what component 
+		 was detected by the sensor.</td>
+	</tr>
+	<tr>
+		<td>BoolSignal</td>
+		<td>Defines the Boolean Signal used to signal when a component 
+		 triggers the sensor.</td>
+	</tr>
+	<tr>
+		<td>Frame</td>
+		<td>Defines the Frame feature referenced as the physical location 
+		 of the sensor. The ray of the sensor is cast in the Frame feature's 
+		 positive Z-axis direction.</td>
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,110 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="data series,statistics,chart,report,dashboard">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+ 
+<title>vcStatisticsSeries</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcStatisticsSeries</h1>
+<p>vcStatisticsSeries is a source of data reported in a chart.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot24156" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot24156', 'MTPOPUP24156');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP24156" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Colors</td>
+<td>List of <a href="vcVector.htm">vcVector</a></td>
+<td>RW</td>
+<td>Defines the colors of series, which is displayed in chart.
+<p class="TableNormal">For example, data collected from different components should be color-coded to differentiate their data in chart.</p>
+</td>
+</tr>
+<tr>
+<td>Components</td>
+<td>List of <a href="vcComponent.htm">vcComponent</a></td>
+<td>RW</td>
+<td>Defines the components the series collects data from during a simulation.
+<p class="TableNormal">In order to collect data, a listed component must have Property.</p>
+</td>
+</tr>
+<tr>
+<td>Expression</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines the expression of series.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines the name of series object.</td>
+</tr>
+<tr>
+<td>ParentChart</td>
+<td><a href="vcStatisticsChart.htm">vcStatisticsChart</a></td>
+<td>R</td>
+<td>Gets the chart of series.</td>
+</tr>
+<tr>
+<td>Property</td>
+<td><a href="vcProperty.htm">vcProperty</a></td>
+<td>RW</td>
+<td>Defines the reported item (source) of series.</td>
+</tr>
+<tr>
+<td>SeriesName</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines the name of series, which is displayed in chart legend.</td>
+</tr>
+<tr>
+<td>Sources</td>
+<td>List of List (<a href="vcProperty.htm">vcProperty</a> <span class="Italic">property</span>, String <span class="Italic">expression</span>, <a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span>, <a href="vcVector.htm">vcVector</a> <span class="Italic">color</span>, Real <span class="Italic">thickness</span>)</td>
+<td>R</td>
+<td>Gets a list of sources for series data.
+<p class="TableNormal">This information includes the reported item (<a href="vcProperty.htm">vcProperty</a>) and its component.</p>
+</td>
+</tr>
+<tr>
+<td>Thickness</td>
+<td>List of Real</td>
+<td>RW</td>
+<td>Defines the display thickness of series, for example the line thickness of data collected from different components.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Examples</h2>
+<p><span class="Example"><a name="DefineDataSeriesSource" id="DefineDataSeriesSource"></a>Example. Define source of data series</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td>from vcScript import * <br>import vcVector <br>&#160; <br>app = getApplication() <br>dashboard = app.Dashboard <br>tab = dashboard.SelectedTab <br>chart = tab.Charts[0] <br>chart.LegendVisibility = True <br>data_series = chart.Series[0] <br>&#160; <br>conveyor = app.findComponent("Conveyor") <br>data_series.Components = [conveyor] <br>&#160; <br>stats = conveyor.findBehaviour("Statistics") <br>data_series.Property = stats.getProperty("PartsExited") <br>color = vcVector.new(0,1,0) <br>data_series.Colors = [color]</td>
+</tr>
+</table>
+</body>
+</html>

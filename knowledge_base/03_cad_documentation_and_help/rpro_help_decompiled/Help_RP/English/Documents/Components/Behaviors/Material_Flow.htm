@@ -1,0 +1,158 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="material flow,behaviors">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Material Flow</title>
+<link rel="StyleSheet" href="../../../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Material Flow</h1>
+<p>A flow type behavior is used to transfer components from one behavior to another and/or contain components.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot47257" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot47257', 'MTPOPUP47257');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP47257" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Types</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Connectors</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Flow Scripting</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Containment</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Types</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 33.333%;">
+<col style="width: 33.333%;">
+<col style="width: 33.333%;">
+<tr class="t1st">
+<td>Name</td>
+
+<td>Description</td>
+</tr>
+<tr>
+<td><a href="../../../../Reference/Behaviors/Material_Flow/Capacity_Controller.htm">Capacity Controller</a></td>
+
+<td>Controls the capacity of one or more behaviors that can contain components.</td>
+</tr>
+<tr>
+<td><a href="../../../../Reference/Behaviors/Material_Flow/Component_Container.htm">Component Container</a></td>
+
+<td>Stores any number of components based on its capacity.</td>
+</tr>
+<tr>
+<td><a href="../../../../Reference/Behaviors/Material_Flow/Component_Creator.htm">Component Creator</a></td>
+
+<td>Creates components dynamically during a simulation.</td>
+</tr>
+<tr>
+<td><a href="../../../../Reference/Behaviors/Material_Flow/Component_Flow_Proxy.htm">Component Flow Proxy</a></td>
+
+<td>Transfers in and out components arriving from one or more custom ports.</td>
+</tr>
+<tr>
+<td><a href="../../../../Reference/Behaviors/Material_Flow/One_Way_Path.htm">One Way Path</a></td>
+
+<td>Moves components forward along a path.</td>
+</tr>
+<tr>
+<td><a href="../../../../Reference/Behaviors/Material_Flow/Routing_Rule.htm">Routing Rule</a></td>
+
+<td>Transfers in and out components based on a hierarchy of rules.</td>
+</tr>
+<tr>
+<td><a href="../../../../Reference/Behaviors/Material_Flow/Two_Way_Path.htm">Two Way Path</a></td>
+
+<td>Moves components forward and/or backward along a path.</td>
+</tr>
+</table>
+
+<h2><a name="MiniTOCBookMark3"></a>Connectors</h2>
+
+<p>Flow type behaviors have ports, which are connectors that support the transfer of components within a component and to other components.</p>
+
+<p><img src="../../../Links/FlowBehaviorPorts.png" alt="" border="0" class="hcp1"></p>
+
+<p>The properties of a connector are used to form a logical connection between its behavior and another behavior with a matching connector, for example <span class="Italic">Input to Output</span> and <span class="Italic">Output to Input</span>.</p>
+
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Defines the name of connector.</td>
+</tr>
+<tr>
+<td>Input</td>
+<td>Defines if the connector transfers in components.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Defines if the connector transfers out components.</td>
+</tr>
+<tr>
+<td>Physical</td>
+<td>Defines if the connector is abstract or physical.</td>
+</tr>
+<tr>
+<td>CapacityTest</td>
+<td>Defines the type of capacity test to perform when transferring components to another connector.</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>Defines the behavior connected to the connector.</td>
+</tr>
+<tr>
+<td>Port</td>
+<td>Defines which connector in Connection is linked to the connector.</td>
+</tr>
+</table>
+
+<p>For <a href="../../../Tasks/Modeling/Transferring_component_to_other_behaviors.htm">internal transfers</a>, use the Component Graph panel to select a port, and then edit the transfer by using the Properties panel.</p>
+
+<p><img src="../../../Links/InternalTransferPort.png" alt="" border="0" class="hcp1"></p>
+
+<p>For <a href="../../../Tasks/Modeling/Transferring_components_to_other_components.htm">external transfers</a>, use interface type behaviors.</p>
+
+<p><img src="../../../Links/ExternalFlowTransfer.png" alt="" border="0" class="hcp1"></p>
+
+<h2><a name="MiniTOCBookMark4"></a>Flow Scripting</h2>
+
+<p>In some cases, you may need to use scripting to define routing rules and logic for handling dynamic connections, for example a conveyor with multiple entry and exit points. In other cases, scripting is needed to grab and release components from static containers, for example the storage and retrieval of component from racks.</p>
+
+<div class="task_image"><img src="../../../Links/SimpleCycleRouteScript.png" alt="" border="0" class="hcp1">
+<p>Script for cycling components to different output paths</p>
+</div>
+
+<p>Some flow type behaviors can move components along paths, which are defined by using Frame features.</p>
+
+<div class="task_image"><img src="../../../Links/PathFrames.png" alt="" border="0" class="hcp1">
+<p>Frame features used by paths of diverter conveyor and feeder</p>
+</div>
+
+<h2><a name="MiniTOCBookMark5"></a>Containment</h2>
+
+<p>Other flow type behaviors cannot physically move components and can either receive components or handle the transfer of components.</p>
+
+<p><img src="../../../Links/StaticContainer.png" alt="" border="0" class="hcp1"></p>
+
+</body>
+</html>

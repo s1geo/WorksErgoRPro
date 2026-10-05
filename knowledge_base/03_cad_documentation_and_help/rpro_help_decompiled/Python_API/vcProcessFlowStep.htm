@@ -1,0 +1,123 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProcessFlowStep</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcProcessFlowStep</h1>
+FlowStep is one step in FlowGroup’s sequence of steps and container for 
+ flow step properties. FlowStep may contain one or more ProcessGroups. 
+ 
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Data type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Groups</td>
+		<td><a href="vcObservableList_T_.htm">vcObservableList</a>&lt;ProcessGroup&gt;</td>
+		<td>R</td>
+		<td>List of ProcessGroups in the step.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of FlowStep. </td>
+	</tr>
+	<tr>
+		<td>IsOptional</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the products can potentially skip this FlowStep 
+		 in their flow sequence.</td>
+	</tr>
+	<tr>
+		<td><p>ProcessMode</p></td>
+		<td>ProcessMode enum</td>
+		<td>RW</td>
+		<td><p>Defines how products go through this FlowStep:</p>
+		<ul style="list-style: disc;">
+			<li>AllInAnyOrder: all process groups must be visited, before 
+			 moving to next step. </li>
+			<li>FirstMatch: only one of process groups must be visited, 
+			 before moving to next step. </li>
+		</ul></td>
+	</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>deleteProperty </td>
+		<td>None</td>
+		<td>See vcComponent.deleteProperty</td>
+		<td>Deletes a property of the Flow Step itself.</td>
+	</tr>
+	<tr>
+		<td>getProperty </td>
+		<td>vcProperty </td>
+		<td>String propertyName </td>
+		<td>Returns a property of the Flow Step itself. </td>
+	</tr>
+	<tr>
+		<td>createProperty </td>
+		<td>vcProperty </td>
+		<td>See vcComponent.createProperty </td>
+		<td>Creates a new property to the Flow Step itself. </td>
+	</tr>
+</table>
+<p><span class="Example">Example. Add tabs to ribbon</span></p>
+<div class="ScrollTable">
+	<table class="CodeBlock" cellspacing="0" width="100%">
+		<col>
+		<tr>
+			<td>from vcScript import * 
+			<br>&#160; 
+			<br>sim = getSimulation() 
+			<br>process_controller = sim.ProcessController 
+			<br>&#160; 
+			<br># Get the handle for product flow groups 
+			<br>flow_grp_mgr = process_controller.FlowGroupManager 
+			<br>flow_groups = flow_grp_mgr.Groups 
+			<br>flow_group1 = flow_groups[0] 
+			<br>&#160; 
+			<br># Create a Process Sequence 
+			<br>flow_table = process_controller.FlowTable 
+			<br>process_sequence = flow_table.getSequence(flow_group1) 
+			<br>if not process_sequence: 
+			<br>&#160;&#160;&#160;process_sequence = flow_table.createSequence(flow_group1) 
+			<br>&#160; 
+			<br># Add Process Groups to the Process Sequence 
+			<br>process_manager = process_controller.ProcessManager 
+			<br>for process_group in process_manager.ProcessGroups: 
+			<br>&#160;&#160;&#160;print process_group.ProcessId 
+			<br>&#160;&#160;&#160;process_sequence.addProcessGroup(process_group)</td>
+		</tr>
+	</table>
+</div>
+</body>
+</html>

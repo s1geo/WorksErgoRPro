@@ -1,0 +1,62 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="servo controller,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Servo Controller</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Servo Controller</h1>
+<p>A Servo Controller allows you configure and control independent joints and mechanisms using forward kinematics.</p>
+<p><img src="../../../English/Links/ServoController.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Defines the name of the controller.</td>
+</tr>
+<tr>
+<td>Joints</td>
+<td>Defines a list of joints defined in nodes used by the controller.</td>
+</tr>
+<tr>
+<td>UseHeartbeat</td>
+<td>Turns on/off the use of a pulse to drive events.</td>
+</tr>
+<tr>
+<td>HeartbeatTime</td>
+<td>Defines the time between each pulse (in seconds) if UseHeartbeat is enabled.</td>
+</tr>
+<tr>
+<td>RootNode</td>
+<td>Defines the link/node that acts as the base of the mechanical structure.</td>
+</tr>
+<tr>
+<td>FlangeNode</td>
+<td>If you are using an external axis system, defines the link/node used as a mounting plate for other kinematic structures. If you are using a track, defines the link/node used as the carriage.</td>
+</tr>
+<tr>
+<td>RootOffset</td>
+<td>Defines an offset from RootNode origin in the kinematics. Generally, this is used to start kinematics from the center of a node instead of its side.</td>
+</tr>
+<tr>
+<td>FlangeOffset</td>
+<td>Defines an offset from FlangeNode origin in order to properly mount other kinematic structures.</td>
+</tr>
+</table>
+</body>
+</html>

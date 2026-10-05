@@ -1,0 +1,60 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="move,rotate,transform,component">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Moving and rotating components</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</style>
+</head>
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Moving and Rotating Components</h1>
+<p>The location of a component in the 3D world is defined by coordinate values (XYZ) and degrees of rotation (RxRyRz) in a coordinate system.</p>
+
+<p>There are three available coordinate systems in the 3D world:</p>
+<ul class="hcp1">
+<li class="Unordered"><span class="Strong">World</span> is a global coordinate system with a fixed origin.</li>
+<li class="Unordered"><span class="Strong">Parent</span> references the object coordinate system of a selected component's parent. If a component is not attached to a node in another component, the parent of a selected component is the 3D world (simulation root node). In that case, both the World and Parent coordinate systems would have the same origin.</li>
+<li class="Unordered"><span class="Strong">Object</span> references a selected component's coordinate system. That is, the location of a component is relative to its own origin.</li>
+</ul>
+<p>If two or more components are selected in the 3D world, the last component added to the selection is referenced as the selection's location in the active coordinate system.</p>
+<ol>
+<li class="Ordered">In the 3D world, select the components you want to relocate.</li>
+<li class="Ordered">In the <span class="Strong">Properties</span> panel, do one of the following:
+<ul class="hcp1">
+<li class="Unordered">To edit the position of a selection, in the <span class="Strong">XYZ</span> boxes, type or paste distance values.</li>
+<li class="Unordered">To edit the orientation of a selection, in the <span class="Strong">RxRyRz</span> boxes, type or paste degree values.</li>
+</ul>
+</li>
+</ol>
+<p><span class="Strong">Tip:</span> In the Properties panel, you can click XYZRxRyRz labels to reset their values to zero.</p>
+<p>A manipulator can be used to define the position and orientation of selected components in the 3D world.</p>
+<ol>
+<li class="Ordered">On the <span class="Strong">Home</span> tab, in the <span class="Strong">Manipulation</span> group, click <span class="Strong">Move</span>.</li>
+<li class="Ordered">In the 3D world, select the components you want to move.</li>
+<li class="Ordered">On the <span class="Strong">manipulator</span>, do one or all of the following:</li>
+</ol>
+<ol>
+<li style="list-style: none; display: inline;">
+<ul>
+<li class="Unordered">To move the selection along an axis, drag an <span class="Strong">axis arrow</span> in a positive or negative direction.</li>
+<li class="Unordered">To rotate the selection around an axis, drag an <span class="Strong">axis ring</span> in a clockwise or counter-clockwise direction.</li>
+<li class="Unordered">To move the selection in a plane defined by two axes, drag a <span class="Strong">plane</span>.</li>
+<li class="Unordered">To snap the selection to another component's surface, drag the <span class="Strong">torus/origin</span> <span>of the manipulator.</span></li>
+</ul>
+</li>
+</ol>
+<p><span class="Strong">Tip:</span> Use Grid Snap commands to move selected components along an axis or plane at automatic or defined intervals. You can position the pointer along an axis or ring to increment the movement or rotation of a selected component.</p>
+</body>
+</html>

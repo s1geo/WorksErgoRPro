@@ -1,0 +1,326 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="extract files,archive,zip,package,pack folders">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+ <title>vcPackFolder</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+p.hcp1 { margin-left:20px; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcPackFolder</h1>
+<p>vcPackFolder allows you to pack files with a VCMX file and extract them. 
+ Files are contained in a folder that is mapped to a layout or component. 
+ Generally, you would map a temporary folder that you want to save with 
+ a VCMX file, and then extract the folder and its contents when you open 
+ the VCMX file. This allows you to share a layout or component that contains 
+ other files, for example a CSV file of robot position data.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot47823" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot47823', 'MTPOPUP47823');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP47823" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >How It Works</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark3" >Step 1. Get the packing mechanism</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark6" >Step 2. Map a folder</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark10" >Step 3. Extract files</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark13" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark14" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>How It Works</h2>
+<p>You can pack any type of file but the file must be stored in a folder. 
+ The folder along with its files are packaged and saved with a VCMX file. 
+ When you open the VCMX file, the packed folder and files can be extracted 
+ to an existing or temporary folder. Extracted files are deleted when you 
+ clear the layout or delete the component from the 3D world.</p>
+<h3><a name="MiniTOCBookMark3"></a>Step 1. Get the packing mechanism</h3>
+<p>The packing mechanism is a vcPackFolder object.</p>
+<h4><a name="MiniTOCBookMark4"></a><span>Case 1. Components</span></h4>
+<p>To pack files with a component, get the PackFolder property of a <a 
+	 href="vcComponent.htm">vcComponent</a> object.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>pf = comp.PackFolder</td>
+	</tr>
+</table>
+<h4><a name="MiniTOCBookMark5"></a>Case 2. Layouts</h4>
+<p>To pack files with a layout, use the <a href="vcApplication.htm">vcApplication</a> 
+ object to find or create a <a href="vcLayoutPackFolder.htm">vcLayoutPackFolder</a> 
+ object, and then get its PackFolder property.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>&#160; 
+		<br>pf_layout = None 
+		<br>for item in app.LayoutItems: 
+		<br>&#160;&#160;if item.Type == VC_LAYOUTITEM_IT_LAYOUTPACKFOLDER: 
+		<br>&#160;&#160;&#160;&#160;pf_layout = item 
+		<br>&#160;&#160;&#160;&#160;break 
+		<br>&#160; 
+		<br>if not pf_layout: 
+		<br>&#160;&#160;pf_layout = app.createLayoutItem(VC_LAYOUTITEM_IT_LAYOUTPACKFOLDER) 
+		<br>pf = pf_layout.PackFolder</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark6"></a>Step 2. Map a folder</h3>
+<p>The packing mechanism allows you to pack files in a mapped folder, including 
+ its subfolders. Generally, you would map a folder that is temporary or 
+ not directly accessed by a user. After you map a folder, save the layout 
+ or component.</p>
+<h4><a name="MiniTOCBookMark7"></a>Case 1. Map a temporary folder</h4>
+<p>In this case, a temporary folder is selected by the application. This 
+ is a safe option if you want to avoid mapping a folder that you want to 
+ keep on your computer. The application will also handle any conflicts 
+ with other instances of the component or layout.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>pf = comp.PackFolder 
+		<br>&#160; 
+		<br>pf.mapFolder() 
+		<br>&#160; 
+		<br>print pf.PackFolderLocalPath</td>
+	</tr>
+</table>
+<p><span class="Strong">Notes:</span></p>
+<ul style="list-style: disc;">
+	<li class="Unordered">The temporary folder is created in AppData\Local\Temp.</li>
+	<li class="Unordered">The name of the folder in Temp is a unique id 
+	 for your session.</li>
+	<li class="Unordered">The subfolder is the name of the component or 
+	 layout.</li>
+	<li class="Unordered">Example file path of temporary folder <span class="Term">C:\Users\%username%\AppData\Local\Temp\Instance_5952\NewComponent</span></li>
+</ul>
+<h4><a name="MiniTOCBookMark8"></a>Case 2. Map an existing folder</h4>
+<p>In this case, you are mapping an existing folder. You have two options: 
+ pack folder at the time of call, or wait until you to save the VCMX file.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>pf = comp.PackFolder 
+		<br>&#160; 
+		<br>uri = r&quot;C:\Users\Public\Pictures\Screenshots&quot; 
+		<br>&#160; 
+		<br>#packs at time of call 
+		<br>#pf.mapFolder(uri) 
+		<br>&#160; 
+		<br>#packs when you save component 
+		<br>#pf.remapFolder(uri) 
+		<br>&#160; 
+		<br>print pf.PackFolderLocalPath</td>
+	</tr>
+</table>
+<h4><a name="MiniTOCBookMark9"></a>Case 3. Map a different folder</h4>
+<p>In this case, you want to map a different folder. You should use caution 
+ to avoid deleting a mapped folder and its files.</p>
+<p>One option is to remap a different folder and not affect the other folder.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>pf = comp.PackFolder 
+		<br>&#160; 
+		<br>#mapped to wrong folder 
+		<br>uri = r&quot;C:\Users\Public\Pictures\Screenshots&quot; 
+		<br>pf.mapFolder(uri) 
+		<br>&#160; 
+		<br>uri = r&quot;C:\Users\Public\Pictures\Test&quot; 
+		<br>&#160; 
+		<br>#does not delete Screenshots folder nor override packed files at time of call 
+		<br>#mapped folder is changed to Test 
+		<br>#files from Test will not be packed until you save the component 
+		<br>pf.remapFolder(uri) 
+		<br>&#160; 
+		<br>print pf.PackFolderLocalPath</td>
+	</tr>
+</table>
+<p>Another option is to move files to a temporary folder and delete the 
+ other folder.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>pf = comp.PackFolder 
+		<br>&#160; 
+		<br>#mapped to wrong folder 
+		<br>uri = r&quot;C:\Users\Public\Pictures\Screenshots&quot; 
+		<br>pf.mapFolder(uri) 
+		<br>&#160; 
+		<br>#deletes Screenshots folder and moves files to temporary folder 
+		<br>pf.rollbackFolder() 
+		<br>pf.mapFolder() 
+		<br>&#160; 
+		<br>print pf.PackFolderLocalPath</td>
+	</tr>
+</table>
+<p>Another option is to delete a temporary folder and its files and remap 
+ a different folder.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>pf = comp.PackFolder 
+		<br>&#160; 
+		<br>#mapped to wrong folder 
+		<br>uri = r&quot;C:\Users\Public\Pictures\Screenshots&quot; 
+		<br>pf.mapFolder(uri) 
+		<br>&#160; 
+		<br>#delete folder and move files to temporary folder 
+		<br>pf.rollbackFolder() 
+		<br>pf.mapFolder() 
+		<br>&#160; 
+		<br>uri = r&quot;C:\Users\Public\Pictures\Test&quot; 
+		<br>&#160; 
+		<br>#deletes the temporary folder and its files 
+		<br>#mapped folder is changed to Test 
+		<br>pf.remapFolder(uri) 
+		<br>&#160; 
+		<br>print pf.PackFolderLocalPath</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark10"></a>Step 3. Extract files</h3>
+<p>After you have mapped a folder, you should modify your code to define 
+ how you want the files to be extracted when you open the VCMX file.</p>
+<h4><a name="MiniTOCBookMark11"></a>Case 1. Do not extract any files</h4>
+<p>In this case, the packed files are available but not extracted from 
+ the opened VCMX file. You would need to call the mapFolder() method to 
+ extract the files. In this case, it is good to know the state of the vcPackFolder 
+ object.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import *
+		<br>&#160;
+		<br>comp = getComponent()
+		<br>pf = comp.PackFolder
+		<br>&#160;
+		<br>#2 means folder is mapped
+		<br>if pf.State == 2:
+		<br>&#160;&#160;&#160;&#160;print &quot;A folder is mapped to component. Unpack the folder to extract its files.&quot;
+		<br>&#160;
+		<br>#pf.mapFolder()</td>
+	</tr>
+</table>
+<h4><a name="MiniTOCBookMark12"></a>Case 2. Automatically extract files</h4>
+<p>In this case, the packed files are extracted when you open the VCMX 
+ file. Generally, you would extract the files to a temporary folder.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import *
+		<br>&#160;
+		<br>comp = getComponent()
+		<br>pf = comp.PackFolder
+		<br>&#160;
+		<br>#2 means folder is mapped
+		<br>if pf.State == 2:
+		<br>&#160;&#160;&#160;&#160;print &quot;A folder is mapped to component. Unpack the folder to extract its files.&quot;
+		<br>&#160;
+		<br>#pf.mapFolder()</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark13"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>PackFolderLocalPath</td>
+		<td>String</td>
+		<td>R</td>
+		<td>Gets the file path of mapped folder.</td>
+	</tr>
+	<tr>
+		<td>State</td>
+		<td>Enumeration</td>
+		<td>R</td>
+		<td>Gets the state of mapped folder. 
+		<p class="TableNormal"><span class="Term">0</span><br>
+		Undefined, no folder is mapped.</p>
+		<p class="TableNormal"><span class="Term">1</span><br>
+		Defined, but folder is not mapped.</p>
+		<p class="TableNormal"><span class="Term">2</span><br>
+		Folder is mapped.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark14"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>mapFolder</td>
+		<td>None</td>
+		<td>[String <span class="Italic">uri</span>]</td>
+		<td>Maps a temporary folder generated by the application or an 
+		 existing folder at the given <span class="Italic">uri</span> which 
+		 must be a file path. 
+		<p class="TableNormal">Files will be packed/extracted at the time 
+		 of call.</p></td>
+	</tr>
+	<tr>
+		<td>remapFolder</td>
+		<td>None</td>
+		<td>String uri</td>
+		<td>Remaps a different folder. 
+		<p class="TableNormal">This will not override the other folder 
+		 until you save the VCMX file. Files in the other folder will also 
+		 not be deleted unless they were contained in a temporary folder 
+		 generated by the application.</p></td>
+	</tr>
+	<tr>
+		<td>rollbackFolder</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Removes mapping to folder. 
+		<p class="TableNormal">Generally, this is used before you map a 
+		 different folder.</p></td>
+	</tr>
+</table>
+</body>
+</html>

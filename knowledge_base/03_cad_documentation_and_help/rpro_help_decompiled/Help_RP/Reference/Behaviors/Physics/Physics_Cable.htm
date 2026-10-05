@@ -1,0 +1,206 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="physics cable,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Physics Cable</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Physics Cable</h1>
+<p>A Physics Cable allows you to create a pliable, physics cable that can 
+ be anchored to nodes in the 3D world and used for simulating ropes, chains, 
+ pulleys, belts, wires, and cables.</p>
+<p><img src="../../../English/Links/PhysicsCable.png" alt="" border="0" class="hcp1"></p>
+<p>The pins of a Physics Cable are listed as separate nodes in the Component 
+ Graph panel.</p>
+<p><img src="../../../English/Links/PhysicsCablePins.png" alt="" border="0" class="hcp1"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the cable.</td>
+	</tr>
+	<tr>
+		<td>Thickness</td>
+		<td>Defines the thickness of the cable.</td>
+	</tr>
+	<tr>
+		<td >Cable Length</td>
+		<td >Defines the length of the cable.
+		<p class="TableNormal">If zero, the length of the cable is dynamic 
+		 and based on other properties.</p></td>
+	</tr>
+	<tr>
+		<td>Collider Length</td>
+		<td>Defines the size of the cable's collider relative to the cable's 
+		 length.</td>
+	</tr>
+	<tr>
+		<td>Stiffness</td>
+		<td>Defines the rigidity of the cable. 
+		<p class="TableNormal"><span class="Term">#Low</span><br>
+		The cable is very flexible.</p>
+		<p class="TableNormal"><span class="Term">#Medium</span><br>
+		The cable is fairly flexible.</p>
+		<p class="TableNormal"><span class="Term">#High</span><br>
+		The cable is very rigid.</p></td>
+	</tr>
+	<tr>
+		<td>Node 1</td>
+		<td>Defines the node the first endpoint is attached to in 3D world.</td>
+	</tr>
+	<tr>
+		<td>Node 2</td>
+		<td>Defines the node the second endpoint is attached to in 3D world.</td>
+	</tr>
+	<tr>
+		<td>End Type 1</td>
+		<td>Defines the anchor type of the first endpoint. 
+		<p class="TableNormal"><span class="Term">#Free</span><br>
+		The cable hangs freely while attached to Node 1.</p>
+		<p class="TableNormal"><span class="Term">#Rotating</span><br>
+		The cable can swing back and forth or rotate while attached to 
+		 Node 1.</p>
+		<p class="TableNormal"><span class="Term">#Fixed</span><br>
+		The cable is securely anchored to Node 1.</p></td>
+	</tr>
+	<tr>
+		<td>End Type 2</td>
+		<td>Defines the anchor type of the second endpoint. 
+		<p class="TableNormal"><span class="Term">#Free</span><br>
+		The cable hangs freely while attached to Node 2.</p>
+		<p class="TableNormal"><span class="Term">#Rotating</span><br>
+		The cable can swing back and forth or rotate while attached to 
+		 Node 2.</p>
+		<p class="TableNormal"><span class="Term">#Fixed</span><br>
+		The cable is securely anchored to Node 2.</p></td>
+	</tr>
+	<tr>
+		<td>Total Length Factor</td>
+		<td>Defines a factor for determining cable length.</td>
+	</tr>
+	<tr>
+		<td>Material</td>
+		<td>Defines the material of the cable.</td>
+	</tr>
+	<tr>
+		<td>Advanced</td>
+		<td>Turns on/off the display of advanced properties for the cable.</td>
+	</tr>
+</table>
+<h2>Advanced properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Spring Strength</td>
+		<td>Defines the strength of the cable relative to the force applied 
+		 when compressing/stretching the cable, for example its tensile 
+		 strength.</td>
+	</tr>
+	<tr>
+		<td>Spring Damping</td>
+		<td>Defines the damping of the cable, thereby affecting how bounciness 
+		 of the cable.</td>
+	</tr>
+	<tr>
+		<td>Spring Tangential Strength</td>
+		<td>Defines the tangential strength of the cable relative to force 
+		 applied when contacting a surface.</td>
+	</tr>
+	<tr>
+		<td>Spring Tangential Damping</td>
+		<td>Defines the tangential damping of the cable relative to force 
+		 applied when contacting a surface.</td>
+	</tr>
+	<tr>
+		<td>Rendering Steps</td>
+		<td>Defines the amount of steps for rendering the cable.</td>
+	</tr>
+	<tr>
+		<td>Collider Overlap</td>
+		<td>Defines an accepted overlap of the cable's collider in relation 
+		 to others.</td>
+	</tr>
+	<tr>
+		<td>Solver Iter Position</td>
+		<td>Defines the solver iteration position of the cable.</td>
+	</tr>
+	<tr>
+		<td>Solver Iter Velocity</td>
+		<td>Defines the solver iteration velocity of the cable.</td>
+	</tr>
+	<tr>
+		<td>Solver Iter Internal</td>
+		<td>Defines the solver iteration internal setting of the cable.</td>
+	</tr>
+	<tr>
+		<td>Solver Iter External</td>
+		<td>Defines the solver iteration external setting of the cable.</td>
+	</tr>
+	<tr>
+		<td>Solver Iter Projections</td>
+		<td>Defines the solver iteration projections of the cable.</td>
+	</tr>
+	<tr>
+		<td>Solver Separation Limit</td>
+		<td>Defines the separation limit of the solver for the cable.</td>
+	</tr>
+	<tr>
+		<td>Material Friction Static</td>
+		<td>Defines the static friction of the cable's material.</td>
+	</tr>
+	<tr>
+		<td>Material Friction Dynamic</td>
+		<td>Defines the dynamic friction of the cable's material.</td>
+	</tr>
+	<tr>
+		<td>Material Restitution</td>
+		<td>Defines the restitution of the cable's material.</td>
+	</tr>
+	<tr>
+		<td>Material Density</td>
+		<td>Defines the density of the cable's material.</td>
+	</tr>
+	<tr>
+		<td>Scene Id</td>
+		<td>Defines the scene id of the cable, thereby allowing you to 
+		 isolate the cable in different physics scenes/layers in the physics 
+		 world.</td>
+	</tr>
+	<tr>
+		<td>Collision Group</td>
+		<td>Defines the collision group of the cable, which can be used 
+		 to filter collisions with the cable in physics world.</td>
+	</tr>
+	<tr>
+		<td>Center Position</td>
+		<td>Centers the cable.</td>
+	</tr>
+</table>
+</body>
+</html>

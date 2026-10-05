@@ -1,0 +1,285 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcRslProgramExecutor</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<p id="warning"><span class="Strong">(Deprecated)</span> use <a 
+	 href="vcExecutor.htm">vcExecutor</a></p>
+<h1><a name="MiniTOCBookMark1"></a>vcRslProgramExecutor</h1>
+<p>vcRslProgramExecutor is an executor for robot programs, thereby allowing 
+ you to program and simulate robot actions. In this context, a robot program 
+ consists of a Main routine, subroutines and statements.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot36411" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot36411', 'MTPOPUP36411');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP36411" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ActionMode</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the execution of robot program is performed automatically 
+		 or by a logic controller, for example a pedestal. 
+		<p class="TableNormal">If False, MainRoutine is executed automatically 
+		 at start of simulation.</p></td>
+	</tr>
+	<tr>
+		<td>Colour</td>
+		<td><a href="vcMaterial.htm">vcMaterial</a></td>
+		<td>RW</td>
+		<td>Defines the color of robot program.</td>
+	</tr>
+	<tr>
+		<td>Controller</td>
+		<td><a href="vcRobotController.htm">vcRobotController</a> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcServoController.htm">vcServoController</a></p></td>
+		<td>RW</td>
+		<td>Defines the controller referenced by executor, which is either 
+		 a controller for robot or servo.</td>
+	</tr>
+	<tr>
+		<td>CurrentRoutine</td>
+		<td><a href="vcRslRoutine.htm">vcRslRoutine</a></td>
+		<td>R</td>
+		<td>Gets the current routine in robot program being handled by 
+		 executor.</td>
+	</tr>
+	<tr>
+		<td>DigitalMapIn</td>
+		<td><a href="vcBooleanSignalMap.htm">vcBooleanSignalMap</a></td>
+		<td>RW</td>
+		<td>Defines the input device used for reading digital signal values.</td>
+	</tr>
+	<tr>
+		<td>DigitalMapOut</td>
+		<td><a href="vcBooleanSignalMap.htm">vcBooleanSignalMap</a></td>
+		<td>RW</td>
+		<td>Defines the output device used for sending digital signal values.</td>
+	</tr>
+	<tr>
+		<td>ExecutionMode</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if a robot is controlled by an external executor, for 
+		 example a virtual robot controller.</td>
+	</tr>
+	<tr>
+		<td>IntegerMapIn</td>
+		<td><a href="vcIntergerSignalMap.htm">vcIntergerSignalMap</a></td>
+		<td>RW</td>
+		<td>Defines the input device used for reading integer values.</td>
+	</tr>
+	<tr>
+		<td>IntegerMapOut</td>
+		<td><a href="vcIntergerSignalMap.htm">vcIntergerSignalMap</a></td>
+		<td>RW</td>
+		<td>Defines the output device used for sending integer values.</td>
+	</tr>
+	<tr>
+		<td>Looping</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the executor loops a robot program during a simulation.</td>
+	</tr>
+	<tr>
+		<td>MainRoutine</td>
+		<td><a href="vcRslRoutine.htm">vcRslRoutine</a></td>
+		<td>R</td>
+		<td>Gets the main routine of robot program.</td>
+	</tr>
+	<tr>
+		<td>ProcessHandlers</td>
+		<td>List of <a href="vcRslProcessHandler.htm">vcRslProcessHandler</a></td>
+		<td>RW</td>
+		<td>Gets a list of all process statement handlers connected to 
+		 executor.</td>
+	</tr>
+	<tr>
+		<td>Program</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the URI of robot program being handled by executor.</td>
+	</tr>
+	<tr>
+		<td>RealMapIn</td>
+		<td><a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td>RW</td>
+		<td>Defines the device used for reading real number values.</td>
+	</tr>
+	<tr>
+		<td>RealMapOut</td>
+		<td><a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td>RW</td>
+		<td>Defines the device used for sending real number values.</td>
+	</tr>
+	<tr>
+		<td>StringMapIn</td>
+		<td><a href="vcStringSignalMap.htm">vcStringSignalMap</a></td>
+		<td>RW</td>
+		<td>Defines the device used for reading string values.</td>
+	</tr>
+	<tr>
+		<td>StringMapOut</td>
+		<td><a href="vcStringSignalMap.htm">vcStringSignalMap</a></td>
+		<td>RW</td>
+		<td>Defines the device used for sending string values.</td>
+	</tr>
+	<tr>
+		<td>SubRoutines</td>
+		<td>List of <a href="vcRslRoutine.htm">vcRslRoutine</a></td>
+		<td>R</td>
+		<td>Gets a list of all subroutines in current robot program being 
+		 handled by executor.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>callRemoteAction</td>
+		<td>None</td>
+		<td>String <span class="Italic">routine</span></td>
+		<td>Schedules a remote routine by name in a connected robot to 
+		 be executed at first opportunity. 
+		<p class="TableNormal"><span class="Strong">Note:</span> Python 
+		 execution continues immediately.</p></td>
+	</tr>
+	<tr>
+		<td>callRoutine</td>
+		<td>None</td>
+		<td>String <span class="Italic">routine</span>, [Boolean <span 
+		 class="Italic">suspend</span>]</td>
+		<td>Executes a routine by name in robot program, and then waits 
+		 for completion of that routine. 
+		<p class="TableNormal">An optional <span class="Italic">suspend</span> 
+		 argument can be used to wait or not wait for completion of routine. 
+		 If False, Python execution continues immediately.</p></td>
+	</tr>
+	<tr>
+		<td>createSubRoutine</td>
+		<td><a href="vcRslRoutine.htm">vcRslRoutine</a></td>
+		<td>String routine_name</td>
+		<td>Adds a new routine of a given <span class="Italic">routine_name</span> 
+		 to robot program.</td>
+	</tr>
+	<tr>
+		<td>delay</td>
+		<td>None</td>
+		<td>Real <span class="Italic">time</span></td>
+		<td>Schedules a delay in the execution of robot program for a given 
+		 amount of <span class="Italic">time</span>. 
+		<p class="TableNormal"><span class="Strong">Note:</span> Python 
+		 execution continues immediately.</p></td>
+	</tr>
+	<tr>
+		<td>deleteProgram</td>
+		<td>Boolean</td>
+		<td>None</td>
+		<td>Deletes the robot program being handled by executor, thereby 
+		 removing all routines and statements. 
+		<p class="TableNormal">If deletion is successful, returns True; 
+		 otherwise returns False.</p></td>
+	</tr>
+	<tr>
+		<td>deleteSubRoutine</td>
+		<td>Boolean</td>
+		<td>String <span class="Italic">routine</span></td>
+		<td>Deletes a routine by name from robot program. 
+		<p class="TableNormal">If deletion is successful, returns True; 
+		 otherwise returns False.</p></td>
+	</tr>
+	<tr>
+		<td>newProgram</td>
+		<td>Boolean</td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Creates a new robot program of a given <span class="Italic">name</span> 
+		 to be handled by executor.</td>
+	</tr>
+	<tr>
+		<td>setOutput</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">output_index</span>, Boolean <span 
+		 class="Italic">value</span></td>
+		<td>Sets the value of a signal connected to a port at a given <span 
+		 class="Italic">output_index</span> in robot.</td>
+	</tr>
+	<tr>
+		<td>waitInput</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">input_index</span>, Boolean <span 
+		 class="Italic">value</span></td>
+		<td>Schedules the executor to wait until a signal connected to 
+		 a port at a given <span class="Italic">input_index</span> in robot 
+		 has a given <span class="Italic">value</span>. 
+		<p class="TableNormal"><span class="Strong">Note:</span> Python 
+		 execution continues immediately.</p></td>
+	</tr>
+	<tr>
+		<td>waitRemoteAction</td>
+		<td>None</td>
+		<td>String <span class="Italic">routine</span></td>
+		<td>Schedules the executor to wait for completion of a routine 
+		 by name in a connected robot. 
+		<p class="TableNormal"><span class="Strong">Note:</span> Python 
+		 execution continues immediately.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnProgramChange</td>
+		<td><a href="vcRslRoutine.htm">vcRslRoutine</a> <span class="Italic">routine</span>, 
+		 <a href="vcRslStatement.htm">vcRslStatement</a> <span class="Italic">statement</span></td>
+		<td>Triggered when a change occurs in robot program, for example 
+		 when you add/delete a statement from a routine.</td>
+	</tr>
+</table>
+</body>
+</html>

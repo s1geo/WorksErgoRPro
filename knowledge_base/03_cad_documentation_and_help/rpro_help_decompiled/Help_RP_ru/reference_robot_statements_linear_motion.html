@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Линейное движение</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Оператор Линейное движение — это движение, при котором робот использует свою текущую конфигурацию для достижения положения на кратчайшем возможном расстоянии." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Линейное движение</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Оператор Линейное движение — это движение, при котором робот использует свою текущую конфигурацию для достижения положения на кратчайшем возможном расстоянии.</p>
+<p class="p_Normal"><img alt="ClipboardImg293" style="margin:0;width:10.1563in;height:7.5729in;border:none" src="clipboardimg293.png"/></p>
+<p class="p_Normal"><span style="font-weight: bold;">Пример. Линейное движение робота от P1 до P2</span></p>
+<p class="p_Normal"><img alt="LinearMotionExample" style="margin:0;width:4.5521in;height:4.2500in;border:none" src="linearmotionexample.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Позиция</span></h3>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8854in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5313in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Позиция</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет матрицу положения, используя координаты XYZ и значения вращения Rx, Ry и Rz.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет название позиции.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Конфигурация</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет конфигурацию робота в позиции.</p>
+<p class="p_Normal">Названия конфигураций определяются кинематическим поведением робота и могут зависеть от производителя.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Statement</span></h3>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Base</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет базу, используемую роботом для оператора.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Tool</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет систему координат инструмента, используемую роботом для оператора.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ExternalTCP</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет режим интерполяции для положения.</p>
+<p class="p_Normal">False использует интерполяцию Base to Tool.</p>
+<p class="p_Normal">True использует интерполяцию Tool to Base.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">MaxSpeed</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет максимальную декартову скорость (мм/с), используемую для расчета траектории положения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Acceleration</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет максимальное декартово ускорение движения (мм/с^2), используемое для расчета траектории положения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">CycleTime</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет общее время, прошедшее для движения, от начала до конца.</p>
+<p class="p_Normal">Нулевое значение означает, что робот игнорирует время цикла.</p>
+<p class="p_Normal">Значение больше нуля означает, что робот отменяет настройки скорости, чтобы масштабировать движение по времени цикла. Например, время цикла 5 секунд означает, что движение, которое в противном случае могло бы занять 2 секунды, теперь будет выполняться 5 секунд.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Deceleration</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет максимальное декартово замедление движения (мм/с^2), используемое для расчета траектории положения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">AccuracyMethod</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет метод типа точности, используемую для положения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">AccuracyValue</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет предел, используемый в AccuracyMethod.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">OrientationInterpolationMode</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет режим интерполяции ориентации для линейного перемещения.</p>
+<p class="p_Normal">One Axis использует ось с наименьшим углом поворота для инструмента. Это режим по умолчанию для операторов Linear Motion.</p>
+<p class="p_Normal">Two Axis выбирает ось X, Y или Z и ее направление Tool. Сначала применяется угол поворота для выбранной оси, а затем другие повороты основаны на этой оси.</p>
+<p class="p_Normal">Three Axis интерполирует либо WPR (рысканье, тангаж и крен), либо ZYZ (угол Эйлера) для цели и вычисляет последовательность вращений.</p>
+<p class="p_Normal">Wrist интерполирует запястные суставы робота, чтобы свести к минимуму их движение.</p>
+<p class="p_Normal">В этом примере показано ограничение One Axis, в котором происходит столкновение.</p>
+<p class="p_Normal"><img alt="OneAxisCollisionSmall" style="margin:0;width:3.3333in;height:1.8750in;border:none" src="oneaxiscollisionsmall.gif"/></p>
+<p class="p_Normal">В этом примере предотвращается столкновение с помощью двух осей Z.</p>
+<p class="p_Normal"><img alt="TwoAxisZSmall" style="margin:0;width:3.3333in;height:1.8750in;border:none" src="twoaxiszsmall.gif"/></p>
+<p class="p_Normal">Смотрите <a href="reference_robot_statements_linear_motion.html#orientationmode" class="topiclink">Технические Примечания </a>для получения дополнительной информации о том, как вращение инструмента рассчитывается и применяется для линейных перемещений.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ConfigurationMode</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет режим конфигурации для соединений, управляемых контроллером робота во время интерполяции линейного движения.</p>
+<p class="p_Normal">Fixed использует текущую конфигурацию робота.</p>
+<p class="p_Normal">Follow frame использует конфигурацию, наиболее близкую к предыдущим совместным значениям робота, поэтому робот попытается сохранить текущую конфигурацию с небольшими изменениями.</p>
+<p class="p_Normal">Interpolate joint values использует конфигурацию, определяемую двухточечной интерполяцией совместных значений.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">MaxAngularSpeed</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет максимальную угловую скорость (мм/с), используемую для расчета траектории положения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">AngularAcceleration</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет максимальное угловое ускорение движения (мм/с^2), используемое для расчета траектории положения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">AngularDeceleration</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет максимальное угловое замедление движения (мм/с^2), используемое для расчета траектории положения.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal"><a name="orientationmode" class="hmanchor"></a><span style="font-weight: bold;">Технические Примечания:</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Режим одной оси для интерполяции ориентации аналогичен кватернионному SLERP. Он вычисляет ось кратчайшего поворота, предполагая ось X, если поворот составляет 180 градусов.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Двухосевой режим для интерполяции ориентации сначала проецирует вращение на выбранную ось, затем вычитает это вращение из общего вращения, а затем вычисляет кватернионное вращение SLERP для оставшегося вращения. Это создает движение, которое сводит к минимуму вращение выбранной оси, что полезно для роботов с осевыми инструментами, такими как сварочные горелки, фрезеры и т. д. Повороты вокруг выбранной оси и расчетной оси интерполируются независимо.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Трехосевой режим для интерполяции ориентации разлагает вращение либо на его угол рыскания-тангажа-крена, либо на углы Эйлера, и интерполирует каждый угол независимо.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>В режиме запястья для интерполяции ориентации робот выполняет совместную интерполяцию суставов запястья робота, а затем регулирует основные оси робота так, чтобы положение рамы соответствовало линейному пути. Этот режим сводит к минимуму перемещение запястных суставов робота, но движения различаются в зависимости от формы и размера робота.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Если режим интерполяции ориентации не является режимом запястья, также имеется профиль ускорения/замедления, который рассчитывается на основе значений MaxAngularSpeed, AngularAcceleration и AngularDeceleration. При многоосевом вращении это основано на оси вращения с самым длинным вращением. то есть по наибольшему углу. В режиме запястья параметры ускорения/замедления лучезапястного сустава определяют профиль ускорения/замедления интерполяции ориентации, поэтому значения MaxAngularSpeed, AngularAcceleration, AngularDeceleration не используются. Профиль ускорения/замедления с интерполяцией ориентации затем синхронизируется с профилем ускорения/замедления положения, а также любыми профилями ускорения/замедления внешнего соединения по принципу, согласно которому все профили настраиваются на самый медленный профиль, чтобы время разгона/привода/торможения было идентичным.</p>
+</td></tr></table>
+
+</body>
+</html>

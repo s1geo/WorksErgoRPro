@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Правило маршрутизации</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Правило маршрутизации позволяет направлять компоненты в разные контейнеры и из них на основе одного или нескольких уровней условных операторов." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Правило маршрутизации</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Правило маршрутизации позволяет направлять компоненты в разные контейнеры и из них на основе одного или нескольких уровней условных операторов.</p>
+<p class="p_Normal"><img alt="ClipboardImg171" style="margin:0;width:3.3438in;height:4.6042in;border:none" src="clipboardimg171.png"/></p>
+<p class="p_Normal">Порты правила маршрутизации перечислены вместе с поведением на панели Диаграммы компонента.</p>
+<p class="p_Normal"><img alt="ClipboardImg172" style="margin:0;width:3.9375in;height:3.2188in;border:none" src="clipboardimg172.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.9063in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5104in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет наименование маршрутизатора.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Статистика</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет поведение статистики, которое собирает статистику, сгенерированную маршрутизатором.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Вместимость</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет количество компонентов, которыми маршрутизатор может управлять в любой момент времени.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">БлокиВместимости</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет список режимов работы контроллера емкости для глобального определения емкости маршрутизатора. Как правило, контроллер емкости используется в качестве переменной для управления емкостью одного или нескольких контейнеров, чтобы избежать тупиковых ситуаций.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СигналПерехода</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет логический сигнал, сигнализирующий о прибытии и уходе компонента в маршрутизаторе. Значение True сигнализирует о прибытии компонента. Значение False сигнализирует об уходе компонента.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПравилоКомпонента </p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет, выполняется ли обработка правил для компонента маршрутизатора или компонента, содержащегося в маршрутизаторе.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СохранитьСмещение</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Включает/выключает возможность сохранять положение компонента при его прохождении по маршруту.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Разъемы</span></h3>
+<p class="p_Normal">Правило маршрутизации использует соединители/коннекторы для подключения к другим поведениям и передачи входящих и исходящих компонентов.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Добавить коннектор</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Добавляет новый порт в маршрутизатор.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Ярлык: </span>На панели Диаграмма компонента щелкните правой кнопкой мыши поведение правила маршрутизации и выберите Добавить коннектор</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Маршрут</span></h3>
+<p class="p_Normal">Маршрут определяется с помощью одного или нескольких правил, образующих вложенную структуру. В некоторых случаях правила могут напрямую маршрутизироваться к соединению/порту. В других случаях правило может использовать другое правило для определения маршрута компонента. Во всех случаях изменение правила отменяет все его дочерние правила. В крайнем случае, некоторые правила позволяют определить соединение или правило по умолчанию.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Подсказка: </span>Правила маршрутизации можно изменить на панели свойств компонента.</p>
+<p class="p_Normal"><img alt="ClipboardImg173" style="margin:0;width:4.5000in;height:9.1042in;border:none" src="clipboardimg173.png"/></p>
+<h4 style="margin: 0.3438in 0 0 0;"><span style="font-size: 12pt; font-weight: bold;">Типы правил</span></h4>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.9167in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5000in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Правило Логической таблицы</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Направляет компоненты к выбранному порту на основе значения True или False.</p>
+<p class="p_Normal">Переменная - Определяет, какое свойство обрабатываемого компонента или компонента-владельца оценивается правилом.</p>
+<p class="p_Normal">По умолчанию - Используется, если значение Переменная не соответствует ни одному из перечисленных значений в таблице.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Правило Емкости</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Направляет компоненты на первый выбранный порт, прошедший проверку пропускной способности.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Циклическое правило</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Направляет компоненты к выбранным портам последовательно перед повторением того же цикла.</p>
+<p class="p_Normal">CycleOnlyConnected - Может использоваться только для маршрутизации к портам, которые подключены к другим портам.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Фиксированное правило</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Направляет компоненты из выбранного порта в другой выбранный порт.</p>
+<p class="p_Normal">CycleOnlyConnected - Может использоваться только для маршрутизации к портам, которые подключены к другим портам.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Правило Целочисленной таблицы</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Направляет компоненты к выбранному порту на основе целочисленного значения.</p>
+<p class="p_Normal">Переменная - Определяет, какое свойство в обрабатываемом компоненте или компоненте-владельце оценивается правилом.</p>
+<p class="p_Normal">По умолчанию - Используется, если значение Переменная не соответствует ни одному из перечисленных значений в таблице.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Правило Процента</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Направляет компоненты к выбранным портам на основе процентного распределения.</p>
+<p class="p_Normal">RandomStream - Может использоваться для заполнения значения.</p>
+<p class="p_Normal">Во всех случаях общий процент для всех выбранных портов должен составлять 100.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">&lt;Порт&gt;</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Направляет компоненты на выбранный порт.</p>
+<p class="p_Normal">Например, все входящие компоненты маршрутизатора будут выходить из выбранного порта. Как правило, доступно только как правило уровня 1.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Правило типа продукта</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Направляет компоненты к выбранному порту на основе выбранного типа продукта или группы потоков.</p>
+<p class="p_Normal">По умолчанию - Используется, если значение Переменная не соответствует ни одному из перечисленных значений в таблице.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Правило вещественной таблицы</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Направляет компоненты к выбранному порту на основе действительного числового значения.</p>
+<p class="p_Normal">Переменная - Определяет, какое свойство в обрабатываемом компоненте или компоненте-владельце оценивается правилом.</p>
+<p class="p_Normal">По умолчанию - Используется, если значение Переменная не соответствует ни одному из перечисленных значений в таблице.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Правило строковой таблицы</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Направляет компоненты к выбранному порту на основе строкового значения.</p>
+<p class="p_Normal">Переменная - Определяет, какое свойство в обрабатываемом компоненте или компоненте-владельце оценивается правилом.</p>
+<p class="p_Normal">По умолчанию - Используется, если значение Переменная не соответствует ни одному из перечисленных значений в таблице.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Правило транспортного решения</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Направляет продукты в выбранный порт на основе транспортного решения.</p>
+<p class="p_Normal">ПеременнаяПравила - Определяет, какой транспортный узел обработанного продукта оценивается правилом..</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание: </span>Обработка правил выполняется только для продуктов, содержащихся в маршрутизаторе.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Правило типа продукта</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Направляет продукты на выбранный порт в зависимости от типа продукта.</p>
+<p class="p_Normal">RuleVariable - Продукты можно маршрутизировать на основе типов продуктов или групп потоков.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

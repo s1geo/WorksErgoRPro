@@ -1,0 +1,48 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>CheckAssembly</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>CheckAssembly</h1>
+<p>Checks if current state of an Assembly Instance matches a given Assembly 
+ Order and saves the result into a Process variable.</p>
+<p>The result variable is set to True when all Pattern Slots selected in 
+ the Assembly Order are filled with products, and False otherwise.</p>
+<p><img src="../../English/Links/ReferenceProcessStatementsCheckAssembly.png" style="border: none;" alt="" border="0"><br>
+<span class="italic">Figure 1. Example process that checks if specific 
+ steps of an assembly are completed, and if not, fills them using a TransportIn 
+ statement before sending the assembly to the next process. </span></p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><p>AssemblyVariableName</p></td>
+		<td><p>Name of the Process variable where to get the Assembly Instance.</p></td>
+	</tr>
+	<tr>
+		<td><p>AssemblyOrderVariableName</p></td>
+		<td><p>Name of the Process variable where to get the Assembly Order.</p></td>
+	</tr>
+	<tr>
+		<td><p>VariableName</p></td>
+		<td><p>Name of the process variable where to store the result as 
+		 Boolean value.<br>
+		</p></td>
+	</tr>
+</table>
+</body>
+</html>

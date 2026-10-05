@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Моделирование компонентов</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Вкладка Моделирование позволяет моделировать существующие компоненты, а также создавать новые компоненты." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Моделирование Компонента</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Вкладка <span style="font-weight: bold;">Моделирование</span> позволяет моделировать существующие компоненты, а также создавать новые компоненты.</p>
+<p class="p_Normal"><img alt="ClipboardImg310" style="margin:0;width:6.6875in;height:3.7500in;border:none" src="clipboardimg310.png"/></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Для некоторых случаев вы можете импортировать САD-файл, который хотите смоделировать как компонент.</p>
+<p class="p_Normal"><img alt="ClipboardImg311" style="margin:0;width:6.6875in;height:3.7500in;border:none" src="clipboardimg311.png"/></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">В других случаях можно использовать команды на ленте для создания компонента и новой геометрии.</p>
+<p class="p_Normal"><img alt="ClipboardImg30" style="margin:0;width:8.6042in;height:5.8854in;border:none" src="clipboardimg30.png"/></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Если вы импортируете САD-файлы, мы настоятельно рекомендуем очистить и упростить геометрию САD-файла. Например, следует избегать файлов САD с большим количеством данных и внутренних частей, чтобы уменьшить размер файла и потребление памяти, а также повысить производительность. Как правило, вы можете упростить геометрию в редакторе, который вы использовали для создания САD-файла. Однако настройки импорта и другие параметры во вкладке <span style="font-weight: bold;">Моделирование</span> можно использовать для анализа и импорта САD-файла с использованием стандартных методов.</p>
+<p class="p_Normal"><img alt="ClipboardImg31" style="margin:0;width:3.7083in;height:7.3542in;border:none" src="clipboardimg31.png"/></p>
+<p class="p_Normal">Как правило, импортированный САD-файл представляет собой однин компонент с одним узлом, который называется корневым узлом компонента. Структура данных компонента представляет собой дерево, поэтому у каждого компонента есть корневой узел.</p>
+<p class="p_Normal"><img alt="ClipboardImg32" style="margin:0;width:7.4271in;height:6.2813in;border:none" src="clipboardimg32.png"/></p>
+<p class="p_Normal">Если в компоненте должны быть подвижные части или кинематическая структура, вам потребуется создать новые узлы в компоненте.</p>
+<p class="p_Normal"><img alt="ClipboardImg33" style="margin:0;width:7.0729in;height:2.9583in;border:none" src="clipboardimg33.png"/></p>
+<p class="p_Normal">Эти типы узлов называются звеньями, и каждое звено содержит свойства для определения смещения, точки поворота, типа соединения и степеней свободы. То есть звено определяет свой механизм движения.</p>
+<p class="p_Normal"><img alt="ClipboardImg34" style="margin:0;width:6.8333in;height:5.2917in;border:none" src="clipboardimg34.png"/></p>
+<p class="p_Normal">После того, как вы создадите необходимые узлы в компоненте, вам нужно будет переместить геометрию в эти узлы. Геометрия, которую вы импортируете или создаете в режиме моделирования, содержится в элементах.</p>
+<p class="p_Normal">Если вам нужно перегруппировать геометрию в объекте, то есть переместить некоторую геометрию в новый или другой объект:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>На <span style="font-weight: bold;">ленте</span> в группе <span style="font-weight: bold;">Геометрия </span>щелкните <span style="font-weight: bold;">Инструменты </span> и выберите из группы <span style="font-weight: bold;">Инструменты элементов</span> функцию <span style="font-weight: bold;">Разделить</span>.</p>
+<p class="p_Normal" style="margin: 0 0 0.0417in 0.4167in;"> <img alt="ClipboardImg35" style="margin:0;width:7.7708in;height:3.3646in;border:none" src="clipboardimg35.png"/></p>
+<p class="p_Normal">Если вы хотите разместить элемент в другом узле:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>В <span style="font-weight: bold;">Диаграмме Компонента</span> на панели <span style="font-weight: bold;">Дерево узлов компонентов</span> выберите узел, содержащий элемент, который вы хотите разместить в другом месте компонента.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>На панели <span style="font-weight: bold;">Дерево элементов узла</span> перетащите заданный элемент в заданный узел, указанный на панели <span style="font-weight: bold;">Дерево узлов компонентов.</span></p>
+<p class="p_Normal" style="margin: 0 0 0.0417in 0.4167in;"> <img alt="ClipboardImg36" style="margin:0;width:4.1875in;height:4.3333in;border:none" src="clipboardimg36.png"/></p>
+<p class="p_Normal"><span style="font-weight: bold;">Подсказка:</span> При перемещении узла или объекта на панели <span style="font-weight: bold;">Диаграмма Компонента</span> вы можете удерживать нажатой клавишу SHIFT, чтобы сохранить его положение в 3D-мире.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">После того как вы определили узлы компонента и перегруппировали его элементы, вы можете создать свойства для компонента. Свойства компонента содержатся в корневом узле компонента и могут использоваться для управления значениями других свойств в компоненте, а также для параметризации компонента.</p>
+<p class="p_Normal">Свойства, которые вы создаете в компоненте, будут перечислены на панели <span style="font-weight: bold;">Свойства</span> <span style="font-weight: bold;">Компонента</span>, если только вы не сделаете свойство невидимым.</p>
+<p class="p_Normal"><img alt="ClipboardImg37" style="margin:0;width:8.4479in;height:6.7188in;border:none" src="clipboardimg37.png"/></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Свойство компонента имеет собственный набор свойств, которые можно видеть/задавать в области задач Свойства.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>На панели <span style="font-weight: bold;">Диаграмма Компонента</span> в области <span style="font-weight: bold;">Дерево узлов компонентов</span> выберите свойство, чтобы отобразить его свойства на панели задач Свойства.</p>
+<p class="p_Normal" style="margin: 0 0 0.0417in 0.4167in;"> <img alt="ClipboardImg39" style="margin:0;width:8.4583in;height:4.8750in;border:none" src="clipboardimg39.png"/></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Если вы хотите, чтобы компонент выполнял задачи до начала или во время симуляции, задайте ему <span style="font-weight: bold;">Поведение</span>.</p>
+<p class="p_Normal"><img alt="ClipboardImg40" style="margin:0;width:4.1875in;height:6.6250in;border:none" src="clipboardimg40.png"/></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Некоторые типы поведения должны ссылаться на элементы и другие типы поведения для выполнения задач. Например, одностороння траектория (Односторонний Путь) ссылается на элементы локальной системы координат (Рамка) для определения и расчета траектории.</p>
+<p class="p_Normal"><img alt="ClipboardImg41" style="margin:0;width:8.0521in;height:5.7813in;border:none" src="clipboardimg41.png"/></p>
+<p class="p_Normal">Поведения также могут быть связаны с поведениями в других компонентах. Например, интерфейс «Один к одному» позволяет подключить компонент к интерфейсу в другом компоненте, если интерфейсы совместимы.</p>
+<p class="p_Normal"><img alt="ClipboardImg42" style="margin:0;width:4.1667in;height:5.0417in;border:none" src="clipboardimg42.png"/></p>
+<p class="p_Normal">Если вы хотите написать код для компонента, вы можете использовать Python Script. Python позволяет использовать Python API, а также другие библиотеки и модули, доступные в Python 2.7. Скрипты Python можно использовать для написания логики компонента работающей до или во время симуляции, а также для разработки функций, управления трехмерным миром и разработки надстроек.</p>
+<p class="p_Normal"><img alt="ComponentPythonScript" style="margin:0;width:6.9896in;height:5.0313in;border:none" src="componentpythonscript.png"/></p>
+<p class="p_Normal">Чтобы сохранить компонент:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>На <span style="font-weight: bold;">ленте</span> в группе <span style="font-weight: bold;">Компонент </span>нажмите <span style="font-weight: bold;">Сохранить / Сохранить как</span>.</p>
+<p class="p_Normal" style="margin: 0 0 0.0417in 0.4167in;"> <img alt="ClipboardImg43" style="margin:0;width:4.8333in;height:6.4583in;border:none" src="clipboardimg43.png"/></p>
+
+</td></tr></table>
+
+</body>
+</html>

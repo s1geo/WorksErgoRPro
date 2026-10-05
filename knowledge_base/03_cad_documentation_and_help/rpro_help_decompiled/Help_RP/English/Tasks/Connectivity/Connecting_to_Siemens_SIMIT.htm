@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Connecting to Siemens SIMIT</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META content=en-US http-equiv=Content-Language>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+
+<STYLE title=hcp type=text/css>
+<!--
+ul.hcp1 { list-style:disc; }
+span.hcp2 { font-weight:bold; }
+ol.hcp3 { list-style:decimal; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>Connecting to Siemens SIMIT</H1>
+<P style="TEXT-ALIGN: justify">The SIMIT plugin and the R-Pro 2.1 coupling 
+allows user to connect to the SIMIT real-time behavior emulator software.</P>
+<DIV class=Contents>
+<P align=left>Contents&nbsp;<A id=MTHotSpot33178 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot33178', 'MTPOPUP33178');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP33178 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">SIMIT connection overview</A></P>
+<P align=left><A href="#MiniTOCBookMark5">R-Pro 2.1 coupling</A></P>
+<P align=left><A href="#MiniTOCBookMark8">SIMIT &nbsp;plugin connection and 
+signal value exchange</A></P>
+<P align=left><A href="#MiniTOCBookMark12">Signal value exchange between SIMIT 
+communication plugin and R-Pro 2.1 coupling</A></P>
+<P align=left><A href="#MiniTOCBookMark13">Performance</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>SIMIT connection overview</H2>
+<P>The communication between R-Pro and SIMIT is achieved using two software 
+components.</P>
+<UL class=hcp1>
+  <LI>R-Pro 2.1 coupling. An external coupling for SIMIT, also called “R-Pro 
+  coupling” for short. 
+  <LI>SIMIT Connection plugin for R-Pro, or “SIMIT plugin” for short. </LI></UL>
+<P>Both are developed by R-Pro 2.1 and are only meant to be used with 
+corresponding versions of each other. </P>
+<H3><A name=MiniTOCBookMark3></A>Main features of the R-Pro coupling</H3>
+<UL class=hcp1>
+  <LI>Support for multiple parallel local and remote connections over TCP/IP 
+  <LI>Free definition of accessible IO signals 
+  <LI>Signal value change events for efficient data flow from SIMIT to R-Pro 
+  <LI>Asynchronous: Communication delay doesn’t slow down SIMIT </LI></UL>
+<H3><A name=MiniTOCBookMark4></A>Main features of the SIMIT Connection 
+plugin</H3>
+<UL class=hcp1>
+  <LI>Supports multiple parallel connections 
+  <LI>Free signal browsing and pairing workflow like other Connection plugins 
+  <LI>Automatic SIMIT runtime connection management 
+  <LI>Supports cyclic and event-based update modes 
+  <LI>Asynchronous: Communication delay doesn’t slow down R-Pro </LI></UL>
+<H2><A name=MiniTOCBookMark5></A><SPAN lang=EN-US xml:lang="EN-US">R-Pro 2.1 
+coupling</SPAN></H2>
+<P class=MsoNormal style="TEXT-ALIGN: left">The R-Pro coupling is an external 
+coupling for SIMIT.</P>
+<P class=MsoNormal style="TEXT-ALIGN: left"><SPAN class=hcp2>Note:</SPAN> The 
+demo version of the SIMIT does not support external couplings.</P>
+<H3 class=MsoNormal style="TEXT-ALIGN: left"><A 
+name=MiniTOCBookMark6></A>Delivery and installation</H3>
+<P class=MsoNormal style="TEXT-ALIGN: left">The R-Pro coupling is delivered as a 
+zip file containing a folder containing the coupling’s executable and any other 
+files it needs. To install the coupling, you need to copy the folder to SIMIT’s 
+installation folder path like below: </P>
+<P class=MsoNormal style="TEXT-ALIGN: left">C:\Program Files 
+(x86)\Siemens\Automation\SIMIT\SIMIT SF\couplings </P>
+<P class=MsoNormal style="TEXT-ALIGN: left"><SPAN class=hcp2>Note:</SPAN> The 
+coupling’s folder name under “couplings” defines the name of the coupling in 
+SIMIT. </P>
+<P class=MsoNormal style="TEXT-ALIGN: left">The R-Pro coupling has some 
+limitations stemming from the limitations of the SIMIT external coupling API: 
+</P>
+<UL class=hcp1>
+  <LI>R-Pro can only access signals defined in the coupling. 
+  <LI>If communication between couplings is desired, all signals must be 
+  connected through,e.g., connector blocks in charts. 
+  <LI>Single instance of the R-Pro coupling is supported per SIMIT project. 
+  <LI>The configuration server starts when the coupling is opened. 
+  <LI>The SIMIT SP’s UI and external coupling API provide very limited 
+  capabilities for defining the coupling signals within SIMIT. Separate signal 
+  editor UI has to be used. </LI></UL>
+<H3 class=MsoNormal style="TEXT-ALIGN: left"><A name=MiniTOCBookMark7></A>Input 
+and output terminology in SIMIT </H3>
+<P class=MsoNormal style="TEXT-ALIGN: left">In SIMIT, the terms input signal and 
+output signal are always defined such that they refer to the inputs and outputs 
+of the coupling partner, i.e., the hardware or software the coupling connects 
+to. This means that an “input signal” is output and write-only in SIMIT 
+charts.</P>
+<H2 class=MsoNormal style="TEXT-ALIGN: left"><A name=MiniTOCBookMark8></A>SIMIT 
+&nbsp;plugin connection and signal value exchange</H2>
+<P class=MsoNormal style="TEXT-ALIGN: justify">The connection to the SIMIT SP 
+editor (configuration server) and the simit simulation (runtime) are separate. 
+&nbsp;&nbsp;&nbsp;&nbsp;You can connect to SIMIT (editor/configuration server) 
+only after the coupling in SIMIT SP is opened. Therefore loading a project with 
+the coupling is not enough. The connection to the SIMIT simulation is 
+automatically managed when you have the connection to SIMIT SP (editor). The 
+below steps will be a generic step by step configuration guide for establishing 
+the connection.</P>
+<H3 class=MsoNormal style="TEXT-ALIGN: left"><A name=MiniTOCBookMark9></A>Adding 
+R-Pro 2.1 Coupling to SIMIT</H3>
+<OL class=hcp3>
+  <LI>Launch your SIMIT SP application project. 
+  <LI>From the Project navigation, under your project, expand Couplings folder. 
+  <LI>Right-click on New coupling and select New coupling. 
+  <LI>Select R-Pro 2.1 under Extern. </LI></OL>
+<H3 class=MsoNormal style="TEXT-ALIGN: left"><A name=MiniTOCBookMark10></A>R-Pro 
+2.1 Coupling UI in SIMIT</H3>
+<UL class=hcp1>
+  <LI>
+  <P class=MsoNormal style="TEXT-ALIGN: left">There are eight available time 
+  slices as well. Input/Output signal calculation is performed, and the signal 
+  value is exchanged with the R-Pro 2.1 app with this cycle time. For more 
+  information, refer to the next section on this topic.</P></LI></UL>
+<H3 class=MsoNormal style="TEXT-ALIGN: left"><A 
+name=MiniTOCBookMark11></A>Connectivity tab in R-Pro 2.1 UI </H3>
+<OL class=hcp3>
+  <LI>Connect from R-Pro to SIMIT under Connectivity tab. 
+  <LI>Connect the signals between R-Pro 2.1 and SIMIT (use the “Pairing 
+  variables” article available in R-Pro 2.1 Help file under 
+  Task&gt;Connectivity). </LI></OL>
+<P class=MsoNormal style="TEXT-ALIGN: left"><SPAN class=hcp2>Note:</SPAN> If you 
+start R-Pro simulation first and SIMIT simulation second, all variable pairs 
+will get errors until the SIMIT simulation is started, and connection to it is 
+(automatically) established. Thus, it is recommended to start SIMIT simulation 
+first. Since the connections are separate, in rare cases, they can fail 
+independently.</P>
+<H2 class=MsoNormal style="TEXT-ALIGN: left"><A 
+name=MiniTOCBookMark12></A>Signal value exchange between SIMIT communication 
+plugin and R-Pro 2.1 coupling</H2>
+<P class=MsoNormal style="TEXT-ALIGN: left">The value change event 
+implementation has the features of supporting multiple parallel listeners and 
+avoiding a wildly growing buffer of old messages. However, a significant 
+drawback is that if there is any communication delay spike, value change events 
+will be lost. &nbsp;&nbsp;&nbsp;</P>
+<P class=MsoNormal style="TEXT-ALIGN: left">Since the communication of the R-Pro 
+coupling is done asynchronously, it doesn’t provide accurate load information to 
+SIMIT. The gateway load only represents the time taken by the signal value cache 
+update only, which can be occasionally blocked for the duration of the read and 
+write request processing. &nbsp;&nbsp;</P>
+<H2><A name=MiniTOCBookMark13></A>Performance</H2>
+<P>It is highly recommended to use:</P>
+<UL class=hcp1>
+  <LI>Cyclic update mode for <SPAN class=hcp2>simulation to server</SPAN> 
+  variable groups 
+  <UL class=hcp1>
+    <LI>Choose a cycle interval that is same or higher than the time slice used 
+    for the R-Pro coupling the SIMIT project. 
+    <LI>Sending values to SIMIT at a rate faster than the R-Pro coupling’s 
+    update cycle doesn’t give any benefit, which includes the event-based mode 
+    in this direction. </LI></UL>
+  <LI>Event-based update mode for <SPAN class=hcp2>server to simulation</SPAN> 
+  variable groups 
+  <UL class=hcp1>
+    <LI>SIMIT will try to send value updates at the rate of the R-Pro coupling’s 
+    time slice. Only if this rate is unnecessarily high or the data flow is 
+    overwhelming R-Pro, it is recommended to switch to a lower sampling rate 
+    using cyclic update mode. 
+    <LI>See also notes about skipped value updates from previous section. 
+  </LI></UL></LI></UL>
+<P><SPAN class=hcp2>Note:</SPAN> The time slice of the R-Pro coupling should be 
+set to a reasonable value. For example, there isn’t a point in updating the 
+coupling faster than the SIMIT charts that provide or use the data. For 
+visualization, 60 Hz is the generally accepted refresh rate for very smooth 
+animation, and 30 Hz being good enough for most purposes.</P></BODY></HTML>

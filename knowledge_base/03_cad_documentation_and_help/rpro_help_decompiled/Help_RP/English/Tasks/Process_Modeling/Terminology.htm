@@ -1,0 +1,142 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Terminology</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-weight:bold; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Terminology</h1>
+<p>Please be aware of the following terms and their context:</p>
+<ul style="list-style: disc;">
+	<li class="Unordered"><span class="hcp1">Process Editor</span>. 
+	 GUI for process executor </li>
+	<li class="Unordered"><span class="hcp1">(Process) Statement</span>. 
+	 Single execution step in a routine </li>
+	<li class="Unordered"><span class="hcp1">(Process) Routine</span>. 
+	 Executable sequence of statements saved in a process executor. See 
+	 also Process implementation.</li>
+	<li class="Unordered"><span class="hcp1">Requirements</span>. 
+	 List of special statements, part of the routine. </li>
+	
+	<li class="Unordered" style="color: #000000;"><p><span class="hcp1">Product. 
+	 </span><span>Refers typically to Product instance, but can also mean 
+	 product type in some contexts.</span></p></li>
+	<li class="Unordered"><span class="hcp1">Process Flow 
+	 group</span>. A grouping of Product types specifically used for defining 
+	 Process flow sequences and material flow. Each Product type is a member 
+	 of exactly one Flow group at all times. </li>
+	<li class="Unordered"><span class="hcp1">Process flow 
+	 sequence</span>. A sequence of Process steps defined for a Product 
+	 type in the Process flow editor. </li>
+	<li class="Unordered"><span class="hcp1">Process step</span>. 
+	 A Process group in a Process flow sequence. </li>
+	<li class="Unordered"><span class="hcp1">Process transition</span>. 
+	 Explicit move from one Process step to another in a Process flow sequence. 
+	 </li>
+	<li class="Unordered"><span class="hcp1">Process implementation</span>. 
+	 Actual independent implementation of a abstract Process in a Process 
+	 Executor. </li>
+	<li class="Unordered"><span class="hcp1">Process.</span> 
+	 An abstract definition of an operation that a machine can perform. 
+	 The term &quot;Process&quot; can refer either to Process implementation 
+	 or Process group depending on the context.</li>
+	<li class="Unordered"><span class="hcp1">Process group</span>. 
+	 All Process implementations with the same name form a process group. 
+	 </li>
+	<li class="Unordered"><span class="hcp1">Transport controller</span>. 
+	 Implementation of the transport controller behavior. Usually specialized 
+	 to one type of transport and in a dedicated component. Handles transport 
+	 of Product instances one Transport link at a time. </li>
+	<li class="Unordered"><span class="hcp1">Transport link</span>. 
+	 A one-directional logical connection between two Transport nodes. 
+	 Tied to a single Transport controller that implements the link. Transport 
+	 node. Implementation of transport node behavior. Logically a place 
+	 where something can be transported to or transported from. </li>
+	<li class="Unordered"><span class="hcp1">Transport solution</span>. 
+	 A computed route from one Transport node to another. Contains the 
+	 references to the Transport links a Product instance should travel 
+	 through to reach the destination Transport node. </li>
+	<li class="Unordered"><span class="hcp1">Assembly Product 
+	 Type.</span> Subcategory of a Product Type that represents an assembly. 
+	 It defines how to form an assembly from multiple Product Types. Creating 
+	 a single assembly can create multiple Product Instances.</li>
+	<li class="Unordered"><span class="hcp1">Assembly Instance.</span> 
+	 Subcategory of a Product Instance that represents an assembly with 
+	 one or more items. It contains assembly structure metadata, which 
+	 allows advanced handling based on the current and desired state. Each 
+	 Assembly Instance has an “empty” dynamic component of its own, onto 
+	 which any other Product Instances that are currently part of this 
+	 assembly are attached hierarchically. Assembly Instance is defined 
+	 by the Assembly Product Type.</li>
+	<li class="Unordered"><span class="hcp1">Assembly Step.</span> 
+	 Represents a subset of the Assembly Type’s contained parts that are 
+	 usually assembled or disassembled together as a single production 
+	 step. Assembly Steps have a hierarchical relationship with each other 
+	 within the same Assembly Type. Each Assembly Step also has an Assembly 
+	 Pattern. </li>
+	<li class="Unordered"><span class="hcp1">Assembly Pattern.</span> 
+	 A collection of Assembly Slots, which form a reusable definition of 
+	 what (i.e. Product Types) should be placed where (i.e. position and 
+	 orientation). Assembly Patterns can also exist independently from 
+	 Assembly Types.</li>
+	<li class="Unordered"><span class="hcp1">Assembly Slot.</span> 
+	 Definition of a single logical storage location (position and orientation) 
+	 and what (i.e. Product Types) should or can be placed into it. Assembly 
+	 slots are owned by their parent Assembly Pattern. </li>
+	<li class="Unordered"><span class="hcp1">Assembly Order.</span> 
+	 Defines or “selects” a subset of Assembly Steps from an Assembly Product 
+	 Type. This object can then be passed to various assembly-related statements 
+	 to do their specific operation for those selected steps. Common operations 
+	 are to bring in and assemble Part Instances into the Assembly Instance 
+	 (Transport In statement) or disassemble and take them away (Transport 
+	 Out statement).</li>
+	<li class="Unordered"><p><span class="hcp1">Part Product 
+	 Type.</span> Subcategory of a Product Type that represents only a 
+	 single product. Creating a Part Product Type always creates exactly 
+	 one Product Instance (a Part Instance).</p></li>
+	<li class="Unordered"><span class="hcp1">Part Instance.</span> 
+	 Subcategory of a Product Instance that always represents exactly one 
+	 item and has a single dynamic component for physical representation. 
+	 It is defined by the Part Product Type.</li>
+	<li class="Unordered"><span class="hcp1">Product instance. 
+	 </span>An object created during the simulation and defined by the 
+	 Product Type. Typically, it is an actual product that moves in the 
+	 production. Product Instance is a general term that includes both 
+	 Assembly instance and Part Instance.</li>
+	<li class="Unordered"><span class="hcp1">Product type</span>. 
+	 Definition of a product (Part Product Type or Assembly Product Type) 
+	 from which Product Instances can be created into the simulation. Contains 
+	 all information needed to create the Product Instances of this type. 
+	 </li>
+	<li class="Unordered"><span class="hcp1">Product Instance 
+	 Bundle.</span> A collection of Product Instances created by attaching 
+	 their dynamic components together. Product Instance Bundles don’t 
+	 have assembly structure metadata and are generally handled like Part 
+	 Instances by PM statements and other logic. Note that there is no 
+	 such concept as Product Type Bundle.</li>
+	<li class="Unordered"><span class="hcp1">Transport system</span>. 
+	 It is formed of Transport Links (between Transport Nodes) in different 
+	 Flow Groups and Transport Controllers responsible for the transportation 
+	 via the links. The Transport System's routing information is used, 
+	 for example, when the Source in a TransportIn statement is &quot;From 
+	 Previous Process&quot;, and the Destination in a TransportOut statement 
+	 is &quot;To Next Process&quot; or &quot;To Transport Node&quot;. Otherwise, 
+	 no Transport Solution will be assigned to the product, and the transport 
+	 must be done without the Transport System and Transport Controllers.</li>
+</ul>
+</body>
+</html>

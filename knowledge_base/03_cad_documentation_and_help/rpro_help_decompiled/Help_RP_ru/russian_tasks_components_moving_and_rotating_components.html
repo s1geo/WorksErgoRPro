@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Перемещение и вращение компонентов</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Положение компонента в трехмерном мире определяется значениями координат (XYZ) и углами поворота (RxRyRz) в системе координат." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Перемещение и вращение компонентов</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Положение компонента в трехмерном мире определяется значениями координат (XYZ) и углами поворота (RxRyRz) в системе координат.</p>
+<p class="p_Normal">В трехмерном мире доступны три системы координат:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Абсолютные</span>— глобальная система координат с фиксированным началом.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Относительные - </span>ссылаются на систему координат объекта родителя выбранного компонента. Если компонент не присоединен к узлу в другом компоненте, родителем выбранного компонента является трехмерный мир (корневой узел моделирования). В этом случае мировая и родительская системы координат будут иметь одно и то же начало.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Объект - </span>ссылается на систему координат выбранного компонента. То есть расположение компонента относительно собственной исходной точки.</p>
+<p class="p_Normal">Если в 3D-мире выбраны два или более компонента, последний компонент, добавленный к выбору, указывается как местоположение выбора в активной системе координат.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>В трехмерном мире выберите компоненты, которые вы хотите переместить.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>В панели <span style="font-weight: bold;">Свойства Компонента </span>, выполните одно из следующих действий:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы отредактировать положение выделения, в <span style="font-weight: bold;">XYZ </span>поля, введите или вставьте значения расстояния.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы изменить ориентацию выделения, в <span style="font-weight: bold;">RxRyRz </span>поля, введите или вставьте значения градусов.</p>
+<p class="p_Normal" style="text-indent: -0.1771in; margin: 0 0 0.0417in 0.4167in;"><img alt="Components0018" style="margin:0;width:6.6354in;height:2.0938in;border:none" src="components0018.png"/></p>
+<p class="p_Normal"><span style="font-weight: bold;">Подсказка:</span> На панели Свойства Компонента можно щелкнуть метки<span style="font-weight: bold;"> X Y Z Rx Ry Rz</span>, чтобы сбросить их значения до нуля.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Манипулятор можно использовать для определения положения и ориентации выбранных компонентов в трехмерном мире.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>На <span style="font-weight: bold;">Главной </span>вкладке в группе <span style="font-weight: bold;">Действия </span>нажмите <span style="font-weight: bold;">Переместить</span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>В трехмерном мире выберите компоненты, которые хотите переместить.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>На <span style="font-weight: bold;">манипуляторе</span> выполните одно или все из следующих действий:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы переместить выделение вдоль оси, перетащите <span style="font-weight: bold;">стрелку оси </span>в положительном или отрицательном направлении.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы повернуть выделение вокруг оси, перетащите <span style="font-weight: bold;">осевое кольцо </span>по часовой стрелке или против часовой стрелки.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы переместить выделение в плоскости, определяемой двумя осями, перетащите <span style="font-weight: bold;">плоскость</span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы привязать выделение к поверхности другого компонента, перетащите <span style="font-weight: bold;">тор / исходную точку </span>манипулятора</p>
+<p class="p_Normal"><img alt="Components0019" style="margin:0;width:4.3021in;height:3.4271in;border:none" src="components0019.png"/></p>
+<p class="p_Normal"><span style="font-weight: bold;">Подсказка:</span> Используйте команды привязки к сетке для перемещения выбранных компонентов вдоль оси или плоскости с автоматическими или заданными интервалами. Вы можете расположить указатель вдоль оси или кольца, чтобы увеличить перемещение или вращение выбранного компонента. .</p>
+
+</td></tr></table>
+
+</body>
+</html>

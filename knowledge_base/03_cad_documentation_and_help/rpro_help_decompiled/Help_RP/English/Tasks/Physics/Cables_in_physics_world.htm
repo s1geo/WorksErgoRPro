@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Cables in physics world</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content=cable,physics>
+<META name=generator content="Adobe RoboHelp 2017"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css"></HEAD>
+<BODY>
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+
+<H1>Cables in Physics Worlds</H1>
+<P>R-Pro 2.1 supports the use of pulleys, wires and other types of objects which 
+are implemented as a Physics Cable behavior.</P>
+<H2>Geometry</H2>
+<P>Every cable is generated with its own set of geometry. The geometry of a 
+cable consists of capsules which expand, shrink and duplicate based on the 
+length and forces applied to the cable. Note that the geometry of a cable is not 
+listed in the Node Feature Tree of the Component Graph panel. Rather, the 
+geometry is automatically generated based on the cable's properties and its 
+pins.</P>
+<H2>Pins</H2>
+<P>Every cable is generated with its own set of pins which act as the ends of a 
+cable. Each pin is a node containing its own Physics Joint and a special type of 
+interface with an Attachment field for connecting the ends of the cable to other 
+structures. Pins are listed in the Component Node Tree of the Component Graph 
+panel with the exception of each pin's interface.</P>
+<P><SPAN class=Strong>Note:</SPAN> You can create an interface type behavior 
+with an Attachment field, but it cannot be used as the end point of a Physics 
+Cable behavior.</P>
+<H2>Interaction &amp; Connection</H2>
+<P>Being nodes, the pins of a cable are interactive in the 3D world. The origin 
+of each pin is rendered as a torus with an arrow pointing in the positive Z-axis 
+direction of the object's coordinate system. Generally, these arrows are used to 
+indicate the direction of tensions associated with the cable.</P>
+<P>Interacting with a pin will affect the geometry of its cable since you are 
+affecting the cable's length and shape. Each pin can be freely placed at any 
+point in the 3D world as well as snapped to any object, thereby attaching the 
+pin to that object's node. When a pin is attached to a node, a physical 
+connection is formed using the Attachment field of the pin's interface. In such 
+cases, the end of the cable will move with the node its pin is attached to in 3D 
+world during a simulation.</P></BODY></HTML>

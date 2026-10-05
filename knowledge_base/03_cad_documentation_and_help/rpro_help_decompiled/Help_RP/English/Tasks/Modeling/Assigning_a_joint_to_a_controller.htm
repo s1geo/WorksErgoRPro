@@ -1,0 +1,46 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="robot controller,servo controller,joints,assignment">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Assigning a joint to a controller</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</style>
+</head>
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Assigning a Joint to a Controller</h1>
+<p>The joint of a node can be assigned to a Robot or Servo Controller behavior, thereby the motion of that joint can be driven by a controller.</p>
+<ol>
+<li class="Ordered">In the 3D world, select a component.</li>
+<li class="Ordered">Click the <span class="Strong">Modeling</span> tab, and then in the <span class="Strong">Component Graph</span> panel, <span class="Strong">Component Node Tree</span>, search for the controller type behavior you want to assign joints to, and then select that behavior.</li>
+<li class="Ordered">In the <span class="Strong">Properties</span> panel, select the <span class="Strong">Joints</span> (expand) button, and then do one of the following:
+<ul class="hcp1">
+<li class="Unordered">To pick a joint, in the <span class="Strong">Joints</span> box, click the <span class="Strong">Pick</span> button, and then in the 3D world, click the node of that joint.</li>
+<li class="Unordered">To add a joint, in the <span class="Strong">Joints</span> box, click the <span class="Strong">PLUS SIGN</span> button, and then in <span class="Strong">Add 'Joints' items</span>, find and select that joint. If the joint is highlighted, the joint has already been added to the controller's Joints property.</li>
+<li class="Unordered">To change the order of an added joint, in the <span class="Strong">Joints</span> box, point to that joint, and then on the right of that field use the <span class="Strong">Up</span> and <span class="Strong">Down</span> arrows.</li>
+<li class="Unordered">To remove an added joint, in the <span class="Strong">Joints</span> box, point to that joint, and then on the right of that field click the <span class="Strong">Trashcan</span>.</li>
+</ul>
+</li>
+</ol>
+<p>After a joint is assigned to a controller, the joint will inherit properties that need to be defined in order for the joint to be driven by the controller.</p>
+<ol start="4">
+<li class="Ordered">In the <span class="Strong">Component Graph</span> panel, <span class="Strong">Component Node Tree</span>, clear the <span class="Strong">Behaviors</span> and <span class="Strong">Properties</span> check boxes. This means only the nodes of the component will be shown in the tree.</li>
+<li class="Ordered">In <span class="Strong">Component Node Tree</span>, select a node whose joint you assigned to a controller, and then in the <span class="Strong">Properties</span> panel, do all of the following:
+<ul class="hcp1">
+<li class="Unordered">In order for the joint to have motion, set the <span class="Strong">Max Speed</span>, <span class="Strong">Max Acceleration</span> and <span class="Strong">Max Deceleration</span> properties.</li>
+</ul>
+</li>
+</ol>
+</body>
+</html>

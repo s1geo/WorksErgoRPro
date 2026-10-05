@@ -1,0 +1,494 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcRslStatement</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+p.hcp1 { margin-left:80px; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<p id="warning"><span class="Strong">(Deprecated)</span> use <a href="vcStatement.htm">vcStatement</a></p>
+<h1><a name="MiniTOCBookMark1"></a>vcRslStatement</h1>
+<p>vcRslStatement is the basic implementation for statements in a robot 
+ program.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot46792" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot46792', 'MTPOPUP46792');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP46792" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Hierarchy</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Common Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Statement Specific Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark18" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark19" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Hierarchy</h2>
+<p>Most statements can be manipulated directly as vcRslStatement type objects, 
+ while others have their own implementations that inherit vcRslStatement.</p>
+<p style="margin-left: 40px;"><a href="vcRslStatement.htm">vcRslStatement</a></p>
+<p class="hcp1"><a href="vcRslMotionStatement.htm">vcRslMotionStatement</a></p>
+<p class="hcp1"><a href="vcRslProcessStatement.htm">vcRslProcessStatement</a></p>
+<h2><a name="MiniTOCBookMark3"></a>Common Properties</h2>
+<p>The following properties are common in all RSL statements.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>GridColor</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Defines the color associated with the statement, for example 
+		 when robot program is listed in a panel. 
+		<p class="TableNormal">Color is defined in RGB color space by using 
+		 a vector containing normalized XYZ values.</p>
+		<p class="TableNormal"><img src="RGBColorSpace.png" alt="" style="border: none; 
+									 margin-left: 0px; margin-right: 0px; 
+									 margin-top: 10px; margin-bottom: 10px;" border="0"></p></td>
+	</tr>
+	<tr>
+		<td>Index</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the location (index) of statement in routine.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of statement.</td>
+	</tr>
+	<tr>
+		<td>Properties</td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td>Gets a list of all properties in statement.</td>
+	</tr>
+	<tr>
+		<td>Routine</td>
+		<td><a href="vcRslRoutine.htm">vcRslRoutine</a></td>
+		<td>R</td>
+		<td>Gets the routine the statement belongs to in robot program.</td>
+	</tr>
+	<tr>
+		<td>Type</td>
+		<td>Enumeration</td>
+		<td>R</td>
+		<td>Gets the statement type. 
+		<p class="TableNormal">See <a href="Constants.htm#Motion_Constants">Motion 
+		 Constants</a> for more information.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Statement Specific Properties</h2>
+<h3><a name="MiniTOCBookMark5"></a>Call</h3>
+<p>A statement that calls a subroutine in robot program.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>RoutineName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the subroutine to call by name.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark6"></a>Comment</h3>
+<p>A statement that prints a comment to Output panel.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Comment</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the message to be printed to user.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark7"></a>Define Base</h3>
+<p>A statement that temporarily modifies a base frame during a simulation.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Base</td>
+		<td>String 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcBaseFrame.htm">vcBaseFrame</a></p></td>
+		<td>RW</td>
+		<td>Gets/Sets the base frame used by statement. 
+		<p class="TableNormal">To set, give the name of a base frame listed 
+		 in robot controller, <a href="vcRobotController.htm">vcRobotController</a>, 
+		 which is referenced by robot executor of this statement.</p></td>
+	</tr>
+	<tr>
+		<td>Node</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the parent node of Base.</td>
+	</tr>
+	<tr>
+		<td>Position</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines the location of Base. 
+		<p class="TableNormal">If Relative is set to True, this property 
+		 references Base coordinate system, thereby changing base frame 
+		 relative to its current position.</p></td>
+	</tr>
+	<tr>
+		<td>Relative</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if Position provides absolute or relative values for 
+		 Base location.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark8"></a>Define Tool</h3>
+<p>A statement that temporarily modifies a tool frame during a simulation.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Node</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the parent node of Tool.</td>
+	</tr>
+	<tr>
+		<td>Position</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines the location of Tool. 
+		<p class="TableNormal">If Relative is set to True, this property 
+		 references Tool coordinate system, thereby changing tool frame 
+		 relative to its current position.</p></td>
+	</tr>
+	<tr>
+		<td>Relative</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if Position provides absolute or relative values for 
+		 Tool location.</td>
+	</tr>
+	<tr>
+		<td>Tool</td>
+		<td>String 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcBaseFrame.htm">vcBaseFrame</a></p></td>
+		<td>RW</td>
+		<td>Gets/Sets the tool frame used by statement. 
+		<p class="TableNormal">To set, give the name of a tool frame listed 
+		 in robot controller, <a href="vcRobotController.htm">vcRobotController</a>, 
+		 which is referenced by robot executor of this statement.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark9"></a>Delay</h3>
+<p>A statement that executes a timed delay.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Delay</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the amount of time (in seconds) to delay program execution.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark10"></a>Grasp</h3>
+<p>A deprecated statement for executing a robot grasp action. No additional 
+ properties.</p>
+<h3><a name="MiniTOCBookMark11"></a>Halt</h3>
+<p>A statement for halting and/or resetting a simulation.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Reset</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if a simulation is reset.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark12"></a>Program Sync</h3>
+<p>A statement that can synchronize two or more robots.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>SyncComponents</td>
+		<td>List of <a href="vcComponent.htm">vcComponent</a></td>
+		<td>RW</td>
+		<td>List of components in the sync program.</td>
+	</tr>
+	<tr>
+		<td>SyncMsg</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the sync message to trigger synchronization.</td>
+	</tr>
+	<tr>
+		<td>WaitSync</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if a robot in sync program waits for all SyncComponents 
+		 to send SyncMsg. 
+		<p class="TableNormal">If False, robot sends SyncMsg and continues 
+		 the execution of its program.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark13"></a>Release</h3>
+<p>A deprecated statement for executing a robot release action. No additional 
+ properties.</p>
+<h3><a name="MiniTOCBookMark14"></a>remote Call</h3>
+<p>A statement that remotely calls a routine in another robot's program.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>RemoteRoutine</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of routine to remotely call in a robot. 
+		<p class="TableNormal">The format is <span class="Term">[component_name]::[routine_name]</span> 
+		 and the target robot should be connected to calling robot via 
+		 an abstract interface.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark15"></a>Remote Wait</h3>
+<p>A statement that waits for a routine to be completed by another robot.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>RemoteRoutine</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of routine to wait for in a robot. 
+		<p class="TableNormal">The format is <span class="Term">[component_name]::[routine_name]</span> 
+		 and the target robot should be connected to calling robot via 
+		 an abstract interface.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark16"></a>Set Binary Output</h3>
+<p>A statement that sets the value of a signal mapped to an output port 
+ of robot.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Output</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the output port.</td>
+	</tr>
+	<tr>
+		<td>Value</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines the output value.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark17"></a>Wait Binary Output</h3>
+<p>A statement that waits for an input port of robot mapped to a signal 
+ to have a specific value.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Input</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the input port.</td>
+	</tr>
+	<tr>
+		<td>Value</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines the input value.</td>
+	</tr>
+	<tr>
+		<td>WaitTrigger</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if Value is evaluated continuously or when a signal 
+		 event occurs during a simulation.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark18"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String <span class="Italic">type</span>, String <span class="Italic">name</span>, 
+		 [Enumeration <span class="Italic">constraints</span>]</td>
+		<td>Adds a new property of a given <span class="Italic">type</span> 
+		 and <span class="Italic">name</span> to statement. 
+		<p class="TableNormal">An optional <span class="Italic">constraints</span> 
+		 argument can be given to define constraints for property, which 
+		 must be given at the time of creation.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Property_Constants">Property 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>deleteProperty</td>
+		<td>None</td>
+		<td><a href="vcProperty.htm">vcProperty</a> <span class="Italic">property</span></td>
+		<td>Removes a given <span class="Italic">property</span> from statement.</td>
+	</tr>
+	<tr>
+		<td>getProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Returns the first matching property of a given <span class="Italic">name</span> 
+		 in the statement; otherwise returns None.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark19"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Manipulate statements in robot routine</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>#Access main program via Executor 
+		<br>comp = getComponent() 
+		<br>rx = comp.findBehaviour('Executor') 
+		<br>mainroutine = rx.MainRoutine 
+		<br>&#160; 
+		<br>#Access statements and return type and order 
+		<br>def exampleRsl(): 
+		<br>&#160;&#160;for i in mainroutine.Statements: 
+		<br>&#160;&#160;&#160;&#160;print i.Name, i.Type, i.Index 
+		<br>&#160; 
+		<br>#Create and delete statement via events 
+		<br>def OnRun(): 
+		<br>&#160;&#160;my_statement = mainroutine.createStatement(VC_STATEMENT_COMMENT) 
+		<br>&#160;&#160;my_statement.Comment = &quot;Example Comment&quot; 
+		<br>&#160;&#160;exampleRsl() 
+		<br>&#160; 
+		<br>def OnReset(): 
+		<br>&#160;&#160;mainroutine.deleteStatement(len(foo.Statements)-1) 
+		<br>&#160;&#160;#deletes the last statement when user hits reset button 
+		<br>&#160;&#160;exampleRsl()</td>
+	</tr>
+</table>
+</body>
+</html>

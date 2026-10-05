@@ -1,0 +1,198 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="statistics,tab,dashboard,charts,report">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+ 
+<title>vcStatisticsTab</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcStatisticsTab</h1>
+<p>vcStatisticsTab is a tab listed in a Statistics dashboard and contains 
+ one or more charts which are organized in a grid.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot13317" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot13317', 'MTPOPUP13317');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP13317" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Layout</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Layout</h2>
+<p>The layout of a grid is defined by rows and columns. Each grid location 
+ is a tile that is either an empty chart used as a placeholder or filled 
+ with chart reporting data.</p>
+<p><img src="vcStatisticsTabLayout.png" alt="" style="border: none;" border="0"></p>
+<h2><a name="MiniTOCBookMark3"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Charts</td>
+		<td>List of <a href="vcStatisticsChart.htm">vcStatisticsChart</a></td>
+		<td>RW</td>
+		<td>Defines the charts of tab.</td>
+	</tr>
+	<tr>
+		<td>Layouts</td>
+		<td>List of List (String <span class="Italic">layout_name</span>, 
+		 List (String <span class="Italic">placeholder_name</span>, Integer 
+		 <span class="Italic">column</span>, Integer <span class="Italic">row</span>, 
+		 Integer <span class="Italic">column_span</span>, Integer <span 
+		 class="Italic">row_span</span>)))</td>
+		<td>RW</td>
+		<td>Defines the available layouts for tab grid.</td>
+	</tr>
+	<tr>
+		<td>MaxColumns</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the maximum number of columns in tab grid.</td>
+	</tr>
+	<tr>
+		<td>MaxRows</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the maximum number of rows in tab grid.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of tab.</td>
+	</tr>
+	<tr>
+		<td>SelectedChart</td>
+		<td><a href="vcStatisticsChart.htm">vcStatisticsChart</a></td>
+		<td>RW</td>
+		<td>Defines the active chart of tab.</td>
+	</tr>
+	<tr>
+		<td>SelectedLayout</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the current layout of tab grid.</td>
+	</tr>
+	<tr>
+		<td>SelectedLayoutItem</td>
+		<td>List of String <span class="Italic">layout_name</span>, List 
+		 (String <span class="Italic">placeholder_name</span>, Integer 
+		 <span class="Italic">column</span>, Integer <span class="Italic">row</span>, 
+		 Integer <span class="Italic">column_span</span>, Integer <span 
+		 class="Italic">row_span</span>)</td>
+		<td>RW</td>
+		<td>Defines the attributes of SelectedLayout. 
+		<p class="TableNormal"><span class="Strong">Note:</span> A layout 
+		 has a name and a list for each of its placeholders/tiles. A placeholder 
+		 defines the grid column and row size of a chart.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>clearLayout</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Deletes all charts from tab grid.</td>
+	</tr>
+	<tr>
+		<td>createChart</td>
+		<td><a href="vcStatisticsChart.htm">vcStatisticsChart</a></td>
+		<td><a href="vcStatisticsChart.htm">vcStatisticsChart</a> <span 
+		 class="Italic">location</span>, Enumeration <span class="Italic">chart_type</span>, 
+		 Boolean <span class="Italic">activate</span></td>
+		<td>Adds a new chart of a given type to tab grid. 
+		<p class="TableNormal">The <span class="Italic">location</span> 
+		 argument specifies where in grid to insert the new chart. In this 
+		 context, the <a href="vcStatisticsChart.htm">vcStatisticsChart</a> 
+		 object is a grid location. It can be a chart with existing data 
+		 or an empty chart used as a placeholder. In either case, a call 
+		 will remove the existing chart and exchange it with a new one 
+		 in the grid.</p>
+		<p class="TableNormal">The <span class="Italic">activate</span> 
+		 argument can be used to make the new chart the active chart in 
+		 tab.</p>
+		<p class="TableNormal">For more information on the <span class="Italic">chart_type</span> 
+		 argument, see <a href="Constants.htm#Statistics_Constants">Statistics 
+		 Constants</a>.</p></td>
+	</tr>
+	<tr>
+		<td>createLayout</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Creates a new layout for tab grid.</td>
+	</tr>
+	<tr>
+		<td>deleteChart</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">index</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcStatisticsChart.htm">vcStatisticsChart</a> 
+		 <span class="Italic">chart</span></p></td>
+		<td>Removes a chart from tab grid, thereby replacing the old chart 
+		 with a new empty chart used as a placeholder in grid.</td>
+	</tr>
+	<tr>
+		<td>selectChart</td>
+		<td><a href="vcStatisticsChart.htm">vcStatisticsChart</a></td>
+		<td>Integer <span class="Italic">index</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcStatisticsChart.htm">vcStatisticsChart</a> 
+		 <span class="Italic">chart</span></p></td>
+		<td>Selects a chart in tab, thereby making it the active chart 
+		 in tab.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a>Examples</h2>
+<p><span class="Example"><a name="AddBarChart" id="AddBarChart"></a>Example. 
+ Add a new bar chart</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>dashboard = app.Dashboard 
+		<br>tab = dashboard.SelectedTab 
+		<br>&#160; 
+		<br>#deletes all charts from tab grid 
+		<br>tab.clearLayout() 
+		<br>&#160; 
+		<br>#selects the first chart in grid, which is placeholder P1/tile 
+		<br>tile = tab.selectChart(0) 
+		<br>&#160; 
+		<br>#inserts new bar chart in P1 and selects the new chart 
+		<br>chart = tab.createChart(tile,VC_CHARTTYPE_BAR,True)</td>
+	</tr>
+</table>
+</body>
+</html>

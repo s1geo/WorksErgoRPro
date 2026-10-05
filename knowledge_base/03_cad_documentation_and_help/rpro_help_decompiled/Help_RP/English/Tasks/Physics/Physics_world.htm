@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Physics world</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content=physics,force>
+<META name=generator content="Adobe RoboHelp 2017"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css"></HEAD>
+<BODY>
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+
+<H1>Physics World</H1>
+<P>In R-Pro 2.1 there is simulation world and <SPAN 
+class=Italic>&nbsp;</SPAN>physics world in the 3D environment. This coexistence 
+allows components to act independently of physical forces. In addition, 
+components can move in and out of the simulation world and into the physics 
+world. Generally, this occurs when components are attached to or contained by a 
+physical object, for example Physics Path behaviors.</P>
+<H2>Simulating Physics</H2>
+<P>The effects of physics world is disabled when you are not running a 
+simulation. Therefore, a simulation must be running in order to activate physics 
+and the forces that affect physical objects and properties in the 3D 
+environment. The effects that physics have had on physical objects are undone 
+when you reset a simulation. For example, static components would reset to their 
+initial state at the start of the simulation.</P>
+<P>Physics simulated in R-Pro 2.1 should not be inferred as realistic rather 
+approximations that attempt to render real-world conditions and outcomes. The 
+physics engine used in R-Pro 2.1 is <A 
+href="http://docs.nvidia.com/gameworks/content/gameworkslibrary/physx/guide/Manual/Index.html" 
+target=_blank>Nvidia PhysX</A>.</P>
+<H2>Rigid Bodies</H2>
+<P>If a node in a component has a Physics Entity behavior, you can define how 
+that node relates to the simulation and physics worlds by editing its Physics 
+Type property.</P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>#In Physics</TD>
+    <TD>The node and its geometry are contained in the physics world. 
+      <P class=TableNormal>In this mode, the force of gravity will affect the 
+      node. For example, a component will fall based on the direction of 
+      gravity.</P></TD></TR>
+  <TR>
+    <TD>#Out of Physics</TD>
+    <TD>The node and its geometry are contained in the simulation world. 
+      <P class=TableNormal>Generally, this mode is used to disable the effects 
+      of physics may have on a component and any of its nodes.</P></TD></TR>
+  <TR>
+    <TD>#Kinematic</TD>
+    <TD>The node and its geometry are contained in the physics world and 
+      disregard internal forces. That is, the force of gravity will not affect 
+      the node. 
+      <P class=TableNormal>Generally, this mode is used when a node and its 
+      joint are driven by a controller or pneumatics system.</P></TD></TR>
+  <TR>
+    <TD>#In Container</TD>
+    <TD>The node and its geometry are a part of the physics world and can be 
+      monitored as objects in containers. 
+      <P class=TableNormal>While the effects of this mode are similar to #In 
+      Physics, the benefit is to allow the system of the 3D environment to 
+      recognize the transition of physical objects into and out of 
+      containers.</P>
+      <P class=TableNormal>In some cases, you may want to avoid the tracking of 
+      components as they transition from one container to the next during a 
+      simulation. In other cases, you may want to optimize the physics of a 
+      component and its nodes for material handling, transportation and other 
+      cases suitable for containment and tracking 
+efforts.</P></TD></TR></TBODY></TABLE></BODY></HTML>

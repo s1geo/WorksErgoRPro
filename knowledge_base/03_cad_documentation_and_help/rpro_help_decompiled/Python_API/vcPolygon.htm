@@ -1,0 +1,133 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcPolygon</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<p id="warning"><span class="Strong">(Deprecated)</span> use <a href="vcTriangleSet.htm">vcTriangleSet</a></p>
+<h1><a name="MiniTOCBookMark1"></a>vcPolygon</h1>
+<p>vcPolygon represents an n-sided face in the 3D world.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcPrimative.htm">vcPrimitive</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot25033" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot25033', 'MTPOPUP25033');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP25033" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st" style="height: 34px;">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr style="height: 53px;">
+		<td>Edges</td>
+		<td>List of <a href="vcEdge.htm">vcEdge</a></td>
+		<td>R</td>
+		<td>Gets a list of all edges in polygon.</td>
+	</tr>
+	<tr style="height: 31px;">
+		<td>Normal</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>R</td>
+		<td>Gets the Normal vector of polygon.</td>
+	</tr>
+	<tr style="height: 34px;">
+		<td>PointCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Get the number of points in polygon.</td>
+	</tr>
+	<tr style="height: 34px;">
+		<td>Points</td>
+		<td>List of <a href="vcPolygonPoint.htm">vcPolygonPoint</a></td>
+		<td>R</td>
+		<td>Gets a list of all points in polygon.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addPoint</td>
+		<td>None</td>
+		<td><a href="vcPolygonPoint.htm">vcPolygonPoint</a> <span class="Italic">point</span></td>
+		<td>Adds a given <span class="Italic">point</span> to the polygon. 
+		 
+		<p class="TableNormal"><span class="Strong">Note:</span> Points 
+		 can be shared by different polygons.</p></td>
+	</tr>
+	<tr>
+		<td>getNeighbors</td>
+		<td>List of <a href="vcPolygon.htm">vcPolygon</a></td>
+		<td>Integer <span class="Italic">point_index</span></td>
+		<td>Returns a list of polygons sharing an edge with the polygon 
+		 based on a given <span class="Italic">point_index</span>.</td>
+	</tr>
+	<tr>
+		<td>getPoint</td>
+		<td><a href="vcPolygonPoint.htm">vcPolygonPoint</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns a point of the polygon at a given <span class="Italic">index</span>.</td>
+	</tr>
+	<tr>
+		<td>getPointNormal</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns the Normal vector of a point in the polygon at a given 
+		 <span class="Italic">index</span>.</td>
+	</tr>
+	<tr>
+		<td>removePoint</td>
+		<td>None</td>
+		<td><a href="vcPolygonPoint.htm">vcPolygonPoint</a> <span class="Italic">point</span> 
+		 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">Integer <span class="Italic">index</span></p></td>
+		<td>Removes a given <span class="Italic">point</span> or one at 
+		 a given <span class="Italic">index</span> from the polygon.</td>
+	</tr>
+	<tr>
+		<td>reverse</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Inverts the face of polygon.</td>
+	</tr>
+	<tr>
+		<td>update</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Updates the structure of polygon, which is required when changing 
+		 point count and point properties.</td>
+	</tr>
+</table>
+</body>
+</html>

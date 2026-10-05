@@ -1,0 +1,233 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="chart,report,statistics,dashboard">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcStatisticsChart</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcStatisticsChart</h1>
+<p>vcStatisticsChart allows you to plot and graph the data of reported 
+ items in a chart.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot43264" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot43264', 'MTPOPUP43264');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP43264" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AllSources</td>
+		<td>List of List (<a href="vcProperty.htm">vcProperty</a> <span 
+		 class="Italic">property</span>, String <span class="Italic">expression</span>, 
+		 <a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span>, 
+		 <a href="vcVector.htm">vcVector</a> <span class="Italic">color</span>, 
+		 Real <span class="Italic">thickness</span>)</td>
+		<td>R</td>
+		<td>Gets all sources of reported items, including their components. 
+		 
+		<p class="TableNormal">A reported item is a <a href="vcProperty.htm">vcProperty</a> 
+		 object associated with a component. For example, a reported item 
+		 could be a component property or a property of a component behavior.</p>
+		<p class="TableNormal">A <a href="vcVector.htm">vcVector</a> object 
+		 is used to define the display color of reported item in chart.</p></td>
+	</tr>
+	<tr>
+		<td>ChartTileType</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the location type of chart, thereby indicating whether 
+		 the tile is an empty or filled with a chart. 
+		<p class="TableNormal">Generally, you would use ChartTileType to 
+		 parse through several charts in a dashboard to collect data from 
+		 charts that report items. For example, you could ignore or skip 
+		 empty tiles.</p></td>
+	</tr>
+	<tr>
+		<td>ChartType</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the chart type. 
+		<p class="TableNormal">For more information, see <a href="Constants.htm#Statistics_Constants">Statistics 
+		 Constants</a>.</p></td>
+	</tr>
+	<tr>
+		<td>DataRows</td>
+		<td>List of List (Real <span class="Italic">simulation_time</span>, 
+		 Real <span class="Italic">value1</span>, ... Real <span class="Italic">valueN</span>)</td>
+		<td>R</td>
+		<td>Gets the data collected during a simulation from reported items.</td>
+	</tr>
+	<tr>
+		<td>DataType</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the data type of chart. 
+		<p class="TableNormal">For more information, see <a href="Constants.htm#Statistics_Constants">Statistics 
+		 Constants</a>.</p></td>
+	</tr>
+	<tr>
+		<td>FieldCountPerProperty</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the field count of items reported by chart.</td>
+	</tr>
+	<tr>
+		<td>LegendVisibility</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the display of chart legend.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the title of chart.</td>
+	</tr>
+	<tr>
+		<td>Position</td>
+		<td>List of String <span class="Italic">name</span>, Integer <span 
+		 class="Italic">column</span>, Integer <span class="Italic">row</span>, 
+		 Integer <span class="Italic">column_span</span>, Integer <span 
+		 class="Italic">row_span</span></td>
+		<td>RW</td>
+		<td>Defines the position chart in tab grid.</td>
+	</tr>
+	<tr>
+		<td>RecordAccumulatedValues</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the collection of data reported by chart.</td>
+	</tr>
+	<tr>
+		<td>SamplingInterval</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines how often (in seconds) the chart updates to show recorded 
+		 data during a simulation. 
+		<p class="TableNormal">If -1, the chart uses the sampling interval 
+		 of its dashboard.</p></td>
+	</tr>
+	<tr>
+		<td>Series</td>
+		<td>List of <a href="vcStatisticsSeries.htm">vcStatisticsSeries</a></td>
+		<td>R</td>
+		<td>Gets a list of data series used by chart to report items.</td>
+	</tr>
+	<tr>
+		<td>TileType</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Same as ChartTileType. 
+		<p class="TableNormal">For more information, see <a href="Constants.htm#Statistics_Constants">Statistics 
+		 Constants</a>.</p></td>
+	</tr>
+	<tr>
+		<td>TitleVisibility</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the display of chart title.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addSeries</td>
+		<td><a href="vcStatisticsSeries.htm">vcStatisticsSeries</a></td>
+		<td>None</td>
+		<td>Adds a new data series to chart.</td>
+	</tr>
+	<tr>
+		<td>clearData</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Removes all data reported by chart, thereby emptying DataRows.</td>
+	</tr>
+	<tr>
+		<td>clearSeries</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Resets all data series in chart, thereby emptying AllSources.</td>
+	</tr>
+	<tr>
+		<td>deleteSeries</td>
+		<td>None</td>
+		<td><a href="vcStatisticsSeries.htm">vcStatisticsSeries</a> <span 
+		 class="Italic">data_series</span></td>
+		<td>Deletes a given <span class="Italic">data_series</span> from 
+		 chart.</td>
+	</tr>
+	<tr>
+		<td>update</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Refreshes the chart.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Examples</h2>
+<p><span class="Example"><a name="CreateDataSeries" id="CreateDataSeries"></a>Example. 
+ Add, remove and reset data series in chart</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>dashboard = app.Dashboard 
+		<br>tab = dashboard.SelectedTab 
+		<br>tab.clearLayout() 
+		<br>&#160; 
+		<br>#insert new chart in free tile 
+		<br>for chart in tab.Charts: 
+		<br>&#160;&#160;if chart.TileType == VC_TILETYPE_PLACEHOLDER: 
+		<br>&#160;&#160;&#160;&#160;chart = tab.createChart(tab.Charts[0],VC_CHARTTYPE_BAR,True) 
+		<br>&#160; 
+		<br>#empty the chart, create new series, (optional) remove any existing series 
+		<br>if chart != None: 
+		<br>&#160;&#160;if chart.Series: 
+		<br>&#160;&#160;&#160;&#160;for i in chart.Series: 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;chart.deleteSeries(i) 
+		<br>&#160;&#160;x = chart.addSeries() 
+		<br>&#160;&#160;y = chart.addSeries() 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;#instead of deleting series 
+		<br>&#160;&#160;#you may want to reset series and clear reported items of chart 
+		<br>&#160;&#160;chart.clearSeries()</td>
+	</tr>
+</table>
+</body>
+</html>

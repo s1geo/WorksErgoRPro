@@ -1,0 +1,62 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="texture,material,UV coordinates,texture projector">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Assigning Texture Coordinates</title>
+<link rel="StyleSheet" href="../../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+img.hcp2 { border:none; }
+-->
+</style>
+</head>
+<body>
+<script type="text/javascript" src="../../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Assigning Texture Coordinates</h1>
+<p>Texture coordinates can be assigned to geometry by using a mapping tool for spherical, cylindrical and planar projections. This allows you to map the texture of material to objects in the 3D world.</p>
+<ol>
+<li class="Ordered">On the <span class="Strong">Modeling</span> tab, in the <span class="Strong">Geometry</span> group, click the <span class="Strong">Tools</span> arrow, and then under <span class="Strong">Material</span>, click <span class="Strong">Mapping</span>.</li>
+<li class="Ordered">In the <span class="Strong">Texture Mapping</span> task pane, do all of the following:
+<ul class="hcp1">
+<li class="Unordered">Under <span class="Strong">Mode</span>, select a type of projection.</li>
+<li class="Unordered">Under <span class="Strong">Set Texture Mapping For</span>, select the type of object you want to assign texture coordinates.</li>
+</ul>
+</li>
+<li class="Ordered">In the 3D world, click an object to assign it texture coordinates. If the current material of the object does not have a texture, a temporary texture will be displayed and projected on the object in the 3D world. In any case, you should be able to visualize how a texture will be applied to the surface of a selected object based on its material.</li>
+<li class="Ordered">Do one or more of the following:
+<ul class="hcp1">
+<li class="Unordered">To move the projection on the selected object, either use the <span class="Strong">Move</span> tool in the 3D world or edit the location in the <span class="Strong">Texture Mapping</span> task pane. In either case, you are moving the projection not the object.<br>
+<img class="step_image" src="../../../Links/MoveTextureProejction.png" alt="" style="border: none;" border="0"></li>
+<li class="Unordered">To edit the size of the projection, in the <span class="Strong">Texture Mapping</span> task pane, under <span class="Strong">Projection Setting</span>, set <span class="Strong">Width</span> and <span class="Strong">Height</span>. This defines the size of the UV space before tiling the texture.<br>
+<img class="step_image" src="../../../Links/EditSizeOfTextureProjection.png" alt="" style="border: none;" border="0"></li>
+<li class="Unordered">To edit the scale of each tile in the projection, in the <span class="Strong">Texture Mapping</span> task pane, under <span class="Strong">Projection Setting</span>, set <span class="Strong">U Tiling</span> and <span class="Strong">V Tiling</span>. The scale of each tile is related to the size of its UV space, for example Width/U Tiling and Height/V Tiling.<br>
+<img class="step_image" src="../../../Links/UVTilingScale.png" alt="" style="border: none;" border="0"></li>
+</ul>
+</li>
+<li class="Ordered">In the <span class="Strong">Texture Mapping</span> task pane, do one of the following:
+<ul class="hcp1">
+<li class="Unordered">To confirm the mapping and save all changes, click <span class="Strong">Close</span>.</li>
+<li class="Unordered">To cancel the mapping and undo all changes, click <span class="Strong">Cancel</span>.</li>
+<li class="Unordered">To make changes to the current mapping, go back to Step 2.</li>
+<li class="Unordered">To assign texture coordinates to other objects, go back to Step 2 and then select a different object.</li>
+</ul>
+</li>
+</ol>
+<p><span class="Example">Example. Mapping texture to surface with one UV tile</span></p>
+<p><img src="../../../Links/TextureMapToOneTile.png" alt="" border="0" class="hcp2"></p>
+<p><span class="Example">Example. Mapping texture to surface with multiple UV tiles</span></p>
+<p><img src="../../../Links/TextureMapToMultipleTiles.png" alt="" border="0" class="hcp2"></p>
+<p><span class="Example">Example. Mapping texture to surface with smaller UV space and multiple UV tiles</span></p>
+<p><img src="../../../Links/TextureMapWithSmallUVSpace.png" alt="" border="0" class="hcp2"></p>
+<p><span class="Example">Example. Mapping texture with bumps to surface</span></p>
+<p><img src="../../../Links/TextureMapWithBump.png" alt="" border="0" class="hcp2"></p>
+</body>
+</html>

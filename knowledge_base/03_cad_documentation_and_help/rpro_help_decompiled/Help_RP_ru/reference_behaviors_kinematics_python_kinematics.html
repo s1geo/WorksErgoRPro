@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Кинематика Python</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Поведение кинематика Python позволяет определить прямую и/или обратную кинематику для робота с помощью сценария написанного на языке программирования Python." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff;">Кинематика Python</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Поведение кинематика Python позволяет определить прямую и/или обратную кинематику для робота с помощью сценария написанного на языке программирования Python.</p>
+<p class="p_Normal"><img alt="ClipboardImg157" style="margin:0;width:3.3438in;height:1.4688in;border:none" src="clipboardimg157.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8750in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5417in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8750in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:10.5417in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет наименование кинематики.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8750in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Скрипт</p>
+</td>
+<td style="vertical-align:top; width:10.5417in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет скрипт, используемый для определения свойств кинематического объекта.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Редактор</span></h2>
+<p class="p_Normal">Чтобы получить доступ к редактору скриптов:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>На панели <span style="font-weight: bold;">Диаграмма компонента</span>, <span style="font-weight: bold;">Дерево узлов компонента</span>, найдите поведение Python Kinematics, которое вы хотите изменить, а затем дважды щелкните это поведение.</p>
+<p class="p_Normal">Редактор скриптов такой же, как и для Python Script.</p>
+<p class="p_Normal"><img alt="ClipboardImg156" style="margin:0;width:7.9167in;height:2.1354in;border:none" src="clipboardimg156.png"/></p>
+<p class="p_Normal">Исходное содержимое редактора содержит фрагмент кода, используемый для определения свойств кинематического объекта, соответствующего роботу и его контроллеру:</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:solid thin #c0c0c0; border-spacing:0;">
+<tr>
+<td style="vertical-align:middle; padding:0; border:none"><p class="p_Normal">from vcPythonKinematics import *</p>
+<p class="p_Normal">import vcMatrix</p>
+<p class="p_Normal">import vcVector</p>
+<p class="p_Normal">from math import * </p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"># Определить количество суставов и их имена </p>
+<p class="p_Normal">JOINT_COUNT = 0</p>
+<p class="p_Normal">JOINT_NAMES = [] </p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"># Инициировать информацию о кинематическом объекте</p>
+<p class="p_Normal">def OnInitKinObject( kinobj ):</p>
+<p class="p_Normal"> &nbsp;pass </p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"># Возвращает количество соединений, которые обрабатывает эта кинематика</p>
+<p class="p_Normal">def OnGetJointCount():</p>
+<p class="p_Normal"> &nbsp;return 0</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"># Возвращает проиндексированные имена соединений </p>
+<p class="p_Normal">def OnGetJointName(index):</p>
+<p class="p_Normal"> &nbsp;return JOINT_NAMES[index] </p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"># Ограничивает кинематические решения, чтобы отображались только допустимые варианты</p>
+<p class="p_Normal">def OnConstrainParams(kinobj):</p>
+<p class="p_Normal"> &nbsp;return True </p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"># Уменьшает решения кинематики, чтобы показать все варианты выбора</p>
+<p class="p_Normal">def OnRelaxParams(kinobj):</p>
+<p class="p_Normal"> &nbsp;return True </p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"># Возвращает целевое значение (матрицу) кинематической цепи на основе совместных значений</p>
+<p class="p_Normal">def OnForward(kinobj):</p>
+<p class="p_Normal"> &nbsp;return True </p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"># Возвращает значения соединения кинематической цепи на основе цели (матрицы) </p>
+<p class="p_Normal">def OnInverse(kinobj):</p>
+<p class="p_Normal"> &nbsp;return True</p>
+</td>
+</tr>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

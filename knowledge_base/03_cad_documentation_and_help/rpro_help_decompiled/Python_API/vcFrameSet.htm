@@ -1,0 +1,130 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcFrameSet</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcFrameSet</h1>
+<p>vcFrameSet is a type of geometry set that contains a collection of frames.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcGeometrySet.htm">vcGeometrySet</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot31669" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot31669', 'MTPOPUP31669');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP31669" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>FrameCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the number of frames in set.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createFrame</td>
+		<td>None</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>Creates a new frame in set.</td>
+	</tr>
+	<tr>
+		<td>deleteFrame</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Deletes a frame at a given <span class="Italic">index</span> 
+		 from set.</td>
+	</tr>
+	<tr>
+		<td>getFrame</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns the position matrix of a frame at a given <span class="Italic">index</span> 
+		 in set.</td>
+	</tr>
+	<tr>
+		<td>setFrame</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">index</span>, <a href="vcMatrix.htm">vcMatrix</a> 
+		 <span class="Italic">frame_matrix</span></td>
+		<td>Sets the position matrix of a frame at a given <span class="Italic">index</span> 
+		 in set.</td>
+	</tr>
+	<tr>
+		<td>update</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Updates all frames in set, thereby updating the set's bound 
+		 box.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Create a ring of frames in a set</span></p>
+<p><img src="Images/vcFrameSet/ExampleFrameSet.png" alt="" width="240" height="233" border="0"></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * <br>
+		import vcMatrix<br>
+		<br>
+		app = getApplication() <br>
+		comp = getComponent()
+		<br>&#160;<br>
+		#simple demo that clears geometry sets in root node Geometry container <br>
+		#you could also use a Geometry feature and its Geometry container for this demo <br>
+		gc = comp.UserGeometry<br>
+		gc.clear() <br>
+		fs = gc.createGeometrySet(VC_FRAMESET) # type: vcFrameSet
+		<br><br>
+		#create full circle of frames in set <br>
+		degrees = 360 <br>
+		for i in xrange(degrees):<br>
+		&#160;mtx = vcMatrix.new()<br>
+		&#160;mtx.translateAbs(1000.0, 0.0, 0.0) <br>
+		&#160;mtx.rotateAbsY(degrees) <br>
+		&#160;fs.createFrame(mtx)<br>
+		&#160;degrees = degrees - 1 <br>
+		
+		<br>fs.update() <br>
+		gc.update() <br>
+		app.render()</td>
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,126 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="application statement,robot statement,program">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Creating statements in robot program</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-weight:bold; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Creating Statements in Robot Program</h1>
+<p>A statement is a command executed by a robot in its program.</p>
+<p>Statements in a robot program are contained in subroutines and executed 
+ in order one after the other. Explicit variables and other properties 
+ of a robot, including I/O ports, can be used to define statements and 
+ conditions for program execution.</p>
+<ol>
+	
+	
+	
+	<li class="Ordered">Click 
+	 the <span class="Strong">Program</span> tab, and then use the <span 
+	 class="Strong">Jog</span> command to the select robot you want to 
+	 program in the 3D world.</li>
+	<li class="Ordered">In 
+	 the <span class="Strong">Program Editor</span> panel, create or select 
+	 a subroutine to contain statements.</li>
+	<li class="Ordered">If 
+	 you are prompted to upgrade the executor of the selected robot, click 
+	 <span class="Strong">Upgrade Rsl executor</span>, and then go back 
+	 to Step 2.</li>
+	<li class="Ordered" style="list-style: decimal;"><p>In 
+	 the <span class="Strong">Statments</span> toolbar, do one of the following: 
+	 </p>
+	<ul style="list-style: disc;">
+		<li class="Unordered">To 
+		 create a point-to-point motion to the current position of robot, 
+		 click <span class="Strong">Joint Motion Statement</span>. *</li>
+		<li class="Unordered">To 
+		 create a linear motion to the current position of robot, click 
+		 <span class="Strong">Linear Motion Statement</span>. <span>*</span></li>
+		<li class="Unordered">To 
+		 update a tool frame during a simulation, click <span class="Strong">Define 
+		 Tool Statement</span>, and then define values for a tool frame 
+		 set by that statement.</li>
+		<li class="Ordered">To 
+		 update a base frame during a simulation, click <span class="Strong">Define 
+		 Base Statement</span>, and then define values for a base frame 
+		 set by that statement.</li>
+		<li class="Ordered">To 
+		 update a selected PTP, LIN or PTPHome statement in the robot program, 
+		 click <span class="Strong">Touch-up</span>.</li>
+		<li class="Ordered">To 
+		 call a subroutine, click <span class="Strong">Call Sequence Statement</span>, 
+		 and then define the subroutine called by that statement.</li>
+		<li class="Ordered">To 
+		 end the execution of a subroutine, click <span class="Strong">Return 
+		 Statement</span>.</li>
+		<li class="Ordered">To 
+		 end the execution of a loop, click <span class="Strong">Break 
+		 Statement</span>.</li>
+		<li class="Ordered">To 
+		 set a loop to execute from its next iteration, click <span class="Strong">Continue 
+		 Statement</span>.</li>
+		<li class="Ordered">To 
+		 create a conditional statement, click <span class="Strong">If 
+		 Statement</span>, and then define the condition for executing 
+		 statements nested in THEN or ELSE group of that statement.</li>
+		<li class="Ordered">To 
+		 create a loop, click <span class="Strong">While Statement</span>, 
+		 and then define the condition for executing statements nested 
+		 in that loop.</li>
+		<li class="Ordered">To 
+		 synchronize program execution with other components, click <span 
+		 class="Strong">Program Synchronize Statement</span>, and then 
+		 define the message and components to synchronize and whether or 
+		 not the statement will wait until all components in the sync send 
+		 the correct message before continuing program execution.</li>
+		<li class="Ordered">To 
+		 delay the execution of a subroutine, click <span class="Strong">Delay 
+		 Statement</span>, and then define the delay in seconds for that 
+		 statement.</li>
+		<li class="Ordered">To 
+		 stop the execution of a subroutine, click <span class="Strong">Halt 
+		 Statement</span>, and then define if that statement will reset 
+		 the simulation.</li>
+		<li class="Ordered">To 
+		 leave comment, click <span class="Strong">Comment Statement</span>, 
+		 and then define the comment for that statement.</li>
+		<li class="Ordered">To 
+		 print and display feedback, click <span class="Strong">Print Statement</span>, 
+		 and then define the message for that statement.</li>
+		<li class="Ordered">To 
+		 wait for an input signal to have specific value, click <span class="Strong">Wait 
+		 for Binary Input Statement</span>, and then define the value and 
+		 port number to wait for in that statement.</li>
+		<li class="Ordered"><span>To 
+		 set the value of an output signal, click</span> <span class="Strong">Set 
+		 Binary Output Statement</span><span>, and then define the state 
+		 and port number to set for that statement.</span></li>
+		<li class="Ordered">To 
+		 generate a path of positions along an edge or curve, click <span 
+		 class="Strong">Add Path</span>.* 
+		 This displays a Select Curve task pane for picking and editing 
+		 a path of points, for example seams in a workpiece. Generated 
+		 points are linear motion statements and nested in a Path statement.</li>
+	</ul>
+	<p><span class="hcp1">* 
+	 TIP:</span> Alternatively, you can also use the actions in the Teach 
+	 Overlay Menu<span class="hcp1">. See <a href="../../Getting_Started/How_It_Works/Fast_Robot_Teaching.htm">Fast 
+	 Robot Teaching</a></span></p></li>
+</ol>
+</body>
+</html>

@@ -1,0 +1,122 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="variables,robot program,conditional statements">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Using routine variables</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</style>
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Using Routine Variables</h1>
+<p>Variables can be added to routines in a robot program, and then used 
+ to add complexity and define conditions for If and While statements. A 
+ routine variable is a local variable of a robot program and cannot be 
+ used by a statement in a different routine.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot23966" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot23966', 'MTPOPUP23966');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP23966" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Add Variable</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Edit Variable</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Assign Value</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Define Conditional Statement</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Add Variable</h2>
+<p>Supported types of variables (Boolean, integer, real and string) can 
+ be added to any routine in a robot program. Once a variable is added to 
+ a routine, you cannot change that variable's type.</p>
+<ol>
+	<li class="Ordered">Click the <span class="Strong">Program</span> tab, 
+	 and the use the <span class="Strong">Jog</span> command to select 
+	 a robot.</li>
+	<li class="Ordered">In the <span class="Strong">Program Editor</span> 
+	 panel, select a routine.</li>
+	<li class="Ordered">In the <span class="Strong">Routine Properties</span> 
+	 panel, <span class="Strong">Add new variables</span> list, click the 
+	 type of variable you want to add to the routine.</li>
+</ol>
+<h2><a name="MiniTOCBookMark3"></a>Edit Variable</h2>
+<p>The name and value of a variable can be edited directly by accessing 
+ the properties of its routine.</p>
+<ol>
+	<li class="Ordered">Click the <span class="Strong">Program</span> tab, 
+	 and the use the <span class="Strong">Jog</span> command to select 
+	 a robot.</li>
+	<li class="Ordered">In the <span class="Strong">Program Editor</span> 
+	 panel, select a routine.</li>
+	<li class="Ordered">In the <span class="Strong">Routine Properties</span> 
+	 panel, <span class="Strong">Variables</span> table, edit the Name 
+	 and Value fields of variables you want to update in the routine.</li>
+</ol>
+<p><span class="Strong">Note:</span> When you reset a simulation, a routine 
+ variable will revert to its initial value.</p>
+<h2><a name="MiniTOCBookMark4"></a>Assign Value</h2>
+<p>An <a href="../../../Reference/Robot_Statements/Assign_Robot_Variable.htm">Assign 
+ Variable</a> statement allows you to set the value of a robot variable, 
+ which includes routine variables. In some cases, you would assign values 
+ to variables at the start of a simulation or when a subroutine is executed 
+ in its program. In other cases, you would increment the value of variables 
+ used in a loop or subprocess of a routine.</p>
+<ol>
+	<li class="Ordered">Click the <span class="Strong">Program</span> tab, 
+	 and the use the <span class="Strong">Jog</span> command to select 
+	 a robot.</li>
+	<li class="Ordered">In the <span class="Strong">Program Editor</span> 
+	 panel, select the routine containing the variable you want to assign 
+	 a value, and then add an <span class="Strong">Assign Variable</span> 
+	 statement.</li>
+	<li class="Ordered">In the <span class="Strong">Statement Properties</span> 
+	 panel, do all of the following: 
+	<ul class="hcp1">
+		<li class="Unordered">Set <span class="Strong">TargetProperty</span> 
+		 to be name of the variable you want to assign a value.</li>
+		<li class="Unordered">In <span class="Strong">ValueExpression</span>, 
+		 define an expression that when evaluated returns a value that 
+		 can be assigned to the target variable.</li>
+	</ul></li>
+</ol>
+<h2><a name="MiniTOCBookMark5"></a>Define Conditional Statement</h2>
+<p>Variables in a routine can be used to define a condition for executing 
+ If and While statements.</p>
+<ol>
+	<li class="Ordered">Click the <span class="Strong">Program</span> tab, 
+	 and the use the <span class="Strong">Jog</span> command to select 
+	 a robot.</li>
+	<li class="Ordered">In the <span class="Strong">Program Editor</span> 
+	 panel, select a routine, and then do one of the following: 
+	<ul class="hcp1">
+		<li class="Unordered">To add a conditional statement for executing 
+		 one of two branches of statements, add an <span class="Strong">If</span> 
+		 statement.</li>
+		<li class="Unordered">To add a conditional statement for repeating 
+		 the execution of a branch of statements, add a <span class="Strong">While</span> 
+		 statement.</li>
+	</ul></li>
+	<li class="Ordered">In the <span class="Strong">Statement Properties</span> 
+	 panel, in <span class="Strong">Condition</span>, define an expression 
+	 that when evaluated returns a True or False value. If you need help 
+	 writing the expression, press CTRL+SPACEBAR to turn on autocomplete; 
+	 otherwise refer to <a href="../../../Reference/Expressions/Expressions.htm">Expressions</a>.</li>
+</ol>
+<p><span class="Strong">Tip:</span> The I/O ports of a robot can be used 
+ by any conditional statement in a robot program. For example, IN[100] 
+ would refer to input port 100 in a robot.</p>
+</body>
+</html>

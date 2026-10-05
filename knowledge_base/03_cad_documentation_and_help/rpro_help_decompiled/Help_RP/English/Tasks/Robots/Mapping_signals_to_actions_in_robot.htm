@@ -1,0 +1,52 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="signal action,robot I/O,ports">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Mapping signals to actions in robot</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</style>
+</head>
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Mapping Signals to Actions in Robot</h1>
+<p>Robot I/O can be mapped to base and tool frames in order to perform tool-specific actions. For example, you can use an Set Binary Output statement to signal grasp and release actions, tracing, and the mount and dismount of tool components. Note that in all cases digital (Boolean) signals are used to signal actions with a True or False value.</p>
+<ol>
+<li class="Ordered">In the 3D world, select a robot as a component.</li>
+<li class="Ordered">In the <span class="Strong">Properties</span> panel, expand the <span class="Strong">Actions Configuration</span> <span>section.</span></li>
+<li class="Ordered"><span>Under</span> <span class="Strong">Signal Actions</span><span>, do all of the following:</span>
+<ul class="hcp1">
+<li class="Unordered">In <span class="Strong">Output</span>, click the signal of the robot you want to use for signaling an action. Most robot components have an <span>Action Script</span> behavior which automatically maps signals 1 to 48 to tool frames and signals 49 to 80 to base frames. That means there are predefined signal actions that you can use without having to configure new ones. In most cases, signals 1 to 16 signal <span class="Italic">grasp and release</span> actions, signals 17 to 32 signal <span class="Italic">tracing</span> actions, and signals 33 to 48 signal <span class="Italic">mount and dismount tool</span> actions. Generally, you would not need to use base frames, so using signal 50 onwards would not cause a problem. Otherwise, you can use signal 100 onwards which in either case makes it easier to find and reference which signals are being used for actions.</li>
+<li class="Unordered">In <span class="Strong">On True</span>, click the action you want to execute when the signal value is True. This will display a section of options for the selected action.</li>
+<li class="Unordered">In <span class="Strong">On False</span>, click the action you want to execute when the signal value is False. This will display a section of options for the selected action.</li>
+</ul>
+</li>
+<li class="Ordered">Do any of the following that applies to the On True action you selected in Step 3:
+<ul class="hcp1">
+<li class="Unordered">If the action is <span class="Strong">Grasp</span>, define t<span>he tool frame and detection area to us</span>e for grasping components. The detection area is a volume area defined using XYZ coordinates in the tool frame's coordinate system. This allows the robot to know what components can and should not be grasped in the 3D world.</li>
+<li class="Unordered">If the action is <span class="Strong">Trace On</span>, define the material and tool frame to use for tracing the robot's motion path. Next, define whether or not you want to attach traced line sets to the 3D world (simulation root node) or the node of a component. Generally, traced line sets are attached to the 3D world since a robot might be moved during a simulation, for example robots mounted on tracks.</li>
+<li class="Unordered">If the action is <span class="Strong">Mount Tool</span>, define the tool frame, detection area and interface to use for mounting tool components. Note that the interface used must be compatible with an interface in a tool component, otherwise the tool component will not mount to the robot.</li>
+</ul>
+</li>
+<li class="Ordered">Do any of the following that applies to the On False action you selected in Step 4:
+<ul>
+<li class="Unordered">If the action is <span class="Strong">Release</span>, set the <span class="Strong">GravityDirection</span> property to be the distance from the bottom of a grasped component's bound box to a container that the component can be attached to in the 3D world. If no container is found, the component is released and attached to the 3D world (simulation root node).</li>
+<li class="Unordered">If the action is <span class="Strong">Trace Off</span><span>, define which tool frame should have its tracing disabled.</span></li>
+<li class="Unordered">If the action is <span class="Strong">Unmount Tool</span>, set the <span class="Strong">GravityDirection</span> property to be the distance from the bottom of a tool component's bound box to a container that the tool component can be attached to in the 3D world. If no container is found, the component is released and attached to the 3D world (simulation root node). Next, define which interface the tool component is unplugged from in the robot. If the tool component is locked from editing, you will not be able to dismount the tool from the robot.</li>
+</ul>
+</li>
+<li class="Ordered">In the robot program, add an <span class="Strong">Set Binary Output</span> &#160;statement to signal the action. For example, set signal 17 to True to turn on tracing, and then use another Set Binary Output statement to turn off tracing.</li>
+</ol>
+<p><span class="Strong">Tip:</span> If you want to use an imported tool frame, we recommend moving one of the robot tool frames to the imported tool frame location. That would allow you to avoid reconfiguring actions as well as cases where the imported tool frame is not available in the robot.</p>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Суставы в мире физики </title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Рациональное Производство поддерживает использование соединений D6, которые реализованы как поведение Physics Joint. Эти типы соединений могут иметь пользовательские..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Суставы в мире физики</span><span class="f_Heading1" style="background-color: #494949;">&nbsp;</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Рациональное Производство поддерживает использование соединений D6, которые реализованы как поведение Physics Joint. Эти типы соединений могут иметь пользовательские определения и поддерживать несколько степеней свободы.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>В трехмерном мире выберите компонент.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>На вкладке <span style="font-weight: bold;">Моделирование</span>, в панели <span style="font-weight: bold;">Диаграмма</span> <span style="font-weight: bold;">компонента</span>, <span style="font-weight: bold;">Дерево узлов компонента</span>, выберите узел, который должен содержать Physics Joint. Это важно, поскольку смещение узла напрямую влияет на эффекты физического соединения.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>На вкладке <span style="font-weight: bold;">Моделирование</span> в группе <span style="font-weight: bold;">Поведение</span>, щелкните стрелку <span style="font-weight: bold;">Поведение</span>, а потом под <span style="font-weight: bold;">Физика</span>, нажмите <span style="font-weight: bold;">Соединение</span>.</p>
+<p class="p_Normal">Свойства физического соединения определяют влияние физики на соединение и его влияние на кинематическую структуру компонента.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Name</span></p>
+</th>
+<th style="vertical-align:top; width:10.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Description</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Attached to</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет узел, к которому присоединяется соединение в компоненте.</p>
+<p class="p_Normal">В некоторых случаях это может быть родителем узла, содержащего соединение. Например, Physics Joint в узле второй оси для робота может быть присоединен к узлу первой оси.</p>
+<p class="p_Normal">В других случаях определение сустава задает, к какому узлу должен присоединиться узел в компоненте.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Constraints</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Набор свойств для настройки сустава. То есть ограничения для перемещений и поворотов в осях системы координат.</p>
+<p class="p_Normal">Каждому свойству может быть назначено собственное ограничение.</p>
+<p class="p_Normal">#Free</p>
+<p class="p_Normal">Не сковывает движения.</p>
+<p class="p_Normal">#Limited</p>
+<p class="p_Normal">Ограничивает движение.</p>
+<p class="p_Normal">#Locked</p>
+<p class="p_Normal">Ограничить любое движение.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Breakage</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Набор свойств для определения целостности соединения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Drive Settings</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Набор расширенных свойств для настройки физики сустава.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

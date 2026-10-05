@@ -1,0 +1,352 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcCurveData</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body page-style="x-size: A4;" page-frame-style="margin-left: 0.25in; margin-right: 0.25in;">
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcCurveData</h1>
+<p>vcCurveData provides access to mathematical information used for rendering 
+ curves and curved surfaces in components.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot32794" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot32794', 'MTPOPUP32794');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP32794" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Curve Types</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Access</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Curve Types</h2>
+<p><img src="CurveData.png" alt="" style="border: none;" border="0"></p>
+<p>The types of curves supported in the 3D world are:</p>
+<ul style="list-style: disc;">
+	<li class="Unordered">Spline</li>
+	<li class="Unordered">Polyline</li>
+	<li class="Unordered">Non-uniform rational basis spline (NURBS)</li>
+</ul>
+<h2><a name="MiniTOCBookMark3"></a>Access</h2>
+<p>You can use the CurveData property of a <a href="vcCompactLineSet.htm">vcCompactLineSet</a> 
+ object to get a handle for a vcCurveData object.</p>
+<h2><a name="MiniTOCBookMark4"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>clearCurves</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Removes all curves from set.</td>
+	</tr>
+	<tr>
+		<td>createCurveNurbs</td>
+		<td>Integer</td>
+		<td>Integer <span class="hcp1">degree</span>, List 
+		 of <span><a href="vcVector.htm">vcVector</a></span> <span class="hcp1">pts</span></td>
+		<td>Adds a new NURBS to set, and then returns the index of curve 
+		 in set.</td>
+	</tr>
+	<tr>
+		<td>createCurvePolyLine</td>
+		<td>Integer</td>
+		<td><span>List of <a href="vcVector.htm">vcVector</a></span> <span class="hcp1">pts</span></td>
+		<td>Adds a new polyline to set, and then returns the index of curve 
+		 in set.</td>
+	</tr>
+	<tr>
+		<td>createCurveSpline</td>
+		<td>Integer</td>
+		<td>Integer <span class="hcp1">degree</span>, List 
+		 of <span><a href="vcVector.htm">vcVector</a></span> <span class="hcp1">pts</span>, 
+		 List of Integer <span class="hcp1">multiplicities</span>, 
+		 List of Real <span class="hcp1">knots</span>, List 
+		 of Real <span class="hcp1">weights</span></td>
+		<td>Adds a new spline to set, and then returns the index of curve 
+		 in set.</td>
+	</tr>
+	<tr>
+		<td>deleteCurve</td>
+		<td>None</td>
+		<td>Integer <span class="hcp1">curve</span></td>
+		<td>Deletes a curve at a given index in set. 
+		<p class="TableNormal"><span class="Strong">Note:</span> Update 
+		 the scene in order to show visualization changes in the 3D world.</p></td>
+	</tr>
+	<tr>
+		<td>getCurveEnds</td>
+		<td>4-tuple(<span><a href="vcVector.htm">vcVector</a></span> <span>pt1</span>, 
+		 <span><a href="vcVector.htm">vcVector</a></span> <span>pt2</span>, 
+		 Real <span>w1</span>, Real <span>w2</span>)</td>
+		<td>Integer <span class="hcp1">curve</span></td>
+		<td>Returns curve end point information for a curve at a given 
+		 <span class="Italic">index</span> in set. 
+		<p class="TableNormal">The information defines both curve endpoint 
+		 vectors and their weight values, for example if a NURBS curve 
+		 is selected.</p></td>
+	</tr>
+	<tr>
+		<td>getCurveLength</td>
+		<td><span>Real</span> <span>length</span></td>
+		<td>Integer <span class="hcp1">curve</span></td>
+		<td>Returns the length of a curve at a given <span class="Italic">index</span> 
+		 in set.</td>
+	</tr>
+	<tr>
+		<td>getCurveMinCurveDistance</td>
+		<td>3-tuple (Real <span>min_dist, Real curve_dist, Real othercurve_dist)</span></td>
+		<td>Integer <span class="hcp1">curve</span><span>, 
+		 Integer</span> <span class="hcp1">othercurve</span></td>
+		<td>Returns the minimum distance between two curves at given indices 
+		 in set. 
+		<p class="TableNormal">The returned value describes the minimum 
+		 distance between curves and minimum distance between either end 
+		 points of curves.</p>
+		<img src="CurvesMinimumDistance.png" alt="" style="border: none; 
+			 margin-left: 0cm; margin-right: 0px; margin-bottom: 0px;" border="0"></td>
+	</tr>
+	<tr>
+		<td>getCurveMinDistance</td>
+		<td>2-tuple (Real <span>min_dist_to_point</span>, Real <span>curve_dist</span>)</td>
+		<td>Integer <span class="hcp1">curve</span><span>, 
+		 <a href="vcVector.htm">vcVector</a></span> <span class="hcp1">point</span></td>
+		<td>Returns the minimum distance of a curve at a given <span class="Italic">index</span> 
+		 in set to a given <span class="Italic">point</span> as well as 
+		 the length of curve.</td>
+	</tr>
+	<tr>
+		<td>getCurvePoint</td>
+		<td><span><a href="vcVector.htm">vcVector</a></span> <span>point</span></td>
+		<td>Integer <span class="hcp1">curve</span><span>, 
+		 Real</span> <span class="hcp1">distance</span></td>
+		<td>Returns a point on a curve at a given <span class="Italic">index</span> 
+		 in set and <span class="Italic">distance</span> from beginning 
+		 of curve.</td>
+	</tr>
+	<tr>
+		<td>getCurvePointAndDerivate</td>
+		<td>2-tuple(<span><a href="vcVector.htm">vcVector</a></span> <span>point</span>, 
+		 <span><a href="vcVector.htm">vcVector</a></span> <span>derivate</span>)</td>
+		<td>Integer <span class="hcp1">curve</span><span>, 
+		 Real</span> <span class="hcp1">distance</span></td>
+		<td>Returns a point and first derivate vector of a curve at a given 
+		 <span class="Italic">index</span> in set and <span class="Italic">distance</span> 
+		 from beginning of curve.</td>
+	</tr>
+	<tr>
+		<td>getCurvePointCount</td>
+		<td>Integer</td>
+		<td><span>Integer</span> <span class="hcp1">curve</span></td>
+		<td>Returns the total number of points for a curve at a given <span 
+		 class="Italic">index</span> in set.</td>
+	</tr>
+	<tr>
+		<td>getCurvePositions</td>
+		<td>List of <a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>Integer <span class="hcp1">curve</span></td>
+		<td>Returns a list of position matrices for each point on a curve 
+		 at a given <span class="Italic">index</span> in set. 
+		<p class="TableNormal"><img src="CurvePositionMatrix.png" alt="" style="border-width: 1px; border-style: solid;" border="1"></p></td>
+	</tr>
+	<tr>
+		<td>getCurveType</td>
+		<td>Enumeration <span>type</span></td>
+		<td>Integer <span class="hcp1">curve</span></td>
+		<td>Returns the type of curve at a given <span class="Italic">index</span> 
+		 in set. 
+		<p class="TableNormal">See <a href="Constants.htm#Topology_Constants">Topology 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>getPolyLineCurvePoints</td>
+		<td>List of <a href="vcVector.htm">vcVector</a> <span>pts</span></td>
+		<td>Integer <span class="hcp1">curve</span></td>
+		<td>Returns a list of points for a polyline at a given <span class="Italic">index</span> 
+		 in set; otherwise returns an empty list.</td>
+	</tr>
+	<tr>
+		<td>getSplineCurveControlPoint</td>
+		<td>List of <a href="vcVector.htm">vcVector</a> <span>ctrl_pts</span></td>
+		<td>Integer <span class="hcp1">curve</span></td>
+		<td>Returns a list of control points for a spline at a given <span 
+		 class="Italic">index</span> in set; otherwise returns an empty 
+		 list.</td>
+	</tr>
+	<tr>
+		<td>getSplineCurveControlWeights</td>
+		<td>List of Real <span>weights</span></td>
+		<td>Integer <span class="hcp1">curve</span></td>
+		<td>Returns a list of control weight values for a spline at a given 
+		 <span class="Italic">index</span> in set; otherwise returns an 
+		 empty list.</td>
+	</tr>
+	<tr>
+		<td>getSplineCurveDegree</td>
+		<td>Integer <span>degree</span></td>
+		<td>Integer <span class="hcp1">curve</span></td>
+		<td>Returns the degree of a spline at a given <span class="Italic">index</span> 
+		 in set.</td>
+	</tr>
+	<tr>
+		<td>getSplineCurveKnots</td>
+		<td>2-tuple (List of Integer multiplicities, List of real knots)</td>
+		<td>Integer <span class="hcp1">curve</span></td>
+		<td>Returns spline knot multiplicities (knot recurrence) and knot 
+		 values for a curve at a given <span class="Italic">index</span> 
+		 in set.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a>Examples</h2>
+<p><span class="Example">Example. Create and access curve data</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>#Create a Geometry feature then a Python script behavior 
+		<br>#Copy the following script in the Python script 
+		<br>&#160; 
+		<br>from vcScript import * 
+		<br>import vcVector 
+		<br>&#160;&#160; 
+		<br>comp = getComponent() 
+		<br>geof = comp.getFeature(&quot;Geometry&quot;) 
+		<br>tset = None 
+		<br>if geof.Geometry.GeometrySetCount == 0: 
+		<br>&#160;&#160;cset = geof.Geometry.createGeometrySet(VC_COMPACTLINESET) 
+		<br>else: 
+		<br>&#160;&#160;cset = geof.Geometry.GeometrySets[0] 
+		<br>&#160; 
+		<br># Get Curve interface 
+		<br>curves = cset.CurveData 
+		<br>print &quot;0. Curve count&quot; 
+		<br>print &quot;CurveCount = &quot;, curves.CurveCount 
+		<br>print &quot;1. Clear curves&quot; 
+		<br>curves.clearCurves() 
+		<br>print &quot;CurveCount = &quot;, curves.CurveCount 
+		<br>print &quot;2. Create Curve&quot; 
+		<br>&#160; 
+		<br># Define curve degree 
+		<br>Degree = 3 
+		<br>&#160; 
+		<br># Add knot values and multipliers 
+		<br>Knots = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21] 
+		<br>KnotMultiplicities = [4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4] 
+		<br>&#160; 
+		<br># Add control points 
+		<br>pts = [] 
+		<br>pts.append(vcVector.new(12438, 0, 4622.7)) 
+		<br>pts.append(vcVector.new(12409, 0, 4519.525)) 
+		<br>pts.append(vcVector.new(11815, 0, 3660)) 
+		<br>pts.append(vcVector.new(11193, 0, 2970)) 
+		<br>pts.append(vcVector.new(10570, 0, 1880)) 
+		<br>pts.append(vcVector.new(9948, &#160;0, 518)) 
+		<br>pts.append(vcVector.new(9325, &#160;0, 0)) 
+		<br>pts.append(vcVector.new(8703, &#160;0, 0)) 
+		<br>pts.append(vcVector.new(8080, &#160;0, 0)) 
+		<br>pts.append(vcVector.new(7458, &#160;0, 0)) 
+		<br>pts.append(vcVector.new(6835, &#160;0, 0)) 
+		<br>pts.append(vcVector.new(6213, &#160;0, 0)) 
+		<br>pts.append(vcVector.new(5590, &#160;0, 0)) 
+		<br>pts.append(vcVector.new(4968, &#160;0, 0)) 
+		<br>pts.append(vcVector.new(4345, &#160;0, 0)) 
+		<br>pts.append(vcVector.new(3723, &#160;0, 0)) 
+		<br>pts.append(vcVector.new(3100, &#160;0, 0)) 
+		<br>pts.append(vcVector.new(2478, &#160;0, 0)) 
+		<br>pts.append(vcVector.new(1855, &#160;0, 0)) 
+		<br>pts.append(vcVector.new(1233, &#160;0, 0)) 
+		<br>pts.append(vcVector.new(610, &#160;&#160;0, 0)) 
+		<br>pts.append(vcVector.new(339, &#160;&#160;0, 1000)) 
+		<br>pts.append(vcVector.new(246, &#160;&#160;0, 1550)) 
+		<br>pts.append(vcVector.new(210, &#160;&#160;0, 1780)) 
+		<br>weigths = [] 
+		<br>curve = curves.createCurveSpline(Degree, pts, KnotMultiplicities, Knots, weigths) 
+		<br>print &quot;Curve created &quot;,curve 
+		<br>pts = [] 
+		<br>pts.append(vcVector.new(300, 100, 100)) 
+		<br>pts.append(vcVector.new(600, 50, 200)) 
+		<br>pts.append(vcVector.new(900, 0, 400)) 
+		<br>pts.append(vcVector.new(1000, -20, 900)) 
+		<br>curve2 = curves.createCurveNurbs(Degree, pts) 
+		<br>print &quot;Curve2 created &quot;,curve2 
+		<br>print &quot;3. Get curve length&quot; 
+		<br>length = curves.getCurveLength(curve) 
+		<br>print &quot;Curve length = &quot;,length 
+		<br>print &quot;4. Get curve ends&quot; 
+		<br>sp, ep, sw, ew = curves.getCurveEnds(curve) 
+		<br>print &quot;Curve start point(&quot;,sp.X,&quot;,&quot;,sp.Y,&quot;,&quot;,sp.Z,&quot;) weight = &quot;,sw 
+		<br>print &quot;Curve end &#160;&#160;point(&quot;,ep.X,&quot;,&quot;,ep.Y,&quot;,&quot;,ep.Z,&quot;) weight = &quot;,ew 
+		<br>print &quot;5. Get point at curve using distance&quot; 
+		<br>p = curves.getCurvePoint(curve, length*0.5) 
+		<br>print &quot;Curve point(&quot;,p.X,&quot;,&quot;,p.Y,&quot;,&quot;,p.Z,&quot;)&quot; 
+		<br>print &quot;6. Get point minimum projected distance to curve&quot; 
+		<br>point = vcVector.new(10000,0,500) 
+		<br>min_dist, dist = curves.getCurveMinDistance(curve, point) 
+		<br>print &quot;Curve Min distance &quot;,min_dist,&quot; at curve distance &quot;,dist 
+		<br>p = curves.getCurvePoint(curve, dist) 
+		<br>print &quot;Curve projected point(&quot;,p.X,&quot;,&quot;,p.Y,&quot;,&quot;,p.Z,&quot;)&quot; 
+		<br>print &quot;7. Get curve point and derivate&quot; 
+		<br>p, d = curves.getCurvePointAndDerivate(curve, 15000) 
+		<br>print &quot;Curve point(&quot;,p.X,&quot;,&quot;,p.Y,&quot;,&quot;,p.Z,&quot;)&quot; 
+		<br>print &quot;Curve normalized derivate(&quot;,d.X,&quot;,&quot;,d.Y,&quot;,&quot;,d.Z,&quot;)&quot; 
+		<br>print &quot;8. Get two curves minimum distance&quot; 
+		<br>min_dist, dist1, dist2 = curves.getCurveMinCurveDistance(curve, curve2) 
+		<br>print &quot;Curve &amp; curve2 Min distance &quot;,min_dist,&quot; at curve dist1 &quot;,dist1, &quot; dist2 &quot;,dist2 
+		<br>p1 = curves.getCurvePoint(curve, dist1) 
+		<br>print &quot;Curve projected point(&quot;,p1.X,&quot;,&quot;,p1.Y,&quot;,&quot;,p1.Z,&quot;)&quot; 
+		<br>p2 = curves.getCurvePoint(curve2, dist2) 
+		<br>print &quot;Curve2 projected point(&quot;,p2.X,&quot;,&quot;,p2.Y,&quot;,&quot;,p2.Z,&quot;)&quot; 
+		<br>pts = [] 
+		<br>pts.append(p1) 
+		<br>pts.append(p2) 
+		<br>curve3 = curves.createCurveNurbs(1, pts) 
+		<br>print &quot;Curve3 created &quot;,curve3 
+		<br>cset.update() 
+		<br>comp.rebuild() 
+		<br>&#160; 
+		<br># Inquiry curve information 
+		<br>print 
+		<br>print &quot;CurveCount=&quot;,curves.CurveCount 
+		<br>print 
+		<br>for c in range(0,curves.CurveCount): 
+		<br>&#160;&#160;print &quot;Curve[&quot;,c,&quot;]&quot; 
+		<br>&#160;&#160;type = curves.getCurveType(c) 
+		<br>&#160;&#160;if type == VC_CURVE_POLYLINE: 
+		<br>&#160;&#160;&#160;&#160;print &quot; &#160;Type=Polyline&quot; 
+		<br>&#160;&#160;&#160;&#160;for p in curves.getPolyLineCurvePoints(c): 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;print &quot; &#160;P(&quot;,p.X,&quot;,&quot;,p.Y,&quot;,&quot;,p.Z,&quot;)&quot; 
+		<br>&#160;&#160;if type == VC_CURVE_SPLINE: 
+		<br>&#160;&#160;&#160;&#160;print &quot; &#160;Type=Spline&quot; 
+		<br>&#160;&#160;&#160;&#160;print &quot; &#160;Degree=&quot;,curves.getSplineCurveDegree(c) 
+		<br>&#160;&#160;&#160;&#160;for p in curves.getSplineCurveControlPoints(c): 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;print &quot; &#160;P(&quot;,p.X,&quot;,&quot;,p.Y,&quot;,&quot;,p.Z,&quot;)&quot; 
+		<br>&#160;&#160;&#160;&#160;weights = curves.getSplineCurveControlWeights(c) 
+		<br>&#160;&#160;&#160;&#160;print &quot; &#160;Weights=&quot;,weights 
+		<br>&#160;&#160;&#160;&#160;knots,kms = curves.getSplineCurveKnots(c) 
+		<br>&#160;&#160;&#160;&#160;print &quot; &#160;Knots=&quot;,knots 
+		<br>&#160;&#160;&#160;&#160;print &quot; &#160;Kms=&quot;,kms</td>
+	</tr>
+</table>
+</body>
+</html>

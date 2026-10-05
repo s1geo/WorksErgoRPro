@@ -1,0 +1,103 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcTranslateCommand</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcTranslateCommand</h1>
+<p>vcTranslateCommand provides options for managing the interactive movement 
+ and rotation of selected objects using the interactiveTranslate command.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcCommand.htm">vcCommand</a>, 
+ <a href="vcInteractiveCommand.htm">vcInteractiveCommand</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot27552" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot27552', 'MTPOPUP27552');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP27552" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Events</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ParentMatrix</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines the origin of command's local coordinate system in 
+		 3D world. 
+		<p class="TableNormal">Generally, this would be the position matrix 
+		 of a selected object or an desired offset.</p></td>
+	</tr>
+	<tr>
+		<td>UseAbsoluteCoordSystem</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the use of World coordinate system as opposed 
+		 to command's local coordinate system.</td>
+	</tr>
+	<tr>
+		<td>UseHandles</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the use of a manipulator.</td>
+	</tr>
+	<tr>
+		<td>WorldMatrix</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines position matrix of command's origin in 3D world, which 
+		 can be used to set an initial position and orientation for command 
+		 execution.</td>
+	</tr>
+	<tr>
+		<td>WorldPosition</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Defines the position vector of command in World coordinate 
+		 system.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnTranslate</td>
+		<td><a href="vcCommand.htm">vcCommand</a> <span class="Italic">command</span>, 
+		 Enumeration <span class="Italic">event_type</span></td>
+		<td>Triggered when translating an object. 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use OnInteraction event in <a href="vcInteractiveCommand.htm">vcInteractiveCommand</a>.</p></td>
+	</tr>
+</table>
+<p>&#160;</p>
+<!--======================================Events========================================-->
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Connecting to WinMOD</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META content=en-US http-equiv=Content-Language>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+
+<STYLE title=hcp type=text/css>
+<!--
+p.hcp1 { text-align:justify; }
+span.hcp2 { font-weight:bold; }
+ul.hcp3 { list-style:disc; }
+p.hcp4 { font-weight:normal; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>Connecting to WinMOD</H1>
+<P class=hcp1>The WinMOD Net connection plugin implements the connection to the 
+WinMOD simulation system using its own proprietary communication library called 
+WinMOD Net. The WinMOD Net protocol is TCP/IP based and thus works both locally 
+and over a network. </P>
+<P class=hcp1><SPAN class=hcp2>Note:</SPAN> The communication requires a 
+separate license on the WinMOD side to function; see Prerequisites. </P>
+<P class=hcp1>The WinMOD Net connection plugin is fully featured, including 
+support for multiple connections, browsing for creating variable pairs, and 
+event-based value updates from server to simulation.</P>
+<DIV class=Contents>
+<P align=left>Contents&nbsp;<A id=MTHotSpot10564 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot10564', 'MTPOPUP10564');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP10564 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">Prerequisites</A></P>
+<P align=left><A href="#MiniTOCBookMark3">Communication Setup</A></P>
+<P align=left><A href="#MiniTOCBookMark4">Performance</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>Prerequisites</H2>
+<UL class=hcp3>
+  <LI>The WinMOD Net library works with WinMOD V7.2 Build 40 and newer. 
+  <LI>WinMOD KU200 configuration 
+  (https://www.winmod.de/english/products/winmod-systemsoftware/winmod-configuration/winmod-konfigurationen_eng/) 
+  license must be available in each of the WinMOD installations you want to 
+  connect to. 
+  <LI>The WinMOD Net communication library needs to be installed on the computer 
+  where R-Pro is used. </LI></UL>
+<H2><A name=MiniTOCBookMark3></A>Communication Setup</H2>
+<P>Since the WinMOD Net protocol is TCP/IP based, the connection is made using 
+the host address and port number. The hostname can be an IP address or a DNS 
+name. The server port number can be set in WinMOD project settings, and the 
+default is 40001.</P>
+<P style="FONT-WEIGHT: bold">Setting up WinMOD to accept connections</P>
+<UL class=hcp3>
+  <LI>
+  <P class=hcp4>Start WinMOD and load your simulation project.</P>
+  <LI>
+  <P class=hcp4>Enable incoming connections from project settings (below 
+  image).</P></LI></UL>
+<P class=hcp4><IMG 
+style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none" 
+border=0 alt="" src="../../../image2.png"></P>
+<P class=hcp4><SPAN style="FONT-WEIGHT: normal">To pair variables, basic 
+workflow for setting up communication is as below:</SPAN></P>
+<OL style="LIST-STYLE-TYPE: decimal">
+  <LI>Start WinMOD and load your simulation model. 
+  <LI>Add one or more Communication Elements to your WinMOD simulation. 
+  <LI>Add signals to the Communication elements and connect those to your 
+  simulation. 
+  <LI>Enable incoming connections from WinMOD project settings. 
+  <LI>Connect from R-Pro to WinMOD under Connectivity tab. 
+  <LI>Add variables in R-Pro using the “Create Variable Pairs” window. 
+  <UL class=hcp3>
+    <LI>Connect WinMOD inputs to inputs in R-Pro and place the variable pairs to 
+    a server-to-simulation variable group. 
+    <LI>Connect WinMOD outputs to outputs in R-Pro and place the variable pairs 
+    to a simulation-to-server variable group. </LI></UL>
+  <LI>Start simulation in WinMOD and R-Pro. </LI></OL>
+<P>&nbsp;</P>
+<P class=hcp1><SPAN class=hcp2>Note:</SPAN> The accessible WinMOD address space 
+is structured into Communication Elements, which have input and output signals. 
+The Communication Elements are identified using a “full path” consisting of the 
+WinMOD project name, WinMOD layer name, and name of the Communication Element 
+itself. Signals are identified using the Communication Element “full path” and 
+the signal name, so any changes to any of the names will require the variables 
+to be paired again.</P>
+<H2><A name=MiniTOCBookMark4></A>Performance</H2>
+<P>Some technical aspects can impact overall performance achieved with the 
+WinMOD Net connection plugin, so following these guidelines is essential for 
+best performance.</P>
+<UL class=hcp3>
+  <LI>Use cyclic update mode for simulation to server variable groups. 
+  <UL class=hcp3>
+    <LI>Choose a cycle interval that is the same or higher than the Time Base 
+    value used in the WinMOD project. 
+    <LI>Sending values to WinMOD at a rate faster than WinMOD’s update cycle 
+    doesn’t give any benefit, which includes the event-based mode in this 
+    direction. </LI></UL>
+  <LI>Use event-based update mode for server to simulation variable groups. 
+  <UL class=hcp3>
+    <LI>Only if the update cycle rate is unnecessarily high or the data flow is 
+    overwhelming R-Pro it is recommended to switch to a lower sampling rate 
+    using cyclic update mode. </LI></UL>
+  <LI>Use inputs of any given Communication Element in only a single variable 
+  group. 
+  <LI>Use outputs of any given Communication Element in only a single variable 
+  group. 
+  <LI>Distribute a large number of input signals to more than one Communication 
+  Element. <SPAN class=hcp2>Note:</SPAN> Having many Communication Element can 
+  also cause performance overhead. 
+  <LI>Using up to a few parallel connections to the same WinMOD runtime can be 
+  beneficial in some particular scenarios if maximum throughput and more stable 
+  latency are required. </LI></UL></BODY></HTML>

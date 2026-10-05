@@ -1,0 +1,114 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcTransportTarget</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { display:inline ! important; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcTransportTarget</h1>
+<p>A transport target defines where a product instance is to be physically 
+ placed when it arrives to a transport node (<a href="vcTransportNode.htm">vcTransportNode</a>). 
+ This information is used by the transport controllers.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 24.767%;">
+	<col style="width: 25.233%;">
+	<tr class="t1st" style="height: 34px;">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr style="height: 110px;">
+		<td>ProductPosition </td>
+		<td><a href="vcMatrix.htm">vcMatrix</a> </td>
+		<td>RW</td>
+		<td><p>Target position where a product should be placed. This matrix 
+		 is expressed in world coordinates and denotes the target position 
+		 and orientation of the product. Note that this is not the same 
+		 as the position and orientation of the product: the difference 
+		 is the offset defined in the corresponding <a href="vcProductType.htm">vcProductType</a>.</p></td>
+	</tr>
+	<tr style="height: 53px;">
+		<td>ResourcePosition </td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td><p>Hint for the desired location of a resource while it is 
+		 placing a product instance to the ProductPosition. Expressed in 
+		 world coordinates.</p></td>
+	</tr>
+	<tr style="height: 207px;">
+		<td>ProductPositionNode</td>
+		<td><a 
+		 href="vcNode.htm">vcNode</a></td>
+		<td>RW</td>
+		<td>By default, the node that contains 
+		 ResourcePositionFrame, which is set in the transporting statement 
+		 (<a href="vcStatement.htm#TransportIn_Statements">TransportIn</a>, 
+		 <a href="vcStatement.htm#TransportOut_Statements">TransportOut</a>, 
+		 or <a href="vcStatement.htm#TransportPatternIn_Statements">TransportPatternIn</a>). 
+		 If frames have not been selected, the statements use the transport 
+		 node. In <a href="vcStatement.htm#TransportOut_Statements">TransportOut</a>, 
+		 ProductPositionNode is set no None. 
+		<br><span class="hcp1"><br>
+		</span>Reference node to ProductPositionInNode. 
+		<br>&#160; 
+		<br><span class="hcp1">Note 
+		 that a reference to the <a href="vcProduct.htm">vcProduct</a> 
+		 itself can be used to get the current position of the product 
+		 instance at any time.</span></td>
+	</tr>
+	<tr style="height: 111px;">
+		<td>ResourcePositionNode</td>
+		<td><a 
+		 href="vcNode.htm">vcNode</a></td>
+		<td>RW</td>
+		<td>By default, the node that contains 
+		 ResourcePositionFrame, which is set in the transporting statement 
+		 (<a href="vcStatement.htm#TransportIn_Statements">TransportIn</a> 
+		 and <a href="vcStatement.htm#TransportPatternIn_Statements">TransportPatternIn</a>). 
+		 If frames have not been set, the statements use the transport 
+		 node. 
+		<br>&#160; 
+		<br>Reference node to ResourcePositionInNode.</td>
+	</tr>
+	<tr style="height: 110px;">
+		<td>ProductPositionInNode</td>
+		<td><a 
+		 href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Position in relation to ProductPositionNode, 
+		 if the value of ProductPositionNode is not None. 
+		<br>&#160; 
+		<br>The property can be used to transport the product 
+		 from or into moving processes or nodes. </td>
+	</tr>
+	<tr style="height: 110px;">
+		<td>ResourcePositionInNode</td>
+		<td><a 
+		 href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Position in relation to ResourcePositionNode, 
+		 if the value of ResourcePositionNode&#160;is not None. 
+		<br>&#160; 
+		<br>The property can be used to transport the product 
+		 from or into moving processes or nodes. </td>
+	</tr>
+</table>
+</body>
+</html>

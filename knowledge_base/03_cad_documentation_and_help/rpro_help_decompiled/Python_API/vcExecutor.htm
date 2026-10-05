@@ -1,0 +1,259 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="robot executor,motion statements,robot programming">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcExecutor</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcExecutor</h1>
+<p>vcExecutor allows you to execute a robot or servo program.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot39704" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot39704', 'MTPOPUP39704');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP39704" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Controller</td>
+		<td><a href="vcRobotController.htm">vcRobotController</a> 
+		<p class="TableNormal">or</p>
+		<a href="vcServoController.htm">vcServoController</a></td>
+		<td>RW</td>
+		<td>Defines the controller associated with the executor.</td>
+	</tr>
+	<tr>
+		<td>CurrentStatement</td>
+		<td><a href="vcStatement.htm">vcStatement</a></td>
+		<td>R</td>
+		<td>Gets the statement currently being executed by the executor.</td>
+	</tr>
+	<tr>
+		<td>DigitalInputSignals</td>
+		<td><a href="vcBooleanSignalMap.htm">vcBooleanSignalMap</a></td>
+		<td>RW</td>
+		<td>Defines the input signal device associated with the executor.</td>
+	</tr>
+	<tr>
+		<td>DigitalOutputSignals</td>
+		<td><a href="vcBooleanSignalMap.htm">vcBooleanSignalMap</a></td>
+		<td>RW</td>
+		<td>Defines the output signal device associated with the executor.</td>
+	</tr>
+	<tr>
+		<td>IsEnabled</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the program is executed during simulation.</td>
+	</tr>
+	<tr>
+		<td>IsLooping</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the executor loops its program.</td>
+	</tr>
+	<tr>
+		<td>ProcessHandlers</td>
+		<td>List of <a href="vcPythonProcessHandler.htm">vcPythonProcessHandler</a></td>
+		<td>RW</td>
+		<td>Defines a list of process handlers for overriding or modifying 
+		 statements of robot program and executing process statements. 
+		 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use StatementHandler.</p></td>
+	</tr>
+	<tr>
+		<td>Program</td>
+		<td><a href="vcProgram.htm">vcProgram</a></td>
+		<td>R</td>
+		<td>Gets the program associated with the executor.</td>
+	</tr>
+	<tr>
+		<td>StatementHandler</td>
+		<td><a href="vcPythonProcessHandler.htm">vcPythonProcessHandler</a></td>
+		<td>RW</td>
+		<td>Defines a process handler for controlling the execution of 
+		 statements in robot program. 
+		<p class="TableNormal">See an example of <a href="vcPythonProcessHandler.htm#ModifyPTPMotionsCallStatement">modifying 
+		 a point-to-point motion statement</a>.</p>
+		<p class="TableNormal"><span class="Strong">Important:</span> Process 
+		 statements and Path statements with assigned process handlers 
+		 are executed by their handlers. That is, those statements are 
+		 not passed on to the statement handler of executor. Do not call 
+		 nor try to execute them with the statement handler.</p></td>
+	</tr>
+	<tr>
+		<td>UseExternalExecutor</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the component is controlled by external execution 
+		 mechanism, for example a virtual robot controller.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>callRoutine</td>
+		<td>None</td>
+		<td><a href="vcRoutine.htm">vcRoutine</a> <span class="Italic">routine</span>, 
+		 [Boolean <span class="Italic">suspendScript</span>], [Boolean 
+		 <span class="Italic">clearCallStack</span>] 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">String <span class="Italic">name</span>, 
+		 [Boolean <span class="Italic">suspendScript</span>], [Boolean 
+		 <span class="Italic">clearCallStack</span>]</p></td>
+		<td>Executes a routine. 
+		<p class="TableNormal">By default, Python execution is suspended 
+		 until the routine has been completed.</p>
+		<p class="TableNormal">An optional <span class="Italic">suspendScript</span> 
+		 argument can be given a False value, thereby Python execution 
+		 continues immediately.</p>
+		<p class="TableNormal">An optional <span class="Italic">clearCallStack</span> 
+		 argument can be given a False value, thereby the call stack of 
+		 executor is not cleared before executing routine.</p></td>
+	</tr>
+	<tr>
+		<td><p>callStatement</p></td>
+		<td><p>None</p></td>
+		<td><p><a href="vcStatement.htm">vcStatement</a> <span class="Italic">statement</span>, 
+		 [Boolean <span class="Italic">suspendScript</span>]</p></td>
+		<td><p>Executes a statement. </p>
+		<p class="TableNormal">By default, Python execution is suspended 
+		 until the statement has been completed.</p>
+		<p class="TableNormal">An optional <span class="Italic">suspendScript</span> 
+		 argument can be given a False value, thereby Python execution 
+		 continues immediately.</p>
+		<p class="TableNormal"><span class="Strong">Note:</span> You can 
+		 use callStatement() with a process handler to modify the default 
+		 execution of statements in robot program, for example <a href="vcPythonProcessHandler.htm#ModifyPTPMotionsCallStatement">point-to-point 
+		 motions</a>, as well as the pre/post execution of statements.</p></td>
+	</tr>
+	<tr>
+		<td>setOutput</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">output_index</span>, Boolean <span 
+		 class="Italic">value</span></td>
+		<td>Sets the value of a signal connected to a port at a given <span 
+		 class="Italic">output_index</span> in robot.</td>
+	</tr>
+	<tr>
+		<td>trySetDigitalInputSignals</td>
+		<td>Boolean</td>
+		<td><a 
+		 href="vcBooleanSignalMap.htm">vcBooleanSignalMap</a> 
+		 <span class="Italic">signal_map</span></td>
+		<td>Tries to set the given boolean 
+		 signal map behavior as the digital input signals.<br>
+		<br>
+		If setting the behavior is successful, returns True. Otherwise, 
+		 returns False.</td>
+	</tr>
+	<tr>
+		<td>trySetDigitalOutputSignals</td>
+		<td>Boolean</td>
+		<td><a 
+		 href="vcBooleanSignalMap.htm">vcBooleanSignalMap</a> 
+		 <span class="Italic">signal_map</span></td>
+		<td>Tries to set the given boolean 
+		 signal map behavior as the digital output signals.<br>
+		<br>
+		If setting the behavior is successful, returns True. Otherwise, 
+		 returns False.</td>
+	</tr>
+	<tr>
+		<td>waitInput</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">input_index</span>, Boolean <span 
+		 class="Italic">value</span></td>
+		<td>Schedules the executor to wait until a signal connected to 
+		 a port at a given <span class="Italic">input_index</span> in robot 
+		 has a given <span class="Italic">value</span>. 
+		<p class="TableNormal"><span class="Strong">Note:</span> Python 
+		 execution continues immediately.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnCurrentStatementChanged</td>
+		<td>None</td>
+		<td>Triggered when the current statement of executor changes to 
+		 a different statement. 
+		<br>&#160; 
+		<br><span class="Strong">(Deprecated)</span> Use 
+		 OnPreExecuteStatement.</td>
+	</tr>
+	<tr>
+		<td>OnPostExecuteStatement</td>
+		<td><a href="vcStatement.htm">vcStatement</a> <span class="hcp1">statement</span>, 
+		 bool <span class="hcp1">isImmediate</span></td>
+		<td>Triggered after execution of a statement. </td>
+	</tr>
+	<tr>
+		<td>OnPreExecuteStatement</td>
+		<td><a href="vcStatement.htm">vcStatement</a> <span class="hcp1">statement</span>, 
+		 bool <span class="hcp1">isImmediate</span></td>
+		<td>Triggered before execution of a statement. 
+		<br>&#160; 
+		<br>The <span class="hcp1">isImmediate</span> 
+		 argument defines if the statement will be executed immediately 
+		 (non time-consuming mode)</td>
+	</tr>
+	<tr>
+		<td>OnProgramFinished</td>
+		<td><span class="hcp1"><a href="vcExecutor.htm" 
+												 style="font-style: normal;">vcExecutor</a> 
+		 executor</span></td>
+		<td>Triggered when the execution of program has finished.</td>
+	</tr>
+</table>
+</body>
+</html>

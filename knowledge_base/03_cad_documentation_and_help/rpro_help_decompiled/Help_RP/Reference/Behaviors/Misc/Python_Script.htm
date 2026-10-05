@@ -1,0 +1,193 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="python script,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Python Script</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Python Script</h1>
+<p>A Python Script allows you to write a script for manipulating components, 
+ commands and the application using Python programming language (stackless, 
+ version 2.7).</p>
+<p><img src="../../../English/Links/PythonScript.png" alt="" border="0" class="hcp1"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the script.</td>
+	</tr>
+	<tr>
+		<td>Script</td>
+		<td>Allows you to view and edit the script in an editor.</td>
+	</tr>
+</table>
+<h2>Editor</h2>
+<p>In order to access the script editor, do one of the following:</p>
+<ul style="list-style: disc;">
+	<li class="Unordered">In the <span class="Strong">Component Graph</span> 
+	 panel, <span class="Strong">Component Node Tree</span>, find the Python 
+	 Script behavior you want to edit, and then double-click that behavior.</li>
+	<li class="Unordered">In the <span class="Strong">Properties</span> 
+	 panel, click <span class="Strong">Open In Editor</span>.</li>
+</ul>
+<p>The script editor displays line numbers, expand/collapse options for 
+ code blocks, and a toolbar.</p>
+<p><img src="../../../English/Links/PythonScriptEditor.png" alt="" border="0" class="hcp1"></p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Compile</td>
+		<td><img src="../../../English/Links/Compile.png" alt="" border="0" class="hcp1"> 
+		<br>Compiles the script into Python bytecode, which 
+		 can then be executed by the application. That is, you are saving 
+		 the script, and this should always be done before you run a simulation. 
+		 Note at compiling messages, errors and any exceptions will be 
+		 printed in the Output panel and the script is automatically compiled 
+		 when you exit its editor.</td>
+	</tr>
+	<tr>
+		<td>Trace Execution</td>
+		<td><img src="../../../English/Links/TraceExecution.png" alt="" border="0" class="hcp1"> 
+		<br>Tracks the execution of the script during a simulation 
+		 to allow you to view which line of code is being executed at a 
+		 given moment. Generally, tracing is used to debug a script (find 
+		 and resolve errors) as well as to understand how a script performs 
+		 based on the conditions of your layout.</td>
+	</tr>
+	<tr>
+		<td>Run to cursor</td>
+		<td><img src="../../../English/Links/RunToCursor.png" alt="" border="0" class="hcp1"> 
+		<br>Runs the script until it reaches the current 
+		 line of the cursor/caret in the editor. Generally, running to 
+		 cursor is used to debug a script in which you are testing if the 
+		 script can reach a certain line of code.</td>
+	</tr>
+	<tr>
+		<td>Step 1 line</td>
+		<td><img src="../../../English/Links/Step1Line.png" alt="" border="0" class="hcp1"> 
+		<br>Runs the script so that the current line of code 
+		 is executed in order to move the script one step forward in its 
+		 execution. Generally, stepping is used to walk through the sequence 
+		 of a script one line at a time in order to verify expected outcomes.</td>
+	</tr>
+	<tr>
+		<td>Snippets</td>
+		<td><img src="../../../English/Links/Snippets.png" alt="" border="0" class="hcp1"> 
+		<br>Allows you to insert a code snippet in the script.</td>
+	</tr>
+	<tr>
+		<td>Cut</td>
+		<td><img src="../../../English/Links/Cut.png" alt="" border="0" class="hcp1"> 
+		<br>Removes selected code from the script, and then 
+		 copies that code to the clipboard.</td>
+	</tr>
+	<tr>
+		<td>Copy</td>
+		<td><img src="../../../English/Links/Copy.png" alt="" border="0" class="hcp1"> 
+		<br>Copies selected code in the script to the clipboard.</td>
+	</tr>
+	<tr>
+		<td>Paste</td>
+		<td><img src="../../../English/Links/Paste.png" alt="" border="0" class="hcp1"> 
+		<br>Inserts code from the clipboard to the script.</td>
+	</tr>
+	<tr>
+		<td>Undo</td>
+		<td><img src="../../../English/Links/Undo.png" alt="" border="0" class="hcp1"> 
+		<br>Cancels the last edit performed in the script.</td>
+	</tr>
+	<tr>
+		<td>Redo</td>
+		<td><img src="../../../English/Links/Redo.png" alt="" border="0" class="hcp1"> 
+		<br>Executes the last undone edit performed in the 
+		 script.</td>
+	</tr>
+	<tr>
+		<td>Background</td>
+		<td><img src="../../../English/Links/BackgroundScriptEditor.png" alt="" border="0" class="hcp1"> 
+		<br>Toggles the background color and syntax highlighting.</td>
+	</tr>
+	<tr>
+		<td>Find</td>
+		<td><img src="../../../English/Links/Find.png" alt="" border="0" class="hcp1"> 
+		<br>Allows you to search the script for items matching 
+		 keywords in the Search box.</td>
+	</tr>
+	<tr>
+		<td>Find Next</td>
+		<td><img src="../../../English/Links/FindNext.png" alt="" border="0" class="hcp1"> 
+		<br>Moves the cursor to the next search result in 
+		 the script.</td>
+	</tr>
+	<tr>
+		<td>Find Previous</td>
+		<td><img src="../../../English/Links/FindPrevious.png" alt="" border="0" class="hcp1"> 
+		<br>Moves the cursor to the previous search result 
+		 in the script.</td>
+	</tr>
+	<tr>
+		<td>Highlight All Matches</td>
+		<td><img src="../../../English/Links/HighlightAllMatches.png" alt="" border="0" class="hcp1"> 
+		<br>Highlights all search results in the script.</td>
+	</tr>
+	<tr>
+		<td>Clear Highlights</td>
+		<td><img src="../../../English/Links/ClearHighlights.png" alt="" border="0" class="hcp1"> 
+		<br>Removes the highlights assigned to search results 
+		 in the script.</td>
+	</tr>
+</table>
+<h3>Snippets</h3>
+<p>The initial content of the editor contains a code snippet that allows 
+ you to use the properties, methods and events of the script's behavior:</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>def OnSignal( signal ): 
+		<br>&#160;&#160;pass 
+		<br>&#160; 
+		<br>def OnRun(): 
+		<br>&#160;&#160;pass</td>
+	</tr>
+</table>
+<p>If the text area is active, you can press CTRL+J to insert a snippet 
+ of code.</p>
+<p><img src="../../../English/Links/ChooseSnippetScriptEditor.png" alt="" border="0" class="hcp1"></p>
+<h3>Word Completion</h3>
+<p>The editor allows you to use autocomplete for certain types of cases. 
+ For example, if the text area is active, you can press CTRL+SPACEBAR to 
+ display options for completing a line of code.</p>
+<p><img src="../../../English/Links/AutocompleteScriptEditor.png" alt="" border="0" class="hcp1"></p>
+<p>If you use autocomplete, you may be able to read documentation about 
+ the added item.</p>
+<p><img src="../../../English/Links/AutocompleteItemDescription.png" alt="" border="0" class="hcp1"></p>
+</body>
+</html>

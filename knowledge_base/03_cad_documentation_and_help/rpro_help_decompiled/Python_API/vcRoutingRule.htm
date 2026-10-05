@@ -1,0 +1,140 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcRoutingRule</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcRoutingRule</h1>
+<p>vcRoutingRule allows you to define rules for transferring components 
+ to different connectors, thereby simulating routing rules for material 
+ flow.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a>, 
+ <a href="vcFlow.htm">vcFlow</a>, <a href="vcContainer.htm">vcContainer</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot43079" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot43079', 'MTPOPUP43079');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP43079" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>FlowProxy</td>
+		<td><a href="vcComponentFlowProxy.htm">vcComponentFlowProxy</a></td>
+		<td>RW</td>
+		<td>Defines if a proxy is used to check capacity of selected connector 
+		 before routing a component. 
+		<p class="TableNormal">If None, this property is ignored.</p></td>
+	</tr>
+	<tr>
+		<td>RuleComponent</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the component used for rule processing. 
+		<p class="TableNormal">See <a href="Constants.htm#Routing_Constants">Routing 
+		 Constants</a> for more information.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createConnector</td>
+		<td>Integer</td>
+		<td>None</td>
+		<td>Adds a new connector in routing rule, and then returns the 
+		 index of new connector.</td>
+	</tr>
+	<tr>
+		<td>deleteConnector</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Deletes a connector from routing rule at a given <span class="Italic">index</span>.</td>
+	</tr>
+	<tr>
+		<td>processRoute</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">from_connector</span>, <a href="vcComponent.htm">vcComponent</a> 
+		 <span class="Italic">component</span>, <a href="vcBehaviour.htm">vcBehaviour</a> 
+		 <span class="Italic">behavior</span></td>
+		<td>Returns the result of a routing test to verify if a given <span 
+		 class="Italic">component</span> would be routed based on a capacity 
+		 test performed by a given <span class="Italic">behaviour</span> 
+		 or FlowProxy. 
+		<br>&#160; 
+		<br>Depending on <a href="Constants.htm#Routing_Constants">the 
+		 value of RuleComponent</a>, the <span class="Italic">component</span> 
+		 can be either: 
+		<ul style="list-style: disc;">
+			<li>The arriving component (if RuleComponent == VC_ROUTING_PROCESSED)</li>
+			<li>The owner component of the behavior (if RuleComponent == 
+			 VC_ROUTING_OWNER)</li>
+		</ul>
+		<p class="TableNormal">Returns -1 if no valid targets are found.</p></td>
+	</tr>
+	<tr>
+		<td>setTarget</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Sets the connector by <span class="Italic">index</span> for 
+		 routing a component, which should be executed in OnRoute event.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnRoute</td>
+		<td>Integer <span class="Italic">connector</span>, <a href="vcComponent.htm">vcComponent</a> 
+		 <span class="Italic">component</span>, <a href="vcBehaviour.htm">vcBehaviour</a> 
+		 <span class="Italic">behaviour</span></td>
+		<td>Triggered when a component is transferred into routing rule 
+		 and being processed. 
+		<p class="TableNormal">Use the processRoute() method to test a 
+		 viable option, and then use setTarget() method to override default 
+		 routing logic.</p></td>
+	</tr>
+</table>
+<!--======================================Events========================================-->
+</body>
+</html>

@@ -1,0 +1,50 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="cartesian kinematics,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Cartesian Kinematics</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Cartesian Kinematics</h1>
+<p>A Cartesian Kinematics behavior calculates the forward and inverse kinematics 
+ of a Robot Controller for a Cartesian type robot (gantry, portal, etc.) 
+ in which the robot has three transitional joints and an articulated wrist 
+ (three rotational joints) defined in this order: Trans X, Trans Y, Trans 
+ Z, Rot Z, Rot Y, Rot Z.</p>
+<p><img src="../../../English/Links/CartesianKinematics.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<p>In most cases, the Robot Controller using the Cartesian Kinematics is 
+ responsible for defining the kinematic nature of the component in a Cartesian 
+ space. That is, the kinematic structure of the component and its robot 
+ controller's <span class="Italic">RootNode</span>, <span class="Italic">FlangeNode</span>, 
+ <span class="Italic">RootOffset</span> and <span class="Italic">FlangeOffset</span> 
+ properties provide the values needed by the kinematics solver. In some 
+ cases, you can use Cartesian Kinematics for components that are not robots. 
+ For example, a forklift can have Cartesian Kinematics in which a node 
+ without any geometry is defined as the RootNode, and the FlangeNode is 
+ the node containing the geometry of the forklift.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the kinematics.</td>
+	</tr>
+</table>
+<p>&#160;</p>
+</body>
+</html>

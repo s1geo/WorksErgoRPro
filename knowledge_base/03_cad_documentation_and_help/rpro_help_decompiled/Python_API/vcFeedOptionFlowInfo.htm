@@ -1,0 +1,104 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcFeedOptionFlowInfo</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcFeedOptionFlowInfo</h1>
+<p>FeedOptionFlowInfo indicates an expanded direction (inexact location) 
+ in the product flow. Used by vcProductFeed objects, to be matched with 
+ Need objects available in the simulation.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Data type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>FlowStep</td>
+		<td><a href="vcProcessFlowStep.htm">vcProcessFlowStep</a></td>
+		<td>R</td>
+		<td>Specifies ProcessFlowStep</td>
+	</tr>
+	<tr>
+		<td>GroupId</td>
+		<td>String</td>
+		<td>R</td>
+		<td>Specifies ProcessGroup's ID inside the FlowStep.<br>
+		Alternatively, user can use “” (empty string) to indicate that 
+		 any matching ProcessGroup is fine. </td>
+	</tr>
+	<tr>
+		<td>Group</td>
+		<td><a href="vcProcessGroup.htm">vcProcessGroup</a></td>
+		<td>R</td>
+		<td>Specifies vcProcessGroup object. In case a custom ID is used 
+		 for GroupId, this will be None.</td>
+	</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>setStep</td>
+		<td>None</td>
+		<td><a href="vcProcessFlowStep.htm">vcProcessFlowStep</a> step</td>
+		<td><p>Sets the FlowStep property. &#160;</p>
+		<p>Resets Group to None and GroupId to “”, if such ProcessGroup 
+		 is not present in the new FlowStep. &#160;</p></td>
+	</tr>
+	<tr>
+		<td>setGroup</td>
+		<td>None</td>
+		<td>(String groupId) or (<a href="vcProcessGroup.htm">vcProcessGroup</a> 
+		 group)</td>
+		<td><p>Sets the GroupId and Group properties to match. &#160;</p>
+		<p>If a custom Id is used, Group is set to None. If the new ProcessGroup 
+		 cannot be found in the current FlowStep, FlowStep is set to None. 
+		 </p></td>
+	</tr>
+</table>
+<h2>Constructor</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>new</td>
+		<td>vcFeedOptionFlowInfo</td>
+		<td>()</td>
+		<td><p>Creates an empty vcFeedOptionFlowInfo object with FlowStep=None, 
+		 GroupId=””, Group=None</p></td>
+	</tr>
+</table>
+</body>
+</html>

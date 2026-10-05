@@ -1,0 +1,309 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+<meta name="search-keywords" content="UPM,product type,product creator,feed mode,statement">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProductType</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+p.hcp1 { font-weight:normal; }
+span.hcp2 { font-weight:normal; }
+span.hcp3 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcProductType</h1>
+<p>Product type is a product definition that is used to create <a href="vcProduct.htm">vcProduct</a> 
+ instances.</p>
+<p>&#160;</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot37017" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot37017', 'MTPOPUP37017');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP37017" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<p>&#160;</p>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name </td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of this product type. Must be unique within the owning 
+		 process controller.</td>
+	</tr>
+	<tr>
+		<td>UniqueId </td>
+		<td>String</td>
+		<td>R</td>
+		<td>Unique identifier for this product type used internally.</td>
+	</tr>
+	<tr>
+		<td>FlowGroup </td>
+		<td><a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a></td>
+		<td>R</td>
+		<td><p class="hcp1">The flow group that this product 
+		 type belongs to. Use methods in <a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> 
+		 <span class="hcp2">to associate the type to another 
+		 flow group.</span></p></td>
+	</tr>	<tr>
+		<td>IsAssembly </td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Returns True if this product type is assembly product type.</td>
+	</tr>
+	<tr>
+		<td>IsSystem </td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td><p>Returns True if this product type is special internal type.</p></td>
+	</tr>
+	<tr>
+		<td>ParentProduct </td>
+		<td><a href="vcProductType.htm">vcProductType</a> </td>
+		<td>RW</td>
+		<td>The product type this type is derived from.</td>
+	</tr>
+	<tr>
+		<td><a name="OriginFrame"></a>OriginFrame </td>
+		<td><a href="vcMatrix.htm">vcMatrix</a> </td>
+		<td>RW</td>
+		<td>Defines relative position of product and its component as offset 
+		 from component origin to origin of product instance.</td>
+	</tr>
+	<tr>
+		<td>ComponentUri </td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p class="hcp1"><span class="hcp2">Simulation 
+		 component type used to visualize product instances created from 
+		 this product type. Setting this Uri causes the product type to 
+		 immediately attempt to load and make an internal copy of the component.</span></p>
+		<p class="hcp1"><span style="font-weight: bold;">Note:</span> 
+		 Special “component” Uri scheme (component:componentName) can be 
+		 used to point to an existing static component in the simulation 
+		 layout.</p></td>
+	</tr>
+	<tr>
+		<td>Properties </td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td><p>Gets the properties of this product type itself. All properties 
+		 might not have a <a href="vcProperty.htm">vcProperty</a> implementation.</p></td>
+	</tr>
+	<tr>
+		<td>ComponentProperties </td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td>Gets the properties that are applied to components of product 
+		 instances created from this product type.</td>
+	</tr>
+	<tr>
+		<td>ProductProperties </td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td>Gets the properties that are applied to product instances created 
+		 from this product type.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>deleteProperty </td>
+		<td>None</td>
+		<td><span><a href="vcProperty.htm">vcProperty</a></span> <span 
+		 class="hcp1" style="font-style: italic;">property</span> </td>
+		<td><p>Deletes a <span class="hcp3">property</span> 
+		 of the product type itself.</p></td>
+	</tr>
+	<tr>
+		<td>getProperty </td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String <span class="hcp3">propertyName</span> 
+		 </td>
+		<td><p class="TableNormal">Returns a property of the product type 
+		 itself.</p></td>
+	</tr>
+	<tr>
+		<td>createProperty </td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>Enumeration <span class="hcp1" style="font-style: italic;">type</span><span>, 
+		 String</span> <span class="hcp1" style="font-style: italic;">name</span>, 
+		 <span>[Enumeration</span> <span class="hcp1" style="font-style: italic;">constraints</span><span>]</span> 
+		 </td>
+		<td><p>Creates a new property to the product <span class="hcp3">type</span> 
+		 itself.</p>
+		<p class="TableNormal">An optional <span class="Italic">constraints</span> 
+		 argument can be used to define constraints for new property, which 
+		 must be defined at the time of creation.</p>
+		See <a href="Constants.htm#Property_Constants">Property Constants</a> 
+		 for more information.</td>
+	</tr>
+	<tr>
+		<td>createComponentProperty </td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td><p>Enumeration <span class="hcp1" style="font-style: italic;">type</span>, 
+		 String <span class="hcp1" style="font-style: italic;">name</span>, 
+		 [Enumeration <span class="hcp1" style="font-style: italic;">constraints</span>] 
+		 </p></td>
+		<td><p>Creates a new component instance property to this product 
+		 <span class="hcp3">type</span>.</p>
+		<p class="TableNormal">An optional <span class="Italic">constraints</span> 
+		 argument can be used to define constraints for new property, which 
+		 must be defined at the time of creation.</p>
+		See <a href="Constants.htm#Property_Constants">Property Constants</a> 
+		 for more information.</td>
+	</tr>
+	<tr>
+		<td>deleteComponentProperty </td>
+		<td><p>None</p></td>
+		<td><span><a href="vcProperty.htm">vcProperty</a></span> <span 
+		 class="hcp1" style="font-style: italic;">property</span> </td>
+		<td><p>Deletes a component instance <span class="hcp3">property</span> 
+		 from this product type.</p></td>
+	</tr>
+	<tr>
+		<td>getComponentProperty </td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td><p>String <span class="hcp3">propertyName</span></p></td>
+		<td><p>Returns a component instance property defined in this product 
+		 type.</p></td>
+	</tr>
+	<tr>
+		<td>createProductProperty </td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>Enumeration <span class="hcp1" style="font-style: italic;">type</span><span>, 
+		 String</span> <span class="hcp1" style="font-style: italic;">name</span>, 
+		 <span>[Enumeration</span> <span class="hcp1" style="font-style: italic;">constraints</span><span>]</span> 
+		 </td>
+		<td><p>Creates a new product instance property to this product 
+		 type.</p>
+		<p class="TableNormal">An optional <span class="Italic">constraints</span> 
+		 argument can be used to define constraints for new property, which 
+		 must be defined at the time of creation.</p>
+		See <a href="Constants.htm#Property_Constants">Property Constants</a> 
+		 for more information.</td>
+	</tr>
+	<tr>
+		<td>deleteProductProperty </td>
+		<td>None</td>
+		<td><span><a href="vcProperty.htm">vcProperty</a></span> <span 
+		 class="hcp1" style="font-style: italic;">property</span> </td>
+		<td><p>Deletes a product instance <span class="hcp3">property</span> 
+		 from this product type.</p></td>
+	</tr>
+	<tr>
+		<td>getProductProperty </td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td><p>String <span class="hcp3">propertyName</span> 
+		 </p></td>
+		<td><p>Returns a product instance property defined in this product 
+		 type.</p></td>
+	</tr>
+	<tr>
+		<td>resetUniqueId </td>
+		<td>None</td>
+		<td><p>-</p></td>
+		<td><p>Assigns a new unique id for this product type.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p class="Example"><span class="Example">Example. Get the vcProductType 
+ from vcProductTypeManager or vcProcessFlowGroup</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>''' 
+		<br>You can get the vcProductType from vcProductTypeManager or vcProcessFlowGroup 
+		<br>To use this snippet, load a ProductFeeder component to 3D world 
+		<br>ProductFeeder component have already a ptoduct type defined 
+		<br>You can also create new product types using vcProductTypeManager 
+		<br>''' 
+		<br>#Access the vcProductTypeManager from the ProcessController 
+		<br>process_controller = getSimulation().ProcessController 
+		<br>product_type_manager = &#160;process_controller.ProductTypeManager 
+		<br>#By defaut vcProductTypeManager have 'Any' ProductType object. To filter that we can use the IsSystem property 
+		<br>product_type_cylinder = [x for x in product_type_manager.ProductTypes if x.IsSystem == False][0] 
+		<br>''' 
+		<br>#You can also find a specific ProductType 
+		<br>#access the vcProductType object from product manager 
+		<br>product_type_cylinder = product_type_manager.findProductType('VC_Cylinder') 
+		<br>''' 
+		<br>#change the component uri assigned to product_type_cylinder 
+		<br>#If the component is on 3D world,eg: Cube from Products and Containers, you can assign the component to the product type like this, 
+		<br>product_type_cylinder.ComponentUri = &quot;component:Cube&quot; 
+		<br>''' 
+		<br>#get the list of this product type property 
+		<br>for prop in product_type_cylinder.Properties: 
+		<br>&#160;&#160;print prop.Name, prop.Value 
+		<br>''' 
+		<br>''' 
+		<br>#get the list of all ComponentProperties for this product type 
+		<br>if product_type_cylinder.ComponentProperties: 
+		<br>&#160;&#160;for compProp in product_type_cylinder.ComponentProperties: 
+		<br>&#160;&#160;&#160;&#160;print compProp.Name, compProp.Value 
+		<br>''' &#160; 
+		<br>''' 
+		<br>#get the list of all ProductProperties for this product type 
+		<br>if product_type_cylinder.ProductProperties: 
+		<br>&#160;&#160;for prodProp in product_type_cylinder.prodProp: 
+		<br>&#160;&#160;&#160;&#160;print prodProp.Name, prodProp.Value 
+		<br>''' 
+		<br>''' 
+		<br>There are 3 different collections of properties in vcProductType. ProductType Property, ProductType Product property and ProductType Component property 
+		<br>Note that adding properties to the vcProductType is different from adding them as Product properties or Component properties in the vcProductType 
+		<br>''' 
+		<br>if product_type_cylinder: 
+		<br>&#160;&#160;#add boolean property for product type. 
+		<br>&#160;&#160;bool_prop = product_type_cylinder.getProperty('Boolean') 
+		<br>&#160;&#160;if not bool_prop: 
+		<br>&#160;&#160;&#160;&#160;product_type_cylinder.createProperty(VC_BOOLEAN, 'Boolean') 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;#add real property for product property 
+		<br>&#160;&#160;real_prop = product_type_cylinder.getProductProperty('RealProperty') 
+		<br>&#160;&#160;if not real_prop: 
+		<br>&#160;&#160;&#160;&#160;product_type_cylinder.createProductProperty(VC_REAL, 'RealProperty') 
+		<br>&#160;&#160;#add integer property for component property 
+		<br>&#160;&#160;prod_id = product_type_cylinder.getProductProperty('ProdID') 
+		<br>&#160;&#160;if not prod_id: 
+		<br>&#160;&#160;&#160;&#160;prod_id = product_type_cylinder.createComponentProperty (VC_INTEGER, 'ProdID')</td>
+	</tr>
+</table>
+</body>
+</html>

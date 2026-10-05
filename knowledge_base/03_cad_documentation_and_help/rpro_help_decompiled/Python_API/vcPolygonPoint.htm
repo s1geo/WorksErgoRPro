@@ -1,0 +1,106 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcPolygonPoint</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<p id="warning"><span class="Strong">(Deprecated)</span></p>
+<h1><a name="MiniTOCBookMark1"></a>vcPolygonPoint</h1>
+<p>vcPolygonPoint is a point/vertex used to define polygons.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcPrimative.htm">vcPrimitive</a>, 
+ <a href="vcPoint.htm">vcPoint</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot36963" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot36963', 'MTPOPUP36963');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP36963" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Color</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Defines the color of the point by using a vector containing 
+		 RGBA values. 
+		<p class="TableNormal"><span class="Strong">Note:</span> The geometry 
+		 set of point and its polygon must support a VertexColor property; 
+		 otherwise point will not have color.</p></td>
+	</tr>
+	<tr>
+		<td>Edges</td>
+		<td>List of <a href="vcEdge.htm">vcEdge</a></td>
+		<td>R</td>
+		<td>Gets a list of all edges using the point.</td>
+	</tr>
+	<tr>
+		<td>PolygonCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the number of polygons using the point.</td>
+	</tr>
+	<tr>
+		<td>U</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines a U texture coordinate for point.</td>
+	</tr>
+	<tr>
+		<td>V</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines a V texture coordinate for point.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getAverageNormal</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>None</td>
+		<td>Returns the Normal vector of point, which is an average of 
+		 all polygons using that point.</td>
+	</tr>
+	<tr>
+		<td>getPolygon</td>
+		<td><a href="vcPolygon.htm">vcPolygon</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns a polygon using the point at a given <span class="Italic">index</span>; 
+		 otherwise returns None.</td>
+	</tr>
+</table>
+</body>
+</html>

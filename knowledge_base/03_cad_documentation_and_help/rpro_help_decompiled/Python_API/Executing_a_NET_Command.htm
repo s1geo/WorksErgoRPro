@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Executing a NET Command</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content=".NET API, external command">
+<META name=generator content="Adobe RoboHelp 2017"><LINK rel=StyleSheet 
+type=text/css href="StyleSheet.css">
+<STYLE title=hcp type=text/css>
+<!--
+img.hcp1 { border:none; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<SCRIPT language=JavaScript1.2 type=text/javascript src="ehlpdhtm.js"></SCRIPT>
+
+<H1>Executing a .NET Command</H1>
+<P>The netCommand allows you to call a command defined in .NET API and 
+registered with your R-Pro product.</P>
+<P><IMG class=hcp1 border=0 alt="" src="CallNetComand.png"></P>
+<P>A .NET command is an IActionItem and stored in the main application's command 
+registry, which is of type ICommandRegistry. You can access this registry to 
+find out what commands you can call and the arguments you need to pass to 
+execute each command. One approach is to create a simple plugin in Visual Studio 
+for your R-Pro product (main application). From there, create a breakpoint that 
+would allow you to inspect actions in the registry using Intellisense in Visual 
+Studio.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="BreakpointInspectCommandRegistry.png"></P>
+<P>Some .NET commands are executed using an action panel or task pane. In most 
+cases, that would require passing command arguments when executing the 
+netCommand.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="CallNetCommandTaskPane.png"></P></BODY></HTML>

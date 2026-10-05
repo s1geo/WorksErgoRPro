@@ -1,0 +1,190 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="program editor,robot">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Program Editor</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Program Editor</h1>
+<p>The Program Editor panel allows you to view and edit a robot program, 
+ preview motions and program other types of components using RSL statements.</p>
+<p><img src="../../Links/ProgramEditorEN.png" alt="" border="0" class="hcp1"></p>
+<table id="callouts" cellspacing="0">
+	<col>
+	<col>
+	<tr>
+		<td>&#160;1.</td>
+		<td>Main Routine</td>
+	</tr>
+	<tr>
+		<td>&#160;2.</td>
+		<td>Statements Toolbar</td>
+	</tr>
+	<tr>
+		<td>&#160;3.</td>
+		<td>Conditional Statement</td>
+	</tr>
+	<tr>
+		<td>&#160;4.</td>
+		<td>Nested Statement</td>
+	</tr>
+	<tr>
+		<td>&#160;5.</td>
+		<td>Motion Type Statement</td>
+	</tr>
+	<tr>
+		<td>&#160;6.</td>
+		<td>Subroutine</td>
+	</tr>
+	<tr>
+		<td>&#160;7.</td>
+		<td>Delete Selected Routine</td>
+	</tr>
+	<tr>
+		<td>&#160;8.</td>
+		<td>Duplicate Selected Routine</td>
+	</tr>
+	<tr>
+		<td>&#160;9.</td>
+		<td>Add Subroutine</td>
+	</tr>
+	<tr>
+		<td>&#160;10.</td>
+		<td>Import Program</td>
+	</tr>
+	<tr>
+		<td>&#160;11.</td>
+		<td>Export Program</td>
+	</tr>
+</table>
+<p>&#160;</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot54494" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot54494', 'MTPOPUP54494');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP54494" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Statements Toolbar</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Program</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Statements Toolbar</h2>
+<p>The Statements toolbar displays commands for adding RSL statements to 
+ the program of a selected robot in the 3D world.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Break</td>
+		<td>Ends the execution of loop.</td>
+	</tr>
+	<tr>
+		<td>Call Sequence</td>
+		<td>Executes a specified subroutine in program.</td>
+	</tr>
+	<tr>
+		<td>Comment</td>
+		<td>Leaves a comment in program.</td>
+	</tr>
+	<tr>
+		<td>Continue</td>
+		<td>Sets loop to continue from next iteration.</td>
+	</tr>
+	<tr>
+		<td>Define Base</td>
+		<td>Sets the properties of a base frame in robot.</td>
+	</tr>
+	<tr>
+		<td>Define Tool</td>
+		<td>Sets the properties of a tool frame in robot.</td>
+	</tr>
+	<tr>
+		<td>Delay</td>
+		<td>Delays the execution of program.</td>
+	</tr>
+	<tr>
+		<td>Halt</td>
+		<td>Stops the execution of program.</td>
+	</tr>
+	<tr>
+		<td>If</td>
+		<td>Defines an if-then-else condition for executing one group of 
+		 statements if the condition is True or another group of statements 
+		 if the condition is False.</td>
+	</tr>
+	<tr>
+		<td>Joint Motion</td>
+		<td>Executes a point-to-point motion to a position by interpolating 
+		 joint values.</td>
+	</tr>
+	<tr>
+		<td>Linear Motion</td>
+		<td>Executes a linear motion to a position based on current configuration.</td>
+	</tr>
+	<tr>
+		<td>Print</td>
+		<td>Sends feedback to be printed in the Output panel.</td>
+	</tr>
+	<tr>
+		<td>Program Synchronize</td>
+		<td>Synchronizes program execution with other programmable components 
+		 using a matching sync message.</td>
+	</tr>
+	<tr>
+		<td>Return</td>
+		<td>Ends the execution of routine.</td>
+	</tr>
+	<tr>
+		<td>Set Binary Output</td>
+		<td>Sets the value of a digital signal connected to a robot output 
+		 or signals an action in the robot.</td>
+	</tr>
+	<tr>
+		<td>Touch-up</td>
+		<td>Updates the properties of a motion statement for a selected 
+		 robot position.</td>
+	</tr>
+	<tr>
+		<td>Wait for Binary Input</td>
+		<td>Waits for a digital signal connected to a robot input to reach 
+		 a specific value.</td>
+	</tr>
+	<tr>
+		<td>While</td>
+		<td>Defines a condition for executing a group of statements in 
+		 a loop.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Program</h2>
+<p>The program of a robot is its job and is saved with the robot in a layout. 
+ If you need to rearrange statements in a program, drag and drop a statement 
+ before or after another statement. The place where you are inserting a 
+ statement is shown by a line that will also indicate at what level you 
+ are inserting a statement.</p>
+<p><img src="../../Links/ArrangeStatementsVC.png" alt="" border="0" class="hcp1"></p>
+<p>When running a simulation, the current statement being executed in a 
+ robot program is indicated by an arrow in the right-side of the Program 
+ Editor panel.</p>
+<p><img src="../../Links/CurrentStatementProgramVC.png" alt="" border="0" class="hcp1"></p>
+</body>
+</html>

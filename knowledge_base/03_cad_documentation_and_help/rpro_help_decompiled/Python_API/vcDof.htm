@@ -1,0 +1,348 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="degree of freedom,joint">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcDof</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcDof</h1>
+<p>vcDof defines the joint properties of a node, its degrees of freedom, 
+ and whether or not the joint is assigned to a controller of a robot or 
+ servo.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot52974" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot52974', 'MTPOPUP52974');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP52974" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Common Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Joint Specific Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark8" >Controller Properties</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Common Properties</h2>
+<p>The following properties are common in all DOF objects and joint types, 
+ except for fixed joints. A fixed joint does not have a DOF object.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>JointLinkType</td>
+		<td>Enumeration</td>
+		<td>R</td>
+		<td>Gets the JointType of the link. 
+		<p class="TableNormal">See <a href="Constants.htm#Joint_Constants">Joint 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>JointServoType</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines whether a joint assigned to a controller is rotational 
+		 or translational. 
+		<p class="TableNormal">See <a href="Constants.htm#Joint_Constants">Joint 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of DOF object and joint.</td>
+	</tr>
+	<tr>
+		<td>VALUE</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the current value of the joint.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Joint Specific Properties</h2>
+<h3><a name="MiniTOCBookMark4"></a>Custom Joint</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Controller</td>
+		<td><a href="vcServoController.htm">vcServoController</a> 
+		<p class="TableNormal">or</p>
+		<a href="vcRobotController.htm">vcRobotController</a></td>
+		<td>RW</td>
+		<td>Gets/Sets the controller assigned the joint.</td>
+	</tr>
+	<tr>
+		<td>InitialValue</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the default value of the joint at its initial state.</td>
+	</tr>
+	<tr>
+		<td>Joint</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the joint 
+		 definition of the joint. 
+		<p class="TableNormal">VALUE can be used to referenced the current 
+		 value of the joint, for example &quot;VALUE+10&quot;.</p></td>
+	</tr>
+	<tr>
+		<td>MinLimit</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the minimum 
+		 value of the joint.</td>
+	</tr>
+	<tr>
+		<td>MaxLimit</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the maximum 
+		 value of the joint.</td>
+	</tr>
+	<tr>
+		<td>Pivot</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the pivot 
+		 point definition of the joint. 
+		<p class="TableNormal">VALUE can be used to referenced the current 
+		 value of the joint, for example &quot;VALUE+10&quot;.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark5"></a>Follower Joint</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AxisType</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the axis of the joint. 
+		<p class="TableNormal">See <a href="Constants.htm#Joint_Axis_Constants">Joint 
+		 Axis Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Driver</td>
+		<td><a href="vcDof.htm">vcDof</a></td>
+		<td>RW</td>
+		<td>Defines the DOF object and joint referenced by a follower joint.</td>
+	</tr>
+	<tr>
+		<td>ValueExpression</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the value 
+		 of the joint. 
+		<p class="TableNormal">VALUE can be used to referenced the current 
+		 value of the joint, for example &quot;VALUE+10&quot;.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark6"></a>Rotational Joint</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AxisType</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the axis of the joint. 
+		<p class="TableNormal">See <a href="Constants.htm#Joint_Axis_Constants">Joint 
+		 Axis Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Controller</td>
+		<td><a href="vcServoController.htm">vcServoController</a> 
+		<p class="TableNormal">or</p>
+		<a href="vcRobotController.htm">vcRobotController</a></td>
+		<td>RW</td>
+		<td>Gets/Sets the controller assigned the joint.</td>
+	</tr>
+	<tr>
+		<td>InitialValue</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the default value of the joint at its initial state.</td>
+	</tr>
+	<tr>
+		<td>MinLimit</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the minimum 
+		 value of the joint.</td>
+	</tr>
+	<tr>
+		<td>MaxLimit</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the maximum 
+		 value of the joint.</td>
+	</tr>
+	<tr>
+		<td>ValueExpression</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the value 
+		 of the joint. 
+		<p class="TableNormal">VALUE can be used to referenced the current 
+		 value of the joint, for example &quot;VALUE+10&quot;.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark7"></a>Translational Joint</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AxisType</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the axis of the joint. 
+		<p class="TableNormal">See <a href="Constants.htm#Joint_Axis_Constants">Joint 
+		 Axis Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Controller</td>
+		<td><a href="vcServoController.htm">vcServoController</a> 
+		<p class="TableNormal">or</p>
+		<a href="vcRobotController.htm">vcRobotController</a></td>
+		<td>RW</td>
+		<td>Gets/Sets the controller assigned the joint.</td>
+	</tr>
+	<tr>
+		<td>InitialValue</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the default value of the joint at its initial state.</td>
+	</tr>
+	<tr>
+		<td>MinLimit</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the minimum 
+		 value of the joint.</td>
+	</tr>
+	<tr>
+		<td>MaxLimit</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the maximum 
+		 value of the joint.</td>
+	</tr>
+	<tr>
+		<td>ValueExpression</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the value 
+		 of the joint. 
+		<p class="TableNormal">VALUE can be used to referenced the current 
+		 value of the joint, for example &quot;VALUE+10&quot;.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark8"></a>Controller Properties</h2>
+<p>The following properties are dynamically added to a DOF whose joint 
+ is assigned to servo/robot controller.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>LagTime</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the lag time (in seconds) of joint.</td>
+	</tr>
+	<tr>
+		<td>MaxAcceleration</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum acceleration (units/degrees per second 
+		 squared) of joint.</td>
+	</tr>
+	<tr>
+		<td>MaxDeceleration</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum deceleration (units/degrees per second 
+		 squared) of joint.</td>
+	</tr>
+	<tr>
+		<td>MaxSpeed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum speed (units/degrees per second squared) 
+		 of joint.</td>
+	</tr>
+	<tr>
+		<td>SettleTime</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the settle time (in seconds) of joint.</td>
+	</tr>
+	<tr>
+		<td>SoftMinLimit</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the soft limit for minimum joint value.</td>
+	</tr>
+	<tr>
+		<td>SoftMaxLimit</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the soft limit for maximum joint value.</td>
+	</tr>
+</table>
+</body>
+</html>

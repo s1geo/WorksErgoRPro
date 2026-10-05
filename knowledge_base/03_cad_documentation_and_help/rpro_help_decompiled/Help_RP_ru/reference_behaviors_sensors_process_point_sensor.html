@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Датчик точки процесса</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Датчик точки процесса (поведение Операция) позволяет обнаруживать компоненты, движущиеся по траектории, и выполнять действия." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Датчик точки процесса</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Датчик точки процесса (поведение Операция) позволяет обнаруживать компоненты, движущиеся по траектории, и выполнять действия.</p>
+<p class="p_Normal"><img alt="ClipboardImg199" style="margin:0;width:4.1667in;height:5.0000in;border:none" src="clipboardimg199.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет наименование датчика.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Расстояние</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет расстояние датчика вдоль подключенного пути.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Рамка</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет объект Frame, указанный как физическое местоположение датчика.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СрабатыватьПри</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет режим датчика для обнаружения компонентов.</p>
+<p class="p_Normal">Передний край - срабатывает, когда первый край компонента достигает датчика.</p>
+<p class="p_Normal">Нулевая точка - срабатывает, когда исходная точка компонента достигает датчика.</p>
+<p class="p_Normal">Задний край - срабатывает, когда последний край компонента достигает датчика.</p>
+<p class="p_Normal">Ни один - отключает датчик.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ЛогическийСигнал</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет логический сигнал, используемый для подачи сигнала, когда компонент запускает датчик.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ОбработкаОстановки</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет действие, выполняемое при обнаружении датчиком компонента.</p>
+<p class="p_Normal">Траектория - останавливает путь, к которому прикреплен датчик в 3D-мире.</p>
+<p class="p_Normal">Компонент - останавливает компонент, обнаруженный датчиком.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПравилоКомпонента</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет, использует ли датчик свойства обнаруженного компонента или компонента, к которому подключен датчик, для расчета времени обработки. Например, у компонента может быть свое собственное время обработки, определенное в одном из его свойств, или у компонента может быть глобальное свойство для управления временем обработки.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Маршрут</span></h3>
+<p class="p_Normal">Маршрут определяет временную задержку (в секундах) для обработки обнаруженного компонента и может использовать одно или несколько правил, образующих вложенную структуру. Некоторые правила позволяют использовать другие правила для определения временной задержки для компонента. Во всех случаях изменение правила отменяет все его дочерние правила. В крайнем случае, некоторые правила позволяют вам определить временную задержку или правило по умолчанию.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Подсказка: </span>Вы можете отредактировать маршрут датчика точки процесса на панели свойств компонента.</p>
+<p class="p_Normal"><img alt="ClipboardImg200" style="margin:0;width:3.2396in;height:7.6875in;border:none" src="clipboardimg200.png"/></p>
+<h4 style="margin: 0.3438in 0 0 0;"><span style="font-size: 12pt; font-weight: bold;">Типы правил</span></h4>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.9167in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Имя</span></p>
+</th>
+<th style="vertical-align:top; width:9.5000in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Правило Логической таблицы</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Время основано на значении True или False.</p>
+<p class="p_Normal">PropertyName определяет, какое свойство обрабатываемого компонента или компонента-владельца оценивается правилом.</p>
+<p class="p_Normal">По умолчанию - используется, если значение PropertyName не соответствует ни одному из перечисленных значений в таблице.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Правило Целочисленной таблицы</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Время основано на целочисленном значении.</p>
+<p class="p_Normal">PropertyName определяет, какое свойство обрабатываемого компонента или компонента-владельца оценивается правилом.</p>
+<p class="p_Normal">По умолчанию - используется, если значение PropertyName не соответствует ни одному из перечисленных значений в таблице.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нормальное распределение</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Время рассчитывается с использованием нормального распределения.</p>
+<p class="p_Normal">Случайный поток - может использоваться для заполнения значения.</p>
+<p class="p_Normal">В среднем - определяет среднее значение.</p>
+<p class="p_Normal">Отклонение - определяет стандартное отклонение.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">&lt;Время&gt;</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Время - заданное значение.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Равномерное распределение</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Время рассчитывается с использованием равномерного распределения.</p>
+<p class="p_Normal">Случайный поток - может использоваться для заполнения значения.</p>
+<p class="p_Normal">Min - определяет минимальное количество времени.</p>
+<p class="p_Normal">Max - определяет максимальное количество времени.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Правило вещественной таблицы</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Время основано на действительном числовом значении.</p>
+<p class="p_Normal">PropertyName определяет, какое свойство обрабатываемого компонента или компонента-владельца оценивается правилом.</p>
+<p class="p_Normal">По умолчанию - используется, если значение PropertyName не соответствует ни одному из перечисленных значений в таблице.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Правило строковой таблицы</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Время основано на строковом значении.</p>
+<p class="p_Normal">PropertyName - определяет, какое свойство обрабатываемого компонента или компонента-владельца оценивается правилом.</p>
+<p class="p_Normal">По умолчанию - используется, если значение PropertyName не соответствует ни одному из перечисленных значений в таблице.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

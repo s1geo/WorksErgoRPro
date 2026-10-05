@@ -1,0 +1,55 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Get Assembly Step Property</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Get Assembly Step Property</h1>
+<p>Finds a property from selected Assembly Steps of an Assembly Type and 
+ copies its value to a Process variable.</p>
+<p>An Assembly Order is used to define one or more Assembly Steps from 
+ an Assembly Product Type that should contain a user-defined property. 
+ The selected Assembly Steps are searched in the assembly order, and the 
+ first property with the given name is selected. </p>
+<p><img src="../../English/Links/ReferenceProcessStatementsGetAssemblyStepProperty.png" alt="" style="border: none;" width="930" height="189" border="0"><br>
+<span class="italic">Figure 1. An example Process where an Assembly Instance 
+ is transported in, the value of “WorkTime” property is retrieved from 
+ one of its Assembly Steps, a resource such as human worker is used for 
+ that amount of time, and finally the Assembly Instance is transported 
+ out to its next Process. </span></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><p>AssemblyOrderVariableName</p></td>
+		<td><p>Name of the Process variable where to get an Assembly Order. 
+		 The Assembly Order defines the Assembly Steps to search.</p></td>
+	</tr>
+	<tr>
+		<td><p>PropertyName</p></td>
+		<td><p>Name of the Assembly Step property to get the value of.</p></td>
+	</tr>
+	<tr>
+		<td><p>OutputVariableName</p></td>
+		<td><p>Name of the Process variable to use for storing the result. 
+		 If an existing variable is used, the data type needs to match 
+		 the type of the Assembly Step property. A new Process variable 
+		 of the correct type is created automatically if one doesn’t exist. 
+		 </p></td>
+	</tr>
+</table>
+</body>
+</html>

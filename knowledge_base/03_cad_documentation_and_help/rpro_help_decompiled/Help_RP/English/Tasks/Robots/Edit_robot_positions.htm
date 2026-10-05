@@ -1,0 +1,51 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="robot position,edit,touch up">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Editing robot positions</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</style>
+</head>
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Edit Robot Positions</h1>
+<p>The location of linear and point-to-point robot positions in a program can be edited using the Move and Jog commands and other tools.</p>
+<ol>
+<li class="Ordered">Click the <span class="Strong">Program</span> tab, and then do one or more of the following:
+<ul class="hcp1">
+<li class="Unordered">In the 3D world, select the robot positions you want to edit. For example, you can use the Free-form selection command to draw a selection path around visible robot positions. A robot position is visible if it references a base frame and tool frame in a robot and the global Frame Visibility setting for robot positions is turned on in 3D world.</li>
+<li class="Unordered">In the <span class="Strong">Program Editor</span> panel, select the statement of a robot position that you want to edit.</li>
+</ul>
+</li>
+<li class="Ordered">On the <span class="Strong">Program</span> tab, in the <span class="Strong">Manipulation</span> group, do one of the following:
+<ul class="hcp1">
+<li class="Unordered">To edit the location of one or more robot positions, click <span class="Strong">Move</span>. This does not allow you to interact with robot joints. That is, you would need to manually edit any external joint values for a robot position in the Properties panel.</li>
+<li class="Unordered">To edit the location and joint values of a robot position, click <span class="Strong">Jog</span>.</li>
+</ul>
+</li>
+<li class="Ordered">Do one or more of the following:
+<ul class="hcp1">
+<li class="Unordered">To snap a robot position to a location in the 3D world, on the <span class="Strong">Program</span> tab, in the <span class="Strong">Tools</span> group, click <span class="Strong">Snap</span>, and then snap the selected position as you would a component.</li>
+<li class="Ordered">If you enabled the Move command, use the <span class="Strong">manipulator</span> and/or the <span class="Strong">Properties</span> panel to move the selected position as you would a component. In this case, the Object and Parent coordinate systems can be used to edit the location of a robot position relative to itself and its parent, for example a robot position in relation to its base coordinate system.</li>
+<li class="Ordered">If you enabled the Jog command, use the <span class="Strong">manipulator</span> and/or the <span class="Strong">Jog</span> panel to edit the configuration of the robot, and then do one of the following:</li>
+<li style="list-style: none; display: inline;">
+<ul class="hcp1">
+<li class="Ordered">To update the selected statement, in the <span class="Strong">Program Editor</span> panel, <span class="Strong">Statements</span> toolbar, click <span class="Strong">Touch Up</span>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</body>
+</html>

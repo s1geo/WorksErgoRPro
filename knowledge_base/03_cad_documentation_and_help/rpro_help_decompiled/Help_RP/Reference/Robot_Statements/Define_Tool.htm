@@ -1,0 +1,61 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="set tool,robot statement,tool frame">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Define Tool</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Define Tool</h1>
+<p>A Define Tool statement changes the properties of a tool frame in robot during a simulation. When you reset a simulation, the tool frame returns to its initial position.</p>
+<p><img src="../../English/Links/DefineToolStatement.png" alt="" style="border: none;" border="0"></p>
+<p><span class="Strong">Note:</span> A tool frame can be used as a tool center point (tcp) for motion statements. Moving a tool frame would alter the position of robot at the endpoint of motion statements. Generally, a Define Tool statement is used in robot programs involving mounted tool changes, welding, machine tending, and external configurations with static tool center points.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Tool</td>
+<td>Defines the tool frame of robot controller altered by statement.
+<p class="TableNormal"><span class="Strong">Note:</span> You cannot use a Define Tool statement to alter a tool frame in a different robot.</p>
+</td>
+</tr>
+<tr>
+<td>IsRelative</td>
+<td>Defines if Position is based in tool frame coordinate system or its parent coordinate system.
+<p class="TableNormal"><span class="Term">True</span> uses tool frame coordinate system, so frame will be moved relative to its location at the time of statement execution.</p>
+<p class="TableNormal"><span class="Term">False</span> uses the parent coordinate system of tool frame defined in Node, so frame will be moved to an absolute location.</p>
+</td>
+</tr>
+<tr>
+<td>Position</td>
+<td>
+<p>Defines the position and orientation of Tool.</p>
+</td>
+</tr>
+<tr>
+<td>IPOMode</td>
+<td>Defines the interpolation mode of the frame and the external configuration of a referencing robot controller.
+<p class="TableNormal"><span class="Term">#NONE</span> has no effect and is the default setting.</p>
+<p class="TableNormal"><span class="Term">#BASE</span> sets the tool frame to act as a base coordinate system.</p>
+<p class="TableNormal"><span class="Term">#TCP</span> sets the tool frame to act as a tool center point.</p>
+<p class="TableNormal"><span class="Strong">Note:</span> A conflict can occur if a base-tool pair in a referencing robot have the same IPOMode property value or cannot be used with the current configuration of robot.</p>
+</td>
+</tr>
+<tr>
+<td>Node</td>
+<td>Defines the node the tool frame is attached to in 3D world.</td>
+</tr>
+</table>
+</body>
+</html>

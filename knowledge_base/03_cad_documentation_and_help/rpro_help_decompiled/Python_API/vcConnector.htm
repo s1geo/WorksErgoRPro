@@ -1,0 +1,131 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcConnector</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcConnector</h1>
+<p>vcConnector allows you to establish connections between behaviors in order to transfer components. For example, flow type behaviors may have any number of connections (ports/connectors) to manage the receiving and sending of components.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot44132" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot44132', 'MTPOPUP44132');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP44132" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Behaviour</td>
+<td><span><a href="vcBehaviour.htm">vcBehaviour</a></span></td>
+<td>R</td>
+<td>Gets the behavior that the connector is connected to in a component.
+<p class="TableNormal">If no connection, the value is None.</p>
+</td>
+</tr>
+<tr>
+<td>CapacityTest</td>
+<td><span>Enumeration</span></td>
+<td>RW</td>
+<td>Define the mode for testing capacity before transferring a component to an outgoing connection.
+<p class="TableNormal">See <a href="Constants.htm#Connector_Constants">Connector Constants</a> for more information.</p>
+</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td><span><a href="vcConnector.htm">vcConnector</a></span></td>
+<td>RW</td>
+<td>Defines connector that the connector is connected to in a component.
+<p class="TableNormal">If no connection, the value is None.</p>
+</td>
+</tr>
+<tr>
+<td>Index</td>
+<td><span>Integer</span></td>
+<td>R</td>
+<td>Gets the position of the connector in its behavior's list of connectors.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines the name of connector.</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Defines the connector's type. That is, whether the connector is an Input, Output or Input/Output type port.
+<p class="TableNormal">See <a href="Constants.htm#Connector_Constants">Connector Constants</a> for more information.</p>
+</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>connect</td>
+<td>None</td>
+<td>[<a href="vcConnector.htm">vcConnector</a> <span class="Italic">connector</span>]</td>
+<td>Connects the connector to a given <span class="Italic">connector</span>.
+<p class="TableNormal">If no argument is given, this method will remove all connections of the connector.</p>
+</td>
+</tr>
+<tr>
+<td>testCapacity</td>
+<td>Boolean</td>
+<td>None</td>
+<td>Tests the capacity of connector's behavior.
+<p class="TableNormal">Returns True if not at capacity; otherwise returns False if at full capacity. If the behavior of a connector does not have physical capacity, for example Component Flow Proxy, returns None.</p>
+</td>
+</tr>
+<tr>
+<td>testConnectedCapacity</td>
+<td>Boolean</td>
+<td>None</td>
+<td>Tests the capacity of behavior connected to the connector.
+<p class="TableNormal">Returns True if not at capacity; otherwise returns False if at full capacity. If the behavior of a connector does not have physical capacity, for example Component Flow Proxy, returns None.</p>
+</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Access and connect the connectors of paths</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td>def OnRun(): <br>&#160;&#160;comp = getComponent() <br>&#160;&#160;path1 = comp.findBehaviour('InPath') <br>&#160;&#160;path2 = comp.findBehaviour('OutPath') <br>&#160; <br>#option 1: access connector <br>&#160;&#160;outConnector = path1.getConnector('Output') <br>&#160; <br>#option 2: access connector <br>&#160;&#160;inConnector = path2.Connectors[0] <br>&#160;&#160;outConnector.connect( inConnector )</td>
+</tr>
+</table>
+</body>
+</html>

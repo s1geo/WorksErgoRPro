@@ -1,0 +1,52 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="physics,collider,collision">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Colliders in physics world</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Colliders in Physics World</h1>
+<p>Colliders are objects that can react to physical objects during a simulation. Each collider is a shell that encompasses the geometry of a feature in a component. Every feature, including the root feature of a node, has its own Collider property.</p>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Undefined</td>
+<td>The collider is not defined for the feature.</td>
+</tr>
+<tr>
+<td>#None</td>
+<td>The collider is disabled and not created for the feature.</td>
+</tr>
+<tr>
+<td>#Box</td>
+<td>The collider is active and its shape is the bounding box of the feature.</td>
+</tr>
+<tr>
+<td>#Boxes</td>
+<td>The collider is active and its shape is a set of bounding boxes for each geometry set in the feature and its subfeature tree.
+<p class="TableNormal">Generally, this mode is only available in the root feature of a node.</p>
+</td>
+</tr>
+<tr>
+<td>#Precise</td>
+<td>The collider is active and its shape is a triangular mesh encompassing the feature.</td>
+</tr>
+</table>
+<p>The root feature of a node can be used to override or force the inheritance of a collider in all features of that node. In any case, a node must be a physical object in order for its colliders to work during a simulation. That is, a node must have at least one Physics Entity behavior which defines the node's physical properties.</p>
+<p><span class="Strong">Note:</span> If a node does not have a Physics Entity behavior and a collider is set to a mode other than Undefined or #None, a Physics Entity behavior will be automatically created in that node.</p>
+</body>
+</html>

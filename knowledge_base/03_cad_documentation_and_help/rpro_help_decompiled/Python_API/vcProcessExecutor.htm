@@ -1,0 +1,149 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProcessExecutor</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcProcessExecutor</h1>
+<p>Process executor is a behavior that holds and runs process routines 
+ (<a href="vcProcessRoutine.htm">vcProcessRoutine</a>). Each process routine 
+ is an implementation of a process. The execution order of the process 
+ routines is controlled by the parent process controller (<a href="vcProcessController.htm">vcProcessController</a>).</p>
+<p><span class="Strong">Inherits:</span> <a href="vcExecutor.htm">vcExecutor</a>, 
+ <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<p>Type constant: VC_PROCESSEXECUTOR </p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot14823" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot14823', 'MTPOPUP14823');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP14823" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ProcessController</td>
+		<td><a href="vcProcessController.htm">vcProcessController</a></td>
+		<td>R</td>
+		<td>Gets the associated process controller.</td>
+	</tr>
+	<tr>
+		<td>Processes </td>
+		<td>List of <a href="vcProcessRoutine.htm">vcProcessRoutine</a></td>
+		<td>R</td>
+		<td><p>Gets all process routines in this executor. </p>
+		<p>Returns None if the executor does not have a program.</p></td>
+	</tr>
+	<tr>
+		<td>TransportNode </td>
+		<td><a href="vcTransportNode.htm">vcTransportNode</a> </td>
+		<td>RW</td>
+		<td><p>Gets the associated transport node that this executor’s 
+		 processes use to receive and send product instances.</p>
+		<p>Setting this property also sets the ProcessExecutor property 
+		 on the new transport node, and clears the property from the old 
+		 transport node, if there was one.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addProcess </td>
+		<td><a href="vcProcessRoutine.htm">vcProcessRoutine</a></td>
+		<td>String <span class="hcp1">name</span> </td>
+		<td><p>Creates a new process routine and adds it to this executor’s 
+		 program.</p>
+		<p>The routine <span class="hcp1">name</span> has 
+		 to be unique within this executor’s program. </p>
+		<p>Returns None if the executor doesn’t have a program.</p></td>
+	</tr>
+	<tr>
+		<td>deleteProcess </td>
+		<td>None</td>
+		<td><span class="hcp1"><a href="vcProcessRoutine.htm" 
+												 style="font-style: normal;">vcProcessRoutine</a> 
+		 routine</span> </td>
+		<td>Removes the given <span class="hcp1">routine</span> 
+		 from this executor’s program and deletes it.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p class="Example"><span class="Example">Example. Changing process statement 
+ properties dynamically (runtime) based on connected flow groups</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td># a script in &quot;Process Node&quot; component 
+		<br>from vcScript import * 
+		<br># get the first process executor (vcProcessExecutor) in the component 
+		<br>proc_executor = getComponent().findBehavioursByType(VC_PROCESSEXECUTOR)[0] 
+		<br>def OnStart(): 
+		<br>&#160;&#160;global group_index_iter 
+		<br>&#160;&#160;global first_process_name 
+		<br>&#160;&#160;global groups 
+		<br>&#160;&#160;# use this iterator as the index for selecting flow group 
+		<br>&#160;&#160;group_index_iter = 0 
+		<br>&#160;&#160;# get the name of the first process (vcProcessRoutine) 
+		<br>&#160;&#160;first_process_name = proc_executor.Processes[0].Name 
+		<br>&#160;&#160;# collect all flow groups (vcProcessFlowGroup) that have an incoming link to the process 
+		<br>&#160;&#160;# to a global list 
+		<br>&#160;&#160;groups = [] 
+		<br>&#160;&#160;transport_node = proc_executor.TransportNode 
+		<br>&#160;&#160;for link in transport_node.TransportLinks: 
+		<br>&#160;&#160;&#160;&#160;if link.Destination == transport_node: 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;groups.append(link.SupportedGroup) 
+		<br>def statement_changed(stmt, is_immediate): 
+		<br>&#160;&#160;global group_index_iter 
+		<br>&#160;&#160;if stmt.Type == VC_STATEMENT_TRANSPORTIN and stmt.ParentRoutine.Name == first_process_name: 
+		<br>&#160;&#160;&#160;&#160;# set statement properties: accept only from the connected flow groups, one-by-one 
+		<br>&#160;&#160;&#160;&#160;stmt.AcceptAllProductTypes = False 
+		<br>&#160;&#160;&#160;&#160;flow_group = groups[group_index_iter] # select next flow group from the list 
+		<br>&#160;&#160;&#160;&#160;stmt.AcceptedFlowGroups = [flow_group] 
+		<br>&#160;&#160;&#160;&#160;group_index_iter += 1 
+		<br>&#160;&#160;&#160;&#160;if group_index_iter == len(groups): 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;group_index_iter = 0 # reset iterator 
+		<br># this event is raised just before executing any statement in any process belonging to the executor 
+		<br>proc_executor.OnPreExecuteStatement = statement_changed</td>
+	</tr>
+</table>
+</body>
+</html>

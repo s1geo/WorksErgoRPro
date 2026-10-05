@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Joints in physics world</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content=physics,joint,d6,node>
+<META name=generator content="Adobe RoboHelp 2017"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css"></HEAD>
+<BODY>
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+
+<H1>Joints in Physics World</H1>
+<P>R-Pro 2.1 supports the use of D6 joints which are implemented as a Physics 
+Joint behavior. These types of joints can have custom definitions and support 
+multiple degrees of freedom.</P>
+<OL>
+  <LI class=Ordered>In the 3D world, select a component. 
+  <LI class=Ordered>On the <SPAN class=Strong>Modeling</SPAN> tab, in the <SPAN 
+  class=Strong>Component Graph</SPAN> panel, <SPAN class=Strong>Component Node 
+  Tree</SPAN>, select the node that you want to contain the Physics Joint. This 
+  is important since the node's offset directly impacts the effects of a Physics 
+  Joint. 
+  <LI class=Ordered>On the <SPAN class=Strong>Modeling</SPAN> tab, in the <SPAN 
+  class=Strong>Behavior</SPAN> group, click the <SPAN 
+  class=Strong>Behavior</SPAN> arrow, and then under <SPAN 
+  class=Strong>Physics</SPAN>, click <SPAN class=Strong>Joint</SPAN>. </LI></OL>
+<P>The properties of the Physics Joint define the effects of physics on the 
+joint and its impact on the component's kinematic structure.</P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Attached to</TD>
+    <TD>Defines the node that joint is attached to in component. 
+      <P class=TableNormal>In some cases, this would be the parent of the node 
+      containing the joint. For example, a Physics Joint in the node of the 
+      second axis for a robot could be attached to the node of the first 
+      axis.</P>
+      <P class=TableNormal>In other cases, your joint definition will determine 
+      which node joint should attach itself to in a component.</P></TD></TR>
+  <TR>
+    <TD>Constraints</TD>
+    <TD>A set of properties for customizing the joint. That is, constraints 
+      for translations and rotations in the axes of a coordinate system. 
+      <P class=TableNormal>Each property can be assigned its own constraint.</P>
+      <P class=TableNormal><SPAN class=Term>#Free</SPAN><BR>Does not constrain 
+      movement.</P>
+      <P class=TableNormal><SPAN class=Term>#Limited</SPAN><BR>Attempts to limit 
+      movement.</P>
+      <P class=TableNormal><SPAN class=Term>#Locked</SPAN><BR>Attempts to 
+      restrict all movement.</P></TD></TR>
+  <TR>
+    <TD>Breakage</TD>
+    <TD>A set of properties for defining the integrity of joint.</TD></TR>
+  <TR>
+    <TD>Drive Settings</TD>
+    <TD>A set of advanced properties for customizing the physics of joint and 
+      its degrees of freedom.</TD></TR></TBODY></TABLE></BODY></HTML>

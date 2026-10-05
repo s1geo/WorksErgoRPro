@@ -1,0 +1,200 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="properties panel">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Properties</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Properties</h1>
+<p>The Properties panel allows you to edit the properties of a selected 
+ object.</p>
+<p><img src="../../Links/PropertiesPanelVCEN.png" alt="" border="0" class="hcp1"></p>
+<table id="callouts" cellspacing="0">
+	<col>
+	<col>
+	<tr>
+		<td>1.</td>
+		<td>Position Values</td>
+	</tr>
+	<tr>
+		<td>2.</td>
+		<td>Orientation Values</td>
+	</tr>
+	<tr>
+		<td>3.</td>
+		<td>Property Tabs</td>
+	</tr>
+	<tr>
+		<td>4.</td>
+		<td>Property</td>
+	</tr>
+	<tr>
+		<td>5.</td>
+		<td>Property Section</td>
+	</tr>
+	<tr>
+		<td>6.</td>
+		<td>Name of Object</td>
+	</tr>
+	<tr>
+		<td>7.</td>
+		<td>Coordinate System</td>
+	</tr>
+	<tr>
+		<td>8.</td>
+		<td>Lock Editing</td>
+	</tr>
+</table>
+<p>&#160;</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot12327" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot12327', 'MTPOPUP12327');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP12327" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Context</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Coordinate System</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Common Properties</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Context</h2>
+<p>In some cases, the name of the Properties panel might be prefixed to 
+ indicate the object type of the current selection.</p>
+<p><img src="../../Links/PropertiesContextNameVC.png" alt="" border="0" class="hcp1"></p>
+<h2><a name="MiniTOCBookMark3"></a>Coordinate System</h2>
+<p>The position and orientation of an object is based on the active coordinate 
+ system in the scene.</p>
+<p><img src="../../Links/PropertiesCoordinateSystemVCEN.png" alt="" border="0" class="hcp1"></p>
+<p>The position of an object is defined in XYZ coordinate axes. Each axis 
+ button can be clicked to reset its value to zero or edited directly by 
+ clicking its field.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>World</td>
+		<td>Global coordinate system with fixed origin. Use this for global 
+		 positioning of selected object in 3D world and drawing world.</td>
+	</tr>
+	<tr>
+		<td>Parent</td>
+		<td>Coordinate system of an object that the selected object is 
+		 attached to in a scene. The parent-child relationship of a selected 
+		 object determines its parent coordinate system. An object can 
+		 only have one parent. 
+		<p class="TableNormal"><span class="Strong">Note:</span> By default, 
+		 components are attached to the 3D world, thereby World and Parent 
+		 coordinate systems are the same. A component can be attached to 
+		 a node of another component, thereby the location of that component 
+		 can be determined relative to its parent node origin. This means 
+		 when the parent node moves, the child components move with it 
+		 to maintain their relative location to the parent origin.</p></td>
+	</tr>
+	<tr>
+		<td>Object</td>
+		<td>Coordinate system of a selected object with an origin relative 
+		 to its current state. That is, a selected object can be moved 
+		 relative to its current location.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Common Properties</h2>
+<p>When two or more objects are selected, the Properties panel will display 
+ the selection count, the location of the last selected object, and properties 
+ that are common in all selected objects. This allows you to edit the properties 
+ of multiple objects.</p>
+<p><img src="../../Links/PropertiesSharedVCEN.png" alt="" border="0" class="hcp1"></p>
+<p>A property field is marked <span class="Term">&lt;multiple values&gt;</span> 
+ to indicate that the property has a different value in one or more selected 
+ objects. In this case, the property may or may not need to have a unique 
+ value. For example, components must have unique names, so you should avoid 
+ editing the Name property.</p>
+<p>Every component has a set of common properties that are created with 
+ the component at the time of creation.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Name of component.</td>
+	</tr>
+	<tr>
+		<td>Material</td>
+		<td>Material of the component and any of its child nodes and features 
+		 which do not have an assigned material.</td>
+	</tr>
+	<tr>
+		<td>Visible</td>
+		<td>Turns on/off the visibility of the component.</td>
+	</tr>
+	<tr>
+		<td>PDF ExportLevel</td>
+		<td>Defines how the geometry of the component is exported to a 
+		 3D PDF file.</td>
+	</tr>
+	<tr>
+		<td>BOM</td>
+		<td>Turns on/off the inclusion of the component in a bill of materials 
+		 table.</td>
+	</tr>
+	<tr>
+		<td>BOMname</td>
+		<td>Defines the name of the component in a bill of materials table.</td>
+	</tr>
+	<tr>
+		<td>BOMdescription</td>
+		<td>Defines the description of the component in a bill of materials 
+		 table.</td>
+	</tr>
+	<tr>
+		<td>Category</td>
+		<td>Defines the Type metadata property of the component.</td>
+	</tr>
+	<tr>
+		<td>Simulation Level</td>
+		<td>Indicates the accuracy setting for simulating component movements. 
+		 
+		<p class="TableNormal"><span class="Term">Default</span><br>
+		Accuracy is defined by simulation.</p>
+		<p class="TableNormal"><span class="Term">Detailed</span><br>
+		Simulates component movements as accurate as possible, thereby 
+		 simulating full range of motion for component.</p>
+		<p class="TableNormal"><span class="Term">Balanced</span><br>
+		Simulates component movements in a way that is balanced with performance 
+		 of simulation, thereby component may move from point to point 
+		 without simulating unnecessary joint motions.</p>
+		<p class="TableNormal"><span class="Term">Fast</span><br>
+		Simulates component movements as quickly as possible, thereby component 
+		 may snap to joint configuration or jump from point to point.</p></td>
+	</tr>
+	<tr>
+		<td>BackfaceMode</td>
+		<td>Defines how the geometry of component not facing the 3D world 
+		 camera is rendered in a scene.</td>
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,82 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="tool container,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Tool Container</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Tool Container</h1>
+<p>A Tool Container is a container of Frame features used as tool frames. 
+ Frames in Tool Container are listed with the behavior in the Component 
+ Graph panel and managed using a Tools element.</p>
+<p><img src="../../../English/Links/ToolContainer.png" alt="" border="0" class="hcp1"></p>
+<p>Frames in a Tool Container are listed with the behavior in the Component 
+ Graph panel and managed using a Tools element.</p>
+<p><img src="../../../English/Links/ToolContainerFrames.png" alt="" border="0" class="hcp1"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the container.</td>
+	</tr>
+</table>
+<h3>Tool Frame</h3>
+<p>A Frame feature used as a tool frame or tool center point (TCP) has 
+ its own set of properties related to robotics.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the tool frame.</td>
+	</tr>
+	<tr>
+		<td>Transform</td>
+		<td>Defines an expression for transforming the tool frame, for 
+		 example its position.</td>
+	</tr>
+	<tr>
+		<td>Node</td>
+		<td>Defines the node the tool frame is attached to in 3D world. 
+		 In some cases, this might be the mount plate of a robot, a node 
+		 in another component used as an external tool, or NULL meaning 
+		 the frame refers to the node of its container.</td>
+	</tr>
+	<tr>
+		<td>InterpolationMode</td>
+		<td>Defines how the tool frame is used when interpolating robot 
+		 positions. Generally, a tool frame is used as a tool center point 
+		 or TCP of a robot. However, the tool frame can act like a base 
+		 frame or robot coordinate system. One example is a stationary 
+		 TCP where a robot moves around in 3D world. In that example, you 
+		 might want a robot position to inherit the orientation of the 
+		 tool frame or base frame.</td>
+	</tr>
+</table>
+</body>
+</html>

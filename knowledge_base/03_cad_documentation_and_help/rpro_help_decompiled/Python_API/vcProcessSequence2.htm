@@ -1,0 +1,85 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProcessSequence2</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+ol.hcp1 { list-style:decimal; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcProcessSequence2</h1>
+<p>In the image below, outlined in green is the vcProcessSequence2. There's 
+ one for each FlowGroup, and it contains a sequence of steps. Outlined 
+ In blue are two vcProcessFlowStep (out of 7). They may contain ProcessGroups 
+ (those A,B,C,D,...) and different modes of operation (First available 
+ process, All processes in any order). These modes affect how single products 
+ move through the flow (they may skip optional steps, ...). </p>
+<h2><img src="Images/PM_Flow/vcProcessSequence2.png" alt="" style="border: none;" border="0"> </h2>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Data type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>FlowSteps</td>
+		<td><a href="vcObservableList_T_.htm">vcObservableList</a> &lt;ProcessFlowStep&gt;</td>
+		<td>R</td>
+		<td>List of FlowSteps</td>
+	</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getNextProcessOptions</td>
+		<td><a href="vcFeedOptionFlowInfo.htm">vcFeedOptionFlowInfo</a>[]</td>
+		<td><ol class="hcp1">
+			<li>(<a href="vcNextProcessFlowInfo.htm">vcNextProcessFlowInfo</a> 
+			 next) </li>
+			<li>(<a href="vcNextProcessFlowInfo.htm">vcNextProcessFlowInfo</a> 
+			 next, <a href="vcProduct.htm">vcProduct</a> product) </li>
+		</ol></td>
+		<td>Returns a list of possible FlowInfo options in priority order 
+		 given the inputs. <br>
+		<br>
+		
+		<ol class="hcp1">
+			<li>Includes ProcessGroups from next non-optional steps, starting 
+			 from `next`, and all optional steps in between. </li>
+			<li>Same as (1), but takes product’s history in account, to 
+			 include <span lang="EN-US" xml:lang="EN-US" style="font-size: 10.5pt; 
+							 line-height: 107%; font-family: 'Segoe UI', sans-serif; 
+							 mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; 
+							 color: #242424; background: #ffffff; mso-ansi-language: EN-US; 
+							 mso-fareast-language: EN-US; mso-bidi-language: AR-SA;">All 
+			 processes in any order</span> steps. </li>
+		</ol></td>
+	</tr>
+</table>
+</body>
+</html>

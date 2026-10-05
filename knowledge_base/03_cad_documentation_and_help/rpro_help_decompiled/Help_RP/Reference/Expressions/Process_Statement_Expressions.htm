@@ -1,0 +1,114 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Process Statements</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-weight:bold; }
+img.hcp2 { border:none; }
+-->
+</style>
+</head>
+
+<body><a name="642b3b9347ca42c9b00b820c00c373fa=1"></a>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Process Statement Expressions</h1>
+<p>When writing expressions for process statements, you can access properties 
+ of dynamic component objects and elements of lists.</p>
+<h2>Member access</h2>
+<p>You can use dot notation (.) to get the value of a <span class="hcp1">Product</span>, 
+ <span class="hcp1">ProductType</span>, <span class="hcp1">Component</span> 
+ or <span class="hcp1">Group</span> property. </p>
+<p><img src="../../English/Links/ReferenceExpressionsProcessStatements1.png" alt="" border="0" class="hcp2"></p>
+<p>The syntax for Product Type Variables is</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>&lt;VariableName&gt;.&lt;PropertyName&gt; 
+		<br>&lt;VariableName&gt;.ProductType.&lt;PropertyName&gt; 
+		<br>&lt;VariableName&gt;.Component.&lt;PropertyName&gt; 
+		<br>&lt;VariableName&gt;.ProductType.Group.&lt;PropertyName&gt;</td>
+	</tr>
+</table>
+<p>The syntax for FlowInfo Variables is</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>&lt;FlowInfo&gt;.ForceFlowStep (boolean) 
+		<br>&lt;FlowInfo&gt;.ForceProcessGroup (boolean) 
+		<br>&lt;FlowInfo&gt;.Group.&lt;PropertyName&gt; 
+		<br>&lt;FlowInfo&gt;.FlowStep.&lt;PropertyName&gt; 
+		<br>&lt;FlowInfo&gt;.&lt;dynamic property&gt; 
+		<br>&lt;FlowInfo&gt;.ProcessId (string) </td>
+	</tr>
+</table>
+<p><a name="Process_Statements_syntax_for_accessing_Assemblies">The syntax 
+ for accessing Assemblies is</a></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>&lt;VariableName&gt;.Assembly &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 
+		<br>&#160; 
+		<br>&lt;Assembly&gt;.FirstEmptySlot 
+		<br>&lt;Assembly&gt;.LastOccupiedSlot 
+		<br>&lt;Assembly&gt;.Slots &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;list of slots 
+		<br>&#160; 
+		<br>&lt;AssemblySlot&gt;.State &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;integer corresponding to the enum value 
+		<br>&lt;AssemblySlot&gt;.AssignedProduct &#160;&#160;&#160;&#160;&#160;&#160;assigned product instance or null 
+		<br>&lt;AssemblySlot&gt;.DefiningStep &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;AssemblyStep instance that defines this slot 
+		<br>&lt;AssemblySlot&gt;.DefiningSlot &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;AssemblyPatternSlot instance that defines this slot 
+		<br>&#160; 
+		<br>&lt;AssemblyStep&gt;.Name 
+		<br>&lt;AssemblyStep&gt;.Pattern 
+		<br>&lt;AssemblyStep&gt;.RelativePosition 
+		<br>&lt;AssemblyStep&gt;.Parent&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Parent step 
+		<br>&lt;AssemblyStep&gt;.ChildSteps &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;list of child steps 
+		<br>&#160; 
+		<br>&lt;AssemblyPatternSlot&gt;.OrderIndex 
+		<br>&lt;AssemblyPatternSlot&gt;.Position 
+		<br>&lt;AssemblyPatternSlot&gt;.Pattern &#160;&#160;&#160;&#160;&#160;&#160;&#160;owning assembly pattern instance 
+		<br>&lt;AssemblyPatternSlot&gt;.Item &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;assembly pattern item to create 
+		<br>&lt;AssemblyPatternItem&gt;. &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Varspace properties vary depending on actual subclass 
+		<br>&#160; 
+		<br>&lt;AssemblyPattern&gt;.Name 
+		<br>&lt;AssemblyPattern&gt;.Slots &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;list of pattern slots</td>
+	</tr>
+</table>
+<h2><a name="Process_Statement_Methods">Methods</a></h2>
+<p>The syntax is</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>&lt;VariableListName&gt;.length() &#160;&#160;&#160;&#160;&#160;Returns the length of the list as integer. 
+		<br>&#160;</td>
+	</tr>
+</table>
+<h2>Subscript operator</h2>
+<p>You can also use square brackets to access an element of a list. </p>
+<p><img src="../../English/Links/ReferenceExpressionsProcessStatements2.png" alt="" border="0" class="hcp2"></p>
+<p>When writing strings in expressions, use quotation marks e.g. &quot;string&quot;.</p>
+<p><img src="../../English/Links/ReferenceExpressionsProcessStatements3.png" alt="" border="0" class="hcp2"></p>
+<h2>Other</h2>
+<p><span lang="EN-US" xml:lang="EN-US">To access current simulation time, 
+ the internal function <i>SimTime()</i> can be used inside expressions.</span></p>
+<h2>Supported Tasks</h2>
+<p><span lang="EN-US" xml:lang="EN-US">Accessing properties with dot notations 
+ and list elements with brackets in expressions are supported with the 
+ following statements:</span></p>
+<ul style="list-style: disc;">
+	
+	
+	<li>If</li>
+	<li>Print</li>
+	<li>Switch Case</li>
+	<li>Wait Property Condition</li>
+	<li>While</li>
+</ul>
+</body>
+</html>

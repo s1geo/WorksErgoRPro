@@ -1,0 +1,77 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Get Products</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Get Products</h1>
+<p>Gets references to Product Instances from a component container and 
+ stores them to a Process Variable.</p>
+<p>Only Product Instances that match the Product Type filter are returned, 
+ and the maximum number matching of Product Instances to return can be 
+ limited using the MaxCount property.</p>
+<p>Note that this statement simply returns references to the Product Instances 
+ that match the filter criteria. Special care must be taken to avoid duplicate 
+ references to the same Product Instances, or other logic also manipulating 
+ the Product Instances in parallel with your Process.</p>
+<p>For example, you could accidentally retain references to Product Instances 
+ after they have moved out of the container or even to another Process. 
+ Manipulating the same Product Instances in parallel from different Processes 
+ or with other logic in parallel to Process statements is generally not 
+ supported and can result in unexpected behavior.</p>
+<p><img src="../../English/Links/ReferenceProcessStatementsGetProducts.png" alt="" style="border: none;" border="0"> <br>
+<span class="italic">Figure 1. An example Process that waits for external 
+ logic to place Product Instances to a component container and trigger 
+ a signal. Then it gets references to Product Instances that belong to 
+ a specific Process Flow Group to a Process variable “ProductIn”. Finally, 
+ it transports the products out to their next Processes</span></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><p>Container</p></td>
+		<td><p>Component container to read the Product Instances from.</p></td>
+	</tr>
+	<tr>
+		<td><p>AcceptAllProductTypes </p></td>
+		<td><p>When selected, any Product Instance will do.</p></td>
+	</tr>
+	<tr>
+		<td><p>AcceptedProductTypes</p></td>
+		<td><p>Product Instance of any of these types will be accepted.</p></td>
+	</tr>
+	<tr>
+		<td><p>AcceptedFlowGroups</p></td>
+		<td><p>Product Instance of type belonging to any of these groups 
+		 will be accepted.</p></td>
+	</tr>
+	<tr>
+		<td><p>MaxCount</p></td>
+		<td><p>An expression for maximum number of Product Instances to 
+		 return. Must evaluate to an Integer value. Leaving the expression 
+		 empty and evaluated negative values mean no limit.</p></td>
+	</tr>
+	<tr>
+		<td><p>VariableName</p></td>
+		<td><p>Name of the Process variable to use for storing the result. 
+		 If the variable exists with correct type already, it is made into 
+		 a list of Product Instances and the references are appended to 
+		 it. The variable is created as a list of Product Instances if 
+		 it does not exist already, even if it will be empty.</p></td>
+	</tr>
+</table>
+</body>
+</html>

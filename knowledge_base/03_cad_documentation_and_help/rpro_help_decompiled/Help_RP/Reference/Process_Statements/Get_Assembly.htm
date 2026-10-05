@@ -1,0 +1,132 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Get Assembly</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Get Assembly</h1>
+<p>Creates an Assembly Order object that defines a subset of an assembly, 
+ which can be passed to other statements to perform statement-specific 
+ actions to the selected Assembly Steps. All Assembly Steps are owned by 
+ an Assembly Product Type, so an Assembly Order always specifies a single 
+ Assembly Product Type as well. <br>
+</p>
+<p>AssemblyDataSource <span class="Term">Assembly Product Type</span>:<br>
+The Assembly Order, including the Assembly Product Type and Assembly Step 
+ selection, can stay the same through the simulation run and be reused. 
+ The Assembly Steps can be freely selected from the chosen Assembly Product 
+ Type.</p>
+<p><img src="../../English/Links/ReferenceProcessStatementsGetAssembly1.png" alt="" border="0" class="hcp1"><br>
+<span class="italic">Figure 1. An example Process where Assembly Steps 
+ are selected into an Assembly Order, a new Assembly Instance is created 
+ and the selected Assembly Steps filled by a TransportIn statement. Finally, 
+ the created Assembly Instance is transported out to its next Process.</span><br>
+</p>
+<p>AssemblyDataSource <span class="Term">Assembly Instance</span>:<br>
+This mode should be chosen if a process needs to handle changing types 
+ of Assembly Instances or if the Assembly Instances have different states 
+ of completion when they arrive. The mode allows a generic selection of 
+ a single Assembly Step using few different rules. Use this mode, for example, 
+ to fully assemble or disassemble any Assembly Instance by using a loop 
+ or to make a generic Process implementation that advances the work on 
+ the Assembly Instance by one step and then passes it forward. </p>
+<p><img src="../../English/Links/ReferenceProcessStatementsGetAssembly2.png" alt="" border="0" class="hcp1"><br>
+<span class="italic">Figure 2. An example Process where an Assembly Instance 
+ is transported in, the next incomplete Assembly Step retrieved from it, 
+ then that Assembly Step is filled by TransportIn. Finally, the Assembly 
+ Instance is transported out to its next Process.</span><br>
+</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><p>AssemblyDataSource</p></td>
+		<td><p>Input mode defining which properties should be used for 
+		 generating the output. <br>
+		<br>
+		<span class="Term">Assembly Instance</span><br>
+		Read the data from an Assembly Product Instance.<br>
+		<br>
+		<span class="Term">Assembly Product Type</span><br>
+		Read the data from an Assembly Product Type defined in the layout.</p></td>
+	</tr>
+	<tr>
+		<td><p>AssemblyVariableName</p></td>
+		<td><p>Name of the Process variable where to get the Assembly Instance.</p></td>
+	</tr>
+	<tr>
+		<td><p>AssemblyStep</p></td>
+		<td><p>Selection mode defining which step should be selected from 
+		 the Assembly Instance.<br>
+		<br>
+		<span class="Term">First incomplete step</span><br>
+		Select the first Assembly Step which has at least one of its slots 
+		 filled, but not all of them.<br>
+		<br>
+		<span class="Term">First empty step</span><br>
+		Select the first Assembly Step which has none of its slots filled.<br>
+		<br>
+		<span class="Term">First complete step</span><br>
+		Select the first Assembly Step which has all of its slots filled.<br>
+		<br>
+		<span class="Term">Last step with products</span><br>
+		Select the last Assembly Step which has at least one of its slots 
+		 filled. </p></td>
+	</tr>
+	<tr>
+		<td><p>Assembly</p></td>
+		<td><p>Assembly Product Type to use as data source and to select 
+		 the Assembly Steps from. </p></td>
+	</tr>
+	<tr>
+		<td><p>AssemblySteps</p></td>
+		<td><p>Assembly steps to include as “selected” in the Assembly 
+		 Order.</p></td>
+	</tr>
+	<tr>
+		<td><p>IncludeChildSteps</p></td>
+		<td><p>Whether all descendant steps of the selected Assembly Steps 
+		 should be also included.</p></td>
+	</tr>
+	<tr>
+		<td><p>ReturnAsList</p></td>
+		<td><p>When True, the statement outputs a list of Product Instance 
+		 references instead of creating an Assembly Order. This output 
+		 can be used to inspect or manipulate Product Instances that are 
+		 in an assembly without taking them out first. The list is created 
+		 in the correct assembling order of the Assembly Product Type.</p></td>
+	</tr>
+	<tr>
+		<td><p>InverseList</p></td>
+		<td><p>Defines whether the Product Instance list should be output 
+		 in reversed order, which is the disassembling order of the Assembly 
+		 Product Type. Applicable only when ReturnAsList is set to True. 
+		 </p></td>
+	</tr>
+	<tr>
+		<td><p>ReturnVariableName</p></td>
+		<td><p>Name of the Process variable to use for storing the result. 
+		 The type of the variable will be either an Assembly Order or a 
+		 list of Product Instances depending on the ReturnAsList selection. 
+		 </p></td>
+	</tr>
+</table>
+</body>
+</html>

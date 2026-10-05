@@ -1,0 +1,81 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcBaseContainer</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+<body>
+
+
+<h1 class="titlebox"><a name="MiniTOCBookMark1"></a>vcBaseContainer</h1>
+<p>vcBaseContainer is a container of Frame features used as base frames.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot30420" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot30420', 'MTPOPUP30420');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP30420" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Bases</td>
+<td>List of <a href="vcBaseFrame.htm">vcBaseFrame</a></td>
+<td>R</td>
+<td>Gets a list of all base frames in container.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>addBase</td>
+<td><a href="vcBaseFrame.htm">vcBaseFrame</a></td>
+<td>None</td>
+<td>Adds a new base frame to container.</td>
+</tr>
+<tr>
+<td>removeBase</td>
+<td>None</td>
+<td><a href="vcBaseFrame.htm">vcBaseFrame</a> <span class="Italic">base</span></td>
+<td>Deletes a given <span class="Italic">base</span> from container.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Create a Base Container behavior and base frames</span></p>
+<table class="CodeBlock" width="100%">
+<col>
+<tr>
+<td>from vcScript import * <br>&#160; <br>#create Base Container <br>comp = getComponent() <br>foo = comp.createBehaviour(VC_BASECONTAINER, 'Example') <br>&#160; <br>#create Base Frame <br>bar = comp.findBehaviour('Example') <br>bar.addBase()</td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,100 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="component creator,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Component Creator</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Component Creator</h1>
+<p>A Component Creator allows you to use a component as a template for 
+ creating new components during a simulation.</p>
+<p><img src="../../../English/Links/ComponentCreator.png" alt="" border="0" class="hcp1"></p>
+<p>The ports of a Component Creator are listed with the behavior in the 
+ Component Graph panel.</p>
+<p><img src="../../../English/Links/ComponentCreatorPorts.png" alt="" border="0" class="hcp1"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the creator.</td>
+	</tr>
+	<tr>
+		<td>Statistics</td>
+		<td>Defines the Statistics behavior that collects statistics generated 
+		 by the creator.</td>
+	</tr>
+	
+		
+	
+	
+		
+	
+	<tr>
+		<td>TransitionSignal</td>
+		<td>Defines a Boolean Signal to signal the arrival and departure 
+		 of a component in the creator. A True value signals the arrival 
+		 of a component. A False value signals the departure of a component.</td>
+	</tr>
+	
+		
+	
+	<tr>
+		<td>Interval</td>
+		<td>Defines an interval (in seconds) for creating the creator's 
+		 Part.</td>
+	</tr>
+	<tr>
+		<td>Limit</td>
+		<td>Defines the maximum amount of components the creator can generate 
+		 for its Part. You can set Limit to zero, and then use a Python 
+		 Script to manually control the creation of the creator's Part.</td>
+	</tr>
+	<tr>
+		<td>Part</td>
+		<td>Defines the component to use as a template for creating new 
+		 components. You can define a URI that points to a component file 
+		 or reference a component's VCID using the following syntax: 
+		<p class="TableNormal"><span class="Term">vcid:[the component's 
+		 vcid]</span>.</p></td>
+	</tr>
+	<tr>
+		<td>BlockingOptimization</td>
+		<td><p>Turns on/off the optimization of creator when making new 
+		 components, thereby improving simulation performance. </p>
+		<p>If True, the creator will not check for capacity rather listen 
+		 for event. The creator is informed, for example by component or 
+		 capacity controller, when there is capacity to make a new component.</p></td>
+	</tr>
+	<tr>
+		<td>PartPooling</td>
+		<td><p>Turns on/off the reuse of components &#160;made by the creator, 
+		 thereby improving simulation performance. </p>
+		<p>If True, dynamic components removed during simulation are recirculated 
+		 to make new components, thereby reducing memory allocation.</p>
+		<p>Caution: Be careful when recirculating components that were 
+		 modified during simulation, for example a change in node material.</p></td>
+	</tr>
+</table>
+</body>
+</html>

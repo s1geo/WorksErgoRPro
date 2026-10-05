@@ -1,0 +1,183 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcGeometryFeature</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcGeometryFeature</h1>
+<p>vcGeometryFeature is the object type for Geometry features in a component.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcFeature.htm">vcFeature</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot46248" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot46248', 'MTPOPUP46248');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP46248" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AmbientOcclusion</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines if geometry supporting ambient occlusion is rendered 
+		 in the 3D world. 
+		<p class="TableNormal"><span class="Term">0</span><br>
+		VC_AMBIENT_OCCLUSION_NONE</p>
+		<p class="TableNormal"><span class="Term">1</span><br>
+		VC_AMBIENT_OCCLUSION_VERTEX</p></td>
+	</tr>
+	<tr>
+		<td>CreaseAngle</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines an angle tolerance for smoothing surfaces based on 
+		 camera angle and lighting calculations. 
+		<p class="TableNormal">For example, if the angle between edges 
+		 of a surface is less than CreaseAngle, the affected triangle sets 
+		 will appear as one smooth face.</p></td>
+	</tr>
+	<tr>
+		<td>Geometry</td>
+		<td><a href="vcGeometryContainer.htm">vcGeometryContainer</a></td>
+		<td>R</td>
+		<td>Gets the container of feature's geometry.</td>
+	</tr>
+	<tr>
+		<td>IsUnique</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if the feature and its geometry is unique or shared 
+		 with other features.
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use the IsUnique property in <a href="vcComponent.htm">vcComponent</a>.</p></td>
+	</tr>
+	<tr>
+		<td>OnDemandLoad</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if geometry of feature is loaded when the feature is 
+		 being used or enabled in its node. 
+		<p class="TableNormal">Generally, this property is used with a 
+		 Switch feature to show/hide geometry based on a user's choice.</p></td>
+	</tr>
+	<tr>
+		<td>Pickable</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the ability to select geometry of feature in the 
+		 3D world. 
+		<p class="TableNormal"><span class="Strong">Note:</span> This affects 
+		 all commands and tools that use snap types.</p></td>
+	</tr>
+	<tr>
+		<td>ShowContent</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the visibility of feature.</td>
+	</tr>
+	<tr>
+		<td>ShowBackfaces</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the rendering of geometry in the feature that 
+		 is not facing the camera of the 3D world.</td>
+	</tr>
+	<tr>
+		<td>TesselationQuality</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the quality of feature's geometry by affecting both 
+		 angle and chord height tolerances used for tessellating the feature. 
+		 
+		<p class="TableNormal"><span class="Strong">Note:</span> This property 
+		 does not set any fractional tolerance values as it relates to 
+		 the degree of accuracy.</p></td>
+	</tr>
+	<tr>
+		<td>Uri</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the URI of source file for geometry used in feature. 
+		 
+		<p class="TableNormal">Writing this property will override any 
+		 existing geometry in the feature and cannot be undone.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>makeUnique</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Makes the feature and its geometry unique, thereby the geometry 
+		 is not shared with other features.
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use the makeUnique() method in <a href="vcComponent.htm">vcComponent</a>.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Create a Geometry feature for a geometry 
+ file</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col>
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>comp = app.findComponent(&quot;Feeder Template&quot;) 
+		<br>node = comp.findNode(&quot;Feeder Template&quot;) 
+		<br>rootFeature = node.findFeature(&quot;Root&quot;) 
+		<br>&#160; 
+		<br>geometryFeature = rootFeature.createFeature(VC_GEOMETRY, &quot;Geometry&quot;) 
+		<br>geometryFeature.Uri = &quot;file:///C:\Documents\car.3ds&quot;</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Restrict the selection of Geometry feature 
+ in 3D world</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col>
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>geo_f = [x for x in comp.RootFeature.Children if x.Type == VC_GEOMETRY] 
+		<br>for f in geo_f: 
+		<br>&#160;&#160;f.Pickable = False</td>
+	</tr>
+</table>
+</body>
+</html>

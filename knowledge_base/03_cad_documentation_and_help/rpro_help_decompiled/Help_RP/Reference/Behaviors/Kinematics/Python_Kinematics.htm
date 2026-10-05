@@ -1,0 +1,100 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="python kinematics,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Python Kinematics</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Python Kinematics</h1>
+<p>A Python Kinematics behavior allows you to define the forward and/or 
+ inverse kinematics of a Robot Controller for a robot using a script written 
+ in Python programming language.</p>
+<p><img src="../../../English/Links/PythonKinematics.png" alt="" border="0" class="hcp1"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the kinematics.</td>
+	</tr>
+	<tr>
+		<td>Script</td>
+		<td>Defines the script used for defining the properties of a kinematics 
+		 object.</td>
+	</tr>
+</table>
+<h2>Editor</h2>
+<p>In order to access the script editor:</p>
+<ul style="list-style: disc;">
+	<li class="Unordered">In the <span class="Strong">Component Graph</span> 
+	 panel, <span class="Strong">Component Node Tree</span>, find the Python 
+	 Kinematics behavior you want to edit, and then double-click that behavior.</li>
+</ul>
+<p>The script editor is the same one used for a Python Script.</p>
+<p><img src="../../../English/Links/PythonKinematicsEditor.png" alt="" border="0" class="hcp1"></p>
+<p>The initial content of the editor contains a code snippet used for defining 
+ the properties of a kinematics object that corresponds to a robot and 
+ its controller:</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcPythonKinematics import * 
+		<br>import vcMatrix 
+		<br>import vcVector 
+		<br>from math import * 
+		<br>&#160; 
+		<br># Define the amount of joints and their names 
+		<br>JOINT_COUNT = 0 
+		<br>JOINT_NAMES = [] 
+		<br>&#160; 
+		<br># Init kinematic object information 
+		<br>def OnInitKinObject( kinobj ): 
+		<br>&#160;&#160;pass 
+		<br>&#160; 
+		<br># Returns the amount of joints this kinematics handles 
+		<br>def OnGetJointCount(): 
+		<br>&#160;&#160;return 0 
+		<br>&#160; 
+		<br># Returns the indexed joint names 
+		<br>def OnGetJointName(index): 
+		<br>&#160;&#160;return JOINT_NAMES[index] 
+		<br>&#160; 
+		<br># Constraints kinematic solutions to show only valid choices 
+		<br>def OnConstrainParams(kinobj): 
+		<br>&#160;&#160;return True 
+		<br>&#160; 
+		<br># Relaxes kinematics solutions to show all choices 
+		<br>def OnRelaxParams(kinobj): 
+		<br>&#160;&#160;return True 
+		<br>&#160; 
+		<br># Returns Kinematic chain target (matrix) value based on joint values 
+		<br>def OnForward(kinobj): 
+		<br>&#160;&#160;return True 
+		<br>&#160; 
+		<br># Returns Kinematic chain joint values based on the target (matrix) 
+		<br>def OnInverse(kinobj): 
+		<br>&#160;&#160;return True</td>
+	</tr>
+</table>
+</body>
+</html>

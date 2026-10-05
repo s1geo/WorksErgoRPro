@@ -1,0 +1,358 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcMotionTarget</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcMotionTarget</h1>
+<p>vcMotionTarget is a motion target for a robot, which may include joint 
+ and tool behavior as well as speed and configuration settings for orientation 
+ solutions.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot48583" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot48583', 'MTPOPUP48583');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP48583" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AccuracyMethod</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the zone of accuracy type to use for the target, for 
+		 example distance, time or velocity. 
+		<p class="TableNormal">See <a href="Constants.htm#Motion_Target_Constants">Motion 
+		 Target Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>AccuracyValue</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the limit used in AccuracyMethod.</td>
+	</tr>
+	<tr>
+		<td>AngularSpeed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the rate of target rotation (degrees/s), which is only 
+		 used for non-joint motions.</td>
+	</tr>
+	<tr>
+		<td>BaseMatrix</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines a matrix referenced by the target as robot base frame. 
+		 If set, this property overrides BaseName.</td>
+	</tr>
+	<tr>
+		<td>BaseName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines base frame in robot controller referenced by the target.</td>
+	</tr>
+	<tr>
+		<td>CartesianAcceleration</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum Cartesian acceleration (units/s^2) of linear 
+		 motion to target.</td>
+	</tr>
+	<tr>
+		<td>CartesianDeceleration</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum Cartesian deceleration (units/s^2) of linear 
+		 motion to target.</td>
+	</tr>
+	<tr>
+		<td>CartesianSpeed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum Cartesian speed (units/s) of linear motion 
+		 to target.</td>
+	</tr>
+	<tr>
+		<td>ConfigCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the number of available configurations in robot.</td>
+	</tr>
+	<tr>
+		<td>ConfigurationMode</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the robot's joint configuration during linear interpolation, 
+		 which can be fixed, an attempt to maintain current configuration 
+		 or one interpolated using joint values. 
+		<p class="TableNormal">See <a href="Constants.htm#Motion_Target_Constants">Motion 
+		 Target Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>JointSpeedFactor</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the joint speed at the target, as a factor of maximum 
+		 speed determined in robot controller.</td>
+	</tr>
+	<tr>
+		<td>JointTurnMode</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the turn mode for joints in the target. 
+		<p class="TableNormal">The default mode is for joints to turn nearest 
+		 within their set limits.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Motion_Target_Constants">Motion 
+		 Target Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>JointValues</td>
+		<td>List of Real</td>
+		<td>RW</td>
+		<td>Defines joints values of target if using joint interpolation. 
+		 
+		<p class="TableNormal">To read and write joint values, first get 
+		 a handle for this property, edit the values of that handle, and 
+		 then assign that handle as the value of this property.</p>
+		<p class="TableNormal">See <a href="vcMotionTarget.htm#ExampleSetJointValues">Example. 
+		 Edit joint values in motion target</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>MotionType</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the motion type of the target, which is either linear 
+		 or point-to-point/joint. 
+		<p class="TableNormal">See <a href="Constants.htm#Motion_Target_Constants">Motion 
+		 Target Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>OrientationInterpolationMode</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the orientation interpolation mode for linear movement. 
+		 
+		<p class="TableNormal">See <a href="Constants.htm#OrientationInterpolationModeConstants">Orientation 
+		 Interpolation Mode Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>PositionerIndex</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines current positioner used by robot to reach target.</td>
+	</tr>
+	<tr>
+		<td>RobotConfig</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines robot configuration at target, which is dependent on 
+		 the kinematic structure.</td>
+	</tr>
+	<tr>
+		<td>Target</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines position matrix of target relative to its base frame 
+		 or matrix.</td>
+	</tr>
+	<tr>
+		<td>TargetMode</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines how position matrix of target relates to robot. 
+		<p class="TableNormal">See <a href="Constants.htm#Target_Matrix">Motion 
+		 Target Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>ToolMatrix</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines a matrix referenced by the target as the robot tool 
+		 frame. If set, this property overrides ToolName.</td>
+	</tr>
+	<tr>
+		<td>ToolName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines tool frame in robot referenced by target.</td>
+	</tr>
+	<tr>
+		<td>UseJoints</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if JointValues property is used to define target or 
+		 its Target property. That is, whether the target is defined using 
+		 joint values or a position matrix that is used to calculate joint 
+		 values. 
+		<p class="TableNormal">If you set JointValues, this property is 
+		 automaticaly set to True.</p>
+		<p class="TableNormal">If you set Target, this property is automatically 
+		 set to False.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getConfigWarning</td>
+		<td>Enumeration integer</td>
+		<td>Integer <span class="Italic">configuration</span></td>
+		<td>Tests a robot configuration for any potential issues associated 
+		 with target. 
+		<p class="TableNormal">The returned value indicates singularity 
+		 (S), joint limits (J) and unreachable (U) errors using a format 
+		 of SJU.</p>
+		<p class="TableNormal"><span class="Term">0 = 000</span><br>
+		No errors.</p>
+		<p class="TableNormal"><span class="Term">1 = 001</span><br>
+		Reachability error in robot.</p>
+		<p class="TableNormal"><span class="Term">2 = 010</span><br>
+		One or more joints exceeding limits.</p>
+		<p class="TableNormal"><span class="Term">3 = 011</span><br>
+		Reachability and joint limit errors.</p>
+		<p class="TableNormal"><span class="Term">4 = 100</span><br>
+		Singularity detected, for example in articulated robot wrist.</p>
+		<p class="TableNormal"><span class="Term">5 = 101</span><br>
+		Singularity and reachability errors.</p>
+		<p class="TableNormal"><span class="Term">6 = 110</span><br>
+		Singularity and joint limit errors.</p>
+		<p class="TableNormal"><span class="Term">7 = 111</span><br>
+		Singularity, joint limit and reachability errors.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Motion_Target_Constants">Motion 
+		 Target Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>getConfigWarnings</td>
+		<td>List of Enumeration integers</td>
+		<td>None</td>
+		<td>Tests all configurations in kinematic structure for potentials 
+		 errors related to target. 
+		<p class="TableNormal">See getConfigWarning() method for more information 
+		 on possible returned values.</p></td>
+	</tr>
+	<tr>
+		<td>getPositionerRootToPositionerFlange</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>None</td>
+		<td>Returns the offset from robot positioner root node to its flange 
+		 node.</td>
+	</tr>
+	<tr>
+		<td>getRootNodeToPositionerRoot</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>None</td>
+		<td>Returns the offset from root node to robot positioner root 
+		 node.</td>
+	</tr>
+	<tr>
+		<td>getRootNodeToRobotRoot</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>None</td>
+		<td>Returns the offset from root node to robot root node.</td>
+	</tr>
+	<tr>
+		<td>getRobotRootToRobotFlange</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>None</td>
+		<td>Returns the offset from robot root node to robot flange node.</td>
+	</tr>
+	<tr>
+		<td>getSimWorldToRootNode</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>None</td>
+		<td>Returns the offset from 3D world origin to root node.</td>
+	</tr>
+	<tr>
+		<td>getSimWorldToRobotTool</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>None</td>
+		<td>Returns the offset from 3D world origin to tool frame active 
+		 in robot.</td>
+	</tr>
+	<tr>
+		<td>getSimWorldToRobotWorld</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>None</td>
+		<td>Returns the offset from 3D world origin to Robot World Frame.</td>
+	</tr>
+	<tr>
+		<td>getWorldToRootNode</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>None</td>
+		<td>Returns the offset from 3D world origin to root node. <span 
+		 class="Strong">(Deprecated)</span></td>
+	</tr>
+	<tr>
+		<td>getWorldToRobotTool</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>None</td>
+		<td>Returns the offset from 3D world origin to tool frame active 
+		 in robot. <span class="Strong">(Deprecated)</span></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Examples</h2>
+<p><span class="Example"><a name="ExampleSetJointValues" id="ExampleSetJointValues"></a>Example. 
+ Edit joint values in motion target</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160;&#160; 
+		<br>#this example uses a generic articulated robot from webcat 
+		<br>def OnRun(): 
+		<br>&#160;&#160;comp = getComponent() 
+		<br>&#160;&#160;rc = comp.findBehaviour(&quot;Controller&quot;) 
+		<br>&#160;&#160;mt = rc.createTarget() 
+		<br>&#160;&#160;mt.MotionType = VC_MOTIONTARGET_MT_JOINT 
+		<br>&#160;&#160;mt.UseJoints = True 
+		<br>&#160;&#160;&#160; 
+		<br>&#160;&#160;#one way to adjust joint values 
+		<br>&#160;&#160;jv = mt.JointValues 
+		<br>&#160;&#160;for i in xrange(len(jv)): 
+		<br>&#160;&#160;&#160;&#160;jv[i] = 0 
+		<br>&#160;&#160;mt.JointValues = jv 
+		<br>&#160;&#160;rc.addTarget(mt) 
+		<br>&#160;&#160;&#160; 
+		<br>&#160;&#160;#another way 
+		<br>&#160;&#160;jv[2] = 90.0 
+		<br>&#160;&#160;mt.JointValues = jv 
+		<br>&#160;&#160;rc.addTarget(mt) 
+		<br>&#160;&#160;&#160; 
+		<br>&#160;&#160;rc.move()</td>
+	</tr>
+</table>
+</body>
+</html>

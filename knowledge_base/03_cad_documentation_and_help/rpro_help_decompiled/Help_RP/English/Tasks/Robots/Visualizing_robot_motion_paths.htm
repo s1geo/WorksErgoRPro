@@ -1,0 +1,31 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="tracing,connecting lines,robot,motion path">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Visualizing robot motion paths</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Visualizing Robot Motion Paths</h1>
+<p>The path of a robot to and from motion targets can be visualized in the 3D world.</p>
+<ul>
+<li class="Unordered">On the <span class="Strong">Program</span> tab, in the <span class="Strong">Show</span> group, do one or more of the following:</li>
+</ul>
+<ol>
+<li style="list-style: none; display: inline;">
+<ul style="list-style: disc;">
+<li class="Ordered">To show the direction and path between motion targets, select the <span class="Strong">Connecting Lines</span> check box. In this case, you can visualize and parse through motion targets in a robot program with/without the visibility of robot positions.</li>
+<li class="Ordered">To show the tracing of robot motions during a simulation, select the <span class="Strong">Traces</span> check box. In this case, a robot must execute an $OUT statement in its program to turn on/off tracing. For example, signals 17 to 32 in most robots are mapped to the first 16 tool frames in its data, which are used for tracing motion paths. The traced lines are drawn from whichever tool frame is mapped to a signal that has been set to True. That is, a signal action in a robot turns on/off tracing, and the Show Traces command shows/hides traced motion paths in the 3D world.</li>
+</ul>
+</li>
+</ol>
+</body>
+</html>

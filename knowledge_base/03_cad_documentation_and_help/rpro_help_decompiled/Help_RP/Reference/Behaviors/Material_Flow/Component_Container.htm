@@ -1,0 +1,73 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="component container,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Component Container</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Component Container</h1>
+<p>A Component Container allows you to contain components. The components 
+ can be moved into the container, placed there by other components as well 
+ as attached using a Python Script.</p>
+<p><img src="../../../English/Links/ComponentContainer.png" alt="" border="0" class="hcp1"></p>
+<p>The ports of a Component Container are listed with the behavior in the 
+ Component Graph panel.</p>
+<p><img src="../../../English/Links/ComponentContainerPorts.png" alt="" border="0" class="hcp1"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the container.</td>
+	</tr>
+	<tr>
+		<td>Statistics</td>
+		<td>Defines the Statistics behavior that collects statistics generated 
+		 by the container.</td>
+	</tr>
+	<tr>
+		<td>Capacity</td>
+		<td>Defines the amount of components the can occupy the container 
+		 at any given time.</td>
+	</tr>
+	<tr>
+		<td>CapacityBlocks</td>
+		<td>Defines a list of Capacity Controller behaviors for globally 
+		 defining the container's capacity. Generally, a Capacity Controller 
+		 is used as a variable for controlling the capacity of one or more 
+		 containers in order to avoid deadlock situations.</td>
+	</tr>
+	<tr>
+		<td>TransitionSignal</td>
+		<td>Defines a Boolean Signal to signal the arrival and departure 
+		 of a component in the container. A True value signals the arrival 
+		 of a component. A False value signals the departure of a component.</td>
+	</tr>
+	<tr>
+		<td>Location</td>
+		<td>Defines a Frame feature that acts as the container's physical 
+		 location.</td>
+	</tr>
+</table>
+</body>
+</html>

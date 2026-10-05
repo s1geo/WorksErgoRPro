@@ -1,0 +1,110 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcLayoutItem</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+p.hcp1 { margin-left:80px; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcLayoutItem</h1>
+<p>vcLayoutItem is the basic implementation of all layout items.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot44898" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot44898', 'MTPOPUP44898');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP44898" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Hierarchy</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Hierarchy</h2>
+<p>Each type of layout item has its own specific implementation which inherits 
+ vcLayoutItem. In order to create a layout item, use the createLayoutItem() 
+ method in <a href="vcApplication.htm">vcApplication</a>.</p>
+<p style="margin-left: 40px;"><a href="vcLayoutItem.htm">vcLayoutItem</a></p>
+<p class="hcp1"><a href="vc3DIcon.htm">vc3DIcon</a></p>
+<p class="hcp1"><a href="vcAnnotation.htm">vcAnnotation</a></p>
+<p class="hcp1"><a href="vcCollisionDetector.htm">vcCollisionDetector</a></p>
+<p class="hcp1"><a href="vcDimension.htm">vcDimension</a></p>
+<p class="hcp1"><a href="vcLayoutPackFolder.htm">vcLayoutPackFolder</a></p>
+<p class="hcp1"><a href="vcLayoutPropertyList.htm">vcLayoutPropertyList</a></p>
+<p class="hcp1"><a href="vcLayoutSchemaPropertyList.htm">vcLayoutSchemaPropertyList</a></p>
+<p class="hcp1"><a href="vcPathObject.htm">vcPathObject</a></p>
+<p class="hcp1"><a href="vcReport.htm">vcReport</a></p>
+<p class="hcp1"><a href="vcSweptVolume.htm">vcSweptVolume</a></p>
+<p class="hcp1"><a href="vcViewAnimation.htm">vcViewAnimation</a></p>
+<h2><a name="MiniTOCBookMark3"></a>Properties</h2>
+<p>The following properties are common in all layout item types.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>IsPersistent</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the item is saved with layout.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of item.</td>
+	</tr>
+	<tr>
+		<td>Properties</td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td>Gets a list of all properties for item.</td>
+	</tr>
+	<tr>
+		<td>Type</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the item type. 
+		<p class="TableNormal">See <a href="Constants.htm#Layout_Items">Layout 
+		 Item Constants</a> for more information.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>update</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Updates the item in its layout.</td>
+	</tr>
+</table>
+</body>
+</html>

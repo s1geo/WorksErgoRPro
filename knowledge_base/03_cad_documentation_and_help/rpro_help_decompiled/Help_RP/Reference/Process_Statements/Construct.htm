@@ -1,0 +1,70 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Construct</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Construct</h1>
+<p>Creates an empty Assembly Instance and then fills it with the given 
+ products.</p>
+<p>The given Assembly Order defines both the Assembly Product Type to create, 
+ and to which Pattern Slots the Product Instances are placed into. The 
+ products are placed into Pattern Slots in the correct assembly order, 
+ and the Pattern Slot Product Type filters must accept the Product Instances. 
+ </p>
+<p>The Construct statement is not intended for creating empty Assembly 
+ Instances, so at least one Product Instance must be successfully placed 
+ into the created Assembly Instance. </p>
+<p>The Construct statement can optionally use linear motion to move the 
+ given products to their assigned positions in the created Assembly Instance. 
+ Duration of the motion is controlled by the AssemblyTime property and 
+ can be used to roughly simulate time taken by assembly operations or just 
+ for visualization purposes. </p>
+<p><img src="../../English/Links/ReferenceProcessStatementsConstruct.png" style="border: none;" alt="" border="0"><br>
+<span class="italic">Figure 1. An example Process where some external logic 
+ is used to receive Part Instances to a component container, a new Assembly 
+ Instance is constructed from those and finally, the Assembly Instance 
+ is transported out to its next Process. </span></p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><p>AssemblyOrderVariableName</p></td>
+		<td><p>Name of the Process variable storing the Assembly Order 
+		 that defines the assembly to create.</p></td>
+	</tr>
+	<tr>
+		<td><p>ProductVariableName</p></td>
+		<td><p>Name of the Process variable where to get the Product Instances 
+		 that will be placed into the assembly.</p></td>
+	</tr>
+	<tr>
+		<td><p>AssemblyTime</p></td>
+		<td><p>An expression for a time in seconds used for moving the 
+		 Product Instances to correct positions in the assembly. Must evaluate 
+		 to an Integer or Real with 0 or positive value. </p></td>
+	</tr>
+	<tr>
+		<td><p>RemoveAccepted</p></td>
+		<td><p>Defines whether Product Instances accepted into the assembly 
+		 are removed from the input products variable. </p></td>
+	</tr>
+	<tr>
+		<td><p>ReturnVariableName</p></td>
+		<td><p>Name of the process variable to use for storing the result.</p></td>
+	</tr>
+</table>
+</body>
+</html>

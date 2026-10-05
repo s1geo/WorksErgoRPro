@@ -1,0 +1,254 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcMaterial</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcMaterial</h1>
+<p>vcMaterial is a material used by geometry and solid shapes in the 3D 
+ world.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot35635" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot35635', 'MTPOPUP35635');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP35635" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Ambient</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Defines a vector used for calculating the ambient value of 
+		 material.</td>
+	</tr>
+	<tr>
+		<td>ColorMask</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the RGB/RGBA color mask used for rendering material. 
+		 
+		<p class="TableNormal">See <a href="Constants.htm#Material_Constants">Material 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>DepthComparison</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Controls the visibility of geometry assigned the material based 
+		 on pixel depth (distance from camera) in comparison to a Z-axis 
+		 buffer. 
+		<p class="TableNormal">Depth comparison is important for defining 
+		 how a material is rendered in terms of elevation and depth and 
+		 its interference with other materials.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Material_Constants">Material 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Diffuse</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Defines a vector used for calculating diffuse reflection of 
+		 light hitting material.</td>
+	</tr>
+	<tr>
+		<td>LineStippling</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the use of stippling in the material to create 
+		 light and dark shades based on point density.</td>
+	</tr>
+	<tr>
+		<td>LineWidth</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the width of line primitives used for stippling.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of material.</td>
+	</tr>
+	<tr>
+		<td>Opacity</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the material's opacity, thereby its transparency.</td>
+	</tr>
+	<tr>
+		<td>OpacityType</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the opacity type used by material. 
+		<p class="TableNormal">See <a href="Constants.htm#Material_Constants">Material 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>RenderOrder</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the order in which geometry using this material is 
+		 rendered in 3D world. 
+		<p class="TableNormal">See <a href="Constants.htm#Material_Constants">Material 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Shininess</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the intensity of light reflected from material, thereby 
+		 defining its luster.</td>
+	</tr>
+	<tr>
+		<td>Specular</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Defines a vector used for calculating specular reflection of 
+		 light hitting material.</td>
+	</tr>
+	<tr>
+		<td>StipplingPattern</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the stippling pattern of material based on the bits 
+		 of an integer.</td>
+	</tr>
+	<tr>
+		<td>StipplingScale</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines scale factor of the material's stippling pattern which, 
+		 by default, is 1.</td>
+	</tr>
+	<tr>
+		<td>Texture</td>
+		<td><a href="vcBitMap.htm">vcBitMap</a></td>
+		<td>RW</td>
+		<td>Gets a bitmap defining the texture of material.</td>
+	</tr>
+	<tr>
+		<td>TextureMapping</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines how the material's texture is projected or defined 
+		 using coordinates. 
+		<p class="TableNormal">See <a href="Constants.htm#Material_Constants">Material 
+		 Constants</a> for more information.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Set material opacity</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br><br>
+		app = getApplication()<br>
+		myMaterial = app.findMaterial(&quot;material name&quot;)<br>
+		myMaterial.Opacity = 2.0<br>
+		myMaterial.OpacityType = VC_MATERIAL_TRANSPARENCY_NONE</td>
+	</tr>
+</table>
+<p class="Example"><span class="Example">Example. Find, edit and create 
+ new material</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>def copyMaterial(original_name): 
+		<br>&#160;&#160;name_of_the_copy = original_name+'_copy' 
+		<br>&#160; 
+		<br>&#160;&#160;# find the materialname matching the given name 
+		<br>&#160;&#160;orig_material = app.findMaterial( original_name ) 
+		<br>&#160; 
+		<br>&#160;&#160;# create new material or use existing one 
+		<br>&#160;&#160;new_material = app.findMaterial( name_of_the_copy ) 
+		<br>&#160;&#160;if not new_material: new_material = app.createMaterial( name_of_the_copy ) 
+		<br>&#160; 
+		<br>&#160;&#160;# copy all properties from the original 
+		<br>&#160;&#160;new_material.Ambient = orig_material.Ambient 
+		<br>&#160;&#160;new_material.ColorMask = orig_material.ColorMask 
+		<br>&#160;&#160;new_material.Diffuse = orig_material.Diffuse 
+		<br>&#160;&#160;new_material.Specular = orig_material.Specular 
+		<br>&#160;&#160;new_material.Shininess = orig_material.Shininess 
+		<br>&#160;&#160;new_material.Opacity = orig_material.Opacity 
+		<br>&#160;&#160;new_material.OpacityType = orig_material.OpacityType 
+		<br>&#160;&#160;if orig_material.Texture: new_material.Texture = orig_material.Texture 
+		<br>&#160;&#160;new_material.TextureMapping = orig_material.TextureMapping 
+		<br>&#160;&#160;new_material.LineWidth = orig_material.LineWidth 
+		<br>&#160;&#160;new_material.LineStippling = orig_material.LineStippling 
+		<br>&#160;&#160;new_material.StipplingPattern = orig_material.StipplingPattern 
+		<br>&#160;&#160;new_material.StipplingScale = orig_material.StipplingScale 
+		<br>&#160;&#160;new_material.RenderOrder = orig_material.RenderOrder 
+		<br>&#160;&#160;new_material.DepthComparison = orig_material.DepthComparison 
+		<br>&#160; 
+		<br>&#160;&#160;# adds material into the group of registered materials. 
+		<br>&#160;&#160;# Returns False if a material with the same name already exists. 
+		<br>&#160;&#160;app.addMaterial( new_material ) 
+		<br>&#160;&#160;return new_material 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>comp = getComponent() 
+		<br>&#160; 
+		<br># copy blue material 
+		<br>new_material = copyMaterial('blue') 
+		<br>&#160; 
+		<br># set opacity for the new copied material 
+		<br># it's rarely a good idea to modify the standard materials) 
+		<br>new_material.Opacity = .75 
+		<br>new_material.OpacityType = VC_MATERIAL_TRANSPARENCY_CONSTANT 
+		<br>comp.Material = new_material</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Inherit and render material</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>def setMaterial(part, material_name): 
+		<br>&#160;&#160;# find the materialname matching the given name 
+		<br>&#160;&#160;material = app.findMaterial(material_name) 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;# this will force even feature materials to be over-written 
+		<br>&#160;&#160;part.MaterialInheritance = VC_MATERIAL_FORCE_INHERIT 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;# assigning material as node material doesn't force rebuild 
+		<br>&#160;&#160;#&#160;&#160;&#160;&#160;=&gt; more efficient coz dynamic components still share geometry representation 
+		<br>&#160;&#160;part.NodeMaterial = material 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>comp = getComponent() 
+		<br>kids = comp.ChildComponents 
+		<br>for kid in kids: 
+		<br>&#160;&#160;setMaterial(kid, 'blue') # set a material for all child components 
+		<br>app.render()</td>
+	</tr>
+</table>
+</body>
+</html>

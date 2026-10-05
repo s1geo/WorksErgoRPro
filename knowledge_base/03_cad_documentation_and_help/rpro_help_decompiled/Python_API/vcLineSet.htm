@@ -1,0 +1,121 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcLineSet</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<p id="warning"><span class="Strong">(Deprecated)</span> use <a href="vcCompactLineSet.htm">vcCompactLineSet</a></p>
+<h1><a name="MiniTOCBookMark1"></a>vcLineSet</h1>
+<p>vcLineSet is a collection of line primitives and their points.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcGeometrySet.htm">vcGeometrySet</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot58259" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot58259', 'MTPOPUP58259');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP58259" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Lines</td>
+		<td>List of <a href="vcLine.htm">vcLine</a></td>
+		<td>R</td>
+		<td>Gets a list of all lines in the set.</td>
+	</tr>
+	<tr>
+		<td>Points</td>
+		<td>List of <a href="vcLinePoint.htm">vcLinePoint</a></td>
+		<td>R</td>
+		<td>Gets a list of all points in the set.</td>
+	</tr>
+	<tr>
+		<td>LineCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the amount of lines in the set.</td>
+	</tr>
+	<tr>
+		<td>LineWidth</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the width (in pixels) of lines in the set.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createPoint</td>
+		<td><a href="vcLinePoint.htm">vcLinePoint</a></td>
+		<td>Real <span class="Italic">x</span>, Real <span class="Italic">y</span>, 
+		 Real <span class="Italic">z</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcVector.htm">vcVector</a> <span 
+		 class="Italic">vector</span></p></td>
+		<td>Creates a new point in the set at a given <span class="Italic">vector</span> 
+		 or XYZ coordinates, and then returns the point; otherwise returns 
+		 None.</td>
+	</tr>
+	<tr>
+		<td>createLine</td>
+		<td><a href="vcLine.htm">vcLine</a></td>
+		<td>None</td>
+		<td>Creates a new line in the set, and then returns the new line.</td>
+	</tr>
+	<tr>
+		<td>deleteLine</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">index</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcLine.htm">vcLine</a> <span class="Italic">line</span></p></td>
+		<td>Deletes a given <span class="Italic">line</span> from the set 
+		 or one at a given <span class="Italic">index</span>.</td>
+	</tr>
+	<tr>
+		<td>getLine</td>
+		<td><a href="vcLine.htm">vcLine</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Gets a line in the set at a given <span class="Italic">index</span>.</td>
+	</tr>
+	<tr>
+		<td>update</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Updates the line set, thereby recalculating the bound box of 
+		 the set.</td>
+	</tr>
+</table>
+</body>
+</html>

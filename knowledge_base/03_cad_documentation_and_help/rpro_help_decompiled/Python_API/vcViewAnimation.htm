@@ -1,0 +1,129 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="view,camera animation,simulation">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcViewAnimation</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcViewAnimation</h1>
+<p>vcViewAnimation is a layout item used for animating camera movements 
+ during a simulation.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcLayoutItem.htm">vcLayoutItem</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot28915" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot28915', 'MTPOPUP28915');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP28915" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >How It Works</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>How It Works</h2>
+<p>vcViewAnimation executes a program of camera movements. The structure 
+ of the program is similar to a robot program, containing routines with 
+ each routine containing a scope of statements.</p>
+<p style="margin-left: 40px;"><a href="vcProgram.htm">vcProgram</a></p>
+<p style="margin-left: 80px;"><a href="vcScope.htm">vcScope</a></p>
+<p style="margin-left: 120px;"><a href="vcRoutine.htm">vcRoutine</a></p>
+<p style="margin-left: 160px;"><a href="vcStatement.htm">vcStatement</a></p>
+<p>By default, the Main routine of the program is executed at the start 
+ of simulation. A simple program would contain View and Delay statements.</p>
+<p>A View statement specifies a 3D world view and transition. The 3D world 
+ view refers to a view available in the scene by name. If the view does 
+ not exist, the statement will still execute its transition as a delay. 
+ The transition defines how long it takes the 3D world camera to reach 
+ a view. For example, a transition of 0 seconds would snap the 3D world 
+ camera to a view.</p>
+<p>Generally, a Delay statement is used to keep the 3D world camera stationary 
+ until the camera transitions to the next view.</p>
+<h2><a name="MiniTOCBookMark3"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Program</td>
+		<td><a href="vcProgram.htm">vcProgram</a></td>
+		<td>R</td>
+		<td>Gets the program of animator.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getProgram</td>
+		<td><a href="vcProgram.htm">vcProgram</a></td>
+		<td>None</td>
+		<td>Returns the program of animator.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a>Examples</h2>
+<p><span class="Example">Example. Create program for animating 3D world 
+ camera</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>def createViewAnimation(): 
+		<br>&#160;&#160;app = getApplication() 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;#get the view animator 
+		<br>&#160;&#160;item = app.findLayoutItem(&quot;ViewAnimation&quot;) 
+		<br>&#160;&#160;if not item: 
+		<br>&#160;&#160;&#160;&#160;item = app.createLayoutItem(&quot;ViewAnimation&quot;) 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;#get the program executed by animator and clear its Main routine 
+		<br>&#160;&#160;prog = item.Program 
+		<br>&#160;&#160;routine = prog.MainRoutine 
+		<br>&#160;&#160;routine.clear() 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;#add view statements 
+		<br>&#160;&#160;#the view must exist in layout 
+		<br>&#160;&#160;#otherwise you will need to create it using either View Editor in GUI or API 
+		<br>&#160;&#160;#get vcApplication.Views to handle a list of user views 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;vs = routine.addStatement(VC_STATEMENT_VIEW) 
+		<br>&#160;&#160;vs.Delay = 4.0 
+		<br>&#160;&#160;vs.View = &quot;View1&quot; 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;#add delay to wait until next camera movement 
+		<br>&#160;&#160;vs = routine.addStatement(VC_STATEMENT_DELAY) 
+		<br>&#160;&#160;vs.Delay = 4.0 
+		<br>&#160;&#160;vs = routine.addStatement(VC_STATEMENT_VIEW) 
+		<br>&#160;&#160;vs.Delay = 4.0 
+		<br>&#160;&#160;vs.View = &quot;View2&quot; 
+		<br>&#160;&#160; 
+		<br>createViewAnimation()</td>
+	</tr>
+</table>
+</body>
+</html>

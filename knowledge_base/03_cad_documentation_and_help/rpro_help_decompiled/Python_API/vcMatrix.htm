@@ -1,0 +1,393 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcMatrix</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcMatrix</h1>
+<p>vcMatrix is a 4x4 matrix and is generally used to perform linear transformations 
+ and contain the position and orientation of objects.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot37576" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot37576', 'MTPOPUP37576');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP37576" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Constructors</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Operators</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark6" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Constructors</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>new</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>[<a href="vcMatrix.htm">vcMatrix</a> <span class="Italic">matrix</span>]</td>
+		<td>Creates a new vcMatrix object.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Operators</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td>Performs matrix multiplication with another vcMatrix object 
+		 or transforms a <a href="vcVector.htm">vcVector</a> object. If 
+		 the multiplier is a <a href="vcVector.htm">vcVector</a> object, 
+		 the product will be a <a href="vcVector.htm">vcVector</a> object.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>N</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Defines Normal vector that is unit vector in X-axis direction.</td>
+	</tr>
+	<tr>
+		<td>O</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Defines Orientation vector that is unit vector in Y-axis direction.</td>
+	</tr>
+	<tr>
+		<td>A</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Defines Approach vector that is unit vector in Z-axis direction.</td>
+	</tr>
+	<tr>
+		<td>P</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Defines Position vector.</td>
+	</tr>
+	<tr>
+		<td>WPR</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Defines roll, pitch and yaw angles.</td>
+	</tr>
+</table>
+<p><span class="Strong">Note:</span> The directional vectors N,O and A 
+ should be unit vectors and orthonormal. That is, the length of N,O and 
+ A should be 1.0, and they should be normal to one another (orthonormal). 
+ Otherwise, the vcMatrix object will be skewed.</p>
+<p><img src="NOA%20vector.png" alt="" border="0" class="hcp1"></p>
+<h2><a name="MiniTOCBookMark5"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getAxisAngle</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>None</td>
+		<td>Returns the orientation of the matrix as a rotation of its 
+		 identity matrix about the axis defined by the XYZ values of the 
+		 returned vector. 
+		<p class="TableNormal">The W property of the returned vector is 
+		 the rotation angle (in degrees).</p></td>
+	</tr>
+	<tr>
+		<td>getEuler</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>None</td>
+		<td>Returns the orientation of the matrix as a set of absolute 
+		 rotations (in fixed coordinate system) around the Z-axis, followed 
+		 by the Y-axis, and then again the Z-axis, in the form of a vector 
+		 containing those angles (in degrees).</td>
+	</tr>
+	<tr>
+		<td>getQuaternion</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>None</td>
+		<td>Returns the orientation of the matrix as a quaternion in the 
+		 form of a vector.</td>
+	</tr>
+	<tr>
+		<td>getWPR</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>None</td>
+		<td>Returns the orientation of the matrix as a set of relative 
+		 rotations around ZYX axes, in that order, in the form of a vector 
+		 containing those angles (in degrees).</td>
+	</tr>
+	<tr>
+		<td>identity</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Sets matrix to equal its identity.</td>
+	</tr>
+	<tr>
+		<td>invert</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Sets the matrix to equal its inverse.</td>
+	</tr>
+	<tr>
+		<td>rotateAbsX</td>
+		<td>None</td>
+		<td>Real <span class="Italic">value</span></td>
+		<td>Rotates the matrix around X-axis in absolute coordinate system.</td>
+	</tr>
+	<tr>
+		<td>rotateAbsY</td>
+		<td>None</td>
+		<td>Real <span class="Italic">value</span></td>
+		<td>Rotates the matrix around Y-axis in absolute coordinate system.</td>
+	</tr>
+	<tr>
+		<td>rotateAbsZ</td>
+		<td>None</td>
+		<td>Real <span class="Italic">value</span></td>
+		<td>Rotates the matrix around Z-axis in absolute coordinate system.</td>
+	</tr>
+	<tr>
+		<td>rotateAbsV</td>
+		<td>None</td>
+		<td><a href="vcVector.htm">vcVector</a> <span class="Italic">v</span>, 
+		 Real <span class="Italic">angle</span></td>
+		<td>Rotates the matrix around an axis defined by a given vector 
+		 by a given angle in absolute coordinate system.</td>
+	</tr>
+	<tr>
+		<td>rotateRelX</td>
+		<td>None</td>
+		<td>Real <span class="Italic">value</span></td>
+		<td>Rotates the matrix around X-axis in coordinate system relative 
+		 to matrix position.</td>
+	</tr>
+	<tr>
+		<td>rotateRelY</td>
+		<td>None</td>
+		<td>Real <span class="Italic">value</span></td>
+		<td>Rotate the matrix around Y-axis in coordinate system relative 
+		 to matrix position.</td>
+	</tr>
+	<tr>
+		<td>rotateRelZ</td>
+		<td>None</td>
+		<td>Real value</td>
+		<td>Rotates the matrix around Z-axis in coordinate system relative 
+		 to matrix position.</td>
+	</tr>
+	<tr>
+		<td>rotateRelV</td>
+		<td>None</td>
+		<td><a href="vcVector.htm">vcVector</a> <span class="Italic">v</span>, 
+		 Real <span class="Italic">angle</span></td>
+		<td>Rotates the matrix around an axis defined by a given vector 
+		 by a given angle in coordinate system relative to matrix position.</td>
+	</tr>
+	<tr>
+		<td>scaleAbs</td>
+		<td>None</td>
+		<td>Real <span class="Italic">x</span>, Real <span class="Italic">y</span>, 
+		 Real <span class="Italic">z</span></td>
+		<td>Scales the matrix in relation to 3D world origin.</td>
+	</tr>
+	<tr>
+		<td>scaleRel</td>
+		<td>None</td>
+		<td>Real <span class="Italic">x</span>, Real <span class="Italic">y</span>, 
+		 Real <span class="Italic">z</span></td>
+		<td>Scales the matrix in relation to matrix position.</td>
+	</tr>
+	<tr>
+		<td>setAxisAngle</td>
+		<td>None</td>
+		<td>Real <span class="Italic">x</span>, Real <span class="Italic">y</span>, 
+		 Real <span class="Italic">z</span>, Real <span class="Italic">w</span></td>
+		<td>Rotates the matrix around an axis. 
+		<p class="TableNormal">The <span class="Italic">x</span>, <span 
+		 class="Italic">y</span> and <span class="Italic">z</span> arguments 
+		 define a unit vector and direction of axis. The <span class="Italic">w</span> 
+		 argument defines the rotation (in degrees) around that axis.</p></td>
+	</tr>
+	<tr>
+		<td>setEuler</td>
+		<td>None</td>
+		<td>Real <span class="Italic">x</span>, Real <span class="Italic">y</span>, 
+		 Real <span class="Italic">z</span></td>
+		<td>Sets the orientation of the matrix by executing a set of absolute 
+		 rotations (in degrees) around Z-axis, followed by Y-axis, and 
+		 then around Z-axis in fixed coordinate system.</td>
+	</tr>
+	<tr>
+		<td>setIJK</td>
+		<td>None</td>
+		<td>Real <span class="Italic">i</span>, Real <span class="Italic">j</span>, 
+		 Real <span class="Italic">k</span></td>
+		<td>Sets the orientation of the matrix so that its Approach vector 
+		 (Z-axis) is aligned with a vector defined by <span class="Italic">i</span>, 
+		 <span class="Italic">j</span> and <span class="Italic">k</span> 
+		 arguments.</td>
+	</tr>
+	<tr>
+		<td>setQuaternion</td>
+		<td>None</td>
+		<td>Real <span class="Italic">q1</span>, Real <span class="Italic">q2</span>, 
+		 Real <span class="Italic">q3</span>, Real <span class="Italic">q4</span></td>
+		<td>Sets the orientation of the matrix by using a quaternion defined 
+		 by four given arguments.</td>
+	</tr>
+	<tr>
+		<td>setWPR</td>
+		<td>None</td>
+		<td>Real <span class="Italic">yaw</span>, Real <span class="Italic">pitch</span>, 
+		 Real <span class="Italic">roll</span></td>
+		<td>Sets the orientation of the matrix by using <span class="Italic">roll</span>, 
+		 <span class="Italic">pitch</span> and <span class="Italic">yaw</span> 
+		 arguments.</td>
+	</tr>
+	<tr>
+		<td>translateAbs</td>
+		<td>None</td>
+		<td>Real <span class="Italic">x</span>, Real <span class="Italic">y</span>, 
+		 Real <span class="Italic">z</span></td>
+		<td>Translates the matrix position by a given offset (XYZ values) 
+		 in reference (Parent) coordinate system. Parent can be for example 
+		 the World or a Node.</td>
+	</tr>
+	<tr>
+		<td>translateRel</td>
+		<td>None</td>
+		<td>Real <span class="Italic">x</span>, Real <span class="Italic">y</span>, 
+		 Real <span class="Italic">z</span></td>
+		<td>Translates the matrix position by a given offset (XYZ values) 
+		 in Object coordinate system.</td>
+	</tr>
+	<tr>
+		<td>uniform</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Modifies the matrix to be orthogonal and contain no scaling.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark6"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Create matrix position for component</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>import vcMatrix 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>mtx = vcMatrix.new() 
+		<br>mtx.translateRel(1000,500,500) 
+		<br>mtx.rotateRelY(45) 
+		<br>comp.PositionMatrix = mtx 
+		<br>getApplication().render()</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Manipulating and printing matrix values</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td># create a python behaviour replace and compile 
+		<br>import vcMatrix as mat 
+		<br>&#160; 
+		<br>def printMatrix(mat): &#160;&#160; 
+		<br>&quot;&quot;&quot;Usefull utility function for printing matrix value&quot;&quot;&quot; &#160;&#160; 
+		<br>&#160;&#160;for Vec in [mat.N,mat.O,mat.A,mat.P]: &#160;&#160;&#160;&#160; 
+		<br>&#160;&#160;&#160;&#160;print (&quot;%3.3g\t%3.3g\t%3.3g\t%3.3g\n&quot;%(Vec.X,Vec.Y,Vec.Z,Vec.W)) 
+		<br>&#160; 
+		<br>#lets generate a matrix 
+		<br>m=mat.new() 
+		<br>&#160; 
+		<br># rotate it in place 
+		<br>m.rotateRelX(12.5) 
+		<br>m.rotateRelZ(20) 
+		<br>&#160; 
+		<br># Then move about 
+		<br>m.translateRel(0,0,102) 
+		<br>&#160; 
+		<br># please note following will not work 
+		<br># m.P.X=345 
+		<br># use instead 
+		<br>vec=m.P 
+		<br>vec.X=345 
+		<br>m.P=vec 
+		<br>&#160; 
+		<br>&#160; 
+		<br># print the resulting matrix 
+		<br>printMatrix(m)</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Get object's position matrix in relation 
+ to another object's coordinate system</span></p>
+<p><img src="Example%20Object%20Matrix.png" alt="" border="0" class="hcp1"></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>import vcMatrix 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>yellow = app.findComponent('Yellow') 
+		<br>orange = app.findComponent('Orange') 
+		<br>&#160; 
+		<br>mtxOrange = orange.PositionMatrix #green arrow in the picture 
+		<br>mtxYellow = yellow.PositionMatrix # blue arrow in the picture 
+		<br>&#160; 
+		<br>invMtxYellow = yellow.PositionMatrix 
+		<br>&#160; 
+		<br>invMtxYellow.invert() # purple arrow in the picture 
+		<br>mtxYellowToOrange = invMtxYellow * mtxOrange # result: black arrow in the picture 
+		<br>&#160; 
+		<br>print mtxYellowToOrange.P.X,mtxYellowToOrange.P.Y,mtxYellowToOrange.P.Z</td>
+	</tr>
+</table>
+</body>
+</html>

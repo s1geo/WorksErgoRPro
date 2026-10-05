@@ -1,0 +1,370 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Supported data types</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content="connectivity,PLC,server,OPC UA">
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+
+<STYLE title=hcp type=text/css>
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>Supported Data Types</H1>
+<P>On the simulation side, you can connect i.e. component properties, signals, 
+controller bases and tools. These simulation variables can be connected to 
+external software and devices via connectivity plugins.</P>
+<P>The connectivity feature supports the following simulation variable data 
+types: boolean, real, integer, string, matrix, and vector. Note that also the 
+robot tool and base frames can be read and written as matrices and vectors.</P>
+<P>If the simulation variable type and the supported data type of the 
+connectivity plugin does not match, an automatic data conversion is attempted. 
+</P>
+<H3><A name=MiniTOCBookMark2></A>Data Conversion Table </H3>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 10%">
+  <COL style="WIDTH: 30%">
+  <COL style="WIDTH: 10%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Simulation Data Type</TD>
+    <TD>Details</TD>
+    <TD>Plugin Conversion Data Type</TD>
+    <TD>Conversion Information</TD></TR>
+  <TR>
+    <TD><A href="Python_API.chm::/vcMatrix.htm">Matrix</A></TD>
+    <TD>
+      <P>Matrix is a 4x4 transformation matrix in degrees. Each of the 16 fields 
+      is a 64-bit floating point variable</P>
+      <P>Each Matrix-valued simulation variable has position (P), orientation 
+      (O), and scaling (S) vector </P></TD>
+    <TD>String</TD>
+    <TD>
+      <P>Matrices are in column major format. The conversion from Matrix to 
+      string always uses specific comma-separated format with all 16 values.</P>
+      <P>Strings with 16 values define all fields of the matrix directly</P>
+      <P>Strings with 6 values create a translation and rotation matrix (X, Y, 
+      Z, W, P, R)</P>
+      <P>Strings with 3 values create a translation matrix (X,Y,Z)</P></TD></TR>
+  <TR>
+    <TD><A href="Python_API.chm::/vcVector.htm">Vector</A></TD>
+    <TD>Vector is a 4-element (X, Y, Z, W) vector in degrees. Each of the 4 
+      fields is a 64-bit floating point variable.</TD>
+    <TD>String</TD>
+    <TD>
+      <P>String with single numeric value creates a vector with all X, Y and Z 
+      assigned to that value, and W set to 1.</P>
+      <P>Strings with 2-4 values create a vector with the fields assigned in the 
+      X, Y, Z, W order. Unassigned fields are left to default state, which is 0 
+      for X, Y and Z, and 1 for W.</P>
+      <P>Conversion from Vector to string always uses specific comma-separated 
+      format with all 4 values.</P>
+      <P>The value of vector element W should be always 1 to keep the vector 
+      normalized.</P></TD></TR></TBODY></TABLE><BR>
+<DIV class=Contents>
+<P align=left>Plugin&nbsp;Data&nbsp;Types&nbsp;<A id=MTHotSpot50370 
+class=dropspot href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot50370', 'MTPOPUP50370');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP50370 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2"></A></P>
+<P align=left><A href="#MiniTOCBookMark3">Beckhoff TwinCAT</A></P>
+<P align=left><A href="#MiniTOCBookMark4">OPC UA Standard</A></P>
+<P align=left><A href="#MiniTOCBookMark5">Siemens S7</A></P>
+<P align=left><A href="#MiniTOCBookMark6">Universal Robots RTDE</A></P>
+<P align=left><A href="#MiniTOCBookMark7">WinMOD</A></P>
+<P align=left><A href="#MiniTOCBookMark8">Siemens SIMIT</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark3></A>Beckhoff TwinCAT</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 33.33%">
+  <COL style="WIDTH: 33.33%">
+  <COL style="WIDTH: 33.33%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>ADS Type</TD>
+    <TD>IEC61131-3 Type</TD>
+    <TD>.NET Type</TD></TR>
+  <TR>
+    <TD>BIT</TD>
+    <TD>BOOL</TD>
+    <TD>System.Boolean</TD></TR>
+  <TR>
+    <TD>INT16</TD>
+    <TD>INT</TD>
+    <TD>System.Int16</TD></TR>
+  <TR>
+    <TD>INT32</TD>
+    <TD>DINT</TD>
+    <TD>System.Int32</TD></TR>
+  <TR>
+    <TD>INT64</TD>
+    <TD>LINT</TD>
+    <TD>System.Int64</TD></TR>
+  <TR>
+    <TD>INT8</TD>
+    <TD>SINT</TD>
+    <TD>System.SByte</TD></TR>
+  <TR>
+    <TD>REAL32</TD>
+    <TD>REAL</TD>
+    <TD>System.Single</TD></TR>
+  <TR>
+    <TD>REAL64</TD>
+    <TD>LREAL</TD>
+    <TD>System.Double</TD></TR>
+  <TR>
+    <TD>REAL80</TD>
+    <TD>None</TD>
+    <TD>System.Double (truncated to 64 bits)</TD></TR>
+  <TR>
+    <TD>STRING<BR>1-byte (8 bits) per character ANSI string</TD>
+    <TD>STRING</TD>
+    <TD>System.String</TD></TR>
+  <TR>
+    <TD>UINT16</TD>
+    <TD>UINT</TD>
+    <TD>System.UInt16</TD></TR>
+  <TR>
+    <TD>UINT32</TD>
+    <TD>UDINT</TD>
+    <TD>System.UInt32</TD></TR>
+  <TR>
+    <TD>UINT64</TD>
+    <TD>ULINT</TD>
+    <TD>System.UInt64</TD></TR>
+  <TR>
+    <TD>UINT8</TD>
+    <TD>USINT</TD>
+    <TD>System.Byte</TD></TR>
+  <TR>
+    <TD>WSTRING<BR>UTF-16 (Unicode) 2-bytes per character</TD>
+    <TD>WSTRING</TD>
+    <TD>System.String</TD></TR></TBODY></TABLE>
+<P><SPAN class=Strong>Notes:</SPAN></P>
+<UL class=hcp1>
+  <LI class=Unordered>Some unsupported data types, for example TIME and ARRAY, 
+  may have their own set of variables, which may be supported and able to pair 
+  with simulation variables. </LI></UL>
+<H2><A name=MiniTOCBookMark4></A>OPC UA Standard</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>OPC UA Type</TD>
+    <TD>.NET Type</TD></TR>
+  <TR>
+    <TD>Boolean</TD>
+    <TD>System.Boolean</TD></TR>
+  <TR>
+    <TD>Byte</TD>
+    <TD>System.Byte</TD></TR>
+  <TR>
+    <TD>Double</TD>
+    <TD>System.Double</TD></TR>
+  <TR>
+    <TD>Float</TD>
+    <TD>System.Single</TD></TR>
+  <TR>
+    <TD>Int16</TD>
+    <TD>System.Int16</TD></TR>
+  <TR>
+    <TD>Int32</TD>
+    <TD>System.Int32</TD></TR>
+  <TR>
+    <TD>Int64</TD>
+    <TD>System.Int64</TD></TR>
+  <TR>
+    <TD>Integer</TD>
+    <TD>System.Int32</TD></TR>
+  <TR>
+    <TD>SByte</TD>
+    <TD>System.SByte</TD></TR>
+  <TR>
+    <TD>String</TD>
+    <TD>System.String</TD></TR>
+  <TR>
+    <TD>LocalizedText</TD>
+    <TD>System.String (uses default language)</TD></TR>
+  <TR>
+    <TD>UInt16</TD>
+    <TD>System.UInt16</TD></TR>
+  <TR>
+    <TD>UInt32</TD>
+    <TD>System.UInt32</TD></TR>
+  <TR>
+    <TD>UInt64</TD>
+    <TD>System.UInt64</TD></TR>
+  <TR>
+    <TD>UInteger</TD>
+    <TD>System.UInt32</TD></TR>
+  <TR>
+    <TD>3DFrame</TD>
+    <TD>Create3D.Matrix (4x4 matrix of NOAP vectors)</TD></TR>
+  <TR>
+    <TD>3DVector</TD>
+    <TD>3DVector</TD></TR>
+  <TR>
+    <TD>3DCartesianCoordinates</TD>
+    <TD>3DVector</TD></TR>
+  <TR>
+    <TD>3DOrientation</TD>
+    <TD>3DVector</TD></TR></TBODY></TABLE>
+<P><SPAN class=Strong>Notes:</SPAN></P>
+<UL class=hcp1>
+  <LI class=Unordered>If you want to connect a variable in an array, the server 
+  needs to support random access reading and writing of individual indexes in a 
+  static array. The OPC UA plugin cannot be used to read/write an entire array. 
+  Refer to OPC UA Standard documentation for more information. </LI></UL>
+<H2><A name=MiniTOCBookMark5></A>Siemens S7</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>STEP7 type</TD>
+    <TD>.NET Type</TD></TR>
+  <TR>
+    <TD>BOOL</TD>
+    <TD>System.Boolean</TD></TR>
+  <TR>
+    <TD>BYTE</TD>
+    <TD>System.Byte</TD></TR>
+  <TR>
+    <TD>WORD</TD>
+    <TD>System.UInt16</TD></TR>
+  <TR>
+    <TD>DWORD</TD>
+    <TD>System.UInt32</TD></TR>
+  <TR>
+    <TD>SINT</TD>
+    <TD>System.SByte</TD></TR>
+  <TR>
+    <TD>USINT</TD>
+    <TD>System.Byte</TD></TR>
+  <TR>
+    <TD>INT</TD>
+    <TD>System.Int16</TD></TR>
+  <TR>
+    <TD>UINT</TD>
+    <TD>System.UInt16</TD></TR>
+  <TR>
+    <TD>DINT</TD>
+    <TD>System.Int32</TD></TR>
+  <TR>
+    <TD>UDINT</TD>
+    <TD>System.UInt32</TD></TR>
+  <TR>
+    <TD>REAL</TD>
+    <TD>System.Single</TD></TR></TBODY></TABLE>
+<H2><A name=MiniTOCBookMark6></A>Universal Robots RTDE</H2>
+<P>The Universal Robots RTDE plugin supports access to all available variables. 
+All signed and unsigned integer variables can be both paired directly or the 
+individual bits paired as Booleans. Vectors can be read as strings, but cannot 
+be written as a whole.</P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>RTDE Type</TD>
+    <TD>.NET Type</TD></TR>
+  <TR>
+    <TD>DOUBLE</TD>
+    <TD>System.Double</TD></TR>
+  <TR>
+    <TD>INT32</TD>
+    <TD>System.Int32</TD></TR>
+  <TR>
+    <TD>UINT16</TD>
+    <TD>System.UInt16</TD></TR>
+  <TR>
+    <TD>UINT32</TD>
+    <TD>System.UInt32</TD></TR>
+  <TR>
+    <TD>UINT64</TD>
+    <TD>System.UInt64</TD></TR>
+  <TR>
+    <TD>UINT8</TD>
+    <TD>System.Byte</TD></TR>
+  <TR>
+    <TD>VECTOR3D</TD>
+    <TD>System.String</TD></TR>
+  <TR>
+    <TD>VECTOR6D</TD>
+    <TD>System.String</TD></TR>
+  <TR>
+    <TD>VECTOR6INT32</TD>
+    <TD>System.String</TD></TR>
+  <TR>
+    <TD>VECTOR6UINT32</TD>
+    <TD>System.String</TD></TR></TBODY></TABLE>
+<P><SPAN class=Strong>Notes:</SPAN></P>
+<UL class=hcp1>
+  <LI class=Unordered><SPAN>Vectors are converted to a single string by the RTDE 
+  plugin when read from the controller. Components Elements can be read and 
+  written separately.</SPAN> </LI></UL>
+<H2><A name=MiniTOCBookMark7></A>WinMOD</H2>
+<P><SPAN lang=EN-US xml:lang="EN-US">WinMOD allows only three data types to be 
+added to its external communication blocks that can be then read and written 
+using the WinMOD Net communication library.</SPAN></P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>WinMOD Type</TD>
+    <TD>.NET Type</TD></TR>
+  <TR>
+    <TD>Binary </TD>
+    <TD>System.Boolean</TD></TR>
+  <TR>
+    <TD>Digital </TD>
+    <TD>System.Int32</TD></TR>
+  <TR>
+    <TD>Analog </TD>
+    <TD>System.Double</TD></TR></TBODY></TABLE>
+<P><SPAN class=Strong>Notes:</SPAN></P>
+<UL class=hcp1>
+  <LI class=Unordered>The scaling range used for Analog signals is from 
+  -1,000,000 to +1,000,000, which results in value step size of about 0.0005. 
+  You may need to configure the scaling of connected Analog signals accordingly 
+  on the WinMOD side to get correct results. </LI></UL>
+<H2><A name=MiniTOCBookMark8></A>Siemens SIMIT</H2>
+<P><SPAN lang=EN-US xml:lang="EN-US">SIMIT external couplings can have only 
+three signal types: Binary, Integer, and Analog.</SPAN></P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>SIMIT Type</TD>
+    <TD>.NET Type</TD></TR>
+  <TR>
+    <TD>Binary </TD>
+    <TD>System.Boolean</TD></TR>
+  <TR>
+    <TD>Digital </TD>
+    <TD>System.Int64</TD></TR>
+  <TR>
+    <TD>Analog </TD>
+    <TD>System.Double</TD></TR></TBODY></TABLE>
+<P><SPAN class=Strong>Notes:</SPAN></P>
+<UL class=hcp1>
+  <LI class=Unordered>R-Pro integers are only signed 32-bit. 
+</LI></UL></BODY></HTML>

@@ -1,0 +1,287 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Operator Precedence</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+td.hcp1 { vertical-align:middle; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Operator Precedence</h1>
+<p>Operators are evaluated based on their precedence to one another in 
+ an expression.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Precedence</td>
+		<td>Operator</td>
+		<td>Usage</td>
+		<td>Parsing Order</td>
+	</tr>
+	<tr>
+		<td rowspan="7">1</td>
+		<td>Post increment</td>
+		<td>a++</td>
+		<td rowspan="7" class="hcp1">Left to Right</td>
+	</tr>
+	<tr>
+		<td>Post decrement</td>
+		<td>a--</td>
+		
+	</tr>
+	<tr>
+		<td>Member operator</td>
+		<td>a.b</td>
+		
+	</tr>
+	<tr>
+		<td>Subscript operator</td>
+		<td>a[b]</td>
+		
+	</tr>
+	<tr>
+		<td>Function call</td>
+		<td>a(...)</td>
+		
+	</tr>
+	<tr>
+		<td>Parentheses</td>
+		<td>(...)</td>
+		
+	</tr>
+	<tr>
+		<td>Unit specification</td>
+		<td>a{unit}</td>
+		
+	</tr>
+	<tr>
+		<td rowspan="7">2</td>
+		<td>Pre increment</td>
+		<td>&#160;</td>
+		<td>&#160;</td>
+	</tr>
+	<tr>
+		<td>Pre decrement</td>
+		<td>--a</td>
+		<td>&#160;</td>
+	</tr>
+	<tr>
+		<td>Bitwise complement / Matrix inverse</td>
+		<td>~a</td>
+		<td>&#160;</td>
+	</tr>
+	<tr>
+		<td>Logical NOT</td>
+		<td>!a</td>
+		<td>&#160;</td>
+	</tr>
+	<tr>
+		<td>Unary minus</td>
+		<td>-a</td>
+		<td>&#160;</td>
+	</tr>
+	<tr>
+		<td>Unary plus</td>
+		<td>+a</td>
+		<td>&#160;</td>
+	</tr>
+	<tr>
+		<td>Type conversion</td>
+		<td>(type)a</td>
+		<td>&#160;</td>
+	</tr>
+	<tr>
+		<td rowspan="3">3</td>
+		<td>Multiply</td>
+		<td>a*b</td>
+		<td rowspan="3" class="hcp1">Left to Right</td>
+	</tr>
+	<tr>
+		<td>Divide</td>
+		<td>a/b</td>
+		
+	</tr>
+	<tr>
+		<td>Modulo</td>
+		<td>a%b</td>
+		
+	</tr>
+	<tr>
+		<td rowspan="2">4</td>
+		<td>Add</td>
+		<td>a+b</td>
+		<td rowspan="2" class="hcp1">Left to Right</td>
+	</tr>
+	<tr>
+		<td>Subtract</td>
+		<td>a-b</td>
+		
+	</tr>
+	<tr>
+		<td rowspan="2">5</td>
+		<td>Shift left</td>
+		<td>a&lt;&lt;b</td>
+		<td rowspan="2" class="hcp1">Left to Right</td>
+	</tr>
+	<tr>
+		<td>Shift right</td>
+		<td>a&gt;&gt;b</td>
+		
+	</tr>
+	<tr>
+		<td rowspan="4">6</td>
+		<td>Less than</td>
+		<td>a&lt;b</td>
+		<td rowspan="4" class="hcp1">Left to Right</td>
+	</tr>
+	<tr>
+		<td>Less than or equal</td>
+		<td>a&lt;=b</td>
+		
+	</tr>
+	<tr>
+		<td>Greater than</td>
+		<td>a&gt;b</td>
+		
+	</tr>
+	<tr>
+		<td>Greater than or equal</td>
+		<td>a&gt;=b</td>
+		
+	</tr>
+	<tr>
+		<td rowspan="2">7</td>
+		<td>Equal</td>
+		<td>a==b</td>
+		<td rowspan="2" class="hcp1">Left to Right</td>
+	</tr>
+	<tr>
+		<td>Not equal</td>
+		<td>a!=b</td>
+		
+	</tr>
+	<tr>
+		<td>8</td>
+		<td>Bitwise AND</td>
+		<td>a&amp;b</td>
+		<td>Left to Right</td>
+	</tr>
+	<tr>
+		<td>9</td>
+		<td>Bitwise XOR</td>
+		<td>a^b</td>
+		<td>Left to Right</td>
+	</tr>
+	<tr>
+		<td>10</td>
+		<td>Bitwise OR</td>
+		<td>a|b</td>
+		<td>Left to Right</td>
+	</tr>
+	<tr>
+		<td>11</td>
+		<td>Logical AND</td>
+		<td>a&amp;&amp;b</td>
+		<td>Left to Right</td>
+	</tr>
+	<tr>
+		<td>12</td>
+		<td>Logical OR</td>
+		<td>a||b</td>
+		<td>Left to Right</td>
+	</tr>
+	<tr>
+		<td rowspan="11">13</td>
+		<td>Assignment</td>
+		<td>a=b</td>
+		<td rowspan="11" class="hcp1">Right to Left</td>
+	</tr>
+	<tr>
+		<td>Multiply and assign</td>
+		<td>a*=b</td>
+		
+	</tr>
+	<tr>
+		<td>Divide and assign</td>
+		<td>a/=b</td>
+		
+	</tr>
+	<tr>
+		<td>Modulo and assign</td>
+		<td>a%=b</td>
+		
+	</tr>
+	<tr>
+		<td>Add and assign</td>
+		<td>a+=b</td>
+		
+	</tr>
+	<tr>
+		<td>Subtract and assign</td>
+		<td>a-=b</td>
+		
+	</tr>
+	<tr>
+		<td>Shift left and assign</td>
+		<td>a&lt;&lt;=b</td>
+		
+	</tr>
+	<tr>
+		<td>Shift right and assign</td>
+		<td>a&gt;&gt;=b</td>
+		
+	</tr>
+	<tr>
+		<td>Bitwise AND and assign</td>
+		<td>a&amp;=b</td>
+		
+	</tr>
+	<tr>
+		<td>Bitwise XOR and assign</td>
+		<td>a^=b</td>
+		
+	</tr>
+	<tr>
+		<td>Bitwise OR and assign</td>
+		<td>a|=b</td>
+		
+	</tr>
+	<tr>
+		<td>14</td>
+		<td>Condition</td>
+		<td>a?b:c</td>
+		<td>Left to Right</td>
+	</tr>
+	<tr>
+		<td>15</td>
+		<td>Sequence</td>
+		<td>a,b</td>
+		<td>Left to Right</td>
+	</tr>
+</table>
+<p>An operator that is parsed left to right are left associative, whereas 
+ those parsed right to left are right associative.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>a = b = c &#160;&#160;&#160;&lt;-&gt; &#160;&#160;&#160;a = (b = c)<br>
+		a + b + c &#160;&#160;&#160;&lt;-&gt; &#160;&#160;&#160;(a + b) + c</td>
+	</tr>
+</table>
+</body>
+</html>

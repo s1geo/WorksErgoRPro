@@ -1,0 +1,113 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="signals,remote connections,robot IO,signal maps,signal connections">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Connect Signals</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</style>
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Connect Signals</h1>
+<p>The Connect Signals command allows you to connect the signals of components 
+ as well as the inputs and outputs of robots. Currently, you can only connect 
+ Boolean type signals. Available signals and connections are based on the 
+ selected component in the 3D world.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot45090" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot45090', 'MTPOPUP45090');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP45090" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Signal Editor</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark6" >Task Pane</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Signal Editor</h2>
+<p>You can connect signals using editors in the 3D world. The editor of 
+ a selected component is highlighted, whereas the editor of another component 
+ with compatible signals is either visible or collapsed as an unfold button.</p>
+<p><span class="Strong">Tip:</span> The location of an editor will automatically 
+ adjust to your view. You have the option of the pinning the editor to 
+ lock its location in the viewport.</p>
+<h3><a name="MiniTOCBookMark3"></a>Components</h3>
+<p>A signal of a component is listed in its editor along with a connection 
+ point. The connection between two signals is indicated by a wire.</p>
+<h3><a name="MiniTOCBookMark4"></a>Robots</h3>
+<p>The inputs and outputs of a robot are separated in its editor: inputs 
+ left, and outputs right. Since a robot can have a large amount of signals, 
+ the editor will only show at least one available input and output as well 
+ as all existing connections. You can click an input or output to edit 
+ its port number. We recommend using signals 100 onward in a robot since 
+ signals 1 thru 99 are reserved for signal actions, for example grasp and 
+ release. If you change the port number of a connection, you are modifying 
+ the signal of robot for that connection.</p>
+<h3><a name="MiniTOCBookMark5"></a>Tasks</h3>
+<p>To add a connection, do one of the following:</p>
+<ul>
+	<li class="Unordered">Click the connection point of a signal in a different 
+	 component. The signal will try to automatically connect to a signal 
+	 in the selected component.</li>
+	<li class="Unordered">Drag the connection point of a signal to display 
+	 a wire, and then drag the wire to a connection point in a different 
+	 component.</li>
+</ul>
+<p>To remove a connection:</p>
+<ul class="hcp1">
+	<li class="Unordered">Click its wire.</li>
+</ul>
+<h2><a name="MiniTOCBookMark6"></a>Task Pane</h2>
+<p>You can connect signals using the Connect Signals task pane and table.</p>
+<h3><a name="MiniTOCBookMark7"></a>Signal</h3>
+<p>The Signal column lists each signal by name. If the selected component 
+ is a robot, an input is listed as <span class="Term">In &lt;number&gt;</span> 
+ and an output as <span class="Term">Out &lt;number&gt;</span>.</p>
+<p>You can sort signals by name as well as filter signals by type and connection. 
+ For example, you have options for listing connected signals, the inputs 
+ and outputs of a selected robot, and all other Boolean signals of the 
+ selected component.</p>
+<p><span class="Strong">Tip:</span> If the selected component is a robot, 
+ you can sort inputs and outputs in three ways:</p>
+<ul class="hcp1">
+	<li class="Unordered">I/O ascending - <span class="Term">In 0</span>… 
+	 <span class="Term">Out N</span></li>
+	<li class="Unordered">I/O descending - <span class="Term">In N</span>… 
+	 <span class="Term">Out 0</span></li>
+	<li class="Unordered">By direction - <span class="Term">In 0</span>, 
+	 <span class="Term">Out 0</span>… <span class="Term">In N</span>, <span 
+	 class="Term">Out N</span></li>
+</ul>
+<h3><a name="MiniTOCBookMark8"></a>Connections</h3>
+<p>The Connections column lists the connections of a signal. A connection 
+ is a signal in a different component.</p>
+<p><span class="Strong">Note:</span> If the selected component is a robot, 
+ the Connections column will also list an action mapped to the value of 
+ an output.</p>
+<h3><a name="MiniTOCBookMark9"></a>Tasks</h3>
+<p>To add a connection:</p>
+<ol>
+	<li class="Ordered">Click a listed signal. This displays a helper for 
+	 selecting an available connection.</li>
+	<li class="Ordered">Use the helper to select a component and signal 
+	 for the new connection.</li>
+</ol>
+<p>To remove connection:</p>
+<ol>
+	<li class="Ordered">Click a listed signal.</li>
+	<li class="Ordered">Use the helper to delete a connection.</li>
+</ol>
+</body>
+</html>

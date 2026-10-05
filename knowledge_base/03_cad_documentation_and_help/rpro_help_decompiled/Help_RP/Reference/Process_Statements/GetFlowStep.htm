@@ -1,0 +1,68 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Get Flow Step</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Get Flow Step</h1>
+<p>A GetFlowStatement gets information about a step in a process sequence 
+ to a <span class="hcp1">ProcessFlowInfo</span> process 
+ variable. This <span class="hcp1">ProcessFlowInfo</span> 
+ can be then further used in other statements. </p>
+<p>If <span class="hcp1">FlowStepSource</span> is set as 
+ <span class="hcp1">&quot;flow sequence step&quot;</span> 
+ or <span class="hcp1">&quot;flow sequence process group&quot;</span>, 
+ or the process variable identified by <span class="hcp1">ProductVariableName</span> 
+ contains only a single product then output will be a single <span class="hcp1">ProcessFlowInfo</span> 
+ object. Otherwise, the statement produces a <span class="hcp1">ProcessFlowInfo</span> 
+ for each product instance separately and outputs them as a list in the 
+ same order the products. </p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><p>FlowStepSource</p></td>
+		<td>Select the flow step.</td>
+	</tr>
+	<tr>
+		<td><p>ReturnVariableName</p></td>
+		<td>Name of the Process variable for storing the created <span class="hcp1">ProcessFlowInfo</span> objects.</td>
+	</tr>
+	<tr>
+		<td><p>FlowGroup</p></td>
+		<td>A specific process group from the selected process flow step. 
+		 <span class="hcp1">&quot;Null&quot;</span> means 
+		 a normal selection logic for process groups within the selected 
+		 flow step can be used.</td>
+	</tr>
+	<tr>
+		<td>FlowStep</td>
+		<td>A step from a process flow sequence.</td>
+	</tr>
+	<tr>
+		<td>ProductVariableName</td>
+		<td>Name of the Process variable which holds reference to a Product 
+		 instance to use as the information source.</td>
+	</tr>
+</table>
+</body>
+</html>

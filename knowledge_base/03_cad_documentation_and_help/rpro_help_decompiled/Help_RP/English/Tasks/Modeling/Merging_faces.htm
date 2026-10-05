@@ -1,0 +1,36 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="merging,cleanup geometry">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Merging faces</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Merging Faces</h1>
+<p>Points in faces can be merged together to form smoother surfaces.</p>
+<ol>
+<li class="Ordered">On the <span class="Strong">Modeling</span> tab, in the <span class="Strong">Geometry</span> group, click the <span class="Strong">Tools</span> arrow, and then click <span class="Strong">Merge faces</span>.</li>
+<li class="Ordered">In the 3D world, select a geometry set.</li>
+<li class="Ordered">In the <span class="Strong">Merge faces</span> task pane, set <span class="Strong">Tolerance</span> to the desired radius for detecting neighboring points, and then click <span class="Strong">Merge</span>.</li>
+</ol>
+<p>The process involves assigning a tolerance value that defines a radius for a point on an open edge to find and match itself with a point on another face.</p>
+<p><img src="../../Links/MergeFaces1.png" alt="" border="0" class="hcp1"></p>
+<p>Two requirements is the edges of the two points must be going in opposite directions of one another and belong to the same feature.</p>
+<p><img src="../../Links/MergeFaces2.png" alt="" border="0" class="hcp1"></p>
+<p>If an edge has more than one neighboring edge, the edge will be skipped and the faces will not merge at those edges. Generally, this process is done to clean up degenerate and non-manifold geometry, for example fixing cracks and holes on surfaces.</p>
+<p><img src="../../Links/MergeFaces3.png" alt="" border="0" class="hcp1"></p>
+</body>
+</html>

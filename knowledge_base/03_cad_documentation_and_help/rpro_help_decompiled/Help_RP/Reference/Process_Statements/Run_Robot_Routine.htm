@@ -1,0 +1,56 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Run Robot Routine</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Run Robot Routine</h1>
+<p>A Run Robot Routine statement allows you to run a pre-programmed routine 
+ on a robot. Multiple process executors can share a robot by using this 
+ statement type. It is also possible to use that same robot from python, 
+ as long as that python code follows the instructions defined below.</p>
+<p>The statement will wait until the robot is idle, then evaluate the given 
+ RoutineName expression and try to find the routine, then start the routine, 
+ and only return after the routine has been executed to completion.</p>
+<p>Evaluation of the RoutineName expression, as well as searching for that 
+ routine on the robot executor is performed again each time the robot is 
+ detected to become idle. It is possible to access PM product variables 
+ in the RoutineName expression.</p>
+
+<p><img src="../../English/Links/ReferenceProcessStatementsRunRobotRoutine.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Component </td>
+		<td><p>The component from which to search for a robot executor. 
+		 If the component has multiple robot executors, the first one of 
+		 the these will be selected.</p>
+		<p>Null can be used to select the component that owns the process 
+		 executor that is running this statement.</p></td>
+	</tr>
+	<tr>
+		<td>RoutineName </td>
+		<td>An expression that must evaluate to a string value. During 
+		 execution, the statement will attempt to find a routine from the 
+		 selected robot executor with that name. This expression evaluation 
+		 and routine search will be performed again each time the robot 
+		 becomes idle.</td>
+	</tr>
+</table>
+</body>
+</html>

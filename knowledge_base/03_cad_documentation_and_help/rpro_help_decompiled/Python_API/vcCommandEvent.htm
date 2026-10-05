@@ -1,0 +1,154 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcCommandEvent</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<p id="warning"><span class="Strong">(Deprecated)</span></p>
+<h1><a name="MiniTOCBookMark1"></a>vcCommandEvent</h1>
+<p>vcCommandEvent contains information about mouse and/or keyboard events 
+ related to the execution of commands. For example, an instance of vcCommandEvent 
+ is an argument passed to the OnInteractive event handler.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot25328" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot25328', 'MTPOPUP25328');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP25328" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>EyeToMouse</td>
+		<td><a href="vcVector.htm" title="vcVector">vcVector</a></td>
+		<td>R</td>
+		<td>Gets offset (in World coordinates) from the camera eye point 
+		 to the pointer on view plane.</td>
+	</tr>
+	<tr>
+		<td>Key</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets either the Windows scan code for a pressed key or an offset 
+		 value for a mouse wheel movement in which a negative value indicates 
+		 a downward rotation of a mouse wheel.</td>
+	</tr>
+	<tr>
+		<td>MouseOnFloor</td>
+		<td><a href="vcVector.htm" title="vcVector">vcVector</a></td>
+		<td>R</td>
+		<td>Gets the position of the mouse on the layout floor (ex: Z == 
+		 0) in World coordinates.</td>
+	</tr>
+	<tr>
+		<td>MouseOnViewPlane</td>
+		<td><a href="vcVector.htm" title="vcVector">vcVector</a></td>
+		<td>R</td>
+		<td>Gets the position of the pointer on the view plane in World 
+		 coordinates.</td>
+	</tr>
+	<tr>
+		<td>ShiftState</td>
+		<td>Enumeration</td>
+		<td>R</td>
+		<td>Gets the bit mask indicating which mouse buttons or modifier 
+		 keys are pressed by a user. There are also bits for single and 
+		 double click detection. 
+		<p class="TableNormal">See <a href="Constants.htm#Command_Event_Constants">Command 
+		 Event Constants</a> more for information.</p></td>
+	</tr>
+	<tr>
+		<td>Type</td>
+		<td>Enumeration</td>
+		<td>R</td>
+		<td>Gets the command event type. 
+		<p class="TableNormal">See <a href="Constants.htm#Type">Command 
+		 Event Constants</a> more for information.</p></td>
+	</tr>
+	<tr>
+		<td>X</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the X-axis coordinate of pointer in the 3D window.</td>
+	</tr>
+	<tr>
+		<td>Y</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the Y-axis coordinate of pointer in the 3D window.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p class="Example"><span class="Example">Example. Create a keydown event 
+ for a command</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcApplication import * 
+		<br>&#160; 
+		<br># Copy the following code in a python command __init__.py file 
+		<br>&#160; 
+		<br>def OnStart(): 
+		<br>&#160;&#160;cmduri = getApplicationPath() + 'CommandEvent.py' 
+		<br>&#160;&#160;cmd = loadCommand(&quot;CommandEvent&quot;,cmduri) 
+		<br>&#160;&#160;addMenuItem(VC_MENU_ADDONS,&quot;Command Event&quot;, -1, cmd) 
+		<br>&#160; 
+		<br># And copy the following code in a CommandEvent.py file. 
+		<br><span># Place both files in a folder, and then store the folder in My Commands folder</span> 
+		<br>&#160; 
+		<br>from vcCommand import * 
+		<br>&#160; 
+		<br>cmd = getCommand() 
+		<br>&#160; 
+		<br>def endState(): 
+		<br>&#160;&#160;print &quot;Command event deactivated&quot; 
+		<br>&#160; 
+		<br>def setState(): 
+		<br>&#160;&#160;cmd.ExecutionType = VC_COMMAND_TOOL 
+		<br>&#160;&#160;cmd.setEventState(event_handler) 
+		<br>&#160;&#160; 
+		<br>def event_handler(arg): 
+		<br>&#160;&#160;print &quot;Mouse cursor cordinates on 3DWorld&quot; 
+		<br>&#160;&#160;print &quot; X: &quot;, str(arg.X), &quot; Y:&quot;, str(arg.Y) 
+		<br>&#160;&#160;print &quot;*&quot;*100 
+		<br>&#160;&#160;if arg.Type == VC_EVENT_MOUSE_DOWN: &#160;&#160; 
+		<br>&#160;&#160;&#160;&#160;print &quot;Mouse Down at&quot; 
+		<br>&#160;&#160;&#160;&#160;vec = arg.MouseOnFloor 
+		<br>&#160;&#160;&#160;&#160;print &quot;X:&quot;, str(vec.X), &quot; Y:&quot;, str(vec.Y), &quot; Z:&quot;, str(vec.Z) 
+		<br>&#160;&#160;&#160;&#160;print &quot;*&quot;*100 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;if arg.ShiftState == VC_SHIFTSTATE_CTRL: 
+		<br>&#160;&#160;&#160;&#160;cmd.setNextState(endState) 
+		<br>&#160; 
+		<br>addState(setState)</td>
+	</tr>
+</table>
+<!--======================================Tabs=================================-->
+<!--======================================Tabs=================================-->
+<!--======================================Tabs=================================-->
+<!--======================================Tabs=================================-->
+<!--======================================Tabs=================================-->
+</body>
+</html>

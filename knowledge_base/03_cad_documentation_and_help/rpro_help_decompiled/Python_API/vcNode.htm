@@ -1,0 +1,468 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>vcNode</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=generator content="Adobe RoboHelp 2017"><LINK rel=StyleSheet 
+type=text/css href="StyleSheet.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript src="ehlpdhtm.js"></SCRIPT>
+
+<STYLE title=hcp type=text/css>
+<!--
+span.hcp1 { font-style:italic; }
+a.hcp2 { font-style:normal; }
+img.hcp3 { border:none; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>vcNode</H1>
+<P>vcNode is the object type for nodes, which are used by components and other 
+objects to form simple and complex tree structures.</P>
+<DIV class=Contents>
+<P align=left>Contents&nbsp;<A id=MTHotSpot29366 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot29366', 'MTPOPUP29366');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP29366 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">Properties</A></P>
+<P align=left><A href="#MiniTOCBookMark3">Methods</A></P>
+<P align=left><A href="#MiniTOCBookMark4">Events</A></P>
+<P align=left><A href="#MiniTOCBookMark5">Examples</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>Properties</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Type</TD>
+    <TD>Access</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Behaviours</TD>
+    <TD>List of <A href="vcBehaviour.htm">vcBehaviour</A></TD>
+    <TD>R</TD>
+    <TD>Gets a list of all behaviors in node.</TD></TR>
+  <TR>
+    <TD>BoundCenter</TD>
+    <TD><A href="vcVector.htm">vcVector</A></TD>
+    <TD>R</TD>
+    <TD>Gets a vector from node origin to center of its geometry bound 
+  box.</TD></TR>
+  <TR>
+    <TD>BoundDiagonal</TD>
+    <TD><A href="vcVector.htm">vcVector</A></TD>
+    <TD>R</TD>
+    <TD>Gets a vector from center of node's geometry bound box to its upper 
+      corner using positive axis directions.</TD></TR>
+  <TR>
+    <TD>ChildComponents</TD>
+    <TD>List of <A href="vcComponent.htm">vcComponent</A></TD>
+    <TD>R</TD>
+    <TD>Gets a list of all components attached to the node at any depth in 
+      structure.</TD></TR>
+  <TR>
+    <TD>Children</TD>
+    <TD>List of <A href="vcNode.htm">vcNode</A></TD>
+    <TD>R</TD>
+    <TD>Gets a list of nodes attached to the node at first level. That is, the 
+      node is parent to those nodes.</TD></TR>
+  <TR>
+    <TD>Component</TD>
+    <TD><A href="vcComponent.htm">vcComponent</A></TD>
+    <TD>R</TD>
+    <TD>Gets the component of node.</TD></TR>
+  <TR>
+    <TD>ComponentChildren</TD>
+    <TD>List of <A href="vcComponent.htm">vcComponent</A></TD>
+    <TD>R</TD>
+    <TD>Gets a list of components attached to the node at first level. That 
+      is, the node is parent to those component root nodes.</TD></TR>
+  <TR>
+    <TD>Dof</TD>
+    <TD><A href="vcDof.htm">vcDof</A></TD>
+    <TD>R</TD>
+    <TD>Gets the degree-of-freedom (DOF) object that defines the joint 
+      properties of the node and its mechanism of movement. 
+      <P class=TableNormal>If JointType is fixed, Dof will be assigned 
+    None.</P></TD></TR>
+  <TR>
+    <TD>Geometry</TD>
+    <TD><A href="vcGeometryContainer.htm">vcGeometryContainer</A></TD>
+    <TD>R</TD>
+    <TD>Gets the container of geometry in node. 
+      <P class=TableNormal>Geometry in container is result of evaluating node's 
+      feature tree, but can be manually set.</P></TD></TR>
+  <TR>
+    <TD>IgnoreEvents</TD>
+    <TD>Boolean</TD>
+    <TD>RW</TD>
+    <TD>Defines if node ignores event passing in order to avoid the creation 
+      of cyclic calls.</TD></TR>
+  <TR>
+    <TD>InverseWorldPositionMatrix</TD>
+    <TD><A href="vcMatrix.htm">vcMatrix</A></TD>
+    <TD>R</TD>
+    <TD>Gets inverse of node's position matrix in World coordinate system. 
+      <P class=TableNormal><SPAN class=Strong>Note:</SPAN> Using World matrix 
+      requires scene updating.</P></TD></TR>
+  <TR>
+    <TD>JointExpression</TD>
+    <TD>String</TD>
+    <TD>RW</TD>
+    <TD>Defines an expression that when evaluated returns the joint definition 
+      of the node. 
+      <P class=TableNormal><SPAN class=Strong>(Deprecated)</SPAN> Use 
+      vcNode.Dof.Joint if joint type is custom.</P></TD></TR>
+  <TR>
+    <TD>JointType</TD>
+    <TD>Enumeration</TD>
+    <TD>RW</TD>
+    <TD>Defines the joint type of the node. 
+      <P class=TableNormal>See <A href="Constants.htm#Joint_Constants">Joint 
+      Constants</A> for more information.</P></TD></TR>
+  <TR>
+    <TD>MaterialInheritance</TD>
+    <TD>Enumeration</TD>
+    <TD>RW</TD>
+    <TD>Defines the mode for managing NodeMaterial property. 
+      <P class=TableNormal>For example, node material could override feature 
+      materials and child nodes.</P>
+      <P class=TableNormal>See <A href="Constants.htm#Node_Constants">Node 
+      Constants</A> for more information.</P></TD></TR>
+  <TR>
+    <TD>Name</TD>
+    <TD>String</TD>
+    <TD>RW</TD>
+    <TD>Defines the node's name.</TD></TR>
+  <TR>
+    <TD>NodeMaterial</TD>
+    <TD><A href="vcMaterial.htm">vcMaterial</A></TD>
+    <TD>RW</TD>
+    <TD>Defines the node's material. 
+      <P class=TableNormal>This property is used with MaterialInheritance to 
+      define how the node's material is assigned to its features and child 
+      nodes.</P></TD></TR>
+  <TR>
+    <TD>NodeVisible</TD>
+    <TD>Boolean</TD>
+    <TD>RW</TD>
+    <TD>Turns on/off the visibility of the node but not its child nodes.</TD></TR>
+  <TR>
+    <TD>Offset</TD>
+    <TD>String</TD>
+    <TD>RW</TD>
+    <TD>Defines an expression that when evaluated returns the offset of 
+    node.</TD></TR>
+  <TR>
+    <TD>OffsetExpression</TD>
+    <TD>String</TD>
+    <TD>RW</TD>
+    <TD>Defines an expression that when evaluated returns node offset. 
+      <P class=TableNormal><SPAN class=Strong>(Deprecated)</SPAN> Use Offset 
+      property.</P></TD></TR>
+  <TR>
+    <TD>Parent</TD>
+    <TD><A href="vcNode.htm">vcNode</A></TD>
+    <TD>R</TD>
+    <TD>Gets the parent node of this node.</TD></TR>
+  <TR>
+    <TD>PivotExpression</TD>
+    <TD>String</TD>
+    <TD>RW</TD>
+    <TD>Defines an expression that when evaluated returns the pivot point 
+      definition of node. 
+      <P class=TableNormal><SPAN class=Strong>(Deprecated)</SPAN> Use 
+      vcNode.Dof.Pivot if joint type is custom.</P></TD></TR>
+  <TR>
+    <TD>PositionMatrix</TD>
+    <TD><A href="vcMatrix.htm">vcMatrix</A></TD>
+    <TD>RW</TD>
+    <TD>Defines position matrix of node in parent coordinate system.</TD></TR>
+  <TR>
+    <TD>RootFeature</TD>
+    <TD><A href="vcFeature.htm">vcFeature</A></TD>
+    <TD>R</TD>
+    <TD>Gets the root feature of node.</TD></TR>
+  <TR>
+    <TD>Type</TD>
+    <TD>Enumeration</TD>
+    <TD>R</TD>
+    <TD>Gets the node's type, which identifies the node as either a simulation 
+      root node, component root node or a link in a component. 
+      <P class=TableNormal>See <A href="Constants.htm#Node_Constants">Node 
+      Constants</A> for more information.</P></TD></TR>
+  <TR>
+    <TD>UserGeometry</TD>
+    <TD><A href="vcGeometryContainer.htm">vcGeometryContainer</A></TD>
+    <TD>R</TD>
+    <TD>Gets a container of geometry that is unique to the node. That is, the 
+      geometry of this container is never shared with other nodes.</TD></TR>
+  <TR>
+    <TD>Visible</TD>
+    <TD>Boolean</TD>
+    <TD>RW</TD>
+    <TD>Turns on/off the visibility of the node and its child nodes.</TD></TR>
+  <TR>
+    <TD>World</TD>
+    <TD><A href="vcNode.htm">vcNode</A></TD>
+    <TD>R</TD>
+    <TD>Gets the 3D world/simulation root node.</TD></TR>
+  <TR>
+    <TD>WorldPositionMatrix</TD>
+    <TD><A href="vcMatrix.htm">vcMatrix</A></TD>
+    <TD>R</TD>
+    <TD>Gets the position matrix of node in World coordinate system. 
+      <P class=TableNormal><SPAN class=Strong>Note:</SPAN> Using World matrix 
+      requires scene updating.</P></TD></TR></TBODY></TABLE>
+<H2><A name=MiniTOCBookMark3></A>Methods</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Return Type</TD>
+    <TD>Parameters</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>attach</TD>
+    <TD>None</TD>
+    <TD><A href="vcNode.htm">vcNode</A> <SPAN class=Italic>node</SPAN>, 
+      [Boolean <SPAN class=Italic>permanent</SPAN>]</TD>
+    <TD>Attaches a given <SPAN class=Italic>node</SPAN>. 
+      <P class=TableNormal>The <I>permanent</I> argument is optional, and its 
+      value is set to True by default. If you set the value to False, the 
+      <B>Save</B> button in the R-Pro user interface will remain disabled when 
+      you attach the node.</P>
+      <P class=TableNormal>See <A href="vcNode.htm#ExampleAttachNode">Example. 
+      Attach a node to another node during a simulation</A> for more 
+      information.</P></TD></TR>
+  <TR>
+    <TD>createNode</TD>
+    <TD><A href="vcNode.htm">vcNode</A></TD>
+    <TD>Enumeration <SPAN class=Italic>type</SPAN>, String <SPAN 
+      class=Italic>name</SPAN></TD>
+    <TD>Creates a new child node of a given <SPAN class=Italic>type</SPAN> and 
+      <SPAN class=Italic>name</SPAN> for this node. 
+      <P class=TableNormal>This cannot be used to create a new 3D world root 
+      node.</P>
+      <P class=TableNormal>See <A href="Constants.htm#Node_Constants">Node 
+      Constants</A> for more information.</P></TD></TR>
+  <TR>
+    <TD>createBehaviour</TD>
+    <TD><A href="vcBehaviour.htm">vcBehaviour</A></TD>
+    <TD>Enumeration <SPAN class=Italic>type</SPAN>, String <SPAN 
+      class=Italic>name</SPAN></TD>
+    <TD>Creates a new behavior of a given <SPAN class=Italic>type</SPAN> and 
+      <SPAN class=Italic>name</SPAN> in node. 
+      <P class=TableNormal>See <A 
+      href="Constants.htm#Behavior_Constants">Behavior Constants</A> for more 
+      information.</P></TD></TR>
+  <TR>
+    <TD>delete</TD>
+    <TD>None</TD>
+    <TD>None</TD>
+    <TD>Deletes the node. 
+      <P class=TableNormal>Deletion will fail if method is called in Python 
+      Script contained in the node.</P></TD></TR>
+  <TR>
+    <TD>findBehaviour</TD>
+    <TD><A href="vcBehaviour.htm">vcBehaviour</A></TD>
+    <TD>String <SPAN class=Italic>name</SPAN></TD>
+    <TD>Returns the first behavior matching a given <SPAN 
+      class=Italic>name</SPAN> in node or in one of its child nodes; otherwise 
+      returns None.</TD></TR>
+  <TR>
+    <TD>findBehavioursByType</TD>
+    <TD>List of <A href="vcBehaviour.htm">vcBehaviour</A></TD>
+    <TD>Enumeration <SPAN class=Italic>type</SPAN></TD>
+    <TD>Returns a list of all behaviors matching a given <SPAN 
+      class=Italic>type</SPAN> in node and all of its child nodes; otherwise 
+      returns an empty list. 
+      <P class=TableNormal>See <A 
+      href="Constants.htm#Behavior_Constants">Behavior Constants</A> for more 
+      information.</P></TD></TR>
+  <TR>
+    <TD>findFeature</TD>
+    <TD><A href="vcFeature.htm">vcFeature</A></TD>
+    <TD>String <SPAN class=Italic>name</SPAN></TD>
+    <TD>Returns the first feature matching a given <SPAN 
+      class=Italic>name</SPAN> in node or in one of its child nodes; otherwise 
+      returns None.</TD></TR>
+  <TR>
+    <TD>findNode</TD>
+    <TD><A href="vcNode.htm">vcNode</A></TD>
+    <TD>String <SPAN class=Italic>name</SPAN></TD>
+    <TD>Returns the first child node matching a given <SPAN 
+      class=Italic>name</SPAN>; otherwise returns None.</TD></TR>
+  <TR>
+    <TD>getBehaviour</TD>
+    <TD><A href="vcBehaviour.htm">vcBehaviour</A></TD>
+    <TD>String <SPAN class=Italic>name</SPAN></TD>
+    <TD>Returns the first behavior matching a given <SPAN 
+      class=Italic>name</SPAN> in node; otherwise returns None.</TD></TR>
+  <TR>
+    <TD>getBehavioursByType</TD>
+    <TD>List of <A href="vcBehaviour.htm">vcBehaviour</A></TD>
+    <TD>Enumeration <SPAN class=Italic>type</SPAN></TD>
+    <TD>Returns a list of all behaviors matching a given type in the node; 
+      otherwise returns an empty list. 
+      <P class=TableNormal>See <A 
+      href="Constants.htm#Behavior_Constants">Behavior Constants</A> for more 
+      information.</P></TD></TR>
+  <TR>
+    <TD>getFeature</TD>
+    <TD><A href="vcFeature.htm">vcFeature</A></TD>
+    <TD>String <SPAN class=Italic>name</SPAN></TD>
+    <TD>Returns the first feature matching a given <SPAN 
+      class=Italic>name</SPAN> in node; otherwise returns None.</TD></TR>
+  <TR>
+    <TD>localToWorld</TD>
+    <TD><A href="vcMatrix.htm">vcMatrix</A> <BR>&nbsp; <BR>or <BR>&nbsp; 
+      <BR><A href="vcVector.htm">vcVector</A></TD>
+    <TD><SPAN class=hcp1><A class=hcp2 href="vcMatrix.htm">vcMatrix</A> 
+      matrix</SPAN> <BR>&nbsp; <BR>or <BR>&nbsp; <BR><A 
+      href="vcVector.htm"><SPAN>vc</SPAN>Vector</A> <SPAN 
+      class=hcp1>vector</SPAN></TD>
+    <TD>Transforms the given <SPAN class=hcp1>matrix 
+      </SPAN><SPAN>or</SPAN><SPAN class=hcp1> vector </SPAN>from node’s 
+      coordinate system to the world coordinate system and returns that with a 
+      new instance.</TD></TR>
+  <TR>
+    <TD>measureDistance</TD>
+    <TD>4-tuple (Real <SPAN class=hcp1>distance</SPAN>, <A 
+      href="vcVector.htm">vcVector</A> <SPAN class=hcp1>point1</SPAN>, <A 
+      href="vcVector.htm">vcVector</A> <SPAN class=hcp1>point2</SPAN>, <A 
+      href="vcVector.htm">vcVector</A> <SPAN class=hcp1>direction</SPAN>)</TD>
+    <TD>List of <A href="vcNode.htm">vcNode</A> <BR>&nbsp; <BR>or <BR>&nbsp; 
+      <BR>n-tuple of <A href="vcNode.htm">vcNode</A></TD>
+    <TD>Returns the minimum <SPAN class=hcp1>distance</SPAN> between the 
+      geometry of this node and a node or a given list of nodes. Additional 
+      values returned are position vectors for the two closest points, <SPAN 
+      class=hcp1>point1</SPAN> and <SPAN class=hcp1>point2</SPAN>, as well as a 
+      <SPAN class=hcp1>direction</SPAN> vector indicating the distance and 
+      direction from those points. <BR>&nbsp; <BR>If no minimum distance found, 
+      returns None. <BR>&nbsp; <BR>Note: The returned vector is based in the 
+      coordinate system of the node calling this method. </TD></TR>
+  <TR>
+    <TD>rebuild</TD>
+    <TD>None</TD>
+    <TD>[Integer <SPAN class=Italic>rebuild_tree</SPAN>]</TD>
+    <TD>Rebuilds the geometry of node and its hierarchy by re-evaluating their 
+      feature trees. The hierarchy contains child components. <BR>&nbsp; 
+      <BR><SPAN style="FONT-WEIGHT: bold">Note:</SPAN> Try avoid using this 
+      method during a simulation.</TD></TR>
+  <TR>
+    <TD>update</TD>
+    <TD>None</TD>
+    <TD>[Integer <SPAN class=Italic>update_tree</SPAN>]</TD>
+    <TD>Updates the node and its hierarchy. The hierarchy contains child 
+      components.</TD></TR>
+  <TR>
+    <TD>worldToLocal</TD>
+    <TD><A href="vcMatrix.htm">vcMatrix</A> <BR>&nbsp; <BR>or <BR>&nbsp; 
+      <BR><A href="vcVector.htm">vcVector</A></TD>
+    <TD><SPAN class=hcp1><A class=hcp2 href="vcMatrix.htm">vcMatrix</A> 
+      matrix</SPAN> <BR>&nbsp; <BR>or <BR>&nbsp; <BR><A 
+      href="vcVector.htm"><SPAN>vc</SPAN>Vector</A> <SPAN 
+      class=hcp1>vector</SPAN></TD>
+    <TD>
+      <P>Transforms the given <SPAN class=hcp1>matrix</SPAN> or <SPAN 
+      class=hcp1>vector</SPAN> from world coordinate system to the node’s local 
+      coordinate system and returns with a new instance.</P></TD></TR></TBODY></TABLE>
+<H2><A name=MiniTOCBookMark4></A>Events</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 33.33%">
+  <COL style="WIDTH: 33.33%">
+  <COL style="WIDTH: 33.33%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Parameters</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>OnNodeTransform</TD>
+    <TD><A href="vcNode.htm">vcNode</A> <SPAN class=Italic>node</SPAN></TD>
+    <TD>Triggered when a node is transformed in 3D world.</TD></TR></TBODY></TABLE>
+<H2><A name=MiniTOCBookMark5></A><A id=Examples name=Examples></A>Examples</H2>
+<P><SPAN class=Example>Example. Access parent and child nodes</SPAN></P>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 100%">
+  <TBODY>
+  <TR>
+    <TD>from vcScript import * <BR>&nbsp; <BR>app = getApplication() <BR>comp 
+      = app.findComponent("Articulated Robot") <BR>&nbsp; <BR># find a component 
+      node <BR>node = comp.findNode("Axis 1") <BR>childNode = node.Children 
+      <BR>&nbsp; <BR># get the child nodes <BR>for i in childNode: 
+      <BR>&nbsp;&nbsp;print i.Name</TD></TR></TBODY></TABLE>
+<P><SPAN class=Example><A id=ExampleAttachNode 
+name=ExampleAttachNode></A>Example. Attach a node to another node during a 
+simulation</SPAN></P>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 100%">
+  <TBODY>
+  <TR>
+    <TD>from vcScript import * <BR>&nbsp; <BR>def OnRun(): 
+      <BR>&nbsp;&nbsp;comp = getComponent() <BR>&nbsp;&nbsp;comp2 = 
+      getApplication().findComponent("example") <BR>&nbsp;&nbsp;delay(1) 
+      <BR>&nbsp; <BR>&nbsp;&nbsp;#retain the position of attached node in 3D 
+      world <BR>&nbsp;&nbsp;m = comp.InverseWorldPositionMatrix * 
+      comp2.WorldPositionMatrix <BR>&nbsp;&nbsp;comp.attach(comp2, True) 
+      <BR>&nbsp;&nbsp;comp2.PositionMatrix = m <BR>&nbsp;&nbsp;print 
+      comp.ComponentChildren</TD></TR></TBODY></TABLE>
+<P><SPAN class=Example><A name=ExampleNodeVisibility></A>Example. Toggle 
+visibility of node and/or child nodes</SPAN></P>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>from vcScript import * <BR>&nbsp; <BR>##tested with KR 16-2 robot 
+      <BR>comp = getComponent() <BR>node = comp.findNode("A2") 
+      <BR>node.NodeVisible = False</TD></TR></TBODY></TABLE>
+<P><IMG class=hcp3 border=0 alt="" src="HideNode"></P>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>from vcScript import * <BR>&nbsp; <BR>##tested with KR 16-2 robot 
+      <BR>comp = getComponent() <BR>node = comp.findNode("A2") <BR>node.Visible 
+      = False</TD></TR></TBODY></TABLE>
+<P><IMG class=hcp3 border=0 alt="" src="HideNodeChildNodes"></P>
+<P><SPAN class=Example><A name=ExampleMeasureDistance></A>Example. Measure the 
+minimum distance between geometries in given nodes </SPAN></P>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>from vcScript import * <BR># measures the distance between nodes <BR># 
+      prints the distance in millimeters <BR># and visualizes the shortest 
+      distance with a line in 3D <BR>app = getApplication() <BR>conveyor1 = 
+      app.findComponent('Conveyor') <BR>conveyor2 = app.findComponent('Conveyor 
+      #2') <BR>conveyor3 = app.findComponent('Conveyor #3') <BR>&nbsp; <BR>##3 
+      alternatives for using measureDistance()-method <BR>return_tuple = 
+      conveyor1.measureDistance([conveyor2, conveyor3]) # List of vcNodes as 
+      argument <BR>#return_tuple = conveyor1.measureDistance((conveyor2, 
+      conveyor3)) # 2-Tuple of vcNodes as argument <BR>#return_tuple = 
+      conveyor1.measureDistance(conveyor2, conveyor3) # 2 vcNodes as 
+      arguments&nbsp; <BR>&nbsp; <BR>distance, point1, point2, direction = 
+      return_tuple <BR>print distance <BR>&nbsp; <BR>geo_container = 
+      app.Simulation.World.UserGeometry <BR>geo_container.clear() <BR>line_set = 
+      geo_container.createGeometrySet(VC_COMPACTLINESET) <BR>mtx = 
+      conveyor1.WorldPositionMatrix <BR>line_set.addLine([mtx*point1, 
+      mtx*point2]) <BR>line_set.update() 
+<BR>app.render()</TD></TR></TBODY></TABLE></BODY></HTML>

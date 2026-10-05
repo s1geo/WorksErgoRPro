@@ -1,0 +1,218 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="statistics,charts,export graph,print charts,dashboard">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Reporting statistics</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+ul.hcp2 { list-style:disc; }
+-->
+</style>
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Reporting Statistics</h1>
+<p>The Statistics dashboard allows you to report statistics collected from 
+ components during a simulation.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot36025" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot36025', 'MTPOPUP36025');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP36025" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Open the Dashboard</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Choose a Layout</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Choose a Chart</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Edit Chart Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark6" >Plot Data</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark7" >View Data</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark8" >Print Charts</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark9" >Export Data</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Open the Dashboard</h2>
+<p>The Statistics group contains the most commonly used commands for working 
+ with statistics.</p>
+<p><img src="../../Links/StatisticsGroupEN.png" alt="" border="0" class="hcp1"></p>
+<p><span class="Strong">Statistics</span> opens the dashboard.</p>
+<p><span class="Strong">Print Chart(s)</span> allows you to print one or 
+ all charts as a document.</p>
+<p><span class="Strong">Export Graph</span> allows you to export all charts 
+ as either an Excel or CSV file. An Excel file will group each chart into 
+ its own sheet, for example 1 file for two charts. A CSV file will be created 
+ for each chart, for example 2 files for two charts.</p>
+<p><span class="Strong">Interval</span> defines the global sampling rate 
+ for reporting Statistics behavior properties. This includes cumulative, 
+ interval and state-based statistics. The default is to report data every 
+ 60 seconds during simulation. &#160;</p>
+<p>By default, the Home tab will display the Statistics group on the Ribbon. 
+ To access the Statistics group in other contexts, you could add the entire 
+ group or its commands to the Quick Access Toolbar.</p>
+<p><img src="../../Links/AddStatisticsGroupToQAT-EN.png" alt="" border="0" class="hcp1"></p>
+<h2><a name="MiniTOCBookMark3"></a>Choose a Layout</h2>
+<p>The Statistics dashboard divides content into separate tabs. Each tab 
+ uses a layout and grid system for organizing charts by columns and rows.</p>
+<p><img src="../../Links/StatisticsDashboardDefaultViewEN.png" alt="" border="0" class="hcp1"></p>
+<p>By default, an empty tab will display a view for choosing a layout. 
+ A layout defines how many charts and where they are placed in the view 
+ of that tab.</p>
+<ol>
+	<li class="Ordered">Select a layout. This displays a preview of the 
+	 layout in the side panel.</li>
+	<li class="Ordered">Do one of the following:</li>
+	<ul>
+		<li class="Unordered">Double-click the layout.</li>
+		<li class="Unordered">In the side panel, click <span class="Strong">Create</span>.</li>
+	</ul>
+	<li class="Ordered">If you need to change the layout, click <span class="Strong">Change 
+	 Layout</span> and then repeat steps 1 and 2.</li>
+</ol>
+<p><span class="Strong">Note:</span> Changing the layout will not remove 
+ charts unless you are switching to a layout with less placeholders.</p>
+<p><img src="../../Links/StatisticsChangeLayoutConflictEN.png" alt="" border="0" class="hcp1"></p>
+<h2><a name="MiniTOCBookMark4"></a>Choose a Chart</h2>
+<p>By default, a placeholder without a chart will display options for adding 
+ a chart. You can either create a new chart from scratch or use a template. 
+ If you want to use a template, you must first select a component in the 
+ 3D world. Generally, the selected component must have a Statistics behavior 
+ or be the type of component required by the template.</p>
+<p><img src="../../Links/StatisticsDashboardPlaceholderOptionsEN.png" alt="" border="0" class="hcp1"></p>
+<h2><a name="MiniTOCBookMark5"></a>Edit Chart Properties</h2>
+<p>A <span class="Italic">chart</span> plots a <span class="Italic">data 
+ series</span> or the values of a property in a component. A data series 
+ can contain data from multiple components that have a common property. 
+ A chart can plot more than one data series and have its own sampling interval. 
+ A <span class="Italic">sampling interval</span> defines how often the 
+ value of a data series is plotted in a chart. By default, all charts use 
+ a global sampling interval.</p>
+<p><img src="../../Links/StatisticsChartPropertiesEN.png" alt="" border="0" class="hcp1"></p>
+<p>A chart contains the following properties.</p>
+<ul class="hcp2">
+	<li class="Unordered"><span class="Strong">Name</span> - Defines the 
+	 name of the chart.</li>
+	<li class="Unordered"><span class="Strong">Legend Visibility</span> 
+	 - Displays the legend of the chart and its data series.</li>
+	<li class="Unordered"><span class="Strong">Title Visibility</span> 
+	 - Displays the title of the chart.</li>
+	<li class="Unordered"><span class="Strong">Sampling Interval</span> 
+	 - Defines the sampling interval of the chart for plotting its data 
+	 series. A -1 value means the chart uses the global sampling interval.</li>
+	<li class="Unordered"><span class="Strong">Type</span> - Defines the 
+	 chart type.</li>
+	<li class="Unordered"><span class="Strong">Data Series</span> - A set 
+	 of properties for adding and editing data series in the chart.</li>
+</ul>
+<ol style="list-style: disc;">
+	<li style="list-style: none; display: inline;"><ul class="hcp2">
+		<li class="Unordered"><span class="Strong">Add Series</span> - 
+		 Creates a new data series.</li>
+		<li class="Unordered"><span class="Strong">Index</span> - Indicates 
+		 the order of the data series in the chart with additional options 
+		 for deleting, collapsing and expanding the data series.</li>
+		<li class="Unordered"><span class="Strong">Name</span> - Defines 
+		 the name of the data series.</li>
+		<li class="Unordered"><span class="Strong">Components</span> - 
+		 Defines a list of one or more components in the 3D world referenced 
+		 by the data series.</li>
+		<li class="Unordered"><span class="Strong">Property</span> - Defines 
+		 which property in the list of components whose value is reported 
+		 by the data series.</li>
+		<li class="Unordered"><span class="Strong">Thickness</span> - Defines 
+		 the display thickness of the data series in the chart.</li>
+	</ul></li>
+</ol>
+<h2><a name="MiniTOCBookMark6"></a>Plot Data</h2>
+<p>A chart will plot data when you run a simulation based on its sampling 
+ interval. If you reset and run a new simulation, data from the previous 
+ simulation will be cleared from all charts in the Statistics dashboard.</p>
+<p><img src="../../Links/StatisticsPlotDataEN.png" alt="" border="0" class="hcp1"></p>
+<p><span class="Strong">Note:</span> A chart is a layout item, so charts 
+ can be saved with a layout. This does not include plotted data.</p>
+<h2><a name="MiniTOCBookMark7"></a>View Data</h2>
+<p>You can read, zoom in or out, pan and focus on data displayed in a chart. 
+ These actions, of course, depend on the chart type.</p>
+<ol>
+	<li class="Ordered">Do one or more of the following: 
+	<ul class="hcp2">
+		<li class="Unordered">To read the value of a data series in a chart, 
+		 point at the data series to display a label.<br>
+		<img class="step_image" src="../../Links/ReadDataSeries-EN.png" alt="" style="border: none;" border="0"></li>
+		<li class="Unordered">To zoom in or out on a chart, point at the 
+		 chart, and then rotate the mouse wheel forward to zoom in or backward 
+		 to zoom out.<br>
+		<img class="step_image" src="../../Links/ZoomChart-EN.png" alt="" style="border: none;" border="0"><br>
+		<span class="Strong">Tip:</span> On the scroll bar there is a button 
+		 to reset the view of the chart. You can also use either end of 
+		 the scroll box to expand or trim the view.<br>
+		<img class="step_image" src="../../Links/ScaleChartViewEN.png" alt="" style="border: none;" border="0"></li>
+		<li class="Unordered">To pan a chart, use the arrows of the scroll 
+		 bar or drag its scroll box. If no scroll bar is displayed, zoom 
+		 in on the chart.<br>
+		<img class="step_image" src="../../Links/PanChartViewEN.png" alt="" style="border: none;" border="0"></li>
+		<li class="Unordered">To focus on a range of data in a chart, point 
+		 at the beginning or end of the range in the chart, and then drag 
+		 the pointer to select and view that data.<br>
+		<img class="step_image" src="../../Links/FocusChartViewEN.png" alt="" style="border: none;" border="0"></li>
+	</ul></li>
+</ol>
+<h2><a name="MiniTOCBookMark8"></a>Print Charts</h2>
+<p>You can print any chart in the Statistics dashboard.</p>
+<ol>
+	<li class="Ordered">Open the <span class="Strong">Statistics</span> 
+	 dashboard.</li>
+	<li class="Ordered">Do one of the following:</li>
+	<ul class="hcp2">
+		<li class="Unordered">If you want to print one chart, select that 
+		 chart.</li>
+		<li class="Unordered">If you want to print all charts in a tab, 
+		 select that tab.</li>
+	</ul>
+	<li class="Ordered">Do one of the following:</li>
+	<ul class="hcp2">
+		<li class="Unordered">On the <span class="Strong">Home</span> tab, 
+		 in the <span class="Strong">Statistics</span> group, click <span 
+		 class="Strong">Print Chart(s)</span>.</li>
+		<li class="Unordered">Click the <span class="Strong">File</span> 
+		 tab to go backstage, and then click <span class="Strong">Print</span>, 
+		 and then click <span class="Strong">Statistics Chart</span>.</li>
+	</ul>
+	<li class="Ordered">Make any needed changes to print settings, and 
+	 then do one of the following:</li>
+	<ul class="hcp2">
+		<li class="Unordered">To print the file, click <span class="Strong">Print</span>.</li>
+		<li class="Unordered">To export the file in an XPS format, click 
+		 <span class="Strong">Export to XPS</span>.</li>
+	</ul>
+</ol>
+<h2><a name="MiniTOCBookMark9"></a>Export Data</h2>
+<p>Data plotted in charts can be exported to an Excel or CSV file.</p>
+<ol>
+	<li class="Ordered">Open the <span class="Strong">Statistics</span> 
+	 dashboard.</li>
+	<li class="Ordered">In the <span class="Strong">Statistics</span> dashboard, 
+	 select the tab containing the data you want to export to file.</li>
+	<li class="Ordered">On the <span class="Strong">Home</span> tab, in 
+	 the <span class="Strong">Statistics</span> group, click <span class="Strong">Export 
+	 Graph</span>, and then do one of the following:</li>
+	<ul class="hcp2">
+		<li class="Unordered">To export data to an Excel file, click <span 
+		 class="Strong">Export to Excel</span>. Data from each chart will 
+		 be stored in its own sheet in the Excel file.</li>
+		<li class="Unordered">To export data to a CSV file, click <span 
+		 class="Strong">Export to CSV</span>. Data from each chart will 
+		 be stored in its own CSV file.</li>
+	</ul>
+</ol>
+</body>
+</html>

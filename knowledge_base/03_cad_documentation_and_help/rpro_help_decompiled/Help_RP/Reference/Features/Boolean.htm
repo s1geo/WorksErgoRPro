@@ -1,0 +1,67 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Boolean</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+span.hcp2 { font-weight:bold; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Boolean</h1>
+<p>The boolean feature is used for intersect/unite/subtract geometry operations 
+ based on the 2 child features assigned to it. </p>
+<p>Each geometry set of the first child feature is traversed and applied 
+ to the boolean operation while traversing each set on the second feature. 
+ Result is stored on the sets of the first feature. This should be taken 
+ into account to understand the end result, specially when we work with 
+ <span class="hcp1">Intersection</span> or <span class="hcp1">Subtraction</span>. 
+ </p>
+<p><img src="Boolean.png" style="border: none;" alt="" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the feature.</td>
+	</tr>
+	<tr>
+		<td>Visible</td>
+		<td>Turns on/off the visibility of the geometry.</td>
+	</tr>
+	<tr>
+		<td>Operation</td>
+		<td><span class="hcp2">Intersection</span>
+		<br>The overlapping geometry is kept
+		<br>&#160;
+		<br><span class="hcp2">Union</span>
+		<br>The overlapping geometry is removed
+		<br>&#160;
+		<br><span class="hcp2">Subtraction</span>
+		<br>The second geometry is removed including the 
+		 overlapping geometry with the first geometry
+		<br>&#160;</td>
+	</tr>
+	<tr>
+		<td>Material</td>
+		<td>Defines the material of the geometry.</td>
+	</tr>
+</table>
+</body>
+</html>

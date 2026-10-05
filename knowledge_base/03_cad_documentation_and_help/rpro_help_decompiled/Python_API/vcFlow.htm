@@ -1,0 +1,359 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcFlow</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+p.hcp1 { margin-left:80px; }
+p.hcp2 { margin-left:120px; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcFlow</h1>
+<p>vcFlow is a base class for behaviors that support the transfer of components 
+ and material flow using connectors/ports.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot44913" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot44913', 'MTPOPUP44913');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP44913" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Hierarchy</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Common Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Behavior Specific Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark10" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Hierarchy</h2>
+<p>Behaviors that inherit vcFlow do not need to have the capacity to store 
+ components rather the ability transfer/pass components in and out of their 
+ connectors.</p>
+<p style="margin-left: 40px;"><a href="vcFlow.htm">vcFlow</a></p>
+<p class="hcp1"><a href="vcComponentFlowProxy.htm" title="vcComponentFlowProxy">vcComponentFlowProxy</a></p>
+<p class="hcp1"><a href="vcContainer.htm">vcContainer</a></p>
+<p class="hcp2"><a href="vcContainer.htm">vcComponentContainer</a></p>
+<p style="margin-left: 160px;"><a href="vcPatternContainer.htm">vcPatternContainer</a></p>
+<p class="hcp2"><a href="vcComponentsCreator.htm">vcComponentCreator</a></p>
+<p class="hcp2"><a href="vcMotionPath.htm">vcMotionPath</a></p>
+<p class="hcp2"><a href="vcContainer.htm">vcOneDirectionalPath</a></p>
+<p class="hcp2"><a href="vcRoutingRule.htm">vcRoutingRule</a></p>
+<p class="hcp2"><a href="vcContainer.htm">vcTwoDirectionalPath</a></p>
+<p class="hcp2"><a href="vcTransport.htm">vcTransport</a></p>
+<h2><a name="MiniTOCBookMark3"></a>Common Properties</h2>
+<p>The following properties are common in all flow type behaviors.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>CapacityAvailable</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if flow object will accept an incoming component. 
+		<p class="TableNormal">This is not the same as a logical capacity 
+		 test since flow type behaviors do not to store components.</p></td>
+	</tr>
+	<tr>
+		<td>ConnectorCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the amount of connectors/ports in flow object.</td>
+	</tr>
+	<tr>
+		<td>Connectors</td>
+		<td>List of <a href="vcConnector.htm">vcConnector</a></td>
+		<td>R</td>
+		<td>Gets a list of connectors in flow object.</td>
+	</tr>
+	<tr>
+		<td>Statistics</td>
+		<td><a href="vcStatistics.htm">vcStatistics</a></td>
+		<td>RW</td>
+		<td>Defines a Statistics behavior that collects data generated 
+		 by this flow during a simulation.
+		</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Behavior Specific Properties</h2>
+<h3><a name="MiniTOCBookMark5"></a>Boolean Property Creator</h3>
+<p>Boolean Property Creator adds/sets the value of a Boolean type property 
+ in a component. It is recommended to use a Python Script to create and 
+ set properties.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Create</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if a property is created when no property in a component 
+		 matches VariableName.</td>
+	</tr>
+	<tr>
+		<td>Enabled</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the use of the creator.</td>
+	</tr>
+	<tr>
+		<td>Value</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines the value of a property in a component matching VariableName.</td>
+	</tr>
+	<tr>
+		<td>VariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of a property to create/set in a component.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark6"></a>Container Filler</h3>
+<p>Container Filler fills a container type behavior in a component which 
+ has a defined pattern. Generally, a component will have a Component Pattern 
+ Location behavior. In such cases, a Container Filler will read the behavior's 
+ pattern, and then create the needed components. Be aware vcContainerFiller 
+ is the type of a Container Filler in Python API. However, it does not 
+ have a separate implementation.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Container</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of the container to be filled with a component. 
+		 
+		<p class="TableNormal">Generally, you would not want to set this 
+		 property unless you know the exact name of the container type 
+		 behavior to be filled in a component.</p></td>
+	</tr>
+	<tr>
+		<td>Part</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the URI or VCID of the filler's template.</td>
+	</tr>
+	<tr>
+		<td>TemplateComponent</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td>RW</td>
+		<td>Defines the template used by filler to create components in 
+		 a container.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark7"></a>Integer Property Creator</h3>
+<p>Integer Property Creator adds/sets the value of an integer type property 
+ in a component. It is recommended to use a Python Script to create and 
+ set properties.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Create</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if a property is created when no property in a component 
+		 matches VariableName.</td>
+	</tr>
+	<tr>
+		<td>Enabled</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the use of the creator.</td>
+	</tr>
+	<tr>
+		<td>Value</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the value of a property in a component matching VariableName.</td>
+	</tr>
+	<tr>
+		<td>VariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of a property to create/set in a component.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark8"></a>Real Property Creator</h3>
+<p>Real Property Creator adds/sets the value of a real number type property 
+ in a component. It is recommended to use a Python Script to create and 
+ set properties.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Create</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if a property is created when no property in a component 
+		 matches VariableName.</td>
+	</tr>
+	<tr>
+		<td>Enabled</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the use of the creator.</td>
+	</tr>
+	<tr>
+		<td>Value</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the value of a property in a component matching VariableName.</td>
+	</tr>
+	<tr>
+		<td>VariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of a property to create/set in a component.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark9"></a>String property Creator</h3>
+<p>String Property Creator adds/sets the value of a string type property 
+ in a component. It is recommended to use a Python Script to create and 
+ set properties.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Create</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if a property is created when no property in a component 
+		 matches VariableName.</td>
+	</tr>
+	<tr>
+		<td>Enabled</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the use of the creator.</td>
+	</tr>
+	<tr>
+		<td>Value</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the value of a property in a component matching VariableName.</td>
+	</tr>
+	<tr>
+		<td>VariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of a property to create/set in a component.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark10"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>checkCapacity</td>
+		<td>Boolean</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span>, 
+		 Integer <span class="Italic">index</span></td>
+		<td>Tests if the flow object has the capacity to store a given 
+		 <span class="Italic">component</span> that passes through a connector 
+		 at a given <span class="Italic">index</span>. 
+		<p class="TableNormal">Generally, this method is used to test the 
+		 arrival of components at different connectors in order to route 
+		 components effectively and avoid bottlenecks.</p>
+		<p class="TableNormal">The test passes if <span class="Italic">CapacityAvailable</span> 
+		 is set to True. In cases where the flow object has physical capacity 
+		 to store components, the test depends on the container's <span 
+		 class="Italic">ComponentCount</span> and <span class="Italic">Capacity</span> 
+		 properties as well as the capacity test used by a connector.</p>
+		<p class="TableNormal">See <a href="vcConnector.htm">vcConnector</a> 
+		 for more information.</p></td>
+	</tr>
+	<tr>
+		<td>getConnectorCount</td>
+		<td>Integer</td>
+		<td>None</td>
+		<td>Gets the number of connectors/ports in the flow object.</td>
+	</tr>
+	<tr>
+		<td>getConnector</td>
+		<td><a href="vcConnector.htm">vcConnector</a></td>
+		<td>Integer <span class="Italic">index</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">String <span class="Italic">name</span></p></td>
+		<td>Returns a connector at a given <span class="Italic">index</span> 
+		 or one that matches a given <span class="Italic">name</span> in 
+		 the flow object; otherwise returns None.</td>
+	</tr>
+	<tr>
+		<td>setConnection</td>
+		<td><a href="vcConnector.htm">vcConnector</a></td>
+		<td>Integer <span class="Italic">index</span>, <a href="vcConnector.htm">vcConnector</a> 
+		 <span class="Italic">to_connector</span></td>
+		<td>Connects a connector at a given <span class="Italic">index</span> 
+		 in the flow object to a given connector.</td>
+	</tr>
+</table>
+</body>
+</html>

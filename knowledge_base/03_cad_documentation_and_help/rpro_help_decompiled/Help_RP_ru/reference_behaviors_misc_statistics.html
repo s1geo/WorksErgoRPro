@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Статистика</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Поведение Статистика позволяет собирать и сообщать статистику, сгенерированную другими поведениями в компоненте во время моделирования." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Статистика</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Поведение Статистика позволяет собирать и сообщать статистику, сгенерированную другими поведениями в компоненте во время моделирования.</p>
+<p class="p_Normal"><img alt="ClipboardImg185" style="margin:0;width:4.3958in;height:4.7188in;border:none" src="clipboardimg185.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<p class="p_Normal">Сбор данных может быть кумулятивным или основываться на времени, состояниях и событиях. Чтобы сообщать статистику, поведение должно иметь свойство Statistics, иначе вы можете использовать скрипт Python для ручного определения сбора данных. По умолчанию статистика на основе интервалов сообщается каждые 60 секунд в работающем моделировании.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:3.1250in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.2917in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет наименование поведения статистики.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ВведенныеДетали</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает количество компонентов, которые достигли поведения типа контейнера.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ВыведенныеДетали</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает количество компонентов, которые покинули поведение типа контейнера.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ТекущиеДетали</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает текущее количество компонентов, присоединенных к поведению типа контейнера.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ИспользованиеДеталей</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает процентное соотношение компонентов, присоединенных к поведению типа контейнера, к емкости контейнера. Например, контейнер компонентов может содержать 100 компонентов, но содержит только 50 компонентов, что приводит к 50-процентному использованию пространства для хранения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СреднееКоличествоДеталей</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает среднее количество компонентов, присоединенных к поведению типа контейнера. Например, в среднем сортировочная машина может иметь 10 компонентов одновременно.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">МинимальноеКоличествоДеталей</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает минимальное количество компонентов, которые были присоединены к поведению типа контейнера в определенный момент времени. Например, челночный конвейер может иметь как минимум один компонент в любой момент времени.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">МаксимальноеКоличествоДеталей</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает максимальное количество компонентов, которые были присоединены к поведению типа контейнера. Например, захват робота может иметь не более трех компонентов одновременно.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ОбщееВремяДеталей </p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает общее количество времени, в течение которого каждый компонент привязан к поведению типа контейнера. Например, машина обрабатывает 10 компонентов в течение 5 секунд со скоростью подачи/выхода 2–3 секунды, поэтому общая продолжительность каждого компонента в машине, сложенная вместе, дает ОбщееВремяДеталей.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СреднееВремяДеталей </p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает среднее количество времени, в течение которого компонент привязан к поведению типа контейнера.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">МинимальноеВремяДеталей </p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает минимальное количество времени, в течение которого компонент привязан к поведению типа контейнера.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">МаксимальноеВремяДеталей</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Максимальное количество времени, в течение которого компонент привязан к поведению типа контейнера.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ВведенныеДеталиЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и ВведенныеДетали, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ВыведенныеДеталиЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и ВыведенныеДетали, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ТекущиеДеталиЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и ТекущиеДетали, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ИспользованиеДеталейЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и ИспользованиеДеталей, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СреднееКоличествоДеталейЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и СреднееКоличествоДеталей, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">МинимальноеКоличествоДеталейЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и МинимальноеКоличествоДеталей, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">МаксимальноеКоличествоДеталейЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и МаксимальноеКоличествоДеталей, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ОбщееВремяДеталейЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и ОбщееВремяДеталей, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СреднееВремяДеталейЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и СреднееВремяДеталей, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">МинимальноеВремяДеталейЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и МинимальноеВремяДеталей, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">МаксимальноеВремяДеталейЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и МаксимальноеВремяДеталей, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Использование</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает процент поведения, находящегося в определенном состоянии «setup» или «busy», исходя из прошедшего времени симуляции.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ОбщееВремяСостояния</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает общее количество времени, в течение которого поведение находилось в любом из определенных им состояний, исходя из прошедшего времени симуляции.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПроцентПоломок</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает процент, в котором поведение находилось в определенном состоянии «break» на основе прошедшего времени симуляции. Как правило, неисправное состояние должно возникать до определенного состояния восстановления.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПроцентПростоя</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает процентную долю поведения, находящегося в определенном состоянии «idle», исходя из прошедшего времени симуляции.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПроцентЗанятости</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает процент, в котором поведение находилось в определенном «busy» состоянии, исходя из прошедшего времени симуляции.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПроцентБлокировки</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает процент, в котором поведение находилось в определенном «blocked» состоянии на основе прошедшего времени симуляции. Как правило, проблемы с емкостью вызывают заблокированное состояние в поведении.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПроцентНеудач</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает процент, в котором поведение находилось в определенном состоянии «failed» на основе прошедшего времени симуляции.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">РемонтВПроцентах</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает процент поведения, находящегося в определенном состоянии «repair», исходя из прошедшего времени моделирования.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПроцентНастройки</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает процент поведения, находящегося в определенном состоянии «setup» или «warm up», исходя из прошедшего времени симуляции.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СреднееВремяАктивногоПериода</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает среднее количество времени, в течение которого поведение находилось в одном из определенных состояний во время моделирования.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ИспользованиеДеталейЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и Использование, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ОбщееВремяСостоянияЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и ОбщееВремяСостояния, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПроцентПоломокЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и ПроцентПоломок, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПроцентПростояЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и ПроцентПростоя, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПроцентЗанятостиЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и ПроцентЗанятости, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПроцентБлокировкиЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и ПроцентБлокировки, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПроцентНеудачЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и ПроцентНеудач, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">РемонтВПроцентахЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и РемонтВПроцентах, но для записанного интервала.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.1250in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПроцентНастройкиЗаИнтервал</p>
+</td>
+<td style="vertical-align:top; width:9.2917in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и ПроцентНастройки, но для записанного интервала.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Состояния</span></h2>
+<p class="p_Normal">Компонент может иметь одно или несколько состояний, которые определяются поведением статистики. Состояние — это состояние компонента во время симуляции в данный момент времени. Вот почему каждое состояние имеет два динамических свойства: State&lt;StateName&gt;Percentage и State&lt;StateName&gt;IntervalPercentage. Состояние сопоставляется с состоянием системы, которое является жестко запрограммированным, предопределенным условием для компонента.</p>
+<p class="p_Normal"><img alt="ClipboardImg186" style="margin:0;width:4.5625in;height:3.9896in;border:none" src="clipboardimg186.png"/></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-style: italic;">Создание состояний по умолчанию. </span></p>
+<p class="p_Normal">Свойство поведения Статистика позволяет создавать следующие восемь состояний.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Blocked</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает, что компонент заблокирован, например, проблема с емкостью или части застряли в процессе.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Break</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает на сбой в компоненте, например, на сбой в процессе.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Broken</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает на сбой в компоненте, например, что-то сломано и нуждается в ремонте.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Busy</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает, что компонент занят, например, выполнением процесса.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Idle</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает, что компонент не занят, например, не ожидает команды или не выполняет процесс.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Repair</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает на ремонт компонента, например, на ремонт сломанной детали.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Setup</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает, что компонент настраивается, например, процесс загрузки или шаги перед выполнением процесса.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Warmup</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает время подготовки компонента (прогрев).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание:</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Вы можете переименовать состояние, но оно всегда должно быть сопоставлено с состоянием системы.</p>
+</td></tr></table>
+
+</body>
+</html>

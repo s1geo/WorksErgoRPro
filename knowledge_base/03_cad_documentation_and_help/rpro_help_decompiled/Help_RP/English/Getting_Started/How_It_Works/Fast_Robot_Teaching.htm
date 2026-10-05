@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Fast Robot Teaching</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META content=en-US http-equiv=Content-Language>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css"></HEAD>
+<BODY>
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+
+<H1>Fast Robot Teaching</H1>
+<P>Fast Robot Teaching allows you to create statements in a robot program using 
+actions in the Teach Overlay menu. The benefits are fast teaching of robot 
+positions and simplified workflows for programming robots in the 3D world.</P>
+<P>When using the Jog tool, you have a set of actions for adding statements to 
+the active robot, for example linear and point-to-point motions. Clicking an 
+action adds a new statement to the program of the robot. If you click the same 
+action, the values of the previously added statement are used to create the new 
+statement. If you click a different action, the statement uses its default 
+values.</P>
+<P><IMG src="2890.png"></P>
+<P>You can customize which actions are listed in the Teach Overlay menu. For 
+example, you can have a list of actions for adding custom statements, calls to 
+subroutines, and other commands. To customize the list of displayed actions, 
+edit the configuration file of R-Pro 2.1, or use PythonAPI or .NET API.</P>
+<P><SPAN class=Example>Example. Configure application configuration file 
+&nbsp;.</SPAN></P>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 100%">
+  <TBODY>
+  <TR>
+    <TD>&lt;Site ItemId="VcTeachOverlayMenu"&gt; <BR>&lt;uxEntries&gt; 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;UxItem 
+      ItemId="CloneTeachPtpMotionStatement"&gt;&lt;/UxItem&gt; 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;UxItem 
+      ItemId="CloneTeachLinearMotionStatement"&gt;&lt;/UxItem&gt; 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;UxItem 
+      ItemId="CloneTeachPathStatement"&gt;&lt;/UxItem&gt; 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;UxItem 
+      ItemId="CreateHaltStatement"&gt;&lt;/UxItem&gt; <BR>&lt;/uxEntries&gt; 
+      <BR>&lt;/Site&gt;</TD></TR></TBODY></TABLE>
+<P><SPAN class=Example>Example. Add a menu item using PythonAPI.</SPAN></P>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 100%">
+  <TBODY>
+  <TR>
+    <TD>from vcApplication import * <BR>cmd_name = 'RobotGrasp' <BR>title = 
+      'myGraspAction' <BR>tooltip_name = 'Add Grasp routine' <BR>icon_name = 
+      'rAddProgramStatement' <BR>&nbsp; <BR>def OnAppInitialized(): 
+      <BR>&nbsp;&nbsp;cmduri = getApplicationPath() + cmd_name + '.py' 
+      <BR>&nbsp;&nbsp;cmd = loadCommand(cmd_name, cmduri) 
+      <BR>&nbsp;&nbsp;addMenuItem('VcTeachOverlayMenu', title, 1, cmd_name, 
+      tooltip_name, icon_name) </TD></TR></TBODY></TABLE></BODY></HTML>

@@ -1,0 +1,92 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Using Process Variables</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { mso-ansi-language:EN-US; }
+p.hcp2 { mso-ansi-language:EN-US; }
+-->
+</style>
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Using Process Variables</h1>
+<p><span lang="EN-US" xml:lang="EN-US">Process variables are local variables 
+ in a process </span><span class="hcp1">specific to 
+ a routine. A variable in a routine can only be set and referred in the 
+ same routine. However, </span><span lang="EN-US" xml:lang="EN-US" class="hcp1">both 
+ process requirements and process routine statements of a routine can access 
+ the same variables.</span></p>
+<p><span lang="EN-US" xml:lang="EN-US" class="hcp1">S</span>ee 
+ also <a href="../../../Reference/Expressions/Process_Statement_Expressions.htm">Process 
+ Statement Expressions</a>.</p>
+<p align="left"  ><a href="#MiniTOCBookMark2" ></a></p>
+
+<h3><a name="MiniTOCBookMark2"></a>Static Variables</h3>
+<p class="hcp2"><span lang="EN-US" xml:lang="EN-US">Static 
+ process routine variables and they created manually from the user interface 
+ and remain between simulation runs. </span></p>
+<p><img src="../../Links/AssignVariableStatement.png" alt="" style="border: none;" border="0"></p>
+<p class="hcp2"><span lang="EN-US" xml:lang="EN-US">The 
+ value of a variable is reset to the default value of the data type on 
+ simulation reset and simulation start, but not for each process routine 
+ execution. </span></p>
+<table class="Property" style="left: 0px; top: 560px;" cellspacing="0px" width="276">
+	<col style="width: 54.481%;">
+	<col style="width: 45.519%;">
+	<tr class="t1st">
+		<td>Data type</td>
+		<td><p>Default value</p></td>
+	</tr>
+	<tr>
+		<td>Boolean</td>
+		<td><p>False</p></td>
+	</tr>
+	<tr>
+		<td>Integer</td>
+		<td>0</td>
+	</tr>
+	<tr>
+		<td>Real</td>
+		<td><p>0.0</p></td>
+	</tr>
+	<tr>
+		<td><p>String</p></td>
+		<td>&quot;&quot;</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark3"></a>Runtime Variables</h3>
+<p class="MsoNormal"><span lang="EN-US" xml:lang="EN-US" class="hcp1">Runtime 
+ variables are created by statements when the defined output variable doesn’t 
+ exist. This is a convenience feature so users don’t need to define all 
+ used variables beforehand. The runtime variables are reset to a default 
+ value before the process requirements evaluation, which means that process 
+ requirements can pass values to the process routine statements but the 
+ values are reset between each execution. All runtime variables are also 
+ deleted on simulation start and reset.</span></p>
+<p class="MsoNormal"><span lang="EN-US" xml:lang="EN-US" class="hcp1">The 
+ runtime variables can contain references to objects such as Product instances 
+ and also contain a list of values, such as integers, or references to 
+ objects. References to objects and lists of references are also strongly 
+ typed, meaning that the referenced object type is known and cannot be 
+ changed or a reference to object of another type stored in the variable. 
+ Lists can only contain values of a single type or references to objects 
+ of a single type.</span></p>
+<p class="hcp2"><span lang="EN-US" xml:lang="EN-US">All 
+ references to objects are implemented such that if the referenced object 
+ is deleted, the reference becomes Null (“None” in Python). Null means 
+ that the reference points to nothing. If the reference is in a list, the 
+ Null value will remain in the list.</span></p>
+</body>
+</html>

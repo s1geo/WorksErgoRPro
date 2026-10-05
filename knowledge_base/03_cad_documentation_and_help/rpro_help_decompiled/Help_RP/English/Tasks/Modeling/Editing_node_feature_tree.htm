@@ -1,0 +1,104 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="explode,move up in tree,group,group main level,remove empty">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Editing node feature tree</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</style>
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Editing Node Feature Tree</h1>
+<p>The feature tree of a selected node can be edited using a mouse and 
+ quick commands.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot40938" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot40938', 'MTPOPUP40938');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP40938" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Moving</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Exploding</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Grouping</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Removing</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Moving</h2>
+<p>You can drag and drop features to different depths and levels in the 
+ same or other node feature trees. By default, a feature will update its 
+ 3D world position based on the location of its node and parent feature. 
+ Otherwise, you can hold down SHIFT to have a feature retain its 3D world 
+ position when moved elsewhere in a tree.</p>
+<ol>
+	<li class="Ordered">Select the feature you want to move in the tree.</li>
+	<li class="Ordered">Do one of the following: 
+	<ul class="hcp1">
+		<li class="Unordered">To move a feature before or after another 
+		 feature, drag the feature immediately before or after a feature 
+		 until the insert line shows the correct level and insertion point 
+		 in the tree.</li>
+		<li class="Unordered">To nest a feature inside another feature, 
+		 drag the feature onto a feature.</li>
+		<li class="Unordered">To move a feature to another node, drag the 
+		 feature from the Node Feature Tree pane onto a node in the Component 
+		 Node Tree pane.</li>
+		<li class="Unordered">To move a feature one level closer to its 
+		 root feature, right-click the selected feature, and then click 
+		 <span class="Strong">Move Up in Tree</span>.</li>
+	</ul></li>
+</ol>
+<h2><a name="MiniTOCBookMark3"></a>Exploding</h2>
+<p>The Explode command allows you to split a selected feature either by 
+ geometry sets or mesh connectivity to form multiple new features nested 
+ inside a new Transform feature. This is helpful if you want to quickly 
+ split the solid shapes of imported geometry into new Geometry features. 
+ You can immediately undo the explosion by collapsing the new Transform 
+ feature.</p>
+<ul class="hcp1">
+	<li class="Unordered">Right-click the feature you want to explode in 
+	 the tree, and then click <span class="Strong">Explode</span>.</li>
+</ul>
+<h2><a name="MiniTOCBookMark4"></a>Grouping</h2>
+<p>The Group command allows you to nest selected features with the same 
+ parent inside a new Transform feature. This is helpful if you want to 
+ quickly group and transform specific geometry.</p>
+<ol>
+	<li class="Ordered">Select the features you want to group in the tree. 
+	 Remember that the features need to have the same parent feature.</li>
+	<li class="Ordered">Right-click a selected feature, and then click 
+	 <span class="Strong">Group</span>.</li>
+</ol>
+<p>The Group Main Level command allows you to nest all features directly 
+ attached to root feature inside a new Transform feature. That is, everything 
+ under root feature in tree is shifted down one level and moved under a 
+ new Transform feature. This is helpful if you want to simplify the main 
+ level of the node feature tree to consist of the root and one subfeature 
+ tree. For example, you might need to offset all geometry at the feature 
+ level as opposed to editing a node offset.</p>
+<ul class="hcp1">
+	<li class="Unordered">Right-click any feature in the tree, and then 
+	 click <span class="Strong">Group Main Level</span>.</li>
+</ul>
+<h2><a name="MiniTOCBookMark5"></a>Removing</h2>
+<p>The Remove Empty command allows you to cleanup and remove all features 
+ in tree that are Geometry features containing no geometry or operation 
+ type features having no subfeatures.</p>
+<ul class="hcp1">
+	<li class="Unordered">Right-click any feature in the tree, and then 
+	 click <span class="Strong">Remove Empty</span>.</li>
+</ul>
+</body>
+</html>

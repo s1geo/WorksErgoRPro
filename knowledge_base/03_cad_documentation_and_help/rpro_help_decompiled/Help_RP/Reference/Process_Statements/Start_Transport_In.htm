@@ -1,0 +1,115 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Start Transport In</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Start Transport In</h1>
+<p>A StartTransportIn statement allows you to start transporting one or 
+ more products instances into the process and to execute other statements 
+ while that is being done. This statement is typically used before a WaitTransport 
+ statement, with any number of other statements in between.</p>
+<p>See the TransportIn statement for more information. </p>
+<p>The source for the StartTransportIn statement is the Transport System 
+ (typically via Transport Link).</p>
+<p>In <span class="Term">Transport Products</span> mode, all product transports 
+ will start at the same time.</p>
+<p>In <span class="Term">Process an Assembly </span>mode, operations are 
+ performed in the same order as in the TransportIn statement.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><p>Mode</p></td>
+		<td><p>Defines how products are transported in.<br>
+		</p>
+		<p><span class="Term">Transport Products</span><br>
+		In this mode, this statement transports Product Instances between 
+		 Processes. <br>
+		Tip: Product Instance is a general term that includes both Part 
+		 Instances and Assembly Instances, so this can be used to bring 
+		 assemblies (partially assembled or fully assembled) into the process.<br>
+		</p>
+		<p><span class="Term">Process an Assembly </span><br>
+		In this mode, this statement is used to transport Product Instances 
+		 into an Assembly Instance that is in this process.</p></td>
+	</tr>
+	<tr>
+		<td><p>AssemblyVariableName</p></td>
+		<td><p>Name of the Assembly Instance variable that will receive 
+		 the Product Instance(s). Only one instance is processed - the 
+		 type of this variable can be a list, but in that case the list 
+		 may only contain a single item. </p>
+		<p>If left empty, a new Assembly Instance is created.</p></td>
+	</tr>
+	<tr>
+		<td><p>AssemblyOrderVariableName</p></td>
+		<td><p>Name of the AssemblyOrder variable that defines which slots 
+		 of the assembly will be filled, if they are currently empty.<br>
+		Tip: Use the GetAssembly statement for creating an AssemblyOrder. 
+		 </p>
+		<p>If left empty, all slots of the assembly will be filled.</p></td>
+	</tr>
+	<tr>
+		<td>ReservedProductVariableName</td>
+		<td><p>Product variable name defined in Reserve Statement. The 
+		 variable can be a list. <br>
+		<br>
+		If Mode is set to <span class="Term">Transport Products</span> 
+		 and this variable is not empty, this statement will transport 
+		 in the product(s) in the variable, without considering the product 
+		 filter settings in this statement. <br>
+		<br>
+		If Mode is set to <span class="Term">Process an Assembly </span>and 
+		 this variable is not empty, this statement will try to use the 
+		 product(s) in the variable to fill slots in the assembly, considering 
+		 the product filter settings in the assembly slots. </p></td>
+	</tr>
+	<tr>
+		<td>ProductVariableName</td>
+		<td><p>Name of the variable where this statement stores either 
+		 the product that was transported in or the assembly that was transported 
+		 in or created. <br>
+		<br>
+		If a variable with the given name does not exist, it will be created. 
+		 If it exists and is a list, this statement will append to that 
+		 list. If the variable exists and already has a value, then the 
+		 variable will be converted to a list before appending. </p></td>
+	</tr>
+	<tr>
+		<td>ProductPositionFrame</td>
+		<td><p>Frame location where the products are placed. </p></td>
+	</tr>
+	<tr>
+		<td>ResourcePositionFrame</td>
+		<td><p>Frame location where a resource will move while placing 
+		 a product.</p></td>
+	</tr>
+	<tr>
+		<td>AcceptAllProductTypes</td>
+		<td><p>If selected, any product is accepted.</p></td>
+	</tr>
+	<tr>
+		<td>AcceptedFlowGroups</td>
+		<td>Allows only the selected flow groups.</td>
+	</tr>
+	<tr>
+		<td>AcceptedProductTypes</td>
+		<td><p>Allows only the selected product types.</p></td>
+	</tr>
+</table>
+</body>
+</html>

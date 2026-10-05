@@ -1,0 +1,164 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcCamera</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcCamera</h1>
+<p>vcCamera provides the capability of controlling a virtual camera and 
+ its view for an environment.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot24539" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot24539', 'MTPOPUP24539');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP24539" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ClipFar</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines how far objects can be from a camera in order to be 
+		 displayed. If objects are too far then they are not visible.</td>
+	</tr>
+	<tr>
+		<td>ClippingMethod</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the clipping mode for a camera's view. 
+		<p class="TableNormal">Clipping is used to determine how close 
+		 and far objects can be from a camera to be displayed on screen.</p>
+		<p class="TableNormal"><img src="ClippingLimits.png" alt="" style="border: none; 
+									 margin-left: 0px; margin-right: 0px; 
+									 margin-top: 10px; margin-bottom: 10px;" border="0"></p>
+		<p class="TableNormal">0 = VC_RENDER_CLIPPING_AUTOMATIC</p>
+		<p class="TableNormal">1 = VC_RENDER_CLIPPING_CLASSIC</p>
+		<p class="TableNormal">2 = VC_RENDER_CLIPPING_MANUAL</p>
+		<p class="TableNormal"><span class="hcp1">Classic</span> 
+		 is the default setting for the application. <span class="hcp1">Automatic</span> 
+		 tries to keep all objects in view of a camera visible. <span class="hcp1">Manual</span> 
+		 allows a user to specify the near and far distances for clipping.</p>
+		<p class="TableNormal">Manual mode uses <span class="hcp1">ClipNear</span> 
+		 and <span class="hcp1">ClipFar</span> properties 
+		 to define a clip-volume space of a camera's projected view. Objects 
+		 within the area defined by ClipNear and ClipFar are displayed 
+		 based on a camera's center of interest and eye settings.</p>
+		<p class="TableNormal"><span class="Example">Example. Clipping 
+		 a camera's perspective view</span></p>
+		<p class="TableNormal"><img src="Clipping.png" alt="" style="margin-left: 0px; 
+									 margin-right: 0px; margin-top: 10px; 
+									 margin-bottom: 10px;" border="0"></p>
+		<p class="TableNormal">Clipping can be defined manually in orthographic 
+		 view when needed; otherwise, Classic mode is recommended.</p></td>
+	</tr>
+	<tr>
+		<td>ClipNear</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines how close objects can be to a camera in order to be 
+		 displayed. If objects are too close then they are not visible.</td>
+	</tr>
+	<tr>
+		<td>Coi</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Defines camera's center of interest location.</td>
+	</tr>
+	<tr>
+		<td>Eye</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Defines camera's eye location.</td>
+	</tr>
+	<tr>
+		<td>Matrix</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>R</td>
+		<td>Defines the whole camera matrix.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of the camera.</td>
+	</tr>
+	<tr>
+		<td>NavigationDisabled</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if navigation commands in GUI are turned on or off 
+		 to allow camera orientation with other tools.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getRay</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a> <span class="hcp1">position</span>, 
+		 Real <span class="hcp1">length</span></td>
+		<td>Real <span class="hcp1">px</span>, Real <span class="hcp1">py</span></td>
+		<td>Gets the ray based on the image coordinate system.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p class="Example"><span class="Example">Example. Define camera's eye and 
+ center of interest</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>import vcVector 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>camera = app.findCamera() 
+		<br>eyeV = vcVector.new(5000,5000,2000) 
+		<br>coiV = vcVector.new(1500,500,0)
+		<br>&#160;
+		<br>#tip: set coi first, and then set eye of camera
+		<br>camera.Coi = coiV
+		<br>camera.Eye = eyeV 
+		<br><span>app.render()</span></td>
+	</tr>
+</table>
+</body>
+</html>

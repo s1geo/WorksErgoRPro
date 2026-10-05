@@ -1,0 +1,68 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Move Joint</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-weight:bold; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Move Joint</h1>
+<p>A MoveJoint statement allows you to move a joint to specified target 
+ value over time. You can move only one joint at a time. The joint must 
+ be linked to a controller and it must be in the same component where the 
+ process executor is. The statement line execution will end when the motion 
+ has been completed.</p>
+<p><span class="hcp1">Note:</span> The statement allows servo 
+ to move over its limits (if <a href="../../English/Tasks/Robots/Limiting_a_robot_and_its_joints.htm">Stop 
+ at limits</a> is not enabled in Program tab).</p>
+<p><img src="../../English/Links/ReferenceProcessStatementsMoveJoint.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Controller </td>
+		<td>The controller that owns the joint. This can be a servo controller 
+		 or a derived controller, e.g. a robot controller. This behavior 
+		 must be on the same component than the process executor that is 
+		 running this statement.</td>
+	</tr>
+	<tr>
+		<td><p>Joint </p></td>
+		<td><p>The joint to move. This can be selected after selecting 
+		 the controller.</p></td>
+	</tr>
+	<tr>
+		<td>TargetValue </td>
+		<td><p>An expression for the target value. </p>
+		<p><span class="hcp1">Note:</span> Must evaluate 
+		 to a Real or Integer result.</p>
+		<p>See also <a href="../Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</p></td>
+	</tr>
+	<tr>
+		<td><p>MotionTime </p></td>
+		<td><p>An expression for motion time. This can be left empty to 
+		 let the controller plan the motion. </p>
+		<p><span class="hcp1">Note:</span> If not left empty, 
+		 this expression must evaluate to a Real or Integer result.</p>
+		<p>See also <a href="../Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</p></td>
+	</tr>
+</table>
+</body>
+</html>

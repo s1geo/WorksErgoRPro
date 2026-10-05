@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Создание шаблона чертежа</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Существующий шаблон чертежа можно использовать в качестве руководства для разработки новых. Так же добавить/удалить файлы из папки, содержащей шаблоны чертежей вашего..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Создание шаблона чертежа</span><span class="f_Heading1" style="background-color: #494949;">&nbsp;</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Существующий шаблон чертежа можно использовать в качестве руководства для разработки новых. Так же добавить/удалить файлы из папки, содержащей шаблоны чертежей вашего приложения (C:\Users\&lt;пользователь&gt;\Documents\R-Pro\0.2\My Templates\Drawings).</p>
+<p class="p_Normal">Этот рабочий процесс предполагает, что у вас есть доступ к вкладке Моделирование.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>Откройте новый пустую планировку.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>Добавьте шаблон чертежа в трехмерный мир. То есть не импортируйте шаблон чертежа в поле чертежей, а перетяните файл чертежа в 3D мир.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>На вкладке <span style="font-weight: bold;">Моделирование </span>, на панели <span style="font-weight: bold;">Диаграмма компонента </span>, выберите корневой узел шаблона, а затем разверните его дерево элементов.</p>
+<p class="p_Normal">Как правило в дереве элементов узла шаблона элемент <span style="font-style: italic;">Геометрия </span>содержит большую часть геометрии, определяющей размер бумаги шаблона. Например, шаблон формата А4 будет иметь приблизительную высоту 297 {мм} и ширину 209 {мм}. Большинство других элементов относятся к свойствам текстового поля и функциям, необходимым для создания спецификации (списка деталей).</p>
+<p class="p_Normal">В корневом узле коллекции <span style="font-weight: bold;">Поведение</span> <span style="font-style: italic;">PythonScript </span>определяет логику шаблона для масштабирования новых рисунков и обновления текстовых полей. <span style="font-style: italic;">PartListInterface </span>необходим для автоматического создания спецификации на основе чертежей, прикрепленных к шаблону.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">4.</span>Сохраните шаблон чертежа как новый компонент с допустимыми метаданными. То есть не используйте те же метаданные, что и исходный шаблон. В зависимости от разрешений вашей учетной записи пользователя вам может потребоваться сохранить компонент в одном месте, а затем переместить его в папку шаблонов чертежей, расположенную в том же каталоге, что и программные файлы вашей версии Рационального Производства.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">5.</span>Перезапустите Рациональное Производство, а затем убедитесь, что ваш шаблон доступен и правильно работает в виде чертежа.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Подсказка: </span>Геометрию шаблона можно экспортировать в виде файла .DXF, а затем использовать в программном обеспечении для работы с векторными изображениями для разработки новых шаблонов чертежей.</p>
+
+</td></tr></table>
+
+</body>
+</html>

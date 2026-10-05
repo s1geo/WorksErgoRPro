@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Modeling a component</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content=modeling,component,create>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css">
+<STYLE title=hcp type=text/css>
+<!--
+img.hcp1 { border:none; }
+ul.hcp2 { list-style:disc; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+
+<H1>Modeling a Component</H1>
+<P>The Modeling view allows you to model existing components as well as create 
+new components.</P>
+<P>In some cases, you would import a CAD file that you want to model as a 
+component.</P>
+<P><IMG class=hcp1 border=0 alt="" src="../../Links/ImportedGeometry.png"></P>
+<P>In other cases, you would use commands on the Ribbon to create a component 
+and new geometry.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../Links/CreateComponentGeometry.png"></P>
+<P>If you are importing CAD files, we highly recommend you clean up and simplify 
+the geometry of the CAD file. For example, a CAD file with a large data count 
+and internal parts should be avoided to help reduce file size and memory 
+consumption as well as boost performance. Generally, you would simplify geometry 
+in the editor you used to create the CAD file. However, import settings and 
+other options in the Modeling view can be used to analyze and import the CAD 
+file using standard practices.</P>
+<P><IMG class=hcp1 border=0 alt="" src="../../Links/ImportSettings.png"></P>
+<P>Generally, an imported CAD file is contained in one component with a single 
+node, which is referred to as the component's root node. The data structure of a 
+component is a tree, so every component has a root node.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../Links/ImportedGeometryStructure.png"></P>
+<P>If a component needs to have movable parts or a kinematic structure, you 
+would need to create new nodes in the component.</P>
+<P><IMG class=hcp1 border=0 alt="" src="../../Links/AddNewLinks.png"></P>
+<P>These types of nodes are referred to as links, and each link contains 
+properties for defining an offset, pivot point, joint type and degrees of 
+freedom. That is, a link defines its own mechanism for movement.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../Links/DefineNodeStructureVCEN.png"></P>
+<P>After you create the required nodes in a component, you would need to move 
+geometry into those nodes. Geometry that you import or create in the Modeling 
+view are contained in features.</P>
+<P>If you need to regroup geometry in a feature, that is move some geometry into 
+a new or different feature:</P>
+<UL class=hcp2>
+  <LI class=Unordered>On the <SPAN class=Strong>Ribbon</SPAN>, in the <SPAN 
+  class=Strong>Geometry</SPAN> group, click the <SPAN class=Strong>Tools</SPAN> 
+  arrow, and then use <SPAN class=Strong>Feature Tools</SPAN>.<BR><IMG 
+  class=step_image 
+  style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none" 
+  border=0 alt="" src="../../Links/SplitGeometryFeatures.png"> </LI></UL>
+<P>If you want to place a feature in a different node:</P>
+<OL>
+  <LI class=Ordered>In the <SPAN class=Strong>Component Graph</SPAN> panel, 
+  <SPAN class=Strong>Component Node Tree</SPAN> pane, select the node containing 
+  the feature you want to place elsewhere in the component. 
+  <LI class=Ordered>In the <SPAN class=Strong>Node Feature Tree</SPAN> pane, 
+  drag the target feature into the target node listed in the Component Node Tree 
+  pane.<BR><IMG class=step_image 
+  style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none" 
+  border=0 alt="" src="../../Links/MoveGeometryNewNode.png"> </LI></OL>
+<P><SPAN class=Strong>Tip:</SPAN> When moving a node or feature in the Component 
+Graph panel, you can hold down SHIFT to retain its 3D world position.</P>
+<P>Once you have the defined the nodes of a component and regrouped its 
+features, you might want to create properties in the component. Component 
+properties are contained in a component's root node and can be used to control 
+the values of other properties in the component as well as make the component 
+parametric.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../Links/EditComponentPropertyVCEN.png"></P>
+<P>Properties you create in a component will be listed in the Layout view, 
+Properties panel unless you make a property invisible.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../Links/VisibleComponentPropertiesVCEN.png"></P>
+<P>That is, a component property has its own set of properties, which you can 
+read/write in a Property task pane.</P>
+<UL class=hcp2>
+  <LI class=Unordered>In the <SPAN class=Strong>Component Graph</SPAN> panel, 
+  <SPAN class=Strong>Component Node Tree</SPAN> pane, select a property to 
+  display its properties in the Property task pane.<BR><IMG class=step_image 
+  style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none" 
+  border=0 alt="" src="../../Links/SelectEditComponentProperty.png"> </LI></UL>
+<P>If you want a component to perform tasks before or during a simulation, 
+create behaviors.</P>
+<P><IMG class=hcp1 border=0 alt="" src="../../Links/NodeBehaviors.png"></P>
+<P>Some behaviors need to reference features and other behaviors to accomplish 
+tasks. For example, a One Way Path references Frame features to define and 
+calculate its path.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../Links/BehaviorFeatureProperties.png"></P>
+<P>Behaviors can also connect to behaviors in other components. For example, a 
+One to One Interface allows you to connect a component to a One to One Interface 
+in another component granted the interfaces are compatible.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../Links/BehaviorsConnectBehaviors.png"></P>
+<P>If you want to write code for a component, you can use a Python Script 
+behavior. A Python Script allows you to use Python API as well as other 
+libraries and modules available in stackless Python 2.7. Python Scripts can be 
+used to write logic for a component before or during a simulation as well as to 
+design features, manipulate the 3D world and develop add-ons.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../Links/ComponentPythonScript.png"></P>
+<P>To save a component:</P>
+<UL class=hcp2>
+  <LI class=Unordered>On the <SPAN class=Strong>Ribbon</SPAN>, in the <SPAN 
+  class=Strong>Component</SPAN> group, click <SPAN 
+  class=Strong>Save</SPAN>.<BR><IMG class=step_image 
+  style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none" 
+  border=0 alt="" src="../../Links/SaveComponent.png"> </LI></UL></BODY></HTML>

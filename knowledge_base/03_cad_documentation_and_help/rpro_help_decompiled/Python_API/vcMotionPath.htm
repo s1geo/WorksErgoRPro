@@ -1,0 +1,244 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcMotionPath</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcMotionPath</h1>
+<p>vcMotionPath is a wrapper class for <a href="Help_English.chm::/Reference/Behaviors/Material_Flow/One_Way_Path.htm">One 
+ Way Path</a> and <a href="Help_English.chm::/Reference/Behaviors/Material_Flow/Two_Way_Path.htm">Two 
+ Way Path</a> behaviors.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a>, 
+ <a href="vcFlow.htm">vcFlow</a>, <a href="vcContainer.htm">vcContainer</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot39042" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot39042', 'MTPOPUP39042');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP39042" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Events</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Acceleration</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines rate of acceleration (mm/s^2) for components moving 
+		 on path. 
+		<p class="TableNormal">If zero, acceleration is not calculated.</p></td>
+	</tr>
+	<tr>
+		<td>Accumulate</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off pile-up of components moving on path. 
+		<p class="TableNormal">If True, components on the path stop moving 
+		 when they encounter a blocked component. If False, components 
+		 on the path stop moving when a component is blocked from exiting 
+		 the path.</p></td>
+	</tr>
+	<tr>
+		<td>Deceleration</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines rate of deceleration (mm/s^2) for components moving 
+		 on path. 
+		<p class="TableNormal">If zero, deceleration is not calculated.</p></td>
+	</tr>
+	<tr>
+		<td>DetailCurveMotion</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off detailed movement 
+		 of components to and from path, for example when moving from linear 
+		 path to curved path. 
+		<p class="TableNormal">If True, bound box of component is used 
+		 to avoid intersecting with other components. This might create 
+		 a gap between components, for example components that are cylindrical. 
+		 This also decreases simulation performance.</p>
+		<p class="TableNormal">You can disable DetailCurveMotion if components 
+		 are cylindrical or if a slight intersection between components 
+		 when transferring from linear to curved path is not a concern.</p></td>
+	</tr>
+	<tr>
+		<td>Direction</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the direction components move on path, but only if 
+		 the path supports two or more directions. 
+		<p class="TableNormal">See <a href="Constants.htm#Conveyor_Direction_Modes">Conveyor 
+		 Direction Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>FastScheduling</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the optimization 
+		 of moving components on the path. 
+		<p class="TableNormal">If True, the path limits the amount of generated 
+		 events, thereby improving simulation performance.</p>
+		<p class="TableNormal">If False, the path moves components at shorter 
+		 increments, thereby increasing the amount of events and decreasing 
+		 simulation performance. </p></td>
+	</tr>
+	<tr>
+		<td>Interpolation</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines mode used by path to interpolate its waypoints set 
+		 in Path property. 
+		<p class="TableNormal">See <a href="Constants.htm#Conveyor_Interpolation_Modes">Conveyor 
+		 Interpolation Mode Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Path</td>
+		<td>List of <a href="vcFeature.htm">vcFeature</a></td>
+		<td>RW</td>
+		<td>Defines an ordered list of Frame features referenced as waypoints 
+		 of path. 
+		<p class="TableNormal">If set, path is calculated based on its 
+		 interpolation mode.</p></td>
+	</tr>
+	<tr>
+		<td>PathAxis</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines mode for calculating how much space a component occupies 
+		 on path, thereby allowing the path to utilize its space and determine 
+		 if one or more components are blocked if SpaceUtilization property 
+		 is set to True. 
+		<p class="TableNormal">See <a href="Constants.htm#Path_Axis_Mode">Path 
+		 Axis Mode Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>PathLength</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the length of path. That is, the distance from first to 
+		 last waypoint along the path.</td>
+	</tr>
+	<tr>
+		<td>RetainOffset</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if a component entering, placed or grabbed by the path 
+		 is snapped to and aligned with path's axis. 
+		<p class="TableNormal">If True, a component retains its offset 
+		 while moving on path. If False, component is snapped to nearest 
+		 point on path and its origin is aligned with calculated path.</p></td>
+	</tr>
+	<tr>
+		<td>SegmentSize</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the size of segments when path uses segmentation to 
+		 move components to and from different sections of the path. 
+		<p class="TableNormal">If value is greater than zero, the number 
+		 of path segments is calculated in order to determine the capacity 
+		 of each segment based on total capacity of path. Therefore, components 
+		 move on path based on the capacity of a proceeding segment.</p></td>
+	</tr>
+	<tr>
+		<td>Sensors</td>
+		<td>List of <a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td>RW</td>
+		<td>List of sensors connected to path, which must be either component 
+		 path or process point type sensors.</td>
+	</tr>
+	<tr>
+		<td>SpaceUtilization</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if components accumulating on path are kept separate 
+		 from one another and how new components enter path. 
+		<p class="TableNormal">If False, components may overlap one another 
+		 and/or pile up side by side, which might be useful if RetainOffset 
+		 is set to True.</p></td>
+	</tr>
+	<tr>
+		<td>Speed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the speed (mm/s) of path.</td>
+	</tr>
+</table>
+<p><span class="Strong">Notes:</span></p>
+<ul style="list-style: disc;">
+	<li class="Unordered">Speed, Acceleration and Deceleration properties 
+	 can be overridden if component properties PathVelocity, PathAcceleration 
+	 and PathDeceleration have values greater than zero. In those cases, 
+	 component property values will be used instead to calculate component 
+	 movement on a path. See <a href="vcComponent.htm">vcComponent</a> 
+	 for more information.</li>
+	<li class="Unordered">Accumulation mode only determines what happens 
+	 when a component is blocked from exiting the end of the path. If a 
+	 component is explicitly blocked using stopMovement() method, preceding 
+	 components are accumulated regardless of set value for Accumulate 
+	 property.</li>
+</ul>
+<h2><a name="MiniTOCBookMark3"></a>Events</h2>
+<p>The following events can be assigned callback functions to handle the 
+ flow of components moving in and out of containers as well as changes 
+ to a component's motion along a path.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnMotionChanged</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">Component</span>, 
+		 Enumeration integer <span class="Italic">State</span></td>
+		<td>Triggered when the state of a component's motion changes on 
+		 a path. 
+		<p class="TableNormal">If the state of a path is changed so that 
+		 it affects the motion of all components on that path, this event 
+		 is called for each of those components.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Path_Motion_State">Path 
+		 Motion State Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>OnPhysicalTransition</td>
+		<td><a href="vcContainer.htm">vcContainer</a> <span class="Italic">Container</span>, 
+		 <a href="vcComponent.htm">vcComponent</a> <span class="Italic">Component</span>, 
+		 Boolean <span class="Italic">arrive_leave</span></td>
+		<td>Triggered when either a) the leading edge of a component enters 
+		 path or b) the trailing edge of a component exits path. 
+		<p class="TableNormal">The <span class="Italic">Container</span> 
+		 argument is the current container of the component given in the 
+		 <span class="Italic">Component</span> argument, which may not 
+		 be the container of component at the time of the call since the 
+		 component may have transitioned elsewhere.</p>
+		<p class="TableNormal">The <span class="Italic">arrive_leave</span> 
+		 argument is True if component is entering path; otherwise False 
+		 means a component is exiting path.</p></td>
+	</tr>
+</table>
+</body>
+</html>

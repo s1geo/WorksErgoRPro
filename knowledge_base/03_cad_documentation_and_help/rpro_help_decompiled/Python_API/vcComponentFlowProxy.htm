@@ -1,0 +1,133 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcComponentFlowProxy</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcComponentFlowProxy</h1>
+<p>vcComponentFlowProxy gives information about components attempting to 
+ enter a flow proxy, and then routes components by testing the available 
+ capacity of connected behaviors.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcFlow.htm">vcFlow</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot39192" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot39192', 'MTPOPUP39192');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP39192" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ComponentSignal</td>
+		<td><span><a href="vcComponentSignal.htm">vcComponentSignal</a></span></td>
+		<td>RW</td>
+		<td>Defines the signal used for signaling what component has been 
+		 transferred into proxy. 
+		<p class="TableNormal">This property and PortSignal should be used 
+		 to determine what and where a component has entered the proxy.</p></td>
+	</tr>
+	<tr>
+		<td>DynamicConnections</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the connectors of proxy are dynamic. That is, connections 
+		 will be established during a simulation by using a Python script 
+		 or command.</td>
+	</tr>
+	<tr>
+		<td>InternalConnectorCount</td>
+		<td><span>Integer</span></td>
+		<td>R</td>
+		<td>Gets the number of connectors in proxy. 
+		<p class="TableNormal">An internal connector is always paired with 
+		 an external connector, so this count will match the count for 
+		 the proxy's external connectors.</p></td>
+	</tr>
+	<tr>
+		<td>PortSignal</td>
+		<td><span><a href="vcIntegerSignal.htm">vcIntegerSignal</a></span></td>
+		<td>RW</td>
+		<td>Defines the signal used for signaling which connector a component 
+		 used to enter proxy. 
+		<p class="TableNormal">The value is the index position of the connector 
+		 in the proxy's list of connectors.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" style="border-collapse: separate;" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>connectInternally</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">index</span>, <a href="vcConnector.htm">vcConnector</a> 
+		 <span class="Italic">to_connector</span></td>
+		<td>Connects an internal connector at a given <span class="Italic">index</span> 
+		 in proxy to a given connector.</td>
+	</tr>
+	<tr>
+		<td>createConnector</td>
+		<td><a href="vcConnector.htm" title="vcConnector">vcConnector</a></td>
+		<td>None</td>
+		<td>Creates a new connector in proxy. 
+		<p class="TableNormal">This creates a pair of internal and external 
+		 connectors.</p></td>
+	</tr>
+	<tr>
+		<td>deleteConnector</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Deletes a connector at a given <span class="Italic">index</span> 
+		 from proxy. 
+		<p class="TableNormal">This deletes a pair of internal and external 
+		 connectors.</p></td>
+	</tr>
+	<tr>
+		<td>getInternalConnector</td>
+		<td><a href="vcConnector.htm" title="vcConnector">vcConnector</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns an internal connector at a given <span class="Italic">index</span> 
+		 in proxy.</td>
+	</tr>
+	<tr>
+		<td>resetConnectorPort</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Resets a connector at a given <span class="Italic">index</span> 
+		 in proxy, thereby disconnecting the connector from all of its 
+		 connections.</td>
+	</tr>
+</table>
+</body>
+</html>

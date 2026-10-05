@@ -1,0 +1,167 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="process point sensor,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Process Point Sensor</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Process Point Sensor</h1>
+<p>A Process Point Sensor allows you to detect components moving along 
+ a path and perform an action.</p>
+<p><img src="../../../English/Links/ProcessPointSensor.png" alt="" border="0" class="hcp1"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the sensor.</td>
+	</tr>
+	<tr>
+		<td>Distance</td>
+		<td>Defines the distance of sensor along a connected path.</td>
+	</tr>
+	<tr>
+		<td>Frame</td>
+		<td>Defines the Frame feature referenced as the physical location 
+		 of the sensor.</td>
+	</tr>
+	<tr>
+		<td>TriggerAt</td>
+		<td>Defines the mode of the sensor for detecting components. 
+		<p class="TableNormal"><span class="Term">Leading Edge</span> is 
+		 triggered when the first edge of a component reaches the sensor.</p>
+		<p class="TableNormal"><span class="Term">Origin</span> is triggered 
+		 when the origin of a component reaches the sensor.</p>
+		<p class="TableNormal"><span class="Term">Trailing Edge</span> 
+		 is triggered when the last edge of a component reaches the sensor.</p>
+		<p class="TableNormal"><span class="Term">None</span> disables 
+		 the sensor.</p></td>
+	</tr>
+	<tr>
+		<td>BoolSignal</td>
+		<td>Defines the Boolean Signal used to signal when a component 
+		 triggers the sensor.</td>
+	</tr>
+	<tr>
+		<td>ProcessingStops</td>
+		<td>Defines the action to execute when the sensor detects a component. 
+		 
+		<p class="TableNormal"><span class="Term">Path</span> stops the 
+		 path the sensor is attached to in the 3D world.</p>
+		<p class="TableNormal"><span class="Term">Component</span> stops 
+		 the component detected by the sensor.</p></td>
+	</tr>
+	<tr>
+		<td>RuleComponent</td>
+		<td>Defines if the sensor uses properties in a detected component 
+		 or the component the sensor is attached to for calculating processing 
+		 time. For example, a component may have its own processing time 
+		 defined in one of its properties or a component may have a global 
+		 property for controlling the processing time.</td>
+	</tr>
+</table>
+<h3>Route</h3>
+<p>A route defines the time delay (in seconds) for processing a detected 
+ component and can use one or more rules that form a nested structure. 
+ Some rules allow you to use other rules to determine the time delay for 
+ a component. In all cases, changing a rule will undo all of its child 
+ rules. As a last resort, some rules allow you to define a default time 
+ delay or rule.</p>
+<p><span class="Strong">Tip:</span> You can edit the route of a Process 
+ Point Sensor in the Component Properties panel.</p>
+<p><img src="../../../English/Links/ProcessPointSensorSection.png" alt="" border="0" class="hcp1"></p>
+<h4>Types of Rules</h4>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Boolean Table</td>
+		<td>Time is based on a True or False value. 
+		<p class="TableNormal"><span class="Term">PropertyName</span> defines 
+		 which property of either processed component or owner component 
+		 is evaluated by the rule.</p>
+		<p class="TableNormal"><span class="Term">Default</span> is used 
+		 if the value of <span class="Term">PropertyName</span> does not 
+		 match any listed value in table.</p></td>
+	</tr>
+	<tr>
+		<td>Integer Table</td>
+		<td>Time is based on an integer value. 
+		<p class="TableNormal"><span class="Term">PropertyName</span> defines 
+		 which property of either processed component or owner component 
+		 is evaluated by the rule.</p>
+		<p class="TableNormal"><span class="Term">Default</span> is used 
+		 if the value of <span class="Term">PropertyName</span> does not 
+		 match any listed value in table.</p></td>
+	</tr>
+	<tr>
+		<td >Normal Distribution</td>
+		<td >Time is calculated using a normal distribution.
+		<p class="TableNormal"><span class="Term">RandomStream</span> can 
+		 be used to seed a value.</p>
+		<p class="TableNormal"><span class="Term">Average</span> defines 
+		 the average value.</p>
+		<p class="TableNormal"><span class="Term">Deviation</span> defines 
+		 the standard deviation.</p></td>
+	</tr>
+	<tr>
+		<td>&lt;Time&gt;</td>
+		<td>Time is the given amount.</td>
+	</tr>
+	<tr>
+		<td >Uniform Distribution</td>
+		<td >Time is calculated using a uniform distribution.
+		<p class="TableNormal"><span class="Term">RandomStream</span> can 
+		 be used to seed a value.</p>
+		<p class="TableNormal"><span class="Term">Min</span> defines the 
+		 minimum amount of time.</p>
+		<p class="TableNormal"><span class="Term">Max</span> defines the 
+		 maximum amount of time.</p></td>
+	</tr>
+	<tr>
+		<td>Real Table</td>
+		<td>Time is based on a real number value. 
+		<p class="TableNormal"><span class="Term">PropertyName</span> defines 
+		 which property of either processed component or owner component 
+		 is evaluated by the rule.</p>
+		<p class="TableNormal"><span class="Term">Default</span> is used 
+		 if the value of <span class="Term">PropertyName</span> does not 
+		 match any listed value in table.</p></td>
+	</tr>
+	<tr>
+		<td>String Table</td>
+		<td>Time is based on a string value. 
+		<p class="TableNormal"><span class="Term">PropertyName</span> defines 
+		 which property of either processed component or owner component 
+		 is evaluated by the rule.</p>
+		<p class="TableNormal"><span class="Term">Default</span> is used 
+		 if the value of <span class="Term">PropertyName</span> does not 
+		 match any listed value in table.</p></td>
+	</tr>
+</table>
+</body>
+</html>

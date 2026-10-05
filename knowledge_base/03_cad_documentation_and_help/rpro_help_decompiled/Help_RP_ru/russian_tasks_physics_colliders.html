@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Столкновения в мире физики</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="ГеометрияСтолкновения - это объект, который может реагировать на физические объекты во время симуляции. Каждая ГеометрияСтолкновения представляет собой оболочку, охватывающую..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Столкновения в мире физики&nbsp;</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p style="margin: 0 0 0 0;">ГеометрияСтолкновения - это объект, который может реагировать на физические объекты во время симуляции. Каждая ГеометрияСтолкновения представляет собой оболочку, охватывающую геометрию элемента в компоненте. Каждый элемент, включая корневой элемент узла, имеет собственное свойство ГеометрияСтолкновения.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Undefined</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ГеометрияСтолкновения не определена для элемента.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">#None</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ГеометрияСтолкновения отключена и не создана для элемента.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">#Box</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ГеометрияСтолкновения активна, и её форма — ограничивающий параллелепипед элемента.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">#Boxes</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ГеометрияСтолкновения активена, и её форма представляет собой набор ограничивающих параллелепипедов для каждого набора геометрии в элементе и дереве его подэлементов.</p>
+<p class="p_Normal">Как правило, этот режим доступен только в корневом элементе узла.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">#Precise</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ГеометрияСтолкновения активена, и её форма представляет собой треугольную сетку, охватывающую элемент.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Корневой элемент узла может использоваться для переопределения или принудительного наследования Геометрии Столкновения во всех элементах этого узла. В любом случае узел должен быть физическим объектом, чтобы ГеометрияСтолкновения работала во время симуляции. То есть узел должен иметь по крайней мере одно поведение физического объекта, которое определяет физические свойства узла.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание: </span>Если у узла нет поведения физического объекта, а для ГеометрииСтолкновения установлен режим, отличный от Undefined или #None, поведение физического объекта будет автоматически создано в этом узле.</p>
+
+</td></tr></table>
+
+</body>
+</html>

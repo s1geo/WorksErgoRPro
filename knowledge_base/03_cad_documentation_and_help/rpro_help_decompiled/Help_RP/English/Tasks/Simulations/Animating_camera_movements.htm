@@ -1,0 +1,85 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="camera,views,simulation,camera movements">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Animating camera movements</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../../ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Animating Camera Movements</h1>
+<p>The Camera Animator command allows you to write a program for moving 
+ the camera of the 3D world during a simulation. The program is a layout 
+ item, thereby it is saved with a layout. </p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot25639" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot25639', 'MTPOPUP25639');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP25639" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Task Pane</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >API</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Task Pane</h2>
+<p>You can write the program using the Camera Animator task pane.</p>
+<p>A table is used to add and edit statements in the program. Every statement 
+ is a 3D view for the camera, the amount of time it takes the camera to 
+ reach that view, and the method of interpolating the camera to that view.</p>
+<h3><a name="MiniTOCBookMark3"></a>Properties</h3>
+<p><span class="Strong">Simulation Time</span> allows you to move the camera 
+ to different views using the runtime of a simulation. For example, you 
+ could snap the camera from one view to another when the simulation reaches 
+ 10 seconds.</p>
+<p><span class="Strong">Relative Time</span> allows you to move the camera 
+ to different views using a time relative to each view. For example, the 
+ simulation could be at 10 seconds, but you could move the camera from 
+ one view to another in 1 second.</p>
+<p>The <span class="Strong">View</span> column allows you to define the 
+ 3D view of the camera. You have the option of creating a new view of the 
+ 3D world or using an existing view of the layout.</p>
+<p>The <span class="Strong">Time</span> column allows you to define the 
+ amount of time the camera has to reach its view. This value depends on 
+ whether you are using simulation or relative time as well as the time 
+ of the previous view.</p>
+<p>The <span class="Strong">Arc</span> column allows you to define the 
+ interpolation of the camera to reach its view. The motion of the camera 
+ can be linear or follow an arc.</p>
+<p><span class="Strong">Camera animation enabled</span> turns on/off the 
+ execution of the program.</p>
+<h3><a name="MiniTOCBookMark4"></a>Tasks</h3>
+<p>As follows is a basic workflow for writing a program.</p>
+<ol>
+	<li class="Ordered">On the <span class="Strong">Home</span> tab, in 
+	 the <span class="Strong">Camera</span> group, click <span class="Strong">Camera 
+	 Animator</span>.</li>
+	<li class="Ordered">In the <span class="Strong">Camera Animator</span> 
+	 task pane, choose a method of time.</li>
+	<li class="Ordered">In the <span class="Strong">View</span> column, 
+	 click a cell to either create a new 3D view or use an existing view. 
+	 You can add and edit these views from the View Editor of the 3D world 
+	 toolbar.</li>
+	<li class="Ordered">In the <span class="Strong">Time</span> column, 
+	 define a time for the camera. For example, if you are using simulation 
+	 time, the camera knows to reach the view at the given point in time.</li>
+	<li class="Ordered">In the <span class="Strong">Arc</span> column, 
+	 either keep the default to make the camera move in an arc or clear 
+	 the check box to use linear interpolation.</li>
+	<li class="Ordered">If you need to, use the last column to add a new 
+	 statement, and then define it.</li>
+	<li class="Ordered">Run the simulation to test the program.</li>
+</ol>
+<h2><a name="MiniTOCBookMark5"></a>API</h2>
+<p>For information and examples, see <a href="Python_API.chm::/vcViewAnimation.htm">vcViewAnimation</a> 
+ in the Python API reference guide.</p>
+</body>
+</html>

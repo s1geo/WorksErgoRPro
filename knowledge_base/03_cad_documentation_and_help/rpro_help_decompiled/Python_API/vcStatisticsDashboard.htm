@@ -1,0 +1,108 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="statistics,charts,reports,dashboard">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+ 
+<title>vcStatisticsDashboard</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcStatisticsDashboard</h1>
+<p>vcStatisticsDashboard is a dashboard used for visualizing and reporting statistics collected during a simulation.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot54646" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot54646', 'MTPOPUP54646');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP54646" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Structure</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Structure</h2>
+<p>The Statistics dashboard consists of tabs, which are of type <a href="vcStatisticsTab.htm">vcStatisticsTab</a>. Each tab contains a layout of one or more charts, which are of type <a href="vcStatisticsChart.htm">vcStatisticsChart</a>. Each chart uses a sampling interval to report one or more data series, which are of type <a href="vcStatisticsSeries.htm">vcStatisticsSeries</a>.</p>
+<p><span class="Strong">Tips:</span></p>
+<ul style="list-style: disc;">
+<li class="Unordered">Use <a href="vcStatisticsDashboard.htm">vcStatisticsDashboard</a> to create, select or delete tabs.</li>
+<li class="Unordered">Use <a href="vcStatisticsTab.htm">vcStatisticsTab</a> to create, select or delete charts and define how charts are organized in a tab.</li>
+<li class="Unordered">Use <a href="vcStatisticsChart.htm">vcStatisticsChart</a> to add, select, delete, clear or update data series as well as edit the position and attributes of a chart.</li>
+<li class="Unordered">Use <a href="vcStatisticsSeries.htm">vcStatisticsSeries</a> to define which property and from what components is reported in a chart.</li>
+</ul>
+<h2><a name="MiniTOCBookMark3"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>SelectedTab</td>
+<td><a href="vcStatisticsTab.htm">vcStatisticsTab</a></td>
+<td>RW</td>
+<td>Defines the active tab in dashboard.</td>
+</tr>
+<tr>
+<td>StatisticsInterval</td>
+<td>Real</td>
+<td>RW</td>
+<td>Defines the global sampling interval for reporting data.
+<p class="TableNormal">This will affect data series referencing <a href="vcStatistics.htm">vcStatistics</a> properties as well as any chart with a sampling interval of -1.</p>
+</td>
+</tr>
+<tr>
+<td>Tabs</td>
+<td>List of <a href="vcStatisticsTab.htm">vcStatisticsTab</a></td>
+<td>R</td>
+<td>Gets a list of all tabs in dashboard.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>createTab</td>
+<td><a href="vcStatisticsTab.htm">vcStatisticsTab</a></td>
+<td>String <span class="Italic">name</span>, Boolean <span class="Italic">activate</span></td>
+<td>Adds a new tab of a given <span class="Italic">name</span> to the dashboard.
+<p class="TableNormal">The <span class="Italic">activate</span> argument can be used to make the new tab the selected tab in dashboard.</p>
+</td>
+</tr>
+<tr>
+<td>deleteTab</td>
+<td>None</td>
+<td><a href="vcStatisticsTab.htm">vcStatisticsTab</a></td>
+<td>Removes a given tab from the dashboard.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a>Examples</h2>
+<p><span class="Example"><a name="CreateNewTabDashboard" id="CreateNewTabDashboard"></a>Example. Create new tab in dashboard</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td>from vcScript import * <br>&#160; <br>app = getApplication() <br>dashboard = app.Dashboard <br>tab = dashboard.createTab("Example", True)</td>
+</tr>
+</table>
+</body>
+</html>

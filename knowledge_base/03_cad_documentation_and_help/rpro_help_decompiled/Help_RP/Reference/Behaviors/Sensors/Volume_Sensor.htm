@@ -1,0 +1,138 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="volume sensor,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Volume Sensor</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Volume Sensor</h1>
+<p>A Volume Sensor allows you to define a volume space for detecting any 
+ component in the 3D world.</p>
+<p><img src="../../../English/Links/VolumeSensor.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the sensor.</td>
+	</tr>
+	<tr>
+		<td>UpdateScene</td>
+		<td>Defines if the simulation world (all components) is updated 
+		 on each sample (SampleTime). A True value is needed when detecting 
+		 moving components. And if True, for better performance, assign 
+		 DetectionContainer to update only the components contained there, 
+		 instead of the whole World. Otherwise, for performance, use a 
+		 False value.</td>
+	</tr>
+	<tr>
+		<td>TestParent</td>
+		<td>Defines if the sensor detects geometry in the node it is attached 
+		 to in the 3D world. Generally, a True value is used to detect 
+		 self collisions, for examples doors in a machine colliding with 
+		 one another.</td>
+	</tr>
+	<tr>
+		<td>TestSiblings</td>
+		<td>Defines if the sensor detects geometry in nodes that are at 
+		 the same level as the sensor in a hierarchy. For example, components 
+		 moving along a path are temporarily attached to the path's node 
+		 during a simulation. Therefore, the sensor could be attached to 
+		 the path's node and used to detect components moving along the 
+		 path. In other cases, the sensor could be contained in a component's 
+		 root node and used to detect other components attached to the 
+		 3D world (simulation root node).</td>
+	</tr>
+	<tr>
+		<td>TestOnlyContained</td>
+		<td>Defines if the sensor can only detect components which are 
+		 stored in containers. Generally, a True value is used to detect 
+		 components placed in machines and storage containers as well as 
+		 components stacked on pallets.</td>
+	</tr>
+	<tr>
+		<td>ShowVolume</td>
+		<td>Defines if the volume space of the sensor is rendered in the 
+		 3D world.</td>
+	</tr>
+	<tr>
+		<td>VolumeMaterial</td>
+		<td>Defines the material of the sensor's volume space. Generally, 
+		 a material with some transparency or Alpha channel is used in 
+		 order to show the detection area and component that triggered 
+		 the sensor.</td>
+	</tr>
+	<tr>
+		<td>TestMethod</td>
+		<td>Defines the mode of the sensor for detecting components. 
+		<p class="TableNormal"><span class="Term">Precise Test</span> is 
+		 triggered by the geometry of a component, for example edges and 
+		 faces.</p>
+		<p class="TableNormal"><span class="Term">BBox Intersect</span> 
+		 is triggered by the bounding boxes of geometry sets in a component.</p>
+		<p class="TableNormal"><span class="Term">BBox Center Inside</span> 
+		 is triggered if the center of a colliding bounding box is inside 
+		 the sensor's volume space.</p>
+		<p class="TableNormal"><span class="Term">BBox Fully Inside</span> 
+		 is triggered if a colliding bounding box is completely inside 
+		 the sensor's volume space.</p></td>
+	</tr>
+	<tr>
+		<td>UseSampling</td>
+		<td>Defines if the sensor operates using a sampling interval or 
+		 pulse driven by a received signal. A True value uses sampling 
+		 mode and is further defined using SampleTime. A False value uses 
+		 pulse mode in which a signal acts as a trigger for detecting components. 
+		 In pulse mode, the Connections property of a signal type behavior 
+		 has the sensor listed as a connection and some kind of iteration 
+		 is used to operate the sensor, for example a loop written in a 
+		 Python Script or some logic defining the signal's frequency.</td>
+	</tr>
+	<tr>
+		<td>SampleTime</td>
+		<td>Defines the time interval between each sample if UseSampling 
+		 is enabled.</td>
+	</tr>
+	<tr>
+		<td>DetectionContainer</td>
+		<td>Defines if the sensor only detects components in a specified 
+		 container, for example a path in the sensor's component.</td>
+	</tr>
+	<tr>
+		<td>ComponentSignal</td>
+		<td>Defines the Component Signal used to signal what component 
+		 was detected by the sensor.</td>
+	</tr>
+	<tr>
+		<td>BoolSignal</td>
+		<td>Defines the Boolean Signal used to signal when a component 
+		 triggers the sensor.</td>
+	</tr>
+	<tr>
+		<td>LowerFrame</td>
+		<td>Defines the Frame feature referenced as the lower left corner 
+		 of the sensor's volume space.</td>
+	</tr>
+	<tr>
+		<td>UpperFrame</td>
+		<td>Defines the Frame feature referenced as the upper right corner 
+		 of the sensor's volume space.</td>
+	</tr>
+</table>
+</body>
+</html>

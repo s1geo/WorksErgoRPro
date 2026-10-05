@@ -1,0 +1,173 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="swept volume,sweeping,collision detection,volume displacement">
+
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Sweeping geometry</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</style>
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Sweeping Geometry</h1>
+<p>A robot can send an output signal in its program that triggers the sweeping 
+ of geometry. By default, signal 81 in a robot is mapped to perform this 
+ action.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot26537" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot26537', 'MTPOPUP26537');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP26537" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Swept Volume</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Configure Action</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark6" >Simulate Action</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Swept Volume</h2>
+<p>Sweeping is a process that encases geometry in a convex hull to create 
+ a profile. That profile or volume of geometry can then be generated repeatedly 
+ from the beginning and end of its motion path to visual its displacement.</p>
+<p>If a profile does not move, you would create its geometry at each iteration 
+ in the same space. If the profile moves, you would create its geometry 
+ at each iteration along its motion path in a different space.</p>
+<h3><a name="MiniTOCBookMark3"></a>Methods</h3>
+<p>The method for generating swept volume determines its precision.</p>
+<ul class="hcp1">
+	<li class="Unordered">Lofting is good for movements requiring small 
+	 changes.</li>
+	<li class="Unordered">Hull from Hulls supports all types of movements 
+	 but yields a higher data count.</li>
+	<li class="Unordered">Hull from Silhouettes is a balance of the other 
+	 two methods and supports simple and complex movements.</li>
+</ul>
+<h3><a name="MiniTOCBookMark4"></a>Storage</h3>
+<p>In all cases, you should contain swept volume in a node that does not 
+ move during a simulation. Otherwise, the movement of that node would affect 
+ the swept volume. The node can be in either:</p>
+<ul class="hcp1">
+	<li class="Unordered">The signaling robot.</li>
+	<li class="Unordered">Another component detected by the signaling robot 
+	 using a tool frame.</li>
+	<li class="Unordered">A new component that is generated the first time 
+	 you simulate the action.</li>
+</ul>
+<p>Swept volume can be stored permanently in a component or removed from 
+ the 3D world when you reset a simulation.</p>
+<h2><a name="MiniTOCBookMark5"></a>Configure Action</h2>
+<ol>
+	<li class="Ordered">In the 3D world, select a robot.</li>
+	<li class="Ordered">In the <span class="Strong">Properties</span> panel, 
+	 expand the <span class="Strong">Actions Configuration</span> section.</li>
+	<li class="Ordered">Under <span class="Strong">Signal Actions</span>, 
+	 do one of the following: 
+	<ul class="hcp1">
+		<li class="Unordered">To configure a new action, set <span class="Strong">Output</span> 
+		 to be any signal greater than 81, and then set <span class="Strong">OnTrue</span> 
+		 to <span class="Strong">Swept Volume On</span>.</li>
+		<li class="Unordered">To configure an existing action, set <span 
+		 class="Strong">Output</span> to <span class="Strong">81</span> 
+		 or a signal you have already configured to perform a sweep.</li>
+	</ul></li>
+	<li class="Ordered">Under <span class="Strong">Swept Volume On</span>, 
+	 do all of the following: 
+	<ul class="hcp1">
+		<li class="Unordered">To define the method to use for generating 
+		 swept volume, set <span class="Strong">SweptMethod</span> to the 
+		 desired option.</li>
+		<li class="Unordered">To define the geometry and profile of the 
+		 sweep, set <span class="Strong">SweptGeometry</span> to include 
+		 nodes containing the desired geometry. You can include any node 
+		 in the 3D world, but you will first need to expand SweptGeometry, 
+		 and then use either the Pick button to directly select a node 
+		 in the 3D world or the Add button to select a node from a list. 
+		 The order of nodes listed in SweptGeometry has no effect on the 
+		 action.</li>
+		<li class="Unordered">To define the material of swept volume, set 
+		 <span class="Strong">Material</span> to the desired option. If 
+		 no material is selected, the default material is yellow. It is 
+		 not possible for the action to use multiple materials given its 
+		 current implementation, but you can do this using API, see <a 
+		 href="Python_API.chm::/vcSweptVolume.htm">vcSweptVolume</a> for 
+		 more information.</li>
+		<li class="Unordered">&#160;To define the mode for containing swept 
+		 volume, set <span class="Strong">AttachTo</span> to the desired 
+		 option.</li>
+		<li style="list-style: none; display: inline;"><ul class="hcp1">
+			<li class="Unordered">If <span class="Strong">Node</span>, 
+			 set <span class="Strong">TargetNode</span> to be the node 
+			 you want to contain the swept volume.</li>
+			<li class="Unordered">If <span class="Strong">Closest</span>, 
+			 define which tool frame in the robot you want to use and what 
+			 detection area you want to generate from the tool frame's 
+			 coordinate system to detect a nearby node. This option will 
+			 exclude all nodes of the robot.</li>
+			<li class="Unordered">If <span class="Strong">New Component</span>, 
+			 the component will be added to the 3D world the first time 
+			 you simulate the action. If you are not storing swept volume, 
+			 you can use the Cell Graph panel to select the added component.</li>
+		</ul></li>
+	</ul></li>
+	<li class="Ordered">Under <span class="Strong">Swept Volume Off</span>, 
+	 do one of the following: 
+	<ul class="hcp1">
+		<li class="Unordered">To store swept volume, select the <span class="Strong">StoreGeometry</span> 
+		 check box. Swept volume generated by this action will not be removed 
+		 from the 3D world when you reset a simulation.</li>
+		<li class="Unordered">To not store swept volume, clear the <span 
+		 class="Strong">StoreGeometry</span> check box. Swept volume generated 
+		 by this action will be removed from the 3D world when you reset 
+		 a simulation.</li>
+	</ul></li>
+</ol>
+
+</ol>
+<h2><a name="MiniTOCBookMark6"></a>Simulate Action</h2>
+<ol>
+	<li class="Ordered">Click 
+	 the <span class="Strong">Program</span> tab, and then use the <span 
+	 class="Strong">Jog</span> command to select a robot in the 3D world.</li>
+	<li class="Ordered">In 
+	 the <span class="Strong">Program Editor</span> panel, select a routine, 
+	 and then add a <span class="Strong">Set Binary Output</span> statement.</li>
+	<li class="Ordered">In 
+	 the <span class="Strong">Statement Properties</span> panel, do all 
+	 of the following: 
+	<ul class="hcp1">
+		<li class="Unordered">Set <span class="Strong">OutputPort</span> 
+		 to the signal in the robot configured for a swept volume action.</li>
+		<li class="Unordered">Set <span class="Strong">OutputValue</span> 
+		 to <span class="Strong">True</span> to turn on swept volume when 
+		 the statement is executed in the program. In most cases, the action 
+		 should be configured this way so that a True value turns on swept 
+		 volume and a False value turns off swept volume.</li>
+	</ul></li>
+	<li class="Ordered">In 
+	 the <span class="Strong">Program Editor</span> panel, rearrange the 
+	 statement signaling the action as needed in the routine. For example, 
+	 you may want the action to be triggered before the robot motions to 
+	 certain positions.</li>
+	<li class="Ordered">Repeat 
+	 steps 2 to 4, but this time set <span class="Strong">OutputValue</span> 
+	 to <span class="Strong">False</span> to turn off swept volume, and 
+	 you may want to arrange the statement signaling the action to be after 
+	 the robot motions to certain positions but before other positions 
+	 you do not want to include in the swept volume.</li>
+	<li class="Ordered"><span>Run 
+	 the simulation to generate the swept volume, and then reset the simulation.</span></li>
+</ol>
+</body>
+</html>

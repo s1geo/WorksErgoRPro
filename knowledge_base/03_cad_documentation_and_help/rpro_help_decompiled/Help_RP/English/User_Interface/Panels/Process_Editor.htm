@@ -1,0 +1,324 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Process Editor</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+span.hcp2 { font-weight:bold; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Process Editor</h1>
+<p>The Process Editor panel allows you to add and edit process routines.</p>
+<p>&#160;<img src="../../Links/UI_Panels_ProcessExecutor_Panel_EN.png" alt="" border="0" class="hcp1"></p>
+<table id="callouts" cellspacing="0">
+	<col>
+	<col>
+	<tr>
+		<td>1.</td>
+		<td>Name of Component and Process Executor Behavior</td>
+	</tr>
+	<tr>
+		<td>2.</td>
+		<td>Name of Process Routine</td>
+	</tr>
+	<tr>
+		<td>3.</td>
+		<td>Requirements Section</td>
+	</tr>
+	<tr>
+		<td>4.</td>
+		<td>Process Definition Section</td>
+	</tr>
+	<tr>
+		<td>5.</td>
+		<td>Selected Statement</td>
+	</tr>
+	<tr>
+		<td>6.</td>
+		<td>Statement Gallery</td>
+	</tr>
+	<tr>
+		<td>7.</td>
+		<td>Add Process Routine</td>
+	</tr>
+</table>
+<p>&#160;</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot48419" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot48419', 'MTPOPUP48419');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP48419" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Access</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Process Routines</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Editing Process Routine</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Requirement Statements</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark6" >Process Execution</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark7" >Process Groups</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark8" >Variables</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark9" >Statements</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Access</h2>
+<p>To access the Process Editor:</p>
+<ul style="list-style: disc;">
+	<li class="Unordered">Click the <span class="Strong">Process </span>tab.</li>
+	<li class="Unordered">In <span class="hcp2">Editor</span> 
+	 group, Click <span class="hcp2">Processes</span> command</li>
+	<li class="Unordered">Click a process routine label in the 3D viewport.</li>
+</ul>
+<p class="ListParagraphCxSpFirst" style="text-indent: -18.0pt;">1</p>
+<p class="ListParagraphCxSpMiddle" style="font-size: 13.0pt; line-height: 107%; 
+	 font-family: 'Calibri Light', sans-serif; color: #2E74B5;"><img src="../../Links/UI_Panels_ProcessExecutor_Access1_EN.png" alt="" border="0" class="hcp1"></p>
+<p class="ListParagraphCxSpLast" style="text-indent: -18.0pt;">3.<span 
+	 style="font: 7.0pt 'Times New Roman';">&#160;&#160;</span></p>
+<p><img src="../../Links/UI_Panels_ProcessExecutor_Access2_EN.png" alt="" border="0" class="hcp1">&#160;</p>
+<p>&#160;</p>
+<h2><a name="MiniTOCBookMark3"></a>Process Routines</h2>
+<p>Process executor is responsible for executing one or more process routines. 
+ Each process routine is an implementation of a Process defined by the 
+ routine name. All Process routines with the same name are considered to 
+ be the same Process.</p>
+<p>Process routines are saved with the owner component in a layout. They 
+ can be added by clicking green plus icon. </p>
+<p><img src="../../Links/UI_Panels_ProcessExecutor_Routines_EN.png" alt="" border="0" class="hcp1"></p>
+<h2><a name="MiniTOCBookMark4"></a>Editing Process Routine</h2>
+<p>Statements can be added, edited, rearranged and nested in a process 
+ routine.</p>
+<p>When adding a new statement, it will appear after the last selected 
+ statement in the process routine. If you need to rearrange statements 
+ in the routine, drag and drop a statement before or after another statement. 
+ The place where you are inserting a statement is shown by a line that 
+ will also indicate at what level you are inserting the statement.</p>
+<h2><img src="../../Links/UI_Panels_ProcessExecutor_EditingRoutine_EN.png" alt="" border="0" class="hcp1"></h2>
+<h2><a name="MiniTOCBookMark5"></a>Requirement Statements</h2>
+<p>The Requirement Statements are pre-condition statements and they are 
+ used to select which process routine the executor will run next. The process 
+ routine can be executed only after all the requirements of a process routine 
+ are met at the same time.</p>
+<h2><img src="../../Links/UI_Panels_ProcessExecutor_RequirementStatements_EN.png" alt="" border="0" class="hcp1"></h2>
+<h2><a name="MiniTOCBookMark6"></a>Process Execution</h2>
+<p>Each process routine contains a set of statements in process definition 
+ section executed sequentially. </p>
+<p><img src="../../Links/UI_Panels_ProcessExecutor_ProcessFlow_EN.png" alt="" width="286" height="305" border="0"></p>
+<p>Process executor executes only one process routine at a time. Process 
+ routines are executed sequentially from left to right, if no requirements 
+ are filled. </p>
+<h2><img src="../../Links/UI_Panels_ProcessExecutor_ProcessExecution.png" alt="" border="0" class="hcp1"> </h2>
+<p>When a Process is completed, the requirements of all process routines 
+ are re-evaluated to select the next process routine to start. If requirements 
+ are not met, the process execution goes idle. </p>
+<h2><a name="MiniTOCBookMark7"></a>Process Groups</h2>
+<p>Process routines with the same name automatically belong to a group. 
+ This makes it easy to flow products to the same process but in different 
+ components. </p>
+<p><img src="../../Links/UI_Panels_ProcessExecutor_RoutineGroups_EN.png" alt="" width="459" height="324" border="0"></p>
+<p><img src="../../Links/UI_Panels_ProcessExecutor_RoutineGroups2_EN.png" alt="" border="0" class="hcp1"><span style="font-size: 11.0pt; 
+														 line-height: 107%; 
+														 font-family: Calibri, sans-serif;"><br style="clear: all;" clear="all">
+</span></p>
+<p>Be aware that process routines with the same name may differ in terms 
+ of their execution.</p>
+<p><img src="../../Links/UI_Panels_ProcessExecutor_RoutineGroups3_EN.png" alt="" border="0" class="hcp1"></p>
+<p><img src="../../Links/UI_Panels_ProcessExecutor_RoutineGroups4_EN.png" alt="" border="0" class="hcp1"></p>
+<h2><a name="MiniTOCBookMark8"></a>Variables</h2>
+<p>Every process routine has its own set of variables that are global in 
+ its scope. That is, all statements regardless of their nesting in a process 
+ routine can refer to the variables of the process routine. </p>
+<p><img src="../../Links/UI_Panels_ProcessExecutor_Variables_EN.png" alt="" border="0" class="hcp1"></p>
+<p>Note that the Value field is for reading only. Setting it does not affect 
+ a simulation, because the values are reset on simulation start and reset. 
+ Use Assign statement initialize variable values.</p>
+<p><img src="../../Links/UI_Panels_ProcessExecutor_Variables2_EN.png" alt="" border="0" class="hcp1"></p>
+<p>Be aware that process routine can contain also runtime variables, such 
+ as ProductIn, to indicate the product in that process. Runtime variables 
+ are created by different statements as needed and are automatically deleted 
+ on simulation reset.</p>
+<p></p>
+<h2><a name="MiniTOCBookMark9"></a>Statements</h2>
+<p>The Statement Gallery window displays statements that can be added to 
+ the selected process routine.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Append To List</td>
+		<td>Adds values from one variable to another variable, or creates 
+		 a new list variable.</td>
+	</tr>
+	<tr>
+		<td>Assign Variable</td>
+		<td>Assigns a value to a variable.</td>
+	</tr>
+	<tr>
+		<td>Attach</td>
+		<td>Attach product(s) to a parent product.</td>
+	</tr>
+	<tr>
+		<td>Break</td>
+		<td>Ends the execution of loop.</td>
+	</tr>
+	<tr>
+		<td>Buffer</td>
+		<td>Transports products to and from patterned buffer.</td>
+	</tr>
+	<tr>
+		<td>Change Type</td>
+		<td>Changes the type of the defined product instance.</td>
+	</tr>
+	<tr>
+		<td>Comment</td>
+		<td>Comment statement.</td>
+	</tr>
+	<tr>
+		<td>Continue</td>
+		<td>Continue loop from start.</td>
+	</tr>
+	<tr>
+		<td>Create</td>
+		<td>Creates a new product of the given type, and places it in the 
+		 defined container.</td>
+	</tr>
+	<tr>
+		<td>Delay</td>
+		<td>Waits for a specified amount of simulation time.</td>
+	</tr>
+	<tr>
+		<td>Detach</td>
+		<td>Detaches one or more products from a common parent product.</td>
+	</tr>
+	<tr>
+		<td>Flow</td>
+		<td>Controls flow-type statistics in a statistics behavior.</td>
+	</tr>
+	<tr>
+		<td>Get Property</td>
+		<td>Creates a new runtime variable linked to a property variable 
+		 in a static component for using it in e.g. flow control statements.</td>
+	</tr>
+	<tr>
+		<td>Halt</td>
+		<td>Stops a simulation. Can also be used to reset a simulation.</td>
+	</tr>
+	<tr>
+		<td>If</td>
+		<td>If statement. Defines an if-then-else condition for executing 
+		 one group of statements if the condition is True or another group 
+		 of statements if the condition is False.</td>
+	</tr>
+	<tr>
+		<td>Move Joint</td>
+		<td>Moves selected joint.</td>
+	</tr>
+	<tr>
+		<td>Print</td>
+		<td>Sends a message to the output panel.</td>
+	</tr>
+	<tr>
+		<td>Property Condition</td>
+		<td><p>Requires a given property value to meet certain criteria.</p></td>
+	</tr>
+	<tr>
+		<td>Release Product Reservation</td>
+		<td>Release a pre-reserved product instance, so that it can be 
+		 offered to another process.</td>
+	</tr>
+	<tr>
+		<td>Remove</td>
+		<td>Deletes a given product instance.</td>
+	</tr>
+	<tr>
+		<td>Reserve Product</td>
+		<td>A requirement statement that reserves a product for the process.</td>
+	</tr>
+	<tr>
+		<td>Run Robot Routine</td>
+		<td>A.</td>
+	</tr>
+	<tr>
+		<td>Select Products </td>
+		<td>Splits filtered product types from a variable to a new variable.</td>
+	</tr>
+	<tr>
+		<td><p>Send Signal</p></td>
+		<td>Sends the selected signal with the provided value.</td>
+	</tr>
+	<tr>
+		<td>Set Node Material</td>
+		<td>Changes the Material of the defined node in a Product.</td>
+	</tr>
+	<tr>
+		<td>Set Node Visibility</td>
+		<td>Changes the visibility of the defined node in one or more products.</td>
+	</tr>
+	<tr>
+		<td>Set State</td>
+		<td>Set state of the statistics behavior.</td>
+	</tr>
+	<tr>
+		<td>Start Transport In</td>
+		<td>Begins Transporting a Product to this process.</td>
+	</tr>
+	<tr>
+		<td>Start Transport Out</td>
+		<td>Initiates product(s) transport out from the process.</td>
+	</tr>
+	<tr>
+		<td>Switch Case</td>
+		<td>Defines several conditional statement groups, and executes 
+		 one of them based on a value expression.</td>
+	</tr>
+	<tr>
+		<td>Transport In</td>
+		<td>Transports product(s) to the process.</td>
+	</tr>
+	<tr>
+		<td>Transport Out</td>
+		<td>Transports product(s) out from the process.</td>
+	</tr>
+	<tr>
+		<td>Transport Pattern In</td>
+		<td>Transports a pattern of products to the process.</td>
+	</tr>
+	<tr>
+		<td>Wait Property Condition</td>
+		<td>Waits until a property value fulfills the given condition.</td>
+	</tr>
+	<tr>
+		<td>Wait Signal</td>
+		<td>Waits until a given signal is triggered with value matching 
+		 the condition.</td>
+	</tr>
+	<tr>
+		<td>Wait Transport</td>
+		<td>Waits for one or more start transport statements to complete.</td>
+	</tr>
+	<tr>
+		<td>While</td>
+		<td>While statement. Defines a condition for executing a group 
+		 of statements in a loop.</td>
+	</tr>
+	<tr>
+		<td>Work</td>
+		<td>Reserves a resource from a transport controller to work in 
+		 the process.</td>
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,41 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="internal transfer,flow handling,connectors">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Transferring components to other behaviors</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</style>
+</head>
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Transferring Components to Other Behaviors</h1>
+<p>Behaviors that support material flow can be connected to transfer components within a component by editing the properties of connectors.</p>
+<ol>
+<li class="Ordered">In the 3D world, select a component.</li>
+<li class="Ordered">Click the <span class="Strong">Modeling</span> tab, and then in the <span class="Strong">Component Graph</span> panel, <span class="Strong">Component Node Tree</span>, find the behavior that you want to use for transferring components.</li>
+<li class="Ordered">Do one of the following:
+<ul class="hcp1">
+<li class="Unordered">If the behavior has a visible connector, expand the behavior, and then select the appropriate connector. For example, if you want to transfer in components, select a connector labeled <span class="Italic">Input</span> or verify in the Properties panel that the selected connector's Input property is enabled. Note that if a connector is already linked to another connector you will be replacing or editing that connection.</li>
+<li class="Unordered">If you want to create a new connector in the behavior for handling the transfer, select and right-click the behavior, and then click <span class="Strong">Add Connector</span> (If the <span class="Italic">Add Connector</span> shortcut was not available, the behavior is either limited to its current set of connectors or cannot be used in this case). Next, select the added connector, and then in the <span class="Strong">Properties</span> panel, enable the needed properties. For example, if you want to transfer out components, enable the connector's Output property. Note that certain behaviors, such as Component Container, should only be used to transfer in and store components. In most of those cases, a Python Script is used for handling how components are retrieved from storage and transferred elsewhere.</li>
+</ul>
+</li>
+<li class="Ordered">In the <span class="Strong">Properties</span> panel, do all of the following:
+<ul class="hcp1">
+<li class="Unordered">In <span class="Strong">Connection</span>, click the behavior that you want to include in the transfer. You cannot include a behavior that is not listed as a choice.</li>
+<li class="Unordered">In <span class="Strong">Port</span>, click the connector of the behavior referenced in Connection that you want to use for the transfer.</li>
+</ul>
+</li>
+</ol>
+</body>
+</html>

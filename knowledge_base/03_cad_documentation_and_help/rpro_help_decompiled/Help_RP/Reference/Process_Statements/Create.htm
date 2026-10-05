@@ -1,0 +1,95 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Create</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Create</h1>
+<p>The Create statement is used to create a new Product Instance of the 
+ selected Product Type. </p>
+<p>Also, see the ProductCreator behavior and TransportIn statement, which 
+ are alternate ways of creating or transporting products into the process. 
+ </p>
+<p>RetainOffsetFromAssembly is used to control the position of products 
+ when Create statement is used to create Product Bundles. By default, it 
+ is false, and all products are created at zero offsets. By setting it 
+ to true, created product slots will be placed at their Assembly Slot’s 
+ offset, as defined in the AssemblyProductType.<br>
+</p>
+<p><span class="Strong">Creating Assemblies</span><br>
+If the selected Product Type is an Assembly Product type, then an Assembly 
+ Instance is created. Typically, assemblies are created in their fully-assembled 
+ state, meaning that every assembly slot where DefaultProductType is assigned 
+ will be filled with a new Product Instance of that type. Note that a slot’s 
+ DefaultProductType can also refer to an Assembly Product Type, in which 
+ case the new Assembly Instance for the slot will be created in its fully-assembled 
+ state. </p>
+<p>With assemblies, it’s also possible to select which assembly steps will 
+ be filled with new Product Instances, see AssemblySteps and IncludeChildSteps 
+ properties. Note that, to create Assembly Instances, the first assembly 
+ step must be selected. If the first assembly step is not selected, this 
+ statement will sequentially create one or more Product Bundles. </p>
+<p>To explain this, consider that typically an assembly consists of a base 
+ product with child product hierarchies. Suppose the first step is not 
+ selected and an Assembly Instance with a base product is not created. 
+ In that case, all remaining separate product hierarchies contained in 
+ the selected steps are created as Product Bundles.</p>
+<p>Note that, in assemblies, the first slot in an assembly step is typically 
+ considered to be the parent for all slots in child assembly steps. This 
+ information is used to divide the selected assembly steps and the slots 
+ in them into Product Bundles. Also note that Product Bundles do not contain 
+ the additional slot hierarchy data that an Assembly Instance carries, 
+ so one may not use e.g. the GetAssembly statement to examine the contents 
+ of Product Bundles.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ProductType </td>
+		<td>Type of the created product. If an Assembly Product Type is 
+		 selected as a type, then additional properties AssemblySteps and 
+		 IncludeChildSteps wil be shown.</td>
+	</tr>
+	<tr>
+		<td><p>AssemblySteps</p></td>
+		<td><p>A list of Assembly Steps to be created </p></td>
+	</tr>
+	<tr>
+		<td><p>IncludeChildSteps</p></td>
+		<td><p>Defines if all child steps from the selected Assembly Steps 
+		 are included.</p></td>
+	</tr>
+	<tr>
+		<td>ProductVariableName </td>
+		<td>Output variable where to store a reference to the created product 
+		 instance.</td>
+	</tr>
+	<tr>
+		<td><p>Container </p></td>
+		<td><p>Container where to place the created product's component.</p></td>
+	</tr>
+	<tr>
+		<td>ProductPositionFrame</td>
+		<td><p>Frame location where the products are placed. </p></td>
+	</tr>
+	<tr>
+		<td><p>RetainOffsetFromAssembly</p></td>
+		<td><p>Defines if the product's offset in Assembly is kept or ignored, 
+		 when creating product bundles. </p></td>
+	</tr>
+</table>
+</body>
+</html>

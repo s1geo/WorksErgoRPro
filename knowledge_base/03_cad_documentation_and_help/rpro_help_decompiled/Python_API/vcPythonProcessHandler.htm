@@ -1,0 +1,341 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>vcPythonProcessHandler</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content="process statement,custom robot statement">
+<META name=generator content="Adobe RoboHelp 2017"><LINK rel=StyleSheet 
+type=text/css href="StyleSheet.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript src="ehlpdhtm.js"></SCRIPT>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>vcPythonProcessHandler</H1>
+<P>vcPythonProcessHandler is a behavior that allows you to define a custom robot 
+statement written in Python. You can also use this behavior as a handler for 
+overriding the default execution of statements in a robot program. </P>
+<P><SPAN class=Strong>Inherits:</SPAN> <A 
+href="vcBehaviour.htm">vcBehaviour</A></P>
+<DIV class=Contents>
+<P align=left>Contents&nbsp;<A id=MTHotSpot35971 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot35971', 'MTPOPUP35971');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP35971 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">Setup</A></P>
+<P align=left><A href="#MiniTOCBookMark3">Properties</A></P>
+<P align=left><A href="#MiniTOCBookMark4">Methods</A></P>
+<P align=left><A href="#MiniTOCBookMark5">Events</A></P>
+<P align=left><A href="#MiniTOCBookMark6">Examples</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>Setup</H2>
+<P>The script of a process handler defines its logic. In most cases, the event 
+OnStatementExecute is used to get a handle for the executor of a robot program 
+and the <A href="vcPositionStatement.htm">vcPositionStatement</A> calling the 
+process. A <A href="vcPositionStatement.htm">vcPositionStatement</A> must be 
+implemented as a process statement in order to call a process by referencing its 
+handler.</P>
+<P><SPAN class=Example>Example. Adding a process statement</SPAN></P>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 100%">
+  <TBODY>
+  <TR>
+    <TD>from vcScript import * <BR>&nbsp; <BR>comp = getComponent() <BR>for b 
+      in comp.Behaviours: <BR>&nbsp;&nbsp;if b.Type == VC_ROBOTEXECUTOR: 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;rx = b <BR>&nbsp;&nbsp;&nbsp;&nbsp;break 
+      <BR>&nbsp; <BR>rp = rx.Program <BR>main = rp.MainRoutine <BR>ps = 
+      main.addStatement(VC_STATEMENT_PROCESS) <BR>&nbsp; <BR>for b in 
+      comp.Behaviours: <BR>&nbsp;&nbsp;if b.Type == VC_PYTHONPROCESSHANDLER: 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;ph = b <BR>&nbsp;&nbsp;&nbsp;&nbsp;break 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp; <BR>ps.Process = ph <BR>ps.Name = 
+  "Example"</TD></TR></TBODY></TABLE>
+<P>After a process statement has been to added to a routine, you can use the GUI 
+to select the process statement and edit its properties. For example, you can 
+change what process is called by the statement.</P>
+<P><IMG 
+style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none" 
+border=0 alt="" src="ProcessStatement.png"></P>
+<P>In most cases, you would use the event OnStatementAdd to initialize a 
+statement calling the process and to add any positions or nested statements. By 
+default, the positions of a process statement are not executed and need to be 
+manually called when the statement is executed in its routine. When a new 
+position is created, its position matrix is defined in World coordinates as well 
+as the Parent coordinate system of the position. The position itself is a <A 
+href="vcPositionFrame.htm">vcPositionFrame</A> object, so you can use the 
+PositionInWorld and PositionInReference properties to access different versions 
+of the position matrix.</P>
+<P><SPAN class=Example>&nbsp;Example. Adding positions to a statement</SPAN></P>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 100%">
+  <TBODY>
+  <TR>
+    <TD>from vcPythonProcessHandler import * <BR>&nbsp; <BR>def 
+      OnStatementAdd(statement): <BR>&nbsp;&nbsp;for i in range(5): 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;pos = statement.createPosition("PP") 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;mtx = pos.PositionInWorld 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;mtx.translateAbs(1400,0,1000) 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;mtx.rotateAbsZ(i*90) 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;pos.PositionInWorld = mtx <BR>&nbsp; <BR>def 
+      OnStatementExecute(executor, statement): <BR>&nbsp;&nbsp;for pos in 
+      statement.Positions: 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;executor.Controller.moveTo(pos.PositionInWorld)</TD></TR></TBODY></TABLE>
+<P>You can develop a Python command that adds a new process statement to the 
+program of a selected robot. Generally, the command is executed by a button that 
+you add to the Program Editor panel, Statements toolbar. The command itself 
+would need to be registered by storing its configuration and command files in 
+the My Commands folder of your R-Pro documents.</P>
+<P><IMG 
+style="BORDER-TOP: 1px solid; BORDER-RIGHT: 1px solid; BORDER-BOTTOM: 1px solid; BORDER-LEFT: 1px solid" 
+border=1 alt="" src="PythonAddOnExampleFiles.png"></P>
+<P><A href="TestProcess.zip">Source files of example process statement</A></P>
+<H2><A name=MiniTOCBookMark3></A>Properties</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Type</TD>
+    <TD>Access</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Icon</TD>
+    <TD><A href="vcBitMap.htm">vcBitMap</A></TD>
+    <TD>RW</TD>
+    <TD>Defines an icon for the process when referenced by a process statement 
+      in the GUI.</TD></TR>
+  <TR>
+    <TD>Process</TD>
+    <TD>String</TD>
+    <TD>RW</TD>
+    <TD>Defines the name and id of process.</TD></TR>
+  <TR>
+    <TD>Script</TD>
+    <TD>String</TD>
+    <TD>RW</TD>
+    <TD>Defines the executable Python code of process.</TD></TR></TBODY></TABLE>
+<H2><A name=MiniTOCBookMark4></A>Methods</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Return Type</TD>
+    <TD>Parameters</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>condition</TD>
+    <TD>None</TD>
+    <TD>Function <SPAN class=Italic>condition</SPAN> [Real <SPAN 
+      class=Italic>timeout</SPAN>]</TD>
+    <TD>Runs a conditional test that stops process execution until a given 
+      function returns a True value. 
+      <P class=TableNormal>The given function can either be a lambda function or 
+      one defined in Script.</P>
+      <P class=TableNormal>Evaluation of <SPAN class=Italic>condition</SPAN> is 
+      done continuously.</P></TD></TR>
+  <TR>
+    <TD>delay</TD>
+    <TD>None</TD>
+    <TD>Real <SPAN class=Italic>time</SPAN></TD>
+    <TD>Executes timed delay during process execution.</TD></TR>
+  <TR>
+    <TD>evaluateCondition</TD>
+    <TD>None</TD>
+    <TD>None </TD>
+    <TD>Triggers the evaluation of an active condition() or triggerCondition() 
+      function in the script.</TD></TR>
+  <TR>
+    <TD>getApplication</TD>
+    <TD><A href="vcApplication.htm">vcApplication</A></TD>
+    <TD>None</TD>
+    <TD>Returns the application object.</TD></TR>
+  <TR>
+    <TD>getComponent</TD>
+    <TD><A href="vcComponent.htm">vcComponent</A></TD>
+    <TD>None</TD>
+    <TD>Returns the component containing the process handler.</TD></TR>
+  <TR>
+    <TD>getSimulation</TD>
+    <TD><A href="vcSimulation.htm">vcSimulation</A></TD>
+    <TD>None</TD>
+    <TD>Returns the simulation object.</TD></TR>
+  <TR>
+    <TD>getTrigger</TD>
+    <TD><A href="vcBehaviour.htm">vcBehaviour</A></TD>
+    <TD>None</TD>
+    <TD>Returns the object triggering an event in Script; otherwise returns 
+      None. 
+      <P class=TableNormal>This method is only useful in a condition function 
+      passed to condition() and triggerCondition() methods.</P>
+      <P class=TableNormal><SPAN class=Strong>Note:</SPAN> A trigger, for 
+      example, is a signal or action connected to process handler.</P></TD></TR>
+  <TR>
+    <TD>resumeRun</TD>
+    <TD>None</TD>
+    <TD>None</TD>
+    <TD>Resumes the execution of a suspended OnRun() function.</TD></TR>
+  <TR>
+    <TD>suspendRun</TD>
+    <TD>None</TD>
+    <TD>None</TD>
+    <TD>Stops the execution of an OnRun() function.</TD></TR>
+  <TR>
+    <TD>triggerCondition</TD>
+    <TD>None</TD>
+    <TD>Function <SPAN class=Italic>condition</SPAN>, [Real <SPAN 
+      class=Italic>timeout</SPAN>]</TD>
+    <TD>Runs a conditional test, triggered during a simulation, that stops 
+      process execution until a given function returns a True value. 
+      <P class=TableNormal>The given function can either be a lambda function or 
+      one defined in Script.</P>
+      <P class=TableNormal>Evaluation of condition is done each time a trigger 
+      of process handler occurs during a simulation.</P></TD></TR></TBODY></TABLE>
+<H2><A name=MiniTOCBookMark5></A>Events</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 33.33%">
+  <COL style="WIDTH: 33.33%">
+  <COL style="WIDTH: 33.33%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Parameters</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>OnContinue</TD>
+    <TD>None</TD>
+    <TD>Triggered when a simulation resumes running after being stopped.</TD></TR>
+  <TR>
+    <TD>OnDestroy</TD>
+    <TD>None</TD>
+    <TD>Triggered when an object is destroyed in 3D world.</TD></TR>
+  <TR>
+    <TD>OnEvaluate</TD>
+    <TD>None</TD>
+    <TD>Triggered when component feature tree of process handler is 
+  rebuilt.</TD></TR>
+  <TR>
+    <TD>OnFinalize</TD>
+    <TD>None</TD>
+    <TD>Triggered when layout or component is being loaded in 3D world. 
+      <P class=TableNormal>The event occurs, for example, when copying a 
+      component, or loading a layout of components. The event is triggered 
+      before the needed components are attached to the 3D world.</P></TD></TR>
+  <TR>
+    <TD>OnReset</TD>
+    <TD>None</TD>
+    <TD>Triggered when simulation is reset.</TD></TR>
+  <TR>
+    <TD>OnSignal</TD>
+    <TD><A href="vcSignal.htm">vcSignal</A> <SPAN 
+class=Italic>signal</SPAN></TD>
+    <TD>Triggered when the value of a signal connected to process handler is 
+      changing.</TD></TR>
+  <TR>
+    <TD>OnStart</TD>
+    <TD>None</TD>
+    <TD>Triggered at the start of a running simulation.</TD></TR>
+  <TR>
+    <TD>OnStatementAdd</TD>
+    <TD>
+      <P><A href="vcPositionStatement.htm">vcPositionStatement</A> <SPAN 
+      class=Italic>statement</SPAN></P></TD>
+    <TD>Triggered when a process statement referring to this process handler 
+      is created in robot program. 
+      <P class=TableNormal>Generally, this is used to initialize a <A 
+      href="vcPositionStatement.htm">vcPositionStatement</A> object referring to 
+      this process handler with new properties and initial values.</P></TD></TR>
+  <TR>
+    <TD>OnStatementDialog</TD>
+    <TD><A href="vcPositionStatement.htm">vcPositionStatement</A> <SPAN 
+      class=Italic>statement</SPAN></TD>
+    <TD>Triggered when there is an attempt to access properties dialog of 
+      process statement referring to this process handler. 
+      <P class=TableNormal>In this case, you need to return True to use standard 
+      properties dialog; otherwise return False.</P></TD></TR>
+  <TR>
+    <TD>OnStatementExecute</TD>
+    <TD><A href="vcExecutor.htm">vcExecutor</A> <SPAN 
+      class=Italic>executor</SPAN>, <A 
+      href="vcPositionStatement.htm">vcPositionStatement</A> &nbsp;<SPAN 
+      class=Italic>process_statement</SPAN></TD>
+    <TD>Triggered when process statement referring to this process handler is 
+      executed during a simulation. 
+      <P class=TableNormal>Time consuming methods, for example delay() and 
+      condition(), may only be executed in this event handler or in functions 
+      called from this event handler.</P>
+      <P class=TableNormal><SPAN class=Strong>Note:</SPAN> A process handler can 
+      only be executed at one given time, so multiple calls to the same process 
+      will return immediately.</P></TD></TR>
+  <TR>
+    <TD>OnStatementModified</TD>
+    <TD><A href="vcPositionStatement.htm">vcPositionStatement</A> <SPAN 
+      class=Italic>statement</SPAN></TD>
+    <TD>Triggered after properties dialog of process statement referring to 
+      this process handler is closed.</TD></TR>
+  <TR>
+    <TD>OnStatementRemove</TD>
+    <TD><A href="vcPositionStatement.htm">vcPositionStatement</A> <SPAN 
+      class=Italic>statement</SPAN></TD>
+    <TD>Triggered when reference to process handler in a process statement is 
+      removed.</TD></TR>
+  <TR>
+    <TD>OnStop</TD>
+    <TD>None</TD>
+    <TD>Triggered when simulation is stopped.</TD></TR></TBODY></TABLE>
+<P><SPAN class=Strong>Notes:</SPAN></P>
+<UL style="LIST-STYLE-TYPE: disc">
+  <LI class=Unordered>OnStatementRemove is allowed to change the process name of 
+  a statement, but doing so will not cause any further calls to either event 
+  handler. 
+  <LI class=Unordered>OnStatementRemove must not destroy a given statement. 
+</LI></UL>
+<H2><A name=MiniTOCBookMark6></A>Examples</H2>
+<P><SPAN class=Example><A name=ModifyPTPMotionsCallStatement></A>Example. Modify 
+the execution of point-to-point motion statements</SPAN></P>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 100%">
+  <TBODY>
+  <TR>
+    <TD>from vcRslProcessHandler import * <BR>from vcBehaviour import * 
+      <BR>import vcMatrix, vcVector, math <BR>&nbsp; <BR>app = getApplication() 
+      <BR>comp = getComponent() <BR>RAD_TO_DEG = math.pi/180.0 <BR>&nbsp; <BR># 
+      Modifies the execution of PTP motions <BR># Uses default execution for 
+      other statements <BR>def OnStatementExecute(executor, stat): 
+      <BR>&nbsp;&nbsp;if stat.Type == VC_STATEMENT_PTPMOTION: 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;controller = executor.Controller 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;controller.clearTargets() 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;target = controller.createTarget() 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;target.JointTurnMode = 
+      VC_MOTIONTARGET_TURN_NEAREST <BR>&nbsp;&nbsp;&nbsp;&nbsp;target.TargetMode 
+      = VC_MOTIONTARGET_TM_NORMAL <BR>&nbsp;&nbsp;&nbsp;&nbsp;target.MotionType 
+      = VC_MOTIONTARGET_MT_JOINT <BR>&nbsp;&nbsp;&nbsp;&nbsp;if stat.Base == 
+      None: <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target.BaseName = "" 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;else: 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target.BaseName = stat.Base.Name 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;if stat.Tool == None: 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target.ToolName = "" 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;else: 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target.ToolName = stat.Tool.Name 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;start_pos = vcMatrix.new(target.Target) 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;positions = stat.Positions 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;controller.addTarget(target) 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;M = positions[0].PositionInReference 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;op = M.P <BR>&nbsp;&nbsp;&nbsp;&nbsp;p = 
+      vcVector.new(op.X - 50, op.Y, op.Z) <BR>&nbsp;&nbsp;&nbsp;&nbsp;M.P = p 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;target.Target = M 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;controller.addTarget(target) 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;controller.move() 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;executor.callStatement(stat) 
+      <BR>&nbsp;&nbsp;else: 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;executor.callStatement(stat)</TD></TR></TBODY></TABLE></BODY></HTML>

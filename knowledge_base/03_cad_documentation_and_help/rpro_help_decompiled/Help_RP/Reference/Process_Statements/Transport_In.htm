@@ -1,0 +1,194 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Transport In</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Transport In</h1>
+<p><span class="Strong">Description </span><br>
+A TransportIn statement allows you to transport one or more product instances 
+ into the process. The statement can operate in one of two modes: in <span 
+	 class="Term">Transport Products</span> mode the transported product(s) 
+ will be saved into the output variable directly, while in <span class="Term">Process 
+ an Assembly</span> mode the transported product(s) will be added to an 
+ assembly instance that is itself then saved into the output variable.<br>
+<span class="Strong">Additional information</span><br>
+If Source is <span class="Term">From Previous Process</span>, a successful 
+ transportation requires:</p>
+<p>1. product(s) of the specified type(s) to be available.<br>
+2. for those products to have this process as the next step in their Flow 
+ Sequence.<br>
+3. for there to exist a valid transport link(s) from the sending process 
+ to this process.<br>
+4. for any resources required for the transportation to be available.</p>
+<p>First, the statement initiates the transportation if the Source is set 
+ as <span class="Term">From Previous Process</span>. The statement will 
+ then block and wait until the product instance(s) arrive to the container, 
+ path sensor location, or to the assembly. Products may arrive via the 
+ transport system, via flow interfaces to the transport node’s ComponentContainer, 
+ or along a path if the Transport Node is connected as a sensor on that 
+ path. </p>
+<p>A TransportIn statement is typically paired with a TransportOut statement 
+ in the sending process. Ensure that the Destination property of the TransportOut 
+ statement is compatible with the Source property of the TransportIn statement. 
+ It is also possible to use the TransportIn statement without a matching 
+ TransportOut statement, typically in <span class="Term">From Component 
+ Container</span> Source mode. </p>
+<p>This statement contains several properties for the user to select what 
+ types of products will be accepted into this process. See AcceptAllProductTypes, 
+ AcceptedFlowGroups, and AcceptedProductTypes. Note that these product 
+ filtering options are not used when combining this statement with the 
+ ReserveProduct statement or in Process an Assembly mode.<br>
+</p>
+<p><span class="Strong">Transporting Assemblies</span><br>
+Mode <span class="Term">Transport Products</span>:<br>
+Assembly can be transported in as a single Product Type like any other 
+ product. This Assembly Product Type can be then further read with, for 
+ example, Get Assembly statement.<br>
+</p>
+<p>Mode <span class="Term">Process an Assembly</span>:<br>
+Assembly can also be taken in as “piece by piece”.The GetAssembly statement 
+ is typically used beforehand to select which step(s) of the assembly are 
+ to be filled and passed to the TransportIn statement via the AssemblyOrderVariableName 
+ property. </p>
+<p>Assembly steps are filled consecutively, in a breadth-first manner. 
+ Within a step, the OrderIndex property of assembly slots determines the 
+ order they are filled in. Slots with the same OrderIndex value will be 
+ filled concurrently. Product filtering options in each slot are considered 
+ to determine which types of product can be accepted into each slot. Any 
+ provided pre-reserved products are considered before placing requests 
+ for new products.</p>
+<p>To fill an assembly slot, this statement will place a request for one 
+ product. However, the incoming product may have attached child products, 
+ i.e., it can be a Product Bundle. If the incoming product is not an Assembly 
+ Instance, this statement will attempt to use those child products to fill 
+ other slots in the assembly. Any child products that are not used to fill 
+ other slots will remain attached to the incoming product, which is placed 
+ into the slot that it was requested for. </p>
+<p>In a similar way that the Create statement, TransportIn can also be 
+ used to create Product Bundles. This happens when the first assembly step 
+ is not selected in the GetAssembly statement. By contrast to the Create 
+ statement, TransportIn will process assembly steps in the same order as 
+ it would if the first step had been selected, so TransportIn can be building 
+ multiple Product Bundles simultaneously. </p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><p>Mode</p></td>
+		<td><p>Defines how products are transported in.<br>
+		</p>
+		<p><span class="Term">Transport Products</span><br>
+		In this mode, this statement transports Product Instances between 
+		 Processes. <br>
+		Tip: Product Instance is a general term that includes both Part 
+		 Instances and Assembly Instances, so this can be used to bring 
+		 assemblies (partially assembled or fully assembled) into the process.<br>
+		</p>
+		<p><span class="Term">Process an Assembly </span><br>
+		In this mode, this statement is used to transport Product Instances 
+		 into an Assembly Instance that is in this process.</p></td>
+	</tr>
+	<tr>
+		<td><p>AssemblyVariableName</p></td>
+		<td><p>Name of the Assembly Instance variable that will receive 
+		 the Product Instance(s). Only one instance is processed - the 
+		 type of this variable can be a list, but in that case the list 
+		 may only contain a single item. </p>
+		<p>If left empty, a new Assembly Instance is created.</p></td>
+	</tr>
+	<tr>
+		<td><p>AssemblyOrderVariableName</p></td>
+		<td><p>Name of the AssemblyOrder variable that defines which slots 
+		 of the assembly will be filled, if they are currently empty.<br>
+		Tip: Use the GetAssembly statement for creating an AssemblyOrder. 
+		 </p>
+		<p>If left empty, all slots of the assembly will be filled.</p></td>
+	</tr>
+	<tr>
+		<td><p>Source</p></td>
+		<td><p>Defines the source from which the products will be arriving.<br>
+		</p>
+		<p><span class="Term">From Previous Process</span><br>
+		Waits until a suitable product becomes available and then transports 
+		 that into this process by using the transport system. <br>
+		Tip: Can be read as &quot;From Transport Link&quot; most of the 
+		 time. <br>
+		Tip: Use this to receive from a TransportOut statement whose Destination 
+		 is “To Next Process”.<br>
+		</p>
+		<p><span class="Term">From Component Container</span><br>
+		Waits until a product that matches the product filter arrives at 
+		 the associated component container. In an inline process, where 
+		 the transport node is connected to a conveyor path as a sensor 
+		 along the path, the product arrives when it hits the sensor location. 
+		 Otherwise, the product arrives when it is placed into the container 
+		 that is associated to the transport node. <br>
+		Tip: Use this to receive from a TransportOut statement whose Destination 
+		 is either “To Component Container” or “To Transport Node”. <br>
+		Tip: Use this to receive products that have been placed on a conveyor 
+		 by the ProductCreator behavior. </p></td>
+	</tr>
+	<tr>
+		<td>ReservedProductVariableName</td>
+		<td><p>Product variable name defined in Reserve Statement. The 
+		 variable can be a list. <br>
+		<br>
+		If Mode is set to Transport Products and this variable is not empty, 
+		 this statement will transport in the product(s) in the variable, 
+		 without considering the product filter settings in this statement. 
+		 <br>
+		<br>
+		If Mode is set to Process an Assembly and this variable is not 
+		 empty, this statement will try to use the product(s) in the variable 
+		 to fill slots in the assembly, considering the product filter 
+		 settings in the assembly slots. </p></td>
+	</tr>
+	<tr>
+		<td>ProductVariableName</td>
+		<td><p>Name of the variable where this statement stores either 
+		 the product that was transported in or the assembly that was transported 
+		 in or created. <br>
+		<br>
+		If a variable with the given name does not exist, it will be created. 
+		 If it exists and is a list, this statement will append to that 
+		 list. If the variable exists and already has a value, then the 
+		 variable will be converted to a list before appending. </p></td>
+	</tr>
+	<tr>
+		<td>ProductPositionFrame</td>
+		<td><p>Frame location where the products are placed. </p></td>
+	</tr>
+	<tr>
+		<td>ResourcePositionFrame</td>
+		<td><p>Frame location where a resource will move while placing 
+		 a product.</p></td>
+	</tr>
+	<tr>
+		<td>AcceptAllProductTypes</td>
+		<td><p>If selected, any product is accepted.</p></td>
+	</tr>
+	<tr>
+		<td>AcceptedFlowGroups</td>
+		<td>Allows only the selected flow groups.</td>
+	</tr>
+	<tr>
+		<td>AcceptedProductTypes</td>
+		<td><p>Allows only the selected product types.</p></td>
+	</tr>
+</table>
+</body>
+</html>

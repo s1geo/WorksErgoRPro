@@ -1,0 +1,249 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="one to many interface,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>One to Many Interface</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+li.hcp2 { list-style:none;
+display:inline; }
+span.hcp3 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>One to Many Interface</h1>
+<p>A One to Many Interface allows you to establish a connection with one 
+ or more matching interfaces.</p>
+<p><img src="../../../English/Links/OneToManyInterface.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the interface.</td>
+	</tr>
+	<tr>
+		<td>IsAbstract</td>
+		<td>Defines the type of connection supported by the interface. 
+		 A True value supports only remote connections. A False value supports 
+		 only physical connections.</td>
+	</tr>
+	<tr>
+		<td>ConnectSameLevelOnly</td>
+		<td>Defines if the interface can only connect to interfaces on 
+		 the same level in a hierarchy. Generally, this is used when you 
+		 are connecting a large group of components that make up an assembly 
+		 and want to avoid connecting the wrong components, thereby disassembling 
+		 the group.</td>
+	</tr>
+	<tr>
+		<td>AngleTolerance</td>
+		<td>Defines an angle for restricting a physical connection to the 
+		 interface. Generally, a smaller angle is used to require a front-end 
+		 connection attempt instead of allowing a component to approach 
+		 the interface from behind or its side.</td>
+	</tr>
+	<tr>
+		<td>DistanceTolerance</td>
+		<td>Defines a distance for restricting a physical connection to 
+		 the interface. Generally, a smaller distance is used to require 
+		 connection attempts at a closer proximity to the interface.</td>
+	</tr>
+	<tr>
+		<td>ConnectionEditName</td>
+		<td>Defines a Button property for accessing a connection editor.</td>
+	</tr>
+	<tr>
+		<td>InterfaceDescription</td>
+		<td>Defines a description about the interface. Generally, this 
+		 used to leave a note about what and how the interface is used 
+		 in its component.</td>
+	</tr>
+	<tr>
+		<td>Sections and Fields</td>
+		<td>Defines the section and fields of the interface. A One to Many 
+		 Interface has only one section, which is automatically initialized 
+		 when you create the interface. A section is like a plug or socket 
+		 and its fields are connectors or pins that allow you to plug in 
+		 and connect devices. Therefore, the fields of two interfaces need 
+		 to match in order to connect with one another. 
+		<p class="TableNormal"><span class="Term">Name</span><br>
+		Defines the name of the section.</p>
+		<p class="TableNormal"><span class="Term">Section Frame</span><br>
+		Defines a Frame feature that defines the section's location. This 
+		 is not needed if the interface is abstract, so select NONE. If 
+		 you want to create a new Frame feature for the interface, select 
+		 NEW.</p>
+		<p class="TableNormal"><span class="Term">Add new field</span><br>
+		Creates a new field in the section. Each field type has its own 
+		 set of properties and a common property of Name. For more information, 
+		 see &quot;Field Types&quot; in this topic.</p>
+		<p class="TableNormal"><span class="Term">Right-corner options</span><br>
+		Allow you to delete and rearrange sections and fields. Sections 
+		 are separate connection points, so in most cases the location 
+		 of sections is important but not their order. Fields define the 
+		 connection type of a section, so their order is important when 
+		 evaluating a possible connection. For example, two interfaces 
+		 may have the same amount and type of fields but are unable to 
+		 connect because their fields do not match up in the right order.</p></td>
+	</tr>
+</table>
+<h2>Field Types</h2>
+<h3>Action</h3>
+<p>An Action field allows you to send and receive actions as well as connect 
+ resource clients, providers and managers. Generally, an Action field is 
+ used in a remote connection.</p>
+<ul class="hcp1">
+	<li class="Unordered"><span class="Strong">Actions</span> defines the 
+	 Action Container used to manage actions.</li>
+	<li class="Unordered"><span class="Strong">Connection</span> defines 
+	 the how the Action Container manages actions.</li>
+	<li class="hcp2"><ul class="hcp1">
+		<li class="Unordered">To send actions, select <span class="Italic">Client</span>.</li>
+		<li class="Unordered">To receive actions, select <span class="Italic">Provider</span>.</li>
+		<li class="Unordered">To send and receive actions to other Action 
+		 Containers, select <span class="Italic">Buffer</span>.</li>
+	</ul></li>
+</ul>
+<p><span class="Strong">Note:</span> Generally, a Python Script is used 
+ with Action Containers and Action fields to simulate tasks and processes.</p>
+<h3>BaseExport</h3>
+<p>A BaseExport field allows you to import/export base frames. For example, 
+ a robot positioner exports base frames to a mounted robot that imports 
+ them.</p>
+<ul class="hcp1">
+	<li class="Unordered"><span class="Strong">BaseList</span> defines 
+	 the Base Container used for storing base frames.</li>
+	<li class="Unordered"><span class="Strong">Export</span> defines if 
+	 base frames are imported or exported by the field. A True value exports 
+	 bases frames. A False value imports base frames.</li>
+</ul>
+<h3>IntegerCompatibility</h3>
+<p>An IntegerCompatibility field allows you to restrict a connection if 
+ it does not have a matching integer. Generally, an integer is used as 
+ a model number to restrict components from connecting to one another if 
+ they otherwise could not in the real world.</p>
+<ul class="hcp1">
+	<li class="Unordered"><span class="Strong">Value</span> defines the 
+	 integer used in the comparison test.</li>
+</ul>
+<h3>JointExport</h3>
+<p>A JointExport field allows you to import/export joint information. For 
+ example, a workpiece positioner exports its joint information to a robot 
+ that imports them in order to use external joints.</p>
+<ul class="hcp1">
+	<li class="Unordered"><span class="Strong">Controller</span> defines 
+	 the Servo/Robot Controller for managing joint information.</li>
+	<li class="Unordered"><span class="Strong">Export</span> defines if 
+	 joints are imported or exported by the field. A True value exports 
+	 the joint information for any joint referenced by Controller. A False 
+	 value imports joint information which is then defined as an external 
+	 joint in Controller.</li>
+</ul>
+<h3>Processor</h3>
+<p>A Processor field allows you to connect Component Path and Process Point 
+ Sensors to path type behaviors. In some cases, a conveyor uses a One to 
+ Many Interface to allow for the connection of multiple sensors. In all 
+ cases, a detachable sensor is attached to a path using the PnP command. 
+ The location of the sensor on the path can be verified in the sensor's 
+ Distance property or in the Parent coordinate system. That is, a path 
+ is Parent to a sensor which is Child.</p>
+<ul class="hcp1">
+	<li class="Unordered"><span class="Strong">Path</span> defines a behavior 
+	 that can contain detachable sensors. The behavior must be a type of 
+	 path. If Parent is False, then Path is disabled.</li>
+	<li class="Unordered"><span class="Strong">Sensor</span> defines the 
+	 Component Path or Process Point Sensor that attaches itself to a path 
+	 in a different component. If Parent is True, then Sensor is disabled.</li>
+	<li class="Unordered"><span class="Strong">Parent</span> defines the 
+	 relationship of the field. A True value means the field supports attachments 
+	 to Path. A False value means the field supports the attachment of 
+	 Sensor to a different component's path.</li>
+</ul>
+<h3>Rsl</h3>
+<p>A Rsl field allows you to import/export a robot executor's program in 
+ order to remotely call subroutines. Generally, an Rsl field is used in 
+ a remote connection.</p>
+<ul class="hcp1">
+	<li class="Unordered"><span class="Strong">Publish</span> defines if 
+	 the field exports a robot executor's program. A True value means other 
+	 robots can read and execute subroutines in the program. A False value 
+	 means other robots cannot read nor execute subroutines in the program.</li>
+	<li class="Unordered"><span class="Strong">Subscribe</span> defines 
+	 if the field imports a robot executor's program. A True value means 
+	 the robot can read and execute subroutines in other programs. A False 
+	 value means the robot cannot read nor execute subroutines in other 
+	 programs.</li>
+</ul>
+<p><span class="Strong">Note:</span> Python Scripts are often used to call 
+ subroutines as well as create custom statements in a robot's program, 
+ thereby eliminating the need for Rsl fields.</p>
+<h3>Signal</h3>
+<p>A Signal field allows you to connect and map signals. For example, a 
+ Signal field can be used to map a signal to an item in a PLC connection 
+ (remote connection) or a signal in a mounted tool to a robot's IO system 
+ (physical connection).</p>
+<ul class="hcp1">
+	<li class="Unordered"><span class="Strong">Signal</span> defines the 
+	 behavior used by the field. The behavior must be a type of signal.</li>
+	<li class="Unordered"><span class="Strong">Connection</span> defines 
+	 how the interface can be connected. It can be used to limit user to 
+	 make unwanted connections.</li>
+	<li class="hcp2"><ul class="hcp1">
+		<li class="Unordered"><span class="hcp3">Normal</span> 
+		 means the signal can connect with another signal.</li>
+		<li class="Unordered"><span class="hcp3">Begin</span> 
+		 means the signal can connect with another signal that has an <span class="hcp3">End</span> connection.</li>
+		<li class="Unordered"><span class="hcp3">End</span> 
+		 means the signal can connect with another signal that has a <span class="hcp3">Begin</span> connection.</li>
+	</ul></li>
+</ul>
+<h3>ToolExport</h3>
+<p>A ToolExport field allows you to import/export tool frames. For example, 
+ a tool mounted on a robot would export tool frames and the robot would 
+ import them to use as a tcp.</p>
+<ul class="hcp1">
+	<li class="Unordered"><span class="Strong">ToolList</span> defines 
+	 the Tool Container used for storing tool frames.</li>
+	<li class="Unordered"><span class="Strong">Export</span> defines if 
+	 tool frames are imported or exported by the field. A True value exports 
+	 tool frames. A False value imports tool frames.</li>
+</ul>
+<h3>Transport</h3>
+<p>A Transport field allows you to send and receive transportation tasks. 
+ A Transport Protocol uses a signal to rely information, so a Transport 
+ field is used mainly for sharing data (what component to pick up, the 
+ pick-up location, the receiving component, the drop-off location).</p>
+<ul class="hcp1">
+	<li class="Unordered"><span class="Strong">Transport</span> defines 
+	 the Transport Protocol used by the field.</li>
+	<li class="Unordered"><span class="Strong">Connection</span> defines 
+	 how Transport is used by the field.</li>
+	<li class="hcp2"><ul class="hcp1">
+		<li class="Unordered">To receive transportation tasks, select <span 
+		 class="Italic">Input</span>.</li>
+		<li class="Unordered">To send transportation tasks, select <span 
+		 class="Italic">Output</span>.</li>
+		<li class="Unordered">To send and receive transportation tasks, 
+		 select <span class="Italic">Input and Output</span>.</li>
+	</ul></li>
+</ul>
+</body>
+</html>

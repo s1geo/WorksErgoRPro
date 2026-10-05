@@ -1,0 +1,1810 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcApplication</title>
+<link rel="StyleSheet" type="text/css" href="StyleSheet.css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+ul.hcp2 { list-style:disc; }
+span.hcp3 { color:#000000; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcApplication</h1>
+<p>vcApplication is the object type for the main application, thereby granting 
+ access to the application's GUI, commands and other common properties.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot38749" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot38749', 'MTPOPUP38749');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP38749" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark21" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark22" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ActivationKey</td>
+		<td>String</td>
+		<td>R</td>
+		<td>Gets the floating or stand-alone license that is currently 
+		 used for the licensing of the application.</td>
+	</tr>
+	<tr>
+		<td>AuthorContext</td>
+		<td><a href="vcAuthorContext.htm">vcAuthorContext</a></td>
+		<td>R</td>
+		<td>Gets the Modeling tab context.</td>
+	</tr>
+	<tr>
+		<td>Commands</td>
+		<td>List of <a href="vcCommand.htm">vcCommand</a></td>
+		<td>R</td>
+		<td>Gets a list of commands in the application's command registry. 
+		 That is, registered commands available in the application.</td>
+	</tr>
+	<tr>
+		<td><span class="">Components</span></td>
+		<td>List of <a href="vcComponent.htm">vcComponent</a></td>
+		<td>R</td>
+		<td>Gets a list of all components in the 3D world.</td>
+	</tr>
+	<tr>
+		<td>ConfigureContext</td>
+		<td><a href="vcConfigureContext.htm">vcConfigureContext</a></td>
+		<td>R</td>
+		<td>Gets the Home tab context.</td>
+	</tr>
+	<tr>
+		<td>Contexts</td>
+		<td>List of <a href="vcContext.htm">vcContext</a></td>
+		<td>R</td>
+		<td>Gets a list of all contexts defined in the application.</td>
+	</tr>
+	<tr>
+		<td>CurrentContext</td>
+		<td><a href="vcContext.htm">vcContext</a></td>
+		<td>RW</td>
+		<td>Defines the current context of the application.</td>
+	</tr>
+	<tr>
+		<td>CustomProductVersion</td>
+		<td>String</td>
+		<td>R</td>
+		<td>Returns the config file customized product version. If the 
+		 product name has not been customized, returns the internal version.</td>
+	</tr>
+	<tr>
+		<td>CurrentSelection</td>
+		<td><a href="vcSelection.htm">vcSelection</a></td>
+		<td>RW</td>
+		<td>Defines the current selection in the active environment. 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use selection type methods or the SelectionManager property.</p></td>
+	</tr>
+	<tr>
+		<td>Dashboard</td>
+		<td><a href="vcStatisticsDashboard.htm">vcStatisticsDashboard</a></td>
+		<td>R</td>
+		<td>Gets the Statistics dashboard. 
+		</td>
+	</tr>
+	<tr>
+		<td>DrawingContext</td>
+		<td><a href="vcDrawingContext.htm">vcDrawingContext</a></td>
+		<td>R</td>
+		<td>Gets the Drawing tab context.</td>
+	</tr>
+	<tr>
+		<td><span class="">IgnoreEvents</span></td>
+		<td><span>Boolean</span></td>
+		<td>RW</td>
+		<td>Defines if the application ignores events. 
+		<p class="TableNormal">Generally, a True value is used in situations 
+		 where events could create cyclic calls and unintentional loops.</p></td>
+	</tr>
+	<tr>
+		<td>Layers</td>
+		<td>List of <a href="vcLayer.htm">vcLayer</a></td>
+		<td>R</td>
+		<td>Gets a list of all layers in the current layout.</td>
+	</tr>
+	<tr>
+		<td><span class="">LayoutItems</span></td>
+		<td>List of <a href="vcLayoutItem.htm">vcLayoutItem</a></td>
+		<td>R</td>
+		<td>Gets a list of all layout items in the current layout.</td>
+	</tr>
+	<tr>
+		<td><span class="">LayoutModified</span></td>
+		<td><span>Boolean</span></td>
+		<td>RW</td>
+		<td>Defines if the current layout has been modified since it was 
+		 loaded or its last save. 
+		<p class="TableNormal">LayoutModified acts as a flag for determining 
+		 if you are prompted to save a layout and the current state of 
+		 the Save command.</p>
+		<p class="TableNormal">The value is set to True when a user makes 
+		 a change to the current layout using the GUI.</p>
+		<p class="TableNormal">A script that makes changes to a layout 
+		 should set the value to True in order for the application to know 
+		 whether or not the layout needs to be saved. This is not needed 
+		 if the script only makes temporary changes to a layout during 
+		 a simulation.</p></td>
+	</tr>
+	<tr>
+		<td>LayoutPath</td>
+		<td>String</td>
+		<td>R</td>
+		<td>Gets the local path of current layout. 
+		<p class="TableNormal">Generally, the path is the same one you 
+		 would get from the address bar of the File Explorer in Windows. 
+		 For example, spaces would not be encoded as + signs.</p>
+		<p class="TableNormal">See <a href="https://docs.microsoft.com/en-gb/dotnet/api/system.uri.localpath?view=netframework-4.7.1">System.Uri.LocalPath</a> 
+		 in the .NET Framework for more information.</p></td>
+	</tr>
+	<tr>
+		<td>LayoutUri</td>
+		<td>String</td>
+		<td>R</td>
+		<td>Gets the URI of current layout. 
+		<p class="TableNormal">The URI would contain its scheme, for example 
+		 a &quot;file:///&quot; prefix, and spaces would be encoded as 
+		 + signs.</p>
+		<p class="TableNormal">See <a href="#GetLayoutUri">Example. Print 
+		 URI of current layout</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>LayoutUriInCompatibilityFormat</td>
+		<td>String</td>
+		<td>R</td>
+		<td>Gets the URI of current layout in a format that was used in 
+		 older product versions. 
+		<p class="TableNormal">The URI is similar to LayoutUri. One exception 
+		 is a forward slash in the URI path is replaced with a backslash.</p></td>
+	</tr>
+	<tr>
+		<td>Lights</td>
+		<td>List of <a href="vcLight.htm">vcLight</a></td>
+		<td>R</td>
+		<td>Gets a list of all lights in the application.</td>
+	</tr>
+	<tr>
+		<td>Materials</td>
+		<td>List of <a href="vcMaterial.htm">vcMaterial</a></td>
+		<td>R</td>
+		<td>Gets a list of all materials in the application.</td>
+	</tr>
+	<tr>
+		<td>PdfFileName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the filename for a recorded 3D PDF. 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use the RecordingFileName property.</p></td>
+	</tr>
+	<tr>
+		<td>PdfRecord</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if a simulation is recorded as a 3D PDF. 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use the Recording property.</p></td>
+	</tr>
+	<tr>
+		<td>PdfShow</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the created 3D PDF is opened after recording a simulation. 
+		 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use the RecordingShow property.</p></td>
+	</tr>
+	<tr>
+		<td>PdfStepSize</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the keyframe rate for recording simulations as 3D PDF. 
+		 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use the RecordingFrameRate property.</p></td>
+	</tr>
+	<tr>
+		<td>ProcessContext</td>
+		<td><a 
+		 href="vcProcessContext.htm">ProcessContext</a></td>
+		<td>R</td>
+		<td>Gets the Process tab context.</td>
+	</tr>
+	<tr>
+		<td><span class="">ProductClass</span></td>
+		<td><span>String</span></td>
+		<td>R</td>
+		<td>Gets the name of the application's product class. 
+		<p class="TableNormal">Product classes are Creator, Configurator 
+		 and Viewer.</p></td>
+	</tr>
+	<tr>
+		<td><span class="">ProductKey</span></td>
+		<td><span>String</span></td>
+		<td>R</td>
+		<td>Gets the latest stand-alone key used to activate the application.</td>
+	</tr>
+	<tr>
+		<td><span class="">ProductName</span></td>
+		<td><span>String</span></td>
+		<td>R</td>
+		<td>Gets the product name of the application.</td>
+	</tr>
+	<tr>
+		<td><span class="">ProductVersion</span></td>
+		<td><span>String</span></td>
+		<td>R</td>
+		<td>Gets the product version of the application. 
+		<p class="TableNormal">The product version format is the major 
+		 version number, minor version number and the revision number in 
+		 that order separated by periods.</p></td>
+	</tr>
+	<tr>
+		<td><span class="">ProgressStatus</span></td>
+		<td><span>String</span></td>
+		<td>RW</td>
+		<td>Defines the product status message given when the ProgressValue 
+		 property is set to True. 
+		<p class="TableNormal"><span class="Strong">Caution:</span> ProgressValue 
+		 must always be set after setting ProgressStatus. Failure to do 
+		 so may cause the application's GUI to enter an indefinite locked 
+		 state.</p></td>
+	</tr>
+	<tr>
+		<td><span class="">ProgressValue</span></td>
+		<td><span>Real</span></td>
+		<td>RW</td>
+		<td>Defines the current state of the application's progress bar. 
+		 
+		<p class="TableNormal"><span class="Term">Value &lt; 0.0</span><br>
+		Progress is unknown or stalled. Setting this value will lock the 
+		 GUI and activate the progress bar.</p>
+		<p class="TableNormal"><span class="Term">0.0 &lt;= Value &lt;= 
+		 1.0</span><br>
+		The current state of progress is within this range in which 0.0 
+		 indicates no progress and 1.0 indicates full progress. Setting 
+		 this value will lock the GUI and activate progress bar.</p>
+		<p class="TableNormal"><span class="Term">Value &gt; 1.0</span><br>
+		The operation has been completed. Setting this value will unlock 
+		 the GUI and deactivate the progress bar.</p>
+		<p class="TableNormal"><span class="Strong">Caution:</span> If 
+		 ProgressValue is used to indicate the status of an operation, 
+		 the set value must always be greater than 1.0 after completing 
+		 the operation to unlock the application's GUI. Otherwise, the 
+		 GUI may enter an indefinite locked state.</p></td>
+	</tr>
+	<tr>
+		<td><span class="">PythonActionPanel</span></td>
+		<td><a href="vcPythonActionPanel.htm">vcPythonActionPanel</a></td>
+		<td>R</td>
+		<td>The action panel can be opened when executing a python command</td>
+	</tr>
+	<tr>
+		<td><span class="">Quantities</span></td>
+		<td>List of <a href="vcScalarQuantity.htm">vcScalarQuantity</a></td>
+		<td>R</td>
+		<td>Gets a list of all scalar quantities in the application.</td>
+	</tr>
+	<tr>
+		<td><span class="">RealTime</span></td>
+		<td><span>Real</span></td>
+		<td>R</td>
+		<td>Gets the current computer time (in seconds).</td>
+	</tr>
+	<tr>
+		<td><span class="">RealTimeMode</span></td>
+		<td><span>Boolean</span></td>
+		<td>RW</td>
+		<td>Defines if a simulation runs in real time or virtual time. 
+		 
+		<p class="TableNormal">A True value means the simulation runs at 
+		 a speed indicative of the real world environment. A False value 
+		 means the simulations runs at speed based on the device's CPU 
+		 processing speed.</p></td>
+	</tr>
+	<tr>
+		<td>Recorder</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines if a simulation is recorded as a 3D PDF or video. 
+		<p class="TableNormal">See <a href="Constants.htm#Recording">Recording 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Recording</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the recording of a simulation. 
+		<p class="TableNormal">A True value will start a simulation (if 
+		 it was not already running) and the recording, whereas a False 
+		 value will stop a simulation and the recording.</p>
+		<p class="TableNormal">You should define other Recording properties 
+		 before you start the recording. In order to stop the recording 
+		 you need to set Recording to False. In cases where you are recording 
+		 a 3D PDF, stopping or resetting the simulation before you set 
+		 Recording to False will lose the recording and not generate a 
+		 file.</p>
+		<p class="TableNormal"><span class="Strong">Note:</span> A recording 
+		 cannot be stopped and continued without generating a new file.</p></td>
+	</tr>
+	<tr>
+		<td>RecordingFileName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the absolute path of a recorded simulation file.</td>
+	</tr>
+	<tr>
+		<td>RecordingFrameRate</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the frame rate for recording simulations.</td>
+	</tr>
+	<tr>
+		<td>RecordingHeight</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the height (number of pixels) for a simulation recorded 
+		 as a video.</td>
+	</tr>
+	<tr>
+		<td>RecordingShow</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the opening of the recorded simulation file after 
+		 recording is stopped in the 3D world.</td>
+	</tr>
+	<tr>
+		<td>RecordingWidth</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the width (number of pixels) for a simulation recorded 
+		 as a video.</td>
+	</tr>
+	<tr>
+		<td>RecordScreen</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the size of the 3D world viewport defines the dimensions 
+		 of a simulation recorded as a video. 
+		<p class="TableNormal">A False value means the values of the RecordingHeight 
+		 and RecordingWidth properties define the dimensions of a recorded 
+		 video.</p></td>
+	</tr>
+	<tr>
+		<td><span class="">RenderShadows</span></td>
+		<td><span>Enumeration</span></td>
+		<td>RW</td>
+		<td>Defines the mode for rendering shadows in the 3D world. 
+		<p class="TableNormal">See <a href="Constants.htm#Render_Shadows">Render 
+		 Shadows Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>ResetSimulationAtLoading</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the automatic reset of a component to its initial 
+		 state when a new component is added to the 3D world. 
+		<p class="TableNormal">The default value is True. Generally, a 
+		 False value is used in cases where you want to retain the current 
+		 joint configuration of robots in the 3D world when teaching positions.</p>
+		<p class="TableNormal">The effect is the same as executing the 
+		 Reset button on the simulation controls.</p></td>
+	</tr>
+	<tr>
+		<td>SelectionManager</td>
+		<td><a href="vcSelectionManager.htm">vcSelectionManager</a></td>
+		<td>R</td>
+		<td>Gets the selection manager of the application which is used 
+		 for handling selections in an environment.</td>
+	</tr>
+	<tr>
+		<td>Selections</td>
+		<td>List of <a href="vcSelection.htm">vcSelection</a></td>
+		<td>R</td>
+		<td>Gets a list of selection type objects registered with the application. 
+		 That is, the types of objects you can select in an environment 
+		 such as the 3D world. 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use <a href="vcSelectionManager.htm">vcSelectionManager</a>.</p></td>
+	</tr>
+	<tr>
+		<td><span class="">Simulation</span></td>
+		<td><span><a href="vcSimulation.htm" title="vcSimulation">vcSimulation</a></span></td>
+		<td>R</td>
+		<td>Gets the simulation object of the application. 
+		<p class="TableNormal">Generally, the simulation object is used 
+		 to control the execution of a simulation in the 3D world.</p></td>
+	</tr>
+	<tr>
+		<td>TeachContext</td>
+		<td><a href="vcTeachContext.htm">vcTeachContext</a></td>
+		<td>R</td>
+		<td>Gets the Program tab context.</td>
+	</tr>
+	<tr>
+		<td><span class="">UnitFamilies</span></td>
+		<td>List of <a href="vcUnitFamily.htm">vcUnitFamily</a></td>
+		<td>R</td>
+		<td>Gets a list of all unit families in the application.</td>
+	</tr>
+	<tr>
+		<td>UnitGroups</td>
+		<td>List of <a href="vcUnitGroup.htm">vcUnitGroup</a></td>
+		<td>R</td>
+		<td>Gets a list of all unit groups in the application.</td>
+	</tr>
+	<tr>
+		<td><p>VREvents</p></td>
+		<td><p><a 
+		 href="vcVREvents.htm">vcVREvents</a></p></td>
+		<td><p>R</p></td>
+		<td><p>Gets VR events 
+		 object of the application.</p>
+		<p class="TableNormal">Generally, the VR events object is used 
+		 for interactive Virtual Reality.</p></td>
+	</tr>
+	<tr>
+		<td>Views</td>
+		<td>List of <a href="vcView.htm">vcView</a></td>
+		<td>R</td>
+		<td>Gets a list of all user-defined views in the current layout.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<h3><a name="MiniTOCBookMark4"></a>Bitmap</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>loadBitmap</td>
+		<td><a href="vcBitMap.htm">vcBitmap</a></td>
+		<td>String <span class="Italic">uri</span></td>
+		<td>Loads a bitmap image from a given <span class="Italic">uri</span>. 
+		 
+		<p class="TableNormal">If loading is successful, the bitmap's filename 
+		 is used to register the bitmap with the application.</p>
+		<p class="TableNormal">Returns the loaded bitmap image; otherwise 
+		 returns None.</p></td>
+	</tr>
+	<tr>
+		<td>saveBitmap</td>
+		<td>None</td>
+		<td><a href="vcBitMap.htm">vcBitmap</a> <span class="Italic">bitmap</span>, 
+		 String <span class="Italic">uri</span>, [String <span class="Italic">writer_info</span>]</td>
+		<td>Writes a given <span class="Italic">bitmap</span> to a given 
+		 <span class="Italic">uri</span>. 
+		<p class="TableNormal">By default, the bitmap is saved as a BMP 
+		 file. An optional <span class="Italic">writer_info</span> argument 
+		 can be given to write the bitmap to a different format.</p>
+		<p class="TableNormal"><span class="Term">rbmp</span> writes to 
+		 BMP.</p>
+		<p class="TableNormal"><span class="Term">rjpegstd</span> or <span 
+		 class="Term">rjpegnstd</span> writes to JPEG.</p>
+		<p class="TableNormal"><span class="Term">rpng</span> writes to 
+		 PNG.</p>
+		<p class="TableNormal"><span class="Term">rtargareader</span> writes 
+		 to TGA.</p>
+		<p class="TableNormal">See <a href="vcBitMap.htm#SaveBitmapExamples">vcBitmap</a> 
+		 for more information.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark5"></a>Camera</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>findCamera</td>
+		<td><a href="vcCamera.htm">vcCamera</a></td>
+		<td>[String <span class="hcp1">name</span>]</td>
+		<td>Returns a camera used by the application in an environment. 
+		 
+		<p class="TableNormal">An optional <span class="Italic">name</span> 
+		 argument can be given to find a specific camera; otherwise the 
+		 method returns the first found camera.</p>
+		<p class="TableNormal">If no camera is found, returns None.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark6"></a>Command</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>cancelCommand</td>
+		<td>None</td>
+		<td>[Boolean <span class="hcp1">all</span>]</td>
+		<td>Cancels the execution of the currently active command, after 
+		 which the default command of the application is activated. 
+		<p class="TableNormal">An optional <span class="Italic">all</span> 
+		 argument of can be given to cancel all commands in the command 
+		 stack or just the top-most command by giving a False value.</p></td>
+	</tr>
+	<tr>
+		<td>deleteCommand</td>
+		<td>Boolean</td>
+		<td>String <span class="hcp1">name</span></td>
+		<td>Deletes a registered command that matches a given <span class="hcp1">name</span>.</td>
+	</tr>
+	<tr>
+		<td>findCommand</td>
+		<td><a href="vcCommand.htm">vcCommand</a></td>
+		<td>String <span class="hcp1">name</span></td>
+		<td>Returns a registered command that matches a given <span class="Italic">name</span><span>; 
+		 otherwise returns None.</span></td>
+	</tr>
+	<tr>
+		<td>getCommands</td>
+		<td>List of <a href="vcCommand.htm">vcCommand</a></td>
+		<td>None</td>
+		<td>Returns a list of commands registered to the application.</td>
+	</tr>
+	<tr>
+		<td>loadCommand</td>
+		<td><a href="vcCommand.htm">vcCommand</a></td>
+		<td>String <span class="hcp1">name</span>, String 
+		 <span class="hcp1">uri</span></td>
+		<td>Loads a defined script of a given <span class="Italic">name</span> 
+		 at a given <span class="Italic">uri</span> into the application 
+		 as a Python command. 
+		<p class="TableNormal">Loading registers a command with the given 
+		 <span class="hcp1">name</span> in the application, 
+		 which can be used to launch the command itself. Successful command 
+		 loading returns the command as an object; otherwise, returns None.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark7"></a>Component</h3>
+<table class="Property" style="border-collapse: separate;" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>clearWorld</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Removes all components from the 3D world.</td>
+	</tr>
+	<tr>
+		<td>cloneComponent</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="hcp1">component</span></td>
+		<td>Clones a given <span class="Italic">component</span><span>, 
+		 and then returns the clone.</span> 
+		<p class="TableNormal"><span class="Strong">Note:</span> This is 
+		 only for static components when simulation is not running. To 
+		 clone components when a simulation is running, use <a href="vcComponent.htm">vcComponent.clone()</a>.</p></td>
+	</tr>
+	<tr>
+		<td>connectComponents</td>
+		<td>Boolean</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">comp1</span>, 
+		 <a href="vcComponent.htm">vcComponent</a> <span class="hcp1">comp2</span></td>
+		<td>Connects all matching interfaces between two given components. 
+		 
+		<p class="TableNormal">If a physical connection requires repositioning 
+		 then <span class="Italic">comp2</span> is snapped to <span class="Italic">comp1</span>.</p>
+		<p class="TableNormal">If a connection forms a parent-child hierarchy, 
+		 the <span class="Italic">child component</span> is moved and attached 
+		 to the <span class="Italic">parent component</span>.</p></td>
+	</tr>
+	<tr>
+		<td>createComponent</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td>None</td>
+		<td>Creates a new component at the 3D world origin, and then returns 
+		 the new component.</td>
+	</tr>
+	<tr>
+		<td>deleteComponent</td>
+		<td>None</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="hcp1">component</span></td>
+		<td>Deletes a given <span class="Italic">component</span> from 
+		 the 3D world.</td>
+	</tr>
+	<tr>
+		<td>findComponent</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td>String <span class="hcp1">name</span></td>
+		<td>Returns a component in the 3D world that matches a given <span 
+		 class="Italic">name</span><span>.</span> 
+		<p class="TableNormal"><span>If no match is found, returns None.</span></p></td>
+	</tr>
+	<tr>
+		<td>load</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td>String <span class="hcp1">uri</span></td>
+		<td>Loads a component from a given <span class="Italic">uri</span> 
+		 in the 3D world. 
+		<p class="TableNormal">If loading is successful, returns the component; 
+		 otherwise returns None.</p>
+		<p class="TableNormal"><span class="Strong">Note:</span> In most 
+		 cases, the file URI scheme is file:/// followed by the full path 
+		 to file.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark8"></a>Context</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>setContext</td>
+		<td>None</td>
+		<td>String <span class="Italic">id</span></td>
+		<td>Sets the context of application to the given <span class="Italic">id</span>. 
+		 
+		<p class="TableNormal">Standard ids are:</p>
+		<p class="TableNormal"><span class="Term">Author</span><br>
+		Component modeling</p>
+		<p class="TableNormal"><span class="Term">Configure</span><br>
+		Layout configuration</p>
+		<p class="TableNormal"><span class="Term">Drawing</span><br>
+		2D drawing</p>
+		<p class="TableNormal"><span class="Term">Teach</span><br>
+		Robot programming.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark9"></a>Frame Grab</h3>
+<table class="Property" style="border-collapse: separate;" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>beginFrameGrab</td>
+		<td>None</td>
+		<td>String <span class="hcp1">image_format</span>, 
+		 Integer <span class="hcp1">image_width</span>, 
+		 Integer <span class="hcp1">image_height</span></td>
+		<td>Starts frame grabbing process using given <span class="Italic">image_format</span>, 
+		 <span class="Italic">image_width</span> and <span class="Italic">image_height</span> 
+		 arguments to use with the executeFrameGrab() method.</td>
+	</tr>
+	<tr>
+		<td>endFrameGrab</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Ends screen grabbing process and performs cleanup.</td>
+	</tr>
+	<tr>
+		<td>executeFrameGrab</td>
+		<td>None</td>
+		<td>String <span class="Italic">uri</span></td>
+		<td>Creates a video frame of the current 3D world view and saves 
+		 the frame at a given <span class="Italic">uri</span>. The frame's 
+		 format and size are defined using the beginFrameGrab() method.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark10"></a>Jogging</h3>
+<table class="Property" style="border-collapse: separate;" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>doJogging</td>
+		<td>None</td>
+		<td><a href="vcVector.htm">vcVector</a> <span class="hcp1">vector</span></td>
+		<td>Does the actual jogging using given <span class="hcp1">vector</span> 
+		 as a reference location in world coordinates where the jogging 
+		 ends. </td>
+	</tr>
+	<tr>
+		<td>startJogging</td>
+		<td>None</td>
+		<td><a href="vcVector.htm">vcVector</a> <span class="hcp1">vector</span>, 
+		 <a href="vcNode.htm">vcNode</a> <span class="hcp1">node</span></td>
+		<td>Initializes jogging process by defining what <span class="hcp1">node</span> 
+		 is jogged and <span class="hcp1">vector </span>where 
+		 the jogging starts, that is a reference starting location in the 
+		 world coordinate system.</td>
+	</tr>
+	<tr>
+		<td>stopJogging</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Stops jogging.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark11"></a>Layer</h3>
+<table class="Property" style="border-collapse: separate;" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createLayer</td>
+		<td><a href="vcLayer.htm">vcLayer</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Creates a new layer with a given <span class="Italic">name</span> 
+		 in the application. 
+		<p class="TableNormal">If a layer with the given <span class="Italic">name</span> 
+		 exists, that layer is returned; otherwise the method returns the 
+		 new layer. If the layer cannot be created, returns None.</p></td>
+	</tr>
+	<tr>
+		<td>deleteLayer</td>
+		<td>None</td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Deletes a layer that matches a given <span class="Italic">name</span> 
+		 <span class="Emphasis">&#160;</span>unless the layer is a system 
+		 layer.</td>
+	</tr>
+	<tr>
+		<td>findLayer</td>
+		<td><a href="vcLayer.htm">vcLayer</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Returns a layer that matches a given <span class="Emphasis">name; 
+		 otherwise returns None.</span></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark12"></a>Layout Item</h3>
+<table class="Property" style="border-collapse: separate;" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createLayoutItem</td>
+		<td><a href="vcLayoutItem.htm">vcLayoutItem</a></td>
+		<td>Enumeration <span class="Italic">type</span></td>
+		<td>Creates a new layout item of a given <span class="Italic">type</span> 
+		 <span>in the current layout.</span> 
+		<p class="TableNormal">See <a href="Constants.htm#Layout_Items">Layout 
+		 Item</a> constants for types and descriptions.</p></td>
+	</tr>
+	<tr>
+		<td>deleteLayoutItem</td>
+		<td>None</td>
+		<td>String <span class="Italic">name</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcLayoutItem.htm">vcLayoutItem</a> 
+		 <span class="Italic">layout_item</span></p></td>
+		<td>Deletes a given <span class="Italic">layout_item</span> or 
+		 one that matches a given <span class="Italic">name</span> <span>from 
+		 the current layout.</span></td>
+	</tr>
+	<tr>
+		<td>findLayoutItem</td>
+		<td><a href="vcLayoutItem.htm">vcLayoutItem</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Returns a layout item that matches a given <span class="Italic">name</span> 
+		 in current layout; otherwise returns None.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark13"></a>Light</h3>
+<table class="Property" style="border-collapse: separate;" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createLight</td>
+		<td><a href="vcLight.htm">vcLight</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Creates a new light with a given <span class="Italic">name</span> 
+		 which is attached to the 3D world.</td>
+	</tr>
+	<tr>
+		<td>deleteLight</td>
+		<td>None</td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Deletes a light that matches a given <span class="Italic">name</span>.</td>
+	</tr>
+	<tr>
+		<td>findLight</td>
+		<td><a href="vcLight.htm">vcLight</a></td>
+		<td>[String <span class="Italic">name</span>]</td>
+		<td>Returns the first found light in the 3D world or a light matching 
+		 a given <span class="Italic">name</span>. 
+		<p class="TableNormal">If no light is found with the given <span 
+		 class="Italic">name</span>, returns None.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark14"></a>Material</h3>
+<table class="Property" style="border-collapse: separate;" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addMaterial</td>
+		<td>Boolean</td>
+		<td><a href="vcMaterial.htm">vcMaterial</a> <span class="Italic">material</span></td>
+		<td>Adds a given material to a group of materials registered with 
+		 the application. 
+		<p class="TableNormal">If the material is registered, returns True. 
+		 If a material with the same name already exists, returns False.</p></td>
+	</tr>
+	<tr>
+		<td>createMaterial</td>
+		<td><a href="vcMaterial.htm">vcMaterial</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Creates a new material with a given <span class="Italic">name</span>.</td>
+	</tr>
+	<tr>
+		<td>findMaterial</td>
+		<td><a href="vcMaterial.htm">vcMaterial</a></td>
+		<td>String <span class="Italic">name</span>, 
+		 [Boolean <i>case_sensitive</i>]</td>
+		<td>Returns a material matching a given <span class="Italic">name</span>. 
+		 If no material is found with the <span class="Italic">name,</span> 
+		 returns None.<br>
+		<br>
+		Optional <i>case_sensitive 
+		 </i>argument can 
+		 be used to specify if the method is case-sensitive. By default, 
+		 the method returns the first match (not case-sensitive).</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark15"></a>Menu</h3>
+<table class="Property" style="border-collapse: separate;" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addMenuButton</td>
+		<td>Boolean</td>
+		<td><p>String <span class="Italic">menu</span>, String <span class="Italic">caption</span>, 
+		 String <span class="Italic">command</span>, [Enum <span class="Italic">toolSize</span>]</p></td>
+		<td>Adds a new menu button in the ribbon (similar to the item). 
+		 The first three parameters are the same as in addMenuItem, and 
+		 the <span class="Italic">toolSize</span> parameter defines the 
+		 appearance of the button. </td>
+	</tr>
+	<tr>
+		<td>addUxSite</td>
+		<td>None</td>
+		<td><p>String <span class="hcp1">siteId</span>, 
+		 [Integer <span class="hcp1">position</span>]</p></td>
+		<td><p>Adds a new site identified by <span class="hcp1">siteId</span> 
+		 at the specified position. &#160;&#160;&#160;&#160;</p>
+		<p>&#160;<span class="hcp1">siteId</span> can be 
+		 a chained string or a path, &#160;thereby allowing you to specify 
+		 a section of the user interface. For example, 'VcTabDrawing/Example' 
+		 would create a new ribbon group called Example in the Drawing 
+		 tab. <span style="font-weight: bold;">Note:</span> You &#160;can 
+		 refer to the UXSitesSection element of your application's configuration 
+		 file to know valid IDs. Each id is an ItemId attribute of a Site 
+		 element. &#160;An optional position parameter specifies the index 
+		 at &#160;which the site should be created in its direct parent.</p></td>
+	</tr>
+	<tr>
+		<td>addMenuItem</td>
+		<td>Boolean</td>
+		<td><span>E</span>numeration <span class="Italic">menu</span>, 
+		 String <span class="Italic">caption</span>, Integer <span class="Italic">position</span>, 
+		 String <span class="Italic">command</span> 
+		<p class="TableNormal">or</p>
+		<p>String <span class="Italic">menu</span>, String <span class="Italic">caption</span>, 
+		 Integer <span class="Italic">position</span>, String <span class="Italic">command</span></p>
+		<p>or</p>
+		<p>String <span class="Italic">menu</span>, String <span class="Italic">caption</span>, 
+		 Integer <span class="Italic">position</span>, String <span class="Italic">command</span>, 
+		 String <span class="Italic">tool_tip</span>, String <span class="Italic">image</span>, 
+		 String <span class="Italic">reference_id</span>, String <span 
+		 class="Italic">control_type</span></p>
+		<span class="Strong">(Deprecated)</span><br>
+		String <span class="Italic">menu</span>, String <span class="hcp1">caption</span>, 
+		 [Integer <span class="Italic">position</span>], <a href="vcCommand.htm">vcCommand</a> 
+		 <span class="Italic">command</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span><br>
+		String <span class="Italic">menu</span>, String <span class="Italic">caption</span>, 
+		 [Integer <span class="Italic">position</span>], String <span class="Italic">command</span></p>
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span><br>
+		Enumeration <span class="Italic">menu</span>, String <span class="hcp1">caption</span>, 
+		 [Integer <span class="Italic">position</span>], <a href="vcCommand.htm">vcCommand</a> 
+		 <span class="Italic">command</span></p>
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span><br>
+		Enumeration <span class="Italic">menu</span>, String <span class="Italic">caption</span>, 
+		 [Integer <span class="Italic">position</span>], String <span class="Italic">command</span></p></td>
+		<td>Adds a new menu item to a given <span class="Italic">menu</span>. 
+		 
+		<p class="TableNormal">The <span class="Italic">menu</span> argument 
+		 can be a <a href="Constants.htm#Menu">Menu Constant</a> or id 
+		 indicating the area of user interface where you want to add the 
+		 menu item.</p>
+		<p class="TableNormal">The <span class="Italic">caption</span> 
+		 argument specifies a default label for the menu item.</p>
+		The <span class="Italic">position</span> parameter specifies where 
+		 the menu item will be added in the given <span class="Italic">menu</span>. 
+		 Any value less than zero is indexed from the end of the menu. 
+		 By default, a new menu item is appended to the end of a menu. 
+		 
+		<p class="TableNormal">The <span class="Italic">command</span> 
+		 argument specifies a command by name that is executed when you 
+		 interact with the menu item. For example, you can pass the name 
+		 of a command registered to the application or an id that can be 
+		 referenced when adding gallery menu items.</p>
+		<p class="TableNormal">The <span class="Italic">tool_tip</span> 
+		 argument specifies a default tooltip for the menu item.</p>
+		<p class="TableNormal">The <span class="Italic">image</span> argument 
+		 specifies the icon of the menu item.</p>
+		<p class="TableNormal">The <span class="Italic">reference_id</span> 
+		 argument refers to another menu item by its command name or id. 
+		 Generally, you would use this to add items to a gallery menu on 
+		 the Ribbon in which both the gallery and its items are created 
+		 using the same Python command.</p>
+		<p class="TableNormal">The <span class="Italic">control_type</span> 
+		 argument specifies the control type of the menu item. Generally, 
+		 you would use this to indicate an item as a <span class="Term">GalleryMenuTool</span> 
+		 or <span class="Term">GalleryMenuToolItem</span>. If you are creating 
+		 a contextual tab group in the Ribbon, you would use this to indicate 
+		 a <span class="Term">ContextualTabGroup</span> or <span class="Term">RibbonTab</span>.</p>
+		<p class="TableNormal">Each call returns an integer that is a handle 
+		 for the new menu item. Use that value in the removeMenuItem() 
+		 method to delete the menu item.</p>
+		<p class="TableNormal">See <a href="Creating_a_Python_Add-on.htm">Creating 
+		 a Python Add-on</a> for more information and examples.</p>
+		<p class="TableNormal">See <a href="Template_for_Python_Add-on.htm">Template 
+		 for Python Add-on</a> for a template that can be used to quickly 
+		 implement a new add-on.</p></td>
+	</tr>
+	<tr>
+		<td>createBehaviourMenuItem</td>
+		<td>Boolean</td>
+		<td>String <span class="Italic">menu_name</span>, Integer <span 
+		 class="Italic">pos</span>, <a href="vcCommand.htm">vcCommand</a> 
+		 <span class="Italic">command</span></td>
+		<td>Creates a new menu item in Behavior tab add-on menu. 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use addMenuItem() method.</p></td>
+	</tr>
+	<tr>
+		<td>createFeatureMenuItem</td>
+		<td>Boolean</td>
+		<td>String <span class="Italic">menu_name</span>, Integer <span 
+		 class="Italic">pos</span>, <a href="vcCommand.htm">vcCommand</a> 
+		 <span class="Italic">command</span></td>
+		<td>Creates a new menu item in Geometry tab add-on menu. 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use addMenuItem() method.</p></td>
+	</tr>
+	<tr>
+		<td>createGeometryMenuItem</td>
+		<td>Boolean</td>
+		<td>String <span class="Italic">menu_name</span>, Integer <span 
+		 class="Italic">pos</span>, <a href="vcCommand.htm">vcCommand</a> 
+		 <span class="Italic">command</span></td>
+		<td>Creates a new menu item in Geometry tab add-on menu. 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use addMenuItem() method.</p></td>
+	</tr>
+	<tr>
+		<td>createMenuItem</td>
+		<td>Boolean</td>
+		<td>String <span class="Italic">menu_name</span>, Integer <span 
+		 class="Italic">pos</span>, <a href="vcCommand.htm">vcCommand</a> 
+		 <span class="Italic">command</span></td>
+		<td>Creates a new menu item in Add-ons menu. 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use addMenuItem() method.</p></td>
+	</tr>
+	<tr>
+		<td>getLocalizedString</td>
+		<td>String</td>
+		<td>String <span class="Italic">key</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">String <span class="Italic">key_container</span>, 
+		 String <span class="Italic">key_item</span>, String <span class="Italic">key_type</span> 
+		 </p></td>
+		<td>Gets the value of a given key in a resource file based on the 
+		 language of the application. 
+		<p class="TableNormal">Generally, this is used to localize add-ons. 
+		 If the key is not found, returns the key itself as a string.</p>
+		<p class="TableNormal">You have two options:</p>
+		<p class="TableNormal"><span class="Term">1-key</span><br>
+		Pass the entire key, for example &quot;ComboKey::Python.MsgBoxTitle.Text&quot;.</p>
+		<p class="TableNormal"><span class="Term">3-key</span><br>
+		Pass the key in three separate arguments, for example (&quot;Python&quot;,&quot;MsgBoxTitle&quot;,&quot;Text&quot;).</p>
+		<p class="TableNormal">The <span class="Italic">key_container</span> 
+		 argument should be &quot;Python&quot; if the localized string 
+		 was added from Python, for example a PyResouce file associated 
+		 with your Python add-on.</p>
+		<p class="TableNormal">The <span class="Italic">key_item</span> 
+		 argument should be a unique key for the item you want to localize. 
+		 For example, &quot;printHelloLocalized.ColorPropName.red&quot; 
+		 would refer to a step value of a property named &quot;ColorPropName&quot; 
+		 associated with a command registered to the application as &quot;printHelloLocalized.&quot;</p>
+		<p class="TableNormal">The <span class="Italic">key_type</span> 
+		 argument specifies the attribute of an item. For example, a command 
+		 can have a label, tooltip and icon.</p>
+		<p class="TableNormal">An item can have one or more attributes:</p>
+		<p class="TableNormal"><span class="Term">Text</span><br>
+		Label for command, ribbon tab or group, message box, etc.</p>
+		<p class="TableNormal"><span class="Term">Name</span><br>
+		Label for command property.</p>
+		<p class="TableNormal"><span class="Term">Tooltip</span><br>
+		Tooltip for command.</p>
+		<p class="TableNormal"><span class="Term">Description</span><br>
+		Tooltip for command property.</p>
+		<p class="TableNormal"><span class="Term">Icon</span><br>
+		Icon for ribbon group or command. In this case, the value is the 
+		 path to icon file.</p>
+		<p class="TableNormal"><span class="Term">&lt;step value&gt;</span><br>
+		Label for step value of command property.</p>
+		<p class="TableNormal">See <a href="Template_for_Python_Add-on.htm">Template 
+		 for Python Add-on</a> for an example on how to use this method.</p></td>
+	</tr>
+	<tr>
+		<td>removeMenuItem</td>
+		<td>Boolean</td>
+		<td>Integer <span class="hcp1">position</span></td>
+		<td>Remove a menu item that was previously added using the addMenuItem() 
+		 method.</td>
+	</tr>
+	<tr>
+		<td>setContextualTabGroup</td>
+		<td>None</td>
+		<td>String <span class="Italic">tab_id</span>, Boolean <span class="Italic">show</span></td>
+		<td>Turns on/off the visibility of a contextual tab group in Ribbon. 
+		 
+		<p class="TableNormal">The <span class="Italic">tab_id</span> argument 
+		 refers to the Id of the contextual tab group.</p>
+		<p class="TableNormal">See <a href="Template_for_Python_Add-on.htm">Template 
+		 for Python Add-on</a> for an example.</p>
+		<p class="TableNormal">See <a href="Creating_a_Python_Add-on.htm">Creating 
+		 a Python Add-on</a> for more information and other examples.</p></td>
+	</tr>
+</table>
+<p><span class="Strong">Notes:</span></p>
+<ul class="hcp2">
+	<li class="Unordered">If you are using a menu constant that refers 
+	 to a drop-down menu, you should in some cases add a string that designates 
+	 a section or divider in the list. If the drop-menu section does not 
+	 exist, the application will create that placeholder for you.</li>
+	<li class="Unordered">If you are using an id, it can be a concatenated 
+	 string or path, thereby allowing you to specify a section of the user 
+	 interface or naming a new section. For example, 'VcTabDrawing/Example' 
+	 would place a command on the Drawing tab, in a new ribbon group called 
+	 Example.</li>
+</ul>
+<p class="TableNormal" style="margin-left: 40px;"><span class="Strong">Caution:</span> 
+ You can refer to the &lt;UXSitesSection&gt; element of your application's 
+ configuration file to know valid IDs. Each id is an ItemId attribute of 
+ a &lt;Site&gt; element.</p>
+<ul class="hcp2">
+	<li class="Unordered">For labeling menu items, it is recommended to 
+	 pass the <span class="Italic">caption</span> argument the default 
+	 name you want for the item, and then use the netCommand to localize 
+	 the text of the item name in the user interface. Otherwise, <span 
+	 class="Italic">caption</span> will be used as the default label of 
+	 the command in the user interface. This is also true for the <span 
+	 class="Italic">tool_tip</span> argument. With this approach, you might 
+	 encounter a performance issue, so consider localizing the menu item 
+	 with a resource file.</li>
+	<li class="Unordered">For localization, it is recommended to accompany 
+	 a command/menu item/add-on with one or more resource files.</li>
+	<ul class="hcp2">
+		<li class="Unordered">A resource file is used to define key-value 
+		 pairs for localizing the names, icons and tooltips of an add-on. 
+		 This can include ribbon tabs and groups, message boxes as well 
+		 as command names and its properties.</li>
+		<li class="Unordered">To support a language, create a XAML file 
+		 and name it &quot;PyResource.&lt;language&gt;&quot; and define 
+		 the key-value pairs. In such cases, a key is passed as string 
+		 and points to its value depending on the language of the application. 
+		 In most cases, this requires the use of the getLocalizedString() 
+		 method, which can point to any string in a resource file.</li>
+	</ul>
+	<li class="Unordered">See <a href="Template_for_Python_Add-on.htm">Template 
+	 for Python Add-on</a> for a working example.</li>
+</ul>
+<h3><a name="MiniTOCBookMark16"></a>Selection</h3>
+<table class="Property" style="border-collapse: separate;" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getSelection</td>
+		<td><a href="vcSelection.htm">vcSelection</a></td>
+		<td>Enumeration <span class="Italic">type</span></td>
+		<td>Returns a selection object for a given <span class="Italic">type</span>. 
+		 
+		<p class="TableNormal">See <a href="Constants.htm#Selection">Selection</a> 
+		 constants for available types.</p>
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use <a href="vcSelectionManager.htm">vcSelectionManager</a>.</p></td>
+	</tr>
+	<tr>
+		<td>getSelections</td>
+		<td>List of <a href="vcSelection.htm">vcSelection</a></td>
+		<td>None</td>
+		<td>Returns a list of selection objects for all types registered 
+		 to the application. 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use <a href="vcSelectionManager.htm">vcSelectionManager</a>.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark17"></a>Simulation</h3>
+<table class="Property" style="border-collapse: separate;" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>delayRealTime</td>
+		<td>None</td>
+		<td>Real <span class="Italic">delay</span></td>
+		<td>Executes a <span class="Italic">delay</span> (in seconds) that 
+		 halts a running simulation.</td>
+	</tr>
+	<tr>
+		<td>getSimulation</td>
+		<td><a href="vcSimulation.htm">vcSimulation</a></td>
+		<td>None</td>
+		<td>Returns the simulation object of application.</td>
+	</tr>
+	<tr>
+		<td>resetSimulation</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Resets the simulation to its initial state. 
+		<p class="TableNormal">Resetting a simulation removes all dynamic 
+		 components and returns static components to their initial state 
+		 at the start of a simulation.</p></td>
+	</tr>
+	<tr>
+		<td>startSimulation</td>
+		<td>None</td>
+		<td>[Real <span class="Italic">stop_time</span>]</td>
+		<td>Starts a simulation. 
+		<p class="TableNormal">An optional <span class="Italic">stop_time</span> 
+		 argument can be given to indicate when to stop running the simulation.</p>
+		<p class="TableNormal">If the simulation of the application is 
+		 not at its initial state, the simulation will continue from its 
+		 current state. That is, the simulation clock will not reset to 
+		 zero.</p></td>
+	</tr>
+	<tr>
+		<td>stopSimulation</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Immediately stops the execution of a simulation.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark18"></a>Unit</h3>
+<table class="Property" style="border-collapse: separate;" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createQuantity</td>
+		<td><a href="vcScalarQuantity.htm">vcScalarQuantity</a></td>
+		<td>String <span class="Italic">name</span>, Enumeration <span 
+		 class="Italic">type</span></td>
+		<td>Create a new quantity of a given <span class="Italic">name</span> 
+		 and <span class="Italic">type</span>. 
+		<p class="TableNormal">The <span class="Italic">name</span> argument 
+		 specifies the full name of the new quantity. The <span class="Italic">type</span> 
+		 argument specifies whether a scalar or vector quantity.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Quantity_Constants">Quantity 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>createUnitFamily</td>
+		<td><a href="vcUnitFamily.htm">vcUnitFamily</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Create a new unit family of a given <span class="Italic">name</span> 
+		 in application. 
+		<p class="TableNormal">The <span class="Italic">name</span> argument 
+		 specifies the name of the unit family and may not contain dot 
+		 characters.</p></td>
+	</tr>
+	<tr>
+		<td>createUnitGroup</td>
+		<td><a href="vcUnitGroup.htm">vcUnitGroup</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Create a new unit group of a given <span class="Italic">name</span>. 
+		 
+		<p class="TableNormal">The <span class="Italic">name</span> argument 
+		 specifies the name of the unit group and may not contain dot characters.</p></td>
+	</tr>
+	<tr>
+		<td>deleteUnitFamily</td>
+		<td>None</td>
+		<td><a href="vcUnitFamily.htm">vcUnitFamily</a> <span class="Italic">family</span></td>
+		<td>Deletes a unit family given as an argument. 
+		<p class="TableNormal">Only user-created unit families can be deleted.</p></td>
+	</tr>
+	<tr>
+		<td>deleteUnitGroup</td>
+		<td>None</td>
+		<td><a href="vcUnitGroup.htm">vcUnitGroup</a> <span class="Italic">group</span></td>
+		<td>Deletes a unit group given as an argument. 
+		<p class="TableNormal">Only user-created unit groups can be deleted.</p></td>
+	</tr>
+	<tr>
+		<td>findQuantity</td>
+		<td><a href="vcScalarQuantity.htm">vcScalarQuantity</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Returns a quantity matching a given <span class="Italic">name</span>; 
+		 otherwise returns None.</td>
+	</tr>
+	<tr>
+		<td>findUnit</td>
+		<td><a href="vcUnit.htm">vcUnit</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Returns a unit matching a given <span class="Italic">name</span>; 
+		 otherwise returns None. 
+		<p class="TableNormal">This method will try to match either the 
+		 name or suffix of a unit to the given <span class="Italic">name</span>.</p></td>
+	</tr>
+	<tr>
+		<td>findUnitFamily</td>
+		<td><a href="vcUnitFamily.htm">vcUnitFamily</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Returns a unit family matching a given <span class="Italic">name</span>; 
+		 otherwise returns None.</td>
+	</tr>
+	<tr>
+		<td>findUnitGroup</td>
+		<td><a href="vcUnitGroup.htm">vcUnitGroup</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Returns a unit group matching a given <span class="Italic">name</span>; 
+		 otherwise returns None.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark19"></a><a name="vcApplication_View">View</a></h3>
+<table class="Property" style="border-collapse: separate;" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createView</td>
+		<td><a href="vcView.htm">vcView</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Creates a new view of a given <span class="Italic">name</span> 
+		 <span>based on the</span> current 3D world view. 
+		<p class="TableNormal">The view itself is saved with a layout and 
+		 listed as a User View in the GUI whenever the layout is loaded 
+		 in the 3D world.</p></td>
+	</tr>
+	<tr>
+		<td>deleteView</td>
+		<td>None</td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Deletes a view matching a given <span class="Italic">name</span> 
+		 from the current layout.</td>
+	</tr>
+	<tr>
+		<td>findView</td>
+		<td><a href="vcView.htm">vcView</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Returns a view matching a given <span class="Italic">name</span> 
+		 in the current layout; otherwise returns None.</td>
+	</tr>
+	<tr>
+		<td><span class="hcp3">setClipPlane</span></td>
+		<td>None</td>
+		<td><span style="color: #000000; font-family: 'Segoe UI VSS ', , 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Helvetica, Ubuntu, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; 
+					 font-size: 14px; font-variant-ligatures: normal; font-variant-caps: normal; 
+					 orphans: 2; widows: 2; background-color: #ffffff; 
+					 text-decoration-thickness: initial; text-decoration-style: initial; 
+					 text-decoration-color: initial; display: inline	 ! important ; 
+					 float: none;">int index, </span><a href="vcMatrix.htm">vcMatrix</a> 
+		 <span class="Italic">position</span> </td>
+		<td>Sets the clipping plane position.</td>
+	</tr>
+	<tr>
+		<td><span class="hcp3">setClipPlaneEnabled</span></td>
+		<td>None</td>
+		<td><span style="color: #000000; font-family: 'Segoe UI VSS ', , 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Helvetica, Ubuntu, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; 
+					 font-size: 14px; font-style: normal; font-variant-ligatures: normal; 
+					 font-variant-caps: normal; font-weight: 400; letter-spacing: normal; 
+					 orphans: 2; text-align: start; text-indent: 0px; text-transform: none; 
+					 white-space: normal; widows: 2; word-spacing: 0px; 
+					 -webkit-text-stroke-width: 0px; background-color: #ffffff; 
+					 text-decoration-thickness: initial; text-decoration-style: initial; 
+					 text-decoration-color: initial; display: inline	 ! important ; 
+					 float: none;">int index, bool enabled</span> </td>
+		<td><p>Defines if the clipping plane is enabled or disabled.</p></td>
+	</tr>
+	<tr>
+		<td>useView</td>
+		<td>None</td>
+		<td>String <span class="Italic">view_name</span>, [real <span class="Italic">time</span>]</td>
+		<td>Switches the view of the 3D world to a view matching a given 
+		 <span class="Italic">name</span> in the current layout. 
+		<p class="TableNormal">An optional <span class="Italic">time</span> 
+		 argument can be given to interpolate the linear movement of the 
+		 camera to new view. That is, a timed camera movement (in seconds).</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark20"></a>Miscellaneous</h3>
+<table class="Property" style="border-collapse: separate;" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>autoShareFeatureTrees</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Shares the feature trees of identical components in 3D world. 
+		 
+		<p class="TableNormal">For example, exact copies of a conveyor 
+		 with the same VCID and feature trees can be shared to consume 
+		 less memory.</p>
+		<p class="TableNormal">If you need to make a <a href="vcComponent.htm">vcComponent</a> 
+		 object unique again, edit a property that affects one of its features 
+		 or call its makeUnique() method.</p></td>
+	</tr>
+	<tr>
+		<td>clearMessages</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Clears Output panel.</td>
+	</tr>
+	<tr>
+		<td>clearUndo</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Clears the undo history.</td>
+	</tr>
+	<tr>
+		<td>detectFrameOwnerNode</td>
+		<td><a href="vcNode.htm">vcNode</a></td>
+		<td><a href="vcMatrix.htm">vcMatrix</a> <span class="Italic">position</span>, 
+		 Real <span class="Italic">tolerance</span>, [<a href="vcNode.htm">vcNode</a> 
+		 <span class="Italic">exclude</span>]</td>
+		<td>Returns a node containing the closest Frame feature to a given 
+		 <span class="Italic">position</span> based on a distance <span 
+		 class="Italic">tolerance</span>. 
+		<p class="TableNormal">An optional <span class="Italic">exclude</span> 
+		 argument can be given to exclude frames belonging to specific 
+		 node.</p></td>
+	</tr>
+	<tr>
+		<td>getApplicationPath</td>
+		<td>String</td>
+		<td>None</td>
+		<td>Returns the Uri of this application's script as a formatted 
+		 string. 
+		<p class="TableNormal">Generally, this method is used to register 
+		 a command used in a Python add-on.</p></td>
+	</tr>
+	<tr>
+		<td>getRandomSeed</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns the integer of a random generator at a given <span 
+		 class="Italic">index</span>.</td>
+	</tr>
+	<tr>
+		<td>getMessages</td>
+		<td>String</td>
+		<td>None</td>
+		<td>Returns all messages currently listed in the Output panel.</td>
+	</tr>
+	<tr>
+		<td>messageBox</td>
+		<td>Enumeration integer</td>
+		<td>String <span class="Italic">message</span>, [string <span class="Italic">title</span>], 
+		 [Enumeration <span class="Italic">type</span>], [Enumeration <span 
+		 class="Italic">buttons</span>]</td>
+		<td>Shows a message box displaying the given <span class="Italic">message</span>. 
+		 
+		<p class="TableNormal">An optional <span class="Italic">title</span> 
+		 argument can be given to define the title of the message box.</p>
+		<p class="TableNormal">An optional <span class="Italic">type</span> 
+		 argument can given to define the box type and icon.</p>
+		<p class="TableNormal">An optional <span class="Italic">buttons</span> 
+		 argument can be given to show a message box with buttons.</p>
+		<p class="TableNormal">The method returns a result based on the 
+		 type of message box and which button is clicked by a user.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Message">Message 
+		 Constants</a> for more information.</p>
+		<p class="TableNormal">See <a href="#Example._Create_message_boxes">Example</a> 
+		 on how to implement this method.</p>
+		<p class="TableNormal">See <a href="Template_for_Python_Add-on.htm">Template 
+		 for Python Add-on</a> on how to localize a message box.</p>
+		<p class="TableNormal"><span class="Strong">Warning:</span> If 
+		 you want to open a message box when you start the application, 
+		 you should use the OnAppInitialized event to verify it is safe 
+		 to generate the box.</p></td>
+	</tr>
+	<tr>
+		<td>rayCast</td>
+		<td>3-tuple or 5-tuple 
+		<p class="TableNormal"><span class="Term">0</span><br>
+		The <a href="vcNode.htm">vcNode</a> object hit by the ray.</p>
+		<p class="TableNormal"><span class="Term">1</span><br>
+		None or a deprecated <a href="vcPolygon.htm">vcPolygon</a> object 
+		 hit by the ray. If None, the tuple will have five elements.</p>
+		<p class="TableNormal"><span class="Term">2</span><br>
+		The location where the ray hit as a <a href="vcMatrix.htm">vcMatrix</a> 
+		 object. The Z-axis is parallel with the normal of the surface 
+		 hit by the ray.</p>
+		<p class="TableNormal"><span class="Term">3</span><br>
+		The <a href="vcTriangleSet.htm">vcTriangleSet</a> object hit by 
+		 the ray if the second element is None.</p>
+		<p class="TableNormal"><span class="Term">4</span><br>
+		The index of the triangle hit by the ray in the fourth element.</p></td>
+		<td><a href="vcMatrix.htm">vcMatrix</a> <span class="Italic">start_position</span>, 
+		 Real <span class="hcp1">ray_length</span>, [<a 
+		 href="vcNode.htm">vcNode</a> <span class="Italic">exclude_node</span>], 
+		 [Boolean <span class="Italic">use_backface</span>], [List of 3-tuple 
+		 (<a href="vcNode.htm">vcNode</a> <span class="Italic">node</span>, 
+		 Enumeration <span class="hcp1">inclusion_</span><span 
+		 class="Italic">type</span>, Enumeration <span class="Italic">inclusion_scope</span>)]</td>
+		<td>Tests if a ray with a given <span class="hcp1">ray_</span><span 
+		 class="Italic">length</span> and <span class="Italic">start_position</span> 
+		 intersects an object in the current layout. 
+		<p class="TableNormal">The position of the ray is based in the 
+		 World coordinate system, and the length of the ray is directed 
+		 along the positive Z-axis.</p>
+		<p class="TableNormal">An optional <span class="Italic">exclude_node</span> 
+		 argument can be given to exclude a node, thereby allowing the 
+		 ray to cast through and ignore collision with the given node and 
+		 its child nodes.</p>
+		<p class="TableNormal">An optional <span class="Italic">use_backface</span> 
+		 argument has a default True value to include geometry backfaces 
+		 in ray casting. A False value means the ray ignores geometry backfaces.</p>
+		<p class="TableNormal">An optional tuple argument of <span class="hcp1">node</span>, 
+		 <span class="hcp1">inclusion_type</span> and <span class="hcp1">inclusion scope</span> can be given 
+		 to exclude or include nodes. Excluding nodes allows the ray to 
+		 cast through and ignore collision with the given nodes. Including 
+		 one or more nodes will automatically exclude all the other nodes 
+		 not included.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Collision_Detector_Constants">Collision 
+		 Detector Constants</a> for more information.</p>
+		<p class="TableNormal">If a ray collides with an object, the collision 
+		 data is returned as tuple with three or five elements; otherwise 
+		 returns None.</p>
+		<p class="TableNormal">See <a href="vcApplication.htm#raycast">Example</a> 
+		 on how to implement this method.</p></td>
+	</tr>
+	<tr>
+		<td>render</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Renders the scene of 3D world.</td>
+	</tr>
+	<tr>
+		<td>save</td>
+		<td>None</td>
+		<td>String <span class="Italic">uri, </span><span class="Italic" 
+															 style="font-style: normal;">B</span><span>oolean</span> 
+		 <span class="hcp1">includecomponents</span></td>
+		<td>Saves the contents of 3D world as a layout using a given <span 
+		 class="Italic">uri. </span><span class="Italic" style="font-style: normal;">Also</span><span 
+		 class="Italic"> </span><span class="hcp1">includecomponents</span> 
+		 parameter defines if the components are included in the layout..</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark21"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnAppInitialized</td>
+		<td>None</td>
+		<td>Triggered when the application has been initialized and a window 
+		 is created to display its user interface.</td>
+	</tr>
+	<tr>
+		<td>OnContextChanged</td>
+		<td>None</td>
+		<td>Triggered when the context changes in application.</td>
+	</tr>
+	<tr>
+		<td>OnComponentAdded</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span></td>
+		<td>Triggered when a component is added to 3D world.</td>
+	</tr>
+	<tr>
+		<td>OnComponentRemoved</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span></td>
+		<td>Triggered when a component is removed from 3D world.</td>
+	</tr>
+	<tr>
+		<td>OnDynamicComponent</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span>, 
+		 <a href="vcContainer.htm">vcContainer</a> <span class="Italic">container</span>, 
+		 Boolean <span class="Italic">added</span></td>
+		<td>Triggered when a component is created in 3D world during a 
+		 simulation.</td>
+	</tr>
+	<tr>
+		<td>OnIdle</td>
+		<td>None</td>
+		<td>Triggered when the application is in an Idle state. 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 </p></td>
+	</tr>
+	<tr>
+		<td>OnProgress</td>
+		<td>Real <span class="Italic">fraction</span>, String <span class="Italic">status</span></td>
+		<td>Triggered each time the application's progress bar is updated.</td>
+	</tr>
+	<tr>
+		<td>OnRender</td>
+		<td><a href="vcSimulation.htm">vcSimulation</a> <span class="Italic">simulation</span></td>
+		<td>Triggered when the application renders a scene in 3D world.</td>
+	</tr>
+	<tr>
+		<td>OnSelectionPreChange</td>
+		<td><a href="vcSelection.htm">vcSelection</a> <span class="Italic">selection</span></td>
+		<td>Triggered when the selection type of application is changing 
+		 to a new type. 
+		<p class="TableNormal">The current selection type is passed as 
+		 an event argument.</p>
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use <a href="vcSelectionManager.htm">vcSelectionManager</a>.</p></td>
+	</tr>
+	<tr>
+		<td>OnSelectionPostChange</td>
+		<td><a href="vcSelection.htm">vcSelection</a> <span class="Italic">selection</span></td>
+		<td>Triggered when the selection type of the application has changed 
+		 to a new type. 
+		<p class="TableNormal">The previous selection type is passed as 
+		 an argument.</p>
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use <a href="vcSelectionManager.htm">vcSelectionManager</a>.</p></td>
+	</tr>
+	<tr>
+		<td>OnStart</td>
+		<td>None</td>
+		<td>Triggered at the start of the application when main window 
+		 is being built. 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span> 
+		 Use OnAppInitialized.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark22"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example"><a name="Example._Create_message_boxes" id="Example._Create_message_boxes"></a>Example. 
+ Create message boxes</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col>
+	<tr>
+		<td>from vcScript import * 
+		<br>from vcApplication import * 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>app = getApplication() 
+		<br>&#160; 
+		<br>#example function with different messageBox types and buttons 
+		<br>def msgBox(arg): 
+		<br>&#160;&#160;info = app.messageBox(&quot;Message&quot;, &quot;Title&quot;, 0, 0) 
+		<br>&#160;&#160;if info == 0: 
+		<br>&#160;&#160;&#160;&#160;print &quot;Command aborted&quot; 
+		<br>&#160;&#160;elif info == 5: 
+		<br>&#160;&#160;&#160;&#160;question = app.messageBox(&quot;Retry again?&quot;, &quot;Title&quot;,1,4) 
+		<br>&#160;&#160;&#160;&#160;if question == 6: 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;print &quot;Command completed&quot; 
+		<br>&#160;&#160;&#160;&#160;else: 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;print &quot;Command canceled&quot; 
+		<br>&#160;&#160;else: 
+		<br>&#160;&#160;&#160;&#160;warning = app.messageBox(&quot;You are ignoring the error!&quot;,&quot;Title&quot;, 2,1) 
+		<br>&#160;&#160;&#160;&#160;if warning == 4: 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;print &quot;The error was ignored. Command completed.&quot; 
+		<br>&#160; 
+		<br>#get button and display message box when clicked 
+		<br>foo = comp.getProperty(&quot;Example&quot;) 
+		<br>foo.OnChanged = msgBox</td>
+	</tr>
+</table>
+<p><span class="Example"><a name="OnAppInitialized"></a>Example. Show message 
+ box after initializing application</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col>
+	<tr>
+		<td>##this is just a simple __init__.py file you can put in My Commands folder 
+		<br>from vcApplication import * 
+		<br>&#160; 
+		<br>def OnAppInitialized(): 
+		<br>&#160;&#160;&#160;&#160;messageBox(&quot;Example&quot;)</td>
+	</tr>
+</table>
+<p><span class="Example"><a name="raycast" id="raycast"></a>Example. Raycast 
+ intersection test</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col>
+	<tr>
+		<td>from vcScript import * 
+		<br>import vcVector 
+		<br>import vcMatrix 
+		<br>&#160; 
+		<br>#start by creating a new component with one Block feature (use default values) 
+		<br>#create a new link to exclude in the test 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>comp = getComponent() 
+		<br>node = comp.findNode('Link1') 
+		<br>&#160; 
+		<br>m = vcMatrix.new() 
+		<br>startposition = vcVector.new(50,50,50) 
+		<br>m.P = startposition 
+		<br>&#160; 
+		<br>test = app.rayCast(m, 50.0,node,True) 
+		<br>print test</td>
+	</tr>
+</table>
+<p><span class="Example"><a name="Example_Schema" id="Example_Schema"></a>Example. 
+ Get schema of the current layout</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col>
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>layout_items = app.LayoutItems 
+		<br>&#160; 
+		<br>schema_collection = [] 
+		<br>for item in layout_items: 
+		<br>&#160;&#160;if item.Type == &quot;<span lang="EN-US" xml:lang="EN-US">VC_LAYOUTITEM_IT_LAYOUTSCHEMAPROPERTYLIST</span>&quot;: 
+		<br>&#160;&#160;&#160;&#160;schema_collection.append(item)</td>
+	</tr>
+</table>
+<p><span class="Example"><a name="GetLayoutUri"></a>Example. Print URI 
+ of current layout</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col>
+	<tr>
+		<td>''' 
+		<br>test layout is Assembly cell Cobots.vcmx 
+		<br>layout is loaded in 3D world and then script is used to print its local path and uri 
+		<br>''' 
+		<br>from vcScript import * 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>&#160; 
+		<br>print app.LayoutPath 
+		<br>print app.LayoutUri 
+		<br>print app.LayoutUriInCompatibilityFormat</td>
+	</tr>
+</table>
+</body>
+</html>

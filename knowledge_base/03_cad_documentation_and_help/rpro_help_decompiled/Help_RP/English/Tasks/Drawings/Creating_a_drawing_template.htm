@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Creating a drawing template</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content="drawing template,model">
+<META name=generator content="Adobe RoboHelp 2017"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css"></HEAD>
+<BODY>
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+
+<H1>Creating a Drawing Template</H1>
+<P>An existing drawing template can be used as a guide for developing new ones. 
+Another option is to add/remove files from the folder containing your 
+application's drawing templates.</P>
+<P>This workflow assumes you have access to the Modeling tab.</P>
+<OL>
+  <LI class=Ordered>Open a new empty layout. 
+  <LI class=Ordered>Add a drawing template to the 3D world. That is, do not 
+  import a drawing template in the drawing world. 
+  <LI class=Ordered>On the <SPAN class=Strong>Modeling</SPAN> tab, in the <SPAN 
+  class=Strong>Component Graph</SPAN> panel, select the template's root node, 
+  and then expand its feature tree. </LI></OL>
+<P>In the template's Node Feature Tree, the <SPAN class=Italic>Geometry</SPAN> 
+feature contains most of the geometry defining the template's paper size. For 
+example, an A4 template would have an approximate height of 297 {mm} and width 
+of 209 {mm}. Most of the other features relate to text field properties and 
+functionality needed for generating a bill of materials (parts list).</P>
+<P>In the root node's Behaviors collection, the <SPAN 
+class=Italic>PythonScript</SPAN> defines the template's logic for scaling new 
+drawings and updating text fields. The <SPAN 
+class=Italic>PartListInterface</SPAN> is needed in order to auto-generate a bill 
+of materials based on drawings attached to the template.</P>
+<OL start=4>
+  <LI class=Ordered>Save the drawing template as a new component with valid 
+  metadata. That is, do not use the same metadata as the original template. 
+  Depending on the permissions of your user account, you may need to save the 
+  component in one location, and then move it to the Drawing Template folder 
+  located in the same directory as the program files of your version of R-Pro 
+  2.1. 
+  <LI class=Ordered>Restart R-Pro 2.1, and then verify your template is 
+  available and works properly in the Drawing View. </LI></OL>
+<P><SPAN class=Strong>Tip:</SPAN> The geometry of a template can be exported as 
+a .DXF file, and then used in a vector artwork type software to design new 
+drawing templates.</P></BODY></HTML>

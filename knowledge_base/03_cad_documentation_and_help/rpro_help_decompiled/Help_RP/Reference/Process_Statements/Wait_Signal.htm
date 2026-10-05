@@ -1,0 +1,88 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Wait Signal</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-weight:bold; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Wait Signal</h1>
+<p>A Wait Signal statement allows you to pause process execution until 
+ a signal is received. You can use it also to assign a signal value to 
+ a Process variable for later use of other statements. You can select a 
+ Boolean, Integer, Real or String signal of any static component in the 
+ current layout. To wait for a specific signal value or value range, define 
+ an expression for the Condition field. Use Timeout property to limit the 
+ maximum waiting time.</p>
+<p><span class="hcp1">Note:</span> If timeout is reached, 
+ the current value of the signal at that time is not evaluated or written 
+ to the value output variable. If you want to get the current value of 
+ a signal, you need to set WaitTrigger to False, leave Condition empty, 
+ and specify ValueOutputVariableName. </p>
+<p><span class="hcp1">Note:</span> Unlike the general Process 
+ variable handling, the Output variable is always a single value, and the 
+ value is never converted to a list. </p>
+<p><img src="../../English/Links/ReferenceProcessStatementsWaitSignal.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Component </td>
+		<td><p>Component that owns the signal. Null means this component.</p></td>
+	</tr>
+	<tr>
+		<td>Signal </td>
+		<td>Signal to wait for.</td>
+	</tr>
+	<tr>
+		<td>WaitTrigger</td>
+		<td><p>Whether to always wait for a new signal value. When False, 
+		 also considers the current value of the signal when this statement's 
+		 execution starts.</p></td>
+	</tr>
+	<tr>
+		<td>Condition</td>
+		<td><p>Condition expression that the signal's value has to pass. 
+		 Leave empty to accept any value. </p>
+		<p>See also <a href="../Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</p></td>
+	</tr>
+	<tr>
+		<td><p>Timeout </p></td>
+		<td><p>Maximum amount of simulation time to wait for a value that 
+		 matches the condition. 0 means no time limit.</p></td>
+	</tr>
+	<tr>
+		<td>TimedOutVariableName </td>
+		<td><p>Name of a process variable where to store a Boolean value 
+		 whether the timeout was reached or not. Can be left empty. </p>
+		<p>See also <a href="../../English/Tasks/Process_Modeling/Using_process_variables.htm">Using 
+		 Process Variables</a>.</p></td>
+	</tr>
+	<tr>
+		<td>ValueOutputVariableName </td>
+		<td><p>Name of a process variable where to store the signal value 
+		 that passed the condition. Can be left empty.</p>
+		<p>See also <a href="../../English/Tasks/Process_Modeling/Using_process_variables.htm">Using 
+		 Process Variables</a>.</p></td>
+	</tr>
+</table>
+</body>
+</html>

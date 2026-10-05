@@ -1,0 +1,50 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="variables,mapping,connectivity,PLC,server">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Pairing variables</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</style>
+</head>
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Pairing Variables</h1>
+<p>A variable group in a plugin connection is used to pair simulation variables with server variables. This means the value of a property or signal in a component can be linked to the value of a variable available in a connected PLC or server.</p>
+<ol>
+<li class="Ordered">Do one of the following:
+<ul class="hcp1">
+<li class="Unordered">Click the <span class="Strong">Connectivity</span> tab, and then in the <span class="Strong">Connectivity Configuration</span> panel, find and expand your <span class="Strong">connection</span>, and then right-click the desired <span class="Strong">variable group</span><span>, and then click</span> <span class="Strong">Add Variables</span>.</li>
+<li class="Unordered">Click the <span class="Strong">Connectivity</span> tab, and then in the <span class="Strong">Connectivity Configuration</span> panel, find and expand your <span class="Strong">connection</span>, and then click the desired <span class="Strong">variable group</span>. Finally, on the <span class="Strong">Connectivity</span> tab, in the <span class="Strong">Variable</span> Group, click <span class="Strong">Add Variables</span>.</li>
+<li class="Unordered">In the <span class="Strong">Connected Variables</span> panel, <span class="Strong">Structure</span> column, find and expand your <span class="Strong">connection</span>, and then click the desired <span class="Strong">variable group</span>, and then click <span class="Strong">Add Variables</span>.</li>
+</ul>
+</li>
+<li class="Ordered">In the <span class="Strong">Create Variable Pairs</span> editor, do one or more of the following:
+<ul class="hcp1">
+<li class="Unordered">To only show variables of selected components, select the <span class="Strong">Only selected components</span> check box.</li>
+<li class="Unordered">To show the properties of a component, select the <span class="Strong">Component properties</span> check box.</li>
+<li class="Unordered">To show the properties of behaviors in a component, select the <span class="Strong">Behaviour properties</span> check box.</li>
+<li class="Unordered">To show the signals of a component, select the <span class="Strong">Signals</span> check box.</li>
+<li class="Unordered">To sort simulation and/or server variables, click a <span class="Strong">column header name</span>.</li>
+<li class="Unordered">To filter simulation variables and/or server variables, directly below a column header name, use the <span class="Strong">filtering options</span>.</li>
+</ul>
+</li>
+<li class="Ordered">Next, use the <span class="Strong">left-/simulation-side table</span> to select a <span class="Strong">simulation variable</span>, and then use the <span class="Strong">right-/server-side table</span> to select a <span class="Strong">server variable</span> that is compatible with the selected simulation variable or vice versa.</li>
+<li class="Ordered">Finally, click <span class="Strong">Pair Selected</span> to pair the selected simulation and server variables. If you want to want to pair one simulation variable with many server variables, you would need to add each pair one by one.</li>
+</ol>
+<p><span class="Strong">Notes:</span></p>
+<ul class="hcp1">
+<li class="Unordered">In the server-side table, you can verify the data type of a server variable based on its icon or refer to its Data Type and Server Type fields. The icon would indicate a match to one of four supported data types in the simulation. The Data Type field would show the closest match to a .NET built-in type, excluding objects, for the PLC/server connection. The Server Type field would show the concrete data type using PLC or OPC UA terminology.</li>
+<li class="Unordered">See <a href="Supported_data_types.htm">Supported data types</a> for more information.</li>
+</ul>
+</body>
+</html>

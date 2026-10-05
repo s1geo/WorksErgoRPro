@@ -1,0 +1,345 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Modeling</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content="modeling,workspace,modeling view">
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+
+<STYLE title=hcp type=text/css>
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>Modeling</H1>
+<P>The Modeling view allows you to model new and existing components.</P>
+<P><IMG src="Screenshot_2.png"></P>
+<P>&nbsp;</P>
+<P>Contents&nbsp;<A id=MTHotSpot18882 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<DIV class=Contents>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot18882', 'MTPOPUP18882');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP18882 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">Access</A></P>
+<P align=left><A href="#MiniTOCBookMark3">Panels</A></P>
+<P align=left><A href="#MiniTOCBookMark4">Context</A></P>
+<P align=left><A href="#MiniTOCBookMark5">Commands</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>Access</H2>
+<P>To access the Modeling view:</P>
+<UL class=hcp1>
+  <LI class=Unordered>Click the <SPAN class=Strong>Modeling</SPAN> tab. </LI></UL>
+<H2><A name=MiniTOCBookMark3></A>Panels</H2>
+<P>The Modeling view shows, by default, the following panels:</P>
+<UL class=hcp1>
+  <LI class=Unordered><SPAN class=Strong>Component Graph</SPAN> for viewing and 
+  editing the data structure of a selected component. The panel itself consists 
+  of two panes. The top pane (Component Node Tree) shows the node structure of a 
+  component as well as the component's properties and behaviors. The bottom pane 
+  (Node Feature Tree) shows the feature structure of a selected node in a 
+  component, which can include primitives, imported geometry from CAD files, 
+  physics elements, and operations that transform and manipulate other features. 
+
+  <LI class=Unordered><SPAN class=Strong>Properties</SPAN> for reading and 
+  writing properties of selected objects in a component. This includes nodes, 
+  behaviors and features. Component properties are objects with their own set of 
+  properties listed in a Property task pane. </LI></UL>
+<H2><A name=MiniTOCBookMark4></A>Context</H2>
+<P>The context of the Modeling view is component modeling.</P>
+<P>You can:</P>
+<UL class=hcp1>
+  <LI class=Unordered>Create, edit and link nodes to form a kinematic chain of 
+  joints. 
+  <LI class=Unordered>Create and connect behaviors to perform and simulate 
+  internal and external tasks and actions. 
+  <LI class=Unordered>Contain, create and manipulate CAD geometry and topology 
+  in features. This includes data analysis, clean up, regrouping and 
+  simplification of geometry in CAD files for use in small, medium and large 
+  layouts. 
+  <LI class=Unordered>Create and reference component properties to control and 
+  limit the value of other properties within a component. 
+  <LI class=Unordered>Use mathematical equations and expressions to define 
+  properties and make a component parametric. 
+  <LI class=Unordered>Create static and kinematic objects as well as entities 
+  for simulating physics. This includes restitution, rigidity and elasticity. 
+  <LI class=Unordered><SPAN>Use Python 2.7 and API to implement scripts for 
+  defining component features, logic as well as the automation of tasks, actions 
+  and event handling.</SPAN> </LI></UL>
+<H2><A name=MiniTOCBookMark5></A>Commands</H2>
+<P>By default, the following commands are shown in the Ribbon when you click the 
+Modeling tab.</P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Align</TD>
+    <TD>Aligns a selected object using two points. Additional options are 
+      displayed in a task pane. 
+      <P class=TableNormal><SPAN class=Term>Settings</SPAN><BR>Align position, 
+      orientation or both and in what axis.</P>
+      <P class=TableNormal><SPAN class=Term>Snap Type</SPAN><BR>Define the type 
+      of point to select in the 3D world.</P></TD></TR>
+  <TR>
+    <TD>Always Snap</TD>
+    <TD>Turns on/off the automatic snapping of a selected object along an axis 
+      or plane at intervals when using the manipulator.</TD></TR>
+  <TR>
+    <TD>Automatic Size</TD>
+    <TD>Turns on/off the automatic calculation of intervals for snapping a 
+      selected object along an axis or plane when using the manipulator.</TD></TR>
+  <TR>
+    <TD>Behaviors</TD>
+    <TD>Displays a list of behaviors that can be created in a selected 
+  node.</TD></TR>
+  <TR>
+    <TD>Copy</TD>
+    <TD>Copies the current selection to the clipboard.</TD></TR>
+  <TR>
+    <TD>Create Link</TD>
+    <TD>Creates a new child node in a selected node.</TD></TR>
+  <TR>
+    <TD>Delete</TD>
+    <TD>Deletes the current selection.</TD></TR>
+  <TR>
+    <TD>Features</TD>
+    <TD>Displays a list of features that can be created in a selected 
+  node.</TD></TR>
+  <TR>
+    <TD>Geometry</TD>
+    <TD>Imports the geometry of a supported file. Additional options are 
+      displayed in a task pane, see <A 
+      href="../../Documents/Import_Model_Settings.htm">Import Model 
+    Settings</A>.</TD></TR>
+  <TR>
+    <TD>Hierarchy</TD>
+    <TD>Allows a selected object and its hierarchy to be moved together when 
+      using the manipulator.</TD></TR>
+  <TR>
+    <TD>Interact</TD>
+    <TD>Allows the pointer to jog joints and other interactive properties of 
+      objects in one or more degrees of freedom in the 3D world.</TD></TR>
+  <TR>
+    <TD>Measure</TD>
+    <TD>Measures the distance and/or angle between two points in 3D world. 
+      Additional options are displayed in a task pane. 
+      <P class=TableNormal><SPAN class=Term>Mode</SPAN><BR>Measure distance, 
+      angle or both.</P>
+      <P class=TableNormal><SPAN class=Term>Settings</SPAN><BR>Define how to 
+      visualize a measurement and in which coordinate system to base measured 
+      values.</P>
+      <P class=TableNormal><SPAN class=Term>Snap Type</SPAN><BR>Define type of 
+      point to select in 3D world.</P>
+      <P class=TableNormal><SPAN class=Strong>Tip:</SPAN> The results of a 
+      measurement are sent to Output panel.</P></TD></TR>
+  <TR>
+    <TD>(Manipulation) Move</TD>
+    <TD>Allows a selected object to be moved along an axis or plane, rotated 
+      around an axis, and snapped and aligned to a point in 3D world.</TD></TR>
+  <TR>
+    <TD>(Origin) Move</TD>
+    <TD>Allows the point of origin in active component to be moved in 3D 
+      world. Additional options are displayed in a task pane. 
+      <P class=TableNormal><SPAN class=Term>Apply</SPAN><BR>Save the new 
+      position and orientation of origin.</P></TD></TR>
+  <TR>
+    <TD>New</TD>
+    <TD>Creates a new component in the 3D world.</TD></TR>
+  <TR>
+    <TD>Paste</TD>
+    <TD>Adds the contents of clipboard to active area or field of workspace 
+      depending on data type.</TD></TR>
+  <TR>
+    <TD>Properties</TD>
+    <TD>Displays a list of properties that can be created in the root node of 
+      active component.</TD></TR>
+  <TR>
+    <TD>Restore Windows</TD>
+    <TD>Restores the workspace of current view to its default setting.</TD></TR>
+  <TR>
+    <TD>Save</TD>
+    <TD>Saves the active component to an existing file, otherwise a new 
+    file.</TD></TR>
+  <TR>
+    <TD>Save As</TD>
+    <TD>Saves the active component to a new file.</TD></TR>
+  <TR>
+    <TD>Select</TD>
+    <TD>Allows for direct and indirect selection of features in the 3D world 
+      using listed commands. 
+      <P class=TableNormal><SPAN class=Term>Rectangular 
+      selection</SPAN><BR>Select by drawing a selection box.</P>
+      <P class=TableNormal><SPAN class=Term>Free-form selection</SPAN><BR>Select 
+      by drawing a selection path to form a closed loop.</P>
+      <P class=TableNormal><SPAN class=Term>Select all</SPAN><BR>Selects all 
+      features in the active component.</P>
+      <P class=TableNormal><SPAN class=Term>Invert selection</SPAN><BR>Forms a 
+      new selection of every feature not in current selection.</P></TD></TR>
+  <TR>
+    <TD>Selected</TD>
+    <TD>Allows a selected object not its hierarchy to be moved when using the 
+      manipulator.</TD></TR>
+  <TR>
+    <TD>(Structure) Show</TD>
+    <TD>Turns on/off the visual node structure of an active component in 3D 
+      world, including joint offsets and degrees of freedom.</TD></TR>
+  <TR>
+    <TD>(Windows) Show</TD>
+    <TD>Displays a list of panels that can be shown/hidden from the current 
+      view of workspace.</TD></TR>
+  <TR>
+    <TD>Size</TD>
+    <TD>Defines the interval for snapping a selected object along an axis or 
+      plane when using the manipulator.</TD></TR>
+  <TR>
+    <TD>(Origin) Snap</TD>
+    <TD>Allows the point of origin in active component to be snapped to a 
+      location in 3D world by using one to three points. Additional options are 
+      displayed in a task pane. 
+      <P class=TableNormal><SPAN class=Term>Mode</SPAN><BR>Snap to one point, 
+      the midpoint of two points, or the center of an arc made by three 
+      points.</P>
+      <P class=TableNormal><SPAN class=Term>Settings</SPAN><BR>Affect position, 
+      orientation or both and in what axis.</P>
+      <P class=TableNormal><SPAN class=Term>Snap Type</SPAN><BR>Define the type 
+      of point to select in the 3D world.</P>
+      <P class=TableNormal><SPAN class=Term>Apply</SPAN><BR>Save the new 
+      position and/or orientation of origin.</P></TD></TR>
+  <TR>
+    <TD>(Tools) Snap</TD>
+    <TD>Allows a selected object to be snapped to a location in 3D world by 
+      using one to three points. Additional options are displayed in a task 
+      pane. 
+      <P class=TableNormal><SPAN class=Term>Mode</SPAN><BR>Snap to one point, 
+      the midpoint of two points, or the center of an arc made by three 
+      points.</P>
+      <P class=TableNormal><SPAN class=Term>Settings</SPAN><BR>Affect position, 
+      orientation or both and in what axis.</P>
+      <P class=TableNormal><SPAN class=Term>Snap Type</SPAN><BR>Define the type 
+      of point to select in the 3D world.</P></TD></TR>
+  <TR>
+    <TD>Tools</TD>
+    <TD>Displays a list of tools for editing nodes, features and geometry. 
+      <P class=TableNormal><SPAN class=Term>Split</SPAN><BR>Allows geometry in a 
+      node to be selected in 3D world, and then moved to a new Geometry feature. 
+      The selection can either be of geometry sets, faces or individual faces 
+      and must be contained in Geometry features.</P>
+      <P class=TableNormal><SPAN class=Term>Invert</SPAN><BR>Allows geometry in 
+      a node to be selected in the 3D world, and then inverted to face a 
+      different direction. The selection can either be of geometry sets, faces 
+      or individual faces and must be contained in Geometry features.</P>
+      <P class=TableNormal><SPAN class=Term>Merge</SPAN><BR>Moves selected 
+      geometry in a node into one feature. The selection must be contained in 
+      Geometry features. The first selected Geometry feature will be merged with 
+      other selected features, and those features will be deleted.</P>
+      <P class=TableNormal><SPAN class=Term>Merge faces</SPAN><BR>Merges points 
+      in selected faces.</P>
+      <P class=TableNormal><SPAN class=Term>Collapse</SPAN><BR>Collapses a 
+      selected feature and its hierarchy into a new Geometry feature.</P>
+      <P class=TableNormal><SPAN class=Term>Slice</SPAN><BR>Allows geometry in a 
+      selected feature to be sliced into a new Geometry feature by using a 
+      plane. When slicing, a point is picked in the 3D world and settings are 
+      used to define a plane at that point. Plane intersection with the geometry 
+      of a selected feature is indicated by thick red lines.</P>
+      <P class=TableNormal><SPAN class=Term>Select Identical</SPAN><BR>Allows 
+      geometry to be selected in the 3D world, and then automatically selects 
+      identical geometry.</P>
+      <P class=TableNormal><SPAN class=Term>Remove Holes</SPAN><BR>Allows 
+      geometry to be selected in the 3D world, and then automatically removes 
+      holes and gaps based on a criteria by tessellating surfaces.</P>
+      <P class=TableNormal><SPAN class=Term>Component</SPAN><BR>Extracts a 
+      selected node/feature and its hierarchy from the active component, and 
+      then forms a new component. Selected nodes will become child nodes of a 
+      new component, whereas selected features will be contained in the root 
+      node of a new component.</P>
+      <P class=TableNormal><SPAN class=Term>Link</SPAN><BR>Extracts a selected 
+      feature and its hierarchy from the active component, and then forms a new 
+      node. If features are contained in the same node, a new node will be 
+      formed at that level in the node hierarchy or as a child of the root node. 
+      If features are contained in different nodes, a new node will be formed at 
+      the upper most level in the node hierarchy or as a child of the root 
+      node.</P>
+      <P class=TableNormal><SPAN class=Term>Decimate</SPAN><BR>Reduces the data 
+      count of selected features by merging and removing vertices based on a 
+      criteria. This is a clean up operation that will try to preserve the 
+      topology of geometry, eliminate redundant vertices, and patch gaps and 
+      cracks by forming new faces.</P>
+      <P class=TableNormal><SPAN class=Term>Cylindrify</SPAN><BR>Converts 
+      selected geometry into cylinders.</P>
+      <P class=TableNormal><SPAN class=Term>Blockify</SPAN><BR>Converts selected 
+      geometry into blocks.</P>
+      <P class=TableNormal><SPAN class=Term>Assign</SPAN><BR>Sets, clears or 
+      inspects the materials of features. This can also be used to add and edit 
+      items in your materials libraries.</P>
+      <P class=TableNormal><SPAN class=Term>Add Decal</SPAN><BR>Allows geometry 
+      to be copied and used for visualizing a decal that is loaded from a source 
+      geometry file.</P>
+      <P class=TableNormal><SPAN class=Term>Mapping</SPAN><BR>Allows texture 
+      coordinates to be assigned to geometry.</P></TD></TR>
+  <TR>
+    <TD>Wizards</TD>
+    <TD>Displays a list of wizards for executing automatic operations. 
+      <P class=TableNormal><SPAN class=Term>Action Script</SPAN><BR>Models a 
+      selected component to support the signaling of actions using I/O. The 
+      logic for I/O signal actions is defined in a Python Script labeled 
+      ActionScript and can be configured in the Actions Configuration section 
+      listed in the Properties panel for a selected component.</P>
+      <P class=TableNormal><SPAN class=Term>Convex Hull</SPAN><BR>Creates a 
+      convex around the object and replaces it with the original geometry.</P>
+      <P class=TableNormal><SPAN class=Term>Conveyor</SPAN><BR>Models a selected 
+      component as a conveyor for moving components along a path. The path can 
+      be defined by existing Frame features or auto-generated along the top face 
+      of the component bound box. Interfaces can be auto-generated to support 
+      the physical transfer of components to and from other components. 
+      Otherwise, the input and output ports of the path can be defined by 
+      existing flow type behaviors. Another option is the ability to 
+      auto-generate a Component Creator at the beginning of the path and connect 
+      its output to the input of the path.</P>
+      <P class=TableNormal><SPAN class=Term>Count Triangles</SPAN><BR>Count 
+      Triangles - Tool to count triangles. Selected Feature(s) - Count the 
+      triangles for the selected feature(s). Active Component - Count the 
+      triangles for the active component. Layout - Count the triangles for all 
+      the components in the layout.</P>
+      <P class=TableNormal><SPAN class=Term>End Effector</SPAN><BR>Models a 
+      selected component as an end-of-arm tool (EOAT) or external axis that can 
+      be physically and remotely connected to robots using signals and 
+      interfaces.</P>
+      <P class=TableNormal><SPAN class=Term>IO-Control</SPAN><BR>Models the 
+      joints of a selected component, that are assigned to a controller,to be 
+      driven to a set value by using signal events. Three Real properties will 
+      be created for each joint to define its open, closed and current value. 
+      Three Boolean signals will be created to trigger and define the value a 
+      joint should be driven to by its controller. The signal labeled <SPAN 
+      class=Term>[Joint_Name]ActionSignal</SPAN> acts as a trigger condition for 
+      a Python Script created and paired with a controller. When a joint action 
+      signal is set to 0 or 1, the script will notify its paired controller to 
+      move that joint to its open (0) or closed (1) value, for example grasp and 
+      release actions of grippers and clamps. Multiple controllers and scripts 
+      can be used to move joints independent of one another in a process. The 
+      other two signals created for a joint can indicate if the joint is in an 
+      open or closed state.</P>
+      <P class=TableNormal><SPAN class=Term>Machine Wizard</SPAN><BR>Machine 
+      Wizard can be used to turn a CAD geometry into a simulation-ready machine 
+      to be used with PLC-control, Works library, and Process Modeling. This 
+      wizard creates the necessary Properties, Behaviors, and Features 
+      automatically. To use this wizard, you need to have a component, e.g., a 
+      geometry model of a machine either created in R-Pro 2.1 or imported from 
+      CAD software. The component must have at least Servo Controller behavior, 
+      and preferably the Link Structure and Joints configured to enable the 
+      add-on. When the links are configured, open the Machine Wizard. Select the 
+      node, or the location, where the machined parts will be placed. Once 
+      functionalities to add to the machine are selected, create required 
+      properties, behaviors, and features. To finalize the machine, move the 
+      frames such as product and resource location to desirable places, and the 
+      machine is ready for testing and 
+use.</P></TD></TR></TBODY></TABLE></BODY></HTML>

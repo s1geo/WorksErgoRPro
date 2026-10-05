@@ -1,0 +1,183 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="articulated kinematics,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Articulated Kinematics</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Articulated Kinematics</h1>
+<p>An Articulated Kinematics behavior is a list of kinematic properties 
+ used by a Robot Controller for solving an articulated robot's motions 
+ which relate to joint length, angle, positioning, coupling, configuration 
+ and tolerance levels.</p>
+<p><img src="../../../English/Links/ArticulatedKinematics.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the kinematics.</td>
+	</tr>
+	<tr>
+		<td>L01Z to L56Z</td>
+		<td>Defines the offset between two joints in a given axis.
+		<p class="TableNormal"><span class="Term">L01Z</span><br>
+		Refers to the offset from the robot's base to first joint along 
+		 Z-axis.</p>
+		<p class="TableNormal"><span class="Term">L23X</span><br>
+		Refers to the offset from second joint to third joint along X-axis, 
+		 which is generally less than or equal to 0 and almost never greater 
+		 than 0.</p>
+		<p class="TableNormal"><span class="Term">L56X</span><br>
+		Refers to the offset between the fifth and sixth joints along X-axis.</p></td>
+	</tr>
+	<tr>
+		<td>A45</td>
+		<td>Defines the angle (in degrees) between the fourth and fifth 
+		 joints. Generally, 90 or -90 is used, but an angle value close 
+		 to 45 is also common in certain cases.</td>
+	</tr>
+	<tr>
+		<td>JointZeroOffset1 to JointZeroOffset6</td>
+		<td>Defines the joint-zero pose of the robot (arm-up space). JointZeroOffsets 
+		 are used as a kinematic solution for determining the robot's pose 
+		 when its joints are at zero value. Different robot vendors tend 
+		 to use different joint zero positions for robots.</td>
+	</tr>
+	<tr>
+		<td>JointSign1 to JointSign6</td>
+		<td>Defines which direction is the positive direction of a joint, 
+		 for example if you flip joint rotation from clockwise to counter-clockwise.</td>
+	</tr>
+	<tr>
+		<td>Coupling23</td>
+		<td>Indicates if the second and third joints are coupled, albeit 
+		 mechanically or represented in software. For example, if you move 
+		 the second joint then the third joint will do a counter movement.</td>
+	</tr>
+	<tr>
+		<td>ShoulderValid</td>
+		<td>Turns on/off the use of valid configurations. 
+		<p class="TableNormal">A True value turns on the following configurations:</p>
+		<ul class="hcp1">
+			<li class="Unordered">Front above no flip</li>
+			<li class="Unordered">Front above flipped</li>
+			<li class="Unordered">Front below no flip</li>
+			<li class="Unordered">Front below flipped</li>
+		</ul>
+		<p>A False value turns off the following configurations:</p>
+		<ul class="hcp1">
+			<li class="Unordered">Back above no flip</li>
+			<li class="Unordered">Back above flipped</li>
+			<li class="Unordered">Back below no flip</li>
+			<li class="Unordered">Back below flipped</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>ElbowValid</td>
+		<td>Turns on/off the use of valid configurations. 
+		<p class="TableNormal">A True value turns on the following configurations:</p>
+		<ul class="hcp1">
+			<li class="Unordered">Front above no flip</li>
+			<li class="Unordered">Front above flipped</li>
+			<li class="Unordered">Back above no flip</li>
+			<li class="Unordered">Back above flipped</li>
+		</ul>
+		<p>A False value turns off the following configurations:</p>
+		<ul class="hcp1">
+			<li class="Unordered">Front below no flip</li>
+			<li class="Unordered">Front below flipped</li>
+			<li class="Unordered">Back below no flip</li>
+			<li class="Unordered">Back below flipped</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>WristValid</td>
+		<td>Turns on/off the use of valid configurations. 
+		<p class="TableNormal">A True value turns on the following configurations:</p>
+		<ul class="hcp1">
+			<li class="Unordered">Front above no flip</li>
+			<li class="Unordered">Front below no flip</li>
+			<li class="Unordered">Back above no flip</li>
+			<li class="Unordered">Back below no flip</li>
+		</ul>
+		<p>A False value turns off the following configurations:</p>
+		<ul class="hcp1">
+			<li class="Unordered">Front above flipped</li>
+			<li class="Unordered">Front below flipped</li>
+			<li class="Unordered">Back above flipped</li>
+			<li class="Unordered">Back below flipped</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>ConfigName1 to ConfigNameN</td>
+		<td>Defines the names of configurations for the robot's arm. Different 
+		 robot types may use different naming conventions for the same 
+		 configurations.</td>
+	</tr>
+	<tr>
+		<td>PalletizingMode</td>
+		<td>Turns on/off the direction of the robot's wrist to point in 
+		 the direction defined by PalletizingNormal.</td>
+	</tr>
+	<tr>
+		<td>PalletizingNormal XYZ</td>
+		<td>Defines the direction of the robot's wrist when PalletizingMode 
+		 is enabled.</td>
+	</tr>
+	<tr>
+		<td>PolarSingularityTolerance</td>
+		<td>Defines the radius of the robot's singularity circle, a small 
+		 round space defined at the end of the robot's arm.</td>
+	</tr>
+	<tr>
+		<td>WristSingularityTolerance</td>
+		<td>Defines the angle tolerance of the robot wrist's singularity. 
+		 That is, when the fifth joint approaches zero value it can be 
+		 counted as singularity, therefore an angle tolerance can used 
+		 in such cases.</td>
+	</tr>
+	<tr>
+		<td>ExtendedPositionTolerance</td>
+		<td>Defines the tolerance value to detect singularity in a robot's 
+		 configuration when either the robot is in an extended position 
+		 or its elbow will pass through zero to reach a point. The value 
+		 (in degrees) must be greater than or equal to zero. If the value 
+		 is zero then there is no singular solution and most likely the 
+		 user receives a reachability error. Singularity or an orientation 
+		 solution based on configuration changes in a robot's elbow to 
+		 reach a point may require a user to define ExtendedPositionTolerance.</td>
+	</tr>
+	<tr>
+		<td>Coupling456</td>
+		<td>Defines the coupling relationship between 4,5 and 6th axes. 
+		 The rotations of the 5th and 6th axes are defined when induced 
+		 by a motion in the 4th axis. This property is rarely used and 
+		 the coupling term is fractional and must be supplied by the robot 
+		 manufacture. Otherwise, use a value of zero. Coupling456 is needed, 
+		 for example, when a hollow triple roll wrist is used, where the 
+		 design of the mechanism causes a coupling between all of the axes.</td>
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,223 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="routing rule,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Routing Rule</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Routing Rule</h1>
+<p>A Routing Rule allows you to route components to and from different 
+ containers based on one or more levels of conditional statements.</p>
+<p><img src="../../../English/Links/RoutingRule2.png" alt="" border="0" class="hcp1"></p>
+<p>The ports of a Routing Rule are listed with the behavior in the Component 
+ Graph panel.</p>
+<p><img src="../../../English/Links/RoutingRulePorts.png" alt="" border="0" class="hcp1"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st" style="height: 34px;">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr style="height: 34px;">
+		<td>Name</td>
+		<td>Defines the name of the router.</td>
+	</tr>
+	<tr style="height: 34px;">
+		<td>Statistics</td>
+		<td>Defines the Statistics behavior that collects statistics generated 
+		 by the router.</td>
+	</tr>
+	<tr style="height: 34px;">
+		<td>Capacity</td>
+		<td>Defines the amount of components the router can manage at any 
+		 given time.</td>
+	</tr>
+	<tr style="height: 72px;">
+		<td>Capacity blocks</td>
+		<td>Defines a list of Capacity Controller behaviors for globally 
+		 defining the router's capacity. Generally, a Capacity Controller 
+		 is used as a variable for controlling the capacity of one or more 
+		 containers in order to avoid deadlock situations.</td>
+	</tr>
+	<tr style="height: 53px;">
+		<td>Transition signal</td>
+		<td>Defines a Boolean Signal to signal the arrival and departure 
+		 of a component in the router. A True value signals the arrival 
+		 of a component. A False value signals the departure of a component.</td>
+	</tr>
+	<tr style="height: 53px;">
+		<td>Rule component</td>
+		<td>Defines if rule processing is done for the router's component 
+		 or a component contained by the router.</td>
+	</tr>
+	<tr style="height: 34px;">
+		<td>RetainOffset</td>
+		<td>Turns on/off the ability to retain position of component as 
+		 it passes through route.</td>
+	</tr>
+</table>
+<h3>Connectors</h3>
+<p>A Routing Rule uses ports/connectors to connect to other behaviors and 
+ transfer in and out components.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Add new connector</td>
+		<td>Adds a new port to router. 
+		<p class="TableNormal"><span class="Strong">Shortcut:</span> In 
+		 the Component Graph panel, right-click a Routing Rule behavior, 
+		 and then click Add Connector.</p></td>
+	</tr>
+</table>
+<h3>Route</h3>
+<p>A route is defined using one or more rules that form a nested structure. 
+ In some cases, rules can directly route to a connection/port. In other 
+ cases, a rule can use another rule to determine the route of a component. 
+ In all cases, changing a rule will undo all of its child rules. As a last 
+ resort, some rules allow you to define a default connection or rule.</p>
+<p><span class="Strong">Tip:</span> You can edit the route of a Routing 
+ Rule in the Component Properties panel.</p>
+<p><img src="../../../English/Links/RoutingRuleSelection.png" alt="" border="0" class="hcp1"></p>
+<h4>Types of Rules</h4>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Boolean Table</td>
+		<td>Routes components to a selected port based on a True or False 
+		 value. 
+		<p class="TableNormal"><span class="Term">Variable</span><br>
+		Defines which property of either processed component or owner component 
+		 is evaluated by the rule.</p>
+		<p class="TableNormal"><span class="Term">Default</span><br>
+		Used if the value of <span class="Term">Variable</span> does not 
+		 match any listed value in table.</p></td>
+	</tr>
+	<tr>
+		<td>Capacity</td>
+		<td>Routes components to the first selected port that passes a 
+		 capacity test.</td>
+	</tr>
+	<tr>
+		<td>Cyclic</td>
+		<td>Routes components to selected ports in sequence before repeating 
+		 the same cycle. 
+		<p class="TableNormal"><span class="Term">CycleOnlyConnected</span><br>
+		Can be used to only route to ports that are connected to other 
+		 ports.</p></td>
+	</tr>
+	<tr>
+		<td>Fixed</td>
+		<td>Routes components from a selected port to another selected 
+		 port. 
+		<p class="TableNormal"><span class="Term">CycleOnlyConnected</span><br>
+		Can be used to only route to ports that are connected to other 
+		 ports.</p></td>
+	</tr>
+	<tr>
+		<td>Integer Table</td>
+		<td>Routes components to a selected port based on an integer value. 
+		 
+		<p class="TableNormal"><span class="Term">Variable</span><br>
+		Defines which property in either processed component or owner component 
+		 is evaluated by the rule.</p>
+		<p class="TableNormal"><span class="Term">Default</span><br>
+		Used if the value of <span class="Term">Variable</span> does not 
+		 match any listed value in table.</p></td>
+	</tr>
+	<tr>
+		<td>Percentage</td>
+		<td>Routes components to selected ports based on a percentage distribution. 
+		 
+		<p class="TableNormal"><span class="Term">RandomStream</span><br>
+		Can be used to seed a value.</p>
+		<p class="TableNormal">In all cases, the total percentage for all 
+		 selected ports should add up to 100.</p></td>
+	</tr>
+	<tr>
+		<td>&lt;Port&gt;</td>
+		<td>Routes components to a selected port. 
+		<p class="TableNormal">For example, all incoming components of 
+		 router would exit the selected port. Generally, only available 
+		 as a level 1 rule.</p></td>
+	</tr>
+	<tr>
+		<td>Product Type Rule</td>
+		<td>Routes components to a selected port based on a selected Product 
+		 Type or Flow Group. 
+		<p class="TableNormal"><span class="Term">Default</span><br>
+		Used if the value of <span class="Term">Variable</span> does not 
+		 match any listed value in table.</p></td>
+	</tr>
+	<tr>
+		<td>Real Table</td>
+		<td>Routes components to a selected port based on a real number 
+		 value. 
+		<p class="TableNormal"><span class="Term">Variable</span><br>
+		Defines which property in either processed component or owner component 
+		 is evaluated by the rule.</p>
+		<p class="TableNormal"><span class="Term">Default</span><br>
+		Used if the value of <span class="Term">Variable</span> does not 
+		 match any listed value in table.</p></td>
+	</tr>
+	<tr>
+		<td>String Table</td>
+		<td>Routes components to a selected port based on a string value. 
+		 
+		<p class="TableNormal"><span class="Term">Variable</span><br>
+		Defines which property in either processed component or owner component 
+		 is evaluated by the rule.</p>
+		<p class="TableNormal"><span class="Term">Default</span><br>
+		Used if the value of <span class="Term">Variable</span> does not 
+		 match any listed value in table.</p></td>
+	</tr>
+	<tr>
+		<td>Transport solution rule</td>
+		<td>Routes products to a selected port based on the transport solution. 
+		 
+		<br>&#160; 
+		<br><span class="Term">RuleVariable</span> 
+		<br>Defines which transportation node of processed 
+		 product is evaluated by the rule. 
+		<br>&#160; 
+		<br><span style="font-weight: bold;">Note:</span> 
+		 Rule processing is done only for products contained by the router.</td>
+	</tr>
+	<tr>
+		<td>Product Type rule</td>
+		<td>Routes products to a selected port based on the Product Type. 
+		 
+		<br>&#160; 
+		<br><span class="Term">RuleVariable</span> 
+		<br>Products can be routed based on Product Types 
+		 or Flow Groups.</td>
+	</tr>
+</table>
+</body>
+</html>

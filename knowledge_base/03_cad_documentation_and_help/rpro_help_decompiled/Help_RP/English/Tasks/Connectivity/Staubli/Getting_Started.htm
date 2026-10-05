@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Getting Started</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords 
+content="Stäubli,access add-on,show add-on,configure SRS">
+<META name=generator content="Adobe RoboHelp 2017"><LINK rel=StyleSheet 
+type=text/css href="../../../../default.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../../ehlpdhtm.js"></SCRIPT>
+
+<STYLE title=hcp type=text/css>
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>Getting Started</H1>
+<DIV class=Contents>
+<P align=left>Contents&nbsp;<A id=MTHotSpot44281 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot44281', 'MTPOPUP44281');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP44281 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">Step 1. Configure Stäubli Robotics 
+Suite</A></P>
+<P align=left><A href="#MiniTOCBookMark3">Step 2. Enable Stäubli add-on</A></P>
+<P align=left><A href="#MiniTOCBookMark4">Step 3. Access Stäubli Add-on</A></P>
+<P align=left><A href="#MiniTOCBookMark5">Step 4. Connect to Stäubli 
+Controller</A></P>
+<P align=left><A href="#MiniTOCBookMark6">Step 5. Map Robot</A></P>
+<P align=left><A href="#MiniTOCBookMark7">Step 6. Teach Robot</A></P>
+<P align=left><A href="#MiniTOCBookMark10">Step 7. 
+Post-Processing</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>Step 1. Configure Stäubli Robotics Suite</H2>
+<P>If you are using Stäubli Robotics Suite (SRS) with a CS emulator version 7 or 
+higher, you might need to make changes to two configuration files.</P>
+<OL>
+  <LI class=Ordered>Use a text editor to open the <SPAN 
+  class=Strong>controller.cfx</SPAN> file in your local Stäubli documents. 
+  <LI class=Ordered>Verify or add this line of code 
+  <TABLE class=CodeBlock style="MARGIN-TOP: 12px" cellSpacing=0 width="100%">
+    <COLGROUP>
+    <COL style="WIDTH: 100%">
+    <TBODY>
+    <TR>
+      <TD>&lt;String name="simulMode" value="simulation" 
+  /&gt;</TD></TR></TBODY></TABLE>
+  <LI class=Ordered>Save the file. 
+  <LI class=Ordered>Use a text editor to open the <SPAN 
+  class=Strong>default.cfx</SPAN> file in your local Stäubli documents. 
+  <LI class=Ordered>Verify or add this line of code 
+  <TABLE class=CodeBlock style="MARGIN-TOP: 12px" cellSpacing=0 width="100%">
+    <COLGROUP>
+    <COL style="WIDTH: 100%">
+    <TBODY>
+    <TR>
+      <TD>&lt;Bool name="ioWriteAccess" value="true" /&gt;</TD></TR></TBODY></TABLE>
+  <LI class=Ordered>Save the file. </LI></OL>
+<P><SPAN class=Strong>Note:</SPAN> </P>
+<UL class=hcp1>
+  <LI>The Stäubli add-on supports both CS8 and CS9 controllers. 
+  <LI>Editing the profile is also feasible directly in the controller or in 
+  Stäubli Robotics Suite. </LI></UL>
+<H2><A name=MiniTOCBookMark3></A>Step 2. Enable Stäubli add-on</H2>
+<P>The Stäubli add-on can be turned on/off using a backstage option.</P>
+<OL>
+  <LI class=Ordered>Click the <SPAN class=Strong>File</SPAN> tab, and then on 
+  the <SPAN class=Strong>Navigation</SPAN> pane, click <SPAN 
+  class=Strong>Options</SPAN>. 
+  <LI class=Ordered>Click <SPAN class=Strong>Add On</SPAN>, and then in<SPAN 
+  class=Strong> Stäubli Add On</SPAN>, do one of the following: 
+  <UL class=hcp1>
+    <LI class=Unordered>To enable the add-on, click <SPAN 
+    class=Strong>Enable</SPAN>. 
+    <LI class=Unordered>To disable the add-on, click <SPAN 
+    class=Strong>Disable</SPAN>. </LI></UL>
+  <LI class=Ordered>Restart your R-Pro 2.1 product. </LI></OL>
+<H2><A name=MiniTOCBookMark4></A>Step 3. Access Stäubli Add-on</H2>
+<P>The Stäubli add-on consists of one main panel: Stäubli Cell Configuration. 
+You can show and access this panel in one or more contexts. For example, we 
+recommend accessing the Stäubli add-on via the Program tab.</P>
+<UL class=hcp1>
+  <LI class=Unordered>On the <SPAN class=Strong>Program</SPAN> tab, in the <SPAN 
+  class=Strong>Windows</SPAN> group, click the <SPAN class=Strong>Show</SPAN> 
+  arrow, and then select the<SPAN class=Strong> Stäubli Cell 
+  Configuration</SPAN> check box. If this panel is not listed, you either need 
+  to enable the Stäubli add-on and/or restart R-Pro 2.1. </LI></UL>
+<P><SPAN class=Strong>Note:</SPAN> It is optional to show the Stäubli Controller 
+I/O Mappings panel since you can access it from the Stäublic Cell Configuration 
+panel. For example, you can select the I/O element of an added emulator, and 
+then use a shortcut or the Properties panel to show I/O mappings between the 
+robot in 3D world and the connected Stäubli controller.</P>
+<H2><A name=MiniTOCBookMark5></A>Step 4. Connect to Stäubli Controller</H2>
+<P>The Stäubli add-on allows you to connect to a real or emulated Stäubli 
+controller.</P>
+<OL>
+  <LI class=Ordered>Verify the Stäubli controller is running and its network 
+  address, for example a local host address of 127.0.0.1. 
+  <LI class=Ordered>In the<SPAN class=Strong> Stäubli Cell Configuration</SPAN> 
+  panel, click <SPAN class=Strong>Add Emulator</SPAN>. 
+  <LI class=Ordered>In the <SPAN class=Strong>Edit Emulator Target</SPAN> task 
+  pane, set <SPAN class=Strong>Host name</SPAN> to the network address of the 
+  controller as well as the <SPAN class=Strong>Username</SPAN> and <SPAN 
+  class=Strong>Password</SPAN> for logging into the controller. 
+  <LI class=Ordered>Click <SPAN class=Strong>Test Connection</SPAN> and verify 
+  you are able to connect to the controller. If the connection attempt was not 
+  successful, verify the network address and login as well as whether or not you 
+  need to use a port other than 5653, which is the default port. 
+  <LI class=Ordered>If you can connect to the controller, click <SPAN 
+  class=Strong>Apply</SPAN> to save the connection and add it to the Stäubli 
+  Cell Configuration panel. </LI></OL>
+<H2><A name=MiniTOCBookMark6></A>Step 5. Map Robot</H2>
+<P>You can pair a robot in the 3D world with a connected Stäubli controller.</P>
+<OL>
+  <LI class=Ordered>Add a Stäubli robot to the 3D world, for example a RX 170 
+  robot. 
+  <LI class=Ordered>In the <SPAN class=Strong>Stäubli Cell Configuration</SPAN> 
+  panel, right-click the <SPAN class=Strong>Robot</SPAN> element of the 
+  connected emulator, and then click <SPAN class=Strong>Change Connected 
+  Robot</SPAN>. 
+  <LI class=Ordered>In the 3D world, click the yellow highlighted robot to 
+  select and highlight it green, and then in the <SPAN class=Strong>Change 
+  Connected Robot</SPAN> task pane, click <SPAN class=Strong>Apply</SPAN>. If 
+  you cannot select the robot in the 3D world, the robot is either not 
+  compatible or you need to edit one or more settings in the controller. 
+</LI></OL>
+<H2><A name=MiniTOCBookMark7></A>Step 6. Teach Robot</H2>
+<P>The simulation mode of a connected Stäubli controller will determine how the 
+Stäubli add-on and controller interact with one another, including the 
+synchronization of data, the execution of robot programs, and jogging of robot 
+joints.</P>
+<H3><A name=MiniTOCBookMark8></A>Jog Joints - Controller</H3>
+<P>By default, every new connection has a simulation mode of Idle and the 
+connection is active. Idle is a safe mode where the Stäubli add-on and 
+controller are not synchronizing with one another. Generally, you would use 
+either Polling or Virtual mode to teach a robot with the connected controller as 
+well as simulate VAL 3 applications.</P>
+<OL>
+  <LI class=Ordered>In the <SPAN class=Strong>Stäubli Cell Configuration</SPAN> 
+  panel, select the listed <SPAN class=Strong>emulator connection</SPAN>, and 
+  then in the <SPAN class=Strong>Properties</SPAN> panel, set <SPAN 
+  class=Strong>Simulation mode</SPAN> to <SPAN class=Strong>Virtual</SPAN>. 
+  <LI class=Ordered>Run the simulation. The robot will instantly change to the 
+  arm pose defined in the controller. In Virtual mode, you can run the 
+  simulation at different speeds and use either virtual or real time. 
+  <LI class=Ordered>In the Stäubli controller, turn on <SPAN class=Strong>robot 
+  arm power</SPAN>, enable <SPAN class=Strong>Joint</SPAN>, and then use the 
+  joint numbered buttons to jog the joints of the robot in the 3D world. 
+  <LI class=Ordered>Stop the simulation. 
+  <LI class=Ordered>In the <SPAN class=Strong>Stäubli Cell Configuration</SPAN> 
+  panel, right-click the <SPAN class=Strong>emulator connection</SPAN>, and then 
+  click <SPAN class=Strong>Disconnect</SPAN>. 
+  <LI class=Ordered>Run the simulation, and then try to use the Stäubli 
+  controller to jog the robot in the 3D world. The connection is not active, so 
+  the robot in the 3D world will not move. The joint values of the robot should 
+  also be different from those in the controller. 
+  <LI class=Ordered>Stop the simulation. 
+  <LI class=Ordered>In the <SPAN class=Strong>Stäubli Cell Configuration</SPAN> 
+  panel, right-click the <SPAN class=Strong>emulator connection</SPAN>, and then 
+  click <SPAN class=Strong>Connect</SPAN>. 
+  <LI class=Ordered>Start the simulation. You should see the robot in the 3D 
+  world reconfigure its joints to match the joint values in the connected 
+  controller. </LI></OL>
+<P><SPAN class=Strong>Note:</SPAN> You will need to reset a simulation in order 
+to change the simulate mode of an emulator connection. For example, you can test 
+the difference between Virtual and Polling simulation modes.</P>
+<H3><A name=MiniTOCBookMark9></A>Jog Joints - Simulation</H3>
+<P>If simulation mode is Jogging, you do not need to run the simulation. Jogging 
+allows you to teach a robot using controls in R-Pro 2.1 and automatically update 
+joint values in the Stäubli controller.</P>
+<OL>
+  <LI class=Ordered>Reset the simulation. 
+  <LI class=Ordered>In the Stäubli controller, turn off <SPAN class=Strong>robot 
+  arm power</SPAN>. 
+  <LI class=Ordered>In the <SPAN class=Strong>Stäubli Cell Configuration</SPAN> 
+  panel, select the listed <SPAN class=Strong>emulator connection</SPAN>, and 
+  then in the <SPAN class=Strong>Properties</SPAN> panel, set <SPAN 
+  class=Strong>Simulation mode</SPAN> to <SPAN class=Strong>Jogging</SPAN>. 
+  <LI class=Ordered>Use the <SPAN class=Strong>Jog</SPAN> command and panel to 
+  interact with the robot in the 3D world. Notice that joint values of the 
+  mapped robot are automatically updated in the Stäubli controller. 
+  <LI class=Ordered>In the Stäubli controller, turn on <SPAN class=Strong>robot 
+  arm power</SPAN>. 
+  <LI class=Ordered>Repeat step 4. The robot will not move and you will receive 
+  a prompt informing you to turn off robot arm power. The simulation mode will 
+  also be automatically changed to Idle. 
+  <LI class=Ordered>Repeat step 4. The robot will move, but the Stäubli 
+  controller will not update its joint values. </LI></OL>
+<H2><A name=MiniTOCBookMark10></A>Step 7. Post-Processing</H2>
+<P>The Stäubli add-on can be used to post-process a robot program and create a 
+VAL 3 application.</P>
+<OL>
+  <LI class=Ordered>In the 3D world, teach the robot a couple of motion 
+  statements. 
+  <LI class=Ordered>In the <SPAN class=Strong>Stäubli Cell Configuration</SPAN> 
+  panel, right-click the <SPAN class=Strong>Robot</SPAN> element of the 
+  connected emulator, and then click <SPAN class=Strong>Post Process 
+  Program</SPAN>. 
+  <LI class=Ordered>In the <SPAN class=Strong>Create VAL 3 application</SPAN> 
+  task pane, set <SPAN class=Strong>Application name</SPAN> to <SPAN 
+  class=Strong>Example</SPAN>. This will be both the file name and folder of 
+  your project. 
+  <LI class=Ordered>Set <SPAN class=Strong>Application folder</SPAN> to the 
+  desired path, for example the usrapp folder in your local Stäubli documents. 
+  <LI class=Ordered>Click <SPAN class=Strong>Post Process</SPAN> to create the 
+  VAL 3 application. 
+  <LI class=Ordered>In the <SPAN class=Strong>Stäubli Cell Configuration</SPAN> 
+  panel, select the listed <SPAN class=Strong>emulator connection</SPAN>, and 
+  then in the <SPAN class=Strong>Properties</SPAN> panel, set <SPAN 
+  class=Strong>Simulation mode</SPAN> to <SPAN class=Strong>Virtual</SPAN>. 
+  <LI class=Ordered>Run the simulation. 
+  <LI class=Ordered>In the <SPAN class=Strong>Stäubli controller</SPAN>, open 
+  and run your VAL 3 application, and then verify the robot in the 3D world 
+  executes the program running in the controller. Depending on the Jog mode of 
+  the Stäubli controller, you may need to press and hold Move. 
+</LI></OL></BODY></HTML>

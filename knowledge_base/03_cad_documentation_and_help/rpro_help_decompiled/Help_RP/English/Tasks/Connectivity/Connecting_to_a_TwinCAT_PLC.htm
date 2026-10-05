@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Connecting to a TwinCAT PLC</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content=connectivity,PLC,TwinCAT>
+<META name=generator content="Adobe RoboHelp 2017"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+
+<STYLE title=hcp type=text/css>
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>Connecting to a TwinCAT PLC</H1>
+<P>The Beckhoff ADS plugin allows you to connect a running Beckhoff TwinCAT PLC 
+version 2 or 3 with a loaded program.</P>
+<P><SPAN class=Strong>Important:</SPAN> Make sure you have installed the 
+necessary ADS components to your device and properly configured the PLC before 
+doing this workflow.</P>
+<DIV class=Contents>
+<P align=left>Contents&nbsp;<A id=MTHotSpot37380 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot37380', 'MTPOPUP37380');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP37380 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">Step 1. Add Server</A></P>
+<P align=left><A href="#MiniTOCBookMark6">Step 2. Verify Network 
+Connection</A></P>
+<P align=left><A href="#MiniTOCBookMark7">Step 3. Activate 
+Connection</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>Step 1. Add Server</H2>
+<P>You can manually add a new PLC connection, import a configuration file or 
+load a layout with a configured PLC connection.</P>
+<H3><A name=MiniTOCBookMark3></A>New Configuration</H3>
+<UL>
+  <LI class=Unordered>Click the <SPAN class=Strong>Connectivity</SPAN> tab, and 
+  then in the <SPAN class=Strong>Connectivity Configuration</SPAN> panel, do one 
+  of the following: 
+  <LI style="LIST-STYLE-TYPE: none; DISPLAY: inline">
+  <UL>
+    <LI class=Unordered>Right-click the <SPAN class=Strong>Beckhoff ADS</SPAN> 
+    plugin, and then click <SPAN class=Strong>Add Server</SPAN>. 
+    <LI class=Unordered>Click the <SPAN class=Strong>Beckhoff ADS</SPAN> plugin, 
+    and then on the <SPAN class=Strong>Connectivity</SPAN> tab, in the <SPAN 
+    class=Strong>Server</SPAN> group, click <SPAN class=Strong>Add 
+    server</SPAN>. </LI></UL></LI></UL>
+<H3><A name=MiniTOCBookMark4></A>Import Configuration</H3>
+<OL>
+  <LI class=Ordered>On the <SPAN class=Strong>Connectivity</SPAN> tab, in the 
+  <SPAN class=Strong>Configuration</SPAN> group, click <SPAN 
+  class=Strong>Import</SPAN>. 
+  <LI class=Ordered>Import the XML or CFG file for your PLC connection. </LI></OL>
+<H3><A name=MiniTOCBookMark5></A>Load Configuration</H3>
+<OL>
+  <LI class=Ordered>Load a layout in the 3D world that has already been 
+  configured for a PLC connection. 
+  <LI class=Ordered>Click the <SPAN class=Strong>Connectivity</SPAN> tab, and 
+  then in the <SPAN class=Strong>Connectivity Configuration</SPAN> panel, verify 
+  the connection is listed under the Beckhoff ADS plugin. </LI></OL>
+<H2><A name=MiniTOCBookMark6></A>Step 2. Verify Network Connection</H2>
+<OL>
+  <LI class=Ordered>(Optional but recommended) Open the <SPAN 
+  class=Strong>Command Prompt</SPAN> <SPAN>or</SPAN> <SPAN 
+  class=Strong>terminal</SPAN> <SPAN>of your device</SPAN>, and then ping the 
+  network addresses of the devices running R-Pro 2.1 and the PLC. 
+  <UL class=hcp1>
+    <LI class=Unordered>If you are running a PLC and R-Pro 2.1 on the same 
+    computer, do a local test of 127.0.0.1. 
+    <LI class=Unordered>If you are running a PLC and R-Pro 2.1 on different 
+    computers or using a PLC dedicated device, you should have already 
+    configured the route of the PLC using the Beckhoff AMS router system, and 
+    this needs to be done on both devices.&nbsp;Test by pinging the network 
+    addresses of the devices and the routes. </LI></UL>
+  <LI class=Ordered>Click the <SPAN class=Strong>Connectivity</SPAN> tab, and 
+  then in the <SPAN class=Strong>Connectivity Configuration</SPAN> panel, under 
+  <SPAN class=Strong>Beckhoff ADS</SPAN>, right-click your <SPAN 
+  class=Strong>PLC connection</SPAN>, and then click <SPAN class=Strong>Edit 
+  Connection</SPAN>. </LI></OL>
+<P><SPAN class=Strong>Note:</SPAN> Every time you execute the Edit Connection 
+command, the Beckhoff ADS plugin automatically scans common ports on your local 
+machine to find ADS ports for PLC connections, and then lists them in the Edit 
+Connection task pane. For example, the plugin would check TwinCAT 2 ports 
+{801,811,821,831} and TwinCAT 3 ports 851 to 860. This discovery only works for 
+PLCs running on your local machine.</P>
+<OL start=3>
+  <LI class=Ordered>In the <SPAN class=Strong>Edit Connection</SPAN> task pane, 
+  under <SPAN class=Strong>Server Address</SPAN>, set <SPAN class=Strong>AMS Net 
+  ID</SPAN> and <SPAN class=Strong>ADS port</SPAN>, and then click <SPAN 
+  class=Strong>Test Connection</SPAN>. </LI></OL>
+<H2><A name=MiniTOCBookMark7></A>Step 3. Activate Connection</H2>
+<P>If you have successfully added and verified a connection to a PLC, you are 
+now ready to activate the connection.</P>
+<OL>
+  <LI class=Ordered>Click the <SPAN class=Strong>Connectivity</SPAN> tab, and 
+  then in the <SPAN class=Strong>Connectivity Configuration</SPAN> panel, under 
+  <SPAN class=Strong>Beckhoff ADS</SPAN>, click your <SPAN class=Strong>PLC 
+  connection</SPAN>. 
+  <LI class=Ordered>Do one of the following: 
+  <UL class=hcp1>
+    <LI class=Unordered>To activate the connection, click the greyed out <SPAN 
+    class=Strong>Power</SPAN> button of that connection, and then in the <SPAN 
+    class=Strong>Properties</SPAN> panel, under <SPAN class=Strong>Server 
+    Capabilities</SPAN>, verify <SPAN class=Strong>Connected</SPAN> is set to 
+    <SPAN class=Strong>True</SPAN>. 
+    <LI class=Unordered>To deactivate the connection, click the green-colored 
+    <SPAN class=Strong>Power</SPAN> button of that connection, and then in the 
+    <SPAN class=Strong>Properties</SPAN> panel, under <SPAN class=Strong>Server 
+    Capabilities</SPAN>, verify <SPAN class=Strong>Connected</SPAN> is set to 
+    <SPAN class=Strong>False</SPAN>. </LI></UL></LI></OL></BODY></HTML>

@@ -1,0 +1,488 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>User Interface</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"><LINK rel=StyleSheet 
+type=text/css href="../../../../default.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../../ehlpdhtm.js"></SCRIPT>
+
+<STYLE title=hcp type=text/css>
+<!--
+img.hcp1 { border:none; }
+ul.hcp2 { list-style:disc; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>User Interface</H1>
+<DIV class=Contents>
+<P align=left>Contents&nbsp;<A id=MTHotSpot12850 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot12850', 'MTPOPUP12850');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP12850 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">Stäubli Cell Configuration</A></P>
+<P align=left><A href="#MiniTOCBookMark9">Properties</A></P>
+<P align=left><A href="#MiniTOCBookMark13">Change Connected Robot</A></P>
+<P align=left><A href="#MiniTOCBookMark14">Create VAL 3 Application</A></P>
+<P align=left><A href="#MiniTOCBookMark15">Stäubli Controller I/O 
+Mappings</A></P>
+<P align=left><A href="#MiniTOCBookMark16">I/O Mappings 
+Editor</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>Stäubli Cell Configuration</H2>
+<P>The Stäubli Cell Configuration panel is the main panel for the Stäubli 
+add-on.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../../Links/StaubliCellConfigurationEN.png"></P>
+<TABLE id=callouts cellSpacing=0>
+  <COLGROUP>
+  <COL>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>1.</TD>
+    <TD>Add Emulator</TD></TR>
+  <TR>
+    <TD>2.</TD>
+    <TD>Emulator Connection</TD></TR>
+  <TR>
+    <TD>3.</TD>
+    <TD>Robot Mapping</TD></TR>
+  <TR>
+    <TD>4.</TD>
+    <TD>I/O Mapping</TD></TR>
+  <TR>
+    <TD>5.</TD>
+    <TD>Cell Configuration Tree</TD></TR>
+  <TR>
+    <TD>6.</TD>
+    <TD>Turn On/Off Robot Mapping</TD></TR>
+  <TR>
+    <TD>7.</TD>
+    <TD>Simulation Mode and Connect/Disconnect Emulator</TD></TR>
+  <TR>
+    <TD>8.</TD>
+    <TD>Synchronization Timing Settings</TD></TR></TBODY></TABLE>
+<H3><A name=MiniTOCBookMark3></A>Add Emulator</H3>
+<P>The Add Emulator button displays the Edit Emulator Target task pane, which 
+allows you to test and add a new emulator connection to the Cell Configuration 
+tree.</P>
+<P><A name=EditEmulator><IMG class=hcp1 border=0 alt="" 
+src="../../../Links/EditEmulator.png"></A></P>
+<P><SPAN class=Strong>Note:</SPAN> You cannot add a new connection if the host 
+name/address and port number match an existing emulator connection.</P>
+<H3><A name=MiniTOCBookMark4></A>Synchronization Timing Settings</H3>
+<P>The Synchronization Timing Settings button displays a list of global settings 
+for all connected emulators. They control how smooth robot movements can be 
+captured and reacted to in both the simulation and VAL 3 robot program running 
+on a connected emulator. This also includes how high the frequency is for I/O 
+value changes.</P>
+<P>A default of 20ms is used for both Polling interval and Virtual mode time 
+step settings. These settings are not saved with a layout rather your 
+application user settings.</P>
+<H3><A name=MiniTOCBookMark5></A>Cell Configuration Tree</H3>
+<P>The Cell Configuration tree shows emulator connections as well as robot and 
+I/O mappings.</P>
+<H4><A name=MiniTOCBookMark6></A>Level 1 - Emulator Connections</H4>
+<P>An emulator connection is always indicated by a unique name, its simulation 
+mode, and is listed with a button that controls the state of the emulator 
+connection. If simulation mode is not idle and the simulation is reset, you can 
+connect/disconnect an emulator to turn on/off synchronization without having to 
+change the simulation mode.</P>
+<P>When you right-click an emulator connection, you have the following 
+options.</P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Change Target</TD>
+    <TD>Opens the <A href="#EditEmulator">Edit Emulator Target</A> task pane, 
+      thereby allowing you to edit the network address of the emulator.</TD></TR>
+  <TR>
+    <TD>Connect</TD>
+    <TD>Connects the Stäubli add-on to the emulator.</TD></TR>
+  <TR>
+    <TD>Edit I/O Mappings</TD>
+    <TD>Opens the<A href="#MappingsEditor"> I/O Mappings Editor</A>, thereby 
+      allowing you to map simulation variables with the physical I/O of 
+      controller.</TD></TR>
+  <TR>
+    <TD>Disconnect</TD>
+    <TD>Disconnects the Stäubli add-on from the emulator.</TD></TR>
+  <TR>
+    <TD>Remove</TD>
+    <TD>Deletes the emulator from the Stäubli add-on.</TD></TR>
+  <TR>
+    <TD>Show I/O Mappings</TD>
+    <TD>Shows the <A href="#MappingsView">Stäubli Controller I/O Mappings</A> 
+      panel.</TD></TR></TBODY></TABLE>
+<H4><A name=MiniTOCBookMark7></A>Level 2 - Robot Mappings</H4>
+<P>A connected emulator is associated with at least one robot configured in the 
+Stäubli controller, which can be connected/mapped to a robot in the 3D world. A 
+robot mapping indicates the name of robot in Stäubli controller, the name of its 
+mapped robot in 3D world, and is listed with a button that controls the state of 
+the connection between the robots.</P>
+<P>When you right-click a robot mapping, you have the following options.</P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Change Connected Robot</TD>
+    <TD>Opens the <A href="#ChangeConnectedRobot">Change Connected Robot</A> 
+      task pane, thereby allowing you to map a robot in Stäubli controller to 
+      robot in 3D world.</TD></TR>
+  <TR>
+    <TD>Post Process Program</TD>
+    <TD>Opens the <A href="#PostProcessVal3">Create VAL 3 application</A> task 
+      pane, thereby allowing you to create a VAL 3 
+application.</TD></TR></TBODY></TABLE>
+<H4><A name=MiniTOCBookMark8></A>Level 3 - Inputs and Outputs</H4>
+<P>A connected emulator has its own set of inputs and outputs, which are I/O 
+mappings for simulation variables and the physical I/O of a Stäubli 
+controller.</P>
+<P>When you right-click an I/O mapping, you have the following options.</P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Edit I/O Mappings</TD>
+    <TD>Opens the<A href="#MappingsEditor"> I/O Mappings Editor</A>, thereby 
+      allowing you to map simulation variables with the physical I/O of 
+      controller.</TD></TR>
+  <TR>
+    <TD>Show I/O Mappings</TD>
+    <TD>Shows the <A href="#MappingsView">Stäubli Controller I/O Mappings</A> 
+      panel.</TD></TR></TBODY></TABLE>
+<H2><A name=MiniTOCBookMark9></A>Properties</H2>
+<P>The Properties panel allows you to view and edit the attributes of a selected 
+item in the Stäubli Cell Configuration panel.</P>
+<H3><A name=MiniTOCBookMark10></A>Emulator Connection</H3>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../../Links/EmulatorProperties-EN.png"></P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Connected</TD>
+    <TD>Indicates the state of the connection.</TD></TR>
+  <TR>
+    <TD>Address</TD>
+    <TD>Indicates the network address of the emulator.</TD></TR>
+  <TR>
+    <TD>Simulation mode</TD>
+    <TD>Defines the mode of interaction between Stäubli add-on and the 
+      connected controller during a simulation. 
+      <P class=TableNormal><SPAN class=Term>Idle</SPAN><BR>Stäubli controller 
+      and simulation are independent from each other. This allows you to use the 
+      simulation-side controller to teach a robot and execute its program. 
+      Generally, this mode is used to quickly teach and simulate a robot program 
+      in 3D world, and then post-process the results.</P>
+      <P class=TableNormal><SPAN class=Term>Virtual</SPAN><BR>Stäubli controller 
+      can be used to teach robot in 3D world and simulate a VAL 3 program. This 
+      allows for high synchronization because the execution of Stäubli 
+      controller is managed by R-Pro 2.1 and uses the simulation clock for time 
+      steps. Generally, this mode is used for testing and visualization 
+      purposes, especially with large layouts since a simulation can run 
+      effectively in virtual or real time at different speeds.</P>
+      <P class=TableNormal><SPAN class=Term>Polling</SPAN><BR>Similar to Virtual 
+      mode, but Stäubli controller will operate in real time using its own 
+      clock. Generally, this mode exists for backward compatibility and is 
+      suitable for visualization purposes. The simulation should run in real 
+      time at 1x its normal speed. We recommend using Virtual instead of 
+      Polling.</P>
+      <P class=TableNormal><SPAN class=Term>Jogging</SPAN><BR>Stäubli controller 
+      has turned off power to robot arm, but can still receive updates on joint 
+      values of robot in 3D world. Generally, this mode is used to interact with 
+      a robot using its simulation-side controller to teach positions and write 
+      them directly to a VAL 3 application.</P>
+      <P class=TableNormal><SPAN class=Strong>Tip:</SPAN> In Jogging mode, you 
+      can jog a robot without having to run a simulation. Remember to disable 
+      robot arm power in Stäubli controller before entering Jogging 
+  mode.</P></TD></TR>
+  <TR>
+    <TD>Edit Target</TD>
+    <TD>Opens the<A href="#EditEmulator"> Edit Emulator Target</A> task pane, 
+      thereby allowing you to edit the network address of the 
+  emulator.</TD></TR></TBODY></TABLE>
+<H3><A name=MiniTOCBookMark11></A>Robot mapping</H3>
+<P>If the robot in Stäubli controller is not mapped to a robot in 3D world, a 
+<SPAN class=Italic>Map to simulation robot</SPAN> button will be displayed in 
+the Properties panel. This button opens the <A 
+href="#ChangeConnectedRobot">Change Connected Robot</A> task pane, thereby 
+allowing you to map a robot in Stäubli controller to robot in 3D world.</P>
+<H3><A name=MiniTOCBookMark12></A>I/O mapping</H3>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../../Links/IOMappingPropertiesEN.png"></P>
+<P>The look and feel is the same as the <A href="#MappingsView">Stäubli 
+Controller I/O Mappings</A> panel.</P>
+<H2><A name=MiniTOCBookMark13></A><A name=ChangeConnectedRobot></A>Change 
+Connected Robot</H2>
+<P>The Change Connected Robot task pane allows you to map a robot in Stäubli 
+controller to a robot in the 3D world. The action involves picking a robot in 
+the 3D world, and then using the Apply or Cancel button to either confirm or 
+cancel the change.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../../Links/NewRobotMapSelected.png"></P>
+<P>Please be aware of the following guidelines:</P>
+<UL class=hcp2>
+  <LI class=Unordered>You cannot map robots with different joint counts. 
+  <LI class=Unordered>When picking a robot in 3D world: 
+  <UL style="LIST-STYLE-TYPE: circle">
+    <LI class=Unordered2>Currently mapped robot is displayed normally and not 
+    highlighted. 
+    <LI class=Unordered2>Compatible robots are highlighted yellow. 
+    <LI class=Unordered2>Incompatible robots are highlighted grey. 
+    <LI class=Unordered2>Newly selected robot is highlighted green. 
+    <LI class=Unordered2>Clicking an empty space in 3D world will clear the 
+    selection, thereby allowing you to unmap both robots. </LI></UL>
+  <LI class=Unordered>If I/O mappings exist, they are copied to new robot and 
+  deleted from old robot. </LI></UL>
+<H2><A name=MiniTOCBookMark14></A><A name=PostProcessVal3></A>Create VAL 3 
+Application</H2>
+<P>The Create Val 3 application task pane allows you to post-process the robot 
+program of a mapped robot in the 3D world to a VAL 3 application.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../../Links/StaubliPostProcessEN.png"></P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Application name</TD>
+    <TD>Defines the name of VAL 3 application and folder used to store its 
+      files. 
+      <P class=TableNormal>You must use a valid Windows folder and file name as 
+      well as adhere to naming limitations of VAL 3 applications.</P>
+      <P class=TableNormal>Names of post-processed VAL 3 applications will be 
+      displayed as available options, for example if you need to overwrite or 
+      update your project.</P></TD></TR>
+  <TR>
+    <TD>Application folder</TD>
+    <TD>Defines the directory containing the VAL 3 application and its 
+    folder.</TD></TR>
+  <TR>
+    <TD>Write unmapped I/O</TD>
+    <TD>Determines if unmapped ports used in robot program are written to VAL 
+      3 application. 
+      <P class=TableNormal><SPAN class=Strong>Important:</SPAN> Without a map to 
+      a valid controller-side variable, the post-processor will fail to write a 
+      valid VAL 3 instruction and the generated VAL 3 application will contain 
+      syntax errors.</P></TD></TR>
+  <TR>
+    <TD>Send to controller</TD>
+    <TD>Enables/disables the use of SRS transfer manager after completing 
+      post-processing. 
+      <P class=TableNormal>The transfer manager uses command line parameters 
+      that tell it where to connect to and the application folder path.</P>
+      <P class=TableNormal>Generally, this is used to transfer a VAL 3 
+      application to a real not emulated Stäubli controller with an FTP 
+      server.</P></TD></TR>
+  <TR>
+    <TD>Transfer manager path</TD>
+    <TD>Defines the path to SRS transfer manager executable 
+file.</TD></TR></TBODY></TABLE>
+<H2><A name=MiniTOCBookMark15></A><A name=MappingsView></A>Stäubli Controller 
+I/O Mappings</H2>
+<P>The Stäubli Controller I/O Mappings panel shows all I/O mappings between 
+simulation variables and the physical I/O of controller for a selected emulator 
+in the Stäubli Cell Configuration panel.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../../Links/StaubliMappingsPanelEN.png"></P>
+<P><SPAN class=Strong>Note:</SPAN> You can right-click the list of I/O mappings, 
+and then use a shortcut to either delete selected rows or reset the size of each 
+column.</P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Enabled</TD>
+    <TD>Turns on/off I/O mapping. 
+      <P class=TableNormal>You can enable/disable an I/O mapping when a 
+      simulation is paused or reset.</P></TD></TR>
+  <TR>
+    <TD>Simulation variable</TD>
+    <TD>Name of variable in component, for example the signal of a conveyor or 
+      I/O port of a robot.</TD></TR>
+  <TR>
+    <TD>Simulation type</TD>
+    <TD>Data type of simulation variable. 
+      <P class=TableNormal>See <A href="#SupportedVariables">Supported 
+      Variables</A> for more information.</P></TD></TR>
+  <TR>
+    <TD>Controller I/O</TD>
+    <TD>Name of physical I/O in Stäubli controller.</TD></TR>
+  <TR>
+    <TD>Controller type</TD>
+    <TD>Data type of the physical I/O in controller. 
+      <P class=TableNormal>See <A href="#SupportedVariables">Supported 
+      Variables</A> for more information.</P></TD></TR>
+  <TR>
+    <TD>Simulation value</TD>
+    <TD>Indicates current value of simulation variable. 
+      <P class=TableNormal>Value is updated by polling at a fixed but inaccurate 
+      frequency. The nominal update rate is 5 Hz, so rapid changes might not be 
+      shown.</P>
+      <P class=TableNormal><SPAN class=Strong>Note:</SPAN> The value of an I/O 
+      port cannot be shown if it is not associated with a signal since a Signal 
+      Map behavior does not contain values.</P></TD></TR>
+  <TR>
+    <TD>Edit I/O Mappings</TD>
+    <TD>Opens the<A href="#MappingsEditor"> I/O Mappings Editor</A>, thereby 
+      allowing you to map simulation variables with the physical I/O of 
+      controller specific to the emulator connection. 
+      <P class=TableNormal>You can add a new I/O mapping when a simulation is 
+      reset.</P></TD></TR>
+  <TR>
+    <TD>Delete Mapping</TD>
+    <TD>Remove a selected I/O mapping. 
+      <P class=TableNormal>You can remove an I/O mapping when a simulation is 
+      reset.</P></TD></TR></TBODY></TABLE>
+<H2><A name=MiniTOCBookMark16></A><A name=MappingsEditor></A>I/O Mappings 
+Editor</H2>
+<P>The I/O Mappings Editor allows you to pair/map simulation variables with the 
+physical I/O of a controller for a selected emulator in the Stäubli Cell 
+Configuration panel.</P>
+<P><IMG style="HEIGHT: 316px; WIDTH: 590px" src="Screenshot_3jkcnbxsfg.png" 
+width=866 height=418></P>
+<H3><A name=MiniTOCBookMark17></A>Simulation variables</H3>
+<P>The left pane displays data on simulation variables.</P>
+<P><SPAN class=Strong>Note:</SPAN> You can right-click the list of simulation 
+variables, and then use a shortcut to expand all elements or a selected tree, 
+collapse a selected tree, or reset the size of each column. </P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Connected</TD>
+    <TD>Indicates if variable is mapped to controller variable.</TD></TR>
+  <TR>
+    <TD>Simulation structure</TD>
+    <TD>Tree containing the available variables of components and robots in 3D 
+      world. 
+      <P class=TableNormal>See <A href="#SupportedVariables">Supported 
+      Variables</A> for more information.</P></TD></TR>
+  <TR>
+    <TD>Parent component</TD>
+    <TD>Indicates the component of variable.</TD></TR>
+  <TR>
+    <TD>Variable name</TD>
+    <TD>Indicates the name of variable.</TD></TR>
+  <TR>
+    <TD>Variable type</TD>
+    <TD>Indicates the data type of variable.</TD></TR>
+  <TR>
+    <TD>Description</TD>
+    <TD>Provides a short description on variable. 
+      <P class=TableNormal>Generally, the I/O ports of a robot used to signal 
+      actions, such as grasp and release, have 
+descriptions.</P></TD></TR></TBODY></TABLE>
+<H3><A name=MiniTOCBookMark18></A>Controller I/O</H3>
+<P>The right pane displays data on the physical I/O of controller.</P>
+<P><SPAN class=Strong>Note:</SPAN> You can right-click the list of physical I/O, 
+and then use a shortcut to expand all elements or a selected tree, collapse a 
+selected tree, reset the size of each column, or reload the list.</P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Connected</TD>
+    <TD>Indicates if the I/O is mapped to simulation variable.</TD></TR>
+  <TR>
+    <TD>Controller structure</TD>
+    <TD>Tree containing the available I/O in Stäubli controller. 
+      <P class=TableNormal>See <A href="#SupportedVariables">Supported 
+      Variables</A> for more information.</P></TD></TR>
+  <TR>
+    <TD>Controller type</TD>
+    <TD>Indicates the data type of I/O.</TD></TR>
+  <TR>
+    <TD>Description</TD>
+    <TD>Provides a short description on the I/O.</TD></TR></TBODY></TABLE>
+<H3><A name=MiniTOCBookMark19></A>Mapped Variables</H3>
+<P>The bottom pane displays data on mapped variables and has the same look and 
+feel as the <A href="#MappingsView">Stäubli Controller I/O Mappings</A> 
+panel.</P>
+<P>To map variables:</P>
+<OL>
+  <LI class=Ordered>Select the simulation variables and physical I/O of 
+  controller you want to pair with each other. 
+  <LI class=Ordered>Click the <SPAN class=Strong>Map Selected</SPAN> button. The 
+  selected variables would need to be compatible with one another, otherwise the 
+  Map Selected button will be disabled. 
+  <LI class=Ordered>Do one of the following: 
+  <UL class=hcp2>
+    <LI class=Unordered>To add more I/O mappings, repeat step 1. 
+    <LI class=Unordered>To delete an I/O mapping, select the rows of I/O 
+    mappings you want to delete, right-click the list, and then click <SPAN 
+    class=Strong>Delete Selected</SPAN>. 
+    <LI class=Unordered>To save all changes, click <SPAN class=Strong>OK</SPAN>. 
+
+    <LI class=Unordered>To not save any changes, click <SPAN 
+    class=Strong>Cancel</SPAN> or <SPAN class=Strong>Exit</SPAN>. 
+</LI></UL></LI></OL>
+<P><SPAN class=Strong>Note:</SPAN> If you select multiple simulation variables 
+and physical I/O of controller, a scoring system is used based on data type 
+compatibility and name similarities to determine which variables are paired with 
+physical I/O.</P>
+<H3><A name=MiniTOCBookMark20></A><A name=SupportedVariables></A>Supported 
+Variables</H3>
+<H4><A name=MiniTOCBookMark21></A>Simulation</H4>
+<UL class=hcp2>
+  <LI class=Unordered>Boolean, Integer and Real Signal behaviors of components 
+  in 3D world. 
+  <LI class=Unordered>The digital input and output signals (ports) of robot in 
+  3D world. The I/O of robot are Boolean Signal Map behaviors referenced by the 
+  executor of its program. The robot must be mapped to a Stäubli controller and 
+  the I/O ports must either be assigned an action or connected to a signal. 
+  Otherwise, the robot and/or unused ports will not be listed nor available in 
+  I/O Mappings Editor. </LI></UL>
+<H4><A name=MiniTOCBookMark22></A>Controller</H4>
+<UL class=hcp2>
+  <LI class=Unordered>Physical inputs and outputs of Stäubli controller, which 
+  are used in VAL 3 applications by linking them to special variables, aio and 
+  dio. Analog inputs (ain) and outputs (aout) are an aio data type. Digital 
+  inputs (din) and outputs (dout) are a dio data type. </LI></UL>
+<P><SPAN class=Strong>Note:</SPAN> Program variables cannot be accessed directly 
+by Stäubli add-on.</P></BODY></HTML>

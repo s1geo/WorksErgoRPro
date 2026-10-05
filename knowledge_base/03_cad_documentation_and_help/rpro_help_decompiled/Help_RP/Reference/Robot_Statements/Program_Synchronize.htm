@@ -1,0 +1,46 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="program synchronize,robot statement">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Program Synchronize</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Program Synchronize</h1>
+<p>A Program Synchronize statement allows the execution of a robot program to be synced with programs in other robots.</p>
+<p><img src="../../English/Links/ProgramSynchronizeStatement.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>SyncMessage</td>
+<td>Defines the message to trigger synchronization.
+<p class="TableNormal">All components in SyncComponents must use the same message.</p>
+</td>
+</tr>
+<tr>
+<td>WaitSync</td>
+<td>Defines if the statement sends its message and waits to receive the same message from all other components in SyncComponents.
+<p class="TableNormal">A True value waits, whereas a False value sends a message and ends the execution of the statement.</p>
+</td>
+</tr>
+<tr>
+<td>SyncComponents</td>
+<td>Defines a list of components to sync with the statement.
+<p class="TableNormal">This means each listed component is also executing its own Program Synchronize statement.</p>
+</td>
+</tr>
+</table>
+</body>
+</html>

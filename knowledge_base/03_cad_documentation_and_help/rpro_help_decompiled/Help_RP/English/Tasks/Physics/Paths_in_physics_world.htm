@@ -1,0 +1,100 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="physics,path,divert,indexing,pushing">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Paths in physics world</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+p.hcp1 { color:rgb(14, 16, 26);
+margin-top:0pt;
+margin-bottom:0pt; }
+span.hcp2 { color:rgb(14, 16, 26);
+background:transparent;
+margin-top:0pt;
+margin-bottom:0pt; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Paths in Physics World</h1>
+<p>The movement and flow of components with physical properties can be 
+ accomplished by using a Physics Path behavior. This allows you to apply 
+ <span class="Italic">contact forces</span> to components moving along 
+ paths. For example, you can push, divert, divide, drop, and accumulate 
+ components in one or more lanes.</p>
+<p>There are some restrictions:</p>
+<ul style="list-style: disc;">
+	<li class="Unordered">A Physics Path cannot accept components which 
+	 do not have a Physics Entity behavior.</li>
+	<li class="Unordered">A Physics Path must be paired with a Physics 
+	 Entity behavior which has its Physics Type property set to <span class="Term">#Kinematic</span>.</li>
+	<li class="Unordered">A component with a Physics Entity behavior entering 
+	 a Physics Path should have its Physics Type property set to <span 
+	 class="Term">#In Physics</span>.</li>
+</ul>
+<p>Any feature that could potentially come into contact with a component 
+ on a Physics Path should have a defined Collider property. Otherwise, 
+ a component will either fall through the path or pass through solid objects.</p>
+<p>In some cases, you can set the Collider property of the root feature 
+ belonging to the same node as a Physics Path to <span class="Term">#Boxes</span>. 
+ Generally, <span class="Term">#Box</span> mode will work but encompass 
+ too much space, offset components, and possibly make any pushing feature 
+ ineffective. In addition, <span class="Term">#Precise</span> mode will 
+ work but the bounciness of components and deflection of elevations and 
+ depressions in node geometry could produce unrealistic results.</p>
+<p><span class="Strong">Important:</span> If the Collider property of a 
+ root feature is defined, that mode will be inherited by its subfeatures.</p>
+<p>In other cases, you can set the Collider property of each feature that 
+ forms the plane and/or solid shapes of a Physics Path and its pushing 
+ features. Generally, <span class="Term">#Box mode</span> will provide 
+ an adaptable solution since you can define padding for the bound box. 
+ Padding helps transition components to and from path edges and in between 
+ other objects that should have some elasticity. If you want to use <span 
+	 class="Term">#Precise</span> mode, be cautious of gaps, holes and 
+ the angle tolerance of faces in feature's geometry.</p>
+<ol>
+	<li class="Ordered">In the 3D world, select a component.</li>
+	<li class="Ordered">On the <span class="Strong">Modeling</span> tab, 
+	 in the <span class="Strong">Component Graph</span> panel, <span class="Strong">Component 
+	 Node Tree</span>, select the node that you want to contain the Physics 
+	 Path.</li>
+	<li class="Ordered">On the <span class="Strong">Modeling</span> tab, 
+	 in the <span class="Strong">Behavior</span> group, click the <span 
+	 class="Strong">Behavior</span> arrow, and then under <span class="Strong">Physics</span>, 
+	 click <span class="Strong">Path</span>.</li>
+	<li class="Ordered">In the <span class="Strong">Properties</span> panel, 
+	 do one or more of the following: </li>
+</ol>
+<ul>
+	<ul>
+		<li class="Unordered">To define waypoints of the path, click the 
+		 <span class="Strong">Path</span> (expand) button, and then click 
+		 the <span class="Strong">PLUS SIGN</span>. Next, in <span class="Strong">Add 
+		 'Path' items</span>, find and select each Frame feature you want 
+		 to reference as a waypoint in the path, and then click <span class="Strong">Close</span>. 
+		 If you need to, use the arrows in the Path property to reorder 
+		 the added Frame features.</li>
+		<li class="Unordered">To define pushing objects of the path, click 
+		 the <span class="Strong">PushingFeatures</span> (expand) button, 
+		 and then click the <span class="Strong">PLUS SIGN</span>. Next, 
+		 in <span class="Strong">Add 'PushingFeatures' items</span>, find 
+		 and select each feature you want to potentially collide with components 
+		 on the path, and then click <span class="Strong">Close</span>.</li>
+	</ul>
+</ul>
+<p class="hcp1"><span 
+	 style="color: rgb(14, 16, 26);"><strong><span class="hcp2">Note:</span></strong><span class="hcp2">&#160;Setting a negative value for Physics Path 
+ Speed property will make path direction to be in the opposite direction.</span></span></p>
+<p class="hcp1">&#160;</p>
+</body>
+</html>

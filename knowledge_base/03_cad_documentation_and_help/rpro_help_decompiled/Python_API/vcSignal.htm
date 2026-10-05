@@ -1,0 +1,129 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcSignal</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+p.hcp1 { margin-left:80px; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcSignal</h1>
+<p>vcSignal is the basic implementation for signal type behaviors which 
+ can simulate wiring, send a value to other signals and trigger events.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot34687" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot34687', 'MTPOPUP34687');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP34687" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Hierarchy</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Common Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Events</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Hierarchy</h2>
+<p style="margin-left: 40px;"><a href="vcSignal.htm">vcSignal</a></p>
+<p class="hcp1"><a href="vcBoolSignal.htm">vcBoolSignal</a></p>
+<p class="hcp1"><a href="vcComponentSignal.htm">vcComponentSignal</a></p>
+<p class="hcp1"><a href="vcIntegerSignal.htm">vcIntegerSignal</a></p>
+<p class="hcp1"><a href="vcMatrixSignal.htm">vcMatrixSignal</a></p>
+<p class="hcp1"><a href="vcRealSignal.htm">vcRealSignal</a></p>
+<p class="hcp1"><a href="vcStringSignal.htm">vcStringSignal</a></p>
+<h2><a name="MiniTOCBookMark3"></a>Common Properties</h2>
+<p>The following properties are common in all signal type behaviors.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AutomaticReset</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the reset of signal to initial value when simulation 
+		 is reset.</td>
+	</tr>
+	<tr>
+		<td>Connections</td>
+		<td>List of <a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td>RW</td>
+		<td>Defines a list of behaviors connected to signal.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>connect</td>
+		<td>Boolean</td>
+		<td><a href="vcSignal.htm">vcSignal</a><span class="Italic"> signal</span>, 
+		 [Boolean <span class="Italic">connect_in_gui</span>]</td>
+		<td>Connects signals. The default value of the <span class="Italic">connect_in_gui</span> 
+		 is True, which means the created connection will be visible in 
+		 GUI. 
+		<p class="TableNormal">If a False value is given, the created connection 
+		 won't be visible in GUI. Because of this, use the False value 
+		 only when necessary!</p></td>
+	</tr>
+	<tr>
+		<td>disconnect</td>
+		<td>Boolean</td>
+		<td><a href="vcSignal.htm">vcSignal</a><span class="Italic"> signal</span>, 
+		 [Boolean <span class="Italic">disconnect_in_gui</span>]</td>
+		<td>Disconnects signals. The default value of the <span class="Italic">disconnect_in_gui</span> 
+		 is True, which means the signal is disconnected also in GUI. 
+		<p class="TableNormal">If the signals were connected using the 
+		 <span class="Italic">connect</span> method with a False argument 
+		 in the <span class="Italic">connect_in_gui</span>, they should 
+		 be disconnected using a False argument in the <span class="Italic">disconnect_in_gui</span> 
+		 </p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnValueChange</td>
+		<td><a href="vcSignal.htm">vcSignal</a> <span class="Italic">signal</span></td>
+		<td>Triggered when the value of <span class="Italic">signal</span> 
+		 is changed, thereby signaling all Connections of new value.</td>
+	</tr>
+</table>
+<!--======================================Properties==================================-->
+</body>
+</html>

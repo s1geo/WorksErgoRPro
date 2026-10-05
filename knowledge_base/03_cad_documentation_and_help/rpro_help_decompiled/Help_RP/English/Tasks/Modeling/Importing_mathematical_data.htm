@@ -1,0 +1,122 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="mathematical data,brep,curves,splines,unload data,tessellation">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Importing mathematical data</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Importing Mathematical Data</h1>
+<p>You can import the mathematical data of a supported CAD file, for example 
+ boundary representations (BREP) and curves.</p>
+<p><span class="Strong">Note:</span> This task was made using this <a href="../../../SweptArcSuface.zip">CAD 
+ file</a>.</p>
+<ol>
+	<li class="Ordered">Either from the <span class="Strong">Home</span> 
+	 tab or <span class="Strong">Modeling</span> tab, in the <span class="Strong">Import</span> 
+	 group, click <span class="Strong">Geometry</span>.</li>
+	<li class="Ordered">Select the CAD file you want to import as a new 
+	 component.<br>
+	<img class="step_image" src="../../Links/OpenCADFile.png" alt="" style="border: none;" border="0"></li>
+	<li class="Ordered">In the <span class="Strong">Import model </span>task 
+	 pane, under <span class="Strong">Organize geometry</span>, click <span 
+	 class="Strong">Mathematical data</span>. This will organize geometry 
+	 one triangle set per face and store a BREP entity in a triangle set.<br>
+	<img class="step_image" src="../../Links/OrganizeGeometryMathematicalData.png" alt="" style="border: none;" border="0"></li>
+	<li class="Ordered">Click <span class="Strong">Import</span> to import 
+	 the file.<br>
+	<img class="step_image" src="../../Links/ImportedGeometryWithMathematicalData.png" alt="" style="border: none;" border="0"></li>
+</ol>
+<p>After importing the mathematical data, you have the option to change 
+ the tessellation of geometry at the feature level.</p>
+<ol start="5">
+	<li class="Ordered">Access the <span class="Strong">Modeling</span> 
+	 tab, and then select a <span class="Strong">Geometry</span> feature 
+	 containing imported geometry.<br>
+	<img class="step_image" src="../../Links/ImportedSweptArcSurface.png" alt="" style="border: none;" border="0"></li>
+	<li class="Ordered">In the <span class="Strong">Feature Properties</span> 
+	 panel, expand <span class="Strong">Tessellation quality</span>. This 
+	 section allows you to modify the tessellation of geometry sets, thereby 
+	 make it more coarse or fine. For example, you can use the slider to 
+	 select a setting of Extra Low, Low, Medium, High or Extra High. You 
+	 can customize the setting by editing the Chord height ratio and Angle 
+	 tolerance degree properties.<br>
+	<img class="step_image" src="../../Links/TessellationQualitySetting.png" alt="" style="border: none;" border="0"></li>
+	<li class="Ordered">Set <span class="Strong">Tessellation quality</span> 
+	 to <span class="Strong">Extra Low</span>, and then click <span class="Strong">Tessellate</span>. 
+	 This tessellates the geometry using fewer triangles and makes it more 
+	 coarse. This process is reversible because the mathematical data has 
+	 not been unloaded from the Geometry feature.<br>
+	<img src="../../Links/ExtraLowTessellationQualityExample.png" alt="" border="0" class="hcp1"></li>
+	<li class="Ordered">Do any of the following:</li>
+	<ul>
+		<li class="Unordered">To change the tessellation quality of the 
+		 Geometry feature, repeat step 7.</li>
+		<li class="Unordered">To remove the mathematical data from the 
+		 Geometry feature, in the 3D world, right-click, point to <span 
+		 class="Strong">Tools</span>, and then click <span class="Strong">Unload 
+		 mathematical data</span>. This is permanent and will remove the 
+		 option to edit the tessellation quality of the Geometry feature 
+		 in the Feature Properties panel.</li>
+	</ul>
+</ol>
+<p>The mathematical data of geometry 
+ can be used with API. For example, you can create a Python Script to access 
+ the topology of a geometry set, and then use topology to create other 
+ objects such as frames, points and path positions.</p>
+<p><span class="Example">Example. 
+ Use topology to create frames along curve</span></p>
+<p><img src="../../Links/FramesAlongCurveUsingTopology.png" alt="" border="0" class="hcp1"></p>
+<table class="CodeBlock" cellspacing="0" 
+											 width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>gc = comp.findFeature(&quot;Sweep_0&quot;).Geometry 
+		<br>&#160; 
+		<br>#topology is associated with triangle set 
+		<br>ts = gc.GeometrySets[0] 
+		<br>top = ts.Topology 
+		<br>&#160; 
+		<br>#you can use curve length to create positions along curve 
+		<br>distance = top.getCurveLength(1) 
+		<br>positions = [] 
+		<br>for d in range(0,int(distance),100): 
+		<br>&#160;&#160;p = top.getCurvePosition(1,d) 
+		<br>&#160;&#160;positions.append(p) 
+		<br>&#160; 
+		<br>#here a frame set is used to contain frames generated along curve 
+		<br>gf = comp.findFeature(&quot;CurveFrames&quot;) 
+		<br>if not gf: 
+		<br>&#160;&#160;gf = comp.RootFeature.createFeature(VC_GEOMETRY,&quot;CurveFrames&quot;) 
+		<br>fc = gf.Geometry 
+		<br>fc.clear() 
+		<br>&#160; 
+		<br>fs = fc.createGeometrySet(VC_FRAMESET) 
+		<br>for p in positions: 
+		<br>&#160;&#160;fs.createFrame(p) 
+		<br>fs.update() 
+		<br>&#160; 
+		<br>comp.rebuild() 
+		<br>app = getApplication() 
+		<br>app.render()</td>
+	</tr>
+</table>
+</body>
+</html>

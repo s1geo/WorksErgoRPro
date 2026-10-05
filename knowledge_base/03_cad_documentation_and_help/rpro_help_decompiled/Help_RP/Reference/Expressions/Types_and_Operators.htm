@@ -1,0 +1,760 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Types and Operators</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+code.hcp2 { font-family:monospace; }
+-->
+</style>
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Types and Operators</h1>
+<p>A type specifies the characteristics of a value and determines the set 
+ of operations available for the value. Operations include operators, functions 
+ and methods. Types that have methods are complex and can have members.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot30728" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot30728', 'MTPOPUP30728');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP30728" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Expression types and cast names</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Boolean types</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Numeric types</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark12" >Complex types</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Expression types and cast names</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Type</td>
+		<td>Cast Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><a href="#Boolean_types">Boolean</a></td>
+		<td>bool</td>
+		<td>A value that can be True or False.</td>
+	</tr>
+	<tr>
+		<td><a href="#Type_Integer">Integer</a></td>
+		<td>int</td>
+		<td>A 32-bit signed integer.</td>
+	</tr>
+	<tr>
+		<td><a href="#Type_Real">Real</a></td>
+		<td>double</td>
+		<td>A 64-bit floating point value.</td>
+	</tr>
+	<tr>
+		<td><a href="#Type_Vector">Vector</a></td>
+		<td>rVector</td>
+		<td>A 4 element vector of real values.</td>
+	</tr>
+	<tr>
+		<td><a href="#Type_Matrix">Matrix</a></td>
+		<td>rMatrix</td>
+		<td>A 4x4 matrix of real values, for example 16 elements.</td>
+	</tr>
+	<tr>
+		<td><a href="#Type_String">String</a></td>
+		<td>rString</td>
+		<td>A sequence of characters.</td>
+	</tr>
+	<tr>
+		<td><a href="#Type_Reference">Reference</a></td>
+		<td>object</td>
+		<td>An address that stores object's variables or methods.</td>
+	</tr>
+	<tr>
+		<td><p><a href="#Type_List">List</a></p></td>
+		<td>N/A</td>
+		<td>A list of objects with the same type.</td>
+	</tr>
+</table>
+<p><span class="Strong">Notes:</span></p>
+<ul class="hcp1">
+	<li class="Unordered">The int and double types are mutually compatible.</li>
+	<li class="Unordered">The cast name is the name used in a <a href="Type_Conversion.htm">cast 
+	 operation</a>.</li>
+	<li class="Unordered">List type does not support cast operation.</li>
+</ul>
+<h2><a name="MiniTOCBookMark3"></a><a name="Boolean_types"></a>Boolean types</h2>
+<p>A Boolean type represents a True or False value and is convertible to 
+ a numeric type. When converting a Boolean to numeric, True becomes 1 and 
+ False becomes 0. When converting a numeric to Boolean, 0 becomes False 
+ and any other number becomes True.</p>
+<h3><a name="MiniTOCBookMark4"></a>Logical Operators</h3>
+<p>Any logical operator will return a Boolean type. There are no explicit 
+ Boolean literals in expression syntax, so use 1 and 0 for True and False 
+ respectively.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Logical NOT: 
+		<p class="TableNormal">!</p></td>
+		<td>A unary prefix operator that inverts a given logical value. 
+		 
+		<table class="CodeBlock" style="margin-top: 0.5em;" cellspacing="0" 
+				 width="100%">
+			<col style="width: 100%;">
+			<tr>
+				<td>!1 &#160;&#160;&#160;&#160;&#160;is false<br>
+				!(1==2) &#160;&#160;&#160;is true</td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td>Logical AND: 
+		<p class="TableNormal">&amp;&amp;</p></td>
+		<td>A binary operator that returns True if both arguments are True. 
+		 That is, if first argument is False, second argument is not evaluated. 
+		 
+		<table class="CodeBlock" style="margin-top: 0.5em;" cellspacing="0" 
+				 width="100%">
+			<col style="width: 100%;">
+			<tr>
+				<td>1 &amp;&amp; 1 &#160;&#160;&#160;&#160;&#160;is true<br>
+				0 &amp;&amp; z&lt;3 &#160;&#160;&#160;false, z&lt;3 is never evaluated</td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td>Logical OR: 
+		<p class="TableNormal">||</p></td>
+		<td>A binary operator returns True if any of the arguments are 
+		 true. That is, if first argument is True, second argument is not 
+		 evaluated. 
+		<table class="CodeBlock" style="margin-top: 0.5em;" cellspacing="0" 
+				 width="100%">
+			<col style="width: 100%;">
+			<tr>
+				<td>1 || 0 &#160;&#160;&#160;&#160;&#160;is true<br>
+				1 || z&lt;3 &#160;&#160;&#160;true, z&lt;3 is never evaluated</td>
+			</tr>
+		</table></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a>Numeric types</h2>
+<p>A numeric type expresses a scalar value and most have common operators.</p>
+<h3><a name="MiniTOCBookMark6"></a>Arithmetic Operators</h3>
+<p>For arithmetic operators, the type of result depends on the type of 
+ each argument. If arguments are the same, the common type is sued. If 
+ the arguments differ, the type with the highest range is used. This will 
+ change the behavior of some operators, for example division, where integer 
+ division is performed when both operands are integers.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Addition, Subtraction, Multiplication, Division 
+		<p class="TableNormal">+ - * /</p></td>
+		<td>Basic arithmetic operators. 
+		<table class="CodeBlock" style="margin-top: 0.5em;" cellspacing="0" 
+				 width="100%">
+			<col style="width: 100%;">
+			<tr>
+				<td><code>1 + 3 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;4</code> 
+				<br><code class="hcp2">2 * 5 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;10</code> 
+				<br><code class="hcp2">10.0 / 3 &#160;&#160;&#160;&#160;&#160;&#160;&#160;3.333333333333333</code> 
+				<br><code class="hcp2">10 / 3 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;3 &#160;Integer division</code> 
+				<br><code class="hcp2">1.0 * 10 / 3 &#160;&#160;&#160;3.333333333333333</code></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td>Unary Plus and Minus 
+		<p class="TableNormal">+ -</p></td>
+		<td>Sign prefixes. 
+		<table class="CodeBlock" style="margin-top: 0.5em;" cellspacing="0" 
+				 width="100%">
+			<col style="width: 100%;">
+			<tr>
+				<td>-1 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;is -1 
+				<br>-( 3 - 5 ) &#160;&#160;&#160;is 2 
+				<br>+5 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;is 5</td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td>Increment and Decrement 
+		<p class="TableNormal">++ --</p></td>
+		<td>Increment or decrement value by one, and then return the modified 
+		 or original value depending on the prefix or suffix of variable. 
+		 
+		<table class="CodeBlock" style="margin-top: 0.5em;" cellspacing="0" 
+				 width="100%">
+			<col style="width: 100%;">
+			<tr>
+				<td>a = 3, b = ++a &#160;&#160;&#160;a == 4 and b == 4 
+				<br>a = 3, b = a-- &#160;&#160;&#160;&#160;&#160;a == 2 and b == 3</td>
+			</tr>
+		</table></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark7"></a>Comparison Operators</h3>
+<p>For comparison operators, the result will always be a Boolean value.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Less Than, Less Than or Equal, Greater Than, Greater Than or 
+		 Equal 
+		<p class="TableNormal">&lt; &lt;= &gt; &gt;=</p></td>
+		<td>Compares arguments, and then returns True if expression is 
+		 True; otherwise returns False. 
+		<table class="CodeBlock" style="margin-top: 0.5em;" cellspacing="0" 
+				 width="100%">
+			<col style="width: 100%;">
+			<tr>
+				<td>3 &gt; 2 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;is true 
+				<br>4 &lt; 3 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;is false 
+				<br>5 &lt;= 2 +3 &#160;&#160;&#160;is true</td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td>Equality, Inequality 
+		<p class="TableNormal">== !=</p></td>
+		<td>The equality operator returns True if operands are equal; otherwise 
+		 returns False. The inequality is the logical opposite of equality 
+		 operator. 
+		<table class="CodeBlock" style="margin-top: 0.5em;" cellspacing="0" 
+				 width="100%">
+			<col style="width: 100%;">
+			<tr>
+				<td>2 + 3 == 5 &#160;&#160;&#160;is true 
+				<br>3 != 1 + 2 &#160;&#160;&#160;is false</td>
+			</tr>
+		</table></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark8"></a>Assignment Operators</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Simple assignment: 
+		<p class="TableNormal">=</p></td>
+		<td>Assigns right hand value to the left hand value, and then returns 
+		 the left hand value after the assignment. 
+		<table class="CodeBlock" style="margin-top: 0.5em;" cellspacing="0" 
+				 width="100%">
+			<col style="width: 100%;">
+			<tr>
+				<td>a = 1 &#160;&#160;&#160;result is 1, and a == 1</td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td>Modifying assignment: 
+		<p class="TableNormal">+= -= *= /=</p></td>
+		<td>Applies an operation on the values, and then stores the results 
+		 in the left hand argument, and finally returns the left hand value 
+		 after the assignment. 
+		<table class="CodeBlock" style="margin-top: 0.5em;" cellspacing="0" 
+				 width="100%">
+			<col style="width: 100%;">
+			<tr>
+				<td>a += 3 &#160;&#160;&#160;&lt;=&gt; a = a + 3</td>
+			</tr>
+		</table></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark9"></a><a name="Type_Integer"></a>Type Integer</h3>
+<p>Integers are represented as 32-bit signed integers and have a cast name 
+ of int. Integers may be specified as literal values.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr class="t1st">
+		<td>55 &#160;&#160;&#160;&#160;&#160;is decimal format 
+		<br>067 &#160;&#160;&#160;&#160;leading zero indicates octal format 
+		<br>0x37 &#160;&#160;&#160;is hexadecimal format(0X37 is also accepted)</td>
+	</tr>
+</table>
+<h4><a name="MiniTOCBookMark10"></a>Methods</h4>
+<p>Integer values support the following operators in addition to standard 
+ numerical operators.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Modulo: 
+		<p class="TableNormal">%</p></td>
+		<td>Calculates the remainder of division between left and right 
+		 arguments, and then returns that value. 
+		<table class="CodeBlock" style="margin-top: 0.5em;" cellspacing="0" 
+				 width="100%">
+			<col style="width: 100%;">
+			<tr>
+				<td>10 % 3 &#160;&#160;&#160;is 1</td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td>Shift Left, Shift Right: 
+		<p class="TableNormal">&lt;&lt; &gt;&gt;</p></td>
+		<td>Returns the left argument value by shifting number of bits 
+		 specified by right argument either left or right. 
+		<table class="CodeBlock" style="margin-top: 0.5em;" cellspacing="0" 
+				 width="100%">
+			<col style="width: 100%;">
+			<tr>
+				<td>2 &gt;&gt; 1 &#160;&#160;&#160;is 1, binary 10 is shifted to 01 
+				<br>1 &lt;&lt; 3 &#160;&#160;&#160;is 8, binary 0001 is shifted to 1000</td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td>Bitwise complement: 
+		<p class="TableNormal">~</p></td>
+		<td>Unary prefix operator that returns the 32-bit complement of 
+		 its argument. 
+		<table class="CodeBlock" style="margin-top: 0.5em;" cellspacing="0" 
+				 width="100%">
+			<col style="width: 100%;">
+			<tr>
+				<td>~0x0000ffff &#160;&#160;&#160;is 0xffff0000 negative value</td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td>Bitwise AND, OR, XOR: 
+		<p class="TableNormal">&amp; | ^</p></td>
+		<td>Applies logic to both arguments, each bit at a time, and then 
+		 returns the result. 
+		<table class="CodeBlock" style="margin-top: 0.5em;" cellspacing="0" 
+				 width="100%">
+			<col style="width: 100%;">
+			<tr>
+				<td>1 &amp; 2 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;-&gt; 1 
+				<br>1 | 2 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;-&gt; 3 
+				<br>1 ^ 3 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;-&gt; 2</td>
+			</tr>
+		</table></td>
+	</tr>
+</table>
+<p><span class="Strong">Notes:</span></p>
+<ul class="hcp1">
+	<li class="Unordered">All supported operators for integer type, except 
+	 bitwise complement, exist as assignment operations: %=, &lt;&lt;=, 
+	 &gt;&gt;=, &amp;=, |= and ^=.</li>
+</ul>
+<h3><a name="MiniTOCBookMark11"></a><a name="Type_Real"></a>Type Real</h3>
+<p>Real type values are represented as 64-bit IEEE floating point values 
+ and have a cast name of double. Real types can be specified as literal 
+ values.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>12.4 &#160;&#160;&#160;&#160;:integer part and fractional part 
+		<br>.63 &#160;&#160;&#160;&#160;&#160;:only fraction present 
+		<br>2.4e6 &#160;&#160;&#160;is 2400000 integer part, fractional part and exponent 
+		<br>.8e-3 &#160;&#160;&#160;0.0008 only fraction part with negative exponent</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark12"></a>Complex types</h2>
+<p>Complex types can be accessed or manipulated using members and methods, 
+ which are accessed using member access operator.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>vec.X &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;the X coordinate member value 
+		<br>vec.Length() &#160;&#160;&#160;a method that returns the length or absolute value</td>
+	</tr>
+</table>
+<p>The main difference between members and methods is that methods are 
+ functions that take arguments, whereas members just access a part of the 
+ complex type. Generally, complex types only support a small number of 
+ operators.</p>
+<h3><a name="MiniTOCBookMark13"></a><a name="Type_Vector"></a>Type Vector</h3>
+<p>A 4-dimensional array consisting of 4 double type elements with a cast 
+ name of rVector. A vector is often used to represent positions or directions.</p>
+<h4><a name="MiniTOCBookMark14"></a>Members</h4>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>X</td>
+		<td>X coordinate.</td>
+	</tr>
+	<tr>
+		<td>Y</td>
+		<td>Y coordinate.</td>
+	</tr>
+	<tr>
+		<td>Z</td>
+		<td>Z coordinate.</td>
+	</tr>
+	<tr>
+		<td>W</td>
+		<td>W coordinate.</td>
+	</tr>
+</table>
+<h4><a name="MiniTOCBookMark15"></a>Methods</h4>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Length()</td>
+		<td>Returns the absolute length of vector as a real type value.</td>
+	</tr>
+	<tr>
+		<td>Square()</td>
+		<td>Returns the square of vector length as a real type value.</td>
+	</tr>
+	<tr>
+		<td>Set(x, y, z)</td>
+		<td>Sets the XYZ members of vector using given double type arguments, 
+		 and then returns the modified rVector.</td>
+	</tr>
+	<tr>
+		<td>Set(x, y, z, w)</td>
+		<td>Sets the XYZW members of vector using given real type arguments, 
+		 and then returns the modified rVector.</td>
+	</tr>
+</table>
+<h4><a name="MiniTOCBookMark16"></a>Operators</h4>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Negative: 
+		<p class="TableNormal">-Vector</p></td>
+		<td>Returns the opposite of vector.</td>
+	</tr>
+	<tr>
+		<td>Scaling: 
+		<p class="TableNormal">Vector*real, real*Vector, Vector/real</p></td>
+		<td>Multiplies or divides each component of vector with a scalar 
+		 value.</td>
+	</tr>
+	<tr>
+		<td>Scalar Product: 
+		<p class="TableNormal">Vector*Vector</p></td>
+		<td>Returns the scalar product of two vectors.</td>
+	</tr>
+	<tr>
+		<td>Vector Product: 
+		<p class="TableNormal">Vector^Vector</p></td>
+		<td>Returns the vector product of two vectors.</td>
+	</tr>
+	<tr>
+		<td>Addition and Subtraction: 
+		<p class="TableNormal">Vector+Vector, Vector - Vector</p></td>
+		<td>Returns the sum or difference of two vectors.</td>
+	</tr>
+	<tr>
+		<td>Assignment: 
+		<p class="TableNormal">Vector = Vector</p></td>
+		<td>Simple vector assignment.</td>
+	</tr>
+	<tr>
+		<td>Assignment: 
+		<p class="TableNormal">Vector += Vector, Vector -= Vector</p></td>
+		<td>Addition or subtraction vector assignment.</td>
+	</tr>
+	<tr>
+		<td>Assignment: 
+		<p class="TableNormal">Vector *= real, Vector /= real</p></td>
+		<td>Scaling vector assginment.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark17"></a><a name="Type_Matrix"></a>Type Matrix</h3>
+<p>A 4x4 matrix of double values with a cast name of rMatrix. A matrix 
+ is often used to represent positions in space and linear transformations.</p>
+<h4><a name="MiniTOCBookMark18"></a>Methods</h4>
+<p>A matrix has several methods for setting or modifying its value, all 
+ of which can be used as functions. In that case, a function is equivalent 
+ to using a method on identity matrix. All methods will return a modified 
+ matrix, so method calls can be chained.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>Tx(100).Rz(45) &#160;&#160;&#160;translates and then rotates matrix</td>
+	</tr>
+</table>
+<p>The following methods can be used with a matrix. The unit for all angle 
+ parameters is degrees, unless you give a unit specification.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Identity()</td>
+		<td>Sets matrix to its identity matrix.</td>
+	</tr>
+	<tr>
+		<td>Rx(angle)</td>
+		<td>Rotates matrix around relative X-axis by a given angle.</td>
+	</tr>
+	<tr>
+		<td>Ry(angle)</td>
+		<td>Rotates matrix around relative Y-axis relative by a given angle.</td>
+	</tr>
+	<tr>
+		<td>Rz(angle)</td>
+		<td>Rotates matrix around relative Z-axis relative by a given angle.</td>
+	</tr>
+	<tr>
+		<td>Tx(distance)</td>
+		<td>Translates matrix along relative X-axis by a given distance.</td>
+	</tr>
+	<tr>
+		<td>Ty(distance)</td>
+		<td>Translates matrix along relative Y-axis by a given distance.</td>
+	</tr>
+	<tr>
+		<td>Tz(distance)</td>
+		<td>Translates matrix along relative Z-axis by a given distance.</td>
+	</tr>
+	<tr>
+		<td>Sx(factor)</td>
+		<td>Scales matrix relative to its X-axis by a given factor.</td>
+	</tr>
+	<tr>
+		<td>Sy(factor)</td>
+		<td>Scales matrix relative to its Y-axis by a given factor.</td>
+	</tr>
+	<tr>
+		<td>Sz(factor)</td>
+		<td>Scales matrix relative to its Z-axis by a given factor.</td>
+	</tr>
+	<tr>
+		<td>Pos(x, y, z)</td>
+		<td>Sets the position of matrix to the given coordinate values.</td>
+	</tr>
+	<tr>
+		<td>Euler(a, b, c)</td>
+		<td>Sets the orientation of matrix using given Euler angles.</td>
+	</tr>
+	<tr>
+		<td>WPR(a, b, c)</td>
+		<td>Sets the orientation of matrix using yaw, pitch and roll values.</td>
+	</tr>
+	<tr>
+		<td>IJK(i, j, k)</td>
+		<td>Aligns the Z-axis of matrix to a given vector.</td>
+	</tr>
+	<tr>
+		<td>AxisAngle(i, j, k, angle)</td>
+		<td>Sets the orientation of matrix by rotating identity matrix 
+		 around a given axis and angle.</td>
+	</tr>
+	<tr>
+		<td>Quaternion(q1, q2, q3, q4)</td>
+		<td>Sets the orientation of matrix by using given quaternion values.</td>
+	</tr>
+	<tr>
+		<td>Set(v1, v2, ..., v16)</td>
+		<td>Sets the values of matrix row by row.</td>
+	</tr>
+</table>
+<h4><a name="MiniTOCBookMark19"></a>Operators</h4>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Inverse: 
+		<p class="TableNormal">-Matrix</p></td>
+		<td>Calculates the inverse of matrix.</td>
+	</tr>
+	<tr>
+		<td>Equality: 
+		<p class="TableNormal">Matrix == Matrix</p></td>
+		<td>Tests two matrices for equality.</td>
+	</tr>
+	<tr>
+		<td>Transform: 
+		<p class="TableNormal">Matrix*Vector</p></td>
+		<td>Returns a vector transformed by matrix.</td>
+	</tr>
+	<tr>
+		<td>Matrix Multiplication: 
+		<p class="TableNormal">Matrix*Matrix, Matrix/Matrix</p></td>
+		<td>Returns a matrix product or quotient.</td>
+	</tr>
+	<tr>
+		<td>Assignment: 
+		<p class="TableNormal">Matrix = Matrix</p></td>
+		<td>Assigns one matrix to another matrix.</td>
+	</tr>
+	<tr>
+		<td>Matrix Transform: 
+		<p class="TableNormal">Matrix *= rMatrix, Matrix /= Matrix</p></td>
+		<td>Pre-multiplies a matrix by a given matrix or its inverse.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark20"></a><a name="Type_String"></a>Type String</h3>
+<p>A string is a sequence of characters with a cast name of rString. The 
+ literal form of a string is surrounded by double quotes.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>&quot;Hello&quot; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;a string literal surrounded by double quotes 
+		<br>&quot;\&quot;Quoted\&quot;&quot; &#160;&#160;&#160;a string quote containing escaped quotes</td>
+	</tr>
+</table>
+<h4><a name="MiniTOCBookMark21"></a>Methods</h4>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>length</td>
+		<td>Returns the number of characters in string. 
+		<p class="TableNormal"><span class="Strong">Note:</span> The expression 
+		 language is case sensitive. Use small <span style="font-weight: bold;">l</span> 
+		 in length.</p></td>
+	</tr>
+</table>
+<h4><a name="MiniTOCBookMark22"></a><span class="Strong"><span class="Strong">Operators</span></span></h4>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Equality: 
+		<p class="TableNormal">String == String, String != String</p></td>
+		<td>Compares the equality and inequality of strings.</td>
+	</tr>
+	<tr>
+		<td>Comparison: 
+		<p class="TableNormal">String &lt; String, String &lt;= String, 
+		 String &gt; String, String &gt;= String</p></td>
+		<td>Implements a lexicographical sort based on the numeric value 
+		 of characters in strings.</td>
+	</tr>
+	<tr>
+		<td>Concatenation: 
+		<p class="TableNormal">String + String</p></td>
+		<td>Concatenates two strings into one.</td>
+	</tr>
+	<tr>
+		<td>Assignment: 
+		<p class="TableNormal">String = String, String += String</p></td>
+		<td>Assigns or appends one string to another string.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark23"></a><span class="Strong"><span class="Strong"><a name="Type_Reference"></a>Type 
+ Reference</span></span></h3>
+<p><span class="Strong"><span class="Strong">A reference is an address 
+ that stores variables and methods of an object. Reference type can store 
+ following types of objects: Component, Node, Feature, Behaviour, Material 
+ and Parameter. </span></span></p>
+<p><span class="Strong"><span class="Strong">Reference type supports member 
+ access operator to access properties of the object. </span></span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>ref_comp.MyProp&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MyProp property of a reference object</td>
+	</tr>
+</table>
+<h4><a name="MiniTOCBookMark24"></a><span class="Strong"><span class="Strong">Operators</span></span></h4>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Equality: 
+		<p class="TableNormal">Reference == Reference, Reference != Reference</p>
+		<p class="TableNormal">Reference == String, Reference != String</p></td>
+		<td>Compares the equality and inequality of two references or a 
+		 reference and a string. When comparing reference against a string, 
+		 the name property of the reference is used in comparison instead 
+		 of the reference.</td>
+	</tr>
+	<tr>
+		<td>Casting: 
+		<p class="TableNormal">(bool)Reference</p>
+		<p class="TableNormal">(string)Reference</p></td>
+		<td>Cast operator can be used to convert reference type to a bool 
+		 type and a string type. Bool type value is False, if the reference 
+		 is Null, and True, if the reference is not Null. String type value 
+		 is the name of the object.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark25"></a><span class="Strong"><span class="Strong"><a name="Type_List"></a>Type 
+ List</span></span></h3>
+<p><span class="Strong"><span class="Strong">Lists can only contain values 
+ of a single type or references to objects of a single type. Lists are 
+ also strongly typed, meaning that the referenced object type is known 
+ and cannot be changed. If a list contains references, and an object gets 
+ deleted, the reference becomes Null. </span></span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>myList[0].Name&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Name of the first item of myList</td>
+	</tr>
+	<tr>
+		<td>myList.length()&#160;&#160;&#160;&#160;&#160;&#160;&#160;Returns the length of the list as integer</td>
+	</tr>
+</table>
+<span class="Strong"><span class="Strong">&#160; </span></span>
+</body>
+</html>

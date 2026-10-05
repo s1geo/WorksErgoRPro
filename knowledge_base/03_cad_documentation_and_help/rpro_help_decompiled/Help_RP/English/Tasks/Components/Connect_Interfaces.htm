@@ -1,0 +1,126 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="interfaces, remote connections, abstract interfaces,components">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Connect Interfaces</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+ul.hcp2 { list-style:disc; }
+-->
+</style>
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Connect Interfaces</h1>
+<p>The Connect Interfaces command allows you to remotely connect components 
+ with abstract interfaces. Available interfaces and connections are based 
+ on the selected component in the 3D world.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot41108" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot41108', 'MTPOPUP41108');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP41108" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Interface Editor</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Task Pane</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Interface Editor</h2>
+<p>You can connect interfaces using editors in the 3D world. The editor 
+ of a selected component is highlighted, whereas the editor of another 
+ component with compatible interfaces is either visible or collapsed as 
+ an unfold button.</p>
+<p><span class="Strong">Tip:</span> The location of an editor will automatically 
+ adjust to your view. You have the option of the pinning the editor to 
+ lock its location in the viewport.</p>
+<p>An interface of a component is listed in its editor along with a connection 
+ point. If you select the interface, other components in the 3D world will 
+ be highlighted yellow to indicate an available connection. The connection 
+ point of a compatible interface will also be highlighted yellow.</p>
+<p><img src="../../Links/ConnectInterfacesEditorYellow.png" alt="" width="486" height="346" border="0" class="hcp1"></p>
+<p>A connected component is highlighted green as is the connection point 
+ of the connected interface. You also have the option of using the editor 
+ of the selected component to show the connection between two interfaces 
+ as a wire.</p>
+<p><img src="../../Links/ConnectInterfacesEditorGreen.png" alt="" width="486" height="317" border="0" class="hcp1"></p>
+<p><span class="Strong">Note:</span> By default, interface editors (nodes) 
+ for components are not displayed unless they have two matching interfaces 
+ with the selection. You can change this by editing &quot;interfacesNodeVisibilityThreshold&quot; 
+ in the app.config file.</p>
+<p><img src="../../Links/InterfaceNodeVisibilityExample.png" alt="" width="486" height="336" border="0" class="hcp1"></p>
+<h3><a name="MiniTOCBookMark3"></a>Tasks</h3>
+<p>To add a connection, do one of the following:</p>
+<ul>
+	<li class="Unordered">Click the connection point or component of an 
+	 available connection. If you click the component and there are two 
+	 or more compatible interfaces, the best candidate will be automatically 
+	 selected for the connection.<br>
+	<img class="step_image" src="../../Links/ConnectInterfacesDragWire.png" alt="" style="border: none;" width="486" height="337" border="0"></li>
+	<li class="Unordered">Drag the connection point of an interface to 
+	 display a wire, and then drag the wire to either the connection point 
+	 or component of an available connection. If you drop the wire on a 
+	 component and there are two or more compatible interfaces, the best 
+	 candidate will be automatically selected for the connection.<br>
+	<img class="step_image" src="../../Links/ConnectInterfacesClickConnector.png" alt="" style="border: none;" width="486" height="323" border="0"></li>
+</ul>
+<p>To remove a connection, do one of the following:</p>
+<ul class="hcp2">
+	<li class="Unordered">Click its wire.<br>
+	<img class="step_image" src="../../Links/ConnectInterfacesCutWire.png" alt="" style="border: none;" width="486" height="313" border="0"></li>
+	<li class="Unordered">In the editor of the selected component, select 
+	 the interface, and then click the connection point of the connected 
+	 component.<br>
+	<img class="step_image" src="../../Links/ConnectInterfacesDisconnectConnector.png" alt="" style="border: none;" width="486" height="321" border="0"></li>
+	<li class="Unordered">In the editor of the selected component, select 
+	 the interface, and then click the connected component. This will remove 
+	 all connections with that component.<br>
+	<img class="step_image" src="../../Links/ConnectInterfacesDisconnectComponent.png" alt="" style="border: none;" width="486" height="311" border="0"></li>
+</ul>
+<h2><a name="MiniTOCBookMark4"></a>Task Pane</h2>
+<p>You can connect interfaces using the Connect Interfaces task pane.</p>
+<p><img src="../../Links/ConnectInterfacesTaskPaneEN.png" alt="" width="337" height="418" border="0" class="hcp1"></p>
+<h3><a name="MiniTOCBookMark5"></a>Properties</h3>
+<p><span class="Strong">Component</span> allows you to select a component 
+ in the 3D world with at least one abstract interface.</p>
+<p><span class="Strong">Interface</span> allows you to choose which interface 
+ in the selected component to connect with other interfaces.</p>
+<p>Available connections with the selected interface are listed in the 
+ task pane. Each available connection is indicated by the name of its interface. 
+ A disconnected interface is greyed out, whereas a connected interface 
+ is colored green.</p>
+<p><span class="Strong">Display Network Map</span> allows you to show/hide 
+ all interface editors in the 3D world.</p>
+<p><span class="Strong">Show Connection Lines</span> allows you to show/hide 
+ all wires of connected interfaces in the 3D world.</p>
+<p><span class="Strong">Show Non-abstract Interfaces</span> allows you 
+ to show/hide interfaces that are not abstract, for example an interface 
+ that supports Plug &amp; Play. Generally, this is used to verify the physical 
+ connections of a component that has several interfaces. Another case is 
+ where you want to virtualize an interface to support a remote connection. 
+ For example, an interface without a physical location that is not abstract 
+ can be connected to a compatible interface that is abstract. In that case, 
+ the non-abstract interface is converted to abstract at the time of connection.</p>
+<h3><a name="MiniTOCBookMark6"></a>Tasks</h3>
+<p>To add a connection:</p>
+<ul class="hcp2">
+	<li class="Unordered">Click an available connection.<br>
+	<img class="step_image" src="../../Links/ConnectInterfacesTaskPaneSelectConnectionEN.png" alt="" style="border: none;" width="337" height="418" border="0"></li>
+</ul>
+<p>To remove a connection:</p>
+<ul class="hcp2">
+	<li class="Unordered">Click a connection.<br>
+	<img class="step_image" src="../../Links/ConnectInterfacesTaskPaneDisconnectInterfaceEN.png" alt="" style="border: none;" width="337" height="418" border="0"></li>
+</ul>
+</body>
+</html>

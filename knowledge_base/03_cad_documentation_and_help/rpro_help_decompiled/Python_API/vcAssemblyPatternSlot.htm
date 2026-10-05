@@ -1,0 +1,128 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="vcAssemblyPatternSlot, AssemblyPatternSlot, Assembly Pattern Slot">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcAssemblyPatternSlot</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcAssemblyPatternSlot</h1>
+<p>Assembly pattern slot defines a single location, including its position 
+ and orientation, in the assembly. Assembly slots are child objects of 
+ assembly patterns (<a href="vcAssemblyPattern.htm">vcAssemblyPattern</a>).</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Properties</td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td>Property container.</td>
+	</tr>
+	<tr>
+		<td>OrderIndex</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Controls the order in which the pattern slots are created.</td>
+	</tr>
+	<tr>
+		<td>Position</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines the positions of the slot within the pattern.</td>
+	</tr>
+	<tr>
+		<td>Pattern</td>
+		<td><a href="vcAssemblyPattern.htm">vcAssemblyPattern</a></td>
+		<td>R</td>
+		<td>Defines the pattern that the slot is part of.</td>
+	</tr>
+	<tr>
+		<td>UniqueID</td>
+		<td>String</td>
+		<td>R</td>
+		<td>Unique identifier for the assembly pattern slot.</td>
+	</tr>
+	<tr>
+		<td>Item</td>
+		<td><a href="vcAssemblyPatternItem.htm">vcAssemblyPatternItem</a></td>
+		<td>R</td>
+		<td>Defines the item that fills the assembly pattern slot in the 
+		 assembly pattern.</td>
+	</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>deleteProperty</td>
+		<td>None</td>
+		<td><a href="vcProperty.htm">vcProperty</a> <span class="hcp1">property</span></td>
+		<td>Deletes a property of the step.</td>
+	</tr>
+	<tr>
+		<td>getProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String <span class="hcp1">propertyName</span></td>
+		<td>Returns a property of the step.</td>
+	</tr>
+	<tr>
+		<td>createProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>Enumeration <span class="hcp1">type</span>, 
+		 String <span class="hcp1">name</span>, [Enumeration 
+		 constraints]</td>
+		<td>Creates a new property to the step. 
+		<br>&#160; 
+		<br>See <a href="Constants.htm#Property_Constants">Property 
+		 Constraint Constants</a> for more information.</td>
+	</tr>
+</table>
+<h2>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.33%;">
+	<col style="width: 33.33%;">
+	<col style="width: 33.33%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnItemChanged</td>
+		<td><a href="vcAssemblyPatternItem.htm">vcAssemblyPatternItem</a></td>
+		<td>Triggered when the item is replaced by another.</td>
+	</tr>
+</table>
+</body>
+</html>

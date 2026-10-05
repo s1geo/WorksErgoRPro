@@ -1,0 +1,65 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="switch feature">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Switch</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body><a name="642b3b9347ca42c9b00b820c00c373fa=1"></a>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Switch</h1>
+<p>A Switch feature selects one of its child features and disables the 
+ other child features.</p>
+<p><img src="../../English/Links/SwitchFeature.png" alt="" border="0" class="hcp1"></p>
+<p>Switch operations are helpful if you need to switch out geometry or 
+ other operations based on component properties.</p>
+<p><img src="../../English/Links/SwitchExample.png" alt="" border="0" class="hcp1"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the switch.</td>
+	</tr>
+	<tr>
+		<td>Choice</td>
+		<td>Defines an expression that when evaluated selects a child feature 
+		 depending the type of the returned value.
+		<p class="TableNormal"><span class="Term">Boolean</span><br>
+		True value selects the first child. False value disables all.</p>
+		<p class="TableNormal"><span class="Term">Integer</span><br>
+		Uses a one-based index. That is, 1 selects the first child. Value 
+		 0 would not select any child feature, which in turn disables all 
+		 of them.</p>
+		<p class="TableNormal"><span class="Term">Real</span><br>
+		Uses a one-based index by rounding to the nearest integer below 
+		 its value. That is, 1.9 selects the first child. </p>
+		<p class="TableNormal"><span class="Term">String</span><br>
+		Selects the child feature, which name matches to the returned value 
+		 of the choice expression. If no feature with the same name is 
+		 found, all gets disabled.<br>
+		</p></td>
+	</tr>
+	<tr>
+		<td>Physics</td>
+		<td>Defines a set of physics properties for the feature.</td>
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,74 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="Stäubli,CS8 controller,emulator,connection">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>CS8 Connections</title>
+<link rel="StyleSheet" href="../../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>CS8/CS9 Connections</h1>
+<p>If you are using the Stäubli add-on with a real or emulated Stäubli 
+ CS8/CS9 controller, refer to the following points for guidance in technical 
+ and development matters.</p>
+<ol>
+	<li class="Ordered">Communication is handled using TCP/IP, HTTP and 
+	 SOAP protocols.</li>
+	<ul class="hcp1">
+		<li class="Unordered">The Stäubli controller implements a SOAP 
+		 web service with a HTTP endpoint.</li>
+	</ul>
+	<li class="Ordered">The Stäubli add-on can connect to a CS8/CS9 emulator 
+	 as well as a real CS8/CS9 controller.</li>
+	<ul class="hcp1">
+		<li class="Unordered">CS8 version 7.7 or higher is recommended.</li>
+		<li class="Unordered">For realistic cycle time, use SRS 2019 with 
+		 a CS8 emulator version 7.7 or higher.</li>
+		<li class="Unordered">CS8 version 7.0 or higher is required due 
+		 to usage of SOAP web service.</li>
+		<li class="Unordered">CS8/CS9 controller requires SOAP web service 
+		 version 2.1 or higher to support Virtual simulation mode.</li>
+	</ul>
+	<li class="Ordered">The Stäubli add-on uses a username and password 
+	 to connect to CS8 controllers.</li>
+	<ul class="hcp1">
+		<li class="Unordered">The default login for a CS8/CS9 controller/emulator:</li>
+		<ul class="hcp1">
+			<li class="Unordered">Username is Default</li>
+			<li class="Unordered">Password is empty string</li>
+		</ul>
+		<li class="Unordered">The <span style="font-weight: bold;">connection 
+		 password</span> for CS8 and CS9 controller/emulator is different:</li>
+		<ul class="hcp1">
+			<li class="Unordered">For CS8 is empty string</li>
+			<li class="Unordered">For CS9 is &quot;default&quot;</li>
+		</ul>
+		<li class="Unordered">Note: The default profile does not have all 
+		 permissions enabled by default, e.g., ioWriteAccess, armWriteAccess, 
+		 and 123KeysControl are false. To exchange IOs and use values to 
+		 grasp and release, both ioWriteAccess and 123KeysControl need 
+		 to be set to true. armWriteAccess must be enabled for the add-on 
+		 to work, e.g., to update axis values in the controller when jogging 
+		 robot in 3D world.</li>
+	</ul>
+	<li class="Ordered">The default port for connecting CS8/CS9 version 
+	 7 emulators is 5653. The add-on uses SOAP port for the connection, 
+	 which default is 851.</li>
+	<li class="Ordered">The Stäubli add-on uses hardcoded settings for 
+	 the WCF SOAP client.</li>
+	<li class="Ordered">Before connecting a CS8-CS9 controller, review 
+	 the steps in <a href="Getting_Started.htm">Getting Started</a>.</li>
+</ol>
+</body>
+</html>

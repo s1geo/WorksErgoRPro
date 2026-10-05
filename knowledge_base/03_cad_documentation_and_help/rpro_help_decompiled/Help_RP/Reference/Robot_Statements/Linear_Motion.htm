@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Linear Motion</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content="linear motion,robot statement">
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"><LINK rel=StyleSheet 
+type=text/css href="../../default.css">
+<STYLE title=hcp type=text/css>
+<!--
+img.hcp1 { border:none; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../ehlpdhtm.js"></SCRIPT>
+
+<H1>Linear Motion</H1>
+<P>A Linear Motion statement is a motion in which a robot uses its current 
+configuration to reach a position in the shortest distance possible.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../English/Links/LinearMotionStatement.png" width=761 height=627></P>
+<P><SPAN class=Example>Example. Linear motion of robot from P1 to P2</SPAN></P>
+<P><IMG src="dsjfbj3.png"></P>
+<H2>Properties</H2>
+<H3>Position</H3>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Position</TD>
+    <TD>Defines the position matrix using XYZ coordinates and Rx,Ry and Rz 
+      rotational values.</TD></TR>
+  <TR>
+    <TD>Name</TD>
+    <TD>Defines the name of position.</TD></TR></TBODY></TABLE>
+<H3>Statement</H3>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Base</TD>
+    <TD>Defines the base frame used by robot for the statement.</TD></TR>
+  <TR>
+    <TD>Tool</TD>
+    <TD>Defines the tool frame used by robot for the statement.</TD></TR>
+  <TR>
+    <TD>ExternalTCP</TD>
+    <TD>Defines the interpolation mode for position. 
+      <P class=TableNormal><SPAN class=Term>False</SPAN> uses Base to Tool 
+      interpolation.</P>
+      <P class=TableNormal><SPAN class=Term>True</SPAN> uses Tool to Base 
+      interpolation.</P></TD></TR>
+  <TR>
+    <TD>MaxSpeed</TD>
+    <TD>Defines the maximum Cartesian speed (units/s) used to calculate 
+      position trajectory.</TD></TR>
+  <TR>
+    <TD>Acceleration</TD>
+    <TD>Defines the maximum Cartesian acceleration of motion (units/s^2) used 
+      to calculate position trajectory.</TD></TR>
+  <TR>
+    <TD>CycleTime</TD>
+    <TD>Defines the total elapsed time for motion, beginning to end. 
+      <P class=TableNormal>A zero value means robot ignores cycle time.</P>
+      <P class=TableNormal>A value greater than zero means robot overrides speed 
+      settings to scale motion to cycle time. For example, a cycle time of 5 
+      seconds means a motion that might otherwise take 2 seconds will now take 5 
+      seconds.</P></TD></TR>
+  <TR>
+    <TD>Deceleration</TD>
+    <TD>Defines the maximum Cartesian deceleration of motion (units/s^2) used 
+      to calculate position trajectory.</TD></TR>
+  <TR>
+    <TD>AccuracyMethod</TD>
+    <TD>Defines the zone of accuracy type to use for the position.</TD></TR>
+  <TR>
+    <TD>AccuracyValue</TD>
+    <TD>Defines the limit used in AccuracyMethod.</TD></TR>
+  <TR>
+    <TD>OrientationInterpolationMode</TD>
+    <TD>Defines the orientation interpolation mode for linear movement. 
+      <P class=TableNormal><SPAN class=Term>One Axis</SPAN> uses an axis with 
+      the smallest angle of rotation to Tool. This is the default mode for 
+      Linear Motion statements.</P>
+      <P class=TableNormal><SPAN class=Term>Two Axis</SPAN> selects either the 
+      X, Y or Z axis and its direction at Tool. The angle of rotation for the 
+      selected axis is applied first, and then other rotations are based around 
+      that axis.</P>
+      <P class=TableNormal><SPAN class=Term>Three Axis</SPAN> interpolates 
+      either the WPR (Yaw, Pitch, and Roll) or ZYZ (Euler angles) for a target 
+      and calculates a sequence of rotations.</P>
+      <P class=TableNormal><SPAN class=Term>Wrist</SPAN> interpolates the robot 
+      wrist joints to minimize their movement.</P>
+      <P class=TableNormal>This example shows a limitation of One Axis in which 
+      a collision occurs.</P>
+      <P class=TableNormal><IMG class=hcp1 border=0 alt="" 
+      src="../../English/Links/OneAxisCollisionSmall.gif"></P>
+      <P class=TableNormal>This example avoids collision by using Two Axis 
+Z.</P>
+      <P class=TableNormal><IMG class=hcp1 border=0 alt="" 
+      src="../../English/Links/TwoAxisZSmall.gif"></P>
+      <P class=TableNormal>See <A href="#orientationMode">Technical Notes</A> 
+      for more information on how tool rotation is calculated and applied for 
+      linear motions.</P></TD></TR>
+  <TR>
+    <TD>ConfigurationMode</TD>
+    <TD>Defines the configuration mode for joints driven by robot controller 
+      during linear motion interpolation. 
+      <P class=TableNormal><SPAN class=Term>Fixed</SPAN> uses the current 
+      configuration of robot.</P>
+      <P class=TableNormal><SPAN class=Term>Follow frame</SPAN> uses 
+      configuration closest to previous joint values of robot, so robot will try 
+      to maintain current configuration with some small changes.</P>
+      <P class=TableNormal><SPAN class=Term>Interpolate joint values</SPAN> uses 
+      a configuration determined by point-to-point interpolation of joint 
+      values.</P></TD></TR>
+  <TR>
+    <TD>MaxAngularSpeed</TD>
+    <TD>Defines the maximum angular speed (units/s) that is used to calculate 
+      position trajectory.</TD></TR>
+  <TR>
+    <TD>AngularAcceleration</TD>
+    <TD>Defines the maximum angular acceleration of motion (units/s^2) that is 
+      used to calculate position trajectory.</TD></TR>
+  <TR>
+    <TD>AngularDeceleration</TD>
+    <TD>Defines the maximum angular deceleration of motion (units/s^2) that is 
+      used to calculate position trajectory.</TD></TR></TBODY></TABLE>
+<P id=orientationMode><SPAN class=Strong><A name=orientationMode></A>Technical 
+Notes:</SPAN></P>
+<UL style="LIST-STYLE-TYPE: disc">
+  <LI class=Unordered>One Axis mode for orientation interpolation is the same as 
+  quaternion SLERP. It computes an axis of shortest rotation, assuming X-axis if 
+  the rotation is 180 degrees. 
+  <LI class=Unordered>Two Axis mode for orientation interpolation projects the 
+  rotation on the selected axis first, and then subtracts that rotation from the 
+  total rotation, and then computes a quaternion SLERP rotation on the remaining 
+  rotation. This produces a motion that minimizes the rotation of the selected 
+  axis which is useful for robots with axial tools such as weld guns, routers, 
+  etc. The rotations around the selected axis and the computed axis are 
+  interpolated independently. 
+  <LI class=Unordered>Three Axis mode for orientation interpolation decomposes 
+  the rotation into either its yaw-pitch-roll angler or Euler angles, and 
+  interpolates each angle independently. 
+  <LI class=Unordered>Wrist mode for orientation interpolation instructs the 
+  robot to do a joint interpolation of the robot wrist joints, and then adjusts 
+  the major axes of the robot so that the frame position follows a linear path. 
+  This mode minimizes the travel for the robot wrist joints, but the motion is 
+  different depending on the shape and size of the robot. 
+  <LI class=Unordered>
+  <P class=TableNormal>If the orientation interpolation mode is not Wrist mode, 
+  there is also an acceleration/deceleration profile which is calculated based 
+  on the MaxAngularSpeed, AngularAcceleration, and AngularDeceleration values. 
+  In multi-axis rotations, this is based on the rotation axis with the longest 
+  rotation. i.e. over the largest angle. In Wrist mode, the wrist joint 
+  acceleration/deceleration parameters determine the orientation interpolation 
+  acceleration/deceleration profile, thereby it does not use MaxAngularSpeed, 
+  AngularAcceleration, AngularDeceleration values. The orientation interpolation 
+  acceleration/deceleration profile is then synchronized with the position 
+  acceleration/deceleration profile as well as any external joint 
+  acceleration/deceleration profiles on the principle that all profiles are 
+  adjusted to the slowest profile so that the acceleration/drive/deceleration 
+  times are identical in order to produce the final 
+motion.</P></LI></UL></BODY></HTML>

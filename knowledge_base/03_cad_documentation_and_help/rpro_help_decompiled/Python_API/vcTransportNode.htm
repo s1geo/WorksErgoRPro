@@ -1,0 +1,313 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcTransportNode</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+a.hcp2 { font-style:normal; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcTransportNode </h1>
+<p>Defines a logical place where product instances can be transported to 
+ and from. Each transport node has to be assigned a component container, 
+ but can also be connected to a <a href="vcMotionPath.htm">vcMotionPath</a> 
+ as a sensor. When connected as a sensor, the node will grab arriving products 
+ from the path to its component container and can similarly place leaving 
+ components to the connected path.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<p>Type constant: VC_<span style="font-size: 11.0pt; line-height: 107%; 
+							 font-family: Calibri, sans-serif; mso-ascii-theme-font: minor-latin; 
+							 mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; 
+							 mso-hansi-theme-font: minor-latin; mso-bidi-font-family: 'Times New Roman'; 
+							 mso-bidi-theme-font: minor-bidi; mso-ansi-language: EN-US; 
+							 mso-fareast-language: EN-US; mso-bidi-language: AR-SA;">TRANSPORTNODE</span> 
+ </p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot29383" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot29383', 'MTPOPUP29383');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP29383" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<p>&#160;</p>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>TransportSystem </td>
+		<td><a href="vcTransportSystem.htm">vcTransportSystem</a> </td>
+		<td>R</td>
+		<td>The associated transport system.</td>
+	</tr>
+	<tr>
+		<td>TransportLinks </td>
+		<td>List of <a href="vcTransportLink.htm">vcTransportLink</a></td>
+		<td>R</td>
+		<td>The transportLinks coming into, and going out from, this node.</td>
+	</tr>
+	<tr>
+		<td>ProcessExecutor </td>
+		<td><a href="vcProcessExecutor.htm">vcProcessExecutor</a> </td>
+		<td>R</td>
+		<td><p>The associated process executor.</p>
+		<p>This property is read only; it’s value can be changed by setting 
+		 the TransportNode property on a ProcessExecutor.</p>
+		<p><span style="font-weight: bold;">(Deprecated)</span> Should 
+		 not assume 1 to 1 mapping between process executors and transport 
+		 nodes and thus this property may get removed.</p></td>
+	</tr>
+	<tr>
+		<td>ComponentContainer </td>
+		<td><a href="vcContainer.htm">vcContainer</a> </td>
+		<td>RW</td>
+		<td><p>The component container this node monitors for arriving 
+		 products.</p>
+		<p>Using other than <a href="vcContainer.htm">vcComponentContainer</a> 
+		 may cause issues.</p></td>
+	</tr>
+	<tr>
+		<td>VisualPositionFrame </td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a> </td>
+		<td>RW</td>
+		<td>Defines visualization position of the node. The frame feature 
+		 must be in the same component as this transport node behavior.</td>
+	</tr>
+	<tr>
+		<td>VisualPosition </td>
+		<td><a href="vcMatrix.htm">vcMatrix</a> </td>
+		<td>R</td>
+		<td>Visualization position of this node in world coordinates.</td>
+	</tr>
+	<tr>
+		<td>DefaultProductPositionFrame </td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td>The default position for products.</td>
+	</tr>
+	<tr>
+		<td>DefaultResourcePositionFrame </td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td>The default position for resources.</td>
+	</tr>
+	<tr>
+		<td>Frame </td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td><p>Only used when connected to a path as sensor.</p>
+		<p>Defines the Frame feature referenced as the sensor's physical 
+		 location.</p></td>
+	</tr>
+	<tr>
+		<td>ResetAt </td>
+		<td>Enumeration integer </td>
+		<td>RW</td>
+		<td><p>Only used when connected to a path as sensor.</p>
+		<p>Defines the mode for resetting the sensor. </p>
+		<p>See Path Constants for more information.</p></td>
+	</tr>
+	<tr>
+		<td>TriggerAt </td>
+		<td>Enumeration integer </td>
+		<td>RW</td>
+		<td><p>Only used when connected to a path as sensor.</p>
+		<p>Defines the mode for triggering the sensor. </p>
+		<p>See Path Constants for more information.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createTransportTarget </td>
+		<td><a href="vcTransportTarget.htm">vcTransportTarget</a> </td>
+		<td><a href="vcProduct.htm">vcProduct</a> <span class="hcp1">product</span> 
+		 </td>
+		<td><p>Creates a new transport target object for this node and 
+		 assigns it for the given <span class="hcp1">product</span> 
+		 instance.</p>
+		<p>The target is created with the default values of this transport 
+		 node.</p>
+		<p>Replaces any existing transport target assigned to the given 
+		 <span class="hcp1">product</span> in this node.</p>
+		<p>Note that the node automatically deletes any transport targets 
+		 when they are no longer needed.</p></td>
+	</tr>
+	<tr>
+		<td>getTransportTarget </td>
+		<td><a href="vcTransportTarget.htm">vcTransportTarget</a></td>
+		<td><span class="hcp1"><a href="vcProduct.htm" class="hcp2">vcProduct</a> 
+		 </span><span class="hcp1">product</span> </td>
+		<td><p class="TableNormal">Gets transport target in this node assigned 
+		 for a given <span class="hcp1">product</span> instance.</p>
+		<p class="TableNormal">Returns None if a target is not defined.</p>
+		<p class="TableNormal">Note that the node automatically deletes 
+		 any transport targets when they are no longer needed.</p></td>
+	</tr>
+	<tr>
+		<td>deleteTransportTarget </td>
+		<td>None </td>
+		<td><a href="vcProduct.htm">vcProduct</a> <span class="hcp1">product</span> 
+		 </td>
+		<td><p>Deletes a transport target assigned for a given product 
+		 instance.</p>
+		<p>Note that the default transport target is used if a <span class="hcp1">product</span> 
+		 instance doesn’t have a specific target defined.</p></td>
+	</tr>
+	<tr>
+		<td>beginTransportOut </td>
+		<td>None</td>
+		<td><a href="vcProduct.htm">vcProduct</a> <span class="hcp1">product</span> 
+		 </td>
+		<td><p>Begin the process of transporting the given <span class="hcp1">product</span> 
+		 through its transport solution.</p>
+		<p>Note that transport is asynchronous i.e. the <span class="hcp1">product</span> 
+		 won’t leave immediately.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnProductArriving </td>
+		<td><span><a href="vcProduct.htm" class="hcp2">vcProduct</a></span><span class="hcp1"> product</span>, <a href="vcTransportLink.htm">vcTransportLink</a> 
+		 <span class="hcp1">link</span>, <a href="vcEventReturnData.htm">vcEventReturnData</a> 
+		 <span class="hcp1">eventData</span> </td>
+		<td><p>This event is raised when a <span class="hcp1">product</span> 
+		 instance arrives to this node.</p>
+		<p><span class="hcp1">Link</span> is the link that 
+		 the <span class="hcp1">product</span> arrived to 
+		 this node from.</p>
+		<p>The listener should check that eventData.Handled is False before 
+		 performing any operations on this <span class="hcp1">product</span>, 
+		 and should set eventData.Handled to True (it was False originally) 
+		 if the listener accepted this <span class="hcp1">product</span> 
+		 and handled it.</p>
+		<p>If no Python listeners set Handled to True, the product will 
+		 be handled by internal logic, which includes allowing process 
+		 statements to receive it.</p></td>
+	</tr>
+	<tr>
+		<td>OnProductLeaving </td>
+		<td><a href="vcProduct.htm">vcProduct</a> <span class="hcp1">product</span>, 
+		 <a href="vcTransportLink.htm">vcTransportLink</a> <span class="hcp1">link</span> 
+		 </td>
+		<td><p>This event is raised when the <span class="hcp1">product</span> 
+		 leaves in this transport node.</p>
+		<p><span class="hcp1">Link</span> is the link that 
+		 the <span class="hcp1">product</span> left towards 
+		 and can be None if the product doesn’t have a transport solution 
+		 or the solution doesn’t have a transport link going out from this 
+		 transport node.</p></td>
+	</tr>
+	<tr>
+		<td>OnTransportTargetRequested</td>
+		<td><a 
+		 href="vcProduct.htm">vcProduct</a> <span class="hcp1">product</span>, 
+		 <a href="vcTransportTarget.htm">vcTransportTarget</a> 
+		 <span class="hcp1">target</span> </td>
+		<td>This event is raised when a 
+		 transport <i>target</i> is requested for the <span class="hcp1">product</span>. 
+		 In practice, this happens each time that a transport controller 
+		 or resource is transporting a product instance and needs a target 
+		 for the product instance. 
+		<br>&#160; 
+		<br>See an example below.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p class="Example"><span class="Example">Example. Change machine's material 
+ to red when it gets a product.</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td># When product leaves change material back to white. 
+		<br>from vcScript import * 
+		<br>app = getApplication() 
+		<br>mat_red = app.findMaterial('red') 
+		<br>mat_white = app.findMaterial('white') 
+		<br>comp = getComponent() 
+		<br>process = comp.findBehavioursByType(VC_PROCESSEXECUTOR)[0] 
+		<br>tnode = process.TransportNode 
+		<br>def OnReset(): 
+		<br>&#160;&#160;comp.Material = mat_white 
+		<br>def product_in(product, link, event_data): 
+		<br>&#160;&#160;comp.Material = mat_red 
+		<br>def product_out(product, link): 
+		<br>&#160;&#160;comp.Material = mat_white 
+		<br>tnode.OnProductArriving = product_in 
+		<br>tnode.OnProductLeaving = product_out</td>
+	</tr>
+</table>
+<p class="Example"><span class="Example">Example. Assign new target location 
+ for the requested product.</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * <br>
+		<br>
+		comp = getComponent() <br>
+		tnode = comp.findBehavioursByType(VC_TRANSPORTNODE)[0] <br>
+		bModifyTarget = False <br>
+		<br>
+		def targetRequested(product, target):<br>
+		&#160;global bModifyTarget<br>
+		&#160;print &quot;targetRequested&quot;<br>
+		&#160;prodPosM = target.ProductPosition<br>
+		&#160;prodPos = prodPosM.P<br>
+		&#160;print &quot;original target: {:.1f} {:.1f} {:.1f}&quot;.format(prodPos.X, prodPos.Y, prodPos.Z)<br>
+		&#160;if bModifyTarget:<br>
+		&#160;&#160;prodPosM.translateRel(0, 0, 500)<br>
+		&#160;&#160;target.ProductPosition = prodPosM<br>
+		&#160;&#160;print &quot;new target: {:.1f} {:.1f} {:.1f}&quot;.format(prodPosM.P.X, prodPosM.P.Y, prodPosM.P.Z)<br>
+		&#160;bModifyTarget = not bModifyTarget<br>
+		<br>
+		tnode.OnTransportTargetRequested = targetRequested</td>
+	</tr>
+</table>
+</body>
+</html>

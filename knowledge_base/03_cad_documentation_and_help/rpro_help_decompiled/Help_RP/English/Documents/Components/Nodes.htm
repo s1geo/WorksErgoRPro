@@ -1,0 +1,274 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="node,component">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Nodes</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../../ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Nodes</h1>
+<p>Data in a component is organized in a tree structure consisting of nodes. 
+ The root node of a component represents the entire component. For example, 
+ the origin of a component's coordinate system is its root node.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot51640" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot51640', 'MTPOPUP51640');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP51640" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Hierarchy</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Common Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Joint Properties</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Hierarchy</h2>
+<p>Simple components may have one node, whereas components with movable 
+ parts would require two or more nodes. For example, an articulated robot 
+ is a series of nodes linked together to form a kinematic chain for motion 
+ targeting.</p>
+<p>In terms of node hierarchy:</p>
+<ul style="list-style: disc;">
+	<li class="Unordered"><span class="Strong">P</span><span class="Strong">arent</span> 
+	 is a node above another node.</li>
+	<li class="Unordered"><span class="Strong">Child</span> is a node below 
+	 another node.</li>
+	<li class="Unordered"><span class="Strong">Sibling</span> is a node 
+	 that is either before or after another node that belong to the same 
+	 parent.</li>
+</ul>
+<p>In most cases, a component's root node is a child of the 3D world. That 
+ is, a component is attached to the 3D world (simulation root node). In 
+ some cases, components are attached to nodes in other components. That 
+ allows components to move together, for example a tool mounted on the 
+ end of a robot's arm.</p>
+<p>Some components that perform tasks during a simulation may have temporary 
+ nodes in order to contain and transport other components.</p>
+<h2><a name="MiniTOCBookMark3"></a>Common Properties</h2>
+<p>With the exception of root nodes, 
+ every node/link has the same set of common properties.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of node.</td>
+	</tr>
+	<tr>
+		<td>Offset</td>
+		<td>Defines the position (XYZ coordinates) and orientation (RxRyRz 
+		 degrees of rotation) of node offset from its parent.</td>
+	</tr>
+	<tr>
+		<td>Type</td>
+		<td>Defines the joint type of node. 
+		<p class="TableNormal"><span class="Term">Fixed</span><br>
+		 Joint is fixed and constrained to its offset.</p>
+		<p class="TableNormal"><span class="Term">Rotational</span><br>
+		 Joint can be rotated along a defined axis.</p>
+		<p class="TableNormal"><span class="Term">Translational</span><br>
+		 Joint can be translated along a defined axis.</p>
+		<p class="TableNormal"><span class="Term">Rotational Follower</span><br>
+		 Joint can be rotated around a defined axis based on the value 
+		 of another joint.</p>
+		<p class="TableNormal"><span class="Term">Translational Follower</span><br>
+		 Joint can be translated around a defined axis based on the value 
+		 of another joint.</p>
+		<p class="TableNormal"><span class="Term">Custom</span><br>
+		 Joint can be defined to translate or rotated around a defined 
+		 axis.</p></td>
+	</tr>
+	<tr>
+		<td>Axis</td>
+		<td>If joint type is not fixed or custom, defines the axis of joint.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Joint Properties</h2>
+<p>The amount of additional properties 
+ in a node is based on its joint type and the assignment of that joint 
+ to a controller.</p>
+<h3><a name="MiniTOCBookMark5"></a>Fixed</h3>
+<p>No additional properties.</p>
+<h3><a name="MiniTOCBookMark6"></a>Rotational</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of joint. 
+		<p class="TableNormal"><span class="Strong">Tip:</span> The name 
+		 of a joint can be used in an expression to reference its value.</p></td>
+	</tr>
+	<tr>
+		<td>Controller</td>
+		<td>Assigns joint to a new or existing controller type behavior 
+		 in node.</td>
+	</tr>
+	<tr>
+		<td>Initial Value</td>
+		<td>Defines the default value of joint.</td>
+	</tr>
+	<tr>
+		<td>Value</td>
+		<td>Defines the current value of joint. 
+		<p class="TableNormal"><span class="Strong">Tip:</span> The value 
+		 of a joint can be used in an expression to reference its value 
+		 using the keyword <span class="Term">VALUE</span>.</p></td>
+	</tr>
+	<tr>
+		<td>Value Expression</td>
+		<td>Defines an expression for manipulating the value of joint.</td>
+	</tr>
+	<tr>
+		<td>Min Limit</td>
+		<td>Defines the minimum value of joint.</td>
+	</tr>
+	<tr>
+		<td>Max Limit</td>
+		<td>Defines the maximum value of joint.</td>
+	</tr>
+	<tr>
+		<td>MaxSpeed</td>
+		<td>If joint is assigned to controller, defines the maximum speed 
+		 of joint.</td>
+	</tr>
+	<tr>
+		<td>MaxAcceleration</td>
+		<td>If joint is assigned to controller, defines the maximum acceleration 
+		 of joint.</td>
+	</tr>
+	<tr>
+		<td>MaxDeceleration</td>
+		<td>If joint is assigned to controller, defines the maximum deceleration 
+		 of joint.</td>
+	</tr>
+	<tr>
+		<td>LagTime</td>
+		<td>If joint is assigned to controller, defines the time lag of 
+		 joint.</td>
+	</tr>
+	<tr>
+		<td>SettleTime</td>
+		<td>If joint is assigned to controller, defines the settling time 
+		 of joint.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark7"></a>Translational</h3>
+<p>Same properties as Rotational.</p>
+<h3><a name="MiniTOCBookMark8"></a>Rotational Follower</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of joint. 
+		<p class="TableNormal"><span class="Strong">Tip:</span> The name 
+		 of a joint can be used in an expression to reference its value.</p></td>
+	</tr>
+	<tr>
+		<td>Driver</td>
+		<td>Defines another joint that is followed by the joint.</td>
+	</tr>
+	<tr>
+		<td>Value Expression</td>
+		<td>Defines an expression for manipulating the value of joint.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark9"></a>Translational Follower</h3>
+<p>Same properties as Rotational 
+ Follower.</p>
+<h3><a name="MiniTOCBookMark10"></a>Custom</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of joint. 
+		<p class="TableNormal"><span class="Strong">Tip:</span> The name 
+		 of a joint can be used in an expression to reference its value.</p></td>
+	</tr>
+	<tr>
+		<td>Controller</td>
+		<td>Assigns joint to a new or existing controller type behavior 
+		 in node.</td>
+	</tr>
+	<tr>
+		<td>Initial Value</td>
+		<td>Defines the default value of joint.</td>
+	</tr>
+	<tr>
+		<td>Value</td>
+		<td>Defines the current value of joint. 
+		<p class="TableNormal"><span class="Strong">Tip:</span> The value 
+		 of a joint can be used in an expression to reference its value 
+		 using the keyword <span class="Term">VALUE</span>.</p></td>
+	</tr>
+	<tr>
+		<td>Joint</td>
+		<td>Defines an expression for manipulating joint offset.</td>
+	</tr>
+	<tr>
+		<td>Pivot</td>
+		<td>Defines an expression for manipulating pivot point of joint.</td>
+	</tr>
+	<tr>
+		<td>Min Limit</td>
+		<td>Defines the minimum value of joint.</td>
+	</tr>
+	<tr>
+		<td>Max Limit</td>
+		<td>Defines the maximum value of joint.</td>
+	</tr>
+	<tr>
+		<td>MaxSpeed</td>
+		<td>If joint is assigned to controller, defines the maximum speed 
+		 of joint.</td>
+	</tr>
+	<tr>
+		<td>MaxAcceleration</td>
+		<td>If joint is assigned to controller, defines the maximum acceleration 
+		 of joint.</td>
+	</tr>
+	<tr>
+		<td>MaxDeceleration</td>
+		<td>If joint is assigned to controller, defines the maximum deceleration 
+		 of joint.</td>
+	</tr>
+	<tr>
+		<td>LagTime</td>
+		<td>If joint is assigned to controller, defines the time lag of 
+		 joint.</td>
+	</tr>
+	<tr>
+		<td>SettleTime</td>
+		<td>If joint is assigned to controller, defines the settling time 
+		 of joint.</td>
+	</tr>
+</table>
+</body>
+</html>

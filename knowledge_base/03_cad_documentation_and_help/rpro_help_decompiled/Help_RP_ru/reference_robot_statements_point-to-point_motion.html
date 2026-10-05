@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Движение от точки к точке</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Оператор Движение от точки к точке — это движение, при котором робот интерполирует свои совместные значения для достижения положения." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Движение от точки к точке</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Оператор Движение от точки к точке — это движение, при котором робот интерполирует свои совместные значения для достижения положения.</p>
+<p class="p_Normal"><img alt="ClipboardImg294" style="margin:0;width:8.6563in;height:5.7188in;border:none" src="clipboardimg294.png"/></p>
+<p class="p_Normal"><span style="font-weight: bold;">Пример. Пошаговое перемещение робота из точки P1 в точку P2.</span></p>
+<p class="p_Normal"><img alt="PointToPointMotionExample" style="margin:0;width:4.3229in;height:4.3021in;border:none" src="pointtopointmotionexample.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Позиция</span></h3>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8854in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5313in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Позиция</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет матрицу положения, используя координаты XYZ и значения вращения Rx, Ry и Rz.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет название позиции.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Конфигурация</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет конфигурацию робота в позиции.</p>
+<p class="p_Normal">Названия конфигураций определяются кинематическим поведением робота и могут зависеть от производителя.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Statement</span></h3>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8854in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5313in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Base</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет базу, используемый роботом для оператора.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Tool</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет систему координат инструмента, используемую роботом для оператора.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ExternalTCP</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет режим интерполяции для положения.</p>
+<p class="p_Normal">False использует интерполяцию Base to Tool.</p>
+<p class="p_Normal">True использует интерполяцию Tool to Base.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">CycleTime</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет общее время, прошедшее для движения, от начала до конца.</p>
+<p class="p_Normal">Нулевое значение означает, что робот игнорирует время цикла.</p>
+<p class="p_Normal">Значение больше нуля означает, что робот отменяет настройки скорости, чтобы масштабировать движение по времени цикла. Например, время цикла 5 секунд означает, что движение, которое в противном случае могло бы занять 2 секунды, теперь будет выполняться 5 секунд.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">JointSpeed</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет максимальную скорость для соединений, приводимых в действие контроллером робота, в процентах от номинальной скорости соединения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">JointForce</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет процент значений ускорения и замедления соединения для использования в операторе.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">AccuracyMethod</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет метод типа точности, используемую для положения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">AccuracyValue</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет предел, используемый в AccuracyMethod.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

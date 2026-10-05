@@ -1,0 +1,36 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="collision,physics,collider">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Collisions in physics world</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Collisions in Physics World</h1>
+<p>A collision can occur between any physical object that has a collider and a Physics Entity behavior. The properties of a Physics Entity behavior can be used to include/exclude a node from colliding with other nodes in the physics world.</p>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Collision Group</td>
+<td>Defines which group the entity belongs to in the physics world.
+<p class="TableNormal">This affects all colliders in the node containing the entity.</p>
+<p class="TableNormal">Colliders in the same group will collide with one another, whereas colliders in a different group will not collide in the physics world. For example, colliders in the same Controller Group can be made to pass through one another and ignore the physical effects they might exert on one another.</p>
+<p class="TableNormal">For example, you might want a worker to operate a vehicle without simulating a collision between those two objects. In that case, the physics of the worker and vehicle can coexist but ignore collisions with one another in order for the actions in the simulation world to be completed.</p>
+</td>
+</tr>
+</table>
+</body>
+</html>

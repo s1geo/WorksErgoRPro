@@ -1,0 +1,120 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcPathObjectNode</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+p.hcp1 { margin-left:80px; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<p id="warning"><span class="Strong">(Deprecated)</span></p>
+<h1><a name="MiniTOCBookMark1"></a>vcPathObjectNode</h1>
+<p>vcPathObjectNode is the basic implementation for path object nodes.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot38817" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot38817', 'MTPOPUP38817');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP38817" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Hierarchy</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Hierarchy</h2>
+<p style="margin-left: 40px;"><a href="vcPathObjectNode.htm">vcPathObjectNode</a></p>
+<p class="hcp1"><a href="vcPathObjectActionNode.htm">vcPathObjectActionNode</a></p>
+<p class="hcp1"><a href="vcPathObjectMotionNode.htm">vcPathObjectMotionNode</a></p>
+<p class="hcp1"><a href="vcPathObjectParameterNode.htm">vcPathObjectParameterNode</a></p>
+<p class="hcp1"><a href="vcPathObjectReferenceNode.htm">vcPathObjectReferenceNode</a></p>
+<h2><a name="MiniTOCBookMark3"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of node.</td>
+	</tr>
+	<tr>
+		<td>PathObject</td>
+		<td><a href="vcPathObject.htm">vcPathObject</a></td>
+		<td>R</td>
+		<td>Gets the path object container of the node.</td>
+	</tr>
+	<tr>
+		<td>Properties</td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td>Gets a list of all properties of the node.</td>
+	</tr>
+	<tr>
+		<td>Type</td>
+		<td>Enumeration integer</td>
+		<td>R</td>
+		<td>Gets the node type. 
+		<p class="TableNormal">See <a href="Constants.htm#Path_Object_Constants">Path 
+		 Object Constants</a> for more information.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>Enumeration <span class="Italic">type</span>, String <span 
+		 class="Italic">name</span>, [Enumeration <span class="Italic">constraints</span>]</td>
+		<td>Adds a new property of a given <span class="Italic">type</span> 
+		 and <span class="Italic">name</span> to the node. 
+		<p class="TableNormal">An optional <span class="Italic">constraints</span> 
+		 argument can be given to define the new property's constraints, 
+		 which must be done at the time of creation.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Property_Constants">Property 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>deleteProperty</td>
+		<td>None</td>
+		<td><a href="vcProperty.htm">vcProperty</a> <span class="Italic">property</span></td>
+		<td>Deletes a given <span class="Italic">property</span> from node.</td>
+	</tr>
+	<tr>
+		<td>getProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Returns the first property matching a given <span class="Italic">name</span> 
+		 in the node; otherwise returns None.</td>
+	</tr>
+</table>
+</body>
+</html>

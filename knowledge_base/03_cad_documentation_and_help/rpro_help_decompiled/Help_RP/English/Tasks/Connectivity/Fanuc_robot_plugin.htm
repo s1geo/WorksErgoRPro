@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Connecting to a Fanuc robot controller</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content="fanuc, plugin, connectivity, controller">
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css">
+<STYLE title=hcp type=text/css>
+<!--
+span.hcp1 { font-weight:bold; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+
+<H1>Connecting to a Fanuc robot controller</H1>
+<H2>1. About the plugin</H2>
+<P>The Fanuc Robot plugin allows you to connect to a Fanuc robot controller 
+during simulation and exchange data. For example, a program running in a virtual 
+or physical Fanuc controller can drive the joints of a Fanuc robot in a 
+simulation, read data from sensors, and set outputs for picking and placing 
+products. </P>
+<P>The plugin is associated with the Connectivity feature of R-Pro 2.1, and it 
+can connect to one or more Fanuc robot controllers. The simplified workflow is 
+the following:</P>
+<OL>
+  <LI class=Ordered>Add server 
+  <LI class=Ordered>Connect to the server 
+  <LI class=Ordered>Map variables 
+  <LI class=Ordered>Run the simulation </LI></OL>
+<H2>2. Read and Write Support</H2>
+<H3>Read and Write table</H3>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 40%">
+  <COL style="WIDTH: 5%">
+  <COL style="WIDTH: 5%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Type</TD>
+    <TD>Read</TD>
+    <TD>Write</TD>
+    <TD>Notes</TD></TR>
+  <TR>
+    <TD>Robot controller digital and analog inputs and outputs </TD>
+    <TD>
+      <P>Yes</P></TD>
+    <TD>Yes</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>Robot arm digital inputs and outputs</TD>
+    <TD>
+      <P>Yes</P></TD>
+    <TD>Yes</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>System variables of basic types (boolean, integer, real, string)</TD>
+    <TD>
+      <P>Yes</P></TD>
+    <TD>Yes</TD>
+    <TD>
+      <P>The value range is constrained. Aso, the string length is constrained 
+      by the max length of a system variable</P></TD></TR>
+  <TR>
+    <TD>Current joint values from any <SPAN>motion group</SPAN></TD>
+    <TD>
+      <P>Yes</P></TD>
+    <TD>No</TD>
+    <TD>&nbsp;</TD></TR></TBODY></TABLE><BR>
+<H3>Paired variables in<SPAN class=hcp1> Simulation to Server</SPAN> 
+direction:</H3>
+<P>When digital or analog inputs and outputs (IOs) are paired, those paired IOs 
+are automatically set to <SPAN class=hcp1>simulated</SPAN> mode on the robot 
+controller. </P>
+<UL class=hcp1>
+  <LI class=Unordered style="FONT-WEIGHT: normal"><SPAN>The values written 
+  through the API are now applied and visible to the robot programs </SPAN>
+  <LI class=Unordered style="FONT-WEIGHT: normal"><SPAN>Event-based update mode 
+  is recommended</SPAN> 
+  <LI class=Unordered><SPAN>The IOs are not automatically reset to the initial 
+  state before simulation runs, and user needs to do that from the teach pendant 
+  </SPAN>
+  <LI class=Unordered><SPAN>Roboguide has a user interface for viewing and 
+  setting IO values. This doesn't work with IOs in </SPAN><SPAN 
+  class=hcp1>simulated </SPAN><SPAN>mode, but the teach pendant can show and set 
+  the state of simulated IOs. </SPAN></LI></UL><BR>
+<H3>Paired variables in<SPAN class=hcp1> Server to Simulation</SPAN> 
+direction:</H3>
+<P>Only cyclic updates are supported. If the server to simulation transmit 
+direction is set to Event-based mode, you will receive the connectivity error 
+message in the Output panel. </P>
+<P>The cyclic reading and writing are optimized by using the Scattered Access 
+feature of the FANUC API/PC DK. </P>
+<UL class=hcp1>
+  <LI class=Unordered style="FONT-WEIGHT: normal"><SPAN>Automatically reads and 
+  writes as many variables as possible while using a single request</SPAN> 
+</LI></UL><BR>
+<P>The plugin uses one communication thread per variable group for lower 
+latency. Note that if the same variable is paired to more than one variable, the 
+variable might change multiple times or be lost. This is because the updates 
+might overlap or undo the change done by another update. </P>
+<P>The communication speed with a local virtual robot controller (the Fanuc 
+robot server) is rather efficient. However, the speed might vary based on the 
+simulation load and the robot controller.</P>
+<H2>3. Requirements</H2>
+<P>The connection requires R-Pro 2.1 and Fanuc Robot Server software to be 
+installed on the same machine. See the following options: </P>
+<P><SPAN class=hcp1>Option 1</SPAN> - R-Pro 2.1 Premium + Fanuc PC DK: </P>
+<UL class=hcp1>
+  <LI class=Unordered style="FONT-WEIGHT: normal"><SPAN>PC DK option 
+  #A08B-9410-J535 (Fanuc Robot PC Developer’s Kit) </SPAN>
+  <LI class=Unordered><SPAN>PC DK includes Fanuc Robot Server 
+</SPAN></LI></UL><BR>
+<P><SPAN class=hcp1>Option 2</SPAN> - R-Pro 2.1 Premium + Fanuc Robot Server: 
+</P>
+<UL class=hcp1>
+  <LI class=Unordered style="FONT-WEIGHT: normal"><SPAN>Robot Server option # 
+  A08B-9410-J536 (Fanuc Robot PC Developer’s Kit Runtime Library) 
+  </SPAN><BR></LI></UL>
+<P><SPAN class=hcp1>Option 3</SPAN> - R-Pro 2.1 Premium + Fanuc : </P>
+<UL class=hcp1>
+  <LI class=Unordered style="FONT-WEIGHT: normal"><SPAN>Roboguide 
+  (A08B-9410-J688) </SPAN></LI></UL><BR>
+<P>Note that the Fanuc robot controller requires a PC interface option to 
+support the connection with the plugin. </P>
+<H2>4. Setup</H2>
+<OL>
+  <LI class=Ordered>Check that your host machine meets the requirements. 
+  <LI class=Ordered>Access the Fanuc controller. <BR>The plugin connects to the 
+  robot controller, so the virtual or physical robot controller should be 
+  accessible via a direct network connection (IP address) or robot neighborhood. 
+  For example, it is enough to have a project open in Fanuc RoboGuide and the 
+  virtual robot controller running. 
+  <LI class=Ordered>In R-Pro 2.1, add a new server with the plugin and connect 
+  to the controller. <BR>Tip: If you are using a virtual robot controller 
+  running in RoboGuide, by default, it will have the IP address of the host 
+  machine of RoboGuide. 
+  <LI class=Ordered>Map the variables.<BR>For example, map the VALUE property of 
+  each degree of freedom (DOF)/Joint of the robot component to a joint of the 
+  controller. This way, the controller drives the robot in the 3D world.<BR>For 
+  simulating actions such as grasp/release, map the outputs of the robot 
+  component for those actions to the IO of the controller you will use for those 
+  actions. 
+  <LI class=Ordered>Run the simulation.<BR>Simulate to start the exchange of 
+  data. Note that in the <SPAN class=hcp1>Connected Variables 
+  </SPAN><SPAN>panel,</SPAN> the <SPAN class=hcp1>Prepared Values</SPAN> column 
+  can be used to set values for testing. </LI></OL>
+<H2>5. Error Handling</H2>
+<UL class=hcp1>
+  <LI class=Unordered style="FONT-WEIGHT: normal"><SPAN>If the connection to the 
+  controller is lost, the exchange of data will stop. The plugin expects an 
+  event to be received from the controller in such cases.</SPAN> 
+  <LI class=Unordered style="FONT-WEIGHT: normal"><SPAN>Any exceptions thrown 
+  during the browsing of the connected controller’s variables (Digital Input, 
+  Digital Output, etc.) will be caught, logged to an error log file, and handled 
+  by returning an empty set of tree nodes instead. These exceptions will result 
+  in no variables of the robot controller being displayed in the </SPAN><SPAN 
+  class=hcp1>Create Variable Pairs</SPAN><SPAN> editor. </SPAN>
+  <LI class=Unordered style="FONT-WEIGHT: normal"><SPAN>If the connection to the 
+  controller is lost, reconnect to the controller. </SPAN>
+  <LI class=Unordered style="FONT-WEIGHT: normal"><SPAN>If the server structure 
+  of the connected controller is empty or not showing up-to-date data in the 
+  </SPAN><SPAN class=hcp1>Create Variable Pairs</SPAN><SPAN> editor, try 
+  reconnecting to the controller and reload the server structure. If this does 
+  not work, disable/re-enable the variable group. </SPAN>
+  <LI class=Unordered style="FONT-WEIGHT: normal"><SPAN>The system variables are 
+  loaded level-by-level based on demand from the controller. </SPAN>
+  <LI class=Unordered style="FONT-WEIGHT: normal"><SPAN>Browsing the whole 
+  system variables structure may take up to 5-10 minutes. Note that there are 
+  thousands of system variables. If the connection is lost while actively 
+  browsing, the browsing for each level will fail separately whenever R-Pro 2.1 
+  tries to access the child nodes. When you try to access unseen children of 
+  each already discovered node, each will produce an exception logged to the 
+  error log file. This can lead to, for example, 100 logged exceptions. </SPAN>
+  <LI class=Unordered><SPAN>You do not get a separate error message when 
+  browsing has encountered an error. The tree might be incomplete, and the error 
+  log file will have some logged exceptions. Note that connection loss produces 
+  error messages to the output window, and other errors are not 
+  expected.</SPAN><SPAN class=hcp1> </SPAN></LI></UL></BODY></HTML>

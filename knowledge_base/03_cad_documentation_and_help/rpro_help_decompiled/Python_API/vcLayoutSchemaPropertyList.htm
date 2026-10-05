@@ -1,0 +1,624 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcLayoutSchemaPropertyList</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+p.hcp1 { margin-left:20px; }
+ul.hcp2 { list-style:disc; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcLayoutSchemaPropertyList</h1>
+<p>vcLayoutSchemaPropertyList is a layout item and data structure used 
+ for handling large amounts of data.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcLayoutItem.htm">vcLayoutItem</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot28840" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot28840', 'MTPOPUP28840');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP28840" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Usage</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark3" >Supported Types</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark4" >Schema Properties</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark5" >Data Count</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark6" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark7" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark8" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Usage</h2>
+<p>vcLayoutSchemaPropertyList provides an extremely fast way to load and 
+ manipulate data while minimizing memory footprint. For example, you can 
+ create, delete, traverse, edit, visualize and pick a tool path and associated 
+ data which can be saved and loaded with a layout. One drawback is limited 
+ flexibility during usage.</p>
+<p><span class="Example">Example. Concept of vcLayoutSchemaPropertyList 
+ as a database</span></p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>&#160;</td>
+		<td>Schema Item 0</td>
+		<td>Schema Item 1</td>
+		<td>Schema Item 2</td>
+	</tr>
+	<tr>
+		<td><span class="Strong">Data Record 0</span></td>
+		<td>Data field (0,0)</td>
+		<td>Data field (0,1)</td>
+		<td>Data field (0,2)</td>
+	</tr>
+	<tr>
+		<td><span class="Strong">Data Record 1</span></td>
+		<td>Data field (1,0)</td>
+		<td>Data field (1,1)</td>
+		<td>Data field (1,2)</td>
+	</tr>
+	<tr>
+		<td><span class="Strong">Data Record 2</span></td>
+		<td>Data field (2,0)</td>
+		<td>Data field (2,1)</td>
+		<td>Data field (2,2)</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark3"></a>Supported Types</h3>
+<p>The data structure of a vcLayoutSchemaPropertyList object is a list 
+ of predefined data types. The overall assumption is that either the data 
+ types or their order do not change in a list. This is why only the following 
+ data types, of a fixed size, are supported:</p>
+<ul class="hcp2">
+	<li class="Unordered">Boolean</li>
+	<li class="Unordered">Integer</li>
+	<li class="Unordered">Matrix (4*Vector)</li>
+	<li class="Unordered">Real (float)</li>
+	<li class="Unordered">Vector (4*Real)</li>
+</ul>
+<h3><a name="MiniTOCBookMark4"></a>Schema Properties</h3>
+<p>A schema item is a supported type of <a href="vcProperty.htm">vcProperty</a> 
+ and also known as a schema property. In terms of databases, you can view 
+ a schema item as a column.</p>
+<h3><a name="MiniTOCBookMark5"></a>Data Count</h3>
+<p>The data count of a schema establishes the number of records for the 
+ schema, thereby allowing you to add values to data fields. In terms of 
+ databases, you can view data count as defining the number of rows.</p>
+<h2><a name="MiniTOCBookMark6"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>DataCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the number of records in schema.</td>
+	</tr>
+	<tr>
+		<td>FrameColorSchemaIndex</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the index of schema property used for coloring frame. 
+		 
+		<p class="TableNormal">The schema property should be a vector data 
+		 type.</p></td>
+	</tr>
+	<tr>
+		<td>FrameDataSchemaIndex</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the index of schema property used for positional data 
+		 of record. 
+		<p class="TableNormal">Generally, the schema property is a matrix 
+		 data type. The positional data is used for visualizing record 
+		 as a Frame feature in 3D world.</p></td>
+	</tr>
+	<tr>
+		<td>FrameNameColorSchemaIndex</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the index of schema property used for coloring the 
+		 label of frame. 
+		<p class="TableNormal">The schema property should be a vector data 
+		 type.</p></td>
+	</tr>
+	<tr>
+		<td>FrameNameSchemaIndex</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the index of schema property used for labeling the 
+		 Frame feature of record in 3D world. 
+		<p class="TableNormal">The schema property should be a string data 
+		 type.</p>
+		<p class="TableNormal">The default is -1. This means the Frame 
+		 feature of record will not be labeled with its custom name rather 
+		 the number of record in schema.</p></td>
+	</tr>
+	<tr>
+		<td><p>FrameNameVisibleSchemaIndex</p></td>
+		<td><p>Integer</p></td>
+		<td><p>RW</p></td>
+		<td><p>Defines the index of schema property used for controlling 
+		 the visibility of label of record in 3D world. </p>
+		<p class="TableNormal">The schema property should be a Boolean 
+		 data type.</p>
+		<p class="TableNormal">The default is -1. This means labels are 
+		 visible.</p></td>
+	</tr>
+	<tr>
+		<td>FrameVisibleSchemaIndex</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the index of schema property used for controlling the 
+		 visibility of Frame feature of record in 3D world. 
+		<p class="TableNormal">The schema property should be a Boolean 
+		 data type.</p>
+		<p class="TableNormal">This also affects the visibility of label 
+		 of record in 3D world.</p></td>
+	</tr>
+	<tr>
+		<td>LineDisplaySchemaIndex</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Define the index of schema property used for the position of 
+		 record in 3D world. 
+		<br>&#160; 
+		<br>This allows you to connect positions with a line 
+		 generated in 3D world. </td>
+	</tr>
+	<tr>
+		<td>Node</td>
+		<td><a href="vcNode.htm">vcNode</a></td>
+		<td>RW</td>
+		<td>Defines a node the Frame features of records are attached to 
+		 in 3D world. 
+		<p class="TableNormal">In some cases, this might be the simulation 
+		 root node/World node. In other cases, this might be the root node 
+		 of a workpiece.</p></td>
+	</tr>
+	<tr>
+		<td>PositionMatrix</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines an offset for position of record in 3D world. 
+		<p class="TableNormal">The offset is based in coordinate system 
+		 of Node property.</p>
+		<p class="TableNormal">Generally, an offset is applied to compensate 
+		 for weld torch flares or to adjust position based on Z-axis direction 
+		 of robot TCP.</p></td>
+	</tr>
+	<tr>
+		<td>SchemaProperties</td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td>Gets a list of all schema properties in the layout item. 
+		<p class="TableNormal"><span class="Strong">Note:</span> This does 
+		 not include data values for each record in the schema.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark7"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>clearSchema</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Empties the schema, thereby removing all schema properties 
+		 and setting the data count to zero.</td>
+	</tr>
+	<tr>
+		<td>cloneSchemaObject</td>
+		<td>Boolean</td>
+		<td>Integer <span class="Italic">from_dataindex</span>, Integer 
+		 <span class="Italic">count</span>, Integer <span class="Italic">to_dataindex</span></td>
+		<td>Clones a set of records in a given range. 
+		<p class="TableNormal">The <span class="Italic">from_dataindex</span> 
+		 argument defines the first record in range. The <span class="Italic">count</span> 
+		 argument defines how many records to clone. The <span class="Italic">to_dataindex</span> 
+		 argument defines where to insert the copies.</p>
+		<p class="TableNormal"><span class="Strong">Warning:</span> Currently, 
+		 you cannot append cloned records to the end of the table. You 
+		 must insert the copies before an existing record.</p></td>
+	</tr>
+	<tr>
+		<td>createProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>Enumeration <span class="Italic">type</span>, String <span 
+		 class="Italic">name</span>, [Enumeration <span class="Italic">constraints</span>]</td>
+		<td>Adds a new property of a given <span class="Italic">type</span> 
+		 and <span class="Italic">name</span> to the layout item. 
+		<p class="TableNormal">An optional <span class="Italic">constraints</span> 
+		 argument can be given to define constraints for the new property, 
+		 which must be defined at the time of creation.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Property_Constants">Property 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>createSchemaProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>Enumeration <span class="Italic">type</span>, String <span 
+		 class="Italic">name</span></td>
+		<td>Adds a new schema property of a given <span class="Italic">type</span> 
+		 and <span class="Italic">name</span> to the layout item. 
+		<p class="TableNormal">See <a href="Constants.htm#Property_Constants">Property 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>deleteProperty</td>
+		<td>None</td>
+		<td><a href="vcProperty.htm">vcProperty</a> <span class="Italic">property</span></td>
+		<td>Deletes a given <span class="Italic">property</span> of the 
+		 layout item.</td>
+	</tr>
+	<tr>
+		<td>deleteSchemaObject</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">from_dataindex</span>, Integer 
+		 <span class="Italic">count</span></td>
+		<td>Deletes a set of records in a given range. 
+		<p class="TableNormal">The <span class="Italic">from_dataindex</span> 
+		 argument defines the first record in range. The <span class="Italic">count</span> 
+		 argument defines how many records to delete.</p></td>
+	</tr>
+	<tr>
+		<td>deleteSchemaProperty</td>
+		<td>None</td>
+		<td><a href="vcProperty.htm">vcProperty</a> <span class="Italic">property</span></td>
+		<td>Deletes a given <span class="Italic">property</span> that is 
+		 a schema property of the layout item.</td>
+	</tr>
+	<tr>
+		<td>getDataValue</td>
+		<td>&lt;Type&gt;</td>
+		<td>Integer <span class="Italic">dataindex</span>, Integer <span 
+		 class="Italic">itemindex</span></td>
+		<td>Returns the value of a data field at a given <span class="Italic">dataindex</span> 
+		 and <span class="Italic">itemindex</span>.</td>
+	</tr>
+	<tr>
+		<td>getDataValues</td>
+		<td>n-tuple of &lt;Type&gt;</td>
+		<td>Integer <span class="Italic">dataindex</span></td>
+		<td>Returns the values of a record at a given <span class="Italic">dataindex</span>.</td>
+	</tr>
+	<tr>
+		<td>getProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Returns a property of the layout item that matches the given 
+		 <span class="Italic">name</span>; otherwise returns None.</td>
+	</tr>
+	<tr>
+		<td>getSchemaProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Returns a schema property of the layout item that matches the 
+		 given <span class="Italic">name</span>; otherwise returns None.</td>
+	</tr>
+	<tr>
+		<td>setDataValue</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">dataindex</span>, Integer <span 
+		 class="Italic">itemindex</span>, &lt;Type&gt; <span class="Italic">value</span></td>
+		<td>Sets the value of a data field at a given <span class="Italic">dataindex</span> 
+		 and <span class="Italic">itemindex</span>. 
+		<p class="TableNormal">The <span class="Italic">value</span> argument 
+		 must be a supported data type and match the type of the schema 
+		 property; otherwise the data field will not reference the new 
+		 value.</p>
+		<p class="TableNormal"><span class="Strong">Note:</span> The <span 
+		 class="Italic">value</span> argument can be a <a href="vcProperty.htm">vcProperty</a> 
+		 object, thereby the value of that property is passed to the data 
+		 field.</p></td>
+	</tr>
+	<tr>
+		<td>setDataValues</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">dataindex</span>, Integer <span 
+		 class="Italic">itemindex</span>, n-tuple of &lt;Type&gt; <span 
+		 class="Italic">values</span></td>
+		<td>Sets all values for schema properties of a record at a given 
+		 <span class="Italic">dataindex</span>. 
+		<p class="TableNormal">The <span class="Italic">values</span> argument 
+		 must be a tuple with the same amount of elements as there are 
+		 schema properties. Each element's value must be a supported data 
+		 type and match the type of the corresponding schema property; 
+		 otherwise the data field will not reference the new value.</p>
+		<p class="TableNormal"><span class="Strong">Note:</span> An element 
+		 of a tuple given as the <span class="Italic">values</span> argument 
+		 can be a <a href="vcProperty.htm">vcProperty</a> object, thereby 
+		 the value of that property is passed to the data field.</p></td>
+	</tr>
+	<tr>
+		<td>updateData</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">count</span></td>
+		<td>Allocates the size of the schema to support a potential amount 
+		 of elements/entries for schema properties based on the given <span 
+		 class="Italic">count</span>. 
+		<p class="TableNormal"><span class="Strong">Note:</span> The allocation 
+		 is optional as size is updated automatically based on number of 
+		 entries.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark8"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Create schema layout item</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>&#160; 
+		<br>#find schema by name, else create new one 
+		<br>schema = app.findLayoutItem(&quot;mySchema&quot;) 
+		<br>if not schema: 
+		<br>&#160;&#160;schema = app.createLayoutItem(VC_LAYOUTITEM_IT_LAYOUTSCHEMAPROPERTYLIST) 
+		<br>&#160;&#160;schema.Name = &quot;mySchema&quot; 
+		<br>&#160;&#160; 
+		<br>#print schema</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Create schema properties</span></p>
+<p>Generally, a schema layout item contains at least one of the following 
+ data fields/column attributes:</p>
+<ul class="hcp2">
+	<li class="Unordered">Position vector to define a location in the containing 
+	 coordinate system.</li>
+	<li class="Unordered">Position vector and Direction vector to define 
+	 a location and direction in the containing coordinate system.</li>
+	<li class="Unordered">Frame/matrix that defines the location and full 
+	 orientation in the containing coordinate system.</li>
+</ul>
+<p>In all cases, the containing coordinate system is defined by the Node 
+ property of the schema layout item. In some cases, a schema may contain 
+ any number of additional schema properties, thereby allowing you to store 
+ all data needed to execute and manipulate tool paths.</p>
+<p>A simple implementation of a schema layout item is to first remove all 
+ of its data, add six different schema properties, and then define how 
+ to visualize data stored in the schema.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>schema = app.findLayoutItem(&quot;mySchema&quot;) 
+		<br>if not schema: 
+		<br>&#160;&#160;schema = app.createLayoutItem(VC_LAYOUTITEM_IT_LAYOUTSCHEMAPROPERTYLIST) 
+		<br>&#160;&#160;schema.Name = &quot;mySchema&quot; 
+		<br>&#160;&#160; 
+		<br>schema.clearSchema() 
+		<br>schema.createSchemaProperty(VC_MATRIX, &quot;Frame&quot;) 
+		<br>schema.createSchemaProperty(VC_VECTOR, &quot;Direction&quot;) 
+		<br>schema.createSchemaProperty(VC_REAL, &quot;Speed&quot;) 
+		<br>schema.createSchemaProperty(VC_INTEGER, &quot;Mode&quot;) 
+		<br>schema.createSchemaProperty(VC_BOOLEAN, &quot;FrameVisible&quot;) 
+		<br>&#160; 
+		<br>schema.LineDisplaySchemaIndex = 0 
+		<br>schema.FrameDataSchemaIndex = 0 
+		<br>schema.FrameVisibleSchemaIndex = 4
+		<br>&#160;
+		<br>schema.update() </td>
+	</tr>
+</table>
+<p><span class="Example">Example. Allocate and add data to schema</span></p>
+<p>In order to add data, you must first know the amount of data you want 
+ to store in the schema. That is, the number of records or rows to use 
+ in the schema.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>import vcMatrix 
+		<br>import vcVector 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>schema = app.findLayoutItem(&quot;mySchema&quot;) 
+		<br>if not schema: 
+		<br>&#160;&#160;schema = app.createLayoutItem(VC_LAYOUTITEM_IT_LAYOUTSCHEMAPROPERTYLIST) 
+		<br>&#160;&#160;schema.Name = &quot;mySchema&quot; 
+		<br>&#160;&#160; 
+		<br>schema.clearSchema() 
+		<br>schema.createSchemaProperty(VC_MATRIX, &quot;Frame&quot;) 
+		<br>schema.createSchemaProperty(VC_VECTOR, &quot;Direction&quot;) 
+		<br>schema.createSchemaProperty(VC_REAL, &quot;Speed&quot;) 
+		<br>schema.createSchemaProperty(VC_INTEGER, &quot;Mode&quot;) 
+		<br>schema.createSchemaProperty(VC_BOOLEAN, &quot;FrameVisible&quot;) 
+		<br>schema.LineDisplaySchemaIndex = 0 
+		<br>schema.FrameDataSchemaIndex = 0 
+		<br>schema.FrameVisibleSchemaIndex = 4 
+		<br>&#160; 
+		<br>#the following creates 5 rows 
+		<br>#each row contains data for 5 schema items/properties 
+		<br>count = 5 
+		<br>schema.updateData(count) 
+		<br>m = vcMatrix.new() 
+		<br>v = vcVector.new() 
+		<br>r = 1.2345 
+		<br>k = 1000000 
+		<br>b = False 
+		<br>for i in range(count): 
+		<br>&#160;&#160;schema.setDataValue(i,0,m) 
+		<br>&#160;&#160;schema.setDataValue(i,1,v) 
+		<br>&#160;&#160;schema.setDataValue(i,2,r) 
+		<br>&#160;&#160;schema.setDataValue(i,3,k + i) 
+		<br>&#160;&#160;schema.setDataValue(i,4,b)
+		<br>&#160;
+		<br>&#160;
+		<br>schema.update() </td>
+	</tr>
+</table>
+<p>Data entry can be processed faster by adding multiple values at a time.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>for i in range(count): 
+		<br>&#160;&#160;schema.setDataValue(i,0,(m,v,r,k+i,b))</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Traverse data in schema</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>count = 5 
+		<br>schema.updateData(count) 
+		<br>m = vcMatrix.new() 
+		<br>v = vcVector.new() 
+		<br>r = 1.2345 
+		<br>k = 1000000 
+		<br>b = False 
+		<br>for i in range(count): 
+		<br>&#160;&#160;schema.setDataValue(i,0,(m,v,r,k+i,b)) 
+		<br>&#160;
+		<br>schema.update() 
+		<br>&#160;&#160; 
+		<br>#getting values is similar to setting values 
+		<br>for i in range(count): 
+		<br>&#160;&#160;m = schema.getDataValue(i,0) 
+		<br>&#160;&#160;v = schema.getDataValue(i,1) 
+		<br>&#160;&#160;r = schema.getDataValue(i,2) 
+		<br>&#160;&#160;k = schema.getDataValue(i,3) 
+		<br>&#160;&#160;b = schema.getDataValue(i,4) 
+		<br>&#160;&#160; 
+		<br>for i in range(count): 
+		<br>&#160;&#160;m,v,r,k,b = schema.getDataValues(i) 
+		<br>&#160;&#160;print m,v,r,k,b</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Attach schema to node</span></p>
+<p>Generally, a tool path is associated with a node. If this case is not 
+ true, you can locate and set the schema's node and apply an offset for 
+ data relative to that node's coordinate system.</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>#attach schema to World node and apply offset 
+		<br>comp = getComponent() &#160; 
+		<br>schema.Node = comp.World 
+		<br>m = vcMatrix.new() 
+		<br>m.translateRel(0,0,100) 
+		<br>schema.PositionMatrix = m</td>
+	</tr>
+</table>
+<p><span class="Example">Example. 
+ Pick schema data</span></p>
+<p>The simTopologyPick command defined 
+ in <a href="vcTopologyPick.htm">vcTopologyPickCommand</a> supports the 
+ picking of schema data. Once you pick or hover over the top of schema 
+ data visualized in the 3D world, the TargetPointIndex property of the 
+ command is set in the <a href="vcTopologyPick.htm">vcTopologyPickCommand</a> 
+ object.</p>
+<p><span class="Example">Example. Delete schema</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>getApplication().deleteLayoutItem(mySchema)</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Delete and clone records</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>import vcMatrix 
+		<br>import vcVector 
+		<br>&#160;&#160; 
+		<br>app = getApplication() 
+		<br>schema = app.findLayoutItem(&quot;mySchema&quot;) 
+		<br>if not schema: 
+		<br>&#160;&#160;schema = app.createLayoutItem(VC_LAYOUTITEM_IT_LAYOUTSCHEMAPROPERTYLIST) 
+		<br>&#160;&#160;schema.Name = &quot;mySchema&quot; 
+		<br>&#160;&#160;&#160; 
+		<br>schema.clearSchema() 
+		<br>schema.createSchemaProperty(VC_MATRIX, &quot;Frame&quot;) 
+		<br>schema.createSchemaProperty(VC_VECTOR, &quot;Direction&quot;) 
+		<br>schema.createSchemaProperty(VC_REAL, &quot;Speed&quot;) 
+		<br>schema.createSchemaProperty(VC_INTEGER, &quot;Mode&quot;) 
+		<br>schema.createSchemaProperty(VC_BOOLEAN, &quot;FrameVisible&quot;) 
+		<br>schema.LineDisplaySchemaIndex = 0 
+		<br>schema.FrameDataSchemaIndex = 0 
+		<br>schema.FrameVisibleSchemaIndex = 4 
+		<br>&#160;&#160; 
+		<br>#the following creates 5 rows 
+		<br>#each row contains data for 5 schema items/properties 
+		<br>count = 5 
+		<br>schema.updateData(count) 
+		<br>m = vcMatrix.new() 
+		<br>v = vcVector.new() 
+		<br>r = 1.2345 
+		<br>k = 1000000 
+		<br>b = False 
+		<br>&#160;
+		<br>for i in range(count): 
+		<br>&#160;&#160;schema.setDataValue(i,0,m) 
+		<br>&#160;&#160;schema.setDataValue(i,1,v) 
+		<br>&#160;&#160;schema.setDataValue(i,2,r) 
+		<br>&#160;&#160;schema.setDataValue(i,3,k + i) 
+		<br>&#160;&#160;if i == 4: 
+		<br>&#160;&#160;&#160;&#160;##sets the last value of last record to True 
+		<br>&#160;&#160;&#160;&#160;schema.setDataValue(i,4,True) 
+		<br>&#160;&#160;else: 
+		<br>&#160;&#160;&#160;&#160;##all other records will have a last value of False 
+		<br>&#160;&#160;&#160;&#160;schema.setDataValue(i,4,b) 
+		<br>&#160; 
+		<br>##delete the first record 
+		<br>schema.deleteSchemaObject(0,1) 
+		<br>&#160; 
+		<br>##copy first two records and insert them before last record 
+		<br>schema.cloneSchemaObject(0,2,schema.DataCount-1) 
+		<br>&#160; 
+		<br>##copy last record and insert it before first record 
+		<br>schema.cloneSchemaObject(schema.DataCount-1,1,0) 
+		<br>&#160;
+		<br>schema.update() 
+		<br>&#160; 
+		<br>for i in range(schema.DataCount): 
+		<br>&#160;&#160;print schema.getDataValues(i) 
+		<br>&#160;&#160; 
+		<br>''' 
+		<br>prints the following 
+		<br>(&lt;vcMatrix object at 0x000002AE80B1ADF8&gt;, &lt;vcVector object at 0x000002AE80BC1AE8&gt;, 1.2345, 1000004, True) 
+		<br>(&lt;vcMatrix object at 0x000002AE80B1ADF8&gt;, &lt;vcVector object at 0x000002AE80BC1AE8&gt;, 1.2345, 1000001, False) 
+		<br>(&lt;vcMatrix object at 0x000002AE80B1ADF8&gt;, &lt;vcVector object at 0x000002AE80BC1AE8&gt;, 1.2345, 1000002, False) 
+		<br>(&lt;vcMatrix object at 0x000002AE80B1ADF8&gt;, &lt;vcVector object at 0x000002AE80BC1AE8&gt;, 1.2345, 1000003, False) 
+		<br>(&lt;vcMatrix object at 0x000002AE80B1ADF8&gt;, &lt;vcVector object at 0x000002AE80BC1AE8&gt;, 1.2345, 1000001, False) 
+		<br>(&lt;vcMatrix object at 0x000002AE80B1ADF8&gt;, &lt;vcVector object at 0x000002AE80BC1AE8&gt;, 1.2345, 1000002, False) 
+		<br>(&lt;vcMatrix object at 0x000002AE80B1ADF8&gt;, &lt;vcVector object at 0x000002AE80BC1AE8&gt;, 1.2345, 1000004, True) 
+		<br>'''</td>
+	</tr>
+	<tr>
+		<td>&#160;</td>
+	</tr>
+</table>
+</body>
+</html>

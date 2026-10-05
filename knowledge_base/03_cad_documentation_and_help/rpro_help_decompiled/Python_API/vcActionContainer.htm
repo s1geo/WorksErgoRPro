@@ -1,0 +1,347 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcActionContainer</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcActionContainer</h1>
+<p>vcActionContainer is a container of vcAction objects used for storing, 
+ buffering, sending and receiving actions between resource clients, providers 
+ and brokers.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot49396" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot49396', 'MTPOPUP49396');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP49396" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ActionCount</td>
+		<td><span class="type">Integer</span></td>
+		<td>R</td>
+		<td>Gets the total number of actions in container.</td>
+	</tr>
+	<tr>
+		<td>Actions</td>
+		<td><span class="type">List of <a href="vcAction.htm">vcAction</a></span></td>
+		<td>R</td>
+		<td>Gets a list of all actions in container.</td>
+	</tr>
+	<tr>
+		<td>Brokers</td>
+		<td>List of <a href="vcActionContainer.htm">vcActionContainer</a></td>
+		<td>RW</td>
+		<td>Defines a list of connected brokers.</td>
+	</tr>
+	<tr>
+		<td>Clients</td>
+		<td>List of <a href="vcActionContainer.htm">vcActionContainer</a></td>
+		<td>RW</td>
+		<td>Defines a list of connected clients.</td>
+	</tr>
+	<tr>
+		<td>PendingActionCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the number of actions in the PendingActions property list.</td>
+	</tr>
+	<tr>
+		<td>NextFreeTime</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the next available time this container is able to process 
+		 actions during a simulation.</td>
+	</tr>
+	<tr>
+		<td>PendingActions</td>
+		<td><span class="type">List of <a href="vcAction.htm">vcAction</a></span></td>
+		<td>R</td>
+		<td>Gets a list of pending action stored in the container. That 
+		 is, actions that are received from other action containers and 
+		 buffered for action processing.</td>
+	</tr>
+	<tr>
+		<td>Processing</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if this container is executing actions.</td>
+	</tr>
+	<tr>
+		<td>Providers</td>
+		<td>List of <a href="vcActionContainer.htm">vcActionContainer</a></td>
+		<td>RW</td>
+		<td>Defines a list of connected providers.</td>
+	</tr>
+	<tr>
+		<td>Reserved</td>
+		<td><span class="type"><a href="vcActionContainer.htm">vcActionContainer</a></span></td>
+		<td>RW</td>
+		<td>Defines if this container is reserved by other action container.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>clear</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Deletes all actions in container.</td>
+	</tr>
+	<tr>
+		<td>clearPending</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Deletes all pending actions in container.</td>
+	</tr>
+	<tr>
+		<td>createAction</td>
+		<td><a href="vcAction.htm" title="vcAction">vcAction</a></td>
+		<td><span class="type">String</span> <span class="type" style="font-style: italic;">action_name</span></td>
+		<td>Creates a new <a href="vcAction.htm" title="vcAction">vcAction</a> 
+		 in container, and then returns the new action.</td>
+	</tr>
+	<tr>
+		<td>createPendingAction</td>
+		<td><a href="vcAction.htm" title="vcAction">vcAction</a></td>
+		<td><span class="type">String</span> <span class="type" style="font-style: italic;">name</span></td>
+		<td>Creates a new pending action in the container.</td>
+	</tr>
+	<tr>
+		<td>deleteAction</td>
+		<td>Boolean</td>
+		<td><span class="type"><a href="vcAction.htm" title="vcAction">vcAction</a></span> 
+		 <span class="type" style="font-style: italic;">action</span> 
+		<p class="TableNormal"><span>or</span></p>
+		<p class="TableNormal"><span class="type">Integer</span> <span 
+		 class="type" style="font-style: italic;">index</span></p></td>
+		<td>Deletes a given <span class="Italic">action</span> or one at 
+		 a given <span class="Italic">index</span> from container. 
+		<p class="TableNormal">If deletion is successful, returns True; 
+		 otherwise returns False.</p></td>
+	</tr>
+	<tr>
+		<td>deletePendingAction</td>
+		<td>Boolean</td>
+		<td><span class="type"><a href="vcAction.htm" title="vcAction">vcAction</a></span> 
+		 <span class="type" style="font-style: italic;">action</span></td>
+		<td>Deletes a given action from the PendingActions property list.</td>
+	</tr>
+	<tr>
+		<td>do</td>
+		<td>Boolean</td>
+		<td><span class="type">String</span> <span class="type" style="font-style: italic;">action_type</span><span 
+		 class="type">,</span> [<span class="optional" style="font-style: italic;">arg</span><span 
+		 class="optional"><i class="parameter"><tt>...</tt></i></span>],[<span 
+		 class="optional" style="font-style: italic;">name=arg</span><span 
+		 class="optional"><i class="parameter"><tt>...</tt></i></span>]</td>
+		<td>Executes an action using the container. 
+		<p class="TableNormal">If action can be performed, returns True; 
+		 otherwise returns False.</p>
+		<p class="TableNormal">Each action type has its own set of arguments 
+		 which are described in <a href="Constants.htm#Action_Constants">Action 
+		 Constants</a>. Action arguments can be added in the order how 
+		 they are described in the action parameter table.</p>
+		<p class="TableNormal">An alternative approach is to use Python 
+		 keywords, which allows only using specific keyword arguments.</p>
+		<p class="TableNormal">See list of possible <a href="Constants.htm#Action_Constants">action 
+		 types</a> and their arguments.</p></td>
+	</tr>
+	<tr>
+		<td>getAction</td>
+		<td><a href="vcAction.htm" title="vcAction">vcAction</a></td>
+		<td><span class="type">Integer</span> <span class="type" style="font-style: italic;">index</span></td>
+		<td>Returns an action found at the given <span class="hcp1">index</span> 
+		 in container.</td>
+	</tr>
+	<tr>
+		<td>getPendingAction</td>
+		<td><a href="vcAction.htm" title="vcAction">vcAction</a></td>
+		<td>Integer <span class="type" style="font-style: italic;">index</span></td>
+		<td>Returns a pending action found at a given <span class="hcp1">index</span> 
+		 in container.</td>
+	</tr>
+	<tr>
+		<td>getResources</td>
+		<td>List of <a href="vcActionContainer.htm">vcActionContainer</a></td>
+		<td>None</td>
+		<td>Returns a list of immediate resources connected to container.</td>
+	</tr>
+	<tr>
+		<td>moveAction</td>
+		<td>Boolean</td>
+		<td><span class="type"><a href="vcAction.htm" title="vcAction">vcAction</a></span> 
+		 <span class="type" style="font-style: italic;">action</span>, 
+		 Integer <span class="type" style="font-style: italic;">index</span></td>
+		<td>Moves a given <span class="hcp1">action</span> 
+		 to a given <span class="Italic">index</span> in Actions property 
+		 list. 
+		<p class="TableNormal">If moving is successful, returns True; otherwise 
+		 returns False.</p></td>
+	</tr>
+	<tr>
+		<td>movePendingAction</td>
+		<td>Boolean</td>
+		<td><span class="type"><a href="vcAction.htm" title="vcAction">vcAction</a></span> 
+		 <span class="type" style="font-style: italic;">action</span>, 
+		 Integer <span class="type" style="font-style: italic;">index</span></td>
+		<td>Moves a given <span class="hcp1">action</span> 
+		 to a new position in the PendingActions property list. 
+		<p class="TableNormal">If moving is successful, returns True, otherwise 
+		 False is returned.</p></td>
+	</tr>
+	<tr>
+		<td>popPending</td>
+		<td><span class="type"><a href="vcAction.htm" title="vcAction">vcAction</a></span></td>
+		<td>[Integer <span class="type" style="font-style: italic;">index</span><span>]</span></td>
+		<td>Removes the last action from the PendingActions property list, 
+		 and then returns that action; otherwise returns None. 
+		<p class="TableNormal">If an <span class="Italic">index</span> 
+		 argument is given, the action found at that position in the PendingActions 
+		 property list will be removed and returned by the method; otherwise, 
+		 returns None.</p></td>
+	</tr>
+	<tr>
+		<td>release</td>
+		<td>Boolean</td>
+		<td>None</td>
+		<td>Releases the container from the action container defined in 
+		 the Resource property. If the release is successful, returns True; 
+		 otherwise returns False.</td>
+	</tr>
+	<tr>
+		<td>removePendingAction</td>
+		<td>Boolean</td>
+		<td><span class="type"><a href="vcAction.htm" title="vcAction">vcAction</a></span> 
+		 <span class="type" style="font-style: italic;">action</span></td>
+		<td>Removes a given <span class="hcp1">action</span> 
+		 from the PendingActions property list.</td>
+	</tr>
+	<tr>
+		<td>reserve</td>
+		<td><span class="type"><a href="vcActionContainer.htm" title="vcActionContainer">vcActionContainer</a></span></td>
+		<td><span class="type">String</span> <span class="type" style="font-style: italic;">resource_filter</span><span 
+		 class="type">,</span> [S<span class="type">tring</span> <span 
+		 class="type" style="font-style: italic;">action_type</span>], 
+		 
+		<br>[<span class="hcp1">Timeout=real</span>]</td>
+		<td>Reserves a resource provider matching <span class="hcp1">resource_filter</span>, 
+		 and then returns the reserved resource. 
+		<p class="TableNormal">If resource is not available immediately, 
+		 the method will wait until resource is available. If no matching 
+		 resource is available, the method returns None.</p>
+		<p class="TableNormal">An optional <span class="Italic">action_type</span> 
+		 argument can be given to reserve the resource for a specific action.</p>
+		<p class="TableNormal">See list of possible <a href="Constants.htm#Action_Constants">action 
+		 types</a>.</p>
+		An optional <span class="Italic">Timeout</span> argument can be 
+		 given to define how long the method will wait (in seconds) in 
+		 order to reserve a resource. If the resource cannot be reserved 
+		 before T<span class="hcp1">imeout</span> expires, 
+		 the method returns None.</td>
+	</tr>
+	<tr>
+		<td>start</td>
+		<td>Boolean</td>
+		<td><span class="type">String</span> <span class="type" style="font-style: italic;">action_type</span><span 
+		 class="type">,</span> [<span class="hcp1">arg</span><span 
+		 class="optional"><i class="parameter"><tt>...</tt></i></span>], 
+		 [<span class="hcp1">name_arg</span><span class="optional"><i 
+		 class="parameter"><tt>...</tt></i></span>]</td>
+		<td>Executes an action using container regardless if an other action 
+		 is still running. 
+		<p class="TableNormal">If action can be performed, returns True; 
+		 otherwise returns False.</p>
+		<p class="TableNormal">Generally, start() is used with the wait() 
+		 method in order to catch when an action executed with start() 
+		 has been completed.</p>
+		<p class="TableNormal">Each action type has its own set of arguments 
+		 which are described in <a href="Constants.htm#Action_Constants">Action 
+		 Constants</a>. Action arguments can be added in the order how 
+		 they are described in the action parameter table.</p>
+		<p class="TableNormal">An alternative approach is to use Python 
+		 keywords, which allows only using specific keyword arguments.</p>
+		<p class="TableNormal">See list of possible <a href="Constants.htm#Action_Constants">action 
+		 types</a>.</p></td>
+	</tr>
+	<tr>
+		<td>use</td>
+		<td><span class="type">Boolean</span></td>
+		<td><span class="type">String</span> <span class="type" style="font-style: italic;">resource_filter</span><span 
+		 class="type">, String</span> <span class="type" style="font-style: italic;">action_type</span><span 
+		 class="type">,</span> [<span class="hcp1">arg</span><span 
+		 class="optional"><i class="parameter"><tt>...</tt></i></span>],[<span class="hcp1">name=arg</span><span class="optional"><i 
+		 class="parameter"><tt>...</tt></i></span>], [<span>Real</span> 
+		 <span class="hcp1">timeout</span>]</td>
+		<td>Executes an action using a specific resource. 
+		<p class="TableNormal">If no resource is found based on <span class="Italic">resource_filter</span> 
+		 and the action is available immediately (not in queue), the method 
+		 will wait until the specified resource is available. If resource 
+		 can be used to perform action, returns True; otherwise returns 
+		 False.</p>
+		<p class="TableNormal">Optional <span class="hcp1">timeout</span> 
+		 keyword argument defines how long the method will wait (in seconds) 
+		 for the reserved resource to become available. If resource cannot 
+		 be reserved before <span class="hcp1">timeout</span> 
+		 expires, return False.</p>
+		<p class="TableNormal">Each action type has its own set of arguments 
+		 which are described in <a href="Constants.htm#Action_Constants">Action 
+		 Constants</a>. Action arguments can be added in the order how 
+		 they are described in the action parameter table.</p>
+		<p class="TableNormal">An alternative approach is to use Python 
+		 keywords, which allows only using specific keyword arguments.</p>
+		<p class="TableNormal">See list of possible <a href="Constants.htm#Action_Constants">action 
+		 types</a>.</p></td>
+	</tr>
+	<tr>
+		<td>wait</td>
+		<td>Boolean</td>
+		<td>[R<span class="type">eal</span> <span class="hcp1">timeout</span>]</td>
+		<td>Waits until action called in start() method is completed, and 
+		 then returns True. 
+		<p class="TableNormal">If an optional <span class="hcp1">timeout</span> 
+		 argument is used, the method will return False if an action is 
+		 not completed within the allocated time period (in seconds).</p></td>
+	</tr>
+</table>
+</body>
+</html>

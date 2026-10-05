@@ -1,0 +1,63 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="set base,robot statement,base frame">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Define Base</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Define Base</h1>
+<p>A Define Base statement changes the properties of a base frame in robot during a simulation. When you reset a simulation, the base frame returns to its initial position.</p>
+<p><img src="../../English/Links/DefineBaseStatement.png" alt="" style="border: none;" border="0"></p>
+<p><span class="Strong">Note:</span> A base frame can be used as a base coordinate system for motion statements. Moving a base frame would also move any motion statements referencing that base frame. Generally, a Define Base statement is used in robot programs involving the stacking and unstacking of parts.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Base</td>
+<td>Defines the base frame of robot controller altered by statement.
+<p class="TableNormal"><span class="Strong">Note:</span> You cannot use a Define Base statement to alter a base frame in a different robot.</p>
+</td>
+</tr>
+<tr>
+<td>IsRelative</td>
+<td>Defines if Position is based in base frame coordinate system or its parent coordinate system.
+<p class="TableNormal"><span class="Term">True</span> uses base frame coordinate system, so frame will be moved relative to its location at the time of statement execution.</p>
+<p class="TableNormal"><span class="Term">False</span> uses the parent coordinate system of base frame defined in Node, so frame will be moved to an absolute location.</p>
+</td>
+</tr>
+<tr>
+<td>Position</td>
+<td>
+<p>Defines the position and orientation of Base.</p>
+</td>
+</tr>
+<tr>
+<td>IPOMode</td>
+<td>Defines the interpolation mode of the frame and the external configuration of a referencing robot controller.
+<p class="TableNormal"><span class="Term">#NONE</span> has no effect and is the default setting.</p>
+<p class="TableNormal"><span class="Term">#BASE</span> sets the base frame to act as a base coordinate system.</p>
+<p class="TableNormal"><span class="Term">#TCP</span> sets the base frame to act as a tool center point.</p>
+<p class="TableNormal"><span class="Strong">Note:</span> A conflict can occur if a base-tool pair in a referencing robot have the same IPOMode property value or cannot be used with the current configuration of robot.</p>
+</td>
+</tr>
+<tr>
+<td>Node</td>
+<td>Defines the node the base frame is attached to in 3D world.
+<p class="TableNormal"><span class="Strong">Note:</span> If None, base frame is attached to Robot World Frame.</p>
+</td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Блокировка значений переменных</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Блокировка позволяет установить фиксированные значения для пар переменных. Фиксированное или заблокированное значение используется, когда исходная и целевая переменные в паре..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Блокировка значений переменных</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Блокировка позволяет установить фиксированные значения для пар переменных. Фиксированное или заблокированное значение используется, когда исходная и целевая переменные в паре синхронизируются друг с другом. Значения переменных моделирования и сервера в паре могут изменяться во время симуляции, но когда они синхронизируются друг с другом, для обновления переменной назначения используется фиксированное значение, а не значение исходной переменной.</p>
+<p class="p_Normal">Это полезно для ручного тестирования сценариев и определенных значений сигналов управления. Например, вы можете протестировать и симулировать результат отказа датчика, а также условия, при которых двигатель никогда не выключается. Обратите внимание, что вы можете блокировать и разблокировать значения во время симулирования.</p>
+<p class="p_Normal"><img alt="ClipboardImg126" style="margin:0;width:8.7500in;height:3.7292in;border:none" src="clipboardimg126.png"/></p>
+<p class="p_Normal">Чтобы заблокировать/разблокировать значение:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>Выберите пары переменных, которые вы хотите заблокировать.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>Щелкните правой кнопкой мыши, а затем сделайте одно из следующих действий:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы заблокировать значение, нажмите <span style="font-weight: bold;">Заблокировать выбранное</span>. Значение переменной симуляции используется как фиксированное значение.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы разблокировать значение, нажмите <span style="font-weight: bold;">Разблокировать выбранное</span>. Это означает, что значение исходной переменной используется для обновления целевой переменной.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы заблокировать с помощью подготовленного значения, нажмите <span style="font-weight: bold;">Заблокировать подготовленные значения</span>. Это означает, что значение в столбце Подготовленное значение используется как фиксированное значение. Как правило, это используется для установки значения переменной, которая постоянно изменяется.</p>
+<p class="p_Normal">Чтобы отредактировать подготовленное значение:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>Дважды щелкните ячейку в столбце «Подготовленное значение».</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>Введите значение. Если тип переменной — Boolean, щелкните ячейку, чтобы установить значение true или false.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>При необходимости повторите шаги 1 и 2 для других пар переменных.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">4.</span>Щелкните правой кнопкой мыши и выберите <span style="font-weight: bold;">Записать подготовленные значения </span>. Затем значения в столбце «Подготовленное значение» назначаются переменным симуляции.</p>
+</td></tr></table>
+
+</body>
+</html>

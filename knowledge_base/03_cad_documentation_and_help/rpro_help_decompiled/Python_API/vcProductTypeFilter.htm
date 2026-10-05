@@ -1,0 +1,76 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="vcProductTypeFilter, ProductTypeFilter, Product Type Filter">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProductTypeFilter</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcProductTypeFilter</h1>
+<p>vcProductTypeFilter is a product filter that accepts or rejects products 
+ based on the <a href="vcProductType.htm">vcProductType</a> of the <a href="vcProduct.htm">vcProduct</a> 
+ instance. A product will be accepted by the product filter if the product 
+ type or its flow group matches the filter, unless the AcceptAllProductTypesproperty 
+ is set to True.</p>
+<p><b>Inherits:</b> <a href="vcProductFilter.htm">vcProductFilter</a></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AcceptAllProductTypes</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>When set to True, any product is accepted and AcceptedFlowGroups 
+		 and AcceptedProductTypes are ignored.</td>
+	</tr>
+	<tr>
+		<td>AcceptedFlowGroups</td>
+		<td>list of <a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a></td>
+		<td>RW</td>
+		<td>Allows only the selected flow groups.</td>
+	</tr>
+	<tr>
+		<td>AcceptedProductTypes&#8239;</td>
+		<td>list of <a href="vcProductType.htm">vcProductType</a></td>
+		<td>RW</td>
+		<td>Allows only the selected product types.</td>
+	</tr>
+</table>
+<h2>Constructors</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>new</td>
+		<td>vcProductTypeFilter</td>
+		<td>None</td>
+		<td>Creates a new vcProductTypeFilter object and returns the new 
+		 product type filter.</td>
+	</tr>
+</table>
+</body>
+</html>

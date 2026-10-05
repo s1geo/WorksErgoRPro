@@ -1,0 +1,96 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="sensors,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Sensors</title>
+<link rel="StyleSheet" href="../../../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Sensors</h1>
+<p>A sensor type behavior is used to detect components.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot43381" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot43381', 'MTPOPUP43381');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP43381" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Types</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Area of Detection</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Signaling Detection</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Types</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><a href="../../../../Reference/Behaviors/Sensors/Component_Path_Sensor.htm">Component 
+		 Path Sensor</a></td>
+		
+		<td>Detects a component moving on a path.</td>
+	</tr>
+	<tr>
+		<td><a href="../../../../Reference/Behaviors/Sensors/Process_Point_Sensor.htm">Process 
+		 Point Sensor</a></td>
+		
+		<td>Detects a component moving on a path, and then can either stop 
+		 the path or detected component.</td>
+	</tr>
+	<tr>
+		<td><a href="../../../../Reference/Behaviors/Sensors/Raycast_Sensor.htm">Raycast 
+		 Sensor</a></td>
+		
+		<td>Detects a component intersecting a ray cast along an axis.</td>
+	</tr>
+	<tr>
+		<td><a href="../../../../Reference/Behaviors/Sensors/Volume_Sensor.htm">Volume 
+		 Sensor</a></td>
+		
+		<td>Detects a component intersecting or within a space.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Area of Detection</h2>
+<p>Some sensors need to be assigned 
+ to paths in order to detect components.</p>
+<p><img src="../../../Links/SensorsAssignedToPaths.png" alt="" border="0" class="hcp1"></p>
+<p>Other sensors can detect components 
+ freely in the 3D world or be filtered to only detect components in a container.</p>
+<div class="task_image">
+	<img src="../../../Links/RayCastExample.png" alt="" border="0" class="hcp1"> 
+	<p>RayCast Sensor filtered to detect components and distances in a 
+	 path</p>
+</div>
+<h2><a name="MiniTOCBookMark4"></a>Signaling Detection</h2>
+<p>In most cases, sensors use signals 
+ to inform other behaviors of detected components. For example, signals 
+ used by sensors can be connected to a Python Script in order to trigger 
+ events.</p>
+<div class="task_image">
+	<p><img src="../../../Links/SensorSignalScriptExample.png" alt="" border="0" class="hcp1"></p>
+	<img src="../../../Links/SensorSignalScriptExampleResult.png" alt="" border="0" class="hcp1">
+	<p>Sensor used to trigger process 
+	 for component at point in path</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>vcProductNeedInfo</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords 
+content="vcProductNeedInfo, ProductNeedInfo, Product Need Info">
+<META name=generator content="Adobe RoboHelp 2017"><LINK rel=StyleSheet 
+type=text/css href="StyleSheet.css"></HEAD>
+<BODY>
+<SCRIPT language=JavaScript1.2 type=text/javascript src="ehlpdhtm.js"></SCRIPT>
+
+<H1>vcProductNeedInfo</H1>
+<P>A product need is an abstract object that informs R-Pro about a process that 
+is ready for a product.</P>
+<P>vcProductNeedInfo is a read-only reference of a need. To control the need, 
+see <A href="vcProductNeed.htm">vcProductNeed</A>.</P>
+<H2>Properties</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Type</TD>
+    <TD>Access</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>ProductFilter</TD>
+    <TD><A href="vcProductFilter.htm">vcProductFilter</A></TD>
+    <TD>R</TD>
+    <TD>Filter defining the products that the process accepts.</TD></TR>
+  <TR>
+    <TD>TargetProcessGroupId</TD>
+    <TD>String</TD>
+    <TD>R</TD>
+    <TD>Name of the target process. <BR>&nbsp;&nbsp; <BR>To be matched with a 
+      feed, TargetProcessGroupId needs to have the same value as the feed's 
+      NextProcessGroupId property.</TD></TR>
+  <TR>
+    <TD>TargetNode</TD>
+    <TD><A href="vcTransportNode.htm">vcTransportNode</A></TD>
+    <TD>R</TD>
+    <TD>Target location of the product. This is usually the process that 
+      creates the need.<BR><BR>For a need and feed to be matched, a valid 
+      transportation solution must exist between the feed's SourceNode and the 
+      need's TargetNode.</TD></TR>
+  <TR>
+    <TD>NeedMatchType</TD>
+    <TD>NeedMatchType</TD>
+    <TD>R</TD>
+    <TD>Type and requirements for matching the need with a feed. 
+      <BR>&nbsp;&nbsp; <BR>See the product match types in <A 
+      href="file://s:/SimExperts/Documentation/HelpFile/Python API Reference/updated version 15-04-2021/Python API/Constants.htm#ProductMatcher_Constants">Product 
+      Matcher Constants</A>.</TD></TR>
+  <TR>
+    <TD>RegistrationSimTime</TD>
+    <TD>Real</TD>
+    <TD>R</TD>
+    <TD>Time in the simulation when the need has been added to the product 
+      matcher.</TD></TR></TBODY></TABLE></BODY></HTML>

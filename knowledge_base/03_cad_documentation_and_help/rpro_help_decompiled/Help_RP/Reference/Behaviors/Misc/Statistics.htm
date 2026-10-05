@@ -1,0 +1,303 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="statistics,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Statistics</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Statistics</h1>
+<p>A Statistics behavior allows you to collect and report statistics generated 
+ by other behaviors in a component during a simulation.</p>
+<p><img src="../../../English/Links/Statistics.png" alt="" border="0" class="hcp1"></p>
+<h2>Properties</h2>
+<p>Data collection can be cumulative or based on time, states and events. 
+ In order to report statistics a behavior needs to have a Statistics property 
+ or else you can use a Python Script to manually define data collection. 
+ By default, interval-based statistics are reported every 60 seconds in 
+ a running simulation.</p>
+<table class="Property" cellspacing="0px">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the Statistics behavior.</td>
+	</tr>
+	<tr>
+		<td>PartsEntered</td>
+		<td>Indicates the number of components that have arrived at a container 
+		 type behavior.</td>
+	</tr>
+	<tr>
+		<td>PartsExited</td>
+		<td>Indicates the number of components that have departed a container 
+		 type behavior.</td>
+	</tr>
+	<tr>
+		<td>PartsCurrent</td>
+		<td>Indicates the current amount of components attached to a container 
+		 type behavior.</td>
+	</tr>
+	<tr>
+		<td>PartsUtilization</td>
+		<td>Indicates the percentage of components attached to a container 
+		 type behavior divided by the container's capacity. For example, 
+		 a Component Container may have the capacity to hold 100 components 
+		 but has only contained 50 components, resulting in 50 percent 
+		 utilization of storage space.</td>
+	</tr>
+	<tr>
+		<td>PartsAverageCount</td>
+		<td>Indicates the average amount of components that have been attached 
+		 to a container type behavior. For example, on average a sorting 
+		 machine might have 10 components at any given time.</td>
+	</tr>
+	<tr>
+		<td>PartsMinCount</td>
+		<td>Indicates the minimum number of components that have been attached 
+		 to a container type behavior at one particular time. For example, 
+		 a shuttle conveyor might have a minimum of one component at any 
+		 given time.</td>
+	</tr>
+	<tr>
+		<td>PartsMaxCount</td>
+		<td>Indicates the maximum number of components that have been attached 
+		 to a container type behavior. For example, a robot gripper might 
+		 have a maximum of three components at any given time.</td>
+	</tr>
+	<tr>
+		<td>PartsTotalTime</td>
+		<td>Indicates the total amount of time each component spent attached 
+		 to a container type behavior. For example, a machine processes 
+		 10 components for 5 seconds with a feed in/out rate of 2~3 seconds, 
+		 so the sum total of each component's duration in the machine added 
+		 together results in PartsTotalTime.</td>
+	</tr>
+	<tr>
+		<td>PartsAverageTime</td>
+		<td>Indicates the average amount of time a component spent attached 
+		 to a container type behavior.</td>
+	</tr>
+	<tr>
+		<td>PartsMinTime</td>
+		<td>Indicates the minimum amount of time a component spent attached 
+		 to a container type behavior.</td>
+	</tr>
+	<tr>
+		<td>PartsMaxTime</td>
+		<td>The maximum amount of time a component spent attached to a 
+		 container type behavior.</td>
+	</tr>
+	<tr>
+		<td>PartsIntervalEntered</td>
+		<td>Same as PartsEntered but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>PartsIntervalExited</td>
+		<td>Same as PartsExited but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>PartsIntervalCurrent</td>
+		<td>Same as PartsCurrent but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>PartsIntervalUtilization</td>
+		<td>Same as PartsUtilization but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>PartsIntervalAverageCount</td>
+		<td>Same as PartsAverageCount but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>PartsIntervalMinCount</td>
+		<td>Same as PartsMinCount but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>PartsIntervalMaxCount</td>
+		<td>Same as PartsMaxCount but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>PartsIntervalTotalTime</td>
+		<td>Same as PartsTotalTime but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>PartsIntervalAverageTime</td>
+		<td>Same as PartsAverageTime but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>PartsIntervalMinTime</td>
+		<td>Same as PartsMinTime but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>PartsIntervalMaxTime</td>
+		<td>Same as PartsMaxTime but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>Utilization</td>
+		<td>Indicates the percentage a behavior was in a defined &quot;setup&quot; 
+		 or &quot;busy&quot; state based on the elapsed time of a simulation.</td>
+	</tr>
+	<tr>
+		<td>TotalStateTime</td>
+		<td>Indicates the total amount of time a behavior was in any of 
+		 its defined states based on the elapsed time of a simulation.</td>
+	</tr>
+	<tr>
+		<td>BreakPercentage</td>
+		<td>Indicates the percentage a behavior was in a defined &quot;break&quot; 
+		 state based on the elapsed time of a simulation. Generally, a 
+		 broken state should occur before a defined repair state.</td>
+	</tr>
+	<tr>
+		<td>IdlePercentage</td>
+		<td>Indicates the percentage a behavior was in a defined &quot;idle&quot; 
+		 state based on the elapsed time of a simulation.</td>
+	</tr>
+	<tr>
+		<td>BusyPercentage</td>
+		<td>Indicates the percentage a behavior was in a defined &quot;busy&quot; 
+		 state based on the elapsed time of a simulation.</td>
+	</tr>
+	<tr>
+		<td>BlockedPercentage</td>
+		<td>Indicates the percentage a behavior was in a defined &quot;blocked&quot; 
+		 state based on the elapsed time of a simulation. Generally, capacity 
+		 issues trigger a blocked state in a behavior.</td>
+	</tr>
+	<tr>
+		<td>FailedPercentage</td>
+		<td>Indicates the percentage a behavior was in a defined &quot;failed&quot; 
+		 state based on the elapsed time of a simulation.</td>
+	</tr>
+	<tr>
+		<td>RepairPercentage</td>
+		<td>Indicates the percentage a behavior was in a defined &quot;repair&quot; 
+		 state based on the elapsed time of a simulation.</td>
+	</tr>
+	<tr>
+		<td>SetupPercentage</td>
+		<td>Indicates the percentage a behavior was in a defined &quot;setup&quot; 
+		 or &quot;warm up&quot; state based on the elapsed time of a simulation.</td>
+	</tr>
+	<tr>
+		<td>AverageActivePeriodTime</td>
+		<td>Indicates the average amount of time a behavior was in one 
+		 of its defined states during a simulation.</td>
+	</tr>
+	<tr>
+		<td>IntervalUtilization</td>
+		<td>Same as Utilization but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>IntervalTotalStateTime</td>
+		<td>Same as TotalStateTime but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>IntervalBreakPercentage</td>
+		<td>Same as BreakPercentage but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>IntervalIdlePercentage</td>
+		<td>Same as IdlePercentage but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>IntervalBusyPercentage</td>
+		<td>Same as BusyPercentage but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>IntervalBlockedPercentage</td>
+		<td>Same as BlockedPercentage but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>IntervalFailedPercentage</td>
+		<td>Same as FailedPercentage but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>IntervalRepairPercentage</td>
+		<td>Same as RepairPercentage but for a recorded interval.</td>
+	</tr>
+	<tr>
+		<td>IntervalSetupPercentage</td>
+		<td>Same as SetupPercentage but for a recorded interval.</td>
+	</tr>
+</table>
+<h2>States</h2>
+<p>A component can have one or more states, which are defined by a Statistics 
+ behavior. A state is the condition of a component during a simulation 
+ at a given time. This is why each state has two dynamic properties: State&lt;StateName&gt;Percentage 
+ and State&lt;StateName&gt;IntervalPercentage. A state is mapped to a system 
+ state, which is a hardcoded, predefined condition for a component.</p>
+<p><img src="../../../English/Links/StatisticsStates.png" alt="" border="0" class="hcp1"></p>
+<p>The <span class="Italic">Create default states</span> property of a 
+ Statistics behavior allows you to create the following eight states.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Blocked</td>
+		<td>Indicates a component is blocked, for example a capacity issue 
+		 or parts are stuck in a process.</td>
+	</tr>
+	<tr>
+		<td>Break</td>
+		<td>Indicates a break in a component, for example a break in a 
+		 process.</td>
+	</tr>
+	<tr>
+		<td>Broken</td>
+		<td>Indicates a failure in a component, for example something is 
+		 broken and needs to be repaired.</td>
+	</tr>
+	<tr>
+		<td>Busy</td>
+		<td>Indicates a component is busy, for example executing a process.</td>
+	</tr>
+	<tr>
+		<td>Idle</td>
+		<td>Indicates a component is not busy, for example not waiting 
+		 for a command or not executing a process.</td>
+	</tr>
+	<tr>
+		<td>Repair</td>
+		<td>Indicates a component is being repaired, for example fixing 
+		 a broken part.</td>
+	</tr>
+	<tr>
+		<td>Setup</td>
+		<td>Indicates a component is being configured, for example a boot 
+		 process or steps before executing a process.</td>
+	</tr>
+	<tr>
+		<td>Warmup</td>
+		<td>Indicates warm up time in a component.</td>
+	</tr>
+</table>
+<p><span class="Strong">Notes:</span></p>
+<ul style="list-style: disc;">
+	<li class="Unordered">You can rename a state, but it must always be 
+	 mapped to a system state.</li>
+</ul>
+</body>
+</html>

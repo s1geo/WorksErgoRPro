@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Post Processor</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content="Stäubli,post processing">
+<META name=generator content="Adobe RoboHelp 2017"><LINK rel=StyleSheet 
+type=text/css href="../../../../default.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../../ehlpdhtm.js"></SCRIPT>
+
+<STYLE title=hcp type=text/css>
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>Post Processor</H1>
+<P>The Stäubli add-on allows you to translate the program of a robot in the 3D 
+world to a VAL 3 application. This is known as post-processing a robot program. 
+The generated VAL 3 application is a set of XML files that form a project, which 
+can be opened in Stäubli Robotics Suite (SRS) 2013 and 2016 as well as VAL3 
+Studio 7.</P>
+<P><SPAN style="FONT-WEIGHT: bold">Note:</SPAN> </P>
+<UL class=hcp1>
+  <LI>The VAL3 application name can contain characters a-z, A-Z, and 0-9 and it 
+  must start with a letter. Otherwise, the VAL3 application cannot be used by 
+  the controller. 
+  <LI>When you are connected to a CS9 controller, the transfer manager <SPAN 
+  style="FONT-SIZE: 14px; FONT-FAMILY: 'Segoe UI VSS ', , 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Helvetica, Ubuntu, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; FLOAT: none; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; BACKGROUND-COLOR: #ffffff; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial">cannot 
+  be used to transfer VAL3 application to an emulated CS9 controller, but 
+  it</SPAN><SPAN>&nbsp;</SPAN>can be used to transfer the VAL3 application to a 
+  real CS9 controller. </LI></UL>
+<P>&nbsp;</P>
+<P>For more information on how to post-process a robot program, see <A 
+href="User_Interface.htm#PostProcessVal3">Create VAL 3 Application</A>.</P>
+<DIV class=Contents>
+<P align=left>Contents&nbsp;<A id=MTHotSpot42275 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot42275', 'MTPOPUP42275');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP42275 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">Supported Statements</A></P>
+<P align=left><A href="#MiniTOCBookMark3">Instructions for using 
+Keywords</A></P>
+<P align=left><A href="#MiniTOCBookMark4">Limitations of Expressions</A></P>
+<P align=left><A href="#MiniTOCBookMark5">Program Variables</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>Supported Statements</H2>
+<P>The language used for robot statements in R-Pro 2.1 is similar to the VAL 3 
+language. In many cases, the translations are straightforward, but VAL 3 does 
+not support Break and Continue statements.</P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 50%">
+  <COL style="WIDTH: 50%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Remarks</TD></TR>
+  <TR>
+    <TD>Assign Variable</TD>
+    <TD>See <A href="#LimitationsExpressions">limitations</A> for translating 
+      expressions and <A href="#ProgramVariables">program variables</A>.</TD></TR>
+  <TR>
+    <TD>Call Sequence</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>Comment</TD>
+    <TD>Adds a single line comment to the VAL 3 code. 
+      <P class=TableNormal>See <A href="#InstructionsKeywords">special 
+      instructions</A> for using keywords in Comment statements.</P></TD></TR>
+  <TR>
+    <TD>Define Base</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>Define Tool</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>Delay</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>Halt</TD>
+    <TD>Writes a stopMove() instruction, which stops robot movement and 
+      prevents the execution of other move commands. 
+      <P class=TableNormal>This does not stop the program from running other 
+      code.</P></TD></TR>
+  <TR>
+    <TD>If</TD>
+    <TD>See <A href="#LimitationsExpressions">limitations</A> for translating 
+      expressions.</TD></TR>
+  <TR>
+    <TD>Linear Motion</TD>
+    <TD>Accuracy method and value of motion can be used if the method is 
+      Distance.</TD></TR>
+  <TR>
+    <TD>Point-to-Point Motion</TD>
+    <TD>Accuracy method and value of motion can be used if the method is 
+      Distance.</TD></TR>
+  <TR>
+    <TD>Print</TD>
+    <TD>Writes a line of text to the user interface of controller. 
+      <P class=TableNormal>The text should only contain ASCII 
+  characters.</P></TD></TR>
+  <TR>
+    <TD>Return</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>Set Binary Output</TD>
+    <TD>The output port must have an I/O mapping.</TD></TR>
+  <TR>
+    <TD>Wait for Binary Input</TD>
+    <TD>The input port must have an I/O mapping.</TD></TR>
+  <TR>
+    <TD>While</TD>
+    <TD>See <A href="#LimitationsExpressions">limitations</A> for translating 
+      expressions.</TD></TR></TBODY></TABLE>
+<P><SPAN class=Strong>Notes:</SPAN></P>
+<UL class=hcp1>
+  <LI class=Unordered>Motion statements in R-Pro 2.1 are executed sequentially 
+  with other statements, whereas motion statements in VAL 3 are asynchronous and 
+  added to motion queue. 
+  <LI class=Unordered>To make the generated VAL 3 application behave similar to 
+  its R-Pro 2.1 counterpart , the post processor inserts waitEndMove() 
+  instructions between blocks of movement and other types of instructions. This 
+  means the next instruction will not be executed until completing all queued 
+  movements. 
+  <LI class=Unordered>In order to support motion blending, a waitEndMove() 
+  instruction is not inserted between adjacent motion statements. 
+  <LI class=Unordered>If a while loop only contains motion statements, a 
+  waitEndMove() instruction is inserted after the loop. </LI></UL>
+<H2><A name=MiniTOCBookMark3></A><A name=InstructionsKeywords></A>Instructions 
+for using Keywords</H2>
+<P>Special keywords can be used to generate specific instructions in a VAL 3 
+program. The keywords are case-sensitive and used with Comment statements.</P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 33.33%">
+  <COL style="WIDTH: 33.33%">
+  <COL style="WIDTH: 33.33%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Keyword</TD>
+    <TD>VAL 3 Instruction</TD>
+    <TD>Purpose</TD></TR>
+  <TR>
+    <TD>lastMove</TD>
+    <TD>bLastMove=true</TD>
+    <TD>Allows you to specify that next timer call should write cycle time 
+      summary to controller screen.</TD></TR>
+  <TR>
+    <TD>timer &lt;text&gt;</TD>
+    <TD>call timer("&lt;text&gt;")</TD>
+    <TD>Allows you to write the given text and elapsed time since previous 
+      timer call to controller screen.</TD></TR>
+  <TR>
+    <TD>waitEndMove()</TD>
+    <TD>waitEndMove()</TD>
+    <TD>Allows you to manually insert a waitEndMove() instruction in a block 
+      of movements.</TD></TR></TBODY></TABLE>
+<H2><A name=MiniTOCBookMark4></A><A name=LimitationsExpressions></A>Limitations 
+of Expressions</H2>
+<P>Some robot statements have properties that allow you to define 
+expressions.</P>
+<P>Please be aware of the following limitations:</P>
+<UL class=hcp1>
+  <LI class=Unordered>The &amp;&amp; operator is translated as "and". 
+  <LI class=Unordered>The || operator is translated as "or". 
+  <LI class=Unordered>Variable names, for example routine variables, are 
+  translated using I/O mappings information. 
+  <LI class=Unordered>Routine variables and user-defined properties of a robot 
+  can be used in expressions and are supported by the post processor. 
+  <LI class=Unordered>Both "True" and "False" are translated to lowercase. 
+  <LI class=Unordered>Everything else is not translated, so it will only work if 
+  its syntax is the same in VAL 3, for example most Boolean and simple 
+  calculation expressions. </LI></UL>
+<H2><A name=MiniTOCBookMark5></A><A name=ProgramVariables></A>Program 
+Variables</H2>
+<P>VAL 3 has global application and local program variables. The post processor 
+creates global VAL 3 variables for the component properties of a robot as well 
+as routine variables in its program. This is because routine variables in R-Pro 
+2.1 do not reset like VAL 3 local variables do when you execute a routine.</P>
+<P>Please be aware of the following information:</P>
+<UL class=hcp1>
+  <LI class=Unordered>Component properties are translated to VAL 3 application 
+  variables with the same name. 
+  <LI class=Unordered>The post processor will create dictionaries, which are 
+  collections in VAL 3 Studio, for routine variables according to each data 
+  type. A dictionary will have the same name as the corresponding routine but 
+  have a single letter prefix to identify its type. Key-value pairs are formed 
+  using the name and value of each variable. For example, a routine named "Pick" 
+  with Boolean and string variables would be translated as two dictionaries, 
+  bPick and sPick. Accessing the value of a Boolean variable named "Skip" would 
+  done via bPick["Skip"]. 
+  <LI class=Unordered>The post processor includes the initial values of R-Pro 
+  2.1 variables in the variable definitions of the VAL 3 application. 
+</LI></UL></BODY></HTML>

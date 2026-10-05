@@ -1,0 +1,71 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="scara kinematics,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Scara Kinematics</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Scara Kinematics</h1>
+<p>A Scara Kinematics behavior calculates the forward and inverse kinematics 
+ of a Robot Controller for a SCARA type robot in which the wrist is defined 
+ in one axis (generally the Z-axis) and has two possible configurations 
+ (Left and Right).</p>
+<p><img src="../../../English/Links/ScaraKinematics2.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the kinematics.</td>
+	</tr>
+	<tr>
+		<td>L12X to L04Z</td>
+		<td>Defines the offset between two joints in a given axis. 
+		<p class="TableNormal"><span class="Term">L12X</span><br>
+		Refers to the offset between the first and second joints along 
+		 X-axis.</p>
+		<p class="TableNormal"><span class="Term">L23X</span><br>
+		Refers to the offset from second joint to third joint along X-axis.</p>
+		<p class="TableNormal"><span class="Term">L04Z</span><br>
+		Refers to the offset from the robot's base to the TCP along Z-axis.</p></td>
+	</tr>
+	<tr>
+		<td>ConfigName1 to ConfigName2 
+		<br>&#160;</td>
+		<td>Defines the names of configurations for the robot's arm. Different 
+		 robot types may use different naming conventions for the same 
+		 configurations.</td>
+	</tr>
+	<tr>
+		<td>JointSign1 to JointSign4</td>
+		<td>Defines which direction is the positive direction of a joint, 
+		 for example if you flip joint rotation from clockwise to counter-clockwise.</td>
+	</tr>
+	<tr>
+		<td><p>JointZeroOffset1 to JointZeroOffset5</p></td>
+		<td>Defines the joint-zero pose of the robot (arm-up space). JointZeroOffsets 
+		 are used as a kinematic solution for determining the robot's pose 
+		 when its joints are at zero value. Different robot vendors tend 
+		 to use different joint zero positions for robots.</td>
+	</tr>
+</table>
+&#160; 
+<br><span style="font-weight: bold;">Note: </span>This is 
+ updated version. Some old models might still use <a href="Scara_Kinematics_old.htm">Scara 
+ Kinematics (old)</a>. 
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Product Type Editor</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=generator content="Adobe RoboHelp 2017"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+
+<STYLE title=hcp type=text/css>
+<!--
+span.hcp1 { font-weight:bold; }
+img.hcp2 { border:none; }
+ul.hcp3 { list-style:disc; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>Product Type Editor</H1>
+<P>The Product Type Editor panel shows the <SPAN class=hcp1>product types</SPAN> 
+and the <SPAN class=hcp1>assemblies</SPAN> created for the layout. The panel 
+allows you to add and edit types and assemblies of products and arrange them to 
+flow groups. You can also define properties for the product types and 
+assemblies.</P>
+<P>&nbsp;<IMG class=hcp2 border=0 alt="" 
+src="../../Links/UI_Panels_ProductTypeEditor_Panel_EN.png"></P>
+<TABLE id=callouts cellSpacing=0>
+  <COLGROUP>
+  <COL>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>1.</TD>
+    <TD>Expand/Collapse Flow Groups and Product Types</TD></TR>
+  <TR>
+    <TD>2.</TD>
+    <TD>Flow Group</TD></TR>
+  <TR>
+    <TD>3.</TD>
+    <TD>Product Type</TD></TR>
+  <TR>
+    <TD>4.</TD>
+    <TD>Properties of a Product</TD></TR>
+  <TR>
+    <TD>5.</TD>
+    <TD>Properties Associated with Component</TD></TR>
+  <TR>
+    <TD>6.</TD>
+    <TD>Collapsed Flow Groups</TD></TR>
+  <TR>
+    <TD>7.</TD>
+    <TD>Selected Property</TD></TR>
+  <TR>
+    <TD>8.</TD>
+    <TD>Visibility of Flow Group in Process Flow Editor Panel</TD></TR>
+  <TR>
+    <TD>9.</TD>
+    <TD>Add Product Type or Flow Group</TD></TR>
+  <TR>
+    <TD>10.</TD>
+    <TD>Search Box for Names of Properties, Product Types and Flow 
+Groups</TD></TR>
+  <TR>
+    <TD>11.</TD>
+    <TD>Select if Product Types or Assemblies are shown</TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<DIV class=Contents>
+<P align=left>Contents&nbsp;<A id=MTHotSpot15744 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot15744', 'MTPOPUP15744');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP15744 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">Access</A></P>
+<P align=left><A href="#MiniTOCBookMark3">Flow Groups</A></P>
+<P align=left><A href="#MiniTOCBookMark4">Product Types</A></P>
+<P align=left><A href="#MiniTOCBookMark5">Default Properties</A></P>
+<P align=left><A href="#MiniTOCBookMark6">Product Properties</A></P>
+<P align=left><A href="#MiniTOCBookMark7">Component Properties</A></P>
+<P align=left><A href="#MiniTOCBookMark8">Product Creator</A></P>
+<P align=left><A href="#MiniTOCBookMark9">Assemblies</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>Access</H2>
+<P>To access the Product type editor:</P>
+<UL class=hcp3>
+  <LI class=Unordered>Click the <SPAN class=Strong>Process </SPAN>tab. 
+  <LI class=Unordered>In <SPAN class=hcp1>Editor</SPAN> group, Click <SPAN 
+  class=hcp1>Products </SPAN>command 
+  <LI class=Unordered>The Product Type Editor panel appears on the left. 
+</LI></UL>
+<H2><IMG class=hcp2 border=0 alt="" 
+src="../../Links/UI_Panels_ProcessFlowEditor_Access_EN.png"></H2>
+<H2><A name=MiniTOCBookMark3></A>Flow Groups</H2>
+<P>Every product type belongs to a flow group. A flow group can have one or more 
+products.</P>
+<P><IMG class=hcp2 border=0 alt="" 
+src="../../Links/UI_Panels_ProductTypeEditor_ProductGroups1_EN.png"></P>
+<P>A flow group controls the flow of its products from one process to another. 
+In all cases, products of the same flow group have the same flow. For example, 
+different types of boxes could belong to one flow group and go through the same 
+process steps.</P>
+<P><IMG class=hcp2 border=0 alt="" 
+src="../../Links/UI_Panels_ProductTypeEditor_ProductGroups2_EN.png"></P>
+<H2><A name=MiniTOCBookMark4></A>Product Types</H2>
+<P>A product type is the definition of what you want to manufacture in the 3D 
+world. That is, you can make any type of product. </P>
+<P>Product type has three kind of properties: Default, Component and Product 
+properties. Default properties cannot be changed but their values must be 
+defined. Component and product properties are optional and they are added 
+manually. You can edit, copy, paste and move them between different product 
+types and property groups.</P>
+<H2><A name=MiniTOCBookMark5></A>Default Properties</H2>
+<P>Every product type has a default set of properties.</P>
+<UL class=hcp3>
+  <LI class=Unordered>Name is the name of the product. 
+  <LI class=Unordered>ParentProduct indicates if the product inherits properties 
+  from another product. 
+  <LI class=Unordered>ComponentUri is a component associated with the product. 
+  You have the option to use the VCID or URI of a component, or to select the 
+  component in the 3D world. When using the VCID of a component, type "vcid:" 
+  followed by the VCID, and then press ENTER. Any properties associated with a 
+  component are used as the default component properties unless overwritten 
+  using the Component Properties as described below. 
+  <LI class=Unordered>OriginFrame defines the origin of the product in relation 
+  to an associated component. </LI></UL>
+<P><IMG class=hcp2 border=0 alt="" 
+src="../../Links/UI_Panels_ProductTypeEditor_DefaultProperties_EN.png"></P>
+<H2><A name=MiniTOCBookMark6></A>Product Properties</H2>
+<P>A product has its own set of properties. Product properties can be used to 
+maintain the information throughout the production, while the associated 
+component with its properties is changed due to an increase in the production 
+phase. </P>
+<P><IMG class=hcp2 border=0 alt="" 
+src="../../Links/UI_Panels_ProductTypeEditor_ProductProperties_EN.png"></P>
+<P>A product supports the following property types:</P>
+<UL class=hcp3>
+  <LI class=Unordered>
+  <P>Double (Real type number)</P>
+  <LI class=Unordered>
+  <P>String (text)</P>
+  <LI class=Unordered>
+  <P>Int32 (regular Integer number)</P>
+  <LI class=Unordered>
+  <P>Boolean value (True or False)</P>
+  <LI class=Unordered>
+  <P>Vector</P>
+  <LI class=Unordered>
+  <P>Matrix</P>
+  <LI class=Unordered>
+  <P>URI</P>
+  <LI class=Unordered>
+  <P>Material</P>
+  <LI class=Unordered>
+  <P>Custom type implemented using API</P></LI></UL>
+<P>Be aware that product properties are not listed in the Properties panel of 
+the selected dynamic component. However, they can be accessed with statements of 
+a process routine or APIs.</P>
+<H2><A name=MiniTOCBookMark7></A>Component Properties</H2>
+<P>A product has its own set of properties to associate with a component. You 
+can create new properties which will be added &nbsp;upon creation of the product 
+instance to the dynamic component or add properties from an associated component 
+to define their default values.</P>
+<P>&nbsp;</P>
+<P>Added / assigned upon creation of the product instance.</P>
+<P><IMG class=hcp2 border=0 alt="" 
+src="../../Links/UI_Panels_ProductTypeEditor_ComponentProperties_EN.png"></P>
+<P>Be aware that a product is not a component. That is, they are two separate 
+objects. Removing the association between a product and component does not 
+remove the component properties of a product. In this context, think of a 
+product type as a template for making new parts during a simulation. Associating 
+a component with a product and adding one or more of its properties is a quick 
+way to define or prototype a new product. Editing the properties of the 
+component, however, have no effect on the component properties of a product.</P>
+<H2><A name=MiniTOCBookMark8></A>Product Creator</H2>
+<P>A Product Creator is a behavior that allows a component to create product 
+instances from product types during simulation. Thus, you can use a component 
+having this behavior in order to create product instances in simulation defined 
+in Product Type Editor panel. From eCatalog’s R-Pro 2.1 Public Models, you can 
+use Source Process component as a stationary feeder or Product Feeder component 
+as an inline feeder.</P>
+<P><IMG class=hcp2 border=0 alt="" 
+src="../../Links/UI_Panels_ProductTypeEditor_ProductCreator_EN.png"></P>
+<P>A Product Creator can create products using one of several modes.</P>
+<UL class=hcp3>
+  <LI class=Unordered>
+  <P>Single creates product of a single type at a given interval.</P>
+  <LI class=Unordered>
+  <P>Batch creates one or more product types in a specific order. Every entry in 
+  a batch represents a product type, its quantity, and the interval for creating 
+  the needed amount. You have the option to create a one batch or several at a 
+  given interval.</P>
+  <LI class=Unordered>
+  <P>Table allows you to import an Excel file that defines which products to 
+  create at specified times</P>
+  <LI class=Unordered>
+  <P>Distribution chooses product type to create based on a weighted 
+  probability.</P></LI></UL>
+<H2><A name=MiniTOCBookMark9></A>Assemblies</H2>
+<P>Assemblies are hierarchical structures of Assembly Steps. Each Assembly Step 
+represents one logical step in the product’s hierarchy that can be assembled or 
+disassembled. </P>
+<P>Each Assembly Step has a location compared to its parent step, and each step 
+has its own Step properties. </P>
+<P>Every step contains one or more Assembly Slots for the Product Types. The 
+slot configuration is done in the Assembly Editor.</P>
+<P><IMG class=hcp2 border=0 alt="" 
+src="../../Links/UI_Panels_ProductTypeEditor_Assembly_EN.png" width=1073 
+height=414></P>
+<OL style="LIST-STYLE-TYPE: decimal">
+  <LI>Flow group of the Assembly Product Type. 
+  <LI>Assembly Product Type. Assemblies can be handled as any other Product 
+  Types with the PM statements. 
+  <LI>Selected Assembly Step. This step represents a group of cylinders in the 
+  pallet assembly. 
+  <LI>Step properties of the selected Assembly Step. Step properties can be read 
+  with the PM statements. 
+  <LI>Open the Assembly Editor icon for the selected step. The icon is only 
+  shown when a cursor is placed on the Assembly Step. Assembly Editor opens as a 
+  new 3D environment panel in which users can define the number of slots, their 
+  location, and the Product Type for the slots. 
+  <LI>Selected Assembly Slot in the Assembly Editor. Each slot can be 
+  manipulated freely using tools such as Select, Move, Measure, Snap, Align, ... 
+  Also, selected slots can be copy-pasted as well. By default, the slot is 
+  visualized with a cube geometry. 
+  <LI>Assembly Slot properties: 
+  <UL class=hcp3>
+    <LI>OrderIndex defines the product assembling and disassembling order when 
+    having multiple slots. The placing order starts from the lowest value, and 
+    the picking order starts from the highest value. 
+    <LI>AcceptAllProductTypes, AcceptProductTypes and AcceptFlowGroups are used 
+    to filter the Product Instances accepted to the slot when the assembly is 
+    constructed during the simulation. 
+    <LI>DefaultProductType defines the default Product Type created to the slot 
+    when the step or the assembly is initially created. 
+    <LI>DefaultsBoundsDimensions defines the default dimensions of the slot 
+    geometry. &nbsp;These dimensions will be overridden if the 
+    DefaultProductType is selected. </LI></UL>
+  <LI>Assembly Visualization toolbar. The selected step is always visualized, 
+  but the other steps can be shown with transparent blue material. 
+  <LI>Slot adding and slot centering tools. Slots can be created individually, 
+  or they can be created as a pattern. When creating a pattern, a template 
+  pattern can be used. It is also possible to utilize already existing patterns 
+  from other Assembly Steps and Assemblies. With the slot center tool, the slot 
+  locations can be centered to the assembly step origin. 
+  <LI>Close the Assembly Editor </LI></OL></BODY></HTML>

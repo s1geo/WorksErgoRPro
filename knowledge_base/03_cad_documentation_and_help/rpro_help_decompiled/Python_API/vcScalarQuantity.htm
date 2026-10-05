@@ -1,0 +1,164 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcScalarQuantity</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+p.hcp1 { margin-left:40px; }
+p.hcp2 { margin-left:80px; }
+-->
+</style>
+</head>
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcScalarQuantity</h1>
+<p>vcScalarQuantity is the basic implementation for quantities used in the application and provides access to units.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot34701" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot34701', 'MTPOPUP34701');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP34701" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Usage</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Usage</h2>
+<p>Each quantity represents a unit of measurement and magnitude (size). A quantity can be classified as either a scalar or vector value depending on its spatial nature. That is, a direction or force is required to fully describe vector quantity. For example, time and mass are scalar quantities while acceleration and weight are vector quantities.</p>
+<p class="hcp1"><a href="vcScalarQuantity.htm">vcScalarQuantity</a></p>
+<p class="hcp2"><a href="vcVectorQuantity.htm">vcVectorQuantity</a></p>
+<p>When a <a href="vcProperty.htm">vcProperty</a> object references a quantity the property must define a unit group, which is a group of units that apply to the quantity and belong to the same unit family. The actual unit of the quantity is then defined by the quantity's magnitude, which is a value, expressed in canonical units, that specifies the size of the unit.</p>
+<p class="hcp1"><a href="vcUnitFamily.htm">vcUnitFamily</a></p>
+<p class="hcp2"><a href="vcUnitGroup.htm">vcUnitGroup</a></p>
+<p style="margin-left: 120px;"><a href="vcUnit.htm">vcUnit</a></p>
+<p>In terms of hierarchy, a quantity may belong to a subset of quantities that have the same parent quantity. For example, Volume is a built-in parent quality that has a Liquid child quantity. Liquid measures liquid volumes, whereas Volume can describe any spatial volume.</p>
+<p>In terms of categorization, a quantity may belong to a category which is an informative string/label describing the type or context of quantity.</p>
+<h2><a name="MiniTOCBookMark3"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>AvailableGroups</td>
+<td>List of <a href="vcUnitGroup.htm">vcUnitGroup</a></td>
+<td>R</td>
+<td>Gets a list of all unit groups that include the quantity, thereby any one of those groups can be used to access and select quantity.</td>
+</tr>
+<tr>
+<td>Category</td>
+<td>String</td>
+<td>RW/R</td>
+<td>If built-in quantity, gets category of quantity; otherwise defines the category of a quantity.</td>
+</tr>
+<tr>
+<td>Children</td>
+<td>List of <a href="vcScalarQuantity.htm">vcScalarQuantity</a></td>
+<td>R</td>
+<td>Gets a list of all child quantities for the quantity.
+<p class="TableNormal">If no child quantities, value is empty list.</p>
+</td>
+</tr>
+<tr>
+<td>CurrentGroup</td>
+<td><a href="vcUnitGroup.htm">vcUnitGroup</a></td>
+<td>RW</td>
+<td>Defines the current unit group used for listing the quantity's properties.
+<p class="TableNormal">To set, give either a <a href="vcUnitGroup.htm">vcUnitGroup</a> object or name of unit group.</p>
+<p class="TableNormal">If value is None and quantity has a parent quality, uses the current group of parent.</p>
+</td>
+</tr>
+<tr>
+<td>EffectiveGroup</td>
+<td><a href="vcUnitGroup.htm">vcUnitGroup</a></td>
+<td>R</td>
+<td>Gets the actual unit group used for listing the quantity's properties.
+<p class="TableNormal">If CurrentGroup is None, uses unit group of parent quantity.</p>
+</td>
+</tr>
+<tr>
+<td>FullName</td>
+<td>String</td>
+<td>R</td>
+<td>Gets the full name of quantity, which is the concatenation of parent quantity names with a dot (.) separator and Name.
+<p class="TableNormal">You can refer to a quantity by referencing its full name.</p>
+</td>
+</tr>
+<tr>
+<td>IsBuiltIn</td>
+<td>Boolean</td>
+<td>R</td>
+<td>Indicates if quantity is a built-in quantity which cannot be edited nor destroyed.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>String</td>
+<td>RW/R</td>
+<td>If quantity is built-in, gets name of quantity; otherwise defines the quantity's name.</td>
+</tr>
+<tr>
+<td>Parent</td>
+<td><a href="vcScalarQuantity.htm">vcScalarQuantity</a></td>
+<td>RW/R</td>
+<td>If quantity is built-in, gets parent quantity; otherwise defines the parent of quantity.
+<p class="TableNormal">To set, give either a <a href="vcScalarQuantity.htm">vcScalarQuantity</a> object or full name of quantity.</p>
+</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>String</td>
+<td>R</td>
+<td>Gets the quantity type.
+<p class="TableNormal">See <a href="Constants.htm#Quantity_Constants">Quantity Constants</a> for more information.</p>
+</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>createChildQuantity</td>
+<td><a href="vcScalarQuantity.htm">vcScalarQuantity</a></td>
+<td>String <span class="Italic">name</span>, Enumeration <span class="Italic">type</span></td>
+<td>Adds a new child quantity of a given <span class="Italic">name</span> and <span class="Italic">type</span> to the quantity.
+<p class="TableNormal">See <span class="Italic">Quantity Constants</span> for more information.</p>
+</td>
+</tr>
+<tr>
+<td>destroy</td>
+<td>None</td>
+<td>None</td>
+<td>If quantity is not built-in, destroys the quantity; otherwise throws an exception.</td>
+</tr>
+<tr>
+<td>getEffectiveUnit</td>
+<td><a href="vcUnit.htm">vcUnit</a></td>
+<td>Real <span class="Italic">magnitude</span></td>
+<td>Returns a unit from effective unit group of quantity that closely matches a given <span class="Italic">magnitude</span>.</td>
+</tr>
+</table>
+</body>
+</html>

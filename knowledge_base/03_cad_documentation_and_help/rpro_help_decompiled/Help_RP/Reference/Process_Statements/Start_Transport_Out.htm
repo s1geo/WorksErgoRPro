@@ -1,0 +1,138 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Start Transport Out</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Start Transport Out</h1>
+<p>A StartTransportOut statement allows you to start transporting one or 
+ more products instances out of the process and to execute other statements 
+ while that is being done. This statement is typically used before a WaitTransport 
+ statement, with any number of other statements in between. See the TransportOut 
+ statement for more information. </p>
+<p>In <span class="Term">Transport Products</span> mode, all product transports 
+ will start at the same time.</p>
+<p>In <span class="Term">Process an Assembly </span>mode, operations are 
+ performed in the same order as in the TransportOut statement.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><p>ProductVariableName</p></td>
+		<td><p>The name of the variable that contains either the Product(s) 
+		 to be transported out or the Assembly whose slots will be cleared 
+		 of Products. <br>
+		<br>
+		This variable can be a single reference type or a list. In Transport 
+		 Products mode, all products in the list will be transported out 
+		 sequentially. In Process an Assembly mode, only the first item 
+		 in the list will be processed.</p></td>
+	</tr>
+	<tr>
+		<td><p>Mode</p></td>
+		<td><p>Defines how products are transported out.<br>
+		</p>
+		<p><span class="Term">Transport Products</span><br>
+		In this mode, this statement transports Product Instances between 
+		 Processes. <br>
+		Tip: Product Instance is a general term that includes both Part 
+		 Instances and Assembly Instances, so this can be used to send 
+		 assemblies (partially assembled or fully assembled) out of the 
+		 process.<br>
+		</p>
+		<p><span class="Term">Process an Assembly </span><br>
+		In this mode, this statement is used to transport Product Instances 
+		 out of an Assembly Instance that is in this process.</p></td>
+	</tr>
+	<tr>
+		<td><p>AssemblyOrderVariableName</p></td>
+		<td><p>Name of the AssemblyOrder variable that defines which slots 
+		 of the assembly will be cleared, if they are currently filled. 
+		 <br>
+		Tip: Use the GetAssembly statement for creating an AssemblyOrder. 
+		 </p>
+		<p>If left empty, all slots of the assembly will be transported 
+		 out.</p></td>
+	</tr>
+	<tr>
+		<td>ResourcePositionFrame</td>
+		<td><p>Frame location where a resource will move for picking a 
+		 product.</p></td>
+	</tr>
+	<tr>
+		<td>Destination</td>
+		<td><p>Defines the destination to where the products will be passed 
+		 for transportation.</p>
+		<p><span class="Term">To Next Process</span><br>
+		The Product Instance is transported to the next process using the 
+		 transport system. Transportation is pull-type, meaning that the 
+		 next process requests a product once it has capacity for it. This 
+		 statement will complete once the product has been picked up by 
+		 the Implementer of the first Transport Link.<br>
+		Tip: Can be read as &quot;To Transport Link&quot; most of the time. 
+		 </p>
+		<p><span class="Term">To Component Container</span><br>
+		The Product Instance is placed onto the component container defined 
+		 by DestinationContainer. If the DestinationContainer has an output 
+		 port connected to another container behavior, the product flows 
+		 through the DestinationContainer to its connected container. Transportation 
+		 is push-type, meaning that product is transported out as soon 
+		 as the destination container has capacity for it.<br>
+		Tip: This is typically used in an in-line process to buffer products 
+		 on a conveyor. </p>
+		<p><span class="Term">To Transport Node</span><br>
+		The Product Instance is transported out to the defined transport 
+		 node&#8239;using the transport system. With this mode, it is possible 
+		 to use the transport system in push-mode, meaning that products 
+		 are transported to the target node using e.g. a conveyor system 
+		 as a buffer.</p></td>
+	</tr>
+	<tr>
+		<td>DestinationNode</td>
+		<td><p>To which transport node the Product Instance is transported 
+		 out when the Destination property is defined as <span class="hcp1">To 
+		 Transport Node</span>.</p></td>
+	</tr>
+	<tr>
+		<td>Container</td>
+		<td><p>To which container the Product Instance is transported out 
+		 when the Destination property is defined as <span class="hcp1">To 
+		 Component Container</span>.</p></td>
+	</tr>
+	<tr>
+		<td>SendAsProductBundles</td>
+		<td><p>This property can be used to transport out multiple products 
+		 as a bunch within single transportation.</p>
+		<p>The selected Assembly Steps in the Assembly Order will always 
+		 be transported out individually (one Assembly Slot at a time while 
+		 looping the selected Assembly Steps).</p>
+		<p>If the property value is true, the non-selected child steps 
+		 of the selected Assembly Steps (if any) will be attached to the 
+		 Product Instance in the first slot of their selected Assembly 
+		 Step parent. In more details, the attached products will be transported 
+		 as Product Bundles. Product Bundle is a collection of Product 
+		 Instances created by attaching their dynamic components together. 
+		 Product Bundles are not Assembly Instances, and they don’t have 
+		 assembly structure metadata.</p></td>
+	</tr>
+</table>
+</body>
+</html>

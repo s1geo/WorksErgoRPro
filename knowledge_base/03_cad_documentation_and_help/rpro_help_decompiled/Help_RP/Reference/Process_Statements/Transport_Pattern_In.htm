@@ -1,0 +1,90 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Transport Pattern In</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Transport Pattern In</h1>
+<p>A TransportsPatternIn allows you to transport available product instances sequentially in a pattern. </p>
+<h4>Reserved Products</h4>
+<p>TransportsPatternIn supports using products reserved by <a href="Reserve_Product.htm">ReserveProduct</a> 
+ statement. Define which reserved product are used by ReservedProductVariableName 
+ property. If there are pre-reserved products available, they get first 
+ filled in the pattern. Pattern can be partially or fully filled from pre-reserved 
+ products. </p>
+<p>Used pre-reserved products are removed from the input list. If the it 
+ is a single value, variable is reset. If there are more pre-reserved products 
+ than fit in the pattern, the unused ones are left in the variable and 
+ can be used by other statements that support transporting them in.</p>
+<h4>Other Products</h4>
+<p>A product matching the product filter is first reserved and then brought 
+ in using the transport system.</p>
+<p><span style="font-weight: bold;">Note:</span> Only Transport system 
+ is supported as source.</p>
+<p>&#160;</p>
+<p><img src="../../English/Links/ReferenceProcessStatementsTransportPatternIn.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ReservedProductVariableName </td>
+		<td>Product variable name defined in the Reserve Statement. 
+		<br>&#160; 
+		<br>If <span>ReservedProductVariableName</span> is 
+		 used, the process executor overrides the filtering properties 
+		 (AcceptAllProductTypes, AcceptedFlowGroups, AcceptedProductTypes).</td>
+	</tr>
+	<tr>
+		<td>ProductVariableName </td>
+		<td>Product variable name that is to be transported out.</td>
+	</tr>
+	<tr>
+		<td><p>ProductPositionFrame </p></td>
+		<td>Frame location where the products are placed.</td>
+	</tr>
+	<tr>
+		<td><p>ResourcePositionFrame </p></td>
+		<td>Frame location where a resource will move while picking/placing 
+		 part.</td>
+	</tr>
+	<tr>
+		<td><p>Offset </p></td>
+		<td>Offset of the first product from product position frame.</td>
+	</tr>
+	<tr>
+		<td><p>PatternCount </p></td>
+		<td>Number of product per X,Y,Z axis.</td>
+	</tr>
+	<tr>
+		<td><p>PatternStep </p></td>
+		<td>Step between products in pattern per X,Y,Z axis.</td>
+	</tr>
+	<tr>
+		<td><p>AcceptAllProductTypes </p></td>
+		<td>If selected, any product is accepted .</td>
+	</tr>
+	<tr>
+		<td><p>AcceptedFlowGroups </p></td>
+		<td>Allows only the selected flow groups.</td>
+	</tr>
+	<tr>
+		<td><p>AcceptedProductTypes </p></td>
+		<td>Allows only the selected product types.</td>
+	</tr>
+</table>
+<p>&#160;</p>
+</body>
+</html>

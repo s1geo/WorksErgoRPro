@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Физический объект</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Физический объект позволяет определить узел в компоненте как физическое тело, на которое влияет физика трехмерного мира." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Физический объект</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Физический объект позволяет определить узел в компоненте как физическое тело, на которое влияет физика трехмерного мира.</p>
+<p class="p_Normal"><img alt="ClipboardImg191" style="margin:0;width:7.1875in;height:6.5833in;border:none" src="clipboardimg191.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.8854in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5313in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет наименование объекта.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Физический Тип</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет, как физика влияет на объект во время симуляции.</p>
+<p class="p_Normal">#В физике -На объект действует гравитация и другие силы.</p>
+<p class="p_Normal">#Вне физики - Объект не зависит от физики.</p>
+<p class="p_Normal">#Кинематический - На объект не влияет гравитация, но она может управляться другими силами, например траекториями и сервоприводами.</p>
+<p class="p_Normal">#В контейнере - Аналогичен #В физике, но используется для отслеживания содержания объекта, например, от одного пути к другому.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Плотность Материала</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет плотность объекта, тем самым влияя на его массу.</p>
+<p class="p_Normal">Плотность измеряется в кг/м^3. Системное значение по умолчанию — 0,2 и используется, если значение равно 0.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Статическое Трение</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет статическое трение объекта как коэффициент для расчета его силы трения.</p>
+<p class="p_Normal">Значение находится в диапазоне от 0 до 1 со значением по умолчанию 0,5. Это используется, когда объект, которого он касается, не двигаются относительно друг друга.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Динамическое Трение</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет динамическое (кинетическое) трение объекта как коэффициент для расчета его силы трения.</p>
+<p class="p_Normal">Значение находится в диапазоне от 0 до 1 со значением по умолчанию 0,5. Это используется, когда объект, которого он касается, движутся относительно друг друга.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Реституция</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет прыгучесть объекта как фактор его скорости до и после столкновения с другим объектом.</p>
+<p class="p_Normal">Значение находится в диапазоне от 0 до 1 со значением по умолчанию 0,1. Значение 1 очень упругое (упругое столкновение). Значение меньше 1 означает меньшую упругость (неупругое столкновение).</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Линейное Затухание</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет линейное демпфирование объекта как коэффициент для расчета его сопротивления линейному движению.</p>
+<p class="p_Normal">Значение находится в диапазоне от 0 до 1, по умолчанию 0.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Угловое Затухание</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет угловое демпфирование объекта как коэффициент для расчета его сопротивления вращательному движению.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Итерации Позиции Программы Решателя</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет количество итераций, используемых для определения положения объекта.</p>
+<p class="p_Normal">Системное значение по умолчанию равно 4 и используется, если значение равно 0.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Итерации Скорости Программы Решателя</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет количество итераций, используемых для определения скорости объекта.</p>
+<p class="p_Normal">Системное значение по умолчанию равно 1 и используется, если значение равно 0.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Id Cцены</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет идентификатор сцены, которой принадлежит объект в 3D-мире.</p>
+<p class="p_Normal">По умолчанию все объекты и пол 3D-мира имеют идентификатор сцены 0. Сцена в этом контексте является абстрактной и более или менее многослойной. Сущности в разных сценах не будут сталкиваться друг с другом.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Группа Cтолкновения</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Ограничивает столкновение сущности с другими объектами теми, которые принадлежат к той же группе.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Шагов Сглаживания </p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет количество шагов для сглаживания анимации объекта, например, при его движении.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

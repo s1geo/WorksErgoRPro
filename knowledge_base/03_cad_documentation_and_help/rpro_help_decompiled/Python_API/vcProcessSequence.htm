@@ -1,0 +1,121 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+ 
+<title>vcProcessSequence</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcProcessSequence</h1>
+<p>Defines the sequence of process steps (<a href="vcProcessGroup.htm">vcProcessGroup</a>) 
+ that any product type (<a href="vcProductType.htm">vcProductType</a>) 
+ belonging to a particular flow group (<a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a>) 
+ shall follow in the Process Modeling system.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot30670" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot30670', 'MTPOPUP30670');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP30670" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>FlowTable </td>
+		<td><a href="vcProcessFlowTable.htm">vcProcessFlowTable</a> </td>
+		<td>R</td>
+		<td>The flow table that owns this sequence.</td>
+	</tr>
+	<tr>
+		<td>TargetGroup </td>
+		<td><a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> </td>
+		<td>R</td>
+		<td>The flow group that this sequence is defined for.</td>
+	</tr>
+	<tr>
+		<td>ProcessGroups </td>
+		<td>List of <a href="vcProcessGroup.htm">vcProcessGroup</a></td>
+		<td>R</td>
+		<td>The ordered list of processes that the products belonging to 
+		 the target flow group should go through.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addProcessGroup</td>
+		<td>None</td>
+		<td><a href="vcProcessGroup.htm">vcProcessGroup</a> <span class="hcp1">processGroup</span></td>
+		<td>Adds the given process group to this sequence.</td>
+	</tr>
+	<tr>
+		<td>removeProcessGroup </td>
+		<td>None</td>
+		<td><a href="vcProcessGroup.htm">vcProcessGroup</a> <span class="hcp1">processGroup</span></td>
+		<td>Removes the given process group from this sequence.</td>
+	</tr>
+	<tr>
+		<td>insertProcessGroup </td>
+		<td>None</td>
+		<td>Integer <span class="hcp1">index</span>, 
+		<br><a href="vcProcessGroup.htm">vcProcessGroup</a> 
+		 <span class="hcp1">processGroup</span></td>
+		<td>Inserts the given process group into the given <span class="hcp1">index</span> 
+		 in this sequence.</td>
+	</tr>
+	<tr>
+		<td>setProcessGroup </td>
+		<td>None</td>
+		<td>Integer <span class="hcp1">index</span>, 
+		<br><span class="hcp1"><a href="vcProcessGroup.htm">vcProcessGroup</a> 
+		 </span><span class="hcp1">processGroup</span></td>
+		<td>Sets the process group in the given <span class="hcp1">index</span> 
+		 in this sequence.</td>
+	</tr>
+	<tr>
+		<td>getProcessGroup </td>
+		<td>vcProcessGroup </td>
+		<td>Integer <span class="hcp1">index</span> </td>
+		<td>Returns the process group in the given <span class="hcp1">index</span> 
+		 in this sequence.</td>
+	</tr>
+</table>
+</body>
+</html>

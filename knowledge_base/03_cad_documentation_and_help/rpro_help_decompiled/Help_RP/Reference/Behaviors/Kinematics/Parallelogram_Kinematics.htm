@@ -1,0 +1,73 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="parallelogram kinematics,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Parallelogram Kinematics</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Parallelogram Kinematics</h1>
+<p>A Parallelogram Kinematics behavior calculates the forward and inverse 
+ kinematics of a Robot Controller used for palletizing operations in which 
+ the wrist orientation is always pointing downward.</p>
+<p><img src="../../../English/Links/ParallelogramKinematics.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<p>If you want to use Parallelogram Kinematics with ordinary articulated 
+ robots, set <span class="Italic">LinkLength4</span> to zero and include 
+ the entire distance from the center of axis 3 to the center of the wrist 
+ in <span class="Italic">LinkLength3</span>. In this case, the geometry 
+ of the fourth joint may move by the value of LinkLength4. To compensate 
+ for that effect, consider moving the actual geometry.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the kinematics.</td>
+	</tr>
+	<tr>
+		<td>LinkLength1 to LinkLength5</td>
+		<td>Defines the length of each joint in the Robot Controller. 
+		<p class="TableNormal"><span class="Term">LinkLength1</span><br>
+		The height in Z-axis from the robot's base to center point of axis 
+		 2.</p>
+		<p class="TableNormal"><span class="Term">LinkLength2</span><br>
+		The distance from the center of axis 2 to the center of axis 3 
+		 using axis 2's direction.</p>
+		<p class="TableNormal"><span class="Term">LinkLength3</span><br>
+		The distance from the center of axis 3 to the center of the robot's 
+		 wrist.</p>
+		<p class="TableNormal"><span class="Term">LinkLength4</span><br>
+		The offset from the wrist center to the center line of the flange 
+		 node.</p>
+		<p class="TableNormal"><span class="Term">LinkLength5</span><br>
+		The distance from the center of the wrist to the center of the 
+		 flange node in the direction of the flange.</p></td>
+	</tr>
+	<tr>
+		<td>JointOffset1</td>
+		<td>Defines the distance from the center of axis 1 to the center 
+		 of axis 2 in the X-axis.</td>
+	</tr>
+	<tr>
+		<td>JointOffset3</td>
+		<td>Defines the distance from the center of axis 3 to the center 
+		 of the robot's wrist in the Z-axis. In some cases, JointOffset3 
+		 is set to zero.</td>
+	</tr>
+</table>
+</body>
+</html>

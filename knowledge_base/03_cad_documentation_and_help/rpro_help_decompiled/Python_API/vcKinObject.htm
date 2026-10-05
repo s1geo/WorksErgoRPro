@@ -1,0 +1,175 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcKinObject</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcKinObject</h1>
+<p>vcKinObject stores custom kinematics data implemented by a user in a 
+ <a href="Help_English.chm::/Reference/Behaviors/Kinematics/Python_Kinematics.htm">Python 
+ Kinematics</a> behavior.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot23312" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot23312', 'MTPOPUP23312');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP23312" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>CustomData</td>
+		<td>Object</td>
+		<td>RW</td>
+		<td>Defines an instance of a user-defined class, thereby allowing 
+		 you to implement custom properties and methods for the kinematics 
+		 object.</td>
+	</tr>
+	<tr>
+		<td>JointCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the joint count of the kinematics object.</td>
+	</tr>
+	<tr>
+		<td>JointMaxLimits</td>
+		<td>List of Real</td>
+		<td>R</td>
+		<td>Gets the maximum value for each joint of the kinematics object.</td>
+	</tr>
+	<tr>
+		<td>JointMinLimits</td>
+		<td>List of Real</td>
+		<td>R</td>
+		<td>Gets the minimum value for each joint of the kinematics object.</td>
+	</tr>
+	<tr>
+		<td>JointsRotational</td>
+		<td>List of Boolean</td>
+		<td>R</td>
+		<td>Gets the joint type for each joint of the kinematics object. 
+		 
+		<p class="TableNormal">A True value indicates a rotational joint.</p></td>
+	</tr>
+	<tr>
+		<td>JointValues</td>
+		<td>List of Real</td>
+		<td>RW</td>
+		<td>Defines the joint values of the kinematics object.</td>
+	</tr>
+	<tr>
+		<td>Properties</td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td>Gets the dynamic properties of the kinematics object.</td>
+	</tr>
+	<tr>
+		<td>SecondaryJointValues</td>
+		<td>List of Real</td>
+		<td>RW</td>
+		<td>Defines the external joint values of the kinematics object.</td>
+	</tr>
+	<tr>
+		<td>Solutions</td>
+		<td>List of n-tuple</td>
+		<td>RW</td>
+		<td>Defines a list of possible solutions for the kinematics object 
+		 and its Target. 
+		<p class="TableNormal">Generally, the format of a solution is a 
+		 configuration warning followed by joint values for the motion 
+		 target.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Solution_Constants">Solution 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Target</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines the motion target of the kinematics object.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><p>createJacobian</p></td>
+		<td><p><a href="vcJacobian.htm">vcJacobian</a></p></td>
+		<td><p>None</p></td>
+		<td><p>Creates a new Jacobian matrix object for calculating inverse 
+		 and forward kinematics solutions.</p></td>
+	</tr>
+	<tr>
+		<td>createProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>Enumeration <span class="Italic">type</span>, String <span 
+		 class="Italic">name</span>, [Enumeration <span class="Italic">constraints</span>]</td>
+		<td>Adds a new property of a given <span class="Italic">type</span> 
+		 and <span class="Italic">name</span> to the kinematics object. 
+		 
+		<p class="TableNormal">An optional <span class="Italic">constraints</span> 
+		 argument can be given to define constraints for the new property, 
+		 which must be defined at the time of creation.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Property_Constants">Property 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>getJointMoveDist</td>
+		<td>Real</td>
+		<td>Integer <span class="Italic">index</span>, Real <span class="Italic">value</span></td>
+		<td>Returns the distance a joint at a given <span class="Italic">index</span> 
+		 must move in order to reach a given <span class="Italic">value</span>.</td>
+	</tr>
+	<tr>
+		<td>getJointMoveTo</td>
+		<td>2-tuple (Boolean <span class="Italic">reachable</span>, Real 
+		 <span class="Italic">amount</span>)</td>
+		<td>Integer <span class="Italic">index</span>, Real <span class="Italic">value</span></td>
+		<td>Indicates whether a joint at a given <span class="Italic">index</span> 
+		 can move to a given <span class="Italic">value</span>. 
+		<p class="TableNormal">Returns True and the given value if joint 
+		 can reach target. Otherwise, returns False and the amount exceeding 
+		 the joint's limits.</p></td>
+	</tr>
+	<tr>
+		<td>moveJointTo</td>
+		<td>Boolean</td>
+		<td>Integer <span class="Italic">index</span>, Real <span class="Italic">value</span></td>
+		<td>Drives a joint at a given <span class="Italic">index</span> 
+		 to a given <span class="Italic">value</span>. 
+		<p class="TableNormal">Returns True if joint reached target; otherwise 
+		 returns False.</p></td>
+	</tr>
+</table>
+</body>
+</html>

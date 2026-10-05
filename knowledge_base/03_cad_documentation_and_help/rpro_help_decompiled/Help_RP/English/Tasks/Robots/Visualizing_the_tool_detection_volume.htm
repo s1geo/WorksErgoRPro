@@ -1,0 +1,58 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Visualizing the tool detection volume</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-weight:bold; }
+ul.hcp2 { list-style:disc; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Visualizing the tool detection volume</h1>
+<p><span class="hcp1">DetectionVolume</span> property visualizes 
+ the detection volume of the selected tool TCP from a robot. <span class="hcp1">DetectionVolume</span> 
+ shows which product(s) are grasped to a robot when utilizing grasp/release 
+ signals 1-16. </p>
+<p>To activate the Detection Volume, do the following:</p>
+<ol style="list-style: decimal;">
+	<li>Click on the robot in the 3D world.</li>
+	<li>Under Properties, select the SignalActions tab.</li>
+	<li>Activate the <span class="hcp1">ShowDetectionVolume</span> 
+	 property.</li>
+	<ul class="hcp2">
+		<li>Selecting <span class="hcp1">DetectionVolumeGeometry</span>, 
+		 the visualization would be of type Box or Line.</li>
+		<li><span class="hcp1">DetectionVolumeTool</span> 
+		 displays all the tool TCPs. You can select a tool TCP from the 
+		 drop-down menu.</li>
+		<li><span class="hcp1">DetectionVolume</span> displays 
+		 the visualization of the selected tool TCPs detection volume. 
+		 The X, Y, Z coordinates are side lengths in millimeters for the 
+		 detection volume that has the tool TCP as a center point.</li>
+	</ul>
+</ol>
+<p><span class="hcp1">Notes</span>:</p>
+<ul class="hcp2">
+	<li><span class="hcp1">DetectionVolume</span> properties 
+	 are independent of the Grasp/Release properties in Actions Configuration 
+	 and they are only for visualization purposes. For example, changing 
+	 the <span class="hcp1">DetectionVolumeTool</span> and 
+	 <span class="hcp1">DetectionVolume</span> values from 
+	 <span>SignalActions</span> does not alter the <span class="hcp1">DetectionVolumeSize</span> 
+	 and <span class="hcp1">Using tool</span> in Actions 
+	 Configurations and vice versa.</li>
+	<li>The detection volume is not rendered while the simulation is running.</li>
+</ul>
+</body>
+</html>

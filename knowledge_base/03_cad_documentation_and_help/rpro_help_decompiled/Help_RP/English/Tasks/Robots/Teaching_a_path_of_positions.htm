@@ -1,0 +1,353 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name="search-keywords" content="path statement,curve selection,waypoints">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Teaching a path of positions</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+li.hcp2 { list-style:none;
+display:inline; }
+img.hcp3 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Teaching a Path of Positions</h1>
+<p>A Path statement allows you to add and edit robot positions along the 
+ curves and bisectors of geometry.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot18881" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot18881', 'MTPOPUP18881');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP18881" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Add Path and Positions</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Select Path and Positions</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark6" >Edit Path and Positions</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark7" >Path and Position Properties</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Add Path and Positions</h2>
+<p>Initially, a Path statement is an empty collection of positions, which 
+ is why the Select Curve command is used to select geometry and add new 
+ path positions. The tool push direction for a path is the positive X-axis 
+ of an active tool frame's coordinate system in a robot configuration.</p>
+<ol>
+	<li class="Ordered">Click the <span class="Strong">Program</span> tab, 
+	 and then use the <span class="Strong">Jog</span> command to select 
+	 the robot you want to program in the 3D world.</li>
+	<li class="Ordered">In the <span class="Strong">Program Editor</span> 
+	 panel, select the routine you want to contain a Path statement, and 
+	 then in <span class="Strong">Statements</span> toolbar, click <span 
+	 class="Strong">Path Statement</span>.</li>
+	<li class="Ordered">In the <span class="Strong">Select Curve</span> 
+	 task pane, do one or more of the following: 
+	<ul class="hcp1">
+		<li class="Unordered">In order to select geometry, in the <span 
+		 class="Strong">Pick</span> section, enable <span class="Strong">Edge</span> 
+		 and/or <span class="Strong">Curve</span>.</li>
+		<li class="Unordered">To define the expansion of a path along selected 
+		 curves, in the <span class="Strong">Auto Expand</span> section, 
+		 make any needed edits to those properties. Generally, you need 
+		 to fine tune these properties in order to select valid curves. 
+		 For example, you may want the path to be continuous and round 
+		 corners except those at or above a 90 degree threshold.<br>
+		<img class="step_image" src="../../Links/AutoExpandCurve.png" alt="" style="border-left-style: Solid; border-left-width: 1px; border-right-style: Solid; 
+			 border-right-width: 1px; border-top-style: Solid; border-top-width: 1px; 
+			 border-bottom-style: Solid; border-bottom-width: 1px;" border="1"></li>
+		<li class="Unordered">To offset path positions, in the <span class="Strong">Curve 
+		 Offset</span> section, make any needed edits to those properties. 
+		 A curve point has the following orientation: X-axis points along 
+		 the curve, Y-axis points perpendicular to the XY plane, and the 
+		 Z-axis points perpendicular to the curve surface. The orientation 
+		 of a path position is calculated using the orientation of a curve 
+		 point and the Motion Parameters properties.<br>
+		<img class="step_image" src="../../Links/NormalOffsetCurve.png" alt="" style="border-left-style: Solid; border-left-width: 1px; 
+			 border-right-style: Solid; border-right-width: 1px; border-top-style: Solid; 
+			 border-top-width: 1px; border-bottom-style: Solid; border-bottom-width: 1px;" border="1"></li>
+		<li class="Unordered">To affect the visualization and number of 
+		 path positions, in the <span class="Strong">Point Density</span> 
+		 section, make any needed edits to those properties. The <span 
+		 class="Italic">Chordal Deviation</span> and <span class="Italic">Angular 
+		 Deviation</span> properties can be used to affect path precision. 
+		 The <span class="Italic">Max Distance</span> property can be used 
+		 to generate more or less points based on curve segment length.<br>
+		<img class="step_image" src="../../Links/CurvePointDensity.png" alt="" style="border-left-style: Solid; border-left-width: 1px; 
+			 border-right-style: Solid; border-right-width: 1px; border-top-style: Solid; 
+			 border-top-width: 1px; border-bottom-style: Solid; border-bottom-width: 1px;" border="1"></li>
+		<li class="Unordered">To define the configuration of the robot 
+		 and order of execution for path positions, in the <span class="Strong">Motion 
+		 Parameters</span> section, make any needed edits to those properties. 
+		 With the exception of the Reverse property, most of these properties 
+		 are applied after you generate a path since they are used to generate 
+		 motion statements not curve points. You can enable the <span class="Italic">Visualize 
+		 Choices</span> check box to show a curve point with its coordinate 
+		 axes, otherwise a curve point is shown with its approach axis. 
+		 Curve points are always visible, but coordinate and approach axes 
+		 are shown/hidden based on the 3D world camera location in order 
+		 to reveal more or less detail without obstructing your view. In 
+		 most cases, you need to pay special attention to the Approach 
+		 Axis and Align To properties since they directly affect the orientation 
+		 of a robot at each path position.<br>
+		<img class="step_image" src="../../Links/ApproachAxisCurvePreview.png" alt="" style="border-left-style: Solid; border-left-width: 1px; 
+			 border-right-style: Solid; border-right-width: 1px; border-top-style: Solid; 
+			 border-top-width: 1px; border-bottom-style: Solid; border-bottom-width: 1px;" border="1"></li>
+	</ul></li>
+	<li class="Ordered">In the 3D world, point to the edge or curve you 
+	 want to generate as a path. An explanation on visual feedback: coordinate 
+	 axes or an approach axis will appear at a calculated point in the 
+	 curve; a yellow line is a preview of the path and its end points denote 
+	 start and end directions of path; black spheres represent curve points; 
+	 and a note indicates information related to topology and curve data.<br>
+	<img class="step_image" src="../../Links/CurvePathPreview.png" alt="" style="border-left-style: Solid; border-left-width: 1px; border-right-style: Solid; 
+		 border-right-width: 1px; border-top-style: Solid; border-top-width: 1px; 
+		 border-bottom-style: Solid; border-bottom-width: 1px;" border="1"></li>
+	<li class="Ordered">Do one of the following: 
+	<ul class="hcp1">
+		<li class="Unordered">If the yellow highlighted path is acceptable, 
+		 click the edge or curve. The highlight color will change from 
+		 yellow to purple.<br>
+		<img class="step_image" src="../../Links/SelectedCurve.png" alt="" style="border-left-style: Solid; border-left-width: 1px; border-right-style: Solid; 
+			 border-right-width: 1px; border-top-style: Solid; border-top-width: 1px; 
+			 border-bottom-style: Solid; border-bottom-width: 1px;" border="1"></li>
+		<li class="Unordered">If the yellow highlighted path is not acceptable, 
+		 do one of the following:</li>
+		<li class="hcp2"><ul class="hcp1">
+			<li class="Unordered">To edit curve selection and path properties, 
+			 go back to Step 3. Generally, you only need to do this when 
+			 you are creating a continuous path. Regardless, you can use 
+			 the Select Curve task pane to edit a path after you have selected 
+			 a curve.</li>
+			<li class="Unordered">To select a different edge or curve, 
+			 go back to Step 4. If you are have difficulty selecting an 
+			 edge or curve, turn on the camera's headlight. If the orientation 
+			 of the path is an issue, adjust the pointer until the coordinate 
+			 axes of the curve point are acceptable. If the direction of 
+			 the path is an issue, move the pointer forward or backward 
+			 along the path to adjust the endpoint directions.</li>
+			<li class="Unordered">To select a curve then edit its path, 
+			 click the edge or curve, and then go on to Step 6.</li>
+		</ul></li>
+	</ul></li>
+	<li class="Ordered">Do one of the following: 
+	<ul class="hcp1">
+		<li class="Unordered">To undo a curve selection, press the Backspace 
+		 key.</li>
+		<li class="Unordered">To trim a path, hold down SHIFT and then 
+		 point to the location on the path where you want to trim, and 
+		 then click that location. This can only be done using the start 
+		 and end points of a curve. That is, you can either trim the start 
+		 or end of a path to a point. In this case, the operation will 
+		 trim whichever end point is closest to your selection.<br>
+		<img class="step_image" src="../../Links/TrimmedPath.png" alt="" style="border-left-style: Solid; border-left-width: 1px; border-right-style: Solid; 
+			 border-right-width: 1px; border-top-style: Solid; border-top-width: 1px; 
+			 border-bottom-style: Solid; border-bottom-width: 1px;" border="1"></li>
+		<li class="Unordered">To edit a path, in the <span class="Strong">Select 
+		 Curve</span> task pane, edit one or more properties. The path 
+		 will be automatically updated in the 3D world.</li>
+		<li class="Unordered">To continue selecting curves, do one or more 
+		 of the following:</li>
+		<li class="hcp2"><ul class="hcp1">
+			<li class="Unordered">To freely select another curve, repeat 
+			 Steps 4 and 5 with some insight. The point where the new curve 
+			 will connect to the path will be highlighted yellow. If the 
+			 new curve shares a point with the path, this may reconfigure 
+			 the entire path.<br>
+			<img class="step_image" src="../../Links/CurveEdgeNeighborSelection.png" alt="" style="border-left-style: Solid; border-left-width: 1px; 
+				 border-right-style: Solid; border-right-width: 1px; border-top-style: Solid; 
+				 border-top-width: 1px; border-bottom-style: Solid; border-bottom-width: 1px;" border="1"><br>
+			<br>
+			Otherwise, a connecting line (dashed line) marks where the 
+			 path continues from the end of one curve to the start of another 
+			 curve.<br>
+			<img class="step_image" src="../../Links/ConnectingLineCurve.png" alt="" style="border-left-style: Solid; border-left-width: 1px; 
+				 border-right-style: Solid; border-right-width: 1px; border-top-style: Solid; 
+				 border-top-width: 1px; border-bottom-style: Solid; border-bottom-width: 1px;" border="1"></li>
+		</ul></li>
+	</ul></li>
+	<li class="Ordered">In the <span class="Strong">Select Curve</span> 
+	 task pane, click <span class="Strong">Generate</span>.</li>
+</ol>
+<h2><a name="MiniTOCBookMark3"></a>Select Path and Positions</h2>
+<h3><a name="MiniTOCBookMark4"></a>Path</h3>
+<p>A Path statement can be selected like any other normal statement in 
+ a robot program.</p>
+<ol>
+	<li class="Ordered">Click the <span class="Strong">Program</span> tab, 
+	 and then use the <span class="Strong">Jog</span> command to select 
+	 a robot in the 3D world.</li>
+	<li class="Ordered">In the <span class="Strong">Program Editor</span> 
+	 panel, select the routine containing the Path statement you want to 
+	 select, and then in the <span class="Strong">Statements</span> list, 
+	 select the desired Path statement.</li>
+</ol>
+<h3><a name="MiniTOCBookMark5"></a>Position</h3>
+<p>Any position of a Path statement can be selected in the 3D world.</p>
+<ol>
+	<li class="Ordered">Click the <span class="Strong">Program</span> tab, 
+	 and then use the <span class="Strong">Jog</span> command to select 
+	 a robot in the 3D world.</li>
+	<li class="Ordered">In the 3D world, do one of the following: 
+	<ul class="hcp1">
+		<li class="Unordered">To select a position, click the colored dot 
+		 of the desired position.</li>
+		<li class="Unordered">To select a position along a path segment, 
+		 click the line of a desired path segment. This will select a position 
+		 of that path segment closest to the pointer.</li>
+	</ul></li>
+</ol>
+<p><span class="Strong">Tips:</span></p>
+<ul class="hcp1">
+	<li class="Unordered">With a path position selected, use the Left and 
+	 Right arrow keys to select the previous or next path position.</li>
+	<li class="Unordered">With a path position selected, use the Up and 
+	 Down arrow keys to select the next or previous path reference position.</li>
+	<li class="Unordered">Use the CTRL key to add or remove path positions 
+	 from a selection in 3D world.</li>
+	<li class="Unordered">Use the Select command to select one or more 
+	 path positions. This is helpful if you want to edit multiple positions 
+	 and do not want the active robot to snap to a selected position.</li>
+	<li class="Unordered">Use the Jog command to select a path position. 
+	 This is helpful if you want to teach a robot and touch up a position.</li>
+	<li class="Unordered">Use the Program Editor panel to select path reference 
+	 positions.</li>
+</ul>
+<h2><a name="MiniTOCBookMark6"></a>Edit Path and Positions</h2>
+<p>The properties of a Path statement and reference points can be used 
+ to edit the positions of a path.</p>
+<ol>
+	<li class="Ordered">Click the <span class="Strong">Program</span> tab, 
+	 and then use the <span class="Strong">Jog</span> command to select 
+	 the robot you want to program in the 3D world.</li>
+	<li class="Ordered">In the <span class="Strong">Program Editor</span> 
+	 panel, select the routine containing the Path statement you want to 
+	 edit, and then do one of the following: 
+	<ul class="hcp1">
+		<li class="Unordered">To replace all positions, click the <span 
+		 class="Strong">Path</span> statement, and then in the <span class="Strong">Statement 
+		 Properties</span> panel, click <span class="Strong">Select Curve</span>. 
+		 Next, use the <span class="Strong">Select Curve</span> task pane 
+		 to select curves and generate new robot positions for the path.</li>
+		<li class="Unordered">To reverse all positions, click the <span 
+		 class="Strong">Path</span> statement, and then in the <span class="Strong">Statement 
+		 Properties</span> panel, click <span class="Strong">Reverse</span>.</li>
+		<li class="Unordered">To lock/unlock an axis in all positions, 
+		 click the <span class="Strong">Path</span> statement, and then 
+		 in the <span class="Strong">Statement Properties</span> panel, 
+		 <span class="Strong">Lock Axis</span> property, click the axis 
+		 you want to lock or choose <span class="Strong">None</span> to 
+		 unlock all axes based on a path position's coordinate system.</li>
+		<li class="Unordered">To mark a position as a fixed point and reference 
+		 for modifying other positions, select the path position, and then 
+		 in the <span class="Strong">Position Properties</span> panel, 
+		 select the <span class="Strong">IsReference</span> check box.</li>
+		<li class="Unordered">To unmark a position as a reference point, 
+		 do one of the following:</li>
+		<li class="hcp2"><ul class="hcp1">
+			<li class="Unordered">To directly unmark a position, select 
+			 the path position, and then in the <span class="Strong">Position 
+			 Properties</span> panel, clear the <span class="Strong">IsReference</span> 
+			 check box.</li>
+			<li class="Unordered">To automatically unmark all positions, 
+			 click the <span class="Strong">Path</span> statement, and 
+			 then in the <span class="Strong">Statement Properties</span> 
+			 panel, click <span class="Strong">Clear References</span>.</li>
+		</ul></li>
+		<li class="Unordered">To adjust the orientation of positions, do 
+		 all of the following:</li>
+		<li class="hcp2"><ul class="hcp1">
+			<li class="Unordered">Mark one or more positions in the path 
+			 as reference points, and then make any necessary edits to 
+			 those points. For example, you can touch up the orientation 
+			 of a position marked as a reference point.<br>
+			<br>
+			<span class="Strong">Technical:</span> If you use more than 
+			 one reference point, adjustments to other positions will be 
+			 blended based on the curve index of reference points and the 
+			 <span class="Italic">Lock Axis</span> and <span class="Italic">Interpolation</span> 
+			 properties of the Path statement. For example, positions between 
+			 reference points would be a blend of those limits, whereas 
+			 other positions might inherit a percentage of a reference 
+			 point orientation.</li>
+			<li class="Unordered">Click the <span class="Strong">Path</span> 
+			 statement, and then in the <span class="Strong">Statement 
+			 Properties</span> panel, make any necessary edits to properties, 
+			 and then click <span class="Strong">Apply Smoothing</span>. 
+			 Generally, you would edit the Lock Axis property to achieve 
+			 the desired tool center point orientation. In such cases, 
+			 you might adjust the rotation of a reference point around 
+			 the Y-axis, lock the Y-axis in the path, and then apply smoothing 
+			 to update the Z-axis of path positions.</li>
+		</ul></li>
+		<li class="Unordered">To apply a nozzle offset to positions, for 
+		 example a welding path, do all of the following:</li>
+		<li class="hcp2"><ul class="hcp1">
+			<li class="Unordered">Mark at least two positions in the path 
+			 as reference points, and then make any necessary edits to 
+			 those points. Generally, you would mark the start and end 
+			 positions of a weld seam or an edge/curve that requires a 
+			 tool tip offset.</li>
+			<li class="Unordered">Click the <span class="Strong">Path</span> 
+			 statement, and then in the <span class="Strong">Statement 
+			 Properties</span> panel, set the <span class="Strong">Nozzle 
+			 Offset</span> property to desired value, and then click <span 
+			 class="Strong">Apply Nozzle Offset</span>.</li>
+		</ul></li>
+		<li class="Unordered">To show/hide labels for positions marked 
+		 as reference points, click the <span class="Strong">Path</span> 
+		 statement, and then in the <span class="Strong">Statement Properties</span> 
+		 panel, do one of the following:</li>
+		<li class="hcp2"><ul class="hcp1">
+			<li class="Unordered">To hide labels, clear the <span class="Strong">Show 
+			 Labels</span> check box.</li>
+			<li class="Unordered">To show labels, select the <span class="Strong">Show 
+			 Labels</span> check box.</li>
+		</ul></li>
+		<li class="Unordered">To use a different manipulator for path positions 
+		 when you are jogging a robot, click the <span class="Strong">Path</span> 
+		 statement, and then in the <span class="Strong">Statement Properties</span> 
+		 panel, do one of the following:</li>
+		<li class="hcp2"><ul class="hcp1">
+			<li class="Unordered">To use the Move tool, clear the <span 
+			 class="Strong">Rotation Handles</span> check box.</li>
+			<li class="Unordered">To use interactive rings for rotations 
+			 in a selected position's coordinate system, select the <span 
+			 class="Strong">Rotation Handles</span> check box. This is 
+			 unique for every Path statement. If the Lock Axis property 
+			 is set to None, you can rotate in three axes; otherwise, you 
+			 are limited to one axis of rotation.</li>
+		</ul></li>
+	</ul></li>
+</ol>
+<h2><a name="MiniTOCBookMark7"></a>Path and Position Properties</h2>
+<h3><a name="MiniTOCBookMark8"></a>Motion Type</h3>
+<p>Robot positions generated by a Path statement are continuous linear 
+ motions. Each motion statement can be marked as a fixed reference point 
+ for modifying other positions in the path. The Name, Base and Tool properties 
+ of a Path statement are shared with its positions. Editing those properties 
+ in one position would update all other positions in the same path.</p>
+<p><img src="../../Links/ReferencePositionProperties.png" alt="" border="0" class="hcp3"></p>
+<h3><a name="MiniTOCBookMark9"></a>Grouping</h3>
+<p>In the Program Editor panel, a Path statement is listed with its reference 
+ points and its header shows the number of positions in the path. Other 
+ statements cannot be nested with a Path statement.</p>
+<p><img src="../../Links/PathStatementGrouping.png" alt="" border="0" class="hcp3"></p>
+<h3><a name="MiniTOCBookMark10"></a>Labeling</h3>
+<p>In the 3D world, a path is a colored line. Green is used to show path 
+ segments within reach of a robot. A gradient from green to red is used 
+ to show unreachable path segments. Reference points are labeled as robot 
+ positions and colored magenta. Other points in a path are colored dots: 
+ green dots are reachable positions, and red dots are unreachable positions.</p>
+<p><img src="../../Links/LabeledPath.png" alt="" border="0" class="hcp3"></p>
+</body>
+</html>

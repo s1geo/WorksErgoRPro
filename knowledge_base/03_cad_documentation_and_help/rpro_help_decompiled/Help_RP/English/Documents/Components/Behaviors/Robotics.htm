@@ -1,0 +1,185 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="robotics,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Robotics</title>
+<link rel="StyleSheet" href="../../../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../../../ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+ul.hcp2 { list-style:disc; }
+-->
+</style>
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Robotics</h1>
+<p>A robotics type behavior is used to teach and execute robot programs.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot31928" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot31928', 'MTPOPUP31928');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP31928" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Types</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Base and TCP</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Program Execution</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Node Hierarchy</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark6" >Joint Assignment</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark7" >I/O and Signal Mapping</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Types</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><a href="../../../../Reference/Behaviors/Robotics/Base_Container.htm">Base 
+		 Container</a></td>
+		
+		<td>Provides a logical container for adding and editing Frame features 
+		 used as base frames, which act as a base coordinate system.</td>
+	</tr>
+	<tr>
+		<td><a href="../../../../Reference/Behaviors/Robotics/Robot_Controller.htm">Robot 
+		 Controller</a></td>
+		
+		<td>Defines a robot and its configuration, for example its kinematics, 
+		 joints, speed and acceleration.</td>
+	</tr>
+	<tr>
+		<td><a href="../../../../Reference/Behaviors/Robotics/Robot_Executor.htm">Robot 
+		 Executor</a></td>
+		
+		<td>Provides a logical container and executor for a robot program.</td>
+	</tr>
+	<tr>
+		<td><a href="../../../../Reference/Behaviors/Robotics/Servo_Controller.htm">Servo 
+		 Controller</a></td>
+		
+		<td>Defines a servo and its configuration, for example its joints, 
+		 speed and acceleration.</td>
+	</tr>
+	<tr>
+		<td><a href="../../../../Reference/Behaviors/Robotics/Tool_Container.htm">Tool 
+		 Container</a></td>
+		
+		<td>Provides a logical container for adding and editing Frame features 
+		 used as tool frames, which act as a tool center point (TCP).</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Base and TCP</h2>
+<p>When working with base and tool 
+ frames, you need to use the Component Graph panel and shortcuts to edit 
+ the Bases and Tools elements of some robotics type behaviors. Generally, 
+ you do not need to use Base and Tool Containers in a component that has 
+ a Robot Controller since that behavior has its own base and tool frame 
+ collections.</p>
+<p><img src="../../../Links/BasesToolsElements.png" alt="" border="0" class="hcp1"></p>
+<h2><a name="MiniTOCBookMark4"></a>Program Execution</h2>
+<p>When modeling a robot, you should 
+ use a Robot Controller and pair it with a Robot Executor in order to teach, 
+ edit and simulate the robot's program.</p>
+<p><img src="../../../Links/PairRobotExecutorController.png" alt="" border="0" class="hcp1"></p>
+<p>This does not remove the need 
+ to properly define the joints and node structure of a component.</p>
+<h2><a name="MiniTOCBookMark5"></a>Node Hierarchy</h2>
+<p>The Show Structure command can 
+ be used to show the node/link structure of a robot and its degrees of 
+ freedom. The location of each node is visualized as a colored ring: black 
+ is root node, yellow is an available node, and green is a selected node. 
+ The node offsets are visualized as a cyan colored bones pointing from 
+ a parent node to each of its child nodes. The joint axis of each node 
+ is visualized as a colored arrow: red is X-axis, green is Y-axis, and 
+ blue is Z-axis.</p>
+<p><img src="../../../Links/NodeStructureToggle.png" alt="" border="0" class="hcp1"></p>
+<p>In some cases, a selected node 
+ may have a custom type joint or parametric offset, so interactive manipulation 
+ of the node is limited or disabled.</p>
+<p><img src="../../../Links/NodeHierarchyRobot.png" alt="" border="0" class="hcp1"></p>
+<h2><a name="MiniTOCBookMark6"></a>Joint Assignment</h2>
+<p>Joints are defined in nodes, and 
+ then assigned to a Robot Controller. Additional properties are automatically 
+ added to a joint when it is assigned to and driven by either a Robot or 
+ Servo Controller. When defining a joint, you may want to reference the 
+ kinematic properties used by a Robot Controller as well as other properties 
+ in a component. For example, vector properties are often used to define 
+ the magnitude/length of joint offsets.</p>
+<p><img src="../../../Links/DefineAssignJointPropertiesVCEN.png" alt="" border="0" class="hcp1"></p>
+<p><span class="Strong">Tips:</span></p>
+<ul class="hcp2">
+	<li class="Unordered">The joint definition of a node is used to make 
+	 it interactive in the 3D world, thereby eliminating the need to use 
+	 a <a href="../../../../Reference/Behaviors/Misc/Jog_Info.htm">Jog 
+	 Info</a> behavior.</li>
+	<li class="Unordered">In most cases, you should refer to the data sheet 
+	 of a robot when modeling it as a component. This also speeds up the 
+	 process of knowing what properties to create and use within the scope 
+	 of a component. Generally, you would hide/encapsulate properties that 
+	 should not be made visible or edited by a user in the Properties panel.</li>
+	<li class="Unordered">Other components for similar robots can be used 
+	 as templates for building new robots. In such cases, you would import 
+	 a CAD file, place the new geometry in the template and then delete 
+	 the old geometry, adjust the joint definitions as well as other behaviors 
+	 and properties in the template, test, and then save your work as a 
+	 new component.</li>
+</ul>
+<p>When a robot needs to import/export 
+ joints, use interface type behaviors.</p>
+<h2><a name="MiniTOCBookMark7"></a>I/O and Signal Mapping</h2>
+<p>The I/O of a robot is defined 
+ by using <a href="../../../../Reference/Behaviors/Signals/Boolean_Signal_Map.htm">Boolean 
+ Signal Map</a> behaviors that are listened to and referenced 
+ by a Robot Executor. Generally, the inputs and outputs of a robot are 
+ each given about 4097 ports depending on the real-world robot model.</p>
+<p><img src="../../../Links/InputsExample.png" alt="" border="0" class="hcp1"></p>
+<p>For <a 
+	 href="../../../Tasks/Robots/Connecting_signals_to_robot_inputs_and_outputs.htm">connecting 
+ signals to robot I/O ports</a>, enable the Signals toggle 
+ and use the connection editors of robots and other components to wire 
+ signals to one another.</p>
+<p><img src="../../../Links/ConnectingSignalsRobotIO.png" alt="" border="0" class="hcp1"></p>
+<p>For <a 
+	 href="../../../Tasks/Robots/Mapping_signals_to_actions_in_robot.htm">signaling 
+ actions in a robot</a>, for example grasp and release actions, 
+ use Set Binary Output 
+ statements in a robot program to write the value of I/O signals mapped 
+ to the first 16 tool frames of a Robot Controller.</p>
+<ul class="hcp2">
+	<li class="Unordered">Signals 1 to 16 are predefined to signal grasp 
+	 and release actions.</li>
+	<li class="Unordered">Signals 17 to 32 are predefined to signal tracing 
+	 of robot motions to and from robot positions.</li>
+	<li class="Unordered">Signals 33 to 48 are predefined to signal tool 
+	 mount and dismount actions in which a tool component is attached to 
+	 a node in a robot.</li>
+</ul>
+<p>In order for action signals to 
+ work, a robot must have an Action Script behavior. Generally, you do not 
+ need to edit action signals rather edit the location of mapped tool frames 
+ and add the needed statements to a robot program. In all cases, you will 
+ never need to manually edit the Script property of an Action Script behavior, 
+ and it is recommended to only use the Action Configuration editor in the 
+ Properties panel.</p>
+<p><img src="../../../Links/EditingSignalActions.png" alt="" border="0" class="hcp1"></p>
+<p><span class="Strong">Note:</span> 
+ Signals 1 to 48 in most robot components are reserved for action signals. 
+ Therefore, it is recommended to use signals 100 onward for connecting 
+ signals in other components. Base frames can be mapped to action signals.</p>
+</body>
+</html>

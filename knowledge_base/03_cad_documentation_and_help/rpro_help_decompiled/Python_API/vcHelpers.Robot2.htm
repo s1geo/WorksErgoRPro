@@ -1,0 +1,1028 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="robot programming, motion targeting, pick and place">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcHelpers.Robot2</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcHelpers.Robot2</h1>
+<p>vcHelpers.Robot2 is a library of useful classes and methods designed 
+ to simplify common robot programming tasks.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot25825" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot25825', 'MTPOPUP25825');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP25825" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Constructors</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Miscellaneous Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark6" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Constructors</h2>
+<p>vcRobot is the object type used for programming a robot, its controller 
+ and executor with this library.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getRobot</td>
+		<td>vcHelpers.Robot.vcRobot</td>
+		<td>String <span class="Italic">interface_name</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcComponent.htm">vcComponent</a> 
+		 <span class="Italic">robot_component</span></p>
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">[no argument]</p></td>
+		<td>Creates a new vcRobot object for a given component which must 
+		 have a robot executor. 
+		<p class="TableNormal">One option is to give the name of an interface 
+		 a robot is connected to in a component as an argument, for example 
+		 a robot mounted on a pedestal. If found, the robot connected at 
+		 the interface is used by the constructor.</p>
+		<p class="TableNormal">A second option is to give the component 
+		 of a robot you want to program as an argument.</p>
+		<p class="TableNormal">A third option is to not give any argument, 
+		 thereby a component owning the script is used by the constructor.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Acc</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the Cartesian acceleration of robot for linear movements.</td>
+	</tr>
+	<tr>
+		<td>ActiveTool</td>
+		<td>String/Integer</td>
+		<td>RW</td>
+		<td>Defines the active tool frame of robot by referencing the name 
+		 or index of a tool frame in Tools property.</td>
+	</tr>
+	<tr>
+		<td>AngularAcc</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td><span>Defines the angular acceleration of robot for linear 
+		 movements.</span></td>
+	</tr>
+	<tr>
+		<td>AngularSpeed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td><span>Defines the angular speed of robot for linear movements.</span></td>
+	</tr>
+	<tr>
+		<td>Bases</td>
+		<td>List of <a href="vcBaseFrame.htm">vcBaseFrame</a></td>
+		<td>R</td>
+		<td>Gets a list of all base frames available in robot.</td>
+	</tr>
+	<tr>
+		<td>Component</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td>R</td>
+		<td>Gets the component of robot.</td>
+	</tr>
+	<tr>
+		<td>Configuration</td>
+		<td>String/Integer</td>
+		<td>RW</td>
+		<td>Defines the configuration of robot. 
+		<p class="TableNormal">Set this property to None to use the current 
+		 configuration of the robot.</p>
+		<p class="TableNormal"><span class="Strong">Note:</span> The default 
+		 configuration is -1/last configuration in ConfigurationsList.</p></td>
+	</tr>
+	<tr>
+		<td>ConfigurationsList</td>
+		<td>List of String</td>
+		<td>R</td>
+		<td>Gets a list of robot's configurations by name.</td>
+	</tr>
+	<tr>
+		<td>Controller</td>
+		<td><a href="vcRobotController.htm">vcRobotController</a></td>
+		<td>R</td>
+		<td>Gets the controller of robot.</td>
+	</tr>
+	<tr>
+		<td>Executor</td>
+		<td><a href="vcExecutor.htm">vcExecutor</a></td>
+		<td>R</td>
+		<td>Gets the executor of robot.</td>
+	</tr>
+	<tr>
+		<td>GraspContainer</td>
+		<td><a href="vcContainer.htm">vcContainer</a></td>
+		<td>RW</td>
+		<td>Defines the Component Container behavior in the robot's flange 
+		 node used to contain components grabbed by the robot.</td>
+	</tr>
+	<tr>
+		<td>Joints</td>
+		<td>List of <a href="vcJoint.htm">vcJoint</a></td>
+		<td>R</td>
+		<td>Gets a list of joints used by robot.</td>
+	</tr>
+	<tr>
+		<td>JointForce</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the joint force (0-100%) used by robot for joint/point-to-point 
+		 movements.</td>
+	</tr>
+	<tr>
+		<td>JointSpeed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the joint speed (0-100%) used by robot for joint/point-to-point 
+		 movements.</td>
+	</tr>
+	<tr>
+		<td>MotionTime</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines a time used for scaling the acceleration and speed 
+		 of robot motions to match the given time. 
+		<p class="TableNormal">If zero value, a motion's acceleration and 
+		 speed determines its motion time. That is, this property has no 
+		 effect.</p></td>
+	</tr>
+	<tr>
+		<td>RecordRoutine</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines a sequence in the robot where new statements are added 
+		 when RecordRSL is set to True. 
+		<p class="TableNormal">This property must be defined before setting 
+		 RecordRSL to True. You can refer to the main routine of robot 
+		 program as 'MainRoutine', the name of an existing subroutine, 
+		 or give a name for a new subroutine that will be created during 
+		 the recording.</p></td>
+	</tr>
+	<tr>
+		<td>RecordRSL</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if actions executed by the robot are recorded as statements 
+		 in the robot's program. 
+		<p class="TableNormal">If True, statements are added to a routine 
+		 defined by RecordRoutine.</p></td>
+	</tr>
+	<tr>
+		<td>SignalMapIn</td>
+		<td><a href="vcBooleanSignalMap.htm">vcBooleanSignalMap</a></td>
+		<td>R</td>
+		<td>Gets the Boolean Signal Map behavior used for robot inputs.</td>
+	</tr>
+	<tr>
+		<td>SignalMapOut</td>
+		<td><a href="vcBooleanSignalMap.htm">vcBooleanSignalMap</a></td>
+		<td>R</td>
+		<td>Gets the Boolean Signal Map behavior used for robot outputs.</td>
+	</tr>
+	<tr>
+		<td>Speed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the Cartesian speed used by the robot for linear movements.</td>
+	</tr>
+	<tr>
+		<td>Tools</td>
+		<td>List of <a href="vcBaseFrame.htm">vcBaseFrame</a></td>
+		<td>R</td>
+		<td>Gets a list of the robot's tool frames.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>callSubRoutine</td>
+		<td>None</td>
+		<td>String <span class="Italic">rName</span></td>
+		<td>Calls a predefined routine by name in the robot's program.</td>
+	</tr>
+	<tr>
+		<td>comment</td>
+		<td>None</td>
+		<td>String <span class="Italic">comment</span></td>
+		<td>Prints a given <span class="Italic">comment</span> to the Output 
+		 panel and records a Comment statement for this action in the robot's 
+		 program.</td>
+	</tr>
+	<tr>
+		<td>delay</td>
+		<td>None</td>
+		<td>Real <span class="Italic">delay</span></td>
+		<td>Executes a timed <span class="Italic">delay</span> (in seconds) 
+		 and records a Delay statement for this action in the robot's program.</td>
+	</tr>
+	<tr>
+		<td>driveJoints</td>
+		<td>None</td>
+		<td>[Real <span class="Italic">j1</span>], [Real <span class="Italic">j2</span>], 
+		 [Real <span class="Italic">j3</span>], [Real <span class="Italic">j4</span>], 
+		 [Real <span class="Italic">j5</span>], [Real <span class="Italic">j6</span>], 
+		 [Real <span class="Italic">motiontime</span>], [Boolean <span 
+		 class="Italic">relative</span>], [Real <span class="Italic">ExtraJoints</span>]</td>
+		<td>Drives one or more joints in the robot to given target values. 
+		 
+		<p class="TableNormal">If no value is given for a joint, the current 
+		 value of the joint is used by the robot.</p>
+		<p class="TableNormal">Optional arguments <span class="Italic">j1</span> 
+		 to <span class="Italic">j6</span> are target values for joints 
+		 1 through 6 in a robot, with six joints being common in articulated 
+		 robots.</p>
+		<p class="TableNormal">An optional <span class="Italic">motiontime</span> 
+		 argument can be given to scale the acceleration and speed of the 
+		 robot's motion to match the given time. The default value is zero 
+		 in which scaling is disabled.</p>
+		<p class="TableNormal">An optional <span class="Italic">relative</span> 
+		 argument can be used to set target values as relative to the current 
+		 value of each joint. The default value is False in which target 
+		 values are absolute joint values.</p>
+		<p class="TableNormal">An optional ExtraJoints argument can be 
+		 given as a list of joint values for additional joints in a robot, 
+		 for example external joints of a robot mounted on a track and 
+		 remotely connected to a workpiece positioner.</p>
+		<p class="TableNormal"><span class="Strong">Tip:</span> Joints 
+		 can be individually driven by controller; see methods in <a href="vcServoController.htm">vcServoController</a>.</p></td>
+	</tr>
+	<tr>
+		<td>followNode</td>
+		<td>None</td>
+		<td><a href="vcNode.htm">vcNode</a> <span class="Italic">Basenode</span>, 
+		 [Real <span class="Italic">FollowTime</span>]</td>
+		<td>Defines a node in the 3D world to be followed by the robot 
+		 for a set amount of time. 
+		<p class="TableNormal">An optional <span class="Italic">FollowTime</span> 
+		 argument can be given to set the amount of time the robot should 
+		 follow the target node. The default value is 1.0/one second.</p></td>
+	</tr>
+	<tr>
+		<td>getConfigNames</td>
+		<td>List of String</td>
+		<td><a href="vcExecutor.htm">vcExecutor</a> <span class="Italic">executor</span>, 
+		 <a href="vcRobotController.htm">vcRobotController</a> <span class="Italic">controller</span></td>
+		<td>Returns a list of available configurations by name for the 
+		 robot.</td>
+	</tr>
+	<tr>
+		<td>graspComponent</td>
+		<td>None</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">graspthis</span></td>
+		<td>Grasps a given component using robot.</td>
+	</tr>
+	<tr>
+		<td>graspComponents</td>
+		<td>None</td>
+		<td>List of <a href="vcComponent.htm">vcComponent</a> <span class="Italic">graspthese</span></td>
+		<td>Grasps a given list of components using the robot.</td>
+	</tr>
+	<tr>
+		<td>jointMoveRel</td>
+		<td>None</td>
+		<td>[Real <span class="Italic">Tx</span>], [Real <span class="Italic">Ty</span>], 
+		 [Real <span class="Italic">Tz</span>], [Real <span class="Italic">Rx</span>], 
+		 [Real <span class="Italic">Ry</span>], [Real <span class="Italic">Rz</span>]</td>
+		<td>Executes a joint movement relative to the current pose of robot 
+		 based in active tool's coordinate system. 
+		<p class="TableNormal">Optional arguments <span class="Italic">Tx</span>, 
+		 <span class="Italic">Ty</span> and <span class="Italic">Tz</span> 
+		 are translation movements in the XYZ coordinate axes.</p>
+		<p class="TableNormal">Optional arguments <span class="Italic">Rx</span>, 
+		 <span class="Italic">Ry</span> and <span class="Italic">Rz</span> 
+		 are rotation offsets for the XYZ coordinate axes.</p></td>
+	</tr>
+	<tr>
+		<td>jointMoveToComponent</td>
+		<td>None</td>
+		<td><a href="vcNode.htm">vcNode</a> <span class="Italic">ToComp</span>, 
+		 [Real <span class="Italic">Tx</span>], [Real <span class="Italic">Ty</span>], 
+		 [Real <span class="Italic">Tz</span>], [Real <span class="Italic">Rx</span>], 
+		 [Real <span class="Italic">Ry</span>], [Real <span class="Italic">Rz</span>], 
+		 [<a href="vcFeature.htm">vcFeature</a>/String <span class="Italic">ToFrame</span>], 
+		 [String <span class="Italic">OnFace</span>]</td>
+		<td>Executes a joint movement to a given component, which by default 
+		 is the component's origin. 
+		<p class="TableNormal">Optional arguments <span class="Italic">Tx</span>, 
+		 <span class="Italic">Ty</span> and <span class="Italic">Tz</span> 
+		 are offsets for target position. The default value for translations 
+		 is zero.</p>
+		<p class="TableNormal">Optional arguments <span class="Italic">Rx</span>, 
+		 <span class="Italic">Ry</span> and <span class="Italic">Rz</span> 
+		 are offsets for target orientation. The default value for rotations 
+		 is zero.</p>
+		<p class="TableNormal">An optional <span class="Italic">ToFrame</span> 
+		 argument can be used to set the target location to be a Frame 
+		 feature in a component. A Frame feature can be given as a <a href="vcFeature.htm">vcFeature</a> 
+		 object or referenced by name.</p>
+		<p class="TableNormal">An optional <span class="Italic">OnFace</span> 
+		 argument can be used to set the target location to be a face of 
+		 a component's bound box. A bound box face can be referenced by 
+		 using one of six recognized names (top, bottom, left, right, front, 
+		 back).</p>
+		<p class="TableNormal">If <span class="Italic">ToFrame</span> and 
+		 <span class="Italic">OnFace</span> arguments are given, the method 
+		 will first try to use ToFrame.</p></td>
+	</tr>
+	<tr>
+		<td>jointMoveToMtx</td>
+		<td>None</td>
+		<td>[<a href="vcMatrix.htm">vcMatrix</a> <span class="Italic">ToMtx</span>], 
+		 [Real <span class="Italic">Tx</span>], [Real <span class="Italic">Ty</span>], 
+		 [Real <span class="Italic">Tz</span>], [Real <span class="Italic">Rx</span>], 
+		 [Real <span class="Italic">Ry</span>], [Real <span class="Italic">Rz</span>], 
+		 [String <span class="Italic">CS</span>]</td>
+		<td>Executes a joint movement to a given target matrix, otherwise 
+		 the 3D world origin. 
+		<p class="TableNormal">An optional <span class="Italic">ToMtx</span> 
+		 argument defines the target matrix in the selected coordinate 
+		 system for this method. By default, the identity matrix is based 
+		 on World origin.</p>
+		<p class="TableNormal">Optional arguments <span class="Italic">Tx</span>, 
+		 <span class="Italic">Ty</span> and <span class="Italic">Tz</span> 
+		 are offsets for target matrix position. The default value for 
+		 translations is zero.</p>
+		<p class="TableNormal">Optional arguments <span class="Italic">Rx</span>, 
+		 <span class="Italic">Ry</span> and <span class="Italic">Rz</span> 
+		 are offsets for target matrix orientation. The default value for 
+		 rotations is zero.</p>
+		<p class="TableNormal">An optional <span class="Italic">CS</span> 
+		 argument can be used to set the coordinate system used for target 
+		 calculation, which by default is the World coordinate system. 
+		 The argument can be either &quot;world&quot; or &quot;irobot&quot; 
+		 which is the robot's coordinate system.</p></td>
+	</tr>
+	<tr>
+		<td>jointMoveToPosition</td>
+		<td>None</td>
+		<td>Real <span class="Italic">Tx</span>, Real <span class="Italic">Ty</span>, 
+		 Real <span class="Italic">Tz</span>, Real <span class="Italic">Rx</span>, 
+		 Real <span class="Italic">Ry</span>, Real <span class="Italic">Rz</span>, 
+		 String <span class="Italic">CS</span></td>
+		<td>Executes a joint movement to a target defined by given XYZ 
+		 coordinate values and roll, pitch and yaw values based in a given 
+		 coordinate system. 
+		<p class="TableNormal">The <span class="Italic">Tx</span>, <span 
+		 class="Italic">Ty</span> and <span class="Italic">Tz</span> arguments 
+		 define the target's XYZ coordinate values.</p>
+		<p class="TableNormal">The <span class="Italic">Rx</span>, <span 
+		 class="Italic">Ry</span> and <span class="Italic">Rz</span> arguments 
+		 define the target's orientation or ABC values.</p>
+		<p class="TableNormal"><span class="Term">Rx</span><br>
+		C target value (Roll)</p>
+		<p class="TableNormal"><span class="Term">Ry</span><br>
+		B target value (Pitch)</p>
+		<p class="TableNormal"><span class="Term">Rz</span><br>
+		A target value (Yaw)</p>
+		<p class="TableNormal">The <span class="Italic">CS</span> argument 
+		 defines the coordinate system used for target calculation, which 
+		 default is World coordinate system. The argument can be either 
+		 &quot;world&quot; or &quot;irobot&quot; which is the robot's coordinate 
+		 system.</p>
+		<p class="TableNormal">After the target is calculated, a point-to-point 
+		 motion statement is created in the robot's program which uses 
+		 the robot's first indexed tool frame. The orientation of that 
+		 tool frame can affect the TargetABC properties of the motion statement.</p></td>
+	</tr>
+	<tr>
+		<td>linearMoveRel</td>
+		<td>None</td>
+		<td>Real <span class="Italic">Tx</span>, Real <span class="Italic">Ty</span>, 
+		 Real <span class="Italic">Tz</span>, Real <span class="Italic">Rx</span>, 
+		 Real <span class="Italic">Ry</span>, Real <span class="Italic">Rz</span></td>
+		<td>Executes a linear movement relative to the current pose of 
+		 robot based in active tool's coordinate system. 
+		<p class="TableNormal">The <span class="Italic">Tx</span>, <span 
+		 class="Italic">Ty</span> and <span class="Italic">Tz</span> arguments 
+		 are translation movements in XYZ coordinate axes.</p>
+		<p class="TableNormal">The <span class="Italic">Rx</span>, <span 
+		 class="Italic">Ry</span> and <span class="Italic">Rz</span> arguments 
+		 are rotation offsets for XYZ coordinate axes.</p></td>
+	</tr>
+	<tr>
+		<td>linearMoveToComponent</td>
+		<td>None</td>
+		<td><a href="vcNode.htm">vcNode</a> <span class="Italic">ToComp</span>, 
+		 [Real <span class="Italic">Tx</span>], [Real <span class="Italic">Ty</span>], 
+		 [Real <span class="Italic">Tz</span>], [Real <span class="Italic">Rx</span>], 
+		 [Real <span class="Italic">Ry</span>], [Real <span class="Italic">Rz</span>], 
+		 [<a href="vcFeature.htm">vcFeature</a>/String <span class="Italic">ToFrame</span>], 
+		 [String <span class="Italic">OnFace</span>]</td>
+		<td>Executes a linear movement to a given component, which by default 
+		 is the component's origin. 
+		<p class="TableNormal">Optional arguments <span class="Italic">Tx</span>, 
+		 <span class="Italic">Ty</span> and <span class="Italic">Tz</span> 
+		 are offsets for target position. The default value for translations 
+		 is zero.</p>
+		<p class="TableNormal">Optional arguments <span class="Italic">Rx</span>, 
+		 <span class="Italic">Ry</span> and <span class="Italic">Rz</span> 
+		 are offsets for target orientation. The default value for rotations 
+		 is zero.</p>
+		<p class="TableNormal">An optional <span class="Italic">ToFrame</span> 
+		 argument can be used to set the target location to be a Frame 
+		 feature in a component. A Frame feature can be given as a <a href="vcFeature.htm">vcFeature</a> 
+		 object or referenced by name.</p>
+		<p class="TableNormal">An optional <span class="Italic">OnFace</span> 
+		 argument can be used to set the target location to be a face of 
+		 a component's bound box. A bound box face can be referenced by 
+		 using one of six recognized names (top, bottom, left, right, front, 
+		 back).</p>
+		<p class="TableNormal">If <span class="Italic">ToFrame</span> and 
+		 <span class="Italic">OnFace</span> arguments are given, the method 
+		 will first try to use ToFrame.</p></td>
+	</tr>
+	<tr>
+		<td>linearMoveToMtx</td>
+		<td>None</td>
+		<td>[<a href="vcMatrix.htm">vcMatrix</a> <span class="Italic">ToMtx</span>], 
+		 [Real <span class="Italic">Tx</span>], [Real <span class="Italic">Ty</span>], 
+		 [Real <span class="Italic">Tz</span>], [Real <span class="Italic">Rx</span>], 
+		 [Real <span class="Italic">Ry</span>], [Real <span class="Italic">Rz</span>], 
+		 [String <span class="Italic">CS</span>]</td>
+		<td>Executes a linear movement to a given target matrix, otherwise 
+		 the 3D world origin. 
+		<p class="TableNormal">An optional <span class="Italic">ToMtx</span> 
+		 argument defines the target matrix in the selected coordinate 
+		 system for this method. By default, the identity matrix is based 
+		 on World origin.</p>
+		<p class="TableNormal">Optional arguments <span class="Italic">Tx</span>, 
+		 <span class="Italic">Ty</span> and <span class="Italic">Tz</span> 
+		 are offsets for target matrix position. The default value for 
+		 translations is zero.</p>
+		<p class="TableNormal">Optional arguments <span class="Italic">Rx</span>, 
+		 <span class="Italic">Ry</span> and <span class="Italic">Rz</span> 
+		 are offsets for target matrix orientation. The default value for 
+		 rotations is zero.</p>
+		<p class="TableNormal">An optional <span class="Italic">CS</span> 
+		 argument can be used to set the coordinate system used for target 
+		 calculation, which by default is the World coordinate system. 
+		 The argument can be either &quot;world&quot; or &quot;irobot&quot; 
+		 which is the robot's coordinate system.</p></td>
+	</tr>
+	<tr>
+		<td>linearMoveToMtx_ExternalBase</td>
+		<td>None</td>
+		<td><a href="vcNode.htm">vcNode</a> <span class="Italic">Basenode</span>, 
+		 <a href="vcMatrix.htm">vcMatrix</a> <span class="Italic">ToMtx</span>, 
+		 [Real <span class="Italic">Tx</span>], [Real <span class="Italic">Ty</span>], 
+		 [Real <span class="Italic">Tz</span>], [Real <span class="Italic">Rx</span>], 
+		 [Real <span class="Italic">Ry</span>], [Real <span class="Italic">Rz</span>]</td>
+		<td>Executes a linear movement to a given target matrix based in 
+		 given node's coordinate system. 
+		<p class="TableNormal">Generally, this method is used when a robot 
+		 needs to motion to a moving part, for example a pallet on a conveyor.</p>
+		<p class="TableNormal">Optional arguments <span class="Italic">Tx</span>, 
+		 <span class="Italic">Ty</span> and <span class="Italic">Tz</span> 
+		 are offsets for target matrix position. The default value for 
+		 translations is zero.</p>
+		<p class="TableNormal">Optional arguments <span class="Italic">Rx</span>, 
+		 <span class="Italic">Ry</span> and <span class="Italic">Rz</span> 
+		 are offsets for target matrix orientation. The default value for 
+		 rotations is zero.</p></td>
+	</tr>
+	<tr>
+		<td>linearMoveToPosition</td>
+		<td>None</td>
+		<td>Real <span class="Italic">Tx</span>, Real <span class="Italic">Ty</span>, 
+		 Real <span class="Italic">Tz</span>, Real <span class="Italic">Rx</span>, 
+		 Real <span class="Italic">Ry</span>, Real <span class="Italic">Rz</span>, 
+		 String <span class="Italic">CS</span></td>
+		<td>Executes a linear movement to a target defined by given XYZ 
+		 coordinate values and roll, pitch and yaw values based in a given 
+		 coordinate system. 
+		<p class="TableNormal">The <span class="Italic">Tx</span>, <span 
+		 class="Italic">Ty</span> and <span class="Italic">Tz</span> arguments 
+		 define the target's XYZ coordinate values.</p>
+		<p class="TableNormal">The <span class="Italic">Rx</span>, <span 
+		 class="Italic">Ry</span> and <span class="Italic">Rz</span> arguments 
+		 define the target's orientation or ABC values.</p>
+		<p class="TableNormal"><span class="Term">Rx</span><br>
+		C target value (Roll)</p>
+		<p class="TableNormal"><span class="Term">Ry</span><br>
+		B target value (Pitch)</p>
+		<p class="TableNormal"><span class="Term">Rz</span><br>
+		A target value (Yaw)</p>
+		<p class="TableNormal">The <span class="Italic">CS</span> argument 
+		 defines the coordinate system used for target calculation, which 
+		 default is World coordinate system. The argument can be either 
+		 &quot;world&quot; or &quot;irobot&quot; which is the robot's coordinate 
+		 system.</p>
+		<p class="TableNormal">After the target is calculated, a linear 
+		 motion statement is created in the robot's program which uses 
+		 the robot's first indexed tool frame. The orientation of that 
+		 tool frame can affect the TargetABC properties of the motion statement.</p></td>
+	</tr>
+	<tr>
+		<td>mountTool</td>
+		<td>None</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">Tool</span></td>
+		<td>Mounts a given component to flange node of robot.</td>
+	</tr>
+	<tr>
+		<td>moveAway</td>
+		<td>None</td>
+		<td>[Real <span class="Italic">Tz</span>]</td>
+		<td>Executes a linear retraction movement relative to current pose 
+		 of robot. 
+		<p class="TableNormal">An optional <span class="Italic">Tz</span> 
+		 argument can be given to set retraction distance, which by default 
+		 is 200.</p></td>
+	</tr>
+	<tr>
+		<td>pick</td>
+		<td>None</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">Part</span>, 
+		 [Real <span class="Italic">Approach</span>], [Real <span class="Italic">Tx</span>], 
+		 [Real <span class="Italic">Ty</span>], [Real <span class="Italic">Tz</span>], 
+		 [Real <span class="Italic">Rx</span>], [Real <span class="Italic">Ry</span>], 
+		 [Real <span class="Italic">Rz</span>], [String <span class="Italic">OnFace</span>], 
+		 [String <span class="Italic">ApproachAxis</span>]</td>
+		<td>Executes a sequence of actions in order for robot to pick a 
+		 given component. 
+		<p class="TableNormal"><span class="Term">Action 1</span><br>
+		Robot executes a joint movement based on target component origin 
+		 and <span class="Italic">Approach</span>, <span class="Italic">OnFace</span> 
+		 and <span class="Italic">ApproachAxis</span> values.</p>
+		<p class="TableNormal"><span class="Term">Action 2</span><br>
+		Robot executes a linear movement to target component based on <span 
+		 class="Italic">OnFace</span> value.</p>
+		<p class="TableNormal"><span class="Term">Action 3</span><br>
+		Target component is grabbed by robot.</p>
+		<p class="TableNormal"><span class="Term">Action 4</span><br>
+		Robot executes a linear retraction movement based on <span class="Italic">Approach</span> 
+		 value.</p>
+		<p class="TableNormal">All three motions executed by the robot 
+		 are created dynamically during a simulation.</p>
+		<p class="TableNormal">By default, the robot will use an approach 
+		 distance of 200 aligned to Z-axis in order to pick from the top 
+		 face of a given component's bound box.</p>
+		<p class="TableNormal">The pick location can be offset using the 
+		 optional <span class="Italic">Tx</span>, <span class="Italic">Ty</span>, 
+		 <span class="Italic">Tz</span>, <span class="Italic">Rx</span>, 
+		 <span class="Italic">Ry</span>, and <span class="Italic">Rz</span> 
+		 arguments.</p>
+		<p class="TableNormal">An optional <span class="Italic">OnFace</span> 
+		 argument allows you to set which face of <span class="Italic">Part</span> 
+		 bound box to use for Action 2.</p>
+		<p class="TableNormal">An optional <span class="Italic">ApproachAxis</span> 
+		 argument sets the axis of alignment.</p></td>
+	</tr>
+	<tr>
+		<td>pickFromPallet</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">Pallet</span>, 
+		 [Real <span class="Italic">Approach</span>], [Boolean <span class="Italic">InversedOrder</span>], 
+		 [Integer <span class="Italic">Index</span>]</td>
+		<td>Executes a sequence of actions in order for the robot to pick 
+		 a component from a given <span class="Italic">Pallet</span>. 
+		<p class="TableNormal"><span class="Term">Action 1</span><br>
+		Get a list of components attached to <span class="Italic">Pallet</span>. 
+		 That is, a list of child components.</p>
+		<p class="TableNormal"><span class="Term">Action 2</span><br>
+		Select child component to pick based on <span class="Italic">InversedOrder</span> 
+		 and <span class="Italic">Index</span> values.</p>
+		<p class="TableNormal"><span class="Term">Action 3</span><br>
+		Robot executes a joint movement based on child component origin 
+		 and <span class="Italic">Approach</span> value.</p>
+		<p class="TableNormal"><span class="Term">Action 4</span><br>
+		Robot executes a linear movement to top face of child component.</p>
+		<p class="TableNormal"><span class="Term">Action 5</span><br>
+		Child component is grabbed by robot.</p>
+		<p class="TableNormal"><span class="Term">Action 6</span><br>
+		Robot executes a linear retraction movement based on <span class="Italic">Approach</span> 
+		 value.</p>
+		<p class="TableNormal">All three motions executed by the robot 
+		 are created dynamically during a simulation.</p>
+		<p class="TableNormal">By default, the robot will use an approach 
+		 distance of 200 to pick the last component of a list of child 
+		 components for <span class="Italic">Pallet</span>.</p>
+		<p class="TableNormal">An optional <span class="Italic">Approach</span> 
+		 argument can be used to change the approach and retract distance 
+		 used by robot.</p>
+		<p class="TableNormal">An optional <span class="Italic">InversedOrder</span> 
+		 argument can be used to reverse the list of child components acquired 
+		 in Action 1. A True value reverses the order, so last component 
+		 attached to <span class="Italic">Pallet</span> is first in list. 
+		 The default value is False.</p>
+		<p class="TableNormal">An optional <span class="Italic">Index</span> 
+		 argument can be used to select which child component of <span 
+		 class="Italic">Pallet</span> is picked by robot. The default value 
+		 is -1, so last component in Action 1 child components list.</p></td>
+	</tr>
+	<tr>
+		<td>pickMovingPart</td>
+		<td>None</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">Part</span>, 
+		 [Real <span class="Italic">Approach</span>], [Real <span class="Italic">Tx</span>], 
+		 [Real <span class="Italic">Ty</span>], [Real <span class="Italic">Tz</span>], 
+		 [Real <span class="Italic">Tz</span>], [Real <span class="Italic">Rx</span>], 
+		 [Real <span class="Italic">Ry</span>], [Real <span class="Italic">Rz</span>]</td>
+		<td>Executes a sequence of actions in order for the robot to pick 
+		 a given component that is not stationary. 
+		<p class="TableNormal"><span class="Term">Action 1</span><br>
+		Robot executes joint movement based on target component origin 
+		 and <span class="Italic">Approach</span> value.</p>
+		<p class="TableNormal"><span class="Term">Action 2</span><br>
+		Robot executes linear movement to top face of target component 
+		 bound box.</p>
+		<p class="TableNormal"><span class="Term">Action 3</span><br>
+		Target component is grabbed by robot.</p>
+		<p class="TableNormal"><span class="Term">Action 4</span><br>
+		Robot executes a linear retraction movement based on <span class="Italic">Approach</span> 
+		 value.</p>
+		<p class="TableNormal">All three motions executed by the robot 
+		 are created dynamically during a simulation.</p>
+		<p class="TableNormal">By default, the robot will use an approach 
+		 distance of 200 and calculate motion targets based on speed of 
+		 <span class="Italic">Part</span>.</p>
+		<p class="TableNormal">The pick location can be offset using the 
+		 optional <span class="Italic">Tx</span>, <span class="Italic">Ty</span>, 
+		 <span class="Italic">Tz</span>, <span class="Italic">Rx</span>, 
+		 <span class="Italic">Ry</span>, and <span class="Italic">Rz</span> 
+		 arguments.</p></td>
+	</tr>
+	<tr>
+		<td>place</td>
+		<td>None</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">ToComp</span>, 
+		 [Real <span class="Italic">Approach</span>], [Real <span class="Italic">Tx</span>], 
+		 [Real <span class="Italic">Ty</span>], [Real <span class="Italic">Tz</span>], 
+		 [Real <span class="Italic">Rx</span>], [Real <span class="Italic">Ry</span>], 
+		 [Real <span class="Italic">Rz</span>], [<a href="vcComponent.htm">vcComponent</a> 
+		 <span class="Italic">Part</span>], [String <span class="Italic">ApproachAxis</span>]</td>
+		<td>Executes a sequence of actions in order for the robot to place 
+		 a grasped component at a given component. 
+		<p class="TableNormal"><span class="Term">Action 1</span><br>
+		Robot executes joint movement based on <span class="Italic">ToComp</span> 
+		 origin, <span class="Italic">Approach</span> and <span class="Italic">ApproachAxis</span> 
+		 values.</p>
+		<p class="TableNormal"><span class="Term">Action 2</span><br>
+		Robot executes linear movement to top face of <span class="Italic">ToComp</span>.</p>
+		<p class="TableNormal"><span class="Term">Action 3</span><br>
+		Grasped component is released by robot to <span class="Italic">ToComp</span>.</p>
+		<p class="TableNormal"><span class="Term">Action 4</span><br>
+		Robot executes a linear retraction movement based on <span class="Italic">Approach</span> 
+		 value.</p>
+		<p class="TableNormal">All three motions executed by the robot 
+		 are created dynamically during a simulation.</p>
+		<p class="TableNormal">By default, a robot will use an approach 
+		 distance of 200 and the bound box of grasped component to calculate 
+		 motion targets.</p>
+		<p class="TableNormal">The place location can be offset using optional 
+		 <span class="Italic">Tx</span>, <span class="Italic">Ty</span>, 
+		 <span class="Italic">Tz</span>, <span class="Italic">Rx</span>, 
+		 <span class="Italic">Ry</span>, and <span class="Italic">Rz</span> 
+		 arguments.</p>
+		<p class="TableNormal">An optional <span class="Italic">Part</span> 
+		 argument can be used to define which component is placed to <span 
+		 class="Italic">ToComp</span>. The default is the first component 
+		 listed in robot's GraspContainer.</p>
+		<p class="TableNormal">An optional <span class="Italic">ApproachAxis</span> 
+		 argument can be used to define the axis of alignment.</p></td>
+	</tr>
+	<tr>
+		<td>placeInPattern</td>
+		<td>None</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">ToComp</span>, 
+		 Integer <span class="Italic">X_index</span>, Integer <span class="Italic">Y_index</span>, 
+		 Integer <span class="Italic">Z_index</span>, Integer <span class="Italic">PatternSize_X</span>, 
+		 <span class="Italic">PatternSize_Y</span>, Integer <span class="Italic">PatternSize_Z</span>, 
+		 [Real <span class="Italic">Approach</span>], [<a href="vcComponent.htm">vcComponent</a> 
+		 <span class="Italic">Part</span>], [Real <span class="Italic">StepSizeX</span>], 
+		 [Real <span class="Italic">StepSizeY</span>], [Real <span class="Italic">StepSizeZ</span>], 
+		 [Real <span class="Italic">Rz</span>]</td>
+		<td>Executes a sequence of actions in order for the robot to place 
+		 components in a given pattern. 
+		<p class="TableNormal"><span class="Term">Action 1</span><br>
+		Robot executes joint movement to <span class="Italic">ToComp</span>.</p>
+		<p class="TableNormal"><span class="Term">Action 2</span><br>
+		Robot executes linear movement to place location.</p>
+		<p class="TableNormal"><span class="Term">Action 3</span><br>
+		Grasped component is released by robot to <span class="Italic">ToComp</span>.</p>
+		<p class="TableNormal"><span class="Term">Action 4</span><br>
+		Robot executes linear retraction movement away from place location.</p>
+		<p class="TableNormal">All three motions executed by the robot 
+		 are created dynamically during a simulation.</p>
+		<p class="TableNormal">By default, a robot will use an approach 
+		 distance of 200, the bound box of grasped component and the given 
+		 pattern to calculate motion targets.</p>
+		<p class="TableNormal">The <span class="Italic">X_index</span>, 
+		 <span class="Italic">Y_index</span> and <span class="Italic">Z_index</span> 
+		 arguments define the index position for placing a component based 
+		 on pattern size.</p>
+		<p class="TableNormal">The <span class="Italic">PatternSize_X</span>, 
+		 <span class="Italic">PatternSize_Y</span> and <span class="Italic">PatternSize_Z</span> 
+		 arguments define the pattern size.</p>
+		<p class="TableNormal">An optional <span class="Italic">ApproachAxis</span> 
+		 argument can be used to define the axis of alignment.</p>
+		<p class="TableNormal">An optional <span class="Italic">Part</span> 
+		 argument can be used to define which component is placed to <span 
+		 class="Italic">ToComp</span>. The default is the first component 
+		 listed in robot's GraspContainer.</p>
+		<p class="TableNormal">Optional <span class="Italic">StepSizeX</span>, 
+		 <span class="Italic">StepSizeY</span> and <span class="Italic">StepSizeZ</span> 
+		 arguments can be used to define the pattern step size for XYZ 
+		 axes. The default step size values are length, width and height 
+		 of <span class="Italic">Part</span>.</p>
+		<p class="TableNormal">An optional <span class="Italic">Rz</span> 
+		 argument can be used to define a Z-axis rotation offset for place 
+		 location.</p></td>
+	</tr>
+	<tr>
+		<td>releaseAllComponents</td>
+		<td>None</td>
+		<td><a href="vcNode.htm">vcNode</a>/<a href="vcContainer.htm">vcContainer</a> 
+		 <span class="Italic">ToObject</span></td>
+		<td>Attaches all components of robot's GraspContainer to a given 
+		 node or container type behavior. 
+		<p class="TableNormal">If <span class="Italic">ToObject</span> 
+		 is a component, a target container is searched for automatically 
+		 in the component. If not found, the components are directly attached 
+		 to the given node.</p></td>
+	</tr>
+	<tr>
+		<td>releaseComponent</td>
+		<td>None</td>
+		<td><a href="vcNode.htm">vcNode</a>/<a href="vcContainer.htm">vcContainer</a> 
+		 <span class="Italic">ToObject</span>, <a href="vcNode.htm">vcNode</a> 
+		 <span class="Italic">ReleaseThis</span></td>
+		<td>Attaches a component to a given node or container type behavior. 
+		 
+		<p class="TableNormal">If <span class="Italic">ToObject</span> 
+		 is a component, a target container is searched for automatically 
+		 in the component. If not found, the released component is directly 
+		 attached to the given node.</p>
+		<p class="TableNormal">The <span class="Italic">ReleaseThis</span> 
+		 argument is the component to be detached from robot; otherwise 
+		 the method will search the robot's GraspContainer.</p></td>
+	</tr>
+	<tr>
+		<td>rsl_BinIn</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">Index</span>, Boolean <span class="Italic">Value</span></td>
+		<td>Waits for a signal mapped to a given port to have the given 
+		 value. 
+		<p class="TableNormal">The <span class="Italic">Index</span> argument 
+		 defines the port in the robot's inputs, Boolean Signal Map behavior. 
+		 The <span class="Italic">Value</span> argument defines the value 
+		 that should be received at the port in order to complete execution.</p>
+		<p class="TableNormal">If RecordRSL is set to True, this action 
+		 is recorded as a new input statement in the robot's program.</p></td>
+	</tr>
+	<tr>
+		<td>rsl_BinOut</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">Index</span>, Boolean <span class="Italic">Value</span></td>
+		<td>Sends a given value to a signal mapped to a given port. 
+		<p class="TableNormal">The <span class="Italic">Index</span> argument 
+		 defines the port in the robot's outputs, Boolean Signal Map behavior. 
+		 The <span class="Italic">Value</span> argument defines the value 
+		 that should be sent to the mapped signal.</p>
+		<p class="TableNormal">If RecordRSL is set to True, this action 
+		 is recorded as a new output statement in the robot's program.</p></td>
+	</tr>
+	<tr>
+		<td>traceOff</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">Index</span></td>
+		<td>Turns off the tracing of the robot's motions at given tool 
+		 frame. 
+		<p class="TableNormal">The <span class="Italic">Index</span> argument 
+		 defines the index position of a tool frame in the robot's Tools 
+		 which is mapped to a port used for tracing.</p></td>
+	</tr>
+	<tr>
+		<td>traceOn</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">Index</span></td>
+		<td>Turns on the tracing of the robot's motions at given tool frame. 
+		 
+		<p class="TableNormal">The <span class="Italic">Index</span> argument 
+		 defines the index position of a tool frame in the robot's Tools 
+		 which is mapped to a port used for tracing.</p></td>
+	</tr>
+	<tr>
+		<td>unmountTool</td>
+		<td>None</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">Tool</span>, 
+		 <a href="vcContainer.htm">vcContainer</a> <span class="Italic">ToObject</span> 
+		 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcComponent.htm">vcComponent</a> 
+		 <span class="Italic">Tool</span>, <a href="vcComponent.htm">vcComponent</a> 
+		 <span class="Italic">ToObject</span></p></td>
+		<td>Dismounts a tool mounted on the robot to either a container 
+		 type behavior or component. 
+		<p class="TableNormal">The <span class="Italic">Tool</span> argument 
+		 needs to be a tool component mounted on the robot.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a>Miscellaneous Methods</h2>
+<p>The following methods are functions that can be used by importing the 
+ vcHelpers.Robot library.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getSelectedRobotsData</td>
+		<td>List of robot data (<a href="vcExecutor.htm">vcExecutor</a>, 
+		 <a href="vcRoutine.htm">vcRoutine</a>, <a href="vcRobotController.htm">vcRobotController</a>, 
+		 String <span>BaseName</span>, String <span>Toolname</span>, List 
+		 of String <span>BaseNames</span>, List of String <span>ToolNames</span>, 
+		 Integer <span>RobotConfig</span>, List of String <span>RobotConfigs</span>)</td>
+		<td>None</td>
+		<td>Returns a list of data for the currently selected robot component 
+		 in the 3D world. 
+		<p class="TableNormal">The list of data contains the following: 
+		 robot program, current routine, robot controller, name of active 
+		 base frame, name of active tool frame, list of names for all base 
+		 frames, list of names for all tool frames, index of current configuration, 
+		 and list of names for all configurations.</p></td>
+	</tr>
+	<tr>
+		<td>printMatrix</td>
+		<td>None</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a> <span class="Italic">mtx</span></td>
+		<td>Prints a given matrix in a clear, readable format to the Output 
+		 panel.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark6"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Control a robot with vcHelpers.Robot</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>#Place this code in a Python Script editor 
+		<br>from vcScript import * 
+		<br>from vcHelpers.Robot2 import * 
+		<br>&#160;&#160; 
+		<br>def OnRun(): 
+		<br># Get robot object and application object 
+		<br>&#160;&#160;robot = getRobot() 
+		<br>&#160;&#160;app &#160;&#160;= getApplication() 
+		<br>&#160;&#160; 
+		<br># Find the block component 
+		<br>&#160;&#160;block = app.findComponent(&quot;Block&quot;) 
+		<br>&#160;&#160; 
+		<br># Find the pedestal component 
+		<br>&#160;&#160;pedestal= app.findComponent(&quot;Pedestal&quot;) 
+		<br>&#160;&#160; 
+		<br>#Set Robot Tool to &#160;Tool1 
+		<br>&#160;&#160;robot.ActiveTool = 'Tool1' 
+		<br>&#160;&#160; 
+		<br># Robot move to component 
+		<br>&#160;&#160;robot.jointMoveToComponent(block, Tz = 200, OnFace = 'top') 
+		<br>&#160;&#160; 
+		<br># Robot pick component 'block' 
+		<br>&#160;&#160;robot.pick(block) 
+		<br>&#160;&#160; 
+		<br># Robot moves away of the object Tz: 300 
+		<br>&#160;&#160;robot.moveAway(300) 
+		<br>&#160;&#160; 
+		<br>#Robot place &#160;component in component 'pedestal' 
+		<br>&#160;&#160;robot.place(pedestal, 200) 
+		<br>&#160;&#160; 
+		<br># Robot moves away of the object Tz: 150 
+		<br>&#160;&#160;robot.moveAway(150)</td>
+	</tr>
+</table>
+<p class="Example"><a name="Example._Drive_Joints" id="Example._Drive_Joints"></a><span 
+	 class="Example">Example. Drive joints</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>from vcHelpers.Robot2 import * 
+		<br>&#160;&#160; 
+		<br>robot = getRobot() 
+		<br>#move all 6 joints with method 
+		<br>robot.driveJoints(0, 0, 90, 0, 45, 180) 
+		<br>&#160;&#160; 
+		<br>#moves 4th joint to 45 degrees via controller 
+		<br>#joint numbering starts at 0, so 4th joint is numbered 3 
+		<br>robot.Controller.moveJoint(3, 45) 
+		<br>&#160;&#160; 
+		<br>#move extra joints, e.g robot connected to track 
+		<br>robot.driveJoints(0, 0, 0, 0, 0, 0, 0, False, [-2000])</td>
+	</tr>
+</table>
+<p class="Example"><a name="FollowRobot" id="FollowRobot"></a><span class="Example">Example. 
+ Follow a Part with a Robot</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td><span>from vcScript import *</span> 
+		<br>from vcHelpers.Robot2 import * 
+		<br>&#160;&#160; 
+		<br>#script is located in conveyor with sensor and signal 
+		<br>&#160;&#160; 
+		<br>comp = getComponent() 
+		<br>app = getApplication() 
+		<br>r = getRobot(app.findComponent(&quot;Articulated Robot&quot;)) 
+		<br>&#160;&#160; 
+		<br>def OnSignal(signal): 
+		<br>&#160;&#160;global parts 
+		<br>&#160;&#160;&#160; 
+		<br>&#160;&#160;#get part 
+		<br>&#160;&#160;if signal.Value == True: 
+		<br>&#160;&#160;&#160;&#160;path = comp.findBehaviour(&quot;MainPath&quot;) 
+		<br>&#160;&#160;&#160;&#160;node = path.Components[0] 
+		<br>&#160;&#160;&#160;&#160;parts.append(node) 
+		<br>&#160;&#160; 
+		<br>def OnRun(): 
+		<br>&#160;&#160;global parts 
+		<br>&#160;&#160;parts = [] 
+		<br>&#160;&#160;condition(lambda: parts) 
+		<br>&#160;&#160;p = parts.pop(0) 
+		<br>&#160;&#160;&#160; 
+		<br>&#160;&#160;#move to part 
+		<br>&#160;&#160;r.linearMoveToMtx_ExternalBase(p, Tz = 100, Ry = 180) 
+		<br>&#160;&#160;&#160; 
+		<br>&#160;&#160;#follow part 
+		<br>&#160;&#160;r.followNode(p, 1) 
+		<br>&#160;&#160;&#160; 
+		<br>&#160;&#160;#grab part 
+		<br>&#160;&#160;r.graspComponent(p) 
+		<br>&#160;&#160;r.moveAway()</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Set motion time for movements</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>robo = getRobot() 
+		<br>robo.MotionTime = 3 
+		<br>robo.jointMoveToComponent('Part')</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Record actions as statements in robot 
+ program</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>#pick a component named 'Part' 
+		<br>robo = getRobot() 
+		<br>part = getApplication().findComponent('Part') 
+		<br>&#160;&#160; 
+		<br>#define the location for RSL statements 
+		<br>robo.RecordRoutine = 'MyRecordRoutine' 
+		<br>robo.RecordRSL = True 
+		<br>robo.jointMoveToComponent( part, Tz = 100) 
+		<br>robo.linearMoveToComponent( part, Tz = 0) 
+		<br>robo.graspComponent(part) 
+		<br>robo.moveAway(100)</td>
+	</tr>
+</table>
+</body>
+</html>

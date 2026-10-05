@@ -1,0 +1,1726 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="CHM Editor">
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+<param name="SiteType" value="toc">
+  <param name="Image Width" value="16">
+  <param name="Window Styles" value="0x800027">
+  <param name="ExWindow Styles" value="0x100">
+</OBJECT>
+<UL>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="What's New">
+    <param name="Local" value="English/WhatsNew.htm">
+    </OBJECT>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Supported CAD files">
+    <param name="Local" value="English/Supported_CAD_files.htm">
+    </OBJECT>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Setup">
+    </OBJECT>
+  <UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Shortcuts">
+      <param name="Local" value="English/Shortcuts.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Using external Python editor">
+      <param name="Local" value="English/Tasks/Modeling/Using_external_Python_editor.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Defining units and quantities">
+      <param name="Local" value="English/Tasks/Workspace/Defining_units_and_quantities.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Backstage">
+      <param name="Local" value="English/User_Interface/Views/Backstage_View.htm">
+      </OBJECT>
+  </UL>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Getting Started">
+    </OBJECT>
+  <UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="UI Overview">
+      </OBJECT>
+    <UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Panels">
+        </OBJECT>
+      <UL>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Editing panels by context">
+          <param name="Local" value="English/Tasks/Workspace/Panels/Editing_panels_by_context.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Docking a panel">
+          <param name="Local" value="English/Tasks/Workspace/Panels/Docking_a_panel.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Grouping panels">
+          <param name="Local" value="English/Tasks/Workspace/Panels/Grouping_panels.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Hiding panels">
+          <param name="Local" value="English/Tasks/Workspace/Panels/Hiding_panels.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Restoring windows">
+          <param name="Local" value="English/Tasks/Workspace/Panels/Restoring_windows.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Viewing panels">
+          <param name="Local" value="English/Tasks/Workspace/Panels/Viewing_panels.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Properties">
+          <param name="Local" value="English/User_Interface/Panels/Properties_panel.htm">
+          </OBJECT>
+      </UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Tabs">
+        </OBJECT>
+      <UL>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Layout">
+          <param name="Local" value="English/User_Interface/Views/Layout_View.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Modeling">
+          <param name="Local" value="English/User_Interface/Views/Modeling_View.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Process">
+          <param name="Local" value="English/User_Interface/Views/Process.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Robot">
+          <param name="Local" value="English/User_Interface/Views/Robot_View.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Help Tab">
+          <param name="Local" value="English/User_Interface/Help_tab.htm">
+          </OBJECT>
+      </UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="QAT">
+        </OBJECT>
+      <UL>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Adding commands to the QAT">
+          <param name="Local" value="English/Tasks/Workspace/QAT/Adding_commands_to_the_QAT.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Customizing the QAT">
+          <param name="Local" value="English/Tasks/Workspace/QAT/Customizing_the_QAT.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Removing commands from the QAT">
+          <param name="Local" value="English/Tasks/Workspace/QAT/Removing_commands_from_the_QAT.htm">
+          </OBJECT>
+      </UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Clipboard">
+        </OBJECT>
+      <UL>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Cloning selected objects">
+          <param name="Local" value="English/Tasks/Workspace/Clipboard/Cloning_selected_objects.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Copying and pasting a selection">
+          <param name="Local" value="English/Tasks/Workspace/Clipboard/Copying_and_pasting_a_selection.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Deleting a selection">
+          <param name="Local" value="English/Tasks/Workspace/Clipboard/Deleting_a_selection.htm">
+          </OBJECT>
+      </UL>
+    </UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Navigation">
+      <param name="Local" value="English/Getting_Started/How_It_Works/Navigation.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Selection">
+      <param name="Local" value="English/Getting_Started/How_It_Works/Selection.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Visualization">
+      <param name="Local" value="English/Getting_Started/How_It_Works/Visualization.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Adding components">
+      <param name="Local" value="English/Tasks/Components/Adding_components.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Selecting components">
+      <param name="Local" value="English/Tasks/Components/Selecting_components.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Selecting components in an area">
+      <param name="Local" value="English/Tasks/Components/Selecting_components_in_an_area.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Moving and rotating components">
+      <param name="Local" value="English/Tasks/Components/Moving_and_rotating_components.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Editing component properties">
+      <param name="Local" value="English/Tasks/Components/Editing_component_properties.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Plugging in components">
+      <param name="Local" value="English/Tasks/Components/Plugging_in_components.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Interacting with parts of components">
+      <param name="Local" value="English/Tasks/Components/Interacting_with_parts_of_components.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Opening a layout">
+      <param name="Local" value="English/Tasks/Layouts/Opening_a_layout.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Saving a layout">
+      <param name="Local" value="English/Tasks/Layouts/Saving_a_layout.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Opening a new layout">
+      <param name="Local" value="English/Tasks/Layouts/Opening_a_new_layout.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Closing a layout">
+      <param name="Local" value="English/Tasks/Layouts/Closing_a_layout.htm">
+      </OBJECT>
+  </UL>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="eCatalog">
+    </OBJECT>
+  <UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="eCatalog">
+      <param name="Local" value="English/User_Interface/Panels/eCatalog_panel.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Collection Groups">
+      </OBJECT>
+    <UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Add collections and sources to groups">
+        <param name="Local" value="English/Tasks/Catalog/CollectionGroups/Add_Collections_and_Sources_to_a_Group.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Adding a collection group">
+        <param name="Local" value="English/Tasks/Catalog/CollectionGroups/Add_a_collection_group.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Deleting a collection group">
+        <param name="Local" value="English/Tasks/Catalog/CollectionGroups/Deleting_a_collection_group.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Removing collections and sources from groups">
+        <param name="Local" value="English/Tasks/Catalog/CollectionGroups/Removing_collections_and_sources_from_groups.htm">
+        </OBJECT>
+    </UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Collections">
+      </OBJECT>
+    <UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Adding a collection">
+        <param name="Local" value="English/Tasks/Catalog/Collections/Adding_a_collection.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Adding items to collections">
+        <param name="Local" value="English/Tasks/Catalog/Collections/Adding_items_to_collections.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Deleting a collection">
+        <param name="Local" value="English/Tasks/Catalog/Collections/Deleting_a_collection.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Removing items from collections">
+        <param name="Local" value="English/Tasks/Catalog/Collections/Removing_items_from_collections.htm">
+        </OBJECT>
+    </UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Items">
+      </OBJECT>
+    <UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Filtering items">
+        <param name="Local" value="English/Tasks/Catalog/Items/Filtering_items.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Searching for items">
+        <param name="Local" value="English/Tasks/Catalog/Items/Searching_for_items.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Sorting items">
+        <param name="Local" value="English/Tasks/Catalog/Items/Sorting_items.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Viewing and editing metadata">
+        <param name="Local" value="English/Tasks/Catalog/Items/Viewing_and_editing_metadata.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Viewing items">
+        <param name="Local" value="English/Tasks/Catalog/Items/Viewing_items.htm">
+        </OBJECT>
+    </UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Local Copies">
+      </OBJECT>
+    <UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Deleting a local copy">
+        <param name="Local" value="English/Tasks/Catalog/LocalCopies/Deleting_a_local_copy.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Forcing the update of local copies">
+        <param name="Local" value="English/Tasks/Catalog/LocalCopies/Forcing_the_update_of_local_copies.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Mapping local folder to remote source">
+        <param name="Local" value="English/Tasks/Catalog/LocalCopies/Mapping_local_folder_to_remote_source.htm">
+        </OBJECT>
+    </UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Smart Collections">
+      </OBJECT>
+    <UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Adding a smart collection">
+        <param name="Local" value="English/Tasks/Catalog/SmartCollections/Adding_a_smart_collection.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Deleting a smart collection">
+        <param name="Local" value="English/Tasks/Catalog/SmartCollections/Deleting_a_smart_collection.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Editing smart collections">
+        <param name="Local" value="English/Tasks/Catalog/SmartCollections/Editing_smart_collections.htm">
+        </OBJECT>
+    </UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Sources">
+      </OBJECT>
+    <UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Adding a local source">
+        <param name="Local" value="English/Tasks/Catalog/Sources/Adding_a_local_source.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Adding a remote source">
+        <param name="Local" value="English/Tasks/Catalog/Sources/Adding_a_remote_source.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Forcing the update of sources">
+        <param name="Local" value="English/Tasks/Catalog/Sources/Forcing_the_update_of_sources.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Removing sources">
+        <param name="Local" value="English/Tasks/Catalog/Sources/Removing_sources.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Showing sources">
+        <param name="Local" value="English/Tasks/Catalog/Sources/Showing_sources.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Using sources">
+        <param name="Local" value="English/Tasks/Catalog/Sources/Using_sources.htm">
+        </OBJECT>
+    </UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Troubleshoot the eCatalog panel">
+      <param name="Local" value="English/Tasks/Catalog/Troubleshoot_the_eCatalog_panel.htm">
+      </OBJECT>
+  </UL>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Import">
+    </OBJECT>
+  <UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Supported CAD files">
+      <param name="Local" value="English/Supported_CAD_files.htm#642b3b9347ca42c9b00b820c00c373fa=1">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Import Model Settings">
+      <param name="Local" value="English/Documents/Import_Model_Settings.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Importing geometry as new components">
+      <param name="Local" value="English/Tasks/Components/Importing_geometry_as_new_components.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Importing mathematical data">
+      <param name="Local" value="English/Tasks/Modeling/Importing_mathematical_data.htm">
+      </OBJECT>
+  </UL>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Layout Configuration">
+    </OBJECT>
+  <UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Layouts">
+      <param name="Local" value="English/Documents/Layouts.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Building a layout">
+      <param name="Local" value="English/Getting_Started/How_It_Works/Building_a_layout.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Cell Graph">
+      <param name="Local" value="English/User_Interface/Panels/Cell_Graph_panel.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Creating a pattern of components">
+      <param name="Local" value="English/Tasks/Components/Creating_a_pattern_of_components.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Connect interfaces">
+      <param name="Local" value="English/Tasks/Components/Connect_Interfaces.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Connect signals">
+      <param name="Local" value="English/Tasks/Components/Connect_Signals.htm">
+      </OBJECT>
+  </UL>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="3D Operations">
+    </OBJECT>
+  <UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Measuring components">
+      <param name="Local" value="English/Tasks/Components/Measuring_components.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Aligning components">
+      <param name="Local" value="English/Tasks/Components/Aligning_components.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Attaching components">
+      <param name="Local" value="English/Tasks/Components/Attaching_components.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Grouping components">
+      <param name="Local" value="English/Tasks/Components/Grouping_components.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Snapping components">
+      <param name="Local" value="English/Tasks/Components/Snapping_components.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Creating a 3D dimension">
+      <param name="Local" value="English/Tasks/Layouts/Creating_a_3D_dimension.htm">
+      </OBJECT>
+  </UL>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Connectivity">
+    <param name="Local" value="English/Tasks/Connectivity/Connectivity.htm">
+    </OBJECT>
+  <UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Terminology">
+      <param name="Local" value="English/Tasks/Connectivity/Terminology.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Enabling Connectivity feature">
+      <param name="Local" value="English/Tasks/Connectivity/Enabling_Connectivity_feature.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Accessing Connectivity feature">
+      <param name="Local" value="English/Tasks/Connectivity/Accessing_Connectivity_feature.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Connecting to a Fanuc robot controller">
+      <param name="Local" value="English/Tasks/Connectivity/Fanuc_robot_plugin.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Connecting to a TwinCAT PLC">
+      <param name="Local" value="English/Tasks/Connectivity/Connecting_to_a_TwinCAT_PLC.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Connecting to an OPC UA Server">
+      <param name="Local" value="English/Tasks/Connectivity/Connecting_to_an_OPC_UA_Server.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Connecting to a Siemens S7-series PLC">
+      <param name="Local" value="English/Tasks/Connectivity/Using_the_Siemens_S7_plugin.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Connecting to Siemens SIMIT">
+      <param name="Local" value="English/Tasks/Connectivity/Connecting_to_Siemens_SIMIT.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Connecting to WinMOD">
+      <param name="Local" value="English/Tasks/Connectivity/Connecting_to_WinMOD.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Pairing variables">
+      <param name="Local" value="English/Tasks/Connectivity/Pairing_variables.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Locking values">
+      <param name="Local" value="English/Tasks/Connectivity/Locking_values.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Supported data types">
+      <param name="Local" value="English/Tasks/Connectivity/Supported_data_types.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Universal Robots RTDE Plugin">
+      <param name="Local" value="English/Tasks/Connectivity/Universal_Robots_RTDE_Plugin.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Stäubli Add-on">
+      <param name="Local" value="English/Tasks/Connectivity/Staubli/Staubli_Add-on.htm">
+      </OBJECT>
+    <UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Getting Started">
+        <param name="Local" value="English/Tasks/Connectivity/Staubli/Getting_Started.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Backward Compatibility">
+        <param name="Local" value="English/Tasks/Connectivity/Staubli/Backward_Compatibility.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="User Interface">
+        <param name="Local" value="English/Tasks/Connectivity/Staubli/User_Interface.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="CS8/CS9 Connections">
+        <param name="Local" value="English/Tasks/Connectivity/Staubli/CS8_Connections.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Post Processor">
+        <param name="Local" value="English/Tasks/Connectivity/Staubli/Post_Processor.htm">
+        </OBJECT>
+    </UL>
+  </UL>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Simulation">
+    </OBJECT>
+  <UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Simulation Controls">
+      <param name="Local" value="English/User_Interface/Simulation_controls.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Output">
+      <param name="Local" value="English/User_Interface/Panels/Output_panel.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Running a simulation">
+      <param name="Local" value="English/Getting_Started/How_It_Works/Running_a_simulation.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Repeating a simulation">
+      <param name="Local" value="English/Tasks/Simulations/Repeating_a_simulation.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Using a runtime">
+      <param name="Local" value="English/Tasks/Simulations/Using_a_runtime.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Using a warm up time">
+      <param name="Local" value="English/Tasks/Simulations/Using_a_warm_up_time.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Reporting statistics">
+      <param name="Local" value="English/Tasks/Components/Reporting_statisticsv2.htm">
+      </OBJECT>
+  </UL>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Process Modeling">
+    </OBJECT>
+  <UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Overview">
+      <param name="Local" value="English/Tasks/Process_Modeling/Process_Modeling.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Terminology">
+      <param name="Local" value="English/Tasks/Process_Modeling/Terminology.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Using process variables">
+      <param name="Local" value="English/Tasks/Process_Modeling/Using_process_variables.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Product Type Editor">
+      <param name="Local" value="English/User_Interface/Panels/Product_Type_Editor.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Process Flow Editor">
+      <param name="Local" value="English/User_Interface/Panels/Process_Flow_Editor.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Process Editor">
+      <param name="Local" value="English/User_Interface/Panels/Process_Editor.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Process Statement Expressions">
+      <param name="Local" value="Reference/Expressions/Process_Statement_Expressions.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Process Statements">
+      </OBJECT>
+    <UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Append To List">
+        <param name="Local" value="Reference/Process_Statements/Append_To_List.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Assign Variable">
+        <param name="Local" value="Reference/Process_Statements/Assign_Process_Variable.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Attach">
+        <param name="Local" value="Reference/Process_Statements/Attach.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Break">
+        <param name="Local" value="Reference/Process_Statements/Break.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Buffer">
+        <param name="Local" value="Reference/Process_Statements/Buffer.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Change Type">
+        <param name="Local" value="Reference/Process_Statements/Change_Type.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Check Assembly">
+        <param name="Local" value="Reference/Process_Statements/CheckAssembly.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Comment">
+        <param name="Local" value="Reference/Process_Statements/Comment.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Construct">
+        <param name="Local" value="Reference/Process_Statements/Construct.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Continue">
+        <param name="Local" value="Reference/Process_Statements/Continue.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Create">
+        <param name="Local" value="Reference/Process_Statements/Create.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Delay">
+        <param name="Local" value="Reference/Process_Statements/Delay.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Detach">
+        <param name="Local" value="Reference/Process_Statements/Detach.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Find Flow Step">
+        <param name="Local" value="Reference/Process_Statements/FindFlowStep.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Flow">
+        <param name="Local" value="Reference/Process_Statements/Flow.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Get Assembly">
+        <param name="Local" value="Reference/Process_Statements/Get_Assembly.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Get Assembly Step Property">
+        <param name="Local" value="Reference/Process_Statements/Get_Assembly_Step_Property.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Get Flow Step">
+        <param name="Local" value="Reference/Process_Statements/GetFlowStep.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Get Products">
+        <param name="Local" value="Reference/Process_Statements/Get_Products.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Get Property">
+        <param name="Local" value="Reference/Process_Statements/Get_Property.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Halt">
+        <param name="Local" value="Reference/Process_Statements/Halt.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="If">
+        <param name="Local" value="Reference/Process_Statements/If.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Move Joint">
+        <param name="Local" value="Reference/Process_Statements/Move_Joint.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Print">
+        <param name="Local" value="Reference/Process_Statements/Print.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Property Condition">
+        <param name="Local" value="Reference/Process_Statements/Property_Condition.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Release Product Reservation">
+        <param name="Local" value="Reference/Process_Statements/Release_Product_Reservation.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Remove">
+        <param name="Local" value="Reference/Process_Statements/Remove.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Reserve Product">
+        <param name="Local" value="Reference/Process_Statements/Reserve_Product.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Run Robot Routine">
+        <param name="Local" value="Reference/Process_Statements/Run_Robot_Routine.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Select Products">
+        <param name="Local" value="Reference/Process_Statements/Select_Products.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Send Signal">
+        <param name="Local" value="Reference/Process_Statements/Send_Signal.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Set Next Flow Step">
+        <param name="Local" value="Reference/Process_Statements/SetNextFlowStep.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Set Node Material">
+        <param name="Local" value="Reference/Process_Statements/Set_Node_Material.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Set Node Visibility">
+        <param name="Local" value="Reference/Process_Statements/Set_Node_Visibility.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Set State">
+        <param name="Local" value="Reference/Process_Statements/Set_State.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Start Transport In">
+        <param name="Local" value="Reference/Process_Statements/Start_Transport_In.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Start Transport Out">
+        <param name="Local" value="Reference/Process_Statements/Start_Transport_Out.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Switch Case">
+        <param name="Local" value="Reference/Process_Statements/Switch_Case.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Transport In">
+        <param name="Local" value="Reference/Process_Statements/Transport_In.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Transport Out">
+        <param name="Local" value="Reference/Process_Statements/Transport_Out.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Transport Pattern In">
+        <param name="Local" value="Reference/Process_Statements/Transport_Pattern_In.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Wait Property Condition">
+        <param name="Local" value="Reference/Process_Statements/Wait_Property_Condition.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Wait Signal">
+        <param name="Local" value="Reference/Process_Statements/Wait_Signal.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Wait Transport">
+        <param name="Local" value="Reference/Process_Statements/Wait_Transport.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="While">
+        <param name="Local" value="Reference/Process_Statements/While.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Work">
+        <param name="Local" value="Reference/Process_Statements/Work.htm">
+        </OBJECT>
+    </UL>
+  </UL>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Drawings">
+    </OBJECT>
+  <UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Creating a dimension">
+      <param name="Local" value="English/Tasks/Drawings/Creating_a_dimension.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Creating a drawing">
+      <param name="Local" value="English/Tasks/Drawings/Creating_a_drawing.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Creating a drawing template">
+      <param name="Local" value="English/Tasks/Drawings/Creating_a_drawing_template.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Creating an annotation">
+      <param name="Local" value="English/Tasks/Drawings/Creating_an_annotation.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Exporting a drawing">
+      <param name="Local" value="English/Tasks/Drawings/Exporting_a_drawing.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Finding a drawing template">
+      <param name="Local" value="English/Tasks/Drawings/Finding_a_drawing_template.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Importing a drawing template">
+      <param name="Local" value="English/Tasks/Drawings/Importing_a_drawing_template.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Printing a drawing">
+      <param name="Local" value="English/Tasks/Drawings/Printing_a_drawing.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Creating a drawing">
+      <param name="Local" value="English/Getting_Started/How_It_Works/Create_a_drawing.htm">
+      </OBJECT>
+  </UL>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Component Modeling">
+    </OBJECT>
+  <UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Overview">
+      <param name="Local" value="English/Documents/Components/Components.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Modeling a component">
+      <param name="Local" value="English/Getting_Started/How_It_Works/Modeling_a_component.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Component Graph">
+      <param name="Local" value="English/User_Interface/Panels/Component_Graph_panel.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Properties">
+      <param name="Local" value="English/Documents/Components/Properties.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Nodes">
+      <param name="Local" value="English/Documents/Components/Nodes.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Modeling Operations">
+      </OBJECT>
+    <UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Creating a new component">
+        <param name="Local" value="English/Tasks/Modeling/Creating_a_new_component.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Creating a new property">
+        <param name="Local" value="English/Tasks/Modeling/Creating_a_new_property.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Creating a new behavior">
+        <param name="Local" value="English/Tasks/Modeling/Creating_a_new_behavior.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Creating a new feature">
+        <param name="Local" value="English/Tasks/Modeling/Creating_a_new_feature.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Creating a new node">
+        <param name="Local" value="English/Tasks/Modeling/Creating_a_new_node.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Add and edit base frames">
+        <param name="Local" value="English/Tasks/Modeling/Add_and_edit_base_frames.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Add and edit tool frames">
+        <param name="Local" value="English/Tasks/Modeling/Add_and_edit_tool_frames.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Assigning a joint to a controller">
+        <param name="Local" value="English/Tasks/Modeling/Assigning_a_joint_to_a_controller.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Defining a joint offset">
+        <param name="Local" value="English/Tasks/Modeling/Defining_a_joint_offset.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Editing node feature tree">
+        <param name="Local" value="English/Tasks/Modeling/Editing_node_feature_tree.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Interacting with a joint">
+        <param name="Local" value="English/Tasks/Modeling/Interacting_with_a_joint.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Transferring components to other components">
+        <param name="Local" value="English/Tasks/Modeling/Transferring_components_to_other_components.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Making component unique or shared">
+        <param name="Local" value="English/Tasks/Modeling/Making_component_unique_or_shared.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Selecting behaviors in a component">
+        <param name="Local" value="English/Tasks/Modeling/Selecting_behaviors_in_a_component.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Selecting features in a component">
+        <param name="Local" value="English/Tasks/Modeling/Selecting_features_in_a_component.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Selecting nodes in a component">
+        <param name="Local" value="English/Tasks/Modeling/Selecting_nodes_in_a_component.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Selecting properties in a component">
+        <param name="Local" value="English/Tasks/Modeling/Selecting_properties_in_a_component.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Searching component data">
+        <param name="Local" value="English/Tasks/Modeling/Searching_component_data.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Saving a component">
+        <param name="Local" value="English/Tasks/Modeling/Saving_a_component.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Transferring components to other behaviors">
+        <param name="Local" value="English/Tasks/Modeling/Transferring_component_to_other_behaviors.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Editing origin of components">
+        <param name="Local" value="English/Tasks/Components/Editing_origin_of_components.htm">
+        </OBJECT>
+    </UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Behaviors">
+      </OBJECT>
+    <UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Overview">
+        <param name="Local" value="English/Documents/Components/Behaviors/Behaviors.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Interfaces">
+        </OBJECT>
+      <UL>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Interfaces">
+          <param name="Local" value="English/Documents/Components/Behaviors/Interfaces.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="One to One Interface">
+          <param name="Local" value="Reference/Behaviors/Interfaces/One_to_One_Interface.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="One to Many Interface">
+          <param name="Local" value="Reference/Behaviors/Interfaces/One_to_Many_Interface.htm">
+          </OBJECT>
+      </UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Signals">
+        </OBJECT>
+      <UL>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Signals">
+          <param name="Local" value="English/Documents/Components/Behaviors/Signals.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Boolean Signal">
+          <param name="Local" value="Reference/Behaviors/Signals/Boolean_Signal.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Boolean Signal Map">
+          <param name="Local" value="Reference/Behaviors/Signals/Boolean_Signal_Map.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Component Signal">
+          <param name="Local" value="Reference/Behaviors/Signals/Component_Signal.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Integer Signal">
+          <param name="Local" value="Reference/Behaviors/Signals/Integer_Signal.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Matrix Signal">
+          <param name="Local" value="Reference/Behaviors/Signals/Matrix_Signal.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Real Signal">
+          <param name="Local" value="Reference/Behaviors/Signals/Real_Signal.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="String Signal">
+          <param name="Local" value="Reference/Behaviors/Signals/String_Signal.htm">
+          </OBJECT>
+      </UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Material Flow">
+        </OBJECT>
+      <UL>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Material Flow">
+          <param name="Local" value="English/Documents/Components/Behaviors/Material_Flow.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Capacity Controller">
+          <param name="Local" value="Reference/Behaviors/Material_Flow/Capacity_Controller.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Component Container">
+          <param name="Local" value="Reference/Behaviors/Material_Flow/Component_Container.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Component Creator">
+          <param name="Local" value="Reference/Behaviors/Material_Flow/Component_Creator.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Component Flow Proxy">
+          <param name="Local" value="Reference/Behaviors/Material_Flow/Component_Flow_Proxy.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="One Way Path">
+          <param name="Local" value="Reference/Behaviors/Material_Flow/One_Way_Path.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Two Way Path">
+          <param name="Local" value="Reference/Behaviors/Material_Flow/Two_Way_Path.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Routing Rule">
+          <param name="Local" value="Reference/Behaviors/Material_Flow/Routing_Rule.htm">
+          </OBJECT>
+      </UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Robotics">
+        </OBJECT>
+      <UL>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Robotics">
+          <param name="Local" value="English/Documents/Components/Behaviors/Robotics.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Base Container">
+          <param name="Local" value="Reference/Behaviors/Robotics/Base_Container.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Robot Controller">
+          <param name="Local" value="Reference/Behaviors/Robotics/Robot_Controller.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Robot Executor">
+          <param name="Local" value="Reference/Behaviors/Robotics/Robot_Executor.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Servo Controller">
+          <param name="Local" value="Reference/Behaviors/Robotics/Servo_Controller.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Tool Container">
+          <param name="Local" value="Reference/Behaviors/Robotics/Tool_Container.htm">
+          </OBJECT>
+      </UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Kinematics">
+        </OBJECT>
+      <UL>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Kinematics">
+          <param name="Local" value="English/Documents/Components/Behaviors/Kinematics.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Articulated Kinematics">
+          <param name="Local" value="Reference/Behaviors/Kinematics/Articulated_Kinematics.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Cartesian Kinematics">
+          <param name="Local" value="Reference/Behaviors/Kinematics/Cartesian_Kinematics.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Delta Kinematics">
+          <param name="Local" value="Reference/Behaviors/Kinematics/Delta_Kinematics.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Parallelogram Kinematics">
+          <param name="Local" value="Reference/Behaviors/Kinematics/Parallelogram_Kinematics.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Python Kinematics">
+          <param name="Local" value="Reference/Behaviors/Kinematics/Python_Kinematics.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Scara Kinematics">
+          <param name="Local" value="Reference/Behaviors/Kinematics/Scara_Kinematics.htm">
+          </OBJECT>
+      </UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Sensors">
+        </OBJECT>
+      <UL>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Sensors">
+          <param name="Local" value="English/Documents/Components/Behaviors/Sensors.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Process Point Sensor">
+          <param name="Local" value="Reference/Behaviors/Sensors/Process_Point_Sensor.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Raycast Sensor">
+          <param name="Local" value="Reference/Behaviors/Sensors/Raycast_Sensor.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Volume Sensor">
+          <param name="Local" value="Reference/Behaviors/Sensors/Volume_Sensor.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Component Path Sensor">
+          <param name="Local" value="Reference/Behaviors/Sensors/Component_Path_Sensor.htm">
+          </OBJECT>
+      </UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Misc">
+        </OBJECT>
+      <UL>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Miscellaneous">
+          <param name="Local" value="English/Documents/Components/Behaviors/Miscellaneous.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Action Container">
+          <param name="Local" value="Reference/Behaviors/Misc/Action_Container.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Document Link">
+          <param name="Local" value="Reference/Behaviors/Misc/Document_Link.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Jog Info">
+          <param name="Local" value="Reference/Behaviors/Misc/Jog_Info.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Note">
+          <param name="Local" value="Reference/Behaviors/Misc/Note.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Python Script">
+          <param name="Local" value="Reference/Behaviors/Misc/Python_Script.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Statistics">
+          <param name="Local" value="Reference/Behaviors/Misc/Statistics.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Transport Protocol">
+          <param name="Local" value="Reference/Behaviors/Misc/Transport_Protocol.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Vehicle">
+          <param name="Local" value="Reference/Behaviors/Misc/Vehicle.htm">
+          </OBJECT>
+      </UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Physics">
+        </OBJECT>
+      <UL>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Physics">
+          <param name="Local" value="English/Documents/Components/Behaviors/Physics.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Physics Cable">
+          <param name="Local" value="Reference/Behaviors/Physics/Physics_Cable.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Physics Entity">
+          <param name="Local" value="Reference/Behaviors/Physics/Physics_entity.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Physics Joint">
+          <param name="Local" value="Reference/Behaviors/Physics/Physics_Joint.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Physics Path">
+          <param name="Local" value="Reference/Behaviors/Physics/Physics_Path.htm">
+          </OBJECT>
+      </UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Process Model">
+        </OBJECT>
+      <UL>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Process Model">
+          <param name="Local" value="English/Documents/Components/Behaviors/Process_Model.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Product Creator">
+          <param name="Local" value="Reference/Behaviors/Process_Model/Product_Creator.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Transport Controller">
+          <param name="Local" value="Reference/Behaviors/Process_Model/Transport_Controller.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Process Executor">
+          <param name="Local" value="Reference/Behaviors/Process_Model/Process_Executor.htm">
+          </OBJECT>
+        <LI> <OBJECT type="text/sitemap">
+          <param name="Name" value="Transport Node">
+          <param name="Local" value="Reference/Behaviors/Process_Model/Transport_Node.htm">
+          </OBJECT>
+      </UL>
+    </UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Features">
+      </OBJECT>
+    <UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Features">
+        <param name="Local" value="English/Documents/Components/Features.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Angular Clone">
+        <param name="Local" value="Reference/Features/Angular_Clone.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Block">
+        <param name="Local" value="Reference/Features/Block.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Boolean">
+        <param name="Local" value="Reference/Features/Boolean.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Cone">
+        <param name="Local" value="Reference/Features/Cone.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Cylinder">
+        <param name="Local" value="Reference/Features/Cylinder.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Extrude">
+        <param name="Local" value="Reference/Features/Extrude.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Frame">
+        <param name="Local" value="Reference/Features/Frame.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Geometry">
+        <param name="Local" value="Reference/Features/Geometry.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Linear Clone">
+        <param name="Local" value="Reference/Features/Linear_Clone.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Mirror">
+        <param name="Local" value="Reference/Features/Mirror.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Plane">
+        <param name="Local" value="Reference/Features/Plane.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Python Feature">
+        <param name="Local" value="Reference/Features/Python_Feature.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Revolve">
+        <param name="Local" value="Reference/Features/Revolve.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Sphere">
+        <param name="Local" value="Reference/Features/Sphere.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Switch">
+        <param name="Local" value="Reference/Features/Switch.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Text">
+        <param name="Local" value="Reference/Features/Text.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Transform">
+        <param name="Local" value="Reference/Features/Transform.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Wedge">
+        <param name="Local" value="Reference/Features/Wedge.htm">
+        </OBJECT>
+    </UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Geometries">
+      </OBJECT>
+    <UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Merging features">
+        <param name="Local" value="English/Tasks/Modeling/Merging_features.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Merging faces">
+        <param name="Local" value="English/Tasks/Modeling/Merging_faces.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Slicing geometry">
+        <param name="Local" value="English/Tasks/Modeling/Slicing_geometry.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Splitting features">
+        <param name="Local" value="English/Tasks/Modeling/Splitting_features.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Simplifying geometry">
+        <param name="Local" value="English/Tasks/Modeling/Simplifying_geometry.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Collapsing features">
+        <param name="Local" value="English/Tasks/Modeling/Collapsing_features.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Decimating geometry">
+        <param name="Local" value="English/Tasks/Modeling/Decimating_geometry.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Inverting geometry">
+        <param name="Local" value="English/Tasks/Modeling/Inverting_geometry.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Extracting geometry into new node">
+        <param name="Local" value="English/Tasks/Modeling/Extracting_geometry_into_new_node.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Extracting geometry into new component">
+        <param name="Local" value="English/Tasks/Modeling/Extracting_geometry_into_a_new_component.htm">
+        </OBJECT>
+    </UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Materials">
+      <param name="Local" value="English/Tasks/Modeling/Materials/Materials.htm">
+      </OBJECT>
+    <UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Material Properties">
+        <param name="Local" value="English/Tasks/Modeling/Materials/Material_Properties.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Material Inheritance">
+        <param name="Local" value="English/Tasks/Modeling/Materials/Material_Inheritance.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Picking Material">
+        <param name="Local" value="English/Tasks/Modeling/Materials/Picking_Material.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Clearing Material">
+        <param name="Local" value="English/Tasks/Modeling/Materials/Clearing_Material.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Assigning Material">
+        <param name="Local" value="English/Tasks/Modeling/Materials/Assigning_Material.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Searching for Material">
+        <param name="Local" value="English/Tasks/Modeling/Materials/Searching_for_Material.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Displaying Materials">
+        <param name="Local" value="English/Tasks/Modeling/Materials/Displaying_Materials.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Selecting Materials">
+        <param name="Local" value="English/Tasks/Modeling/Materials/Selecting_Materials.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Setting Materials">
+        <param name="Local" value="English/Tasks/Modeling/Materials/Setting_Materials.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Deleting Materials from Layout">
+        <param name="Local" value="English/Tasks/Modeling/Materials/Deleting_Materials_from_Layout.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Adding New Materials">
+        <param name="Local" value="English/Tasks/Modeling/Materials/Adding_New_Materials.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Adding Material to User Library">
+        <param name="Local" value="English/Tasks/Modeling/Materials/Adding_Material_to_User_Library.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Removing Material from User Library">
+        <param name="Local" value="English/Tasks/Modeling/Materials/Removing_Material_from_User_Library.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Adding a Decal">
+        <param name="Local" value="English/Tasks/Modeling/Materials/Adding_a_Decal.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Assigning Texture Coordinates">
+        <param name="Local" value="English/Tasks/Modeling/Materials/Assiging_Texture_Coordinates.htm">
+        </OBJECT>
+    </UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Physics">
+      </OBJECT>
+    <UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Physics world">
+        <param name="Local" value="English/Tasks/Physics/Physics_world.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Cables in physics world">
+        <param name="Local" value="English/Tasks/Physics/Cables_in_physics_world.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Colliders in physics world">
+        <param name="Local" value="English/Tasks/Physics/Colliders.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Collisions in physics world">
+        <param name="Local" value="English/Tasks/Physics/Collisions.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Joints in physics world">
+        <param name="Local" value="English/Tasks/Physics/Joints_in_physics_world.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Paths in physics world">
+        <param name="Local" value="English/Tasks/Physics/Paths_in_physics_world.htm">
+        </OBJECT>
+    </UL>
+  </UL>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Robot Programming">
+    </OBJECT>
+  <UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Jog">
+      <param name="Local" value="English/User_Interface/Panels/Jog_panel.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Program Editor">
+      <param name="Local" value="English/User_Interface/Panels/Program_Editor.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Program">
+      </OBJECT>
+    <UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Teaching a robot">
+        <param name="Local" value="English/Getting_Started/How_It_Works/Teaching_a_robot.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Fast Robot Teaching">
+        <param name="Local" value="English/Getting_Started/How_It_Works/Fast_Robot_Teaching.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Editing robot positions">
+        <param name="Local" value="English/Tasks/Robots/Edit_robot_positions.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Creating statements in robot program">
+        <param name="Local" value="English/Tasks/Robots/Create_statements_in_a_robot_program.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Selecting statements in robot program">
+        <param name="Local" value="English/Tasks/Robots/Select_statements_in_a_robot_program.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Editing statements in robot program">
+        <param name="Local" value="English/Tasks/Robots/Edit_statements_in_a_robot_program.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Creating subroutines in robot program">
+        <param name="Local" value="English/Tasks/Robots/Create_subroutines_in_robot_program.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Calling subroutines in robot program">
+        <param name="Local" value="English/Tasks/Robots/Call_subroutines_in_robot_program.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Teaching positions using snap options">
+        <param name="Local" value="English/Tasks/Robots/Teaching_positions_using_snap_options.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Teaching positions using align options">
+        <param name="Local" value="English/Tasks/Robots/Teaching_positions_using_align_options.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Teaching positions using joint values">
+        <param name="Local" value="English/Tasks/Robots/Teaching_positions_using_joint_values.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Mapping signals to actions in robot">
+        <param name="Local" value="English/Tasks/Robots/Mapping_signals_to_actions_in_robot.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Visualizing the tool detection volume">
+        <param name="Local" value="English/Tasks/Robots/Visualizing_the_tool_detection_volume.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Visualizing robot motion paths">
+        <param name="Local" value="English/Tasks/Robots/Visualizing_robot_motion_paths.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Using routine variables">
+        <param name="Local" value="English/Tasks/Robots/Using_routine_variables.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Teaching a path of positions">
+        <param name="Local" value="English/Tasks/Robots/Teaching_a_path_of_positions.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Sweeping geometry">
+        <param name="Local" value="English/Tasks/Robots/Sweeping_geometry.htm">
+        </OBJECT>
+    </UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Other Operations">
+      </OBJECT>
+    <UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Collision Detection">
+        <param name="Local" value="English/User_Interface/Panels/Collision_Detectors.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Connecting external axes">
+        <param name="Local" value="English/Tasks/Robots/Connecting_external_axes.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Connecting signals to robot I/O">
+        <param name="Local" value="English/Tasks/Robots/Connecting_signals_to_robot_inputs_and_outputs.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Detecting collisions">
+        <param name="Local" value="English/Tasks/Robots/Detecting_collisions.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Editing base and tool frames">
+        <param name="Local" value="English/Tasks/Robots/Edit_base_and_tool_frames.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Exchanging robots">
+        <param name="Local" value="English/Tasks/Robots/Exchanging_robots.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Limiting a robot and its joints">
+        <param name="Local" value="English/Tasks/Robots/Limiting_a_robot_and_its_joints.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Locking robot positions">
+        <param name="Local" value="English/Tasks/Robots/Lock_robot_positions.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Painting">
+        <param name="Local" value="English/Tasks/Robots/Painting.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Selecting a robot and its data">
+        <param name="Local" value="English/Tasks/Robots/Select_a_robot_and_its_data.htm">
+        </OBJECT>
+    </UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Robot Statement Expressions">
+      <param name="Local" value="Reference/Expressions/Robot_Statements.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Robot Statements">
+      </OBJECT>
+    <UL>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Assign Variable">
+        <param name="Local" value="Reference/Robot_Statements/Assign_Robot_Variable.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Break">
+        <param name="Local" value="Reference/Process_Statements/Break.htm#642b3b9347ca42c9b00b820c00c373fa=1">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Call Sequence">
+        <param name="Local" value="Reference/Robot_Statements/Call_Sequence.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Comment">
+        <param name="Local" value="Reference/Process_Statements/Comment.htm#642b3b9347ca42c9b00b820c00c373fa=1">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Continue">
+        <param name="Local" value="Reference/Process_Statements/Continue.htm#642b3b9347ca42c9b00b820c00c373fa=1">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Define Base">
+        <param name="Local" value="Reference/Robot_Statements/Define_Base.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Define Tool">
+        <param name="Local" value="Reference/Robot_Statements/Define_Tool.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Delay">
+        <param name="Local" value="Reference/Process_Statements/Delay.htm#642b3b9347ca42c9b00b820c00c373fa=1">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Halt">
+        <param name="Local" value="Reference/Process_Statements/Halt.htm#642b3b9347ca42c9b00b820c00c373fa=1">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="If">
+        <param name="Local" value="Reference/Process_Statements/If.htm#642b3b9347ca42c9b00b820c00c373fa=1">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Linear Motion">
+        <param name="Local" value="Reference/Robot_Statements/Linear_Motion.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Path">
+        <param name="Local" value="Reference/Robot_Statements/Path.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Point-to-Point Motion">
+        <param name="Local" value="Reference/Robot_Statements/Point-to-Point_Motion.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Print">
+        <param name="Local" value="Reference/Process_Statements/Print.htm#642b3b9347ca42c9b00b820c00c373fa=1">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Program Synchronize">
+        <param name="Local" value="Reference/Robot_Statements/Program_Synchronize.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Return">
+        <param name="Local" value="Reference/Robot_Statements/Return.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Switch">
+        <param name="Local" value="Reference/Features/Switch.htm#642b3b9347ca42c9b00b820c00c373fa=1">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Set Statistics">
+        <param name="Local" value="Reference/Robot_Statements/Set_Statistics.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Set Binary Output">
+        <param name="Local" value="Reference/Robot_Statements/Set_Binary_Output.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="Wait for Binary Input">
+        <param name="Local" value="Reference/Robot_Statements/Wait_for_Binary_Input.htm">
+        </OBJECT>
+      <LI> <OBJECT type="text/sitemap">
+        <param name="Name" value="While">
+        <param name="Local" value="Reference/Process_Statements/While.htm#642b3b9347ca42c9b00b820c00c373fa=1">
+        </OBJECT>
+    </UL>
+  </UL>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Export">
+    </OBJECT>
+  <UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Exporting geometry of components">
+      <param name="Local" value="English/Tasks/Components/Exporting_geometry_of_components.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Exporting geometry of layouts">
+      <param name="Local" value="English/Tasks/Layouts/Exporting_geometry_of_layouts.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Exporting simulation as image">
+      <param name="Local" value="English/Tasks/Simulations/Exporting_simulation_as_image.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Printing simulation as image">
+      <param name="Local" value="English/Tasks/Simulations/Printing_simulation_as_image.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Animating camera movements">
+      <param name="Local" value="English/Tasks/Simulations/Animating_camera_movements.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Recording simulation as animation">
+      <param name="Local" value="English/Tasks/Simulations/Recording_simulation_as_animation.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Recording simulation as 3D PDF">
+      <param name="Local" value="English/Tasks/Simulations/Recording_simulation_as_3D_PDF.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Recording simulation as video">
+      <param name="Local" value="English/Tasks/Simulations/Recording_simulation_as_video.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Streaming Animation">
+      <param name="Local" value="English/Tasks/Simulations/Streaming_animation.htm">
+      </OBJECT>
+  </UL>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Expressions">
+    </OBJECT>
+  <UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Functions">
+      <param name="Local" value="Reference/Expressions/Functions.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Grouping Operators">
+      <param name="Local" value="Reference/Expressions/Grouping_Operators.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Operator Precedence">
+      <param name="Local" value="Reference/Expressions/Operator_Precedence.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Type Conversion">
+      <param name="Local" value="Reference/Expressions/Type_Conversion.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Types and Operators">
+      <param name="Local" value="Reference/Expressions/Types_and_Operators.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Unit Specification">
+      <param name="Local" value="Reference/Expressions/Unit_Specification.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Process Statement Expressions">
+      <param name="Local" value="Reference/Expressions/Process_Statement_Expressions.htm#642b3b9347ca42c9b00b820c00c373fa=1">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="Robot Statement Expressions">
+      <param name="Local" value="Reference/Expressions/Robot_Statements.htm#642b3b9347ca42c9b00b820c00c373fa=1">
+      </OBJECT>
+  </UL>
+   <OBJECT type="text/sitemap">
+    <param name="Name" value="Python_API.chm::/Python_API.hhc">
+    <param name="Merge" value="Python_API.chm::/Python_API.hhc">
+    </OBJECT>
+   <OBJECT type="text/sitemap">
+    <param name="Name" value="PublicAPI.chm::/PublicAPI.hhc">
+    <param name="Merge" value="PublicAPI.chm::/PublicAPI.hhc">
+    </OBJECT>
+</UL>
+</BODY></HTML>

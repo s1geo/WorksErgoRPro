@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Построить</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Создает пустой экземпляр сборки, а затем заполняет его заданными продуктами." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Создать (сборка)</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Создает пустой экземпляр сборки, а затем заполняет его заданными продуктами.</p>
+<p class="p_Normal">Данный порядок сборки определяет как тип продукта сборки, который необходимо создать, так и слоты шаблона, в которые помещаются экземпляры продукта. Продукты помещаются в слоты шаблонов в правильном порядке сборки, и фильтры типа продукта слота шаблона должны принимать Экземпляры продукта.</p>
+<p class="p_Normal">Оператор Создать не предназначен для создания пустых экземпляров сборки, поэтому по крайней мере один экземпляр продукта должен быть успешно помещен в созданный экземпляр сборки.</p>
+<p class="p_Normal">Оператор Создать может дополнительно использовать линейное движение для перемещения заданных продуктов в назначенные им позиции в созданном экземпляре сборки. Продолжительность движения контролируется свойством AssemblyTime и может использоваться для приблизительной имитации времени, затрачиваемого на сборочные операции, или просто для целей визуализации.</p>
+<p class="p_Normal"><img alt="ClipboardImg256" style="margin:0;width:9.8229in;height:3.7083in;border:none" src="clipboardimg256.png"/></p>
+<p class="p_Normal"><span style="font-style: italic;">Рисунок 1. Пример процесса, в котором используется некоторая внешняя логика для получения экземпляров деталей в контейнер компонента, из них создается новый экземпляр сборки и, наконец, экземпляр сборки транспортируется в следующий процесс.</span></p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.9063in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5104in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">НаименованиеПеременнойПорядкаСборки</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование переменной процесса, в которой хранится порядок сборки, определяющий создаваемую сборку.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ИмяПеременнойДетали</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование переменной процесса, из которой можно получить экземпляры продукта, которые будут помещены в сборку.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ВремяСборки</p>
+<p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Выражение времени в секундах, используемое для перемещения Экземпляров Продукта в правильное положение в сборке. Должен оцениваться как целое или вещественное число с 0 или положительным значением.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">УдалитьПринятое</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет, удаляются ли Экземпляры продукта, принятые в сборку, из входной переменной продуктов.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ИмяВозвращаемойПеременной</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование переменной процесса, используемой для хранения результата.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

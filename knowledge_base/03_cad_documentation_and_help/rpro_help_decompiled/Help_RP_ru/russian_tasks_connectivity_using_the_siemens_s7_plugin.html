@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Подключение к ПЛК Siemens серии S7</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Плагин Siemens S7 позволяет подключаться к ПЛК Siemens серии S7, используя протокол связи S7 (S7comm). Более конкретно, он использует функции &quot;PUT&quot; и &quot;GET&quot; протокола S7comm. Он..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Подключение к ПЛК Siemens серии S7</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Плагин Siemens S7 позволяет подключаться к ПЛК Siemens серии S7, используя протокол связи S7 (S7comm). Более конкретно, он использует функции &quot;PUT&quot; и &quot;GET&quot; протокола S7comm. Он основан на TCP/IP и работает через Ethernet-соединение. Например, вы можете использовать плагин для подключения к физическим ПЛК серий S7-300, S-400, S7-1200 или S7-1500 или к симуляторам S7-1500 с помощью S7-PLCSIM Advanced.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0.0625in;"><table cellpadding="0" cellspacing="0" style="border:none;border-spacing:0;padding:0;line-height: normal;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:0.1875in"><a name="mthotspot30120" class="hmanchor"></a><img id="toggle0186a1_ICON" class="dropdown-toggle-icon" alt="hmtoggle_plus1" style="margin:0;width:0.0938in;height:0.0938in;border:none" src="hmtoggle_plus1.gif"/></td><td style="border:none;padding:0"><a class="dropdown-toggle" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;" href="javascript:HMToggle('toggle','toggle0186a1','toggle0186a1_ICON')">СОДЕРЖАНИЕ</a></td></tr></table></div>
+<div id="toggle0186a1" class="dropdown-toggle-body" style="text-align: left; padding: 0 0 0 0; margin: 0 0 0.0417in 0.2500in;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_using_the_siemens_s7_plugin.html#minitocbookmark2" class="topiclink">АДРЕСА ПОДКЛЮЧЕНИЯ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_using_the_siemens_s7_plugin.html#minitocbookmark3" class="topiclink">НАСТРОЙКА ПРОЕКТА ПЛК</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_using_the_siemens_s7_plugin.html#minitocbookmark7" class="topiclink">ИМПОРТ ТАБЛИЦЫ ТЕГОВ ПЛК</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_using_the_siemens_s7_plugin.html#minitocbookmark8" class="topiclink">ПОДДЕРЖИВАЕМЫЕ ОБЛАСТИ ПАМЯТИ ПЛК</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_using_the_siemens_s7_plugin.html#minitocbookmark9" class="topiclink">ОГРАНИЧЕНИЯ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_using_the_siemens_s7_plugin.html#minitocbookmark10" class="topiclink">ПРЕДСТАВЛЕНИЕ</a></p>
+</td>
+</tr>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark2" class="hmanchor"></a><span style="font-size: 18pt;">Адреса подключения</span></h2>
+<p class="p_Normal">Определите IP-адрес ПЛК или модуля коммуникационного процессора. Используется обычный адрес IPv4. Соединение всегда осуществляется с TCP-портом ПЛК 102.</p>
+<p class="p_Normal"><img alt="ClipboardImg125" style="margin:0;width:4.2813in;height:2.5729in;border:none" src="clipboardimg125.png"/></p>
+<p class="p_Normal">Стойка и слот относятся к положению модуля ЦП ПЛК на задней панели.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Тип ПЛК</span></p>
+</th>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Стойка</span></p>
+</th>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Слот</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">S7-300</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">0</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">2</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">S7-400</p>
+</td>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Н/п</p>
+</td>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Н/п</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">S7-1200</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">0</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">0 или 1</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">S7-1500</p>
+</td>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">0</p>
+</td>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">0 или 1</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание:</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Значения не являются фиксированными для ПЛК серии S7-400. Пожалуйста, обратитесь к <a href="http://snap7.sourceforge.net/sharp7.html" class="weblink">Справочному руководству Sharp 7 </a>для получения дополнительной информации о том, как определить значения.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark3" class="hmanchor"></a><span style="font-size: 18pt;">Настройка проекта ПЛК</span></h2>
+<p class="p_Normal">Сначала необходимо настроить ПЛК, чтобы разрешить доступ для чтения и записи через интерфейс S7comm. Необходимые шаги:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>Настройка интерфейса Ethernet ПЛК</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>Определите параметр защиты и безопасности, чтобы разрешить доступ</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Отключить безопасность через настройку уровня доступа</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Разрешить связь PUT/GET</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>Отключить обновление физического ввода (необязательно)</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark4" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Настройка интерфейса Ethernet ПЛК</span></h3>
+<p class="p_Normal">Укажите IP-адрес ПЛК и любые другие сетевые настройки для связи TCP/IP.</p>
+<p class="p_Normal"><img alt="SiemensEthernetInterface" style="margin:0;width:9.3229in;height:6.5417in;border:none" src="siemensethernetinterface.png"/></p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark5" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Определите параметр защиты и безопасности, чтобы разрешить доступ</span></h3>
+<p class="p_Normal">Отключите защиту с помощью настройки уровня доступа, выбрав нет защиты.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><img alt="SiemensProtection" style="margin:0;width:7.6146in;height:3.7083in;border:none" src="siemensprotection.png"/></h3>
+<p class="p_Normal">ПЛК с более старой версией прошивки, это выглядит следующим образом:</p>
+<p class="p_Normal"><img alt="SiemensTIAPortalAccessLevel2" style="margin:0;width:6.4375in;height:1.2813in;border:none" src="siemenstiaportalaccesslevel2.png"/></p>
+<p class="p_Normal">Разрешить обмен данными PUT/GET.</p>
+<p class="p_Normal"><img alt="SiemensProtection2" style="margin:0;width:7.6146in;height:1.3646in;border:none" src="siemensprotection2.png"/></p>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Отключить обновление физического входа (опционально)</span></h3>
+<p class="p_Normal">Образ входного процесса может быть записан из симуляции для эмуляции входов ПЛК. Однако обновление любых физических входов-выходов на образ входного процесса должно быть отключено, чтобы значения, записанные из симуляции, не перезаписывались при каждом цикле ввода-вывода ПЛК.</p>
+<p class="p_Normal"><img alt="SiemensTIAPortalProcessImage" style="margin:0;width:8.4688in;height:5.1458in;border:none" src="siemenstiaportalprocessimage.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark7" class="hmanchor"></a><span style="font-size: 18pt;">Импорт таблицы тегов ПЛК</span></h2>
+<p class="p_Normal">Информация о переменных ПЛК должна быть экспортирована из TIA Portal в файл SDF или Excel, а затем импортирована в плагин подключения Siemens S7. Таблицы тегов в TIA Portal (STEP7) используются для присвоения символических имен адресам ввода-вывода (I, Q) и назначения переменных общему пространству памяти (M).</p>
+<p class="p_Normal">Чтобы импортировать таблицу тегов:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>Нажмите на вкладку <span style="font-weight: bold;">Подключения</span>, а затем в панели <span style="font-weight: bold;">Конфигурация подключения</span>, под <span style="font-weight: bold;">Сименс С7 </span>, выберите <span style="font-weight: bold;">подключение к ПЛК </span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>На панели задач <span style="font-weight: bold;">Свойства </span>щелкните на <span style="font-weight: bold;">Загрузить символы ПЛК из файла</span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>Выберите файл SDF или Excel для импорта.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание:</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Загруженные теги сохраняются вместе с конфигурацией подключения как при сохранении планировки, так и при экспорте конфигурации подключения в формате XML.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>После импорта таблицы тегов вам может понадобиться <span style="font-weight: bold;">перезагрузить дерево структуры сервера </span>в окне Добавить переменные, чтобы увидеть переменные и изменения в них.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>При импорте таблицы тегов подключаемый модуль Siemens S7 <span style="font-weight: bold;">автоматически обновляет любые существующие пары переменных на основе имен тегов </span>. Если какие-либо пары переменных были обновлены, это отображается в виде сообщения на панели вывода.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Автоматическое связывание по именам тегов позволяет вносить изменения в адрес памяти тегов и тип данных без необходимости повторного создания пар переменных.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы это работало, имена тегов должны быть определены и уникальны. Если одно и то же имя тега появляется более одного раза в импортированных тегах, любые переменные с таким именем тега не обновляются, а на панели вывода печатается сообщение об ошибке.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark8" class="hmanchor"></a><span style="font-size: 18pt;">Поддерживаемые области памяти ПЛК</span></h2>
+<p class="p_Normal">Протокол S7comm обеспечивает доступ как для чтения, так и для записи к следующим областям памяти:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Входной образ процесса (адрес I или E)</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Выходной образ процесса (адрес Q или A)</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Память (адрес «М»)</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание:</span> Обычно образ процесса ввода перезаписывается с физических входов при каждом цикле ввода-вывода ПЛК. Однако вы можете отключить это в конфигурации ПЛК.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark9" class="hmanchor"></a><span style="font-size: 18pt;">Ограничения</span></h2>
+<p class="p_Normal">Имейте в виду, что существуют определенные практические ограничения при использовании протокола S7comm:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Нет доступных функций просмотра, чтобы узнать, какие переменные существуют в ПЛК. Эта информация должна быть получена отдельно от инструмента программирования ПЛК TIA Portal.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Вы не можете проверить, существует ли данная переменная в ПЛК. Протокол позволяет считывать и записывать различные области памяти ПЛК, но невозможно узнать, используются ли эти области памяти программой ПЛК должным образом.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Связь не зашифрована и не поддерживает ввод пароля. Соединение должно осуществляться только в защищенной сети.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark10" class="hmanchor"></a><span style="font-size: 18pt;">Производительность</span></h2>
+<p class="p_Normal">Как правило, время отклика и пропускная способность, достигаемые с помощью подключаемого модуля Siemens S7, ограничиваются ПЛК. Однако, например, в случае физического S7-1200 связь S7comm по-прежнему значительно быстрее, чем встроенный сервер OPC UA.</p>
+<p class="p_Normal">Помните, что на производительность влияют следующие факторы:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Запросы S7comm обрабатываются между программными циклами ПЛК, поэтому, если ПЛК выполняет объемную программу, которая потребляет практически все время ЦП, обмен данными может быть очень медленным.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Ограничение размера PDU протокола S7comm весьма ограничено и составляет всего 240 байт для S7-1200 и 480 байт для S7-1500. Это ограничивает количество переменных, которые могут быть прочитаны или записаны с помощью одного запроса. Обработка каждого запроса на ПЛК имеет более или менее постоянную минимальную задержку, поэтому большое значение имеет количество запросов.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Сетевая инфраструктура может вызвать значительное колебание задержки. По возможности отдавайте предпочтение прямому кабельному подключению к физическому ПЛК. Запуск смоделированного ПЛК на виртуальной машине также может снизить производительность.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark11" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Общие Подсказки для наилучшей производительности</span></h3>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Избегайте создания ненужных групп переменных.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Сделайте сетевую инфраструктуру, используемую для связи, максимально простой.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Рассмотрите возможность увеличения минимального времени цикла ПЛК, если загрузка ЦП ПЛК высока.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark12" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Оптимизация чтения из ПЛК</span></h3>
+<p class="p_Normal">Протокол S7comm не поддерживает считывание значений из ПЛК (подписок) на основе событий, поэтому единственным вариантом является циклическое обновление. То есть все переменные из ПЛК, определенные в группе переменных, считываются в каждом цикле.</p>
+<p class="p_Normal">Плагин Siemens S7 автоматически оптимизирует чтение переменных из ПЛК, группируя переменные со смежными или перекрывающимися областями памяти, которые считываются как блоки в рамках запросов MultiRead. Эта оптимизация оказывает большое влияние на количество запросов, необходимых для синхронизации группы переменных, и, следовательно, на минимально достижимую задержку. Чтобы использовать эту оптимизацию, примите во внимание следующие правила:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Теги ПЛК должны располагаться непосредственно рядом в памяти без пробелов между ними или перекрывать друг друга.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>MW0 и MW2 являются соседними (байты 0-1 и 2-3)</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>I0.7 и I1.0 являются соседними (бит 7 в байте 0, бит 0 в байте 1)</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>I0.0 и I0.2 <span style="font-weight: bold;">не являются смежными </span>(бит 0 в байте 0, бит 2 в байте 0)</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>IW0 и I1.2 <span style="font-weight: bold;">перекрываются </span>(байты 0 и 1, бит 2 в байте 1)</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>I0.0 и M0.1 <span style="font-weight: bold;">не являются смежными </span>(разные области памяти I и M)</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Определите пары переменных в одной группе переменных (Сервер для симуляции потока данных). Оптимизация выполняется для каждой группы переменных независимо.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark13" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Оптимизация записи в ПЛК</span></h3>
+<p class="p_Normal">Подсказки для лучшей производительности записи:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Используйте режим циклического обновления, чтобы несколько переменных могли быть записаны в одном запросе MultiWrite. Установите разумный интервал обновления.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Избегайте подключения слишком большого количества переменных, которые почти постоянно меняются, например, совместных значений.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Рассмотрите возможность записи битов ввода-вывода как целых чисел без знака вместо отдельных логических значений. Это может значительно улучшить производительность, но вам потребуется сценарий на стороне R-Pro для преобразования логических значений (Bool) в биты из целочисленных (Integer).</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Требуется определить теги ПЛК типов unsigned int (например, BYTE или WORD) и соединить их с целыми числами в симуляции.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Теги ПЛК могут перекрываться в памяти, поэтому вы также можете иметь отдельные теги для каждого бита ввода-вывода.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Обратите внимание, что целые числа R-Pro имеют 32-битный знаковый тип, поэтому вы не можете использовать их для записи 32-битных значений в ПЛК, только 31-битные. На практике было бы лучше использовать отдельную переменную для каждых 16 бит ввода-вывода.</p>
+</td></tr></table>
+
+<script type="text/javascript">
+if (window.topicInitScriptAvailable) {
+function HMInitToggleStates() {
+HMInitToggle('toggle0186a1_ICON','hm.type','dropdown','hm.state','0','hm.src0','hmtoggle_plus0.gif','hm.src1','hmtoggle_plus1.gif','onclick','HMToggle(\'toggle\',\'toggle0186a1\',\'toggle0186a1_ICON\')');
+HMInitToggle('toggle0186a1','hm.type','dropdown','hm.state','0');
+
+}
+var checkTimer=setTimeout("HMInitToggleStates()", 0);
+}
+</script>
+</body>
+</html>

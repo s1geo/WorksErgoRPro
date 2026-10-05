@@ -1,0 +1,299 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Universal Robots RTDE Plugin</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords 
+content="Universal Robots,controller,RTDE,connectivity,virtual robot controller">
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+
+<STYLE title=hcp type=text/css>
+<!--
+ul.hcp1 { list-style:disc; }
+img.hcp2 { border:none; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>Universal Robots RTDE Plugin</H1>
+<P>The Universal Robots RTDE plugin allows you to connect Universal Robot CB3 
+series robot controllers with an RTDE interface. You can also connect a URSim 
+robot controller simulator with an RTDE interface. For example, you can can 
+establish a connection with PolyScope, Universal Robots virtual robot 
+controller.</P>
+<P><SPAN class=Strong>Note:</SPAN> Added in R-Pro 2.1 4.0.4.</P>
+<DIV class=Contents>
+<P align=left>Contents&nbsp;<A id=MTHotSpot39798 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot39798', 'MTPOPUP39798');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP39798 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">Capabilities</A></P>
+<P align=left><A href="#MiniTOCBookMark5">Operation Principles</A></P>
+<P align=left><A href="#MiniTOCBookMark8">Connection Settings</A></P>
+<P align=left><A href="#MiniTOCBookMark9">Address Space</A></P>
+<P align=left><A href="#MiniTOCBookMark11">Supported data types</A></P>
+<P align=left><A href="#MiniTOCBookMark12">Performance</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>Capabilities</H2>
+<P>You can verify the capabilities of the Universal Robots RTDE plugin and 
+subsequent server connections in the Properties panel.</P>
+<H3><A name=MiniTOCBookMark3></A>Plugin</H3>
+<OL>
+  <LI class=Ordered>In the <SPAN class=Strong>Connectivity Configuration</SPAN> 
+  panel, select <SPAN class=Strong>Universal Robots RTDE</SPAN>. 
+  <LI class=Ordered>In the <SPAN class=Strong>Properties</SPAN> panel, expand 
+  <SPAN class=Strong>Connection Plugin Capabilities</SPAN>.<BR><IMG 
+  class=step_image 
+  style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none" 
+  border=0 alt="" src="../../Links/RTDEPluginCapabilities.png"> </LI></OL>
+<H3><A name=MiniTOCBookMark4></A>Server</H3>
+<OL>
+  <LI class=Ordered>In the <SPAN class=Strong>Connectivity Configuration</SPAN> 
+  panel, expand <SPAN class=Strong>Universal Robots RTDE</SPAN>, and then select 
+  an active server connection. 
+  <LI class=Ordered>In the <SPAN class=Strong>Properties</SPAN> panel, expand 
+  <SPAN class=Strong>Server Capabilities</SPAN>.<BR><IMG class=step_image 
+  style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none" 
+  border=0 alt="" src="../../Links/RTDEServerCapabilitites.png"> </LI></OL>
+<P><SPAN class=Strong>Note:</SPAN> The capabilities are the same for each server 
+connection with the Universal Robots RTDE plugin.</P>
+<H2><A name=MiniTOCBookMark5></A>Operation Principles</H2>
+<P>The Real time data exchange (RTDE) interface provides a cyclic stream of 
+value updates from the controller and listens for inputs. The interface updates 
+(sends and handles data packages) at a fixed frequency and is based on a binary 
+application level protocol transmitted over (insecure) TCP/IP socket 
+communication. The robot controller uses TCP port 30004 for the interface. The 
+connection plugin's RTDE client implementation uses an automatically assigned 
+port (either by .NET or possibly Windows) for the socket.</P>
+<P><SPAN class=Strong>Note:</SPAN> The <A 
+href="https://www.universal-robots.com/how-tos-and-faqs/how-to/ur-how-tos/real-time-data-exchange-rtde-guide-22229/" 
+target=_blank>RTDE interface</A> is available and always enabled in Universal 
+Robots CB3-series robot controllers running software version 3.2.19171 or 
+newer.</P>
+<H3><A name=MiniTOCBookMark6></A>Modes</H3>
+<P>The basic operation principle involves two modes, configuration and run. 
+First, the client configures with the server the data it wants to receive and 
+data it wants to send. This is done in configuration mode. After configuration 
+has been set, the client can request the controller to enter run mode where the 
+controller sends the requested data at the fixed 125 Hz frequency and the client 
+can send its data at a preferred rate. Run mode can also be paused by request of 
+the client to return to configuration mode.</P>
+<H3><A name=MiniTOCBookMark7></A>Data Exchange</H3>
+<P>The data packages the client and controller send to one another are defined 
+with input and output recipes in configuration mode.</P>
+<UL class=hcp1>
+  <LI class=Unordered>Input is data flow from client to controller. 
+  <LI class=Unordered>Output is data flow from controller to client. </LI></UL>
+<P>The recipes contain one or more variables from a known fixed set, and the 
+associated data packages contain values for all variables in the recipe.</P>
+<P>The current version of the RTDE protocol supports only a single output recipe 
+per client, but up to 255 input recipes can be defined per client. Furthermore, 
+it is not possible to remove an input recipe without disconnecting and creating 
+an entirely new one. This means that adding/removing a variable pair or 
+activating/deactivating a variable group always causes a recipe update. Since 
+the recipe update can only be done in configuration mode, the RTDE client 
+implementation automatically requests pausing from the controller, and then 
+either a) redefines the output recipe shared between all variable groups or b) 
+registers a new input recipe for the activated variable group.</P>
+<P>The RTDE protocol does not provide any way to poll the controller for value 
+updates. This causes some limitations that differentiate the RTDE connection 
+plugin from others. The RTDE connection plugin manages a local cache of the 
+variable values for all configured recipes (active variable groups). This allows 
+using cyclic update mode to read output recipe values at any desired frequency, 
+and sending whole input recipe data to the controller in event-based update 
+mode. However, since the output recipe updates are received and input recipe 
+data is sent asynchronously, the update delay timing functionality of 
+Connectivity core does not really work with the RTDE plugin. The times measured 
+are only processing times to get data in or out of the cache. That is, they do 
+not include the network delay or even how old the received output recipe data is 
+when the cache is read using cyclic update mode.</P>
+<P><SPAN class=Strong>Note:</SPAN> Since the controller handles the RTDE input 
+recipe packages at a fixed rate (125 Hz nominal), it will miss values if sent 
+faster than that from the simulation. The controller uses only the last received 
+value for each variable if multiple values are received during the controller’s 
+update cycle. The controller input variable values are retained so they do not 
+need to be sent at a fixed rate. Mask variables are an exception: they do not 
+retain their values between update cycles.</P>
+<H2><A name=MiniTOCBookMark8></A>Connection Settings</H2>
+<P>A Universal Robots RTDE plugin connection requires the IP address and RTDE 
+port of the robot controller and a timeout (in milliseconds). The port should 
+always be 30004 for future proofing. The timeout value is used for initial 
+connect and sync operations, including all configuration changes to recipes.</P>
+<P>To define a new server connection:</P>
+<OL>
+  <LI class=Ordered>In the <SPAN class=Strong>Connectivity Configuration</SPAN> 
+  panel, click <SPAN class=Strong>Universal Robot RTDE</SPAN>. 
+  <LI class=Ordered>On the <SPAN class=Strong>Connectivity</SPAN> tab, in the 
+  <SPAN class=Strong>Server</SPAN> group, click <SPAN class=Strong>Add 
+  Server</SPAN>. 
+  <LI class=Ordered>In the <SPAN class=Strong>Edit Connection</SPAN> tab, set 
+  <SPAN class=Strong>Address</SPAN>, <SPAN class=Strong>RTDE port</SPAN> and 
+  <SPAN class=Strong>Timeout</SPAN>, and then click <SPAN class=Strong>Test 
+  Connection</SPAN>. 
+  <LI class=Ordered>If the connection succeeded, click <SPAN 
+  class=Strong>OK</SPAN>, and then click <SPAN 
+  class=Strong>Apply</SPAN>.<BR><IMG class=step_image 
+  style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none" 
+  border=0 alt="" src="../../Links/RTDEConnectionSettings.png"> </LI></OL>
+<H2><A name=MiniTOCBookMark9></A>Address Space</H2>
+<P>The RTDE interface specifies a fixed set of variables that each can be either 
+read or written. The input variables of the controller cannot be read by the 
+client and output variables of the controller cannot be written. However, there 
+are some separate variables that make reading and writing the same thing, for 
+example digital outputs of the controller.</P>
+<UL class=hcp1>
+  <LI class=Unordered>Input to controller (write-only in Connectivity feature): 
+  standard_digital_output 
+  <LI class=Unordered>Output from controller (read-only in Connectivity 
+  feature): actual_digital_output_bits </LI></UL>
+<P>The RTDE address space does not have hierarchy, and variables can only be 
+read/write as a whole as part of recipe data packages. However, since the 
+Connectivity core only handles basic data types, the RTDE connection plugin 
+provides access to components of vector variables and single bits of integer 
+variables. The single bit access is needed because the controller's digital 
+inputs and outputs are only available as integers, not single Booleans. The 
+connection plugin also provides read access (writing not supported) to vector 
+output variables from the controller as strings. The vector's elements are 
+converted to decimal strings, using full precision for floating point values and 
+a period "." as decimal delimiter. The element strings are then joined with a 
+single space character as delimiter.</P>
+<P>The RTDE connection plugin uses a hardcoded information model of the server 
+address space, which provides browsing capability. This hardcoded model 
+corresponds to the UR controller version 3.3. The RTDE protocol does not include 
+functionality for retrieving information about available variables on the 
+controller. If new controller software versions add variables to the interface, 
+those will not be accessible without updating the connection plugin.</P>
+<P>The browsing functionality presents the variables in a more convenient 
+hierarchical folder structure, and creates child variable nodes for vector 
+components and bits in integers. Vectors can also contain integer variables, 
+which can be accessed bit by bit.</P>
+<P><SPAN class=Example>Example. Vector variable browsing</SPAN></P>
+<P><IMG class=hcp2 border=0 alt="" 
+src="../../Links/VectorVariableBrowsingExample.png"></P>
+<P><SPAN class=Strong>Important:</SPAN> The robot RTDE interface variables use 
+radians as the unit for angles in variables, for example current and target 
+joint values. This means they cannot be directly paired to Value properties of 
+DOF objects in the UR robot components. To workaround this issue, UR robot 
+components available in the eCatalog panel have been modeled with a "RTDEJoints" 
+string signal behavior, which can be mapped to the "target_q" output variable in 
+the controller. A script in the robot is used to receive events from that 
+signal, parse its value, and use immediate movements to jump the robot component 
+to the received pose.</P>
+<P><IMG class=hcp2 border=0 alt="" 
+src="../../Links/RTDEPairJointsStringSignal.png"></P>
+<H3><A name=MiniTOCBookMark10></A>Input mask variables</H3>
+<P>Four inputs to controller have separate mask variables. These masks act as a 
+filter for applying the values sent by the client. The idea is that the RTDE 
+client does not necessarily want to overwrite all bits in, for example, the 
+variable that controls the "standard digital outputs" of the robot. This allows 
+control over some bits of a variable from the robot program on the controller 
+and some from RTDE clients. These masks create some limitations for using the 
+input variables in R-Pro 2.1.</P>
+<P><SPAN class=Strong>Important:</SPAN> The RTDE interface does not allow more 
+than one client to access the same controller input variable.</P>
+<P><IMG class=hcp2 border=0 alt="" 
+src="../../Links/RTDEDigitalOutputStateConditions.png"></P>
+<P><SPAN class=Example>Example. Conditions for modifying standard digital output 
+state on robot controller</SPAN></P>
+<OL>
+  <LI class=Ordered>Variables standard_digital_output (UINT8) and 
+  standard_digital_output_mask (UINT8) must be registered in the same input 
+  recipe. 
+  <LI class=Ordered>For each bit to apply (set to high or low state) in 
+  standard_digital_output, the value of standard_digital_output_mask must have a 
+  1 in the corresponding bit. These must arrive in the same input recipe data 
+  package, meaning that setting the mask earlier or later will not result in the 
+  digital outputs actually changing on the controller. It seems that the mask is 
+  always reset to zero at the controller after processing each input data 
+  package. </LI></OL>
+<P>The effects of those conditions for the Connectivity feature are:</P>
+<OL>
+  <LI class=Ordered>Controller input variables with masks must have the variable 
+  and mask variable in the same variable group. 
+  <LI class=Ordered>If event-based update mode is used, the mask should be set 
+  to a constant value, otherwise value changes could get lost due to the changes 
+  being transmitted in different input data packages. </LI></OL>
+<H2><A name=MiniTOCBookMark11></A>Supported data types</H2>
+<P>The Universal Robots RTDE plugin supports access to all available variables. 
+All signed and unsigned integer variables can be both paired directly or the 
+individual bits paired as Booleans. Vectors can be read as strings, but cannot 
+be written as a whole.</P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 33.33%">
+  <COL style="WIDTH: 33.33%">
+  <COL style="WIDTH: 33.33%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>RTDE Type</TD>
+    <TD>.NET Type</TD>
+    <TD>Remarks</TD></TR>
+  <TR>
+    <TD>DOUBLE</TD>
+    <TD>System.Double</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>INT32</TD>
+    <TD>System.Int32</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>UINT16</TD>
+    <TD>System.UInt16</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>UINT32</TD>
+    <TD>System.UInt32</TD>
+    <TD>Integers in R-Pro 2.1 are signed 32-bit.</TD></TR>
+  <TR>
+    <TD>UINT64</TD>
+    <TD>System.UInt64</TD>
+    <TD>Integers in R-Pro 2.1 are signed 32-bit.</TD></TR>
+  <TR>
+    <TD>UINT8</TD>
+    <TD>System.Byte</TD>
+    <TD>None</TD></TR>
+  <TR>
+    <TD>VECTOR3D</TD>
+    <TD>System.String</TD>
+    <TD>Converted to a single string by the RTDE plugin when read from the 
+      controller. Components Elements (3 x DOUBLE) can be read and written 
+      separately.</TD></TR>
+  <TR>
+    <TD>VECTOR6D</TD>
+    <TD>System.String</TD>
+    <TD>Converted to a single string by the RTDE plugin when read from the 
+      controller. Components Elements (6 x INT32) can be read and written 
+      separately.</TD></TR>
+  <TR>
+    <TD>VECTOR6INT32</TD>
+    <TD>System.String</TD>
+    <TD>Converted to a single string by the RTDE plugin when read from the 
+      controller. Components Elements (6 x INT32) can be read and written 
+      separately.</TD></TR>
+  <TR>
+    <TD>VECTOR6UINT32</TD>
+    <TD>System.String</TD>
+    <TD>Converted to a single string by the RTDE plugin when read from the 
+      controller. Components Elements (6 x UINT32) can be read and written 
+      separately.</TD></TR></TBODY></TABLE>
+<H2><A name=MiniTOCBookMark12></A>Performance</H2>
+<P>The communication delay is mostly defined by the fixed update rate of the UR 
+controller.</P>
+<P><SPAN class=Strong>Note:</SPAN> The timing functionality of the Connectivity 
+core is not accurate with this plugin.</P>
+<P>Using event-based update mode is recommended for variable groups with data 
+flow from server to simulation unless the update rate is too high for the 
+simulation to handle.</P>
+<P>For simulation to server data flow, cyclic update mode is recommended, but 
+setting update rate higher than 125 Hz does not provide any benefit. The 
+controller uses only the last received value for each variable if multiple 
+values are received during the controller's update cycle.</P>
+<P><SPAN class=Strong>Note:</SPAN> Event-based update mode from simulation to 
+server may send lots of updates that get lost due to the update rate of 
+controller. Mask variables may not work as expected due to the mask and the 
+masked value arriving in different input recipe value update 
+packets.</P></BODY></HTML>

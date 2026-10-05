@@ -1,0 +1,187 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="simulation controls">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Simulation Controls</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="../../ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Simulation Controls</h1>
+<p>The Simulation controls at the top of the 3D world allow you to start, 
+ stop, reset, record and customize a simulation.</p>
+<p><img src="../Links/SimulationControlsVCEN.png" alt="" style="border: none;" border="0"></p>
+
+
+<table id="callouts" cellspacing="0">
+	<col>
+	<col>
+	<tr>
+		<td>&#160;1.</td>
+		<td>Settings</td>
+	</tr>
+	<tr>
+		<td>&#160;2.</td>
+		<td>Reset</td>
+	</tr>
+	<tr>
+		<td>&#160;3.</td>
+		<td>Play/Pause</td>
+	</tr>
+	<tr>
+		<td>&#160;4.</td>
+		<td>Clock</td>
+	</tr>
+	<tr>
+		<td>&#160;5.</td>
+		<td>Speed</td>
+	</tr>
+	<tr>
+		<td>&#160;6.</td>
+		<td>Decrease Speed</td>
+	</tr>
+	<tr>
+		<td>&#160;7.</td>
+		<td>Speed Slider</td>
+	</tr>
+	<tr>
+		<td>&#160;8.</td>
+		<td>Increase Speed</td>
+	</tr>
+	<tr>
+		<td>&#160;9.</td>
+		<td>Record 3D PDF</td>
+	</tr>
+	<tr>
+		<td>10.</td>
+		<td>Record Video</td>
+	</tr>
+	<tr>
+		<td>11.</td>
+		<td>Record Animation</td>
+	</tr>
+</table>
+<p>&#160;</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot58207" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot58207', 'MTPOPUP58207');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP58207" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Settings</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Speed</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Reset</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Settings</h2>
+<p>Simulation settings allow you to customize the execution of a simulation.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Clock Display Mode</td>
+		<td>Defines the format 
+		 of simulation clock.</td>
+	</tr>
+	<tr>
+		<td>Custom</td>
+		<td>Allows you to define a simulation run time previously set to 
+		 run at infinity.</td>
+	</tr>
+	<tr>
+		<td>Repeat</td>
+		<td>Turns on/off the looping of a simulation with a defined runtime 
+		 or end.</td>
+	</tr>
+	<tr>
+		<td>Reset</td>
+		<td>Resets warm up time to zero.</td>
+	</tr>
+	<tr>
+		<td>Save State</td>
+		<td>Saves the current location and configuration of all components 
+		 in 3D world. By default, this is automatically done at the start 
+		 of a simulation in order to reset components to their initial 
+		 simulation state.</td>
+	</tr>
+	<tr>
+		<td>Simulation Level</td>
+		<td>Indicates the global accuracy setting for simulating component 
+		 movements. 
+		<p class="TableNormal"><span class="Term">Default</span><br>
+		Accuracy is defined by component.</p>
+		<p class="TableNormal"><span class="Term">Detailed</span><br>
+		Simulates component movements as accurate as possible, thereby 
+		 simulating full range of motion for component.</p>
+		<p class="TableNormal"><span class="Term">Balanced</span><br>
+		Simulates component movements in a way that is balanced with performance 
+		 of simulation, thereby component may move from point to point 
+		 without simulating unnecessary joint motions.</p>
+		<p class="TableNormal"><span class="Term">Fast</span><br>
+		Simulates component movements as quickly as possible, thereby component 
+		 may snap to joint configuration or jump from point to point.</p></td>
+	</tr>
+	<tr>
+		<td><p>Simulation Mode</p></td>
+		<td><p>Defines the time mode of the simulation. </p>
+		<p class="TableNormal"><span class="Term">Real Time</span><br>
+		The speed of simulation is scaled to operate in real time, for 
+		 example one second in simulation is one second in real time. In 
+		 real time mode, you can use a scale factor to speed up or slow 
+		 down the simulation, thereby allowing you to sync simulation with 
+		 real world device.</p>
+		<p class="TableNormal"><span class="Term">Virtual Time</span><br>
+		The speed of simulation is dependent on computer speed, thereby 
+		 allowing simulation to run as fast as possible. In virtual time 
+		 mode, you can use a step size to define a virtual frame rate for 
+		 rendering the 3D world. For example, a step size of 0.3 would 
+		 render a frame every 0.3 seconds of simulation runtime.</p></td>
+	</tr>
+	<tr>
+		<td>Simulation Run Time</td>
+		<td>Defines the runtime of simulation.</td>
+	</tr>
+	<tr>
+		<td>Warm Up Time</td>
+		<td>Defines a point in time to start simulation. Generally, warm 
+		 up time is used to start collecting statistics when components 
+		 are at a preferred state.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Speed</h2>
+<p>The speed of a simulation can run in virtual time or be set to advance 
+ in real time and emulate real-time motion planner.</p>
+<h2><a name="MiniTOCBookMark4"></a>Reset</h2>
+<p>When you reset a simulation, the layout of the 3D world returns to its 
+ initial state.</p>
+<ul style="list-style: disc;">
+	<li class="Unordered">Components reset to their initial or saved state 
+	 at the start of a simulation. That means dynamic components created 
+	 during a simulation would be removed from the layout. A static component 
+	 would return to its saved location and have the same hierarchy and 
+	 connections it had at the start.</li>
+	<li class="Unordered">Joints and other axes of components with kinematics 
+	 would return to the values they had at the start.</li>
+	<li class="Unordered">Base and tool frames would be restored to their 
+	 initial positions at the start. That means the effects of setting 
+	 base and tool frames during a simulation would be undone.</li>
+	<li class="Unordered">Signals and robot variables would reset to default 
+	 values, which is information not stored in a saved state.</li>
+	<li class="Unordered">Your view of the 3D world would remain and is 
+	 not stored in a saved state.</li>
+</ul>
+</body>
+</html>

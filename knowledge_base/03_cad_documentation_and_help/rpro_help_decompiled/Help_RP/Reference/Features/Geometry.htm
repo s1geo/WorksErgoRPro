@@ -1,0 +1,79 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="geometry feature">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Geometry</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Geometry</h1>
+<p>A Geometry feature is a container of geometry that is either imported 
+ or generated in the feature or collapsed from other features.</p>
+<p><img src="../../English/Links/GeometryFeature.png" alt="" border="0" class="hcp1"></p>
+<p>Geometry features can be used to load interchangeable geometry and is 
+ the default container for imported geometry.</p>
+<p><img src="../../English/Links/GeometryFeatureExample.png" alt="" border="0" class="hcp1"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>Defines the name of the feature.</td>
+	</tr>
+	<tr>
+		<td>Visible</td>
+		<td>Turns on/off the visibility of feature and its subfeatures.</td>
+	</tr>
+	<tr>
+		<td>Uri</td>
+		<td>Defines the file path of a CAD file loaded by the feature. 
+		 Changing the file path deletes all preexisting geometry in the 
+		 feature.</td>
+	</tr>
+	<tr>
+		<td>OnDemandLoad</td>
+		<td>Turns on/off the allocation of memory for contained geometry 
+		 based on the need of the feature. Generally, OnDemand is used 
+		 when there are large amounts of geometry and a Switch feature 
+		 is controlling the use of the feature.</td>
+	</tr>
+	<tr>
+		<td>ShowBackfaces</td>
+		<td>Turns on/off the rendering of backfaces in the feature.</td>
+	</tr>
+	<tr>
+		<td>CreaseAngle</td>
+		<td>Defines an angle tolerance for treating adjacent faces as one 
+		 smooth surface during light calculations in which face normals 
+		 are averaged to produce reflection normals.</td>
+	</tr>
+	<tr>
+		<td>Pickable</td>
+		<td>Defines if geometry of feature can be picked in the 3D world. 
+		 This affects any tool, command or shortcut that uses snap types. 
+		 </td>
+	</tr>
+	<tr>
+		<td>Physics</td>
+		<td>Defines a set of physics properties for the feature.</td>
+	</tr>
+</table>
+</body>
+</html>

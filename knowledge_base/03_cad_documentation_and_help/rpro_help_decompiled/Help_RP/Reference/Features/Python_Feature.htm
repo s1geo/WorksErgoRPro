@@ -1,0 +1,97 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="python feature,custom feature">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Python Feature</title>
+<link rel="StyleSheet" href="../../default.css" type="text/css">
+<style type="text/css">
+<!--
+body { background-color:Transparent; }
+-->
+</style>
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border:none; }
+-->
+</style>
+</head>
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Python Feature</h1>
+<p>A Python Feature generates geometry and transforms child features using a script written in Python.</p>
+<p><img src="../../English/Links/PythonFeature.png" alt="" border="0" class="hcp1"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Defines the name of the feature.</td>
+</tr>
+<tr>
+<td>Script</td>
+<td>Defines the feature's Python script. When the feature is initially created, the script is initialized and is identical to a <a href="Transform.htm">Transform</a> feature with an empty expression.
+<p class="TableNormal">The script must use the OnEvaluate event to generate geometry, apply transformations, and pass the feature and its subfeatures to its parent.</p>
+</td>
+</tr>
+<tr>
+<td>Physics</td>
+<td>Defines a set of physics properties for the feature.</td>
+</tr>
+</table>
+<h2>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 33.333%;">
+<col style="width: 33.333%;">
+<col style="width: 33.333%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>OnEvaluate</td>
+<td><a href="Python_API.chm::/vcFeature.htm">vcFeature</a> <span class="italic">feature</span>, <a href="Python_API.chm::/vcGeometryContainer.htm">vcGeometryContainer</a> <span class="italic">target</span>, <a href="Python_API.chm::/vcMatrix.htm">vcMatrix</a> <span class="italic">matrix</span>, List of <a href="Python_API.chm::/vcGeometryContainer.htm">vcGeometryContainer</a> <span class="italic">containers</span></td>
+<td>Triggered by the rebuilding of a component's feature tree.
+<p class="TableNormal"><span class="Term">feature</span> is the Python feature object.</p>
+<p class="TableNormal"><span class="Term">target</span> is the geometry container of the feature's parent. That is, any geometry passed to target will be rendered in the feature.</p>
+<p class="TableNormal"><span class="Term">matrix</span> is the local transformation matrix of the feature.</p>
+<p class="TableNormal"><span class="Term">containers</span> is a list of geometry containers subfeatures. When the feature itself is created a for loop is used to pass all geometry from subfeatures into the target.</p>
+</td>
+</tr>
+</table>
+<h2>Editor</h2>
+<p>In order to access the script editor:</p>
+<ol>
+<li class="Ordered">In the <span class="Strong">Component Graph</span> panel, <span class="Strong">Component Node Tree</span>, find the node containing the Python feature you want to edit, and then select that node.</li>
+<li class="Ordered">In <span class="Strong">Node Feature Tree</span>, find the Python feature you want to edit, and then double-click that feature.</li>
+</ol>
+<p>The script editor is the same one used for a Python Script.</p>
+<p><img src="../../English/Links/PythonFeatureEditor.png" alt="" border="0" class="hcp1"></p>
+<p>The initial content of the editor contains a code snippet that defines the OnEvaluate event to function as a Transform feature with an empty expression:</p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td>from vcFeature import * <br>&#160; <br>def OnEvaluate(feature, target, matrix, containers): <br>&#160;&#160;for c in containers: <br>&#160;&#160;&#160;&#160;c.moveGeometrySets(target,matrix)</td>
+</tr>
+</table>
+<h2>Examples</h2>
+<p><span class="Example">Example. Generate custom feature of mathematical shapes and visual tools</span></p>
+<p><img src="../../English/Links/PythonFeatureExampleMath.png" alt="" border="0" class="hcp1"></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td>from vcFeature import * <br>import math, vcVector <br>&#160; <br>def OnEvaluate(feature, target, matrix, containers): <br>&#160;&#160;'''Create custom line set in planes using 15 degree marks and axes''' <br>&#160;&#160;target.clear() <br>&#160;&#160;lineset = target.createGeometrySet(VC_COMPACTLINESET) <br>&#160;&#160;lineset.LineWidth = 1 <br>&#160;&#160; <br>&#160;&#160;##use unit circle to generate lines in xy,zx,yz planes <br>&#160;&#160;max_radius = 300 <br>&#160;&#160;for radius in range(100,(max_radius+100),100): <br>&#160;&#160;&#160;&#160;line = [] <br>&#160;&#160;&#160;&#160;for angle in range(0,375,1): <br>&#160;&#160;&#160;&#160;&#160;&#160;radAngle = math.radians(angle) <br>&#160;&#160;&#160;&#160;&#160;&#160;x = math.cos(radAngle)*radius <br>&#160;&#160;&#160;&#160;&#160;&#160;y = math.sin(radAngle)*radius <br>&#160;&#160;&#160;&#160;&#160;&#160;z = 0 <br>&#160;&#160;&#160;&#160;&#160;&#160;point = vcVector.new(x,y,z) <br>&#160;&#160;&#160;&#160;&#160;&#160;line.append(point) <br>&#160;&#160;&#160;&#160;&#160;&#160;if len(line) == 2: <br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;lineset.addLine(line) <br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for point in line: <br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;point.Z = point.X <br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;point.X = point.Y <br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;point.Y = 0 <br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;lineset.addLine(line) <br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for point in line: <br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;point.Y = point.X <br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;point.X = 0 <br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;lineset.addLine(line) <br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;line[:] = [] <br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;angle += 15 <br>&#160; <br>&#160;&#160;##generate lines for each axis based on max radius and offset <br>&#160;&#160;for i in ['x','y','z']: <br>&#160;&#160;&#160;&#160;p1,p2 = vcVector.new(),vcVector.new() <br>&#160;&#160;&#160;&#160;if i == 'x': <br>&#160;&#160;&#160;&#160;&#160;&#160;p1.X = max_radius+100 <br>&#160;&#160;&#160;&#160;&#160;&#160;p2.X = -p1.X <br>&#160;&#160;&#160;&#160;elif i == 'y': <br>&#160;&#160;&#160;&#160;&#160;&#160;p1.Y = max_radius+100 <br>&#160;&#160;&#160;&#160;&#160;&#160;p2.Y = -p1.Y <br>&#160;&#160;&#160;&#160;elif i == 'z': <br>&#160;&#160;&#160;&#160;&#160;&#160;p1.Z = max_radius+100 <br>&#160;&#160;&#160;&#160;&#160;&#160;p2.Z = -p1.Z <br>&#160;&#160;&#160;&#160;lineset.addLine([p1,p2]) <br>&#160;&#160; <br>&#160;&#160;for c in containers: <br>&#160;&#160;&#160;&#160;c.moveGeometrySets(target,matrix)</td>
+</tr>
+</table>
+</body>
+</html>

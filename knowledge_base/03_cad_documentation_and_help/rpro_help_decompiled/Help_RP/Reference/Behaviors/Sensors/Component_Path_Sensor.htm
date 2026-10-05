@@ -1,0 +1,63 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="component path sensor,behavior">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Component Path Sensor</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>Component Path Sensor</h1>
+<p>A Component Path Sensor allows you to detect components moving along a path.</p>
+<p><img src="../../../English/Links/ComponentPathSensor.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Defines the name of the sensor.</td>
+</tr>
+<tr>
+<td>Frame</td>
+<td>Defines the Frame feature referenced as the physical location of the sensor.</td>
+</tr>
+<tr>
+<td>TriggerAt</td>
+<td>Defines the mode of the sensor for detecting components.
+<p class="TableNormal"><span class="Term">Leading Edge</span> is triggered when the first edge of a component reaches the sensor.</p>
+<p class="TableNormal"><span class="Term">Origin</span> is triggered when the origin of a component reaches the sensor.</p>
+<p class="TableNormal"><span class="Term">Trailing Edge</span> is triggered when the last edge of a component reaches the sensor.</p>
+<p class="TableNormal"><span class="Term">None</span> disables the sensor.</p>
+</td>
+</tr>
+<tr>
+<td>ResetAt</td>
+<td>Defines the mode of the sensor for resetting itself after detecting a component.</td>
+</tr>
+<tr>
+<td>ComponentSignal</td>
+<td>Defines the Component Signal used to signal what component was detected by the sensor.</td>
+</tr>
+<tr>
+<td>BoolSignal</td>
+<td>Defines the Boolean Signal used to signal when a component triggers the sensor.</td>
+</tr>
+<tr>
+<td>BoolSignalValue</td>
+<td>Defines if BoolSignal sends a signal. A True value means a component triggered the sensor. A False value means the sensor has either been reset or not yet triggered by a component. Generally, BoolSignalValue is used to disable the use of BoolSignal in the sensor.</td>
+</tr>
+</table>
+</body>
+</html>

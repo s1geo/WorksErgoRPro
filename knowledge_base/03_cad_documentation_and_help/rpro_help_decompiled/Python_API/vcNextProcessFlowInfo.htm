@@ -1,0 +1,66 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcNextProcessFlowInfo</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcNextProcessFlowInfo</h1>
+<p>NextFlowInfo indicates a direction (inexact location) in the product 
+ flow, with extra parameters (ForceExactFlowStep/ForceExactProcessGroup) 
+ to indicate how to evaluate this direction. Internally, it will be expanded 
+ into multiple FeedOptionFlowInfo objects, which in turn will be used for 
+ Feed-Need matching. Used in Product’s NextProcessFlowInfo.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Data type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>FlowStep</td>
+		<td><a href="vcProcessFlowStep.htm">vcProcessFlowStep</a></td>
+		<td>RW</td>
+		<td>Specifies ProcessFlowStep</td>
+	</tr>
+	<tr>
+		<td>Group</td>
+		<td><a href="vcProcessGroup.htm">vcProcessGroup</a></td>
+		<td>RW</td>
+		<td>Specifies ProcessGroup inside the FlowStep.</td>
+	</tr>
+	<tr>
+		<td>ForceExactFlowStep</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Expansion into vcFeedOptionFlowInfo objects may result in multiple 
+		 options with multiple FlowSteps (e.g., when given FlowStep is 
+		 Optional). <br>
+		Setting this to True will filter the results to contain only the 
+		 given FlowStep.</td>
+	</tr>
+	<tr>
+		<td>ForceExactProcessGroup</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Expansion into vcFeedOptionFlowInfo objects may result in multiple 
+		 options with multiple ProcessGroups (e.g., when given FlowStep 
+		 contains multiple ProcessGroups). <br>
+		Setting this to True will filter the results to contain only the 
+		 given ProcessGroup (based on GroupID).</td>
+	</tr>
+</table>
+</body>
+</html>

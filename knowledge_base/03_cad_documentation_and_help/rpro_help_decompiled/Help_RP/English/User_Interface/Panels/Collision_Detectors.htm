@@ -1,0 +1,68 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name="search-keywords" content="collision detection,robot programming,collision,collisions,collision detector">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Collision Detectors</title>
+<link rel="StyleSheet" href="../../../default.css" type="text/css">
+<style type="text/css">
+<!--
+li { line-height:25px ! important; }
+-->
+</style>
+<style title="hcp" type="text/css">
+<!--
+ul.hcp1 { list-style:disc; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Collision Detectors</h1>
+<p><img src="../../Links/UI_Panels_CollisionDetector_EN.png" alt="" style="border: none;" border="0"></p>
+<ol style="list-style: decimal;">
+	<li>Create a new collision detector.</li>
+	<li>Selection vs World collision detector. This compares the selected 
+	 geometry against the geometries in the 3D world.</li>
+	<li>Added collision detectors. These detectors check collisions between 
+	 A and B geometries.</li>
+	<li>Detector on/off button.</li>
+	<li>Remove detector.</li>
+	<li>Properties:</li>
+	<ul class="hcp1">
+		<li><b>Name</b> <span>Name of this collision detector.</span></li>
+		<li><b>Detect Collision</b></li>
+		<ul class="hcp1">
+			<li><b>First</b> <span>Record the first detected collision.</span></li>
+			<li><b>All</b> <span>Record all cases of detected collisions.</span></li>
+		</ul>
+		<li><b>Collision Tolerance</b> <span>Collision detection threshold 
+		 distance.</span></li>
+		<li><b>Show Minimum Distance</b> <span>Show the minimum distance 
+		 between collision.</span></li>
+		<li><b>Ignore Closest Nodes</b> <span>Ignore collisions between 
+		 immediate nodes that make up a parent-child pair in a component.</span></li>
+		<li><b>Ignore Different Components</b> <span>Ignore collisions 
+		 between nodes. Each node in different components that are attached 
+		 together e.g. Gripper attached to Robot.</span></li>
+	</ul>
+	<li>A and B geometries for collision check. A and B can include a set 
+	 of components from the 3D world.</li>
+	<li>Add the selected component to A or B geometries. </li>
+	<li>Material of the A or B geometries when the collision happens.</li>
+	<li>Single component in the A or B geometries. It can be included or 
+	 excluded from the check box.</li>
+	<li>Node of a component. It can be included or excluded from the check 
+	 box.</li>
+</ol>
+<br>
+
+<p>See also <a href="../../Tasks/Robots/Detecting_collisions.htm">Detecting 
+ Collisions</a> task.</p>
+</body>
+</html>

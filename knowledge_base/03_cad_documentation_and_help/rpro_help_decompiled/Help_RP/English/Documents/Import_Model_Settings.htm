@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Import Model Settings</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"><LINK rel=StyleSheet 
+type=text/css href="../../default.css">
+<STYLE title=hcp type=text/css>
+<!--
+span.hcp1 { font-weight:bold; }
+ul.hcp2 { list-style:disc; }
+img.hcp3 { border:none; }
+td.hcp4 { vertical-align:middle; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../ehlpdhtm.js"></SCRIPT>
+
+<H1>Import Model Settings</H1>CAD models can be imported using the <SPAN 
+class=hcp1>Geometry</SPAN> command in the Ribbon in the Home and Modeling tabs. 
+<H2>Commands</H2>
+<P>The following options appear in the <SPAN class=hcp1>Import model</SPAN> task 
+pane.</P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 20%">
+  <COL style="WIDTH: 80%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Uri</TD>
+    <TD>Location of file. </TD></TR>
+  <TR>
+    <TD>Structure</TD>
+    <TD>When importing a custom part or single component use <SPAN 
+      class=hcp1>Feature</SPAN> or <SPAN class=hcp1>Node</SPAN>. Or when 
+      importing a 3D geometry file that is a layout or factory line use <SPAN 
+      class=hcp1>Component </SPAN>which will add items to the layout as separate 
+      components. 
+      <UL class=hcp2>
+        <LI><SPAN class=hcp1>Feature</SPAN>: The assembly tree structure goes to 
+        the feature tree of a component. 
+        <LI><SPAN class=hcp1>Node</SPAN>: The assembly tree will be mapped to a 
+        node tree of a component. 
+        <LI><SPAN class=hcp1>Layout</SPAN>: The immediate level of the assembly 
+        tree is imported as a new component. </LI></UL></TD></TR>
+  <TR>
+    <TD>Tessellation quality</TD>
+    <TD>Defines the level of detail for rendering geometry using triangles and 
+      the number of polygons in the faces with curved edges. A low number 
+      generates high-performance and light-weight models, while a higher number 
+      offers better visualization. Recommended polygon (triangle) count limit 
+      for a static component is less than 100,000. Pay special attention to 
+      dynamic and/or moving components. 
+      <TABLE class=Custom cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><IMG class=hcp3 border=0 alt="" 
+            src="../links/tesselation_quality_1.png"> </TD>
+          <TD class=hcp4>Extra low: 80 polygons </TD></TR>
+        <TR>
+          <TD><IMG class=hcp3 border=0 alt="" 
+            src="../links/tesselation_quality_2.png"> </TD>
+          <TD class=hcp4>Medium: 272 polygons</TD></TR>
+        <TR>
+          <TD><IMG class=hcp3 border=0 alt="" 
+            src="../links/tesselation_quality_3.png"></TD>
+          <TD class=hcp4>Extra high: 528 polygons</TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD>Include</TD>
+    <TD>Define what to include with geometry. If you include points, they will 
+      be imported and generated as Frame features. </TD></TR>
+  <TR>
+    <TD>Material Creation Rule</TD>
+    <TD>Define rule for mapping the materials of geometry with those in your 
+      materials libraries.</TD></TR>
+  <TR>
+    <TD colSpan=2>Feature Tree and Organize geometry below affect the root 
+      node of the part you are importing.</TD></TR>
+  <TR>
+    <TD>Feature Tree</TD>
+    <TD>Define what hierarchy to use for geometry. If <SPAN class=hcp1>Full 
+      </SPAN>is selected, an attempt will be made to match the structure of the 
+      model when viewed in its native CAD editor. 
+      <UL class=hcp2>
+        <LI><SPAN class=hcp1>Full </SPAN>creates feature tree based on CAD's 
+        assembly tree, meaning that each item in the assembly tree will be it's 
+        own feature. A feature containing geometry generates a geometry feature, 
+        otherwise a transform feature. 
+        <LI><SPAN class=hcp1>Optimized </SPAN>generates a flat structure of 
+        feature tree, without extra transform features. 
+        <LI><SPAN class=hcp1>Collapsed </SPAN>creates only one geometry feature. 
+        </LI></UL></TD></TR>
+  <TR>
+    <TD>Organize geometry</TD>
+    <TD>Defines how the geometry will be organized into geometry sets. 
+      Geometry sets can be sliced, exploded, or collapsed. Use <SPAN 
+      class=hcp1>By material</SPAN> or <SPAN class=hcp1>Collapsed</SPAN> as 
+      default. 
+      <UL class=hcp2>
+        <LI><SPAN class=hcp1>By faces</SPAN>* will make each face as own 
+        geometry set. This is not recommended unless needed for specific 
+        topology use cases. 
+        <LI><SPAN class=hcp1>By material </SPAN>option creates own geometry set 
+        for each color in a single mesh. Some CAD formats can define different 
+        colors in different faces in a single mesh, but in R-Pro 2.1 there can 
+        be only one material per geometry set. 
+        <LI><SPAN class=hcp1>Collapsed </SPAN>combines all the meshes into one 
+        geometry set. However, to optimize the performance, a new set will be 
+        created when the total amount of triangles exceeds 10,000 (or 16,000 
+        points). 
+        <LI><SPAN class=hcp1>Mathematical data</SPAN>* will organize geometry 
+        one set per face and store a BREP entity in a triangle set creating a 
+        larger geometry and file size. Used for special scenarios, for example 
+        when special accuracy is needed in robot offline programming.<BR>*NOTE: 
+        Only use if really required! </LI></UL></TD></TR>
+  <TR>
+    <TD>Up axis</TD>
+    <TD>Define axis for aligning top and bottom of geometry. </TD></TR>
+  <TR>
+    <TD>Minimum hole diameter </TD>
+    <TD>Define tolerance for removing holes in geometry. </TD></TR>
+  <TR>
+    <TD>Minimum geometry diameter</TD>
+    <TD>Define tolerance for not importing set of geometry based on its 
+      minimum bounding box. </TD></TR>
+  <TR>
+    <TD>Healing tolerance</TD>
+    <TD>To connect points, lines and edges in the file's geometry, in <SPAN 
+      class=hcp1>Healing tolerance</SPAN>, set a distance value. Generally, this 
+      setting is used as a cleanup tool for fixing holes, cracks and gaps that 
+      occur on the faces of solid objects. If the distance value is zero, 
+      cleanup is disabled. If the distance value is greater than zero, vertices 
+      that neighbor one another, and are within a range set by the distance 
+      value, might be connected to one another by generating a new line. </TD></TR>
+  <TR>
+    <TD>Units</TD>
+    <TD>Works with some CAD formats to handle unit conversion for scaling 
+      purposes, in Units, select the unit of measurement used in the file. If 
+      Default is selected, it is assumed the unit of measurement is the same as 
+      the one currently used in R-Pro 2.1. </TD></TR></TBODY></TABLE></BODY></HTML>

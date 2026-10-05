@@ -1,0 +1,123 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcHelpers.Output</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body page-style="x-size: A4;" page-frame-style="margin-left: 0.25in; margin-right: 0.25in;">
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcHelpers.Output</h1>
+<p>vcHelpers.Output provides different levels of output messages (info/warning/error/debug) 
+ for the owner component/command. The messages have the owner's name as 
+ a prefix, and they can optionally print the simulation time. The printing 
+ of different levels can be toggled on/off with methods or with bounded 
+ properties.</p>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st" style="height: 40px;">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr style="height: 72px;">
+		<td>info()</td>
+		<td>None</td>
+		<td>List of arguments, [Boolean <span class="Italic">simtime</span>]</td>
+		<td>Prints given positional arguments to output. To print simulation 
+		 time (as a prefix), set <span class="Italic">simtime</span> key 
+		 argument to True, default is False.</td>
+	</tr>
+	<tr style="height: 72px;">
+		<td>warning()</td>
+		<td>None</td>
+		<td>List of arguments, [Boolean <span class="Italic">simtime</span>]</td>
+		<td>Prints given positional arguments to output. To print simulation 
+		 time (as a prefix), set <span class="Italic">simtime</span> key 
+		 argument to True, default is False.</td>
+	</tr>
+	<tr style="height: 72px;">
+		<td>error()</td>
+		<td>None</td>
+		<td>List of arguments, [Boolean <span class="Italic">simtime</span>]</td>
+		<td>Prints given positional arguments to output. To print simulation 
+		 time (as a prefix), set <span class="Italic">simtime</span> key 
+		 argument to True, default is False.</td>
+	</tr>
+	<tr style="height: 72px;">
+		<td>debug()</td>
+		<td>None</td>
+		<td>List of arguments, [Boolean <span class="Italic">simtime</span>]</td>
+		<td>Prints given positional arguments to output. To print simulation 
+		 time (as a prefix), set <span class="Italic">simtime</span> key 
+		 argument to True, default is False.</td>
+	</tr>
+	<tr style="height: 34px;">
+		<td>setInfo()</td>
+		<td>None</td>
+		<td>Boolean <span class="Italic">Value</span></td>
+		<td>Enable (True) or disable (False) info messages.</td>
+	</tr>
+	<tr style="height: 34px;">
+		<td>setWarnings()</td>
+		<td>None</td>
+		<td>Boolean <span class="Italic">Value</span></td>
+		<td>Enable (True) or disable (False) warnings.</td>
+	</tr>
+	<tr style="height: 34px;">
+		<td>setErrors()</td>
+		<td>None</td>
+		<td>Boolean <span class="Italic">Value</span></td>
+		<td>Enable (True) or disable (False) errors.</td>
+	</tr>
+	<tr style="height: 34px;">
+		<td>setDebug()</td>
+		<td>None</td>
+		<td>Boolean <span class="Italic">Value</span></td>
+		<td>Enable (True) or disable (False) debug messages.</td>
+	</tr>
+	<tr style="height: 72px;">
+		<td>bindInfoProperty()</td>
+		<td>Boolean</td>
+		<td>String or <a href="vcProperty.htm">vcProperty</a></td>
+		<td>Bind a component/command property as a toggle to enable/disable 
+		 info messages. Use the name of the property or the property instance 
+		 as the argument.</td>
+	</tr>
+	<tr style="height: 72px;">
+		<td>bindErrorProperty()</td>
+		<td>Boolean</td>
+		<td>String or <a href="vcProperty.htm">vcProperty</a></td>
+		<td>Bind a component/command property as a toggle to enable/disable 
+		 errors. Use the name of the property or the property instance 
+		 as the argument.</td>
+	</tr>
+	<tr style="height: 72px;">
+		<td>bindWarningProperty()</td>
+		<td>Boolean</td>
+		<td>String or <a href="vcProperty.htm">vcProperty</a></td>
+		<td>Bind a component/command property as a toggle to enable/disable 
+		 warnings. Use the name of the property or the property instance 
+		 as the argument.</td>
+	</tr>
+	<tr style="height: 72px;">
+		<td>bindDebugProperty()</td>
+		<td>Boolean</td>
+		<td>String or <a href="vcProperty.htm">vcProperty</a></td>
+		<td>Bind a component/command property as a toggle to enable/disable 
+		 debug messages. Use the name of the property or the property instance 
+		 as the argument.</td>
+	</tr>
+</table>
+</body>
+</html>

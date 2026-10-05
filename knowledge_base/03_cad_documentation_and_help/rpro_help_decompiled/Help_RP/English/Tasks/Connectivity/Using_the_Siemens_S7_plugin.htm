@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Using the Siemens S7 plugin</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META content=en-US http-equiv=Content-Language>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"><LINK rel=StyleSheet 
+type=text/css href="../../../default.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript 
+src="../../../ehlpdhtm.js"></SCRIPT>
+
+<STYLE title=hcp type=text/css>
+<!--
+img.hcp1 { border:none; }
+ul.hcp2 { list-style:disc; }
+span.hcp3 { font-weight:bold; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>Connecting to a Siemens S7-series PLC</H1>
+<P>The Siemens S7 plugin allows you to connect to Siemens S7-series PLCs using a 
+S7 communication (S7comm) protocol. More specifically, it uses the “PUT” and 
+“GET” functionality of the S7comm protocol. It is based on TCP/IP and works over 
+Ethernet connection. For example, you can use the plugin to connect to S7-300, 
+S-400, S7-1200 or S7-1500 series physical PLCs or Simulated S7-1500 using 
+S7-PLCSIM Advanced.</P>
+<DIV class=Contents>
+<P align=left>Contents&nbsp;<A id=MTHotSpot32490 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot32490', 'MTPOPUP32490');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP32490 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">Connection addresses</A></P>
+<P align=left><A href="#MiniTOCBookMark3">Configuring the PLC project</A></P>
+<P align=left><A href="#MiniTOCBookMark7">Importing PLC Tag table</A></P>
+<P align=left><A href="#MiniTOCBookMark8">Supported PLC memory areas</A></P>
+<P align=left><A href="#MiniTOCBookMark9">Limitations</A></P>
+<P align=left><A href="#MiniTOCBookMark10">Performance</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>Connection addresses</H2>
+<P>Define the IP address of the PLC or communication processor module. A normal 
+IPv4 address is used. The connection is always made to the PLC’s TCP port 
+102.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../Links/SiemensS7EditConnectionEN.png"></P>
+<P>The rack and slot refer to the PLC CPU module position in a backplane. </P>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 33.33%">
+  <COL style="WIDTH: 33.33%">
+  <COL style="WIDTH: 33.33%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>
+      <P>PLC type</P></TD>
+    <TD>
+      <P>Rack</P></TD>
+    <TD>Slot</TD></TR>
+  <TR>
+    <TD>
+      <P>S7-300</P></TD>
+    <TD>0</TD>
+    <TD>2</TD></TR>
+  <TR>
+    <TD>S7-400</TD>
+    <TD>N/A</TD>
+    <TD>N/A</TD></TR>
+  <TR>
+    <TD>S7-1200</TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>0 or 1</TD></TR>
+  <TR>
+    <TD>S7-1500</TD>
+    <TD>0</TD>
+    <TD>0 or 1</TD></TR></TBODY></TABLE>
+<P><SPAN class=Strong>Notes:</SPAN></P>
+<UL class=hcp1>
+  <LI class=Unordered>The values are not fixed for S7-400 series PLCs. Please 
+  refer to <A title="Sharp 7 reference manual" 
+  href="http://snap7.sourceforge.net/sharp7.html">Sharp 7 reference manual</A> 
+  for more info on how to determine the values. </LI></UL>
+<H2><A name=MiniTOCBookMark3></A>Configuring the PLC project</H2>
+<P>You must first configure the PLC to allow read and write access through the 
+S7comm interface. The necessary steps are:</P>
+<OL style="LIST-STYLE-TYPE: decimal">
+  <LI class=Ordered>Configure PLC Ethernet interface 
+  <LI class=ordered>Define Protection &amp; Security setting to allow access 
+  <UL class=hcp2>
+    <LI class=ordered>Disable security via access level setting 
+    <LI class=ordered>Allow PUT/GET communication </LI></UL>
+  <LI class=Ordered>Disable physical input updating (optional) </LI></OL>
+<H3><A name=MiniTOCBookMark4></A>Configure PLC Ethernet interface</H3>
+<P>Provide the PLC IP address and any other network settings for TCP/IP 
+communication.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../Links/SiemensEthernetInterface.png"></P>
+<H3><A name=MiniTOCBookMark5></A>Define Protection &amp; Security setting to 
+allow access</H3>
+<P>Disable security via access level setting by selecting no protection.</P>
+<H3><IMG class=hcp1 border=0 alt="" 
+src="../../Links/SiemensProtection.png"></H3>
+<P>PLCs with older firmware version, it looks like this:</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../Links/SiemensTIAPortalAccessLevel2.png"></P>
+<P>Allow PUT/GET communication.</P>
+<P><IMG class=hcp1 border=0 alt="" src="../../Links/SiemensProtection2.png"></P>
+<H3><A name=MiniTOCBookMark6></A>Disable physical input updating (optional)</H3>
+<P>The input process image can be written to from simulation to emulate PLC 
+inputs. However, updating any physical IOs to the input process image has to be 
+disabled, so the values written from the simulation will not get overwritten on 
+each PLC IO cycle.</P>
+<P><IMG class=hcp1 border=0 alt="" 
+src="../../Links/SiemensTIAPortalProcessImage.png"></P>
+<H2><A name=MiniTOCBookMark7></A>Importing PLC Tag table</H2>
+<P>PLC variable information must be exported from TIA Portal to an SDF or Excel 
+file and then imported&nbsp;to the Siemens S7 connection plugin. Tag tables in 
+TIA Portal (STEP7) are used to give symbolic names to IO (I, Q) addresses and 
+assign variables to the generic memory (M) space. </P>
+<P>To import a Tag table:</P>
+<OL>
+  <LI class=Ordered>Click the <SPAN class=Strong>Connectivity</SPAN> tab, and 
+  then in the <SPAN class=Strong>Connectivity Configuration</SPAN> panel, under 
+  <SPAN class=Strong>Siemens S7</SPAN><SPAN class=Strong 
+  style="FONT-WEIGHT: normal">, select your </SPAN><SPAN class=Strong>PLC 
+  connection</SPAN><SPAN class=Strong style="FONT-WEIGHT: normal">.</SPAN> 
+  <LI class=Ordered><SPAN class=Strong style="FONT-WEIGHT: normal">I</SPAN>n the 
+  <SPAN class=Strong>Properties </SPAN>task pane, click <SPAN class=Strong>Load 
+  PLC symbols from file </SPAN><SPAN class=Strong 
+  style="FONT-WEIGHT: normal">button.</SPAN> 
+  <LI class=Ordered>Select the SDF or Excel file to import. </LI></OL>
+<P style="FONT-WEIGHT: bold">Notes:</P>
+<UL class=hcp2>
+  <LI class=Unordered>Loaded tags are saved with the connectivity configuration 
+  both in simulation layout and when the Connectivity configuration is exported 
+  as XML. 
+  <LI class=Unordered><SPAN>After importing a Tag table,</SPAN><SPAN class=hcp3> 
+  </SPAN><SPAN>you may need to</SPAN><SPAN class=hcp3> reload the server 
+  structure tree</SPAN> in the Add variables window to see the variables and 
+  changes to them. 
+  <LI class=Unordered>When importing a Tag table, the Siemens S7 plugin <SPAN 
+  class=hcp3>automatically updates any existing variable pairs based on the tag 
+  names</SPAN>. If any variable pairs were updated, it is indicated as a message 
+  in the output panel. 
+  <UL class=hcp2>
+    <LI class=Unordered>Automatic pairing by tag names allows you to make 
+    changes to tag memory address and data type without need of recreating the 
+    variable pairs. 
+    <LI class=Unordered>Tag names have to be defined and unique for this to 
+    work. If the same tag name appears more than once in the imported tags, any 
+    variables with that tag name are not updated, and an error message is 
+    printed in the output panel. </LI></UL></LI></UL>
+<H2><A name=MiniTOCBookMark8></A>Supported PLC memory areas</H2>
+<P>The S7comm protocol allows both read and write access to the following memory 
+areas:</P>
+<UL class=hcp2>
+  <LI class=Unordered>Input process image (“I” or “E” address) 
+  <LI class=Unordered>Output process image (“Q” or “A” address) 
+  <LI class=Unordered>Memory (“M” address) </LI></UL>
+<P><SPAN class=hcp3>Note:</SPAN> Normally the Input process image is overwritten 
+from physical inputs on every PLC IO cycle. However, you can disable this in PLC 
+configuration.</P>
+<H2><A name=MiniTOCBookMark9></A>Limitations</H2>
+<P>Be aware, that there are certain practical limitation, when using S7comm 
+protocol:</P>
+<UL>
+  <LI class=Unordered>There is no browsing functionality available to discover 
+  what variables exist on the PLC. This information must be obtained separately 
+  from the PLC programming tool TIA Portal. 
+  <LI class=Unordered>You cannot validate if a given variable exists on the PLC. 
+  The protocol allows reading and writing various PLC memory areas, but there is 
+  no way to know if those memory areas are used by the PLC program as expected. 
+  <LI class=Unordered>The communication is not encrypted, and it does not 
+  support password entry. The connection should only be made within a secure 
+  network. </LI></UL>
+<H2><A name=MiniTOCBookMark10></A>Performance</H2>
+<P>Generally, the response time and throughput achievable with the Siemens S7 
+connection plugin is limited by the PLC. However, for example in the case of 
+physical S7-1200, the S7comm communication is still remarkably faster than its 
+built-in OPC UA server.</P>
+<P>Be aware that the following factors are affecting the performance:</P>
+<UL class=hcp2>
+  <LI class=Unordered>The S7comm requests are handled in between the PLC program 
+  cycles, so if the PLC is running a massive program that consumes practically 
+  all CPU time, the communication can be very slow. 
+  <LI class=Unordered>The S7comm protocol PDU size limit is quite restrictive, 
+  being only 240 bytes on S7-1200 and 480 bytes on S7-1500. This limits how many 
+  variables can be read or written with a single request. Processing of each 
+  request on the PLC has more or less constant minimum delay, so request count 
+  matters a lot. 
+  <LI class=Unordered>Network infrastructure can cause significant delay jitter. 
+  Prefer direct cable connection to a physical PLC if possible. Running 
+  simulated PLC in a virtual machine can also degrade performance. </LI></UL>
+<H3><A name=MiniTOCBookMark11></A>General tips for best performance</H3>
+<UL class=hcp2>
+  <LI class=Unordered>Avoid creating unnecessary variable groups. 
+  <LI class=Unordered>Make the network infrastructure used in communication as 
+  simple as possible. 
+  <LI class=Unordered>Consider increasing the PLC minimum cycle time if the PLC 
+  CPU load is high. </LI></UL>
+<H3><A name=MiniTOCBookMark12></A>Optimizing reads from PLC</H3>
+<P>The S7comm protocol does not support event-based reading of values from the 
+PLC (subscriptions), and therefore cyclic updating is the only option. That is, 
+all variables from the PLC defined in a variable group is read on each 
+cycle.</P>
+<P>The Siemens S7 plugin automatically optimizes reading variables from the PLC 
+by grouping variables with adjacent or overlapping memory areas that are read as 
+blocks within the MultiRead requests. This optimization has a large impact on 
+the number of requests required to synchronize the variable group and thus the 
+minimum achievable delay. To utilize this optimization, consider the following 
+rules:</P>
+<UL class=hcp2>
+  <LI class=Unordered>PLC tags have to be directly adjacent in memory without 
+  any space in between or overlap each other. 
+  <UL class=hcp2>
+    <LI class=Unordered>MW0 and MW2 are adjacents (bytes 0-1 and 2-3) 
+    <LI class=Unordered>I0.7 and I1.0 are adjacents (bit 7 in byte 0, bit 0 in 
+    byte 1) 
+    <LI class=Unordered>I0.0 and I0.2 are<SPAN class=hcp3> not adjacent</SPAN> 
+    (bit 0 in byte 0, bit 2 in byte 0) 
+    <LI class=Unordered>IW0 and I1.2 <SPAN class=hcp3>overlap</SPAN> (bytes 0 
+    and 1, bit 2 in byte 1) 
+    <LI class=Unordered>I0.0 and M0.1 are <SPAN class=hcp3>not adjacent</SPAN> 
+    (different memory areas I and M) </LI></UL>
+  <LI class=Unordered>Define your variable pairs in the same variable group 
+  (Server to simulation). Optimization is done for each variable group 
+  independently. </LI></UL>
+<H3><A name=MiniTOCBookMark13></A>Optimizing writes to PLC</H3>
+<P>Tips for better write performance:</P>
+<UL class=hcp2>
+  <LI class=Unordered>Use cyclic update mode so that multiple variables can be 
+  written in a single MultiWrite request. Set a reasonable update interval. 
+  <LI class=Unordered>Avoid connecting too many variables that change almost 
+  constantly, such as joint values. 
+  <LI class=Unordered>Consider writing IO bits as unsigned integers instead of 
+  individual Booleans. This can dramatically improve performance, but you need a 
+  script on the R-Pro side to convert Booleans to bits in an Integer. 
+  <UL class=hcp2>
+    <LI class=Unordered>Requires defining PLC tags of unsigned int types (e.g., 
+    BYTE or WORD) and connecting those to integers in simulation. 
+    <LI class=Unordered>The PLC tags can overlap in memory, so you can still 
+    have separate tags for each IO bit as well. 
+    <LI class=Unordered>Note that R-Pro integers are 32-bit signed, so you 
+    cannot use those to write values of 32 bits on the PLC, only 31 bits. In 
+    practice, it would be best to use a separate variable for every 16 IO bits. 
+    </LI></UL></LI></UL></BODY></HTML>
