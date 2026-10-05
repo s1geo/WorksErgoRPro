@@ -19,6 +19,9 @@ Write-Host "`n>>> [LEVEL 2] MEF Assembly & CLR Contract Tests <<<" -ForegroundCo
 Write-Host "`n>>> [LEVEL 3] CAD WPF View & ViewModel Integration Tests <<<" -ForegroundColor Yellow
 & "$testRoot\cad_integration_tests\TestUIInstantiation.ps1"
 
+# 4. Level 4: R-Pro eCatalog Component Package Integrity
+& "$testRoot\TestComponentPackages.ps1"
+
 Write-Host "`n==========================================================" -ForegroundColor Green
 Write-Host " ALL TEST SUITES PASSED CLEANLY (100% SUCCESS)!" -ForegroundColor Green
 Write-Host "==========================================================" -ForegroundColor Green
