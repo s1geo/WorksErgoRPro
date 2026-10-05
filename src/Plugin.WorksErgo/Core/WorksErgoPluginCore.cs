@@ -16,12 +16,51 @@ namespace WorksErgoRPro.Core
     {
         public void Initialize()
         {
-            // Initialized by R-Pro MEF catalog scanner
+            try
+            {
+                var uxConfig = IoC.Get<IUXConfiguration>();
+                var commandRegistry = IoC.Get<ICommandRegistry>();
+                var locService = IoC.Get<ILocalizationService>();
+
+                if (uxConfig != null && commandRegistry != null)
+                {
+                    // 1. Register Dedicated Ribbon Site on Home Tab
+                    uxConfig.RegisterSite("VcTabHome/WorksErgoGroup", "Work(s) Ergo", null, -1);
+
+                    // 2. Register Action Item in Ribbon
+                    var actionItem = commandRegistry.FindItem("WorksErgoActionItem");
+                    if (actionItem == null)
+                    {
+                        actionItem = new WorksErgoActionItem(locService);
+                    }
+
+                    var setup = new UXSiteSetup
+                    {
+                        UXSiteIdPath = "VcTabHome/WorksErgoGroup",
+                        UXSiteType = UXSiteType.RibbonGroup,
+                        EntryId = actionItem.Id
+                    };
+                    commandRegistry.RegisterActionItem(actionItem, setup);
+
+                    // 3. Register on Teach Tab as well
+                    var setupTeach = new UXSiteSetup
+                    {
+                        UXSiteIdPath = "VcTabTeach/WorksErgoGroup",
+                        UXSiteType = UXSiteType.RibbonGroup,
+                        EntryId = actionItem.Id
+                    };
+                    uxConfig.RegisterSite("VcTabTeach/WorksErgoGroup", "Work(s) Ergo", null, -1);
+                    commandRegistry.RegisterActionItem(actionItem, setupTeach);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"[WorksErgo] SiteSetup error: {ex.Message}");
+            }
         }
 
         public void Exit()
         {
-            // Cleanup on shutdown
         }
     }
 
