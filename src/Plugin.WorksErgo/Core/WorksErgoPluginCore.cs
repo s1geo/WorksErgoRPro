@@ -167,9 +167,9 @@ namespace WorksErgoRPro.Core
                             "1"
                         );
 
-                        // 2. Извлекаем созданную ContentPane через DLR dynamic
-                        dynamic winMgr = _windowManager;
-                        dynamic dockMgr = winMgr.DockManager;
+                        // 2. Извлекаем созданную ContentPane через Reflection интерфейса IDockAwareWindowManager
+                        var dockProp = typeof(IDockAwareWindowManager).GetProperty("DockManager");
+                        dynamic dockMgr = dockProp?.GetValue(_windowManager, null);
                         dynamic tempSplit = null;
                         foreach (dynamic p in dockMgr.Panes)
                         {
