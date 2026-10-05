@@ -25,6 +25,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Native embedded `ComponentScript` executing Closed-Chain Dempster-Winter Center of Mass balance ($X_{\text{CoM}} \in [40, 70]\text{ mm}$) across Stoop, Semi-Squat, and Deep Squat techniques.
   - Component builders: `tools/build_barrier_component.py` and `tools/build_dhm_worker_component.py`.
   - Auto-deployment to user's R-Pro eCatalog directory (`C:\Users\Jojo\Documents\R-Pro\0.2\My Models\WorksErgo\`).
+- **Portable Vendor Reference Assemblies (`lib/`):**
+  - Archived host R-Pro assemblies (`UX.Shared.dll`, `UX.Ribbon.dll`, `Create3D.Shared.dll`, `Caliburn.Micro.dll`) in `lib/`.
+  - Configured portable resolution in `Plugin.WorksErgo.csproj` and `build.ps1` with fallback to `D:\Apps\RProv222\`, enabling clean out-of-the-box compilation on any machine without R-Pro pre-installation.
 - **Level 4 Automated Verification Suite (`tests/TestComponentPackages.ps1`):**
   - ZIP integrity and structural checks for all `.rpro` packages.
   - XML schema namespace verification against `http://schemas.RProSoftDigital1.com/2017/01/component/componentxml`.

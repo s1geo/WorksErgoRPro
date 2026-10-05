@@ -22,7 +22,14 @@ $targetDll = Join-Path $outDir "Plugin.WorksErgo.dll"
 
 $netFw = "C:\Windows\Microsoft.NET\Framework64\v4.0.30319"
 $wpfDir = "$netFw\WPF"
-$rproDir = "D:\Apps\RProv222"
+$libDir = Join-Path $projectRoot "lib"
+if (Test-Path (Join-Path $libDir "UX.Shared.dll")) {
+    $rproDir = $libDir
+    Write-Host "[1.1] Using portable reference assemblies from: $libDir" -ForegroundColor DarkCyan
+} else {
+    $rproDir = "D:\Apps\RProv222"
+    Write-Host "[1.1] Using host reference assemblies from: $rproDir" -ForegroundColor DarkCyan
+}
 
 $references = @(
     "$rproDir\UX.Shared.dll",

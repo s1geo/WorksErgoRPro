@@ -22,22 +22,27 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
 
-  <!-- R-Pro v2.2.2 Native Host References -->
+  <!-- R-Pro v2.2.2 Native Host References (Portable via repo lib/ with local CAD fallback) -->
+  <PropertyGroup>
+    <RProLibDir Condition="Exists('$(MSBuildThisFileDirectory)..\..\lib\UX.Shared.dll')">$(MSBuildThisFileDirectory)..\..\lib</RProLibDir>
+    <RProLibDir Condition="'$(RProLibDir)' == ''">D:\Apps\RProv222</RProLibDir>
+  </PropertyGroup>
+
   <ItemGroup>
     <Reference Include="UX.Shared">
-      <HintPath>D:\Apps\RProv222\UX.Shared.dll</HintPath>
+      <HintPath>$(RProLibDir)\UX.Shared.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UX.Ribbon">
-      <HintPath>D:\Apps\RProv222\UX.Ribbon.dll</HintPath>
+      <HintPath>$(RProLibDir)\UX.Ribbon.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Create3D.Shared">
-      <HintPath>D:\Apps\RProv222\Create3D.Shared.dll</HintPath>
+      <HintPath>$(RProLibDir)\Create3D.Shared.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Caliburn.Micro">
-      <HintPath>D:\Apps\RProv222\Caliburn.Micro.dll</HintPath>
+      <HintPath>$(RProLibDir)\Caliburn.Micro.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>

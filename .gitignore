@@ -10,6 +10,8 @@
 bin/
 obj/
 *.dll
+!lib/*.dll
+!lib/**/*.dll
 *.pdb
 *.exe
 *.ilk
