@@ -24,14 +24,14 @@ While commercial legacy add-ons rely on paid cloud SaaS backends via embedded br
 
 | Subsystem | Scientific Foundation | Realized Capabilities |
 | :--- | :--- | :--- |
-| **Spine Compression** | Jäger (2023) Dortmund Lumbar Load Atlas | L5/S1 compressive force, non-linear 4th-order erector spinae lever arm $h_m(\theta)$, intra-abdominal pressure ($IAP$) relief, $US_{75\%}$ population protection thresholds ($4\,360\text{ N}$ female / $5\,210\text{ N}$ male). |
-| **Spinal Fatigue** | Brinckmann et al. (1988), Potvin & Agnew (2026) | 2-parameter Weibull CDF cumulative microfracture probability ($\beta=1.34$, $\log_{10}\alpha = -3.874 LCF + 5.219$), Palmgren-Miner damage accumulation across shift cycles. |
-| **Psychophysics MMH** | Snook & Ciriello (1991), Potvin et al. (2021) | 14 continuous parametric equations for Maximum Acceptable Weight of Lift (MAWL): Lift, Lower, Push ($F_{\text{init}}/F_{\text{sust}}$), Pull, and Carry. |
-| **Muscle Fatigue** | Potvin (2012) MAE | Maximum Acceptable Effort continuous duty cycle ($DC$) function preventing localized muscle ischemia. |
+| **Spine Compression** | Jäger (2023) Dortmund Lumbar Load Atlas | L5/S1 compressive force, non-linear 4th-order erector spinae lever arm *h*ₘ(θ), intra-abdominal pressure (*IAP*) relief, US₇₅% population protection thresholds (4,360 N female / 5,210 N male). |
+| **Spinal Fatigue** | Brinckmann et al. (1988), Potvin & Agnew (2026) | 2-parameter Weibull CDF cumulative microfracture probability (β = 1.34, log₁₀α = −3.874·LCF + 5.219), Palmgren-Miner damage accumulation across shift cycles. |
+| **Psychophysics MMH** | Snook & Ciriello (1991), Potvin et al. (2021) | 14 continuous parametric equations for Maximum Acceptable Weight of Lift (MAWL): Lift, Lower, Push (*F*\_init / *F*\_sust), Pull, and Carry. |
+| **Muscle Fatigue** | Potvin (2012) MAE | Maximum Acceptable Effort continuous duty cycle (*DC*) function preventing localized muscle ischemia. |
 | **3D Hand Strength** | LaDelfa & Potvin (2017) | Arm Force Field (AFF) 3D isometric hand strength vector prediction relative to shoulder origin. |
-| **Grip Biomechanics**| HandPak (23 Industrial Interfaces) | Power grip, chuck pinch, lateral pinch, finger presses with friction coefficient ($\mu$) scaling for oiled steel, dry metal, and rubber gloves. |
-| **Closed-Loop Balance**| Dempster (1955), Winter (2009) | Exact multi-link segmental Center of Mass ($X_{\text{CoM}}$) tracking against Base of Support ($\text{BoS} = [-70\text{ mm}, +180\text{ mm}]$). Support for 3 squat styles: Stoop, Semi-Squat, Deep Squat. |
-| **Spatial Dynamics** | Featherstone (2008), Kingma et al. (1996) | Recursive Newton-Euler Algorithm (RNEA) accounting for dynamic acceleration lift surge ($F=m(g+a)$). |
+| **Grip Biomechanics**| HandPak (23 Industrial Interfaces) | Power grip, chuck pinch, lateral pinch, finger presses with friction coefficient (μ) scaling for oiled steel, dry metal, and rubber gloves. |
+| **Closed-Loop Balance**| Dempster (1955), Winter (2009) | Exact multi-link segmental Center of Mass (*X*\_CoM) tracking against Base of Support (BoS: [−70 mm, +180 mm]). Support for 3 squat styles: Stoop, Semi-Squat, Deep Squat. |
+| **Spatial Dynamics** | Featherstone (2008), Kingma et al. (1996) | Recursive Newton-Euler Algorithm (RNEA) accounting for dynamic acceleration lift surge (*F* = *m*(*g* + *a*)). |
 | **Automotive Audit** | Schaub et al. (2012) EAWS, ISO 11228 | European Assessment Worksheet (BMW, VW, Stellantis standard) and ISO 11228-1/2/3 compliance reporting. |
 
 ---
