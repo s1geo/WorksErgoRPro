@@ -52,4 +52,10 @@
     <EmbeddedResource Include="Resources\**\*" />
   </ItemGroup>
 
+  <!-- Auto-deploy to R-Pro root for instant F5 testing -->
+  <Target Name="DeployToRPro" AfterTargets="Build" Condition="Exists('D:\Apps\RProv222')">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="D:\Apps\RProv222\" SkipUnchangedFiles="false" />
+    <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="D:\Apps\RProv222\" Condition="Exists('$(TargetDir)$(TargetName).pdb')" SkipUnchangedFiles="false" />
+  </Target>
+
 </Project>

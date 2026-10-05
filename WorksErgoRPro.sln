@@ -4,6 +4,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.WorksErgo", "src\Plugin.WorksErgo\Plugin.WorksErgo.csproj", "{B8E88E4B-8E7D-4FA4-A57E-0C157E0E7321}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorksErgo.Sandbox", "src\WorksErgo.Sandbox\WorksErgo.Sandbox.csproj", "{C9F99E5C-9F8E-4BA5-B08F-1D268E1F8432}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,6 +16,10 @@ Global
 		{B8E88E4B-8E7D-4FA4-A57E-0C157E0E7321}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8E88E4B-8E7D-4FA4-A57E-0C157E0E7321}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8E88E4B-8E7D-4FA4-A57E-0C157E0E7321}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9F99E5C-9F8E-4BA5-B08F-1D268E1F8432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9F99E5C-9F8E-4BA5-B08F-1D268E1F8432}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9F99E5C-9F8E-4BA5-B08F-1D268E1F8432}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9F99E5C-9F8E-4BA5-B08F-1D268E1F8432}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

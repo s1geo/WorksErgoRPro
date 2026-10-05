@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "R-Pro 2.2.2 Host": {
+      "commandName": "Executable",
+      "executablePath": "D:\\Apps\\RProv222\\R-Pro.exe",
+      "workingDirectory": "D:\\Apps\\RProv222"
+    }
+  }
+}

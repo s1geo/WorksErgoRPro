@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>WorksErgo.Sandbox</AssemblyName>
+    <RootNamespace>WorksErgo.Sandbox</RootNamespace>
+    <OutputType>WinExe</OutputType>
+    <LangVersion>latest</LangVersion>
+    <UseWPF>true</UseWPF>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Xaml" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Plugin.WorksErgo\Plugin.WorksErgo.csproj" />
+  </ItemGroup>
+
+</Project>
