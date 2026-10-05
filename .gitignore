@@ -1,19 +1,39 @@
-# Binaries and build artifacts
+# Visual Studio / Rider / IDE artifacts
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build artifacts & Binaries
 bin/
 obj/
 *.dll
-*.exe
 *.pdb
-*.suo
-*.user
+*.exe
+*.ilk
+*.manifest
 
-# Python bytecode and caches
+# Scratch directory (temporary debug files & ad-hoc inspection)
+scratch/
+
+# Python caches
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .pytest_cache/
 
-# Local databases and models
-*.db-journal
+# Logs & temp
 *.log
+*.tmp
+*.bak
+*.swp
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
