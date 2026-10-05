@@ -10,10 +10,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned
-- Assembly of parametric `DHM_Worker.rpro` eCat component with 3D in-scene handle cylinders (Yellow, Blue, Pink).
-- Implementation of Floating Hands auto-snapping to workpiece geometry along the $-X$ normal.
-- Assembly of `Barrier.rpro` scalable bounding-box collision component.
-- System Ribbon integration via `SiteSetupWorksErgo : IPlugin` and `WorksErgoPaneViewModel : DockableScreen`.
+- High-level automated task sequencer for full cycle multi-posture animation.
+
+---
+
+## [0.2.0] - 2026-10-05
+
+### Added
+- **Native R-Pro eCatalog Components (`components/` & `My Models/WorksErgo`):**
+  - `Barrier.rpro`: Parametric collision obstacle and safety barrier component with dynamic Length, Width, Height properties, and hazard material shader.
+  - `DHM_Worker.rpro`: Fully articulated 18-joint human kinematic manikin (Pelvis, Spine, Chest, Arms, Legs, Head) with native `ServoController`.
+  - In-scene interactive handles: Yellow (Posture cycle), Blue (Task cycle), Pink (Ergonomic neutral reset).
+  - Floating Hand IK targets for interactive 3D workpiece snapping.
+  - Native embedded `ComponentScript` executing Closed-Chain Dempster-Winter Center of Mass balance ($X_{\text{CoM}} \in [40, 70]\text{ mm}$) across Stoop, Semi-Squat, and Deep Squat techniques.
+  - Component builders: `tools/build_barrier_component.py` and `tools/build_dhm_worker_component.py`.
+  - Auto-deployment to user's R-Pro eCatalog directory (`C:\Users\Jojo\Documents\R-Pro\0.2\My Models\WorksErgo\`).
+- **Level 4 Automated Verification Suite (`tests/TestComponentPackages.ps1`):**
+  - ZIP integrity and structural checks for all `.rpro` packages.
+  - XML schema namespace verification against `http://schemas.RProSoftDigital1.com/2017/01/component/componentxml`.
+  - Binary/ASCII RSC magic signature (`VCMD002804`) validation.
+  - Deployed vs repository checksum synchronization.
+  - Integrated into master test runner `tests/RunAllTests.ps1`.
 
 ---
 
