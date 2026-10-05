@@ -9,29 +9,29 @@ Integrates:
 - 70+ Scientific Sources, Monographs & Downloaded PDFs
 - Datasets & MoCap (ANSUR II, MoCap 22.9k frames, OpenSim models)
 - Binary Assemblies & MEF contracts
+- Конспекты & Анализ (Master Engineering Report, Encyclopedia, Video Analysis, 70 Sources Analysis)
+- Карта действий & Роадмап (Progress & Reality Tracker, AI Surrogate Roadmap, MoCap Pipeline)
+- Спецификации & Архитектура (DHM Worker Spec, In-CAD Paradigm, MEF Architecture, R-Pro vs VC)
 """
 
 import os
 import json
 import re
 
-KNOWLEDGE_BASE_DIR = r"D:\Git\WorksErgoRPro\knowledge_base"
+REPO_DIR = r"D:\Git\WorksErgoRPro"
+KNOWLEDGE_BASE_DIR = os.path.join(REPO_DIR, "knowledge_base")
+DOCS_DIR = os.path.join(REPO_DIR, "docs")
 RPRO_ARTICLES_PATH = os.path.join(KNOWLEDGE_BASE_DIR, "03_cad_documentation_and_help", "rpro_articles.json")
 
 def load_cad_articles():
     with open(RPRO_ARTICLES_PATH, "r", encoding="utf-8") as f:
         articles = json.load(f)
     
-    # Normalize paths so they are relative to knowledge_base root
     cleaned = []
     for a in articles:
         url = a.get("url", "")
-        # in rpro_articles.json, url is like "rpro_help_decompiled/Help_RP_ru/..."
-        # From knowledge_base root, this is "03_cad_documentation_and_help/" + url
         rel_url = "03_cad_documentation_and_help/" + url
-        
         cat = a.get("category", "")
-        # Map category names for clean tabs
         tab = "CAD"
         badge = a.get("lang", "RU")
         
@@ -90,6 +90,218 @@ def get_worksergo_guide():
         }
     ]
 
+def get_notes_and_analysis():
+    return [
+        {
+            "category": "КОНСПЕКТЫ И НАУЧНЫЙ АНАЛИЗ",
+            "tab": "Конспекты & Анализ",
+            "title": "Мастер-Инженерный Отчет: Полный Синтез 36 Источников и Архитектуры Ядра",
+            "url": "../docs/11_COMPREHENSIVE_MASTER_ENGINEERING_REPORT_WORKSERGO_RPRO.md",
+            "badge": "REPORT 86KB",
+            "badge_type": "mono",
+            "doc_type": "md",
+            "snippet": "Фундаментальный 86 КБ монографический отчет: синтез 6 дисциплин (кинематика FABRIK/DLS, динамика RNEA, Дортмундский атлас L5/S1, усталость Вейбулла, 14 уравнений LM-MMH, Dempster-Winter CoM/BoS, EAWS BMW/VW) и полная архитектура Р-Про v2.2.2."
+        },
+        {
+            "category": "КОНСПЕКТЫ И НАУЧНЫЙ АНАЛИЗ",
+            "tab": "Конспекты & Анализ",
+            "title": "Исчерпывающий Анализ 28 Видеодемонстраций Work(s) Ergo (@idkfa3)",
+            "url": "00_video_analysis/MASTER_28_VIDEOS_ANALYSIS.md",
+            "badge": "VIDEO ANALYTICS 75KB",
+            "badge_type": "video",
+            "doc_type": "md",
+            "snippet": "Посекундный технический разбор всех 28 видео: Floating Hands, Snapping, Body Bracing, Straight Legs, LM-MMH, Office Ergo, MultiPose. Точные требования к кинематике и интерфейсу в Р-Про."
+        },
+        {
+            "category": "КОНСПЕКТЫ И НАУЧНЫЙ АНАЛИЗ",
+            "tab": "Конспекты & Анализ",
+            "title": "Исчерпывающий Анализ и Экстракция Математики 70+ Научных Первоисточников",
+            "url": "01_scientific_papers_and_datasets/EXHAUSTIVE_70_SOURCES_ANALYSIS_AND_EXTRACTION.md",
+            "badge": "MATH 21KB",
+            "badge_type": "mono",
+            "doc_type": "md",
+            "snippet": "Детальный математический разбор всех 70+ статей и книг из реестра: точные уравнения, физиологические пороги прочности, матрицы суставных моментов и алгоритмические инструкции для C# и Python."
+        },
+        {
+            "category": "КОНСПЕКТЫ И НАУЧНЫЙ АНАЛИЗ",
+            "tab": "Конспекты & Анализ",
+            "title": "Мастер-Энциклопедия Производственной Эргономики и DHM",
+            "url": "../docs/08_MASTER_ENCYCLOPEDIA_OF_ERGONOMICS_AND_DHM.md",
+            "badge": "ENCYCLOPEDIA 31KB",
+            "badge_type": "mono",
+            "doc_type": "md",
+            "snippet": "Академическая энциклопедия: анатомические модели позвоночника, феноменология мышцы Хилла, 3D антропометрия CAESAR/ANSUR II, теория минимального рывка (Minimum Jerk) Flash & Hogan."
+        },
+        {
+            "category": "КОНСПЕКТЫ И НАУЧНЫЙ АНАЛИЗ",
+            "tab": "Конспекты & Анализ",
+            "title": "Математический Вывод Равновесия, Центра Масс (CoM) и Кинематики Ног",
+            "url": "../docs/05_HUMAN_POSTURE_BALANCE_AND_COM_DERIVATION.md",
+            "badge": "DERIVATION 13KB",
+            "badge_type": "mono",
+            "doc_type": "md",
+            "snippet": "Строгий вывод формулы центра масс Dempster-Winter: проекция CofP в базу стоп BoS [-70, +180] мм, компенсация плеча таза T плечом коленей K при приседе (Stoop, Semi-Squat, Deep Squat)."
+        },
+        {
+            "category": "КОНСПЕКТЫ И НАУЧНЫЙ АНАЛИЗ",
+            "tab": "Конспекты & Анализ",
+            "title": "Критическое Академическое Ревью и Спецификация Ядра Next-Gen DHM",
+            "url": "../docs/09_CRITICAL_PEER_REVIEW_AND_NEXTGEN_CORE_SPECIFICATION.md",
+            "badge": "PEER REVIEW 11KB",
+            "badge_type": "mono",
+            "doc_type": "md",
+            "snippet": "Академический аудит ограничений Work(s) Ergo и план преодоления эмпирических упрощений через пространственную динамику F=ma (RNEA), непрерывную оптимизацию TrajOpt и кватернионный IK."
+        },
+        {
+            "category": "КОНСПЕКТЫ И НАУЧНЫЙ АНАЛИЗ",
+            "tab": "Конспекты & Анализ",
+            "title": "Интерактивная Интеллектуальная Карта Знаний Проекта (Mind Map)",
+            "url": "04_mindmap_and_navigator/MIND_MAP.md",
+            "badge": "MIND MAP 9KB",
+            "badge_type": "guide",
+            "doc_type": "md",
+            "snippet": "Структурированное дерево всей базы знаний: связи между CAD-справками, стандартами, видео, формулами ядра, тестами и архитектурными модулями."
+        },
+        {
+            "category": "КОНСПЕКТЫ И НАУЧНЫЙ АНАЛИЗ",
+            "tab": "Конспекты & Анализ",
+            "title": "Реестр Загруженных Первоисточников и Датасетов (Manifest)",
+            "url": "01_scientific_papers/DOWNLOADED_PAPERS_MANIFEST.md",
+            "badge": "MANIFEST 16KB",
+            "badge_type": "mono",
+            "doc_type": "md",
+            "snippet": "Инвентарная опись всех 26 загруженных PDF-книг и статей (~180 МБ) с указанием точных объемов, авторов, DOI и роли каждого документа в системе."
+        }
+    ]
+
+def get_action_maps_and_roadmaps():
+    return [
+        {
+            "category": "КАРТА ДЕЙСТВИЙ И РОАДМАП",
+            "tab": "Карта действий & Роадмап",
+            "title": "Единый Реестр Прогресса, Архитектуры и Аудита Реализации (Reality Tracker)",
+            "url": "../docs/PROJECT_PROGRESS_AND_REALITY_TRACKER.md",
+            "badge": "TRACKER 12KB",
+            "badge_type": "api",
+            "doc_type": "md",
+            "snippet": "Главный дашборд состояния проекта: процент готовности каждого направления (ядро 95%, справочник 100%, первоисточники 100%, видео 100%, MEF 90%, компоненты .rpro 65%, ИИ 15%), карта репозитория и спринты."
+        },
+        {
+            "category": "КАРТА ДЕЙСТВИЙ И РОАДМАП",
+            "tab": "Карта действий & Роадмап",
+            "title": "Дорожная Карта Обучения ИИ-Суррогата на MoCap Датасете",
+            "url": "../docs/04_AI_SURROGATE_AND_DATASET_ROADMAP.md",
+            "badge": "AI ROADMAP 6KB",
+            "badge_type": "api",
+            "doc_type": "md",
+            "snippet": "Архитектура и план обучения нейросетевого суррогата (PyTorch MLP: 8 входов -> 3x128 скрытых -> 28 выходов): экспорт в ONNX (<500 КБ) и интеграция с Microsoft.ML.OnnxRuntime для 60 FPS инференса в Р-Про."
+        },
+        {
+            "category": "КАРТА ДЕЙСТВИЙ И РОАДМАП",
+            "tab": "Карта действий & Роадмап",
+            "title": "Конвейер Обработки MoCap Данных с Костюма Perception Neuron",
+            "url": "../docs/03_AXIS_STUDIO_MOCAP_PIPELINE.md",
+            "badge": "MOCAP PIPELINE 8KB",
+            "badge_type": "api",
+            "doc_type": "md",
+            "snippet": "Методология извлечения 22 907 кадров из 12 BVH-файлов Axis Studio: извлечение кватернионов суставов, нормализация длин звеньев и подготовка обучающего датасета."
+        },
+        {
+            "category": "КАРТА ДЕЙСТВИЙ И РОАДМАП",
+            "tab": "Карта действий & Роадмап",
+            "title": "Верификация Архитектуры и Анализ Расхождений (Gap Analysis)",
+            "url": "ARCHITECTURE_VERIFICATION_AND_GAP_ANALYSIS.md",
+            "badge": "AUDIT 9KB",
+            "badge_type": "api",
+            "doc_type": "md",
+            "snippet": "Сравнительный аудит между теоретической спецификацией и фактическим кодом: перечень решенных задач и план устранения оставшихся разрывов."
+        }
+    ]
+
+def get_specs_and_architecture():
+    return [
+        {
+            "category": "СПЕЦИФИКАЦИИ И АРХИТЕКТУРА",
+            "tab": "Спецификации & Архитектура",
+            "title": "Спецификация Компонентов eCat: DHM_Worker.rpro и Barrier.rpro",
+            "url": "../docs/12_DHM_WORKER_AND_BARRIER_COMPONENT_SPECIFICATION.md",
+            "badge": "COMPONENT SPEC 17KB",
+            "badge_type": "guide",
+            "doc_type": "md",
+            "snippet": "Полное техническое описание структуры архивов .rpro (model.xml, component.dat, RSC magic VCMD002804, ServoController, материалы, шейдеры) и интеграции в каталог eCat Р-Про."
+        },
+        {
+            "category": "СПЕЦИФИКАЦИИ И АРХИТЕКТУРА",
+            "tab": "Спецификации & Архитектура",
+            "title": "Аутентичная Парадигма Взаимодействия Work(s) Ergo в CAD-Сцене",
+            "url": "../docs/13_AUTHENTIC_WORKSERGO_VC_INTERACTION_AND_CAD_PARADIGM.md",
+            "badge": "CAD UX 18KB",
+            "badge_type": "guide",
+            "doc_type": "md",
+            "snippet": "Инженерный регламент работы в 3D: технология Floating Hands, запрет ручной настройки углов, привязка через Snapping, 3D-манипуляторы Interact (желтый, синий, розовый цилиндры) и флаг Attach Hands."
+        },
+        {
+            "category": "СПЕЦИФИКАЦИИ И АРХИТЕКТУРА",
+            "tab": "Спецификации & Архитектура",
+            "title": "Сравнительный Анализ Различий Р-Про v2.2.2 vs Visual Components 4.8+",
+            "url": "03_cad_documentation_and_help/RPRO_VS_VISUAL_COMPONENTS_DIFFERENCES_AND_DOCS.md",
+            "badge": "COMPATIBILITY 31KB",
+            "badge_type": "guide",
+            "doc_type": "md",
+            "snippet": "Критический анализ различий: неподписанные сборки UX.Shared.dll (PublicKeyToken=null), расширение файлов .rpro vs .vcmx, правила MEF DirectoryCatalog, декомпиляция плагинов Эргономика и WPP."
+        },
+        {
+            "category": "СПЕЦИФИКАЦИИ И АРХИТЕКТУРА",
+            "tab": "Спецификации & Архитектура",
+            "title": "Архитектура Плагинов .NET Framework 4.8 / MEF Р-Про v2.2.2",
+            "url": "../docs/02_RPRO_MEF_ARCHITECTURE.md",
+            "badge": "MEF ARCH 5KB",
+            "badge_type": "api",
+            "doc_type": "md",
+            "snippet": "Интерфейсные контракты IPlugin, IRibbonGroup, IActionItem, IDockableScreen (Caliburn.Micro / Infragistics) для бесшовной интеграции в интерфейс Р-Про."
+        },
+        {
+            "category": "СПЕЦИФИКАЦИИ И АРХИТЕКТУРА",
+            "tab": "Спецификации & Архитектура",
+            "title": "Архитектурная Спецификация Биомеханического Движка (C# / .NET)",
+            "url": "../docs/01_BIOMECHANICAL_ENGINE_SPECIFICATION.md",
+            "badge": "MATH SPEC 14KB",
+            "badge_type": "mono",
+            "doc_type": "md",
+            "snippet": "Контракты классов ErgonomicMathEngine.cs, структуры L5S1Result, MMHResult, CoMResult, интерфейсы интеграции с CAD-объектами ISimComponent."
+        },
+        {
+            "category": "СПЕЦИФИКАЦИИ И АРХИТЕКТУРА",
+            "tab": "Спецификации & Архитектура",
+            "title": "Архитектурные Стандарты и Лучшие Практики Промышленных DHM Систем",
+            "url": "../docs/10_INDUSTRIAL_DHM_SOFTWARE_ARCHITECTURE_AND_BEST_PRACTICES.md",
+            "badge": "BIG TECH 18KB",
+            "badge_type": "mono",
+            "doc_type": "md",
+            "snippet": "Стандарты Siemens Jack, Dassault DELMIA, AnyBody: модульное разделение геометрии, решателей и UI, zero-lock многопоточность, 60 FPS инференс."
+        },
+        {
+            "category": "СПЕЦИФИКАЦИИ И АРХИТЕКТУРА",
+            "tab": "Спецификации & Архитектура",
+            "title": "Декомпилированный API-Дамп Модуля Plugin.Ergonomics.dll",
+            "url": "04_rpro_cad_internals/Plugin_Ergonomics_API_Dump.md",
+            "badge": "API DUMP 24KB",
+            "badge_type": "api",
+            "doc_type": "md",
+            "snippet": "Полный дамп типов, методов и свойств заводского плагина Эргономика Р-Про (базовые таблицы RULA/REBA, контроллеры и команды)."
+        },
+        {
+            "category": "СПЕЦИФИКАЦИИ И АРХИТЕКТУРА",
+            "tab": "Спецификации & Архитектура",
+            "title": "Декомпилированный API-Дамп Модуля Plugin.ErgonomicsWPP.dll (Рабочие Позы)",
+            "url": "04_rpro_cad_internals/Plugin_ErgonomicsWPP_API_Dump.md",
+            "badge": "API DUMP 36KB",
+            "badge_type": "api",
+            "doc_type": "md",
+            "snippet": "Полный дамп типов и методов плагина Рабочие позы WPP Р-Про (оценка ISO 11226, интеграция с шагами симуляции)."
+        }
+    ]
+
 def get_videos():
     videos_data = [
         ("01", "1TK7Z2mKARo", "Floating Hands and MultiPose", "32s", "Интерактивное перетаскивание кистей рук (Floating Hands) с автоматическим решением обратной кинематики (IK). Запись ключевых рабочих поз в стек MultiPose для циклического эргономического анализа."),
@@ -138,9 +350,7 @@ def get_videos():
     return entries
 
 def get_scientific_sources():
-    # Registry of key academic papers, textbooks, and downloaded PDFs
     sources = [
-        # Downloaded PDFs
         {
             "author": "Waters, Putz-Anderson, Garg (1994)",
             "title": "Applications Manual for the Revised NIOSH Lifting Equation (PB94-110307)",
@@ -316,8 +526,6 @@ def get_scientific_sources():
             "badge": "PDF 4.6MB",
             "desc": "Полевая валидация применимости уравнения подъема NIOSH в производственных условиях: корреляция Lifting Index с обращениями к врачу по поводу болей в спине."
         },
-
-        # Detailed Monographs for Remaining Literature in Exhaustive Register
         {
             "author": "Chaffin, Andersson, Martin (2006)",
             "title": "Occupational Biomechanics (4th Edition) — Comprehensive Monograph",
@@ -532,7 +740,6 @@ def get_binaries_and_contracts():
 def build_portal():
     print("Loading CAD articles...")
     cad_articles = load_cad_articles()
-    print(f"Loaded {len(cad_articles)} CAD articles.")
     
     print("Loading Work(s) Ergo Guides...")
     guides = get_worksergo_guide()
@@ -549,7 +756,16 @@ def build_portal():
     print("Loading Binary Assemblies...")
     binaries = get_binaries_and_contracts()
     
-    all_items = cad_articles + guides + videos + sources + datasets + binaries
+    print("Loading Notes & Analysis...")
+    notes = get_notes_and_analysis()
+    
+    print("Loading Action Maps & Roadmaps...")
+    roadmaps = get_action_maps_and_roadmaps()
+    
+    print("Loading Specs & Architecture...")
+    specs = get_specs_and_architecture()
+    
+    all_items = cad_articles + guides + videos + sources + datasets + binaries + notes + roadmaps + specs
     total_count = len(all_items)
     print(f"TOTAL ITEMS IN UNIFIED INDEX: {total_count}")
     
@@ -559,7 +775,6 @@ def build_portal():
         json.dump(all_items, f, ensure_ascii=False, indent=2)
     print(f"Saved master index to {json_path}")
     
-    # Generate HTML content matching screenshot media_1791193673325.png
     html_template = """<!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -675,31 +890,52 @@ body { background: var(--bg-primary); color: var(--text-main); padding: 24px; mi
 .modal-btn.close-btn { background: #e11d48; border-color: #f43f5e; font-weight: bold; }
 .modal-body { flex: 1; overflow: hidden; background: #1e293b; position: relative; }
 .modal-iframe { width: 100%; height: 100%; border: none; background: #fff; }
-.modal-viewer-text { padding: 24px; overflow-y: auto; height: 100%; font-size: 14px; line-height: 1.6; color: #cbd5e1; white-space: pre-wrap; font-family: Consolas, monospace; }
+.modal-viewer-text {
+  padding: 28px; overflow-y: auto; height: 100%; font-size: 14px; line-height: 1.6;
+  color: #cbd5e1; background: #0f172a;
+}
+
+/* Styled Markdown in Reader */
+.md-rendered h1 { font-size: 24px; color: #38bdf8; margin: 0 0 16px; padding-bottom: 8px; border-bottom: 1px solid #334155; }
+.md-rendered h2 { font-size: 20px; color: #f8fafc; margin: 24px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #334155; }
+.md-rendered h3 { font-size: 16px; color: #93c5fd; margin: 18px 0 8px; }
+.md-rendered p { margin-bottom: 12px; color: #cbd5e1; font-size: 14px; line-height: 1.6; }
+.md-rendered ul, .md-rendered ol { margin: 8px 0 16px 24px; }
+.md-rendered li { margin-bottom: 6px; }
+.md-rendered blockquote { border-left: 4px solid #38bdf8; padding: 8px 16px; background: #1e293b; margin: 12px 0; border-radius: 0 4px 4px 0; }
+.md-rendered pre { background: #1e293b; border: 1px solid #334155; padding: 12px; border-radius: 6px; overflow-x: auto; font-family: Consolas, monospace; font-size: 13px; margin: 12px 0; }
+.md-rendered code { background: #334155; padding: 2px 6px; border-radius: 4px; font-family: Consolas, monospace; font-size: 13px; color: #38bdf8; }
+.md-rendered table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+.md-rendered th, .md-rendered td { border: 1px solid #334155; padding: 8px 12px; text-align: left; }
+.md-rendered th { background: #1e293b; color: #38bdf8; font-weight: 600; }
+.md-rendered tr:nth-child(even) { background: rgba(30, 41, 59, 0.5); }
 </style>
 </head>
 <body>
 
 <div class="header">
   <h1>База Знаний и Справочник Р-Про, Visual Components & Work(s) Ergo</h1>
-  <p>Локальный поисковый портал по всем 1000+ темам официальной документации (CAD, Python API, Эргономика, WPP, MoCap, Видео и Первоисточники)</p>
+  <p>Локальный поисковый портал по всей документации, конспектам, картам действий, видео и научным первоисточникам</p>
 </div>
 
 <div class="search-container">
-  <input type="text" id="searchInput" placeholder="Поиск по API, классам, операциям, стандартам, видео и статьям (vcComponent, Snapping, L5/S1, RULA, REBA, WPP, Servo, Kinematics, AFF, Snook)..." autofocus>
+  <input type="text" id="searchInput" placeholder="Поиск по API, классам, операциям, стандартам, видео, конспектам и роадмапу (Tracker, Floating Hands, L5/S1, RULA, REBA, WPP, Servo, Snook)..." autofocus>
 </div>
 
 <div class="filter-tabs" id="filterTabs">
   <button class="tab-btn active" data-cat="all">Все разделы (__TOTAL__)</button>
+  <button class="tab-btn" data-cat="Конспекты & Анализ">Конспекты & Анализ (__NOTES_COUNT__)</button>
+  <button class="tab-btn" data-cat="Карта действий & Роадмап">Карта действий & Роадмап (__ROADMAP_COUNT__)</button>
+  <button class="tab-btn" data-cat="Спецификации & Архитектура">Спецификации & Архитектура (__SPECS_COUNT__)</button>
   <button class="tab-btn" data-cat="Python API">Python API (222)</button>
   <button class="tab-btn" data-cat="Р-Про CAD RU">Р-Про CAD RU (387)</button>
   <button class="tab-btn" data-cat="CAD EN">CAD EN (363)</button>
-  <button class="tab-btn" data-cat="Эргономика Р-Про">Эргономика Р-Про (14)</button>
-  <button class="tab-btn" data-cat="Рабочие позы WPP">Рабочие позы WPP (8)</button>
-  <button class="tab-btn" data-cat="Захват движения MoCap">Захват движения MoCap (8)</button>
   <button class="tab-btn" data-cat="Work(s) Ergo Guide">Work(s) Ergo Guide (2)</button>
   <button class="tab-btn" data-cat="28 Демо-Видео">28 Демо-Видео (28)</button>
   <button class="tab-btn" data-cat="70+ Научных Первоисточников">70+ Научных Первоисточников (__SOURCES_COUNT__)</button>
+  <button class="tab-btn" data-cat="Эргономика Р-Про">Эргономика Р-Про (14)</button>
+  <button class="tab-btn" data-cat="Рабочие позы WPP">Рабочие позы WPP (8)</button>
+  <button class="tab-btn" data-cat="Захват движения MoCap">Захват движения MoCap (8)</button>
   <button class="tab-btn" data-cat="Датасеты & MoCap">Датасеты & MoCap (5)</button>
   <button class="tab-btn" data-cat="Бинарные Сборки & API">Бинарные Сборки & API (4)</button>
 </div>
@@ -743,12 +979,57 @@ const modalExternalLink = document.getElementById('modalExternalLink');
 
 let currentTab = 'all';
 
+// Simple client-side Markdown to HTML formatter
+function parseMarkdown(md) {
+  let html = md
+    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+    .replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>')
+    .replace(/\\*\\*(.*?)\\*\\*/gim, '<strong>$1</strong>')
+    .replace(/\\*(.*?)\\*/gim, '<em>$1</em>')
+    .replace(/```([\\s\\S]*?)```/gim, '<pre><code>$1</code></pre>')
+    .replace(/`([^`]+)`/gim, '<code>$1</code>')
+    .replace(/^[\\*\\-] (.*$)/gim, '<ul><li>$1</li></ul>')
+    .replace(/<\\/ul>\\s*<ul>/gim, '');
+
+  // Format tables
+  const lines = html.split('\\n');
+  let inTable = false;
+  let tableHtml = '';
+  let finalLines = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    const l = lines[i].trim();
+    if (l.startsWith('|') && l.endsWith('|')) {
+      if (!inTable) {
+        inTable = true;
+        tableHtml = '<table>';
+      }
+      if (l.includes('---')) continue; // separator
+      const cells = l.split('|').slice(1, -1);
+      const isHeader = !tableHtml.includes('<tr>');
+      const tag = isHeader ? 'th' : 'td';
+      tableHtml += '<tr>' + cells.map(c => '<' + tag + '>' + c.trim() + '</' + tag + '>').join('') + '</tr>';
+    } else {
+      if (inTable) {
+        inTable = false;
+        tableHtml += '</table>';
+        finalLines.push(tableHtml);
+      }
+      finalLines.push(lines[i]);
+    }
+  }
+  if (inTable) finalLines.push(tableHtml + '</table>');
+  return '<div class="md-rendered">' + finalLines.join('<br>') + '</div>';
+}
+
 function render(items) {
   resultsGrid.innerHTML = '';
   matchCount.textContent = 'Найдено документов: ' + items.length + ' из ' + articles.length;
   
   const fragment = document.createDocumentFragment();
-  const limit = Math.min(items.length, 120); // Render top 120 matches smoothly
+  const limit = Math.min(items.length, 150);
   
   for (let i = 0; i < limit; i++) {
     const a = items[i];
@@ -822,20 +1103,41 @@ function openDoc(idx) {
   } else if (doc.url.endsWith('.md') || doc.url.endsWith('.csv') || doc.url.endsWith('.osim') || doc.doc_type === 'api') {
     modalIframe.style.display = 'none';
     modalViewerText.style.display = 'block';
-    modalViewerText.textContent = 'Загрузка: ' + doc.url + '...\\n\\n' + doc.snippet;
+    modalViewerText.innerHTML = '<div style="color:#94a3b8; padding:20px;">Загрузка файла <code>' + doc.url + '</code>...<br><br>' + doc.snippet + '</div>';
+    docModal.style.display = 'flex';
     
-    // Fetch and display content
+    // Fetch and render markdown cleanly
     fetch(doc.url)
-      .then(r => r.text())
-      .then(t => {
-        modalViewerText.textContent = t.slice(0, 100000); // Display up to 100KB
+      .then(r => {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.text();
+      })
+      .then(text => {
+        if (doc.url.endsWith('.md')) {
+          modalViewerText.innerHTML = parseMarkdown(text);
+        } else {
+          modalViewerText.innerHTML = '<pre style="white-space:pre-wrap;">' + text.slice(0, 100000) + '</pre>';
+        }
       })
       .catch(e => {
-        modalViewerText.textContent = doc.title + '\\n\\n' + doc.snippet + '\\n\\nЛокальный путь к файлу: ' + doc.url;
+        // Fallback for local file protocol security limitations
+        modalViewerText.innerHTML = `
+          <div style="padding: 24px; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+            <h2 style="color:#38bdf8; margin-bottom: 12px;">${doc.title}</h2>
+            <div style="background:#1e293b; padding:16px; border-radius:6px; border:1px solid #334155; margin-bottom:16px;">
+              <p style="color:#cbd5e1; margin-bottom:8px;"><strong>Описание:</strong> ${doc.snippet}</p>
+              <p style="color:#94a3b8; font-family:Consolas, monospace; font-size:13px;"><strong>Локальный путь:</strong> ${doc.url}</p>
+            </div>
+            <p style="color:#94a3b8; margin-bottom:16px;">
+              При открытии портала напрямую через локальный протокол <code>file:///</code> некоторые браузеры блокируют фоновый AJAX-запрос к файлам на диске. 
+            </p>
+            <a href="${doc.url}" target="_blank" style="display:inline-block; background:#0284c7; color:#fff; padding:10px 18px; border-radius:6px; text-decoration:none; font-weight:600;">
+              Открыть документ в отдельном окне / редакторе ↗
+            </a>
+          </div>
+        `;
       });
-    docModal.style.display = 'flex';
   } else {
-    // External link or general
     window.open(doc.url, '_blank');
   }
 }
@@ -845,12 +1147,10 @@ function closeDoc() {
   modalIframe.src = 'about:blank';
 }
 
-// Close on ESC
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeDoc();
 });
 
-// Close when clicking modal backdrop
 docModal.addEventListener('click', (e) => {
   if (e.target === docModal) closeDoc();
 });
@@ -865,8 +1165,6 @@ tabs.forEach(btn => {
 });
 
 searchInput.addEventListener('input', filterDocs);
-
-// Initial render
 filterDocs();
 </script>
 </body>
@@ -875,6 +1173,9 @@ filterDocs();
 
     rendered_html = html_template.replace("__TOTAL__", str(total_count))
     rendered_html = rendered_html.replace("__SOURCES_COUNT__", str(len(sources)))
+    rendered_html = rendered_html.replace("__NOTES_COUNT__", str(len(notes)))
+    rendered_html = rendered_html.replace("__ROADMAP_COUNT__", str(len(roadmaps)))
+    rendered_html = rendered_html.replace("__SPECS_COUNT__", str(len(specs)))
     rendered_html = rendered_html.replace("__ARTICLES_JSON__", json.dumps(all_items, ensure_ascii=False))
 
     # Write knowledge_base/index.html
@@ -883,16 +1184,16 @@ filterDocs();
         f.write(rendered_html)
     print(f"Generated {kb_index_path} ({len(rendered_html)} bytes)")
 
-    # Also update documentation_portal.html
-    # In documentation_portal.html (inside 03_cad_documentation_and_help/), relative URLs need to be adjusted
-    # by adding "../" to urls that are not in 03_cad_documentation_and_help/
+    # Adjust relative URLs for documentation_portal.html located in 03_cad_documentation_and_help/
     doc_portal_items = []
     for it in all_items:
         u = it["url"]
         new_u = u
         if u.startswith("03_cad_documentation_and_help/"):
             new_u = u.replace("03_cad_documentation_and_help/", "", 1)
-        elif not u.startswith("http"):
+        elif u.startswith("../docs/"):
+            new_u = "../../docs/" + u.replace("../docs/", "", 1)
+        elif not u.startswith("http") and not u.startswith("../"):
             new_u = "../" + u
         it_copy = dict(it)
         it_copy["url"] = new_u
@@ -900,6 +1201,9 @@ filterDocs();
 
     doc_portal_html = html_template.replace("__TOTAL__", str(total_count))
     doc_portal_html = doc_portal_html.replace("__SOURCES_COUNT__", str(len(sources)))
+    doc_portal_html = doc_portal_html.replace("__NOTES_COUNT__", str(len(notes)))
+    doc_portal_html = doc_portal_html.replace("__ROADMAP_COUNT__", str(len(roadmaps)))
+    doc_portal_html = doc_portal_html.replace("__SPECS_COUNT__", str(len(specs)))
     doc_portal_html = doc_portal_html.replace("__ARTICLES_JSON__", json.dumps(doc_portal_items, ensure_ascii=False))
 
     doc_portal_path = os.path.join(KNOWLEDGE_BASE_DIR, "03_cad_documentation_and_help", "documentation_portal.html")

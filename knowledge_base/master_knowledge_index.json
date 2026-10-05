@@ -10836,5 +10836,205 @@
     "badge_type": "api",
     "doc_type": "api",
     "snippet": "Контракты взаимодействия с геометрическим ядром Р-Про: управление деревом геометрии, суставами (ISimJoint), поведением скриптов Python и сериализация компонентов .rpro."
+  },
+  {
+    "category": "КОНСПЕКТЫ И НАУЧНЫЙ АНАЛИЗ",
+    "tab": "Конспекты & Анализ",
+    "title": "Мастер-Инженерный Отчет: Полный Синтез 36 Источников и Архитектуры Ядра",
+    "url": "../docs/11_COMPREHENSIVE_MASTER_ENGINEERING_REPORT_WORKSERGO_RPRO.md",
+    "badge": "REPORT 86KB",
+    "badge_type": "mono",
+    "doc_type": "md",
+    "snippet": "Фундаментальный 86 КБ монографический отчет: синтез 6 дисциплин (кинематика FABRIK/DLS, динамика RNEA, Дортмундский атлас L5/S1, усталость Вейбулла, 14 уравнений LM-MMH, Dempster-Winter CoM/BoS, EAWS BMW/VW) и полная архитектура Р-Про v2.2.2."
+  },
+  {
+    "category": "КОНСПЕКТЫ И НАУЧНЫЙ АНАЛИЗ",
+    "tab": "Конспекты & Анализ",
+    "title": "Исчерпывающий Анализ 28 Видеодемонстраций Work(s) Ergo (@idkfa3)",
+    "url": "00_video_analysis/MASTER_28_VIDEOS_ANALYSIS.md",
+    "badge": "VIDEO ANALYTICS 75KB",
+    "badge_type": "video",
+    "doc_type": "md",
+    "snippet": "Посекундный технический разбор всех 28 видео: Floating Hands, Snapping, Body Bracing, Straight Legs, LM-MMH, Office Ergo, MultiPose. Точные требования к кинематике и интерфейсу в Р-Про."
+  },
+  {
+    "category": "КОНСПЕКТЫ И НАУЧНЫЙ АНАЛИЗ",
+    "tab": "Конспекты & Анализ",
+    "title": "Исчерпывающий Анализ и Экстракция Математики 70+ Научных Первоисточников",
+    "url": "01_scientific_papers_and_datasets/EXHAUSTIVE_70_SOURCES_ANALYSIS_AND_EXTRACTION.md",
+    "badge": "MATH 21KB",
+    "badge_type": "mono",
+    "doc_type": "md",
+    "snippet": "Детальный математический разбор всех 70+ статей и книг из реестра: точные уравнения, физиологические пороги прочности, матрицы суставных моментов и алгоритмические инструкции для C# и Python."
+  },
+  {
+    "category": "КОНСПЕКТЫ И НАУЧНЫЙ АНАЛИЗ",
+    "tab": "Конспекты & Анализ",
+    "title": "Мастер-Энциклопедия Производственной Эргономики и DHM",
+    "url": "../docs/08_MASTER_ENCYCLOPEDIA_OF_ERGONOMICS_AND_DHM.md",
+    "badge": "ENCYCLOPEDIA 31KB",
+    "badge_type": "mono",
+    "doc_type": "md",
+    "snippet": "Академическая энциклопедия: анатомические модели позвоночника, феноменология мышцы Хилла, 3D антропометрия CAESAR/ANSUR II, теория минимального рывка (Minimum Jerk) Flash & Hogan."
+  },
+  {
+    "category": "КОНСПЕКТЫ И НАУЧНЫЙ АНАЛИЗ",
+    "tab": "Конспекты & Анализ",
+    "title": "Математический Вывод Равновесия, Центра Масс (CoM) и Кинематики Ног",
+    "url": "../docs/05_HUMAN_POSTURE_BALANCE_AND_COM_DERIVATION.md",
+    "badge": "DERIVATION 13KB",
+    "badge_type": "mono",
+    "doc_type": "md",
+    "snippet": "Строгий вывод формулы центра масс Dempster-Winter: проекция CofP в базу стоп BoS [-70, +180] мм, компенсация плеча таза T плечом коленей K при приседе (Stoop, Semi-Squat, Deep Squat)."
+  },
+  {
+    "category": "КОНСПЕКТЫ И НАУЧНЫЙ АНАЛИЗ",
+    "tab": "Конспекты & Анализ",
+    "title": "Критическое Академическое Ревью и Спецификация Ядра Next-Gen DHM",
+    "url": "../docs/09_CRITICAL_PEER_REVIEW_AND_NEXTGEN_CORE_SPECIFICATION.md",
+    "badge": "PEER REVIEW 11KB",
+    "badge_type": "mono",
+    "doc_type": "md",
+    "snippet": "Академический аудит ограничений Work(s) Ergo и план преодоления эмпирических упрощений через пространственную динамику F=ma (RNEA), непрерывную оптимизацию TrajOpt и кватернионный IK."
+  },
+  {
+    "category": "КОНСПЕКТЫ И НАУЧНЫЙ АНАЛИЗ",
+    "tab": "Конспекты & Анализ",
+    "title": "Интерактивная Интеллектуальная Карта Знаний Проекта (Mind Map)",
+    "url": "04_mindmap_and_navigator/MIND_MAP.md",
+    "badge": "MIND MAP 9KB",
+    "badge_type": "guide",
+    "doc_type": "md",
+    "snippet": "Структурированное дерево всей базы знаний: связи между CAD-справками, стандартами, видео, формулами ядра, тестами и архитектурными модулями."
+  },
+  {
+    "category": "КОНСПЕКТЫ И НАУЧНЫЙ АНАЛИЗ",
+    "tab": "Конспекты & Анализ",
+    "title": "Реестр Загруженных Первоисточников и Датасетов (Manifest)",
+    "url": "01_scientific_papers/DOWNLOADED_PAPERS_MANIFEST.md",
+    "badge": "MANIFEST 16KB",
+    "badge_type": "mono",
+    "doc_type": "md",
+    "snippet": "Инвентарная опись всех 26 загруженных PDF-книг и статей (~180 МБ) с указанием точных объемов, авторов, DOI и роли каждого документа в системе."
+  },
+  {
+    "category": "КАРТА ДЕЙСТВИЙ И РОАДМАП",
+    "tab": "Карта действий & Роадмап",
+    "title": "Единый Реестр Прогресса, Архитектуры и Аудита Реализации (Reality Tracker)",
+    "url": "../docs/PROJECT_PROGRESS_AND_REALITY_TRACKER.md",
+    "badge": "TRACKER 12KB",
+    "badge_type": "api",
+    "doc_type": "md",
+    "snippet": "Главный дашборд состояния проекта: процент готовности каждого направления (ядро 95%, справочник 100%, первоисточники 100%, видео 100%, MEF 90%, компоненты .rpro 65%, ИИ 15%), карта репозитория и спринты."
+  },
+  {
+    "category": "КАРТА ДЕЙСТВИЙ И РОАДМАП",
+    "tab": "Карта действий & Роадмап",
+    "title": "Дорожная Карта Обучения ИИ-Суррогата на MoCap Датасете",
+    "url": "../docs/04_AI_SURROGATE_AND_DATASET_ROADMAP.md",
+    "badge": "AI ROADMAP 6KB",
+    "badge_type": "api",
+    "doc_type": "md",
+    "snippet": "Архитектура и план обучения нейросетевого суррогата (PyTorch MLP: 8 входов -> 3x128 скрытых -> 28 выходов): экспорт в ONNX (<500 КБ) и интеграция с Microsoft.ML.OnnxRuntime для 60 FPS инференса в Р-Про."
+  },
+  {
+    "category": "КАРТА ДЕЙСТВИЙ И РОАДМАП",
+    "tab": "Карта действий & Роадмап",
+    "title": "Конвейер Обработки MoCap Данных с Костюма Perception Neuron",
+    "url": "../docs/03_AXIS_STUDIO_MOCAP_PIPELINE.md",
+    "badge": "MOCAP PIPELINE 8KB",
+    "badge_type": "api",
+    "doc_type": "md",
+    "snippet": "Методология извлечения 22 907 кадров из 12 BVH-файлов Axis Studio: извлечение кватернионов суставов, нормализация длин звеньев и подготовка обучающего датасета."
+  },
+  {
+    "category": "КАРТА ДЕЙСТВИЙ И РОАДМАП",
+    "tab": "Карта действий & Роадмап",
+    "title": "Верификация Архитектуры и Анализ Расхождений (Gap Analysis)",
+    "url": "ARCHITECTURE_VERIFICATION_AND_GAP_ANALYSIS.md",
+    "badge": "AUDIT 9KB",
+    "badge_type": "api",
+    "doc_type": "md",
+    "snippet": "Сравнительный аудит между теоретической спецификацией и фактическим кодом: перечень решенных задач и план устранения оставшихся разрывов."
+  },
+  {
+    "category": "СПЕЦИФИКАЦИИ И АРХИТЕКТУРА",
+    "tab": "Спецификации & Архитектура",
+    "title": "Спецификация Компонентов eCat: DHM_Worker.rpro и Barrier.rpro",
+    "url": "../docs/12_DHM_WORKER_AND_BARRIER_COMPONENT_SPECIFICATION.md",
+    "badge": "COMPONENT SPEC 17KB",
+    "badge_type": "guide",
+    "doc_type": "md",
+    "snippet": "Полное техническое описание структуры архивов .rpro (model.xml, component.dat, RSC magic VCMD002804, ServoController, материалы, шейдеры) и интеграции в каталог eCat Р-Про."
+  },
+  {
+    "category": "СПЕЦИФИКАЦИИ И АРХИТЕКТУРА",
+    "tab": "Спецификации & Архитектура",
+    "title": "Аутентичная Парадигма Взаимодействия Work(s) Ergo в CAD-Сцене",
+    "url": "../docs/13_AUTHENTIC_WORKSERGO_VC_INTERACTION_AND_CAD_PARADIGM.md",
+    "badge": "CAD UX 18KB",
+    "badge_type": "guide",
+    "doc_type": "md",
+    "snippet": "Инженерный регламент работы в 3D: технология Floating Hands, запрет ручной настройки углов, привязка через Snapping, 3D-манипуляторы Interact (желтый, синий, розовый цилиндры) и флаг Attach Hands."
+  },
+  {
+    "category": "СПЕЦИФИКАЦИИ И АРХИТЕКТУРА",
+    "tab": "Спецификации & Архитектура",
+    "title": "Сравнительный Анализ Различий Р-Про v2.2.2 vs Visual Components 4.8+",
+    "url": "03_cad_documentation_and_help/RPRO_VS_VISUAL_COMPONENTS_DIFFERENCES_AND_DOCS.md",
+    "badge": "COMPATIBILITY 31KB",
+    "badge_type": "guide",
+    "doc_type": "md",
+    "snippet": "Критический анализ различий: неподписанные сборки UX.Shared.dll (PublicKeyToken=null), расширение файлов .rpro vs .vcmx, правила MEF DirectoryCatalog, декомпиляция плагинов Эргономика и WPP."
+  },
+  {
+    "category": "СПЕЦИФИКАЦИИ И АРХИТЕКТУРА",
+    "tab": "Спецификации & Архитектура",
+    "title": "Архитектура Плагинов .NET Framework 4.8 / MEF Р-Про v2.2.2",
+    "url": "../docs/02_RPRO_MEF_ARCHITECTURE.md",
+    "badge": "MEF ARCH 5KB",
+    "badge_type": "api",
+    "doc_type": "md",
+    "snippet": "Интерфейсные контракты IPlugin, IRibbonGroup, IActionItem, IDockableScreen (Caliburn.Micro / Infragistics) для бесшовной интеграции в интерфейс Р-Про."
+  },
+  {
+    "category": "СПЕЦИФИКАЦИИ И АРХИТЕКТУРА",
+    "tab": "Спецификации & Архитектура",
+    "title": "Архитектурная Спецификация Биомеханического Движка (C# / .NET)",
+    "url": "../docs/01_BIOMECHANICAL_ENGINE_SPECIFICATION.md",
+    "badge": "MATH SPEC 14KB",
+    "badge_type": "mono",
+    "doc_type": "md",
+    "snippet": "Контракты классов ErgonomicMathEngine.cs, структуры L5S1Result, MMHResult, CoMResult, интерфейсы интеграции с CAD-объектами ISimComponent."
+  },
+  {
+    "category": "СПЕЦИФИКАЦИИ И АРХИТЕКТУРА",
+    "tab": "Спецификации & Архитектура",
+    "title": "Архитектурные Стандарты и Лучшие Практики Промышленных DHM Систем",
+    "url": "../docs/10_INDUSTRIAL_DHM_SOFTWARE_ARCHITECTURE_AND_BEST_PRACTICES.md",
+    "badge": "BIG TECH 18KB",
+    "badge_type": "mono",
+    "doc_type": "md",
+    "snippet": "Стандарты Siemens Jack, Dassault DELMIA, AnyBody: модульное разделение геометрии, решателей и UI, zero-lock многопоточность, 60 FPS инференс."
+  },
+  {
+    "category": "СПЕЦИФИКАЦИИ И АРХИТЕКТУРА",
+    "tab": "Спецификации & Архитектура",
+    "title": "Декомпилированный API-Дамп Модуля Plugin.Ergonomics.dll",
+    "url": "04_rpro_cad_internals/Plugin_Ergonomics_API_Dump.md",
+    "badge": "API DUMP 24KB",
+    "badge_type": "api",
+    "doc_type": "md",
+    "snippet": "Полный дамп типов, методов и свойств заводского плагина Эргономика Р-Про (базовые таблицы RULA/REBA, контроллеры и команды)."
+  },
+  {
+    "category": "СПЕЦИФИКАЦИИ И АРХИТЕКТУРА",
+    "tab": "Спецификации & Архитектура",
+    "title": "Декомпилированный API-Дамп Модуля Plugin.ErgonomicsWPP.dll (Рабочие Позы)",
+    "url": "04_rpro_cad_internals/Plugin_ErgonomicsWPP_API_Dump.md",
+    "badge": "API DUMP 36KB",
+    "badge_type": "api",
+    "doc_type": "md",
+    "snippet": "Полный дамп типов и методов плагина Рабочие позы WPP Р-Про (оценка ISO 11226, интеграция с шагами симуляции)."
   }
 ]
