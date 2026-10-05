@@ -126,8 +126,6 @@ Or open [`knowledge_base/index.html`](file:///D:/Git/WorksErgoRPro/knowledge_bas
 Для быстрого погружения в проект, изучения архитектуры Р-Про и Work(s) Ergo в репозитории развернут **автономный офлайн-портал**:
 👉 **[`knowledge_base/index.html`](knowledge_base/index.html)** (или `knowledge_base/03_cad_documentation_and_help/documentation_portal.html`)
 
-📊 **Центральный дашборд отслеживания прогресса и статуса реализации:**
-👉 **[`docs/PROJECT_PROGRESS_AND_REALITY_TRACKER.md`](docs/PROJECT_PROGRESS_AND_REALITY_TRACKER.md)** (честный процент готовности, карта файлов и план спринтов).
 
 ### Содержимое портала (1 101 документ с поиском в реальном времени):
 1. **Конспекты & Анализ (8 документов):** Мастер-Инженерный отчет (86 КБ), 75 КБ анализ 28 видео (@idkfa3), монография 70+ научных источников, энциклопедия DHM, математический вывод CoM и кинематики ног, критическое академическое ревью, интеллектуальная карта знаний.
