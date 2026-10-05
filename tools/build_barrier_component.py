@@ -41,6 +41,9 @@ def build_barrier_rpro(output_path):
     <Property name="BarrierWidth">100.0</Property>
     <Property name="BarrierHeight">1100.0</Property>
   </Properties>
+  <ModelUrl>component.rsc</ModelUrl>
+  <ThumbnailImageUrl>layout_icon.tga</ThumbnailImageUrl>
+  <PreviewImageUrl>component_icon_preview.tga</PreviewImageUrl>
 </VcModel>
 '''
 
