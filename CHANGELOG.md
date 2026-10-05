@@ -14,6 +14,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.4.0] - 2026-10-05
+
+### Added
+- **Native Infragistics DockManager Right-Docking (`Core/WorksErgoPluginCore.cs`):**
+  - Integrated into R-Pro's native right tool panel container (`VcDockedRightSplitPane` / `TabGroupPane`).
+  - Added robust re-opening support via `CloseAction = PaneCloseAction.Hide (0)`: clicking 'X' safely collapses the pane without destroying WPF handles, allowing unlimited reopen/toggle cycles from the Ribbon.
+  - Exported `WorksErgoPaneViewModel` with `[Export(typeof(IDockableScreen))]` and `ICustomScreenVisibility`.
+  - Registered Caliburn.Micro ViewLocator rule eliminating raw floating `Window` fallbacks.
+- **Real-Time R-Pro Console Logging (`IMessageService`):**
+  - Live diagnostic feedback sent directly to R-Pro's Output window («Вывод») on docking, operator selection, 3D snapping, and biomechanical calculations.
+- **Active DHM / Operator Selection & 3D Picking:**
+  - Dynamic `Operators` list auto-scanning `ISimWorld.Components` for manikins (`DHM_Worker`, `Worker`, `Operator`).
+  - Interactive 3D viewport picking via native `PickAction (SelectionTypes.Component)`.
+- **Work(s) Ergo 1:1 Accordion UI Layout (`Views/WorksErgoPaneView.cs`):**
+  - Step 1: Target Population (Sex, 5th/50th/95th stature & mass percentiles).
+  - Step 2: Task Characteristics (Task type, leg kinematics, frequency, duration).
+  - Step 3: Floating Hands & 3D Snapping (Attach Hands? toggle, -X palm normal alignment).
+  - Step 4: Force Parameters (Load mass, asymmetry twist, dynamic acceleration).
+  - Step 5: HandPak interface (23 anatomical grips, coupling quality).
+  - Step 6: Body Bracing and Straight Legs constraints.
+  - Prominent `[ANALYSE]` calculation trigger, high-impact DCR traffic light card, EAWS breakdown, and `[Open Report Folder]` button.
+
+---
+
 ## [0.3.0] - 2026-10-05
 
 ### Added

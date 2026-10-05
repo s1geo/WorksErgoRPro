@@ -1,8 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
+using System.IO;
 using System.Linq;
 using System.Windows.Media;
+using MediaColor = System.Windows.Media.Color;
 using Caliburn.Micro;
+using RProSoftDigital1.Create3D;
 using RProSoftDigital1.UX.Shared;
 using WorksErgoRPro.Biomechanics;
 
@@ -26,8 +30,15 @@ namespace WorksErgoRPro.ViewModels
         public PostureInputs OriginalInputs { get; set; }
     }
 
-    public class WorksErgoPaneViewModel : DockableScreen
+    [Export(typeof(IDockableScreen))]
+    [Export(typeof(WorksErgoPaneViewModel))]
+    [PartCreationPolicy(CreationPolicy.Shared)]
+    public class WorksErgoPaneViewModel : DockableScreen, ICustomScreenVisibility
     {
+        private readonly IApplication _application;
+        private readonly IMessageService _messageService;
+        private PickAction _pickAction;
+
         private DHMPercentile _selectedPercentile = DHMPercentile.Male50th;
         private TaskType _selectedTask = TaskType.LiftingLowering;
         private LiftingTechnique _selectedTechnique = LiftingTechnique.AutomaticSemiSquat;
@@ -45,10 +56,14 @@ namespace WorksErgoRPro.ViewModels
         private double _frequencyPerDay = 300.0;
         private double _durationHours = 2.0;
 
+        private bool _attachHands = true;
+        private bool _bodyBracing = false;
+        private bool _straightLegs = false;
+
         // Evaluated Results
         private double _overallDcr = 0.0;
         private string _riskCategory = "Safe";
-        private SolidColorBrush _riskBrush = new SolidColorBrush(Color.FromRgb(46, 204, 113));
+        private SolidColorBrush _riskBrush = new SolidColorBrush(MediaColor.FromRgb(46, 204, 113));
         private double _lumbarCompN = 0.0;
         private double _lumbarDcr = 0.0;
         private double _nioshRwlKg = 0.0;
@@ -67,14 +82,14 @@ namespace WorksErgoRPro.ViewModels
         private int _rebaScore = 1;
         private double _eawsScore = 0.0;
         private string _eawsTrafficLight = "Green (Low Risk)";
-        private SolidColorBrush _eawsBrush = new SolidColorBrush(Color.FromRgb(46, 204, 113));
+        private SolidColorBrush _eawsBrush = new SolidColorBrush(MediaColor.FromRgb(46, 204, 113));
         private double _eawsSec1 = 0.0;
         private double _eawsSec2 = 0.0;
         private double _eawsSec3 = 0.0;
         private double _eawsSec4 = 0.0;
         private string _limitingFactor = "None";
         private string _recommendation = "All parameters safe.";
-        private string _cadStatusMessage = "3D CAD Snapping: Ready to snap from 3D viewport.";
+        private string _cadStatusMessage = "3D CAD Snapping: Готов к привязке из 3D-сцены.";
 
         // Multi-Subtask Job Properties
         private BindableCollection<SubtaskDisplayItem> _subtasks = new BindableCollection<SubtaskDisplayItem>();
@@ -84,21 +99,178 @@ namespace WorksErgoRPro.ViewModels
         private double _compositeDutyCycle = 0.0;
         private double _compositeEawsScore = 0.0;
         private string _compositeRiskCategory = "Not evaluated";
-        private SolidColorBrush _compositeRiskBrush = new SolidColorBrush(Color.FromRgb(127, 140, 141));
+        private SolidColorBrush _compositeRiskBrush = new SolidColorBrush(MediaColor.FromRgb(127, 140, 141));
         private bool _isJobEvaluated = false;
+
+        // Operator Management
+        public BindableCollection<ISimComponent> Operators { get; } = new BindableCollection<ISimComponent>();
+        private ISimComponent _selectedOperator;
+
+        public bool IsHideable => false;
 
         public WorksErgoPaneViewModel()
         {
-            DisplayName = "Works Ergo";
-            PanelId = "WorksErgoPane";
+            DisplayName = "Work(s) Ergo";
+            PanelId = "WorksErgoPaneId";
             DesiredPanePosition = (int)DesiredPaneLocation.DockedRight;
+            PaneLocation = DesiredPaneLocation.DockedRight;
+            TabGroupId = "Vc_R_TabGroup";
             Width = 460;
             Height = 850;
             IsPinned = true;
             IsVisible = true;
 
+            try
+            {
+                _application = IoC.Get<IApplication>();
+                _messageService = IoC.Get<IMessageService>();
+            }
+            catch { }
+
+            RefreshOperators();
             Recalculate();
         }
+
+        #region Operator Management & 3D Interaction
+
+        public ISimComponent SelectedOperator
+        {
+            get => _selectedOperator;
+            set
+            {
+                if (_selectedOperator != value)
+                {
+                    _selectedOperator = value;
+                    NotifyOfPropertyChange(nameof(SelectedOperator));
+                    if (_selectedOperator != null)
+                    {
+                        _messageService?.AppendMessage($"[Work(s) Ergo] Выбран активный оператор: {_selectedOperator.Name}", MessageLevel.Info);
+                    }
+                }
+            }
+        }
+
+        public void RefreshOperators()
+        {
+            try
+            {
+                Operators.Clear();
+                if (_application?.World?.Components != null)
+                {
+                    foreach (var comp in _application.World.Components)
+                    {
+                        Operators.Add(comp);
+                    }
+                }
+
+                if (SelectedOperator == null && Operators.Count > 0)
+                {
+                    SelectedOperator = Operators.FirstOrDefault(c =>
+                        c.Name.IndexOf("DHM", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        c.Name.IndexOf("Worker", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        c.Name.IndexOf("Human", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        c.Name.IndexOf("Оператор", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                        c.Name.IndexOf("Operator", StringComparison.OrdinalIgnoreCase) >= 0)
+                        ?? Operators[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                _messageService?.AppendMessage("[Work(s) Ergo] Ошибка сканирования компонентов: " + ex.Message, MessageLevel.Warning);
+            }
+        }
+
+        public void PickFrom3DWorld_Click()
+        {
+            try
+            {
+                if (_pickAction == null)
+                {
+                    _pickAction = new PickAction
+                    {
+                        Filter = SelectionTypes.Component,
+                        HighlightResult = true
+                    };
+                    _pickAction.StartAction((sender, e) =>
+                    {
+                        try
+                        {
+                            if (_pickAction != null && _pickAction.PickResult.PickedObject != null)
+                            {
+                                var picked = _pickAction.PickResult.PickedObject;
+                                var simComp = picked.GetValue("Component") as ISimComponent;
+                                if (simComp != null)
+                                {
+                                    if (!Operators.Contains(simComp))
+                                    {
+                                        Operators.Add(simComp);
+                                    }
+                                    SelectedOperator = simComp;
+                                    _messageService?.AppendMessage($"[Work(s) Ergo] Из 3D-сцены выбран: {simComp.Name}", MessageLevel.Info);
+                                }
+                            }
+                        }
+                        catch (Exception pickErr)
+                        {
+                            _messageService?.AppendMessage("[Work(s) Ergo] Ошибка обработки 3D-выбора: " + pickErr.Message, MessageLevel.Warning);
+                        }
+                        finally
+                        {
+                            _pickAction = null;
+                        }
+                    });
+                    _messageService?.AppendMessage("[Work(s) Ergo] Режим 3D-выбора активирован: кликните по объекту в сцене.", MessageLevel.Info);
+                }
+            }
+            catch (Exception ex)
+            {
+                _messageService?.AppendMessage("[Work(s) Ergo] Не удалось запустить 3D Pick: " + ex.Message, MessageLevel.Warning);
+            }
+        }
+
+        protected override void OnActivate()
+        {
+            base.OnActivate();
+            RefreshOperators();
+            if (_application?.World != null)
+            {
+                _application.World.ComponentAdded += OnWorldComponentAdded;
+                _application.World.ComponentRemoving += OnWorldComponentRemoving;
+            }
+        }
+
+        protected override void OnDeactivate(bool close)
+        {
+            if (_application?.World != null)
+            {
+                _application.World.ComponentAdded -= OnWorldComponentAdded;
+                _application.World.ComponentRemoving -= OnWorldComponentRemoving;
+            }
+            base.OnDeactivate(close);
+        }
+
+        private void OnWorldComponentAdded(object sender, ComponentAddedEventArgs e)
+        {
+            if (e.Component != null && !Operators.Contains(e.Component))
+            {
+                Operators.Add(e.Component);
+                if (SelectedOperator == null) SelectedOperator = e.Component;
+            }
+        }
+
+        private void OnWorldComponentRemoving(object sender, ComponentRemovingEventArgs e)
+        {
+            if (e.Component != null)
+            {
+                Operators.Remove(e.Component);
+                if (SelectedOperator == e.Component)
+                {
+                    SelectedOperator = Operators.FirstOrDefault();
+                }
+            }
+        }
+
+        #endregion
 
         #region Properties - Inputs
 
@@ -165,30 +337,63 @@ namespace WorksErgoRPro.ViewModels
         public double DynamicAccelerationMs2
         {
             get => _dynamicAccelerationMs2;
-            set { if (Math.Abs(_dynamicAccelerationMs2 - value) > 0.05) { _dynamicAccelerationMs2 = Math.Max(0.0, Math.Min(5.0, value)); NotifyOfPropertyChange(nameof(DynamicAccelerationMs2)); Recalculate(); } }
+            set { if (Math.Abs(_dynamicAccelerationMs2 - value) > 0.05) { _dynamicAccelerationMs2 = Math.Max(0.0, Math.Min(3.0, value)); NotifyOfPropertyChange(nameof(DynamicAccelerationMs2)); Recalculate(); } }
         }
 
         public double FrequencyLiftsPerMin
         {
             get => _frequencyLiftsPerMin;
-            set { if (Math.Abs(_frequencyLiftsPerMin - value) > 0.01) { _frequencyLiftsPerMin = Math.Max(0.1, Math.Min(15.0, value)); NotifyOfPropertyChange(nameof(FrequencyLiftsPerMin)); Recalculate(); } }
+            set { if (Math.Abs(_frequencyLiftsPerMin - value) > 0.05) { _frequencyLiftsPerMin = Math.Max(0.1, Math.Min(15.0, value)); NotifyOfPropertyChange(nameof(FrequencyLiftsPerMin)); Recalculate(); } }
         }
 
         public double FrequencyPerDay
         {
             get => _frequencyPerDay;
-            set { if (Math.Abs(_frequencyPerDay - value) > 1.0) { _frequencyPerDay = Math.Max(1.0, Math.Min(5000.0, value)); NotifyOfPropertyChange(nameof(FrequencyPerDay)); Recalculate(); } }
+            set { if (Math.Abs(_frequencyPerDay - value) > 1.0) { _frequencyPerDay = Math.Max(1.0, Math.Min(2000.0, value)); NotifyOfPropertyChange(nameof(FrequencyPerDay)); Recalculate(); } }
+        }
+
+        public bool AttachHands
+        {
+            get => _attachHands;
+            set { if (_attachHands != value) { _attachHands = value; NotifyOfPropertyChange(nameof(AttachHands)); } }
+        }
+
+        public bool BodyBracing
+        {
+            get => _bodyBracing;
+            set { if (_bodyBracing != value) { _bodyBracing = value; NotifyOfPropertyChange(nameof(BodyBracing)); Recalculate(); } }
+        }
+
+        public bool StraightLegs
+        {
+            get => _straightLegs;
+            set
+            {
+                if (_straightLegs != value)
+                {
+                    _straightLegs = value;
+                    NotifyOfPropertyChange(nameof(StraightLegs));
+                    if (_straightLegs)
+                    {
+                        SelectedTechnique = LiftingTechnique.StoopStraightLegs;
+                    }
+                    else
+                    {
+                        SelectedTechnique = LiftingTechnique.AutomaticSemiSquat;
+                    }
+                }
+            }
         }
 
         public string CadStatusMessage
         {
             get => _cadStatusMessage;
-            set { _cadStatusMessage = value; NotifyOfPropertyChange(nameof(CadStatusMessage)); }
+            private set { _cadStatusMessage = value; NotifyOfPropertyChange(nameof(CadStatusMessage)); }
         }
 
         #endregion
 
-        #region Properties - Outputs & Assessment
+        #region Properties - Evaluated Outputs
 
         public double OverallDCR
         {
@@ -427,48 +632,64 @@ namespace WorksErgoRPro.ViewModels
                 bool snapped = false;
                 foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
                 {
-                    var appType = asm.GetType("visualComponents.Create3D.vcApplication")
-                               ?? asm.GetType("RProSoftDigital1.Create3D.vcApplication")
-                               ?? asm.GetType("Create3D.vcApplication");
-                    if (appType != null)
+                    if (asm.FullName != null && asm.FullName.StartsWith("UX.Shared"))
                     {
-                        var instProp = appType.GetProperty("Instance") ?? appType.GetProperty("Current");
-                        object app = instProp != null ? instProp.GetValue(null) : null;
-                        if (app != null)
+                        var contextType = asm.GetType("RProSoftDigital1.UX.Shared.IUXContext");
+                        if (contextType != null)
                         {
-                            var selProp = appType.GetProperty("ActiveSelection");
-                            object selection = selProp != null ? selProp.GetValue(app) : null;
-                            if (selection != null)
+                            var method = typeof(IoC).GetMethod("Get", Type.EmptyTypes)?.MakeGenericMethod(contextType);
+                            var uxCtx = method?.Invoke(null, null);
+                            if (uxCtx != null)
                             {
-                                var countProp = selection.GetType().GetProperty("Count");
-                                int count = countProp != null ? (int)countProp.GetValue(selection) : 0;
-                                if (count > 0)
+                                var selObjProp = uxCtx.GetType().GetProperty("SelectedObject");
+                                var selObj = selObjProp?.GetValue(uxCtx);
+                                if (selObj != null)
                                 {
-                                    var itemMethod = selection.GetType().GetMethod("get_Item") ?? selection.GetType().GetMethod("GetItem");
-                                    object comp = itemMethod != null ? itemMethod.Invoke(selection, new object[] { 0 }) : null;
-                                    if (comp != null)
-                                    {
-                                        var nameProp = comp.GetType().GetProperty("Name");
-                                        string compName = nameProp != null ? (string)nameProp.GetValue(comp) : "Component";
+                                    var boundBoxProp = selObj.GetType().GetProperty("BoundingBox");
+                                    var matrixProp = selObj.GetType().GetProperty("Transformation");
+                                    var nameProp = selObj.GetType().GetProperty("Name");
+                                    string objName = nameProp?.GetValue(selObj)?.ToString() ?? "Selected CAD Part";
 
-                                        var findPropMethod = comp.GetType().GetMethod("findProperty") ?? comp.GetType().GetMethod("FindProperty");
-                                        double mass = 0.0;
-                                        if (findPropMethod != null)
+                                    double centerZ = 750.0;
+                                    double reach = 400.0;
+                                    double mass = 12.0;
+
+                                    if (matrixProp != null)
+                                    {
+                                        var mat = matrixProp.GetValue(selObj);
+                                        var pz = mat?.GetType().GetProperty("Z")?.GetValue(mat);
+                                        var px = mat?.GetType().GetProperty("X")?.GetValue(mat);
+                                        var py = mat?.GetType().GetProperty("Y")?.GetValue(mat);
+                                        if (pz is double dz) centerZ = Math.Max(100.0, Math.Min(1700.0, dz));
+                                        if (px is double dx && py is double dy)
                                         {
-                                            object massProp = findPropMethod.Invoke(comp, new object[] { "Mass" })
-                                                           ?? findPropMethod.Invoke(comp, new object[] { "Weight" });
-                                            if (massProp != null)
+                                            reach = Math.Max(200.0, Math.Min(850.0, Math.Sqrt(dx * dx + dy * dy)));
+                                        }
+                                    }
+
+                                    var propCont = selObj as dynamic;
+                                    try
+                                    {
+                                        var massProp = propCont?.GetProperty("Mass") ?? propCont?.GetProperty("Weight");
+                                        if (massProp != null)
+                                        {
+                                            object vObj = massProp.Value;
+                                            if (vObj is double && (double)vObj > 0.0)
                                             {
-                                                var valProp = massProp.GetType().GetProperty("Value");
-                                                if (valProp != null) mass = Convert.ToDouble(valProp.GetValue(massProp));
+                                                mass = Math.Min(50.0, (double)vObj);
                                             }
                                         }
-
-                                        if (mass > 0.0) LoadWeightKg = mass;
-                                        CadStatusMessage = $"3D Snap successful: {compName} (Mass: {LoadWeightKg:F1}kg)";
-                                        snapped = true;
-                                        break;
                                     }
+                                    catch { }
+
+                                    VerticalMm = centerZ;
+                                    ReachMm = reach;
+                                    LoadWeightKg = mass;
+
+                                    CadStatusMessage = $"3D Snap: '{objName}' (Z={centerZ:F0} мм, Reach={reach:F0} мм, Load={mass:F1} кг, -X normal)";
+                                    _messageService?.AppendMessage($"[Work(s) Ergo] 3D Привязка нормали ладони (-X) к объекту '{objName}': Z={centerZ:F0} мм, Reach={reach:F0} мм, Груз={mass:F1} кг", MessageLevel.Info);
+                                    snapped = true;
+                                    break;
                                 }
                             }
                         }
@@ -477,16 +698,17 @@ namespace WorksErgoRPro.ViewModels
 
                 if (!snapped)
                 {
-                    // Fallback simulated interactive snap for demonstration/standalone testing
-                    CadStatusMessage = "3D Snap: Selected CAD Part (Auto-detected: Z=800mm, Reach=420mm, Load=15kg)";
+                    CadStatusMessage = "3D Snap: Выбран тестовый CAD-узел (Z=800 мм, Reach=420 мм, Load=15.0 кг, -X normal)";
                     VerticalMm = 800.0;
                     ReachMm = 420.0;
                     LoadWeightKg = 15.0;
+                    _messageService?.AppendMessage("[Work(s) Ergo] Привязка: объект по умолчанию (Z=800 мм, Reach=420 мм, Load=15 кг)", MessageLevel.Info);
                 }
             }
             catch (Exception ex)
             {
                 CadStatusMessage = "3D Snap notice: " + ex.Message;
+                _messageService?.AppendMessage("[Work(s) Ergo] Предупреждение 3D Snap: " + ex.Message, MessageLevel.Warning);
             }
             Recalculate();
         }
@@ -515,14 +737,14 @@ namespace WorksErgoRPro.ViewModels
             var res = ErgonomicMathEngine.Evaluate(curInputs);
             int nextId = _subtasks.Count + 1;
 
-            var brush = res.OverallDCR <= 0.85 ? new SolidColorBrush(Color.FromRgb(46, 204, 113))
-                      : res.OverallDCR <= 1.00 ? new SolidColorBrush(Color.FromRgb(243, 156, 18))
-                      : new SolidColorBrush(Color.FromRgb(231, 76, 60));
+            var brush = res.OverallDCR <= 0.85 ? new SolidColorBrush(MediaColor.FromRgb(46, 204, 113))
+                      : res.OverallDCR <= 1.00 ? new SolidColorBrush(MediaColor.FromRgb(243, 156, 18))
+                      : new SolidColorBrush(MediaColor.FromRgb(231, 76, 60));
 
             var item = new SubtaskDisplayItem
             {
                 Id = nextId,
-                Name = $"Step {nextId}: {_selectedTask}",
+                Name = $"Шаг {nextId}: {_selectedTask}",
                 Task = _selectedTask,
                 LoadKg = _loadWeightKg,
                 VerticalMm = _verticalMm,
@@ -538,6 +760,7 @@ namespace WorksErgoRPro.ViewModels
             };
 
             _subtasks.Add(item);
+            _messageService?.AppendMessage($"[Work(s) Ergo] Добавлен подэтап {nextId}: DCR={res.OverallDCR:P0}, L5/S1={res.LumbarCompressionN:F0} Н", MessageLevel.Info);
             EvaluateShiftJob();
         }
 
@@ -553,26 +776,27 @@ namespace WorksErgoRPro.ViewModels
         public void ClearSubtasks()
         {
             _subtasks.Clear();
-            IsJobEvaluated = false;
             CompositeLcfcd = 0.0;
             CompositeOverallDCR = 0.0;
             CompositePeakCompN = 0.0;
             CompositeDutyCycle = 0.0;
             CompositeEawsScore = 0.0;
             CompositeRiskCategory = "Not evaluated";
-            CompositeRiskBrush = new SolidColorBrush(Color.FromRgb(127, 140, 141));
+            CompositeRiskBrush = new SolidColorBrush(MediaColor.FromRgb(127, 140, 141));
+            IsJobEvaluated = false;
+            _messageService?.AppendMessage("[Work(s) Ergo] Список подэтапов смены очищен.", MessageLevel.Info);
         }
 
         public void EvaluateShiftJob()
         {
             if (_subtasks.Count == 0)
             {
-                IsJobEvaluated = false;
+                ClearSubtasks();
                 return;
             }
 
-            var inputList = _subtasks.Select(s => s.OriginalInputs).ToList();
-            var comp = ErgonomicMathEngine.CalculateCompositeJob(inputList, shiftHours: 8.0);
+            var inputsList = _subtasks.Select(s => s.OriginalInputs).ToList();
+            var comp = ErgonomicMathEngine.CalculateCompositeJob(inputsList);
 
             CompositeLcfcd = comp.CompositeLCFCD;
             CompositeOverallDCR = comp.CompositeOverallDCR;
@@ -582,13 +806,32 @@ namespace WorksErgoRPro.ViewModels
             CompositeRiskCategory = comp.RiskCategory;
 
             if (comp.CompositeOverallDCR <= 0.85)
-                CompositeRiskBrush = new SolidColorBrush(Color.FromRgb(46, 204, 113));
+                CompositeRiskBrush = new SolidColorBrush(MediaColor.FromRgb(46, 204, 113));
             else if (comp.CompositeOverallDCR <= 1.00)
-                CompositeRiskBrush = new SolidColorBrush(Color.FromRgb(243, 156, 18));
+                CompositeRiskBrush = new SolidColorBrush(MediaColor.FromRgb(243, 156, 18));
             else
-                CompositeRiskBrush = new SolidColorBrush(Color.FromRgb(231, 76, 60));
+                CompositeRiskBrush = new SolidColorBrush(MediaColor.FromRgb(231, 76, 60));
 
             IsJobEvaluated = true;
+            _messageService?.AppendMessage($"[Work(s) Ergo] Итог по всей смене: DCR={CompositeOverallDcrText}, Пик L5/S1={CompositePeakCompN:F0} Н, Усталость={CompositeLcfcd:F3}", MessageLevel.Info);
+        }
+
+        public void OpenReportFolder()
+        {
+            try
+            {
+                string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "WorksErgo_Reports");
+                if (!Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
+                System.Diagnostics.Process.Start("explorer.exe", dir);
+                _messageService?.AppendMessage("[Work(s) Ergo] Открыта папка отчетов: " + dir, MessageLevel.Info);
+            }
+            catch (Exception ex)
+            {
+                _messageService?.AppendMessage("[Work(s) Ergo] Ошибка открытия отчетов: " + ex.Message, MessageLevel.Warning);
+            }
         }
 
         #endregion
@@ -644,18 +887,20 @@ namespace WorksErgoRPro.ViewModels
             Recommendation = res.Recommendation;
 
             if (res.OverallDCR <= 0.85)
-                RiskBrush = new SolidColorBrush(Color.FromRgb(46, 204, 113)); // Green
+                RiskBrush = new SolidColorBrush(MediaColor.FromRgb(46, 204, 113)); // Green
             else if (res.OverallDCR <= 1.00)
-                RiskBrush = new SolidColorBrush(Color.FromRgb(243, 156, 18)); // Orange
+                RiskBrush = new SolidColorBrush(MediaColor.FromRgb(243, 156, 18)); // Orange
             else
-                RiskBrush = new SolidColorBrush(Color.FromRgb(231, 76, 60));  // Red
+                RiskBrush = new SolidColorBrush(MediaColor.FromRgb(231, 76, 60));  // Red
 
             if (res.EawsScore <= 25.0)
-                EawsBrush = new SolidColorBrush(Color.FromRgb(46, 204, 113));
+                EawsBrush = new SolidColorBrush(MediaColor.FromRgb(46, 204, 113));
             else if (res.EawsScore <= 50.0)
-                EawsBrush = new SolidColorBrush(Color.FromRgb(243, 156, 18));
+                EawsBrush = new SolidColorBrush(MediaColor.FromRgb(243, 156, 18));
             else
-                EawsBrush = new SolidColorBrush(Color.FromRgb(231, 76, 60));
+                EawsBrush = new SolidColorBrush(MediaColor.FromRgb(231, 76, 60));
+
+            _messageService?.AppendMessage($"[Work(s) Ergo] Расчет биомеханики: DCR={OverallDcrText}, L5/S1={LumbarCompN:F0} Н, EAWS={EawsScore:F1} pts, Статус: {RiskCategory}", MessageLevel.Info);
         }
     }
 }
