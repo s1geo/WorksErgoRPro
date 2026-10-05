@@ -14,6 +14,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.3.0] - 2026-10-05
+
+### Added
+- **Unified Master Knowledge Portal (`knowledge_base/index.html` & `documentation_portal.html`):**
+  - High-performance offline search and navigation portal across 1,081 indexed topics.
+  - Full decompiled R-Pro v2.2.2 & Visual Components documentation: 387 Russian core manual articles, 363 English CAD articles, 222 Python API articles, and 30 native modules articles (Ergonomics, WPP, MoCap).
+  - 28 video analyses from `@idkfa3` with detailed 3D mechanics and YouTube direct streaming.
+  - Exhaustive 70+ scientific sources registry and deep analytical monographs.
+  - 26 fully downloaded open-access PDF books and government reports (NIOSH 1994, NIOSH 1981, Dempster 1955, Grenier 1991, USAF 1964, Robinette CAESAR, de Leva 1996, Potvin 2021, Loper SMPL, Pavlakos SMPL-X, Aristidou FABRIK, Schulman TrajOpt, Delp OpenSim, and more).
+  - Multi-format modal reader for HTML, PDF, Markdown, and CSV datasets.
+- **Enterprise Documentation & Onboarding (`README.md`):**
+  - 1-click startup command (`Start-Process "knowledge_base\index.html"`) for instant colleague onboarding.
+  - Complete architecture map, build/test workflow, and scientific foundation overview.
+
+---
+
 ## [0.2.0] - 2026-10-05
 
 ### Added

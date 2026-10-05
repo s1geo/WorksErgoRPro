@@ -93,19 +93,27 @@ WorksErgoRPro/
 * .NET Framework 4.8 Developer Pack
 * R-Pro v2.2.2 installed at `D:\Apps\RProv222\` (or Visual Components 4.5+)
 
-### 1. Build Solution
+### 1. Interactive Knowledge Portal (1-Click Start)
+To explore all 1,081 topics of official CAD documentation, 28 video analyses, 70+ scientific papers, 26 downloaded PDFs, datasets, and API references:
+```powershell
+# Open the master offline portal directly in your default browser:
+Start-Process "knowledge_base\index.html"
+```
+Or open [`knowledge_base/index.html`](file:///D:/Git/WorksErgoRPro/knowledge_base/index.html) in Chrome / Edge.
+
+### 2. Build Solution
 ```powershell
 # Run the automated build script (uses csc.exe or MSBuild)
 .\build.ps1
 ```
 
-### 2. Run Test Suite
+### 3. Run Test Suite
 ```powershell
 # Execute the full 4-tier test verification suite
 .\tests\RunAllTests.ps1
 ```
 
-### 3. Deploy to R-Pro
+### 4. Deploy to R-Pro
 ```powershell
 # Copies compiled assembly to R-Pro root for auto-discovery by MEF DirectoryCatalog
 .\deploy.ps1
@@ -113,19 +121,37 @@ WorksErgoRPro/
 
 ---
 
-## Обзор системы (на русском)
+## Единый Портал Базы Знаний и Документации (Для Коллег)
 
-**WorksErgo R-Pro Edition** — это отечественный нативный модуль цифрового манекена (DHM) и производственной эргономики для платформы трехмерного моделирования **Р-Про v2.2.2**.
+Для быстрого погружения в проект и изучения всех нюансов платформы Р-Про и Work(s) Ergo в репозитории развернут **автономный офлайн-портал**:
+👉 **[`knowledge_base/index.html`](knowledge_base/index.html)** (или `knowledge_base/03_cad_documentation_and_help/documentation_portal.html`)
 
-### Ключевые преимущества:
-1. **100% Автономность (Zero Cloud):** расчеты проводятся локально на ПК инженера без обращения к зарубежным платным облакам.
-2. **Точный пользовательский опыт Work(s) Ergo:** поддержка компонентов `.rpro` в каталоге eCat, технологии плавающих рук (Floating Hands), интерактивных 3D-манипуляторов (желтый, синий, розовый цилиндры) и компонентов препятствий `Barrier.rpro`.
-3. **Научная строгость:** синтез 36 мировых первоисточников (L5/S1 Jäger 2023, усталость Вейбулла Brinckmann, 14 уравнений Liberty Mutual MMH, центр тяжести Dempster-Winter CoM/BoS, стандарты автопрома EAWS BMW/VW).
-
-Подробная научная спецификация доступна в файле [`docs/11_COMPREHENSIVE_MASTER_ENGINEERING_REPORT_WORKSERGO_RPRO.md`](docs/11_COMPREHENSIVE_MASTER_ENGINEERING_REPORT_WORKSERGO_RPRO.md).
+### Содержимое портала (1 081 документ с поиском в реальном времени):
+1. **Р-Про CAD Core Manual RU (387 статей):** Полная русскоязычная документация платформы Р-Про v2.2.2 (кинематика, поведение, сигналы, моделирование процессов, свойства).
+2. **CAD EN Manual (363 статьи):** Англоязычная эталонная документация Visual Components Core.
+3. **Python API Reference (222 статьи):** Официальный справочник всех классов и методов vcScript, vcApplication, vcComponent, vcMatrix, vcMotion, vcSimObject.
+4. **Нативные модули Р-Про (30 статей):** Декомпилированная документация встроенных заводских модулей «Эргономика», «Рабочие позы (WPP)» и «Захват движения (MoCap)».
+5. **Work(s) Ergo Руководство пользователя (2 документа):** Интерактивный HTML-гайд v0.1 и официальный 50-страничный PDF-мануал v1.17 со всеми формулами DCR.
+6. **28 Демо-Видео (@idkfa3):** Посекундный инженерный разбор 3D-манипулирования (Floating Hands, Snapping, Body Bracing, Straight Legs, LM-MMH, Office Ergonomics) с прямыми ссылками.
+7. **70+ Научных Первоисточников:** Полные формулы, биомеханические пределы и **26 загруженных PDF-книг и статей** (Waters NIOSH 1994, NIOSH 1981, Dempster 1955, Grenier 1991, USAF 1964, Robinette CAESAR, de Leva 1996, Potvin 2021, Loper SMPL, Pavlakos SMPL-X, Aristidou FABRIK, Schulman TrajOpt, Delp OpenSim).
+8. **Экспериментальные Датасеты:** 6 068 замеров ANSUR II (CSV), 22 907 кадров MoCap Axis Studio (BVH), многозвенные модели OpenSim Rajagopal (.osim).
+9. **Бинарные Сборки & Контракты:** Сигнатуры и правила интеграции MEF (`UX.Shared.dll`, `Plugin.Ergonomics.dll`, `VisualComponents.Create3D.dll`).
 
 ---
 
-## License
+## Обзор архитектуры ядра (Zero-Cloud & 6 Дисциплин)
 
-Copyright (c) 2026. All rights reserved. Developed for R-Pro Digital Engineering Ecosystem.
+В отличие от упрощенных дискретных таблиц RULA/REBA, ядро **WorksErgo R-Pro Edition** реализует синтез 6 фундаментальных дисциплин:
+1. **Вычислительная кинематика:** FABRIK (Aristidou 2011) + DLS (Buss 2004) + кватернионный QP-IK без сингулярностей.
+2. **Биомеханика позвоночника:** Дортмундский атлас L5/S1 (Jäger 2023) + усталость Вейбулла (Brinckmann 1988, Potvin 2026) + предел выносливости MAE (Potvin 2012).
+3. **Равновесие и центр масс:** Закон сохранения центра тяжести Dempster-Winter ($X_{\text{CoM}} \in \text{BoS} [-70, +180]\text{ мм}$) с поддержкой 3 стилей приседа (Stoop, Semi-Squat, Deep Squat).
+4. **Психофизика MMH:** 14 непрерывных уравнений Liberty Mutual (Snook & Ciriello 1991, Potvin 2021) + 3D-силовое поле руки AFF (LaDelfa 2017) + 23 хвата HandPak.
+5. **Пространственная динамика:** Уравнения Ньютона-Эйлера RNEA (Featherstone 2008, Kingma 1996) с учетом динамического ускорения $F = m(g + a)$.
+6. **Отраслевой аудит:** Стандарты автоконцернов EAWS (Schaub 2012), OCRA (ISO 11228-3) и ГОСТ Р 56644-2015.
+
+---
+
+## Лицензия
+
+Copyright (c) 2026. All rights reserved. Разработано для экосистемы цифрового инжиниринга Р-Про.
+
