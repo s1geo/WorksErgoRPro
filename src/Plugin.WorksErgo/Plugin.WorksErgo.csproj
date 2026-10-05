@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>Plugin.WorksErgo</AssemblyName>
+    <RootNamespace>WorksErgo</RootNamespace>
+    <OutputType>Library</OutputType>
+    <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>bin\</OutputPath>
+    <UseWPF>true</UseWPF>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <!-- System and WPF Framework References -->
+  <ItemGroup>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+
+  <!-- R-Pro v2.2.2 Native Host References -->
+  <ItemGroup>
+    <Reference Include="UX.Shared">
+      <HintPath>D:\Apps\RProv222\UX.Shared.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UX.Ribbon">
+      <HintPath>D:\Apps\RProv222\UX.Ribbon.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Create3D.Shared">
+      <HintPath>D:\Apps\RProv222\Create3D.Shared.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Caliburn.Micro">
+      <HintPath>D:\Apps\RProv222\Caliburn.Micro.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- Embedded Mesh and CAD Resources -->
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\**\*" />
+  </ItemGroup>
+
+</Project>
