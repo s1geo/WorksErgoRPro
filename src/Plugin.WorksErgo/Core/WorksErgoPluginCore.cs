@@ -25,7 +25,7 @@ namespace WorksErgoRPro.Core
                 if (uxConfig != null && commandRegistry != null)
                 {
                     // 1. Register Dedicated Ribbon Site on Home Tab
-                    uxConfig.RegisterSite("VcTabHome/WorksErgoGroup", "Work(s) Ergo", null, -1);
+                    uxConfig.RegisterSite("VcTabHome/WorksErgoRibbonGroup", "Work(s) Ergo", "WorksErgo/WorksErgoIcon", -1);
 
                     // 2. Register Action Item in Ribbon
                     var actionItem = commandRegistry.FindItem("WorksErgoActionItem");
@@ -36,7 +36,7 @@ namespace WorksErgoRPro.Core
 
                     var setup = new UXSiteSetup
                     {
-                        UXSiteIdPath = "VcTabHome/WorksErgoGroup",
+                        UXSiteIdPath = "VcTabHome/WorksErgoRibbonGroup",
                         UXSiteType = UXSiteType.RibbonGroup,
                         EntryId = actionItem.Id
                     };
@@ -45,12 +45,26 @@ namespace WorksErgoRPro.Core
                     // 3. Register on Teach Tab as well
                     var setupTeach = new UXSiteSetup
                     {
-                        UXSiteIdPath = "VcTabTeach/WorksErgoGroup",
+                        UXSiteIdPath = "VcTabTeach/WorksErgoRibbonGroup",
                         UXSiteType = UXSiteType.RibbonGroup,
                         EntryId = actionItem.Id
                     };
-                    uxConfig.RegisterSite("VcTabTeach/WorksErgoGroup", "Work(s) Ergo", null, -1);
+                    uxConfig.RegisterSite("VcTabTeach/WorksErgoRibbonGroup", "Work(s) Ergo", "WorksErgo/WorksErgoIcon", -1);
                     commandRegistry.RegisterActionItem(actionItem, setupTeach);
+
+                    // 4. Register Open Report Folder Action Item
+                    var reportItem = commandRegistry.FindItem("ActionItemOpenReportFolder");
+                    if (reportItem == null)
+                    {
+                        reportItem = new ActionItemOpenReportFolder(locService);
+                    }
+                    var setupReport = new UXSiteSetup
+                    {
+                        UXSiteIdPath = "VcTabHome/WorksErgoRibbonGroup",
+                        UXSiteType = UXSiteType.RibbonGroup,
+                        EntryId = reportItem.Id
+                    };
+                    commandRegistry.RegisterActionItem(reportItem, setupReport);
                 }
             }
             catch (Exception ex)
@@ -67,9 +81,9 @@ namespace WorksErgoRPro.Core
     [Export(typeof(IRibbonGroup))]
     public class WorksErgoRibbonGroup : RibbonGroupBase
     {
-        public override string Header => "Works Ergo";
+        public override string Header => "Work(s) Ergo";
         public override string Id => "WorksErgoRibbonGroup";
-        public override string Icon => null;
+        public override string Icon => "WorksErgo/WorksErgoIcon";
 
         [ImportingConstructor]
         public WorksErgoRibbonGroup(ILocalizationService localizationService) : base(localizationService)
@@ -87,11 +101,11 @@ namespace WorksErgoRPro.Core
 
         [ImportingConstructor]
         public WorksErgoActionItem(ILocalizationService localizationService)
-            : base("Works Ergo", "Works Ergo Offline Biomechanics & InteliPose Suite", null)
+            : base("Work(s) Ergo", "Works Ergo Task Analysis & InteliPose Suite", "WorksErgo/WorksErgoIcon")
         {
             _localizationService = localizationService;
             RibbonId = "WorksErgoRibbonGroup";
-            SiteOrder = 10.0;
+            SiteOrder = 1.0;
         }
 
         public override void Execute()
@@ -159,6 +173,33 @@ namespace WorksErgoRPro.Core
                     MessageBoxButton.OK,
                     MessageBoxImage.Warning
                 );
+            }
+        }
+    }
+
+    [Export(typeof(IActionItem))]
+    [PartCreationPolicy(CreationPolicy.Shared)]
+    public class ActionItemOpenReportFolder : ActionItem
+    {
+        [ImportingConstructor]
+        public ActionItemOpenReportFolder(ILocalizationService localizationService)
+            : base("Open Report Folder", "Open directory with generated Ergonomics analysis reports", "WorksErgo/WorksErgoIcon")
+        {
+            RibbonId = "WorksErgoRibbonGroup";
+            SiteOrder = 2.0;
+        }
+
+        public override void Execute()
+        {
+            try
+            {
+                string reportDir = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"R-Pro\0.2\Reports\WorksErgo");
+                if (!System.IO.Directory.Exists(reportDir)) System.IO.Directory.CreateDirectory(reportDir);
+                System.Diagnostics.Process.Start("explorer.exe", reportDir);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unable to open report folder: {ex.Message}", "Works Ergo", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }
