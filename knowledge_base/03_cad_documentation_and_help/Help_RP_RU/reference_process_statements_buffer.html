@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Буфер</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Оператор Буфер позволяет создать временное хранилище для продуктов в виде сетки. Несколько продуктов могут входить и выходить из буфера параллельно. Транспортировка продуктов..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Буфер</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Оператор Буфер позволяет создать временное хранилище для продуктов в виде сетки. Несколько продуктов могут входить и выходить из буфера параллельно. Транспортировка продуктов обрабатывается аналогично отчетам о транспортировке.</p>
+<p class="p_Normal">Оператор продолжает выполнение до тех пор, пока не будет выполнено условие прерывания и буфер не опустеет.</p>
+<p class="p_Normal"><img alt="ClipboardImg253" style="margin:0;width:11.5729in;height:5.2292in;border:none" src="clipboardimg253.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.9167in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5000in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ЗарезервированноеНаименованиеПеременнойДетали</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Переменная, содержащая детали, уже зарезервированные с помощью заявления о резервировании деталей. Буфер будет сначала заполнен этими деталями, а затем продолжит получать другие детали, как определено свойством Источник.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание: </span>Фильтрация продуктов, определяемая свойствами ПриниматьВсеВидыДеталей, ПринятГруппыПроцессов и ПринятыеВидыДеталей, не применяется к предварительно зарезервированным деталям.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПриниматьВсеВидыДеталей</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Если выбрано, принимается любая деталь.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПринятыеГруппыПроцессов</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Разрешает только выбранные группы потоков.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПринятыеВидыДеталей</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Разрешает только выбранные типы деталей.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Источник</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет, какой источник используется для транспортировки детали.</p>
+<p class="p_Normal">Из Предыдущей Операции - Продукт, соответствующий фильтру продуктов, сначала резервируется, а затем переносится с помощью транспортного ресурса.</p>
+<p class="p_Normal">Из Контейнера Компонентов - Ожидает прибытия продукта, соответствующего фильтру продуктов, из контейнера компонента, подключенного к транспортному узлу. Как правило, в случае процесса когда продукт поступает в контейнер компонента по конвейерному пути. </p>
+<p class="p_Normal">Этот режим, так же, необходимо использовать для получения продуктов, отправленных из какого-либо другого процесса, с применением свойства МестоНазначения в режиме К Транспортному Узлу.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Место назначения</p>
+<p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет пункт назначения, куда вывозится продукт.</p>
+<p class="p_Normal">К Следующей Операции - Продукт транспортируется к следующему процессу с помощью транспортной системы. Транспортировка осуществляется по принципу вытягивания, что означает, что следующий процесс запрашивает продукт, когда у него есть емкость.</p>
+<p class="p_Normal">К Контейнеру Компонентов - Продукт помещается в контейнер компонента, определенный в КонтейнерМестаНазначения. Если КонтейнерМестаНазначения имеет выходной порт, связанный с поведением другого контейнера, продукт проходит через КонтейнерМестаНазначения в подключенный к нему контейнер. Транспортировка осуществляется толкающим способом, что означает, что продукт вывозится, как только в контейнере назначения появляется свободное место. Как правило, это используется в поточном процессе для размещения продуктов на конвейере.</p>
+<p class="p_Normal">К Транспортному Узлу - Продукт транспортируется к определенному транспортному узлу с помощью транспортной системы. В этом режиме можно использовать транспортную систему в режиме проталкивания, что означает, что продукты транспортируются к целевому узлу, используя конвейер в качестве буфера.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">КонтейнерМестаНазначения</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Контейнер компонента, выходное соединение которого используется для размещения исходящих продуктов в режиме контейнера.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">РамкаПоложенияДелали</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Расположение Системы координат, где размещаются продукты.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">РамкаПоложенияВходногоРесурса</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет смещение положения ресурса от положения продукта и плоскости XY, на которую проецируется положение ресурса при заполнении буфера.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">РамкаПоложенияВыходногоРесурса</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет смещение позиции ресурса от позиции продукта и плоскости XY, на которую проецируется позиция ресурса при очистке буфера.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Смещение</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Смещение первого продукта от Системы координат позиции продукта</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">КоличествоШаблонов</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Количество продуктов по осям X, Y, Z</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ШагШаблона</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Шаг между продуктами в шаблоне по осям X, Y, Z</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">БуферныйРежим</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет порядок доступа продукта к буферу.</p>
+<p class="p_Normal">В порядке поступления (FIFO) - Первый поступивший экземпляр выводится первым.</p>
+<p class="p_Normal">Последний пришел — первый ушел (LIFO) - Последний введенный экземпляр транспортируется первым.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПределПарралельногоВхода</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет, сколько продуктов может заполнить буфер параллельно</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПределПарралельногоВывода</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет, сколько продуктов может покинуть буфер параллельно</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ОстановитьПрием</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Когда оценивается как True, буфер перестает принимать продукты и опустошается.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

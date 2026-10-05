@@ -1,0 +1,199 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcTopologyPickCommand</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcTopologyPickCommand</h1>
+<p>vcTopologyPickCommand provides options for handling the selection and 
+ creation of points, lines and curves using the interactiveTopologyPick 
+ command.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcCommand.htm">vcCommand</a></p>
+<p><img src="topology.png" alt="" border="0"></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot29999" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot29999', 'MTPOPUP29999');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP29999" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ContinuousMode</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the use of continuous curve selection in 3D world.</td>
+	</tr>
+	<tr>
+		<td>SnapOnCurve</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the ability to select a curve.</td>
+	</tr>
+	<tr>
+		<td>SnapOnCurveLoop</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the ability to select a curve loop.</td>
+	</tr>
+	<tr>
+		<td>SnapOnSurface</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the ability to select a point on a face.</td>
+	</tr>
+	<tr>
+		<td>TargetAvailable</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if pointing at a valid target.</td>
+	</tr>
+	<tr>
+		<td>TargetCurveAvailable</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if pointing at an available curve.</td>
+	</tr>
+	<tr>
+		<td>TargetCurveIndex</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the index of an available curve.</td>
+	</tr>
+	<tr>
+		<td>TargetCurveLoopAvailable</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if pointing at an available curve loop.</td>
+	</tr>
+	<tr>
+		<td>TargetCurveLoopIndex</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the index of an available curve loop.</td>
+	</tr>
+	<tr>
+		<td>TargetCurves</td>
+		<td>List of (<a href="vcNode.htm">vcNode</a>, <a href="vcGeometrySet.htm">vcGeometrySet</a>, 
+		 Integer curveIndex, Boolean curve_direction)</td>
+		<td>R</td>
+		<td>Gets a list of curve data for target.</td>
+	</tr>
+	<tr>
+		<td>TargetGeoset</td>
+		<td><a href="vcGeometrySet.htm">vcGeometrySet</a></td>
+		<td>R</td>
+		<td>Gets geometry set of a target.</td>
+	</tr>
+	<tr>
+		<td>TargetLocked</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if target has been selected in 3D world.</td>
+	</tr>
+	<tr>
+		<td>TargetNode</td>
+		<td><a href="vcNode.htm">vcNode</a></td>
+		<td>R</td>
+		<td>Gets the node containing target.</td>
+	</tr>
+	<tr>
+		<td>TargetNormal</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>R</td>
+		<td>If available, gets surface normal of target.</td>
+	</tr>
+	<tr>
+		<td>TargetNormalAvailable</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if surface normal is available for target.</td>
+	</tr>
+	<tr>
+		<td>TargetPosition</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>R</td>
+		<td>Gets the position vector of target in World coordinate system.</td>
+	</tr>
+	<tr>
+		<td>TargetSurfaceAvailable</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if pointing at an available point on surface.</td>
+	</tr>
+	<tr>
+		<td>TargetSurfaceIndex</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the index of an available surface.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnTargetAvailable</td>
+		<td><a href="vcTopologyPick.htm">vcTopologyPickCommand</a> <span 
+		 class="Italic">command</span></td>
+		<td>Triggered when pointing at an available target. 
+		<p class="TableNormal">The command itself is passed as an event 
+		 argument, thereby providing access to updated property values.</p></td>
+	</tr>
+	<tr>
+		<td>OnTargetSet</td>
+		<td><a href="vcTopologyPick.htm">vcTopologyPickCommand</a> <span 
+		 class="Italic">command</span></td>
+		<td>Triggered when a valid target has been selected in 3D world. 
+		 
+		<p class="TableNormal">The command itself is passed as an event 
+		 argument, thereby providing access to updated property values.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Examples</h2>
+<p><span class="Example">Example. Implement command and continuous selection</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>cmd = app.findCommand('interactiveTopologyPick') 
+		<br>cmd.ContinousMode = True 
+		<br>cmd.execute()</td>
+	</tr>
+</table>
+<!--======================================Events========================================-->
+</body>
+</html>

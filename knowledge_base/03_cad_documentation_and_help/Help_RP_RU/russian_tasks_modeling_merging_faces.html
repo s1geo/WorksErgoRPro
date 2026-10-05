@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Объединить грани</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Точки на гранях можно объединять вместе для формирования более гладких поверхностей." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Объединить грани&nbsp;</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Точки на гранях можно объединять вместе для формирования более гладких поверхностей.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>На вкладке <span style="font-weight: bold;">Моделирование</span> в группе <span style="font-weight: bold;">Геометрия</span>, щелкните стрелку <span style="font-weight: bold;">Инструменты</span>, а затем щелкните <span style="font-weight: bold;">Объединить грани</span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>В трехмерном мире выберите набор геометрии.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>В области задач <span style="font-weight: bold;">Объединить грани</span>, установите <span style="font-weight: bold;">Чувствительность </span>до нужного радиуса для обнаружения соседних точек, а затем нажмите <span style="font-weight: bold;">Объединить</span>.</p>
+<p class="p_Normal">Процесс включает в себя назначение значения допуска, которое определяет радиус точки на открытой кромке, чтобы найти и сопоставить себя с точкой на другой грани.</p>
+<p class="p_Normal"><img alt="MergeFaces1" style="margin:0;width:3.2292in;height:1.6458in;border:none" src="mergefaces1.png"/></p>
+<p class="p_Normal">Два требования: края двух точек должны идти в противоположных направлениях друг от друга и принадлежать одному и тому же объекту.</p>
+<p class="p_Normal"><img alt="MergeFaces2" style="margin:0;width:4.9167in;height:1.5104in;border:none" src="mergefaces2.png"/></p>
+<p class="p_Normal">Если ребро имеет более одного соседнего ребра, ребро будет пропущено, и грани не будут сливаться на этих ребрах. Как правило, этот процесс выполняется для очистки вырожденной и неоднородной геометрии, например, исправления трещин и отверстий на поверхностях.</p>
+<p class="p_Normal"><img alt="MergeFaces3" style="margin:0;width:2.9167in;height:2.2813in;border:none" src="mergefaces3.png"/></p>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help - Ergonomics</title>
+
+<style>
+/* =========================
+   Base
+========================= */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   Glass Header (Desktop + Mobile)
+========================= */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  font-size: 18px;
+  font-weight: bold;
+
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Hamburger (mobile only) */
+#menuToggle {
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* =========================
+   Layout
+========================= */
+.container {
+  display: flex;
+  height: calc(100vh - 56px);
+  overflow: hidden;
+}
+
+/* Left Menu (Desktop) */
+.menu {
+  width: 360px;
+  min-width: 360px;
+  background: #f2f2f2;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.menu li {
+  list-style: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.menu li:hover,
+.menu li.active {
+  background: #ddd;
+}
+
+/* Divider */
+.divider {
+  width: 5px;
+  background: #ccc;
+  cursor: col-resize;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* =========================
+   YouTube RWD
+========================= */
+.video-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 70vh;
+  margin-top: 12px;
+}
+
+.video-wrapper img {
+  display: block;
+}
+   
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* =========================
+   Mobile Drawer Mode
+========================= */
+@media (max-width: 768px) {
+
+  #menuToggle {
+    display: inline-block;
+  }
+
+  .container {
+    height: calc(100vh - 56px);
+  }
+
+  .menu {
+    position: fixed;
+    top: 56px;
+    left: -280px;
+    width: 280px;
+    height: calc(100vh - 56px);
+    min-width: unset;
+    background: #f2f2f2;
+    z-index: 999;
+    transition: left 0.25s ease;
+  }
+
+  .menu.show {
+    left: 0;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .content {
+    padding: 16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Glass Header -->
+<div class="app-header">
+  <button id="menuToggle">☰</button>
+   Help - Ergonomics
+</div>
+
+<div class="container">
+  <ul class="menu" id="menu"></ul>
+  <div class="divider" id="divider"></div>
+  <div class="content" id="content">
+    
+  </div>
+</div>
+<script>
+/* =========================
+   Data
+========================= */
+const pages = [
+  {
+     title: "Contact",
+     desc: `
+		Visual Components <a href="mailto:Mustafa.Kamal@VisualComponents.com">Mustafa.Kamal@VisualComponents.com</a><br>
+		Work(s) Ergo <a href="mailto:info@worksergo.com">info@worksergo.com</a>
+		`
+  },
+  {
+     title: "Analysis Tools",
+     desc: `<img src="https://ecat.visualcomponents.net/elib/BetaComponents/Analysis-Tools.png" style="width: 100%; height: auto; display: block; border-radius: 4px;">        
+    `
+  },
+  {
+    title: "Setup",
+    desc: `
+    <ol>
+       <li>Close Visual Components.</li>
+       <li>Download the <a href="https://forum.visualcomponents.com/t/work-s-ergonomics-plugin/9025" target="_blank"">Plugin</a>.</li>
+       <li>Extract the ZIP file and place the DLL file into the Visual Components installation directory (e.g., C:\\Program Files\\Visual Components\\Visual Components &lt;Essentials, Professional, or Premium&gt; 4.10\\).</li>
+       <li>Launch Visual Components.</li>
+       <li>Go to <strong>eCat</strong> > <strong>Models By Type</strong> > <strong>Ergonomics</strong> > <strong>Work(s)</strong> and import the <strong>Digital Human Model</strong> component.</li>       
+       <li>Select the DHM, click the <strong>Update Credential</strong> button, and enter your Username and Application Password. If you do not have these, please contact <a href="mailto:info@worksergo.com">Work(s) Ergo</a>.<br>
+           <img src="https://ecat.visualcomponents.net/elib/BetaComponents/Credential.png" style="width: 100%; height: auto; display: block; border-radius: 4px;"></li>
+       <li>You are now ready to go!</li>
+    </ol>
+    `
+  },
+  {
+    title: "Units and Theme",
+    desc: `
+    <p>You can configure the units and the theme in the backstage.</p>
+    <img src="https://ecat.visualcomponents.net/elib/BetaComponents/Units-Theme.png" style="width: 100%; height: auto; display: block; border-radius: 4px;">
+    `
+  },
+  {
+    title: "Snapping floating hands",
+    desc: `
+    <p>
+    The Work(s) solution does not require adjust the body postures. Human movements are naturally variable, it is unrealistic to expect a person to perform the same task with identical joint angles and posture every time. You only need to set the position and orientation of the <strong>floating hands</strong>. Work(s) will then iterate through all feasible postures (typically thousands). Regardless of which <strong>Analysis Tools</strong> are used for calculation, Work(s) provides a standardized <strong>DCR (Demand/Capacity)</strong> value.
+    </p>   
+    <ol>
+       <li>Select either the left or right hand.</li>
+       <li>You can manually modify the <strong>X, Y, Z, Rx, Ry, and Rz</strong> values.<br>
+           <img src="https://ecat.visualcomponents.net/elib/BetaComponents/Snapping-Selection.png" style="width: 100%; height: auto; display: block; border-radius: 4px;">
+       </li>
+       <li>Alternatively, you can use the <a href="https://help.visualcomponents.com/4.10/Premium/en/English/3D%20Operations/Snapping_components.htm" target="_blank">Snapping tool</a>.</li>
+       <li>To keep the palm perpendicular to a surface, check <strong>Set Orientation</strong> and set <strong>Align Axis</strong> to <strong>'-X'</strong>.
+       <br><img src="https://ecat.visualcomponents.net/elib/BetaComponents/Snapping-Preview.png" style="width: 100%; height: auto; display: block; border-radius: 4px;">
+       </li>
+    </ol>       
+    `
+  },  
+  {
+    title: "Coordinate Systems",
+    desc: `    
+    <ol>
+       <li><strong>World</strong> is a global coordinate system with a fixed origin.</li>
+       <li><strong>Parent</strong> references the object coordinate system of a selected component's parent. If a component is not attached to a node in another component, the parent of a selected component is the 3D world (simulation root node). In that case, both the World and Parent coordinate systems would have the same origin.</li>
+       <li><strong>Object</strong> references a selected component's coordinate system. That is, the location of a component is relative to its own origin.</li>
+       <li><a href="https://help.visualcomponents.com/4.10/Premium/en/English/Getting%20Started/Moving_and_rotating_components.htm" target="_blank">Moving and Rotating Components</a></li>
+    </ol>     
+    <img src="https://ecat.visualcomponents.net/elib/BetaComponents/Coordinate-Systems.png" style="width: 100%; height: auto; display: block; border-radius: 4px;">
+    `
+  },
+  {
+    title: "Collision Detection",
+    desc: `
+    <ol>
+       <li>Switch to the PROGRAM tab.</li>
+       <li>Check the Enable Detectors box.</li>
+       <li>Move either the left or right hand freely.</li>
+       <li><a href="https://help.visualcomponents.com/4.10/Premium/en/English/Robot%20Programming/Other%20Operations/Collision_Detectors.htm" target="_blank">Collision Detectors</a></li>
+       <li><a href="https://help.visualcomponents.com/4.10/Premium/en/English/Robot%20Programming/Other%20Operations/Detecting_collisions.htm" target="_blank">Detecting Collisions</a></li>              
+    </ol>   
+    <img src="https://ecat.visualcomponents.net/elib/BetaComponents/Collision-Detection.png" style="width: 100%; height: auto; display: block; border-radius: 4px;">
+    `
+  },
+  {
+    title: "Cloning DHM",
+    desc: `
+    <p>Since the DHM is a component, you can easily replicate multiple instances of it.</p>
+    <ol>
+       <li>Select the <strong>DHM</strong> component.</li>
+       <li>Switch to the <strong>Utils</strong> tab.</li>
+       <li>Define the offset distance and the quantity.</li>       
+       <li>Click the <strong>Clone</strong> button.</li>
+       <li>If you have set <strong>Select Barrier Objects</strong>, you will be prompted to choose whether to clone the current barriers or use the same barriers.</li>
+       <li>If you have set <strong>Eye Gaze Target</strong>, you will be prompted to choose whether to clone the current eye gaze target or use the same eye gaze target.<br><img src="https://ecat.visualcomponents.net/elib/BetaComponents/Cloning-DHM-Barrier-Eye-Gaze-Target.png" style="width: 30%; height: auto; display: block; border-radius: 4px;"></li>
+       <li>If you are using the default <strong>Copy/Paste</strong> commands in Visual Components, ensure the <strong>Attach Hands?</strong> option is enabled, or make sure to select the <strong>Floating hands</strong> simultaneously with the DHM.<br><img src="https://ecat.visualcomponents.net/elib/BetaComponents/Cloning-DHM.png" style="width: 100%; height: auto; display: block; border-radius: 4px;"></li>
+    </ol>    
+    `
+  },
+  {
+    title: "Attach Hands?",
+    desc: `    
+    <p>If you want to keep the <strong>Floating Hands</strong> in a fixed position while moving the body, you can disable the <strong>Attach Hands?</strong> option.</p>    
+    <img src="https://ecat.visualcomponents.net/elib/BetaComponents/Attach-Hands.png" style="width: 100%; height: auto; display: block; border-radius: 4px;">
+    `
+  },
+  {
+    title: "Controller",
+    desc: `    
+    <ol>
+       <li>Activate <strong>Interact</strong> mode.</li>
+       <li>Interact the <strong>large yellow cylinder</strong> to cycle through postures with different DCR values.</li>
+       <li>The <strong>horizontal blue cylinder</strong> is used to switch between different Task Types.</li>
+       <li>For specific Task Types, a <strong>small pink cylinder</strong> will appear; clicking it will reset the DHM to its <strong>ready posture</strong> (pre-task pose).</li>
+    </ol>
+    <img src="https://ecat.visualcomponents.net/elib/BetaComponents/Controller.png" style="width: 100%; height: auto; display: block; border-radius: 4px;">
+    `
+  },
+  {
+    title: "Barrier",
+    desc: `    
+    <ol>
+       <li>Go to <strong>eCat</strong> > <strong>Models By Type</strong> > <strong>Ergonomics</strong> > <strong>Work(s)</strong> and import the <strong>Barrier</strong> component.</li>
+       <li>You can add <strong>more than one Barrier</strong>.</li>
+       <li>To select a Barrier, you can either click the <strong>yellow bounding box</strong> to pick it directly from the <strong>3D viewport</strong>, or click the <strong>yellow plus (+) icon</strong> to choose from the list.</li>
+       <li>Activate <strong>Interact</strong> mode.</li>
+       <li>You can resize the barrier by dragging any of its six faces. The origin will always remain at the exact center of the component throughout the scaling process.
+       <br>
+       <img src="https://ecat.visualcomponents.net/elib/BetaComponents/Barrier.png" style="width: 100%; height: auto; display: block; border-radius: 4px;"></li>
+    </ol>    
+    `
+  },
+  {
+     title: "Report",
+     desc: `    
+     <p>Click <strong>Open Subfolder</strong>, and you will find the <strong>Analysis Report</strong> (Excel file) and all related images within the directory.</p>
+     <img src="https://ecat.visualcomponents.net/elib/BetaComponents/Report.png" style="width: 100%; height: auto; display: block; border-radius: 4px;"></li>
+    `
+  },
+  {
+     title: "Rendering",
+     desc: `    
+     <ol>
+       <li>We recommend selecting Realistic shaded as your render mode.<br><img src="https://ecat.visualcomponents.net/elib/BetaComponents/Render-Mode.png" style="width: 30%; height: auto; display: block; border-radius: 4px;"></li>
+       <li>Alternatively, you can use the free <a href="https://forum.visualcomponents.com/t/blender-addon-blenderer/773" target="_blank">Blenderer add-on</a> to generate photorealistic images.<br><img src="https://ecat.visualcomponents.net/elib/BetaComponents/Blenderer.png" style="width: 100%; height: auto; display: block; border-radius: 4px;"></li>      
+     </ol>         
+    `
+  }  
+];
+
+/* =========================
+   YouTube
+========================= */
+function youtubeEmbed(id) {
+  if (!id) return "";
+  return `
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/${id}"
+        allowfullscreen>
+      </iframe>
+    </div>
+  `;
+}
+
+/* =========================
+   Show Page
+========================= */
+function showPage(index) {
+  const p = pages[index];
+  
+  const imgHtml = p.image ? `
+    <div style="width: 100%; margin-top: 12px;">
+      <img src="${p.image}">
+    </div>
+  ` : "";
+
+  content.innerHTML = `
+    <h2>${p.title}</h2>
+    <div style="line-height: 1.6;">${p.desc}</div>
+    ${imgHtml}
+    ${youtubeEmbed(p.videoId)}
+  `;
+
+  document.querySelectorAll(".menu li")
+    .forEach((li, i) => li.classList.toggle("active", i === index));
+
+  if (window.innerWidth <= 768) {
+    menu.classList.remove("show");
+  }
+}
+
+/* =========================
+   Build Menu
+========================= */
+const menu = document.getElementById("menu");
+const content = document.getElementById("content");
+
+pages.forEach((p, i) => {
+  const li = document.createElement("li");
+  li.textContent = p.title;
+  li.onclick = () => showPage(i);
+  menu.appendChild(li);
+});
+
+/* =========================
+   Mobile Toggle
+========================= */
+document.getElementById("menuToggle").onclick = () => {
+  menu.classList.toggle("show");
+};
+
+/* =========================
+   Divider Drag (Desktop)
+========================= */
+const divider = document.getElementById("divider");
+let dragging = false;
+
+divider.addEventListener("mousedown", () => {
+  dragging = true;
+  document.body.style.cursor = "col-resize";
+});
+
+document.addEventListener("mouseup", () => {
+  dragging = false;
+  document.body.style.cursor = "";
+});
+
+document.addEventListener("mousemove", e => {
+  if (!dragging || window.innerWidth <= 768) return;
+
+  const rect = document.querySelector(".container").getBoundingClientRect();
+  const w = e.clientX - rect.left;
+
+  if (w > 200 && w < 600) {
+    menu.style.width = w + "px";
+  }
+});
+</script>
+
+</body>
+</html>

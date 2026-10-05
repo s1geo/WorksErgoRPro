@@ -1,0 +1,399 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcCollisionDetector</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcCollisionDetector</h1>
+<p>vcCollisionDetector is a layout item used for detecting the collision 
+ of objects in the 3D world. A collision test can detect a collision using 
+ geometry in different nodes and/or a bound box defined by two corner points.</p>
+<p>Generally, a collision detector compares the geometry in two node lists. 
+ It tests if the geometry in one list collides with geometry in another 
+ list. A tolerance/minimum distance can be used to detect a collision before 
+ it occurs in the 3D world. A collision detector can test for the first 
+ collision or all collisions between nodes in both lists.</p>
+<p>If you use a bound box, one point defines the bottom left corner of 
+ the box, and the other point defines the upper right corner of the box. 
+ Also, consider using a <a href="vcVolumeDetector.htm">volume detector</a> 
+ instead of a collision detector.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcLayoutItem.htm">vcLayoutItem</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot25395" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot25395', 'MTPOPUP25395');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP25395" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Active</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the use of collision test.</td>
+	</tr>
+	<tr>
+		<td>CollisionMaterial</td>
+		<td><a href="vcMaterial.htm">vcMaterial</a></td>
+		<td>RW</td>
+		<td>Get/Set material of the collided node.</td>
+	</tr>
+	<tr>
+		<td>DisplayMinimumDistance</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the display of minimum distance in the 3D world 
+		 between objects in a collision test that uses a distance tolerance 
+		 greater than zero.</td>
+	</tr>
+	<tr>
+		<td>FirstCollision</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if collision test only records the first detected collision. 
+		 
+		<p class="TableNormal">A True value records the first collision. 
+		 A False value records all collisions.</p>
+		<p class="TableNormal">FirstCollision is automatically disabled 
+		 when the Tolerance property has a value greater than zero. This 
+		 is done in order to calculate the minimum distance between two 
+		 objects based on all detected collisions in the test.</p></td>
+	</tr>
+	<tr>
+		<td>HitCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the number of detected collisions.</td>
+	</tr>
+	<tr>
+		<td>IgnoreClosestNodes</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Ignores collisions between two nodes if a node is either parent 
+		 or child to the other node. This can be used to test self-collision 
+		 of a component. Default value is False.</td>
+	</tr>
+	<tr>
+		<td>IgnoreDifferentComponents</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Ignores collisions between nodes when they are on different 
+		 components. This can be used to test multiple self-collisions 
+		 of components. Default value is False.</td>
+	</tr>
+	<tr>
+		<td>NodeBCollisionMaterial</td>
+		<td><a href="vcMaterial.htm">vcMaterial</a></td>
+		<td>RW</td>
+		<td>Get/Set material of the collided node B. This property will 
+		 define the node B material over CollisionMaterial.</td>
+	</tr>
+	<tr>
+		<td>NodeListA</td>
+		<td>List of 3-tuple (<a href="vcNode.htm">vcNode</a> <span class="Italic">node</span>, 
+		 Enumeration <span class="Italic">type</span>, Enumeration <span 
+		 class="Italic">inclusion_scope</span>)</td>
+		<td>RW</td>
+		<td>Defines a list of nodes to compare with NodeListB. 
+		<p class="TableNormal">See <a href="Constants.htm#Collision_Detector_Constants">Collision 
+		 Detector Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>NodeListB</td>
+		<td>List of 3-tuple (<a href="vcNode.htm">vcNode</a> <span class="Italic">node</span>, 
+		 Enumeration <span class="Italic">inclusion_type</span>, Enumeration 
+		 <span class="Italic">inclusion_scope</span>)</td>
+		<td>RW</td>
+		<td>Defines a list of nodes to compare with NodeListA. 
+		<p class="TableNormal">See <a href="Constants.htm#Collision_Detector_Constants">Collision 
+		 Detector Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>StopOnCollision</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if a simulation is stopped when there is a detected 
+		 collision.</td>
+	</tr>
+	<tr>
+		<td>Tolerance</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines a distance tolerance for detecting collisions before 
+		 objects in the test collide with one another. 
+		<br>&#160;
+		<br>Note that if Tolerance is set to zero, a simplified 
+		 collision detection algorithm is used. This algorithm does not 
+		 detect collisions if one geometry is completely enclosed by the 
+		 other, so for example, if the bounding box surfaces do not intersect. 
+		 </td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getBBoxGeometry</td>
+		<td><a href="vcPolygonSet.htm">vcPolygonSet</a></td>
+		<td><a href="vcVector.htm">vcVector</a> <span class="hcp1">corner1</span>, 
+		 <a href="vcVector.htm">vcVector</a> <span class="hcp1">corner2,</span> 
+		 [<a href="vcMatrix.htm">vcMatrix</a> <span class="hcp1">transformation</span>]</td>
+		<td>Returns a bound box defined by given corner points as a set 
+		 of geometry. 
+		<p class="TableNormal">An optional <span class="Italic">transformation</span> 
+		 argument can be given to transform the bound box using World coordinates.</p></td>
+	</tr>
+	<tr>
+		<td>getHitFeatureA</td>
+		<td><a href="vcFeature.htm">vcFeature</a></td>
+		<td>Integer <span class="hcp1">index</span></td>
+		<td>Returns the feature in NodeListA in the detected collision.</td>
+	</tr>
+	<tr>
+		<td>getHitFeatureB</td>
+		<td><a href="vcFeature.htm">vcFeature</a></td>
+		<td>Integer <span class="hcp1">index</span></td>
+		<td>Returns the feature in NodeListB in the detected collision.</td>
+	</tr>
+	<tr>
+		<td>getHitGeometrySetA</td>
+		<td><a href="vcGeometrySet.htm">vcGeometrySet</a></td>
+		<td>Integer <span class="hcp1">index</span></td>
+		<td>Returns the geometry set in NodeListA in the detected collision.</td>
+	</tr>
+	<tr>
+		<td>getHitGeometrySetB</td>
+		<td><a href="vcGeometrySet.htm">vcGeometrySet</a></td>
+		<td>Integer <span class="hcp1">index</span></td>
+		<td>Returns the geometry set in NodeListB in the detected collision.</td>
+	</tr>
+	<tr>
+		<td>getHitNodeA</td>
+		<td><a href="vcNode.htm">vcNode</a></td>
+		<td>Integer <span class="hcp1">index</span></td>
+		<td>Returns the node in NodeListA in the detected collision.</td>
+	</tr>
+	<tr>
+		<td>getHitNodeB</td>
+		<td><a href="vcNode.htm">vcNode</a></td>
+		<td>Integer <span class="hcp1">index</span></td>
+		<td>Returns the node in NodeListB in the detected collision.</td>
+	</tr>
+	<tr>
+		<td>getMinimumDistanceDistance</td>
+		<td>Real</td>
+		<td>Integer <span class="hcp1">index</span></td>
+		<td>Returns the distance between objects in a detected collision 
+		 when testing with a tolerance/minimum distance.</td>
+	</tr>
+	<tr>
+		<td>getMinimumDistancePoint1</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>Integer <span class="hcp1">index</span></td>
+		<td>Returns the point in NodeListA in a detected collision when 
+		 using a tolerance.</td>
+	</tr>
+	<tr>
+		<td>getMinimumDistancePoint2</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>Integer <span class="hcp1">index</span></td>
+		<td>Returns the point in NodeListB in a detected collision when 
+		 using a tolerance.</td>
+	</tr>
+	<tr>
+		<td>testAllBBoxCollisions</td>
+		<td>Boolean</td>
+		<td><a href="vcVector.htm">vcVector</a> <span class="hcp1">corner1</span>, 
+		 <a href="vcVector.htm">vcVector</a> <span class="hcp1">corner2</span> 
+		 [<a href="vcMatrix.htm">vcMatrix</a> <span class="hcp1">transformation</span>], 
+		 [Real <span class="hcp1">tolerance</span>]</td>
+		<td>Returns true if any collision between NodeListA and a bound 
+		 box defined by given corner points. 
+		<p class="TableNormal">An optional <span class="Italic">transformation</span> 
+		 argument can be given to transform the bound box using World coordinates.</p>
+		<p class="TableNormal">If no <span class="hcp1">tolerance</span> 
+		 is given, test uses zero distance.</p></td>
+	</tr>
+	<tr>
+		<td>testAllCollisions</td>
+		<td>Boolean</td>
+		<td>[Real <span class="hcp1">tolerance</span>]</td>
+		<td>Returns true if any collision between NodeListA and NodeListB. 
+		 
+		<p class="TableNormal">If no <span class="hcp1">tolerance</span> 
+		 is given, test uses zero distance.</p></td>
+	</tr>
+	<tr>
+		<td>testBBoxComponentCollisions</td>
+		<td>Boolean</td>
+		<td><a href="vcVector.htm">vcVector</a> <span class="hcp1">corner1</span>, 
+		 <a href="vcVector.htm">vcVector</a> <span class="Italic">corner2</span>, 
+		 [<a href="vcMatrix.htm">vcMatrix</a> <span class="hcp1">bbox_reference</span>]</td>
+		<td>Returns true if a component collides with a bound box defined 
+		 by given corner points. 
+		<p class="TableNormal">An optional <span class="Italic">bbox_reference 
+		 </span>argument can be given to transform the bound box using 
+		 World coordinates.</p></td>
+	</tr>
+	<tr>
+		<td>testBBoxNodeCollisions</td>
+		<td>Boolean</td>
+		<td><a href="vcVector.htm">vcVector</a> <span class="hcp1">corner1</span>, 
+		 <a href="vcVector.htm" title="vcVector">vcVector</a> <span class="Italic">corner2</span>, 
+		 [<a href="vcMatrix.htm">vcMatrix</a> <span class="hcp1">bbox_reference</span>]</td>
+		<td>Returns true if a node collides with a bound box defined by 
+		 given corner points. 
+		<p class="TableNormal">An optional <span class="Italic">bbox_reference 
+		 </span>argument can be given to transform the bound box using 
+		 World coordinates.</p></td>
+	</tr>
+	<tr>
+		<td>testComponentCollisions</td>
+		<td>Boolean</td>
+		<td>None</td>
+		<td>Returns true if collision detected with component.</td>
+	</tr>
+	<tr>
+		<td>testMinimumDistance</td>
+		<td>Boolean</td>
+		<td>Real <span class="Italic">tolerance</span></td>
+		<td>Returns true if collision detected with a given <span class="Italic">tolerance</span> 
+		 value.</td>
+	</tr>
+	<tr>
+		<td>testNodeCollisions</td>
+		<td>Boolean</td>
+		<td>None</td>
+		<td>Returns true if collision detected with node.</td>
+	</tr>
+	<tr>
+		<td>testOneBBoxCollision</td>
+		<td>Boolean</td>
+		<td><a href="vcVector.htm">vcVector</a> <span class="hcp1">corner1</span>, 
+		 <a href="vcVector.htm">vcVector</a> <span class="hcp1">corner2</span> 
+		 [<a href="vcMatrix.htm">vcMatrix</a> <span class="hcp1">transformation</span>] 
+		 [Real <span class="hcp1">tolerance</span>]</td>
+		<td>Returns true for first collision between NodeListA and a bound 
+		 box defined by given corner points. 
+		<p class="TableNormal">An optional <span class="Italic">transformation</span> 
+		 argument can be given to transform the bound box using World coordinates.</p>
+		<p class="TableNormal">If no <span class="hcp1">tolerance</span> 
+		 is given, test uses zero distance.</p></td>
+	</tr>
+	<tr>
+		<td>testOneCollision</td>
+		<td>Boolean</td>
+		<td>[Real <span class="hcp1">tolerance</span>]</td>
+		<td>Returns true for first collision between NodeListA and NodeListB. 
+		 
+		<p class="TableNormal">If no <span class="hcp1">tolerance</span> 
+		 is given, test uses zero distance.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><p>OnCollision</p></td>
+		<td><p><a href="vcCollisionDetector.htm">vcCollisionDetector</a> 
+		 <span class="Italic">detector</span></p></td>
+		<td><p>Triggered when a collision is detected and test is active.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Detecting if gripper (or anything the 
+ gripper is holding) collides with something</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>def OnSignal( signal ): 
+		<br>&#160;&#160;pass 
+		<br>&#160; 
+		<br>def OnRun(): 
+		<br>&#160;&#160;detector = simu.newCollisionDetector() 
+		<br>&#160;&#160;detector.NodeListA = [(gripper_node, VC_NODELIST_INCLUDE, VC_NODELIST_TREE )] 
+		<br>&#160;&#160;detector.NodeListB = [(simu.World, VC_NODELIST_INCLUDE, VC_NODELIST_TREE ),(Component_, VC_NODELIST_EXCLUDE, VC_NODELIST_TREE )] 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;while True: 
+		<br>&#160;&#160;&#160;&#160;delay(0.1) 
+		<br>&#160;&#160;&#160;&#160;hit = detector.testOneCollision(0.1) 
+		<br>&#160;&#160;&#160;&#160;if hit: &#160;&#160;&#160;&#160;&#160; 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;#part = detector.Component &lt; --------------- please remove 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;print 'collision detected' 
+		<br>&#160; 
+		<br>simu = getSimulation() 
+		<br>app = getApplication() 
+		<br>gripper_node = getComponent() 
+		<br>Component_ = app.findComponent('BinPartBlockTemplate')</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Detecting collisions using a minimum 
+ distance tolerance</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>&#160;&#160;node1.update() 
+		<br>&#160;&#160;node2.update() 
+		<br>&#160;&#160;sim = getSimulation() 
+		<br>&#160;&#160;detector = sim.newCollisionDetector() 
+		<br>&#160;&#160;detector.NodeListA = [ (node1, VC_NODELIST_INCLUDE, VC_NODELIST_TREE ) ] 
+		<br>&#160;&#160;detector.NodeListB = [ (node2, VC_NODELIST_INCLUDE, VC_NODELIST_TREE ) ] 
+		<br>&#160;&#160;hit = detector.testMinimumDistance( some_dist ) 
+		<br>&#160;&#160;print 'Minimum distance: %f mm' % detector.getMinimumDistanceDistance( 0 ) 
+		<br>&#160;&#160;v1 = detector.getMinimumDistancePoint1( 0 ) 
+		<br>&#160;&#160;v2 = detector.getMinimumDistancePoint2( 0 ) 
+		<br>&#160;&#160;line_set = sim.World.UserGeometry.createGeometrySet(VC_COMPACTLINESET) 
+		<br>&#160;&#160;line_set.addLine( [v1,v2] ) 
+		<br>&#160;&#160;line_set.update()</td>
+	</tr>
+</table>
+</body>
+</html>

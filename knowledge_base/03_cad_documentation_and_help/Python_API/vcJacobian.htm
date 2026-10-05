@@ -1,0 +1,143 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="kinematics,python kinematics,motion target,position matrix">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcJacobian</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcJacobian</h1>
+<p>vcJacobian allows you to calculate inverse and forward kinematics solutions. 
+ For example, you can solve for joint values of a robot at a given position.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot3727" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot3727', 'MTPOPUP3727');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP3727" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ForwardKin</td>
+		<td>Function</td>
+		<td>RW</td>
+		<td>Defines the function for forward kinematics calculation. 
+		<p class="TableNormal">If None, uses built-in method.</p></td>
+	</tr>
+	<tr>
+		<td>FractionalStep</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the fractional step of calculation. 
+		<p class="TableNormal">The default value is 0.5.</p></td>
+	</tr>
+	<tr>
+		<td>IgnoreOrientation</td>
+		<td>RW</td>
+		<td>Boolean</td>
+		<td>Turns on/off the calculation of orientation.
+		<p class="TableNormal">The default value is False in which orientation 
+		 is calculated for solution. </p>
+		<p class="TableNormal">Generally, a True value would be used when 
+		 orientation is not important, for example with Cartesian robots.</p></td>
+	</tr>
+	<tr>
+		<td>JacobianJointCount</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the number of joints in calculation.</td>
+	</tr>
+	<tr>
+		<td>NumIterationsInner</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the number of iterations for calculating inner product.</td>
+	</tr>
+	<tr>
+		<td>NumIterationsOuter</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the number of iterations for calculating outer product.</td>
+	</tr>
+	<tr>
+		<td>OrientationMaxStep</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the max step for orientation in calculation.</td>
+	</tr>
+	<tr>
+		<td>OrientationTolerance</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the tolerance for orientation in calculation.</td>
+	</tr>
+	<tr>
+		<td>PositionalMaxStep</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the max step for position in calculation.</td>
+	</tr>
+	<tr>
+		<td>PositionalTolerance</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the tolerance for position in calculation.</td>
+	</tr>
+	<tr>
+		<td>RotationalJointStepSize</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the step for rotational joint values in calculation.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>inverse</td>
+		<td>2-tuple (List of Real joint_values, Enumeration solution)</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a> <span class="Italic">target</span>, 
+		 List of Real <span class="Italic">values</span>, [List of Boolean 
+		 <span class="Italic">fixed</span>]</td>
+		<td>Calculates the joint values of robot for a given <span class="Italic">target</span> 
+		 and list of joint <span class="Italic">values</span>. 
+		<p class="TableNormal">An optional <span class="Italic">fixed</span> 
+		 argument can be given to identify fixed joints in the robot.</p>
+		<p class="TableNormal">The returned value will identify joint values 
+		 of robot and status of solution to target.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Solution_Constants">Solution 
+		 Constants</a> for more information.</p></td>
+	</tr>
+</table>
+</body>
+</html>

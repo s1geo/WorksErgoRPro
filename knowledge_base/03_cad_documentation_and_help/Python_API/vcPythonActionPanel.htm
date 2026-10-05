@@ -1,0 +1,62 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcPythonActionPanel</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcPythonActionPanel</h1>
+<p>The action panel can be opened when executing a python command. To open 
+ the panel, import vcCommand * and use the executeInActionPanel() method</p>
+<h2>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnPanelClosed</td>
+		<td>None</td>
+		<td>Triggered when a close button on an action panel is clicked.</td>
+	</tr>
+</table>
+<h2>Examples</h2>
+<p><span class="Example">Example. Trigger a function when the action panel 
+ is closed. Write this to into your python command.</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 40.383%;">
+	<col style="width: 59.617%;">
+	<tr>
+		<td>from vcCommand import * 
+		<br>from vcScript import * 
+		<br>&#160; 
+		<br>cmd = getCommand() 
+		<br>app = cmd.Application 
+		<br>panel = app.PythonActionPanel 
+		<br>&#160; 
+		<br>def first_state(): 
+		<br>&#160;&#160;executeInActionPanel() 
+		<br>&#160; 
+		<br>addState(first_state) 
+		<br>&#160; 
+		<br>def OnCloseMethodCalled(): 
+		<br>&#160;&#160;print &quot;Python action panel closed!&quot; 
+		<br>&#160; 
+		<br>panel.OnPanelClosed = OnCloseMethodCalled</td>
+	</tr>
+</table>
+<p>&#160;</p>
+<p>&#160;</p>
+</body>
+</html>

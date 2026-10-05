@@ -1,0 +1,174 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="robot statements,actions,robot program,subroutine">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcScope</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcScope</h1>
+<p>vcScope is a collection of statements in a robot program.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot60578" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot60578', 'MTPOPUP60578');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP60578" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ParentStatement</td>
+		<td><a href="vcStatement.htm">vcStatement</a></td>
+		<td>R</td>
+		<td>Gets the statement that owns the scope, for example a conditional 
+		 If or While statement that has a nested block of statements; otherwise 
+		 the value is None for routines.</td>
+	</tr>
+	<tr>
+		<td>Statements</td>
+		<td>List of <a href="vcStatement.htm">vcStatement</a></td>
+		<td>R</td>
+		<td>Gets a list of statements belonging to the scope.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><a name="addStatement"></a>addStatement</td>
+		<td><a href="vcStatement.htm">vcStatement</a></td>
+		<td>Enumeration type, [Integer <span class="Italic">index</span>] 
+		 
+		<p class="TableNormal">or</p>
+		Enumeration <span class="Italic">type</span>, Integer <span class="Italic">index</span>, 
+		 [String <span class="Italic">icon</span>]</td>
+		<td>Creates a new statement of a given <span class="Italic">type</span> 
+		 in the scope, and then returns that statement. 
+		<p class="TableNormal">The default <span class="Italic">index</span> 
+		 value is -1 which adds the new statement to the end of the scope.</p>
+		<p class="TableNormal">An optional <span class="Italic">icon</span> 
+		 argument can be given to define the path of an icon used by the 
+		 statement; otherwise the statement is given a default icon.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Statement_Constants">Statement 
+		 Constants</a> for more information.</p>
+		<p class="TableNormal"><span class="Strong">Note:</span> If you 
+		 want to add a custom statement, implement a vcPositionStatement 
+		 as a process statement by passing a type of VC_STATEMENT_PROCESS 
+		 or create an <a href="vcPythonProcessHandler.htm">add-on</a>.</p></td>
+	</tr>
+	<tr>
+		<td>clear</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Deletes all statements in the scope.</td>
+	</tr>
+	<tr>
+		<td>deleteStatement</td>
+		<td>None</td>
+		<td><a href="vcStatement.htm">vcStatement</a> <span class="Italic">statement</span></td>
+		<td>Deletes a given <span class="Italic">statement</span> in the 
+		 scope.</td>
+	</tr>
+	<tr>
+		<td>getStatement</td>
+		<td><a href="vcStatement.htm">vcStatement</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns a statement at a given <span class="Italic">index</span> 
+		 in the scope.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnScopeExecuted</td>
+		<td><a href="vcScope.htm">vcScope</a> <span class="hcp1">scope</span>, 
+		 Boolean <span class="hcp1">isImmediate</span></td>
+		<td>Triggered when a <span class="hcp1">scope</span> 
+		 is executed. 
+		<br>&#160; 
+		<br><span>The </span><span class="hcp1">isImmediate</span><span> 
+		 argument defines whether the scope was executed in immediate mode 
+		 (non time-consuming mode) or not.</span></td>
+	</tr>
+	<tr>
+		<td>OnStatementAdded</td>
+		<td><a href="vcStatement.htm">vcStatement</a></td>
+		<td>Triggered when a new statement is added to the scope.</td>
+	</tr>
+	<tr>
+		<td>OnStatementRemoving</td>
+		<td><a href="vcStatement.htm">vcStatement</a></td>
+		<td>Triggered when a statement is being deleted from the scope.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a>Examples</h2>
+<p><span class="Example"><a name="ExampleAddStatementwIcon"></a>Example. 
+ Add statement with custom icon</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col>
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>#Main routine of robot used in this case 
+		<br>comp = getComponent() 
+		<br>rx = comp.findBehavioursByType(VC_ROBOTEXECUTOR)[0] 
+		<br>routine = rx.Program.MainRoutine 
+		<br>&#160; 
+		<br>#add with default index and icon 
+		<br>statement1 = routine.addStatement(&quot;Process&quot;) 
+		<br>&#160; 
+		<br>#add to start of routine and use a default icon 
+		<br>statement2 = routine.addStatement(VC_STATEMENT_HALT, 0) 
+		<br>&#160; 
+		<br>#add after first statement in routine and use custom icon 
+		<br>statement3 = routine.addStatement(&quot;Process&quot;, 1, &quot;rDetach&quot;)</td>
+	</tr>
+</table>
+<p><img src="AddStatementIcon" alt="" style="border: none;" border="0"></p>
+</body>
+</html>

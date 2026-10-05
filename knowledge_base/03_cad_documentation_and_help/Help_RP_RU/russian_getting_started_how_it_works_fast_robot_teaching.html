@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Быстрое программировние робота</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Быстрое программирование роботов позволяет создавать движения в программе робота с помощью действий в &quot;Меню Программирования&quot;. Преимуществами являются быстрое создание ..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Быстрое Программирование Робота</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Быстрое программирование роботов позволяет создавать движения в программе робота с помощью действий в &quot;Меню<span style="font-weight: bold;"> </span>Программирования&quot;. Преимуществами являются быстрое создание &nbsp;положений робота и упрощение процессов для программирования роботов в трехмерном мире.</p>
+<p class="p_Normal">При использовании инструмента <span style="font-weight: bold;">Взаимодействие</span> пользователь получает доступ к набору действий для добавления движений для активного робота, например, линейных перемещений и движений от точки к точке. Щелчок мыши по действию добавляет новое движение в программу робота. Если вы нажмете на тот же тип действия, что и предыдущее, значения ранее добавленного оператора будут использованы для создания нового движения. Если вы нажмете другое действие, в движении будут использоваться значения по умолчанию.</p>
+<p class="p_Normal"><img alt="ClipboardImg29" style="margin:0;width:7.7708in;height:4.3854in;border:none" src="clipboardimg29.png"/></p>
+<p class="p_Normal">Вы можете настроить, какие действия будут представлены в &quot;Меню Программирования&quot;. Например, у вас может быть список действий для добавления пользовательских операторов, вызовов подпрограмм и других команд. Чтобы настроить список отображаемых действий, отредактируйте файл конфигурации R-Pro (rpro_starter.exe.config) или используйте PythonAPI или .NET API.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Пример. Настройка файла конфигурации приложения.</span></p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<tr>
+<td style="vertical-align:middle; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">&lt;Site ItemId=&quot;VcTeachOverlayMenu&quot;&gt;</p>
+<p class="p_Normal"> &nbsp; &nbsp;&lt;uxEntries&gt;</p>
+<p class="p_Normal"> &nbsp; &nbsp; &nbsp; &nbsp; &lt;UxItem ItemId=&quot;CloneTeachPtpMotionStatement&quot;&gt;&lt;/UxItem&gt;</p>
+<p class="p_Normal"> &nbsp; &nbsp; &nbsp; &nbsp; &lt;UxItem ItemId=&quot;CloneTeachLinearMotionStatement&quot;&gt;&lt;/UxItem&gt;</p>
+<p class="p_Normal"> &nbsp; &nbsp; &nbsp; &nbsp; &lt;UxItem ItemId=&quot;CloneTeachPathStatement&quot;&gt;&lt;/UxItem&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p class="p_Normal"> &nbsp; &nbsp; &nbsp; &nbsp; &lt;UxItem ItemId=&quot;CreateHaltStatement&quot;&gt;&lt;/UxItem&gt;</p>
+<p class="p_Normal"> &nbsp; &nbsp;&lt;/uxEntries&gt;</p>
+<p class="p_Normal">&lt;/Site&gt;</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal"><span style="font-weight: bold;">Пример. Добавление пункта меню с помощью PythonAPI.</span></p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<tr>
+<td style="vertical-align:middle; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">from vcApplication import *</p>
+<p class="p_Normal">cmd_name = 'RobotGrasp'</p>
+<p class="p_Normal">title = 'myGraspAction'</p>
+<p class="p_Normal">toolПодсказка_name = 'Add Grasp routine'</p>
+<p class="p_Normal">icon_name = 'rAddProgramStatement'</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">def OnAppInitialized():</p>
+<p class="p_Normal"> &nbsp;cmduri = getApplicationPath() + cmd_name + '.py'</p>
+<p class="p_Normal"> &nbsp;cmd = loadCommand(cmd_name, cmduri)</p>
+<p class="p_Normal"> &nbsp;addMenuItem('VcTeachOverlayMenu', title, 1, cmd_name, toolПодсказка_name, icon_name)</p>
+</td>
+</tr>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Подключение к WinMOD </title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Плагин подключения WinMOD Net реализует подключение к системе моделирования WinMOD, используя собственную проприетарную коммуникационную библиотеку под названием WinMOD Net...." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><a name="minitocbookmark1" class="hmanchor"></a><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Подключение к WinMOD&nbsp;</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal" style="text-align: justify;">Плагин подключения WinMOD Net реализует подключение к системе моделирования WinMOD, используя собственную проприетарную коммуникационную библиотеку под названием WinMOD Net. Протокол WinMOD Net основан на TCP/IP и поэтому работает как локально, так и по сети.</p>
+<p class="p_Normal" style="text-align: justify;"><span style="font-weight: bold;">Примечание:</span> Для работы связи требуется отдельная лицензия на стороне WinMOD;</p>
+<p class="p_Normal" style="text-align: justify;">Плагин подключения WinMOD Net имеет полнофункциональные возможности, включая поддержку нескольких подключений, просмотр для создания пар переменных и обновления значений событийно-управляемого режима для группы сервер для симуляции.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0.0625in;"><table cellpadding="0" cellspacing="0" style="border:none;border-spacing:0;padding:0;line-height: normal;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:0.1875in"><a name="mthotspot6682" class="hmanchor"></a><img id="toggle0186a1_ICON" class="dropdown-toggle-icon" alt="hmtoggle_plus1" style="margin:0;width:0.0938in;height:0.0938in;border:none" src="hmtoggle_plus1.gif"/></td><td style="border:none;padding:0"><a class="dropdown-toggle" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;" href="javascript:HMToggle('toggle','toggle0186a1','toggle0186a1_ICON')">СОДЕРЖАНИЕ</a></td></tr></table></div>
+<div id="toggle0186a1" class="dropdown-toggle-body" style="text-align: left; padding: 0 0 0 0; margin: 0 0 0.0417in 0.2500in;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_connecting_to_winmod.html#minitocbookmark2" class="topiclink">НЕОБХОДИМЫЕ УСЛОВИЯ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_connecting_to_winmod.html#minitocbookmark3" class="topiclink">НАСТРОЙКА СВЯЗИ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_connecting_to_winmod.html#minitocbookmark4" class="topiclink">ПРОИЗВОДИТЕЛЬНОСТЬ</a></p>
+</td>
+</tr>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark2" class="hmanchor"></a><span style="font-size: 18pt;">Необходимые условия</span></h2>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Библиотека WinMOD Net работает с WinMOD V7.2 Build 40 и новее.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Лицензия конфигурации WinMOD KU200 (https://www.winmod.de/english/products/winmod-systemsoftware/winmod-configuration/winmod-configurationen_eng/) должна быть доступна в каждой из установок WinMOD, к которым вы хотите подключиться.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Коммуникационная библиотека WinMOD Net должна быть установлена на компьютере, где используется R-Pro.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark3" class="hmanchor"></a><span style="font-size: 18pt;">Настройка связи</span></h2>
+<p class="p_Normal">Поскольку протокол WinMOD Net основан на TCP/IP, соединение выполняется с использованием адреса хоста и номера порта. Имя хоста может быть IP-адресом или DNS-именем. Номер порта сервера можно задать в настройках проекта WinMOD, по умолчанию он равен 40001.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Настройка WinMOD для приема подключений</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Запустите WinMOD и загрузите проект моделирования.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Включите входящие соединения в настройках проекта (ниже изображения).</p>
+<p class="p_Normal"><img alt="image2" style="margin:0;width:2.9167in;height:1.4479in;border:none" src="image2.png"/></p>
+<p class="p_Normal">Чтобы связать переменные, основной рабочий процесс для настройки связи выглядит следующим образом:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>Запустите WinMOD и загрузите свою имитационную модель.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>Добавьте один или несколько коммуникационных элементов в свою симуляцию WinMOD.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>Добавьте сигналы к элементам связи и подключите их к своей симуляции.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">4.</span>Включите входящие соединения из настроек проекта WinMOD.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">5.</span>Подключитесь из Рационального Производства к WinMOD на вкладке Подключения.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">6.</span>Добавьте переменные в Рациональное Производство с помощью окна «Создать пары переменных».</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Соедините входные данные WinMOD с входными данными в Рациональном Производстве и поместите пары переменных в группу переменных сервер для симуляции.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Соедините выходные данные WinMOD с выходными данными в Рациональнме Производстве и поместите пары переменных в группу переменных симуляция на сервер.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">7.</span>Запустите симуляцию в WinMOD и Рациональном Производстве. &nbsp;</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal" style="text-align: justify;"><span style="font-weight: bold;">Примечание:</span> Доступное адресное пространство WinMOD структурировано в коммуникационные элементы, которые имеют входные и выходные сигналы. Коммуникационные элементы идентифицируются с помощью «полного пути», состоящего из имени проекта WinMOD, имени слоя WinMOD и имени самого коммуникационного элемента. Сигналы идентифицируются с использованием «полного пути» коммуникационного элемента и имени сигнала, поэтому любые изменения любого из имен потребуют повторного сопряжения переменных.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark4" class="hmanchor"></a><span style="font-size: 18pt;">Производительность</span></h2>
+<p class="p_Normal">Некоторые технические аспекты могут повлиять на общую производительность, достигаемую с помощью подключаемого модуля WinMOD Net, поэтому для достижения наилучшей производительности необходимо следовать этим рекомендациям.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Используйте режим циклического обновления для имитации групп переменных сервера.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Выберите интервал цикла, равный или превышающий значение Time Base, используемое в проекте WinMOD.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Отправка значений в WinMOD со скоростью, превышающей цикл обновления WinMOD, не дает никаких преимуществ, в том числе в этом направлении работает режим, основанный на событиях.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Используйте режим обновления событийно-управляемый для группы сервер для симуляции.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Только если частота цикла обновления излишне высока или поток данных переполняет R-Pro, рекомендуется переключиться на более низкую частоту дискретизации, используя режим циклического обновления.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Используйте входы разных данных коммуникационного элемента только в одной группе переменных.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Используйте выходы разных данных коммуникационного элемента только в одной группе переменных.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Распределите большое количество входных сигналов более чем на один коммуникационный элемент. <span style="font-weight: bold;">Примечание: </span>Наличие большого количества коммуникационных элементов также может привести к снижению производительности.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Использование до нескольких параллельных подключений к одной и той же среде выполнения WinMOD может быть полезным в некоторых конкретных сценариях, если требуется максимальная пропускная способность и более стабильная задержка.</p>
+</td></tr></table>
+
+<script type="text/javascript">
+if (window.topicInitScriptAvailable) {
+function HMInitToggleStates() {
+HMInitToggle('toggle0186a1_ICON','hm.type','dropdown','hm.state','0','hm.src0','hmtoggle_plus0.gif','hm.src1','hmtoggle_plus1.gif','onclick','HMToggle(\'toggle\',\'toggle0186a1\',\'toggle0186a1_ICON\')');
+HMInitToggle('toggle0186a1','hm.type','dropdown','hm.state','0');
+
+}
+var checkTimer=setTimeout("HMInitToggleStates()", 0);
+}
+</script>
+</body>
+</html>

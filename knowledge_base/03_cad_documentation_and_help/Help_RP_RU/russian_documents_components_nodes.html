@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Узлы </title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Данные в компоненте организованы в виде древовидной структуры, состоящей из узлов. Корневой узел компонента представляет весь компонент. Например, источником системы координат..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><a name="minitocbookmark1" class="hmanchor"></a><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Узлы&nbsp;</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Данные в компоненте организованы в виде древовидной структуры, состоящей из узлов. Корневой узел компонента представляет весь компонент. Например, источником системы координат компонента является его корневой узел.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0.0625in;"><table cellpadding="0" cellspacing="0" style="border:none;border-spacing:0;padding:0;line-height: normal;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:0.1875in"><a name="mthotspot29235" class="hmanchor"></a><img id="toggle0186a1_ICON" class="dropdown-toggle-icon" alt="hmtoggle_plus1" style="margin:0;width:0.0938in;height:0.0938in;border:none" src="hmtoggle_plus1.gif"/></td><td style="border:none;padding:0"><a class="dropdown-toggle" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;" href="javascript:HMToggle('toggle','toggle0186a1','toggle0186a1_ICON')">СОДЕРЖАНИЕ</a></td></tr></table></div>
+<div id="toggle0186a1" class="dropdown-toggle-body" style="text-align: left; padding: 0 0 0 0; margin: 0 0 0.0417in 0.2500in;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="file:///C:/Users/user.DESKTOP-0R9JLUM/AppData/Local/Temp/CHM%20Editor/%D0%A1%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B0_26_44678,5564366782/English/Documents/Components/Nodes.htm#MiniTOCBookMark2" class="weblink">ИЕРАРХИЯ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="file:///C:/Users/user.DESKTOP-0R9JLUM/AppData/Local/Temp/CHM%20Editor/%D0%A1%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B0_26_44678,5564366782/English/Documents/Components/Nodes.htm#MiniTOCBookMark3" class="weblink">ОБЩИЕ СВОЙСТВА</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="file:///C:/Users/user.DESKTOP-0R9JLUM/AppData/Local/Temp/CHM%20Editor/%D0%A1%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B0_26_44678,5564366782/English/Documents/Components/Nodes.htm#MiniTOCBookMark4" class="weblink">СВОЙСТВА СОЕДИНЕНИЯ</a></p>
+</td>
+</tr>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark2" class="hmanchor"></a><span style="font-size: 18pt;">Иерархия</span></h2>
+<p class="p_Normal">Простые компоненты могут иметь один узел, тогда как для компонентов с подвижными частями потребуется два или более узлов. Например, шарнирный робот представляет собой серию узлов, соединенных вместе, чтобы сформировать кинематическую цепь для определения движения.</p>
+<p class="p_Normal">С точки зрения иерархии узлов:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Родительский </span>является узлом над другим узлом.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Дочерний </span>является узлом ниже другого узла.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Брат </span>это узел, который находится либо до, либо после другого узла, принадлежащего тому же родителю.</p>
+<p class="p_Normal">В большинстве случаев корневой узел компонента является дочерним элементом трехмерного мира. То есть компонент привязан к 3D-миру (корневому узлу моделирования). В некоторых случаях компоненты присоединяются к узлам других компонентов. Это позволяет компонентам двигаться вместе, например, инструменту, установленному на конце руки робота.</p>
+<p class="p_Normal">Некоторые компоненты, выполняющие задачи во время симуляции, могут иметь временные узлы, чтобы содержать и транспортировать другие компоненты.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark3" class="hmanchor"></a><span style="font-size: 18pt;">Общие свойства </span></h2>
+<p class="p_Normal">За исключением корневых узлов, каждый узел/связь имеет одинаковый набор общих свойств.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет наименование узла.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Смещение</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет положение (координаты XYZ) и ориентацию (градусы вращения RxRyRz) смещения узла относительно его родителя.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Тип</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет тип соединения узла.</p>
+<p class="p_Normal">Фиксированный - Соединение фиксируется и ограничивается своим смещением.</p>
+<p class="p_Normal">Вращательный - Соединение можно вращать вокруг определенной оси.</p>
+<p class="p_Normal">Поступательный - Соединение можно перемещать вдоль определенной оси.</p>
+<p class="p_Normal">Вращательный ведомый - Соединение можно вращать вокруг заданной оси в зависимости от значения другого соединения.</p>
+<p class="p_Normal">Поступательный ведомый - Соединение можно перемещать вдоль определенной оси на основе значения другого соединения.</p>
+<p class="p_Normal">Пользовательский - Соединение может быть задано для перемещения или вращения вокруг определенной оси.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Ось</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Если тип соединения не является фиксированным или пользовательским, определяет ось соединения.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark4" class="hmanchor"></a><span style="font-size: 18pt;">Свойства Соединения</span></h2>
+<p class="p_Normal">Количество дополнительных свойств в узле зависит от его типа соединения и назначения этого соединения контроллеру.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Неподвижный</span></h3>
+<p class="p_Normal">Никаких дополнительных свойств.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark6" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Вращательный</span></h3>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.9167in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5000in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет имя соединения.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Подсказка: </span>Имя соединения можно использовать в выражении для ссылки на его значение.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Контроллер</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Назначает соединение новому или существующему поведению типа контроллера в узле.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Начальное значение</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет значение соединения по умолчанию.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Значение</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет текущее значение соединения.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Подсказка: </span>Значение соединения можно использовать в выражении для ссылки на его значение с помощью ключевого слова VALUE.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Значение выражения</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет выражение для управления значением соединения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Минимальный предел</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет минимальное значение соединения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Максимальный предел</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет максимальное значение соединения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Максимальная скорость</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Если соединение назначено контроллеру, определяет максимальную скорость соединения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Максимальное ускорение</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Если соединение назначено контроллеру, определяет максимальное ускорение соединения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Максимальное замедление</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Если соединение назначено контроллеру, определяет максимальное замедление соединения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Время задержки</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Если соединение назначено контроллеру, определяет временную задержку соединения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Расчетное время</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Если соединение назначено контроллеру, определяет время стабилизации соединения.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark7" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">поступательный</span></h3>
+<p class="p_Normal">Те же свойства, что и у Вращательного.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark8" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Вращательный Ведомый Элемент</span></h3>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.9063in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5104in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет имя соединения.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Подсказка: </span>Имя соединения можно использовать в выражении для ссылки на его значение.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Драйвер</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет другое соединение, за которым следует соединение.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Значение выражения</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет выражение для управления значением соединения.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark9" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">поступательный Ведомый Элемент</span></h3>
+<p class="p_Normal">Те же свойства, что и у Вращательного ведомого элемента.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Пользовательский</span></h3>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет имя соединения.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Подсказка: </span>Имя соединения можно использовать в выражении для ссылки на его значение.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Контроллер</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Назначает соединение новому или существующему поведению типа контроллера в узле.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Начальное значение</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет значение соединения по умолчанию.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Значение</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет текущее значение соединения.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Подсказка: </span>Значение соединения можно использовать в выражении для ссылки на его значение с помощью ключевого слова VALUE.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Joint</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет выражение для управления смещением соединения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Pivot</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет выражение для управления точкой вращения соединения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Минимальный предел</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет минимальное значение соединения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Максимальный предел</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет максимальное значение соединения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Максимальная скорость</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Если соединение назначено контроллеру, определяет максимальную скорость соединения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Максимальное ускорение</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Если соединение назначено контроллеру, определяет максимальное ускорение соединения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Максимальное замедление</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Если соединение назначено контроллеру, определяет максимальное замедление соединения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Время задержки</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Если соединение назначено контроллеру, определяет временную задержку соединения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Расчетное время</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Если соединение назначено контроллеру, определяет время установления соединения.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+<script type="text/javascript">
+if (window.topicInitScriptAvailable) {
+function HMInitToggleStates() {
+HMInitToggle('toggle0186a1_ICON','hm.type','dropdown','hm.state','0','hm.src0','hmtoggle_plus0.gif','hm.src1','hmtoggle_plus1.gif','onclick','HMToggle(\'toggle\',\'toggle0186a1\',\'toggle0186a1_ICON\')');
+HMInitToggle('toggle0186a1','hm.type','dropdown','hm.state','0');
+
+}
+var checkTimer=setTimeout("HMInitToggleStates()", 0);
+}
+</script>
+</body>
+</html>

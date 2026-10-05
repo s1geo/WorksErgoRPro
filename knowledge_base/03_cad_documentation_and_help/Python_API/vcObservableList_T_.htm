@@ -1,0 +1,124 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcObservableList&lt;T&gt;</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcObservableList&lt;T&gt;</h1>
+The vcObservableList&lt;T&gt; is practically a simple list/vector of elements 
+ of type T, with added OnListChanged event, that the user can subscribe 
+ to notice any changes to the list. 
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Data type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Owner</td>
+		<td>(context-dependent)</td>
+		<td>R</td>
+		<td>List owner</td>
+	</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>size</td>
+		<td>int</td>
+		<td>None</td>
+		<td>Returns number of contained elements</td>
+	</tr>
+	<tr>
+		<td>get</td>
+		<td>T</td>
+		<td>(int index)</td>
+		<td>Returns element at index</td>
+	</tr>
+	<tr>
+		<td>insert</td>
+		<td>T</td>
+		<td><ol>
+			<li>(int index)</li>
+			<li>(int index, T object)</li>
+		</ol></td>
+		<td><ol>
+			<li>Creates new element in-place at index, returns created 
+			 object. </li>
+			<li>Inserts `object` at index, returns inserted object.</li>
+		</ol></td>
+	</tr>
+	<tr>
+		<td>indexOf</td>
+		<td>int</td>
+		<td>(T object)</td>
+		<td>Returns object’s index, or -1, if not found.</td>
+	</tr>
+	<tr>
+		<td>remove</td>
+		<td>Boolean</td>
+		<td>(int index)</td>
+		<td>Returns True on succesfull removal, otherwise False.</td>
+	</tr>
+	<tr>
+		<td>clear</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Removes all contained elements from the container./td&gt; </td>
+	</tr>
+</table>
+<h2>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnListChanged</td>
+		<td>(vcObservableList&lt;T&gt; list, <br>
+		ListChangeAction type, <br>
+		T newItem, <br>
+		T oldItem, <br>
+		int newIndex, <br>
+		int oldIndex) </td>
+		<td>Single event handler for all types. 
+		<br>Relevant parameters (T newItem, T oldItem, int 
+		 newIndex, int oldIndex): 
+		<ul style="list-style-type'-': ;">
+			<li>VC_LIST_ADD: value, None, index -1</li>
+			<li>VC_LIST_REMOVE: value, None, index, -1</li>
+			<li>VC_LIST_REPLACE: newvalue, oldvalue, index, -1</li>
+			<li>VC_LIST_RESET: None, None, -1, -1 <br>
+			</li>
+		</ul></td>
+	</tr>
+</table>
+</body>
+</html>

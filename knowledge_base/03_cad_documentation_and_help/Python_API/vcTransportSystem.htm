@@ -1,0 +1,233 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcTransportSystem</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcTransportSystem</h1>
+<p>Transport system is a management and query service for <a href="vcTransportNode.htm">vcTransportNode</a> 
+ and <a href="vcTransportLink.htm">vcTransportLink</a> objects that form 
+ a transportation graph. It is owned by a <a href="vcProcessController.htm">vcProcessController</a>.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot42743" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot42743', 'MTPOPUP42743');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP42743" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<p>&#160;</p>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ProcessController </td>
+		<td><a href="vcProcessController.htm">vcProcessController</a></td>
+		<td>R</td>
+		<td>Parent controller that owns this system.</td>
+	</tr>
+	<tr>
+		<td>Nodes </td>
+		<td>List of <a href="vcTransportNode.htm">vcTransportNode</a></td>
+		<td>R</td>
+		<td>Gets all transport nodes associated with this system.</td>
+	</tr>
+	<tr>
+		<td>Links </td>
+		<td>List of <a href="vcTransportLink.htm">vcTransportLink</a> </td>
+		<td>R</td>
+		<td><p style="font-weight: normal;">Gets all transport links owned 
+		 by this system.</p></td>
+	</tr>
+	<tr>
+		<td>Controllers </td>
+		<td>List of <a href="vcTransportController.htm">vcTransportController</a></td>
+		<td>R</td>
+		<td><p>Gets all available transport controllers. Includes both 
+		 system and user-implemented controllers.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createTransportLink </td>
+		<td><a href="vcTransportLink.htm">vcTransportLink</a> </td>
+		<td><p><a href="vcTransportNode.htm">vcTransportNode</a> <span class="hcp1">source</span>, <a href="vcTransportNode.htm">vcTransportNode</a> 
+		 <span class="hcp1">destination</span>, <a href="vcTransportController.htm">vcTransportController</a> 
+		 <span class="hcp1">implementer</span>, <a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> 
+		 <span class="hcp1">group</span></p></td>
+		<td><p>Creates a new transport link from <span class="hcp1">source</span> 
+		 to <span class="hcp1">destination</span> node and 
+		 registers it to the system. <span class="hcp1">Source</span> 
+		 and <span class="hcp1">destination</span> have 
+		 to be in this transport system and cannot be the same.</p></td>
+	</tr>
+	<tr>
+		<td>deleteTransportLink </td>
+		<td>None</td>
+		<td><a href="vcTransportLink.htm">vcTransportLink</a> <span class="hcp1">link</span></td>
+		<td><p class="TableNormal">Removes the given <span class="hcp1">link</span> 
+		 from this system and deletes it.</p></td>
+	</tr>
+	<tr>
+		<td>createTransportSolution </td>
+		<td><a href="vcTransportSolution.htm">vcTransportSolution</a> </td>
+		<td>-</td>
+		<td><p>Creates an empty transport solution.</p></td>
+	</tr>
+	<tr>
+		<td>findSolution </td>
+		<td><a href="vcTransportSolution.htm">vcTransportSolution</a></td>
+		<td><p><a href="vcTransportNode.htm">vcTransportNode</a> <span class="hcp1">source</span>, <a href="vcTransportNode.htm">vcTransportNode</a> 
+		 <span class="hcp1">destination</span>, <a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> 
+		 <span class="hcp1">flowGroup</span></p></td>
+		<td><p>Tries to find a valid route from <span class="hcp1">source</span> 
+		 to <span class="hcp1">destination</span>, only 
+		 considers links that support the given flow group. The route isn’t 
+		 optimized.</p>
+		<p>Returns None if a valid route doesn’t exist.</p></td>
+	</tr>
+	<tr>
+		<td>findAllLinksBetweenNodeSets </td>
+		<td>List of <a href="vcTransportLink.htm">vcTransportLink</a> </td>
+		<td><p><a href="vcTransportNode.htm">vcTransportNode</a>[] <span class="hcp1">sourceNodes</span>, <a href="vcTransportNode.htm">vcTransportNode</a>[] 
+		 <span class="hcp1">destinationNodes</span>, <a 
+		 href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> <span class="hcp1">group</span></p></td>
+		<td><p>Finds a set containing all links that are part of any valid 
+		 path from any node in <span class="hcp1">sourceNodes</span> 
+		 set to any node in the <span class="hcp1">destinationNodes</span> 
+		 set. This can be used to e.g. check navigability between all implementations 
+		 of two processes.</p>
+		<p>The source and destination node sets can overlap.</p>
+		<p>Only considers transport links that support the given flow <span class="hcp1">group</span>.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnTransportControllerAdded </td>
+		<td><span><a href="vcTransportController.htm">vcTransportController</a> 
+		 </span><span class="hcp1">controller</span><span> 
+		 </span></td>
+		<td><p>Event that occurs when a new transport controller has become 
+		 available.</p></td>
+	</tr>
+	<tr>
+		<td>OnTransportControllerRemoving </td>
+		<td><a href="vcTransportController.htm">vcTransportController</a> 
+		 <span class="hcp1">controller</span> </td>
+		<td><p style="font-style: normal;">Event that occurs when a transport 
+		 controller is being removed.</p></td>
+	</tr>
+	<tr>
+		<td>OnTransportNodeAdded </td>
+		<td><a href="vcTransportNode.htm">vcTransportNode</a> <span class="hcp1">node</span> 
+		 </td>
+		<td><p>Event that occurs when a new transport node has been added 
+		 to this system.</p></td>
+	</tr>
+	<tr>
+		<td>OnTransportNodeRemoving </td>
+		<td><a href="vcTransportNode.htm">vcTransportNode</a> <span class="hcp1">node</span> 
+		 </td>
+		<td><p>Event that occurs when the transport node is being removed 
+		 from this system.</p></td>
+	</tr>
+	<tr>
+		<td>OnTransportLinkAdded </td>
+		<td><a href="vcTransportLink.htm">vcTransportLink</a> <span class="hcp1">link</span> 
+		 </td>
+		<td><p>Event that occurs when a new transport link has been created 
+		 to this system.</p></td>
+	</tr>
+	<tr>
+		<td>OnTransportLinkRemoving </td>
+		<td><p><a href="vcTransportLink.htm">vcTransportLink</a> <span class="hcp1">link</span> </p></td>
+		<td><p>Event that occurs when a transport link is being deleted.</p></td>
+	</tr>
+	<tr>
+		<td>OnTransportLinkRemoved </td>
+		<td><a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> <span class="hcp1">group</span>, <a href="vcTransportNode.htm">vcTransportNode</a> 
+		 <span class="hcp1">source</span>, <a href="vcTransportNode.htm">vcTransportNode</a> 
+		 <span class="hcp1">destination</span> </td>
+		<td><p>Event that occurs when a transport link has been deleted.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p class="Example"><span class="Example">Example. Create a new Transport 
+ Link.</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>app = getApplication() 
+		<br>sim = getSimulation() 
+		<br>process_controller = sim.ProcessController 
+		<br>transport_system = process_controller.TransportSystem 
+		<br>nodes = transport_system.Nodes 
+		<br>for n in nodes: 
+		<br>&#160;&#160;print n.Parent.Name 
+		<br># Get the handle for human transport controller 
+		<br>human_transport_controller = app.findComponent('Human Transport Controller') 
+		<br>human_tc = human_transport_controller.findBehavioursByType(VC_PYTHONTRANSPORTCONTROLLER)[0] 
+		<br># Get the handle for product flow groups 
+		<br>flow_grp_mgr = process_controller.FlowGroupManager 
+		<br>flow_groups = flow_grp_mgr.Groups 
+		<br>flow_group1 = flow_groups[0] 
+		<br># Create a new Transport Link 
+		<br>new_link = transport_system.createTransportLink(nodes[0], nodes[-1], human_tc, flow_group1) 
+		<br># Event handler when a Transport Link is removed 
+		<br>def link_removed_handler(link): 
+		<br>&#160;&#160;print 'Transport link removed between', link.Source.Parent.Name, 'and', link.Destination.Parent.Name 
+		<br>transport_system.OnTransportLinkRemoving = link_removed_handler</td>
+	</tr>
+</table>
+</body>
+</html>

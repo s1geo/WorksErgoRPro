@@ -1,0 +1,106 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcText3DSet</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcText3DSet</h1>
+<p>vcText3DSet is a geometry set used for generating 3D text. Unlike 2D text, 3D text is generated using geometry and has both a position and orientation in 3D world.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcGeometrySet.htm">vcGeometrySet</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot24145" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot24145', 'MTPOPUP24145');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP24145" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Matrix</td>
+<td><a href="vcMatrix.htm">vcMatrix</a></td>
+<td>RW</td>
+<td>Defines the position matrix of text.</td>
+</tr>
+<tr>
+<td>OffsetX</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Defines an offset (in pixels) for horizontal axis when text is projected on screen.</td>
+</tr>
+<tr>
+<td>OffsetY</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Defines an offset (in pixels) for vertical axis when text is projected on screen.</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines a string of characters to render as a one line of 3D text.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>getTextHeight</td>
+<td>Integer</td>
+<td>None</td>
+<td>Returns the calculated height of text in pixels.</td>
+</tr>
+<tr>
+<td>getTextWidth</td>
+<td>Integer</td>
+<td>None</td>
+<td>Returns the calculated width of text in pixels.</td>
+</tr>
+<tr>
+<td>update</td>
+<td>None</td>
+<td>None</td>
+<td>Updates the geometry of text in 3D world.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Examples</h2>
+<p><span class="Example">Example. Create 3D text in component</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td style="vertical-align: middle;">from vcScript import * <br>&#160; <br>app = getApplication() <br>comp = getComponent() <br>comp.Name = "Example" <br>&#160; <br>gs = comp.Geometry.createGeometrySet(VC_TEXT3DSET) <br>&#160; <br>#assign material to 3D text <br>mat = app.findMaterial("red") <br>gs.Material = mat <br>&#160; <br>#display component name in 3D world <br>gs.Text = "Name: " + comp.Name <br>&#160; <br>#scale 3D text <br>mtx = gs.Matrix <br>mtx.scaleAbs(30.0, 30.0, 0) <br>gs.Matrix = mtx <br>gs.update() <br>app.render()</td>
+</tr>
+</table>
+<!--======================================Topic2==================================-->
+</body>
+</html>

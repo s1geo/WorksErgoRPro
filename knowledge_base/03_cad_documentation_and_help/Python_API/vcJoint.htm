@@ -1,0 +1,152 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcJoint</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcJoint</h1>
+<p>vcJoint is a joint that can be defined using kinematics, driven by controllers and affected by physics.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot46334" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot46334', 'MTPOPUP46334');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP46334" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Controller</td>
+<td><a href="vcRobotController.htm">vcRobotController</a>
+<p class="TableNormal">or</p>
+<p class="TableNormal"><a href="vcServoController.htm">vcServoController</a></p>
+</td>
+<td>R</td>
+<td>Gets the controller of joint.
+<p class="TableNormal">If joint is not driven by controller, value is None.</p>
+</td>
+</tr>
+<tr>
+<td>CurrentValue</td>
+<td>Real</td>
+<td>RW</td>
+<td>Defines the joint's value.</td>
+</tr>
+<tr>
+<td>Dof</td>
+<td><a href="vcDof.htm">vcDof</a></td>
+<td>R</td>
+<td>Gets the Dof object of joint.</td>
+</tr>
+<tr>
+<td>ExternalController</td>
+<td><a href="vcRobotController.htm">vcRobotController</a>
+<p class="TableNormal">or</p>
+<p class="TableNormal"><a href="vcServoController.htm">vcServoController</a></p>
+</td>
+<td>R</td>
+<td>Gets the external controller of joint.
+<p class="TableNormal">If joint is not driven by an external controller, value is None.</p>
+</td>
+</tr>
+<tr>
+<td>InitialValue</td>
+<td>Real</td>
+<td>RW</td>
+<td>Defines the initial value of joint. That is, the initial state of the joint.</td>
+</tr>
+<tr>
+<td>LagTime</td>
+<td>Real</td>
+<td>RW</td>
+<td>Defines the lag time (in seconds) of joint.</td>
+</tr>
+<tr>
+<td>MaxAcceleration</td>
+<td>Real</td>
+<td>RW</td>
+<td>Defines the maximum acceleration (units/degrees per second squared) of joint.</td>
+</tr>
+<tr>
+<td>MaxDeceleration</td>
+<td>Real</td>
+<td>RW</td>
+<td>Defines the maximum deceleration (units/degrees per second squared) of joint.</td>
+</tr>
+<tr>
+<td>MaxSpeed</td>
+<td>Real</td>
+<td>RW</td>
+<td>Defines the maximum speed (units/degrees per second squared) of joint.</td>
+</tr>
+<tr>
+<td>MaxValue</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines an expression that when evaluated returns the maximum value of joint.</td>
+</tr>
+<tr>
+<td>MinValue</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines an expression that when evaluated returns the minimum value of joint.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines the joint's name.</td>
+</tr>
+<tr>
+<td>SettleTime</td>
+<td>Real</td>
+<td>RW</td>
+<td>Defines the settle time (in seconds) of joint.</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Defines the joint type.
+<p class="TableNormal">See <a href="Constants.htm#Joint_Constants">Joint Constants</a> for more information.</p>
+</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Access and modify joint values</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td>from vcScript import * <br>&#160; <br>#Access joint information via Servo/Robot Controller <br>comp = getComponent() <br>contrl = comp.findBehaviour("Controller") <br>&#160; <br>#Example for returning joint values <br>def exampleJ(joint): <br>&#160;&#160;print joint.MinValue <br>&#160;&#160;print joint.MaxValue <br>&#160;&#160;print joint.CurrentValue <br>&#160;&#160;print joint.Type <br>&#160; <br>#Joint values can be also changed in simulation <br>def OnRun(): <br>&#160;&#160;j = contrl.getJoint(0) <br>&#160;&#160;j.CurrentValue = 90.0 <br>&#160;&#160;exampleJ(j) <br>&#160; <br>def OnReset(): <br>&#160;&#160;j = contrl.getJoint(0) <br>&#160;&#160;j.CurrentValue = 0.0 <br>&#160;&#160;exampleJ(j)</td>
+</tr>
+</table>
+<p><span class="Example">Example. Get joint values</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td>from vcScript import * <br>&#160; <br>comp = getComponent() <br>controller = comp.findBehavioursByType(VC_ROBOTCONTROLLER)[0] <br>joint1_as_prop = comp.getProperty(controller.Joints[0].Name) <br>print joint1_as_prop.MaxValue</td>
+</tr>
+</table>
+</body>
+</html>

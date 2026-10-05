@@ -1,0 +1,128 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcView</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcView</h1>
+<p>vcView provides access to 3D views created in application.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>CameraFar</td>
+<td>Real</td>
+<td>RW</td>
+<td>Defines the distance of far clipping plane from camera location.</td>
+</tr>
+<tr>
+<td>CameraFovy</td>
+<td>Real</td>
+<td>RW</td>
+<td>Defines the field of view (in degrees) for camera.</td>
+</tr>
+<tr>
+<td>CameraIsOrtho</td>
+<td>Boolean</td>
+<td>RW</td>
+<td>Turns on/off orthographic mode in camera.</td>
+</tr>
+<tr>
+<td>CameraMatrix</td>
+<td><a href="vcMatrix.htm">vcMatrix</a></td>
+<td>RW</td>
+<td>Defines the location of camera in World coordinate system.</td>
+</tr>
+<tr>
+<td>CameraNear</td>
+<td>Real</td>
+<td>RW</td>
+<td>Defines the distance of near clipping plane from camera location.</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Defines if camera, light and shading settings are stored in view.
+<p class="TableNormal"><span class="Term">0</span><br>
+Include none.</p>
+<p class="TableNormal"><span class="Term">1</span><br>
+Include camera.</p>
+<p class="TableNormal"><span class="Term">2</span><br>
+Include lights.</p>
+<p class="TableNormal"><span class="Term">3</span><br>
+Include camera and lights.</p>
+<p class="TableNormal"><span class="Term">4</span><br>
+Include shading.</p>
+<p class="TableNormal"><span class="Term">5</span><br>
+Include camera and shading.</p>
+<p class="TableNormal"><span class="Term">6</span><br>
+Include lights and shading.</p>
+<p class="TableNormal"><span class="Term">7</span><br>
+Include camera, lights and shading.</p>
+</td>
+</tr>
+<tr>
+<td>Properties</td>
+<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+<td>R</td>
+<td>Gets a list of all properties for view.</td>
+</tr>
+<tr>
+<td>ShadingEdge</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Defines the shading mode of view.
+<p class="TableNormal"><span class="Term">0</span><br>
+No edges.</p>
+<p class="TableNormal"><span class="Term">1</span><br>
+All edges.</p>
+<p class="TableNormal"><span class="Term">2</span><br>
+Hard edges.</p>
+<p class="TableNormal"><span class="Term">3</span><br>
+Silhouette edges <span class="Strong">(Currently not implemented)</span>.</p>
+<p class="TableNormal"><span class="Term">4</span><br>
+Edge analysis.</p>
+</td>
+</tr>
+<tr>
+<td>ShadingRender</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Defines rendering mode of view.
+<p class="TableNormal"><span class="Term">0</span><br>
+No rendering.</p>
+<p class="TableNormal"><span class="Term">1</span><br>
+Bounding boxes.</p>
+<p class="TableNormal"><span class="Term">2</span><br>
+No filling.</p>
+<p class="TableNormal"><span class="Term">3</span><br>
+Background.</p>
+<p class="TableNormal"><span class="Term">4</span><br>
+Constant filling <span class="Strong">(Currently not implemented)</span>.</p>
+<p class="TableNormal"><span class="Term">5</span><br>
+Flat shaded.</p>
+<p class="TableNormal"><span class="Term">6</span><br>
+Smooth shaded.</p>
+</td>
+</tr>
+</table>
+<!--======================================Properties==================================-->
+</body>
+</html>

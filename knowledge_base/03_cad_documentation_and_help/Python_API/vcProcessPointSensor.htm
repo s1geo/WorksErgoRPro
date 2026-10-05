@@ -1,0 +1,171 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProcessPointSensor</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcProcessPointSensor</h1>
+<p>vcProcessPointSensor is the object type for Process Point Sensor behaviors.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot35967" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot35967', 'MTPOPUP35967');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP35967" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Frame</td>
+		<td><a href="vcFeature.htm">vcFeature</a></td>
+		<td>RW</td>
+		<td>Defines a Frame feature referenced as the location of sensor 
+		 in 3D world.</td>
+	</tr>
+	<tr>
+		<td>BoolSignal</td>
+		<td><a href="vcBoolSignal.htm">vcBoolSignal</a></td>
+		<td>RW</td>
+		<td>Defines a Boolean Signal used to send a True value when processing 
+		 starts and a False value when processing ends.</td>
+	</tr>
+	<tr>
+		<td>ProcessAt</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the trigger used to initialize processing in sensor. 
+		 
+		<p class="TableNormal">See <a href="Constants.htm#Path">Path Constants</a> 
+		 for more information.</p></td>
+	</tr>
+	<tr>
+		<td>RuleComponent</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the processing rule of sensor. 
+		<p class="TableNormal">See <a href="Constants.htm#Process_Point_Constants">Process 
+		 Point Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>TriggerAt</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines whether a path connected to sensor or component triggering 
+		 sensor is stopped during processing. 
+		<p class="TableNormal">See <a href="Constants.htm#Process_Point_Constants">Process 
+		 Point Constants</a> for more information.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>processValue</td>
+		<td>Real</td>
+		<td>Real <span class="Italic">from_connector_index</span>, <a href="vcComponent.htm">vcComponent</a> 
+		 <span class="Italic">component</span>, [<a href="vcBehaviour.htm">vcBehaviour</a> 
+		 <span class="Italic">behavior</span>]</td>
+		<td>Calculates the processing time of a given <span class="Italic">component</span> 
+		 entering from an input port of a path connected to sensor, and 
+		 then returns the total time from start to finish.</td>
+	</tr>
+	<tr>
+		<td>setValue</td>
+		<td>None</td>
+		<td>Real <span class="Italic">value</span></td>
+		<td>Sets the processing time of sensor. 
+		<p class="TableNormal">Generally, this method is used with OnValue 
+		 event to define multiple processing times and handle issues, for 
+		 example bottlenecks and simulated failures.</p></td>
+	</tr>
+	<tr>
+		<td>startFailure</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Sets the state of sensor to Failure, thereby stopping all tasks 
+		 performed by sensor. 
+		<p class="TableNormal">Sensor will stay in failure state until 
+		 either simulation is reset or sensor calls stopFailure() method.</p></td>
+	</tr>
+	<tr>
+		<td>stopFailure</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Brings sensor out of failure state, for example to simulate 
+		 a repair.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnValue</td>
+		<td>Integer <span class="Italic">ignore</span>, <a href="vcComponent.htm">vcComponent</a> 
+		 <span class="Italic">component</span>, <a href="vcBehaviour.htm">vcBehaviour</a> 
+		 <span class="Italic">behavior</span></td>
+		<td>Triggered when sensor starts processing a component. 
+		<p class="TableNormal">To override default processing time, use 
+		 setValue() method.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Use OnValue event to manipulate sensor</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import *<br>
+		<br>
+		<span>def my_event(ignore, component, behaviour):</span><br>
+		<span>&#160;&#160;print '-'*99</span><br>
+		<span>&#160;&#160;print component.Name</span><br>
+		<span>&#160;&#160;print behaviour.Name</span><br>
+		<span>&#160;&#160;sensor.setValue(10)</span><br>
+		<br>
+		<span>comp = getComponent()</span><br>
+		<span>sensor = comp.findBehaviour('ProcessPointSensor')</span><br>
+		<span>sensor.OnValue = my_event</span></td>
+	</tr>
+</table>
+</body>
+</html>

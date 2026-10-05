@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Подключение к Siemens SIMIT</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Плагин SIMIT в Рациональном Производстве позволяет пользователю подключаться к программному обеспечению эмулятора поведения SIMIT в реальном времени." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><a name="minitocbookmark1" class="hmanchor"></a><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Подключение к Siemens SIMIT&nbsp;</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal" style="text-align: justify;">Плагин SIMIT в Рациональном Производстве позволяет пользователю подключаться к программному обеспечению эмулятора поведения SIMIT в реальном времени.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0.0625in;"><table cellpadding="0" cellspacing="0" style="border:none;border-spacing:0;padding:0;line-height: normal;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:0.1875in"><a name="mthotspot29114" class="hmanchor"></a><img id="toggle0186a1_ICON" class="dropdown-toggle-icon" alt="hmtoggle_plus1" style="margin:0;width:0.0938in;height:0.0938in;border:none" src="hmtoggle_plus1.gif"/></td><td style="border:none;padding:0"><a class="dropdown-toggle" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;" href="javascript:HMToggle('toggle','toggle0186a1','toggle0186a1_ICON')">СОДЕРЖАНИЕ</a></td></tr></table></div>
+<div id="toggle0186a1" class="dropdown-toggle-body" style="text-align: left; padding: 0 0 0 0; margin: 0 0 0.0417in 0.2500in;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_connecting_to_siemens_simit.html#minitocbookmark2" class="topiclink">ОБЗОР ПОДКЛЮЧЕНИЯ SIMIT</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_connecting_to_siemens_simit.html#minitocbookmark2" class="topiclink">СОЕДИНЕНИЕ R-PRO</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_connecting_to_siemens_simit.html#minitocbookmark8" class="topiclink">ПОДКЛЮЧЕНИЕ ПЛАГИНА SIMIT И ОБМЕН ЗНАЧЕНИЯМИ СИГНАЛА</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_connecting_to_siemens_simit.html#minitocbookmark12" class="topiclink">ОБМЕН ЗНАЧЕНИЯМИ СИГНАЛОВ МЕЖДУ КОММУНИКАЦИОННЫМ ПЛАГИНОМ SIMIT И СОПРЯЖЕНИЕМ R-PRO</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_connecting_to_siemens_simit.html#minitocbookmark13" class="topiclink">ПРОИЗВОДИТЕЛЬНОСТЬ </a> </p>
+</td>
+</tr>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark2" class="hmanchor"></a><span style="font-size: 18pt;">Обзор подключения SIMIT</span></h2>
+<p class="p_Normal">Связь между Р-Про и SIMIT достигается с помощью двух программных компонентов.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Соединение Рациональное Производство. Как внешнее соединение для SIMIT, также называемое для краткости «соединение Р-Про».</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Плагин SIMIT Connection для Рационального Производства, или сокращенно «плагин SIMIT».</p>
+<p class="p_Normal">Оба предназначены для использования только с соответствующими версиями друг друга.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark3" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Основные характеристики соединения Р-Про</span></h3>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Поддержка нескольких параллельных локальных и удаленных соединений через TCP/IP.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Свободное определение доступных сигналов ввода-вывода.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>События изменения значения сигнала для эффективного потока данных от SIMIT к Р-Про.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Асинхронный: задержка связи не замедляет работу SIMIT.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark4" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Основные возможности плагина SIMIT</span></h3>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Поддерживает параллельные соединения.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Свободный процесс просмотра сигналов и сопряжения, как и в других подключаемых модулях.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Автоматическое управление соединениями во время выполнения SIMIT.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Поддерживает режимы циклического и событийного обновления.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Асинхронный: задержка связи не замедляет работу Р-Про.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark5" class="hmanchor"></a><span style="font-size: 18pt;">Соединение Р-Про</span></h2>
+<p class="p_Normal">Соединение Р-Про — это внешнее сопряжение для SIMIT, использующее SIMIT V10.2 API.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание: </span>Демо-версия SIMIT не поддерживает внешние соединения.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark6" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Распаковка и установка</span></h3>
+<p class="p_Normal">Соединение Р-Про поставляется в виде zip-файла, содержащего папку с исполняемым файлом соединения и другими необходимыми файлами. Чтобы установить соединение, необходимо скопировать папку к папке установки SIMIT, как показано ниже:</p>
+<p class="p_Normal">C:\Program Files (x86)\Siemens\Automation\SIMIT\SIMIT SF\couplings</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание: </span>Имя папки соединения разделе «couplings» определяет имя сопряжения в SIMIT.</p>
+<p class="p_Normal">Соединение Р-Про имеет некоторые ограничения, вытекающие из ограничений API внешнего сопряжения SIMIT:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Рациональное Производство может получить доступ только к сигналам, определенным в соединении.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Если желательна связь между сопряжениями, все сигналы должны быть подключены, например, через соединительные блоки на схемах.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Для каждого проекта SIMIT поддерживается один экземпляр соединения Рационального Производства.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Сервер конфигурации запускается при размыкании соединения.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Пользовательский интерфейс SIMIT SP и API внешнего соединения предоставляет очень ограниченные возможности для определения соединения сигналов в SIMIT. Должен использоваться отдельный пользовательский интерфейс редактора сигналов.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark7" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Терминология ввода и вывода в SIMIT</span></h3>
+<p class="p_Normal">В SIMIT термины &quot;входной сигнал&quot; и &quot;выходной сигнал&quot; всегда определяются так, что они относятся к входам и выходам партнера по соединению, т.е. аппаратного или программного обеспечения, к которому подключается соединение. Это означает, что &quot;входной сигнал&quot; является выходным и доступен только для записи в схемах SIMIT.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark8" class="hmanchor"></a><span style="font-size: 18pt;">Подключение плагина SIMIT и обмен значениями сигналов</span></h2>
+<p class="p_Normal" style="text-align: justify;">Соединение с редактором SIMIT SP (сервер конфигурации) и Simit Simit (среда выполнения) являются отдельными. Вы можете подключиться к SIMIT (редактор/сервер конфигурации) только после открытия связи в SIMIT SP. Поэтому загрузить проект с сопряжением недостаточно. Подключение к симуляции SIMIT осуществляется автоматически при наличии подключения к SIMIT SP (редактор). Следующие шаги будут общим пошаговым руководством по настройке для установления соединения.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark9" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Добавление связи Рационального Производства в SIMIT</span></h3>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>Запустите проект приложения SIMIT SP.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>В разделе Проект в вашем проекте разверните папку Couplings.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>Щелкните правой кнопкой мыши New coupling и выберите New coupling.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">4.</span>Выберите Рациональное Производство в разделе Внешние (Extern).</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark10" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Интерфейс взаимодействия Рационального Производства в SIMIT</span></h3>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Также доступно восемь временных интервалов. Расчет входного/выходного сигнала и обмен сигналом с приложением Рационального Производства с этим временем цикла. Для получения дополнительной информации обратитесь к следующему разделу по этой теме.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark11" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Вкладка «Подключение» в пользовательском интерфейсе Рационального Производства</span></h3>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>Подключитесь от Рациональное Производство к SIMIT на вкладке Подключения.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>Соедините сигналы между Рационального Производства и SIMIT (используйте статью «<a href="russian_tasks_connectivity_pairing_variables.html" class="topiclink">Пары переменных</a>», доступную в файле справки Рационального Производства в меню Задачи&gt;Подключения).</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание: </span>Если вы сначала запускаете симуляцию Рационального Производства, а затем симуляцию SIMIT, все пары переменных будут получать ошибки до тех пор, пока симуляция SIMIT не будет запущена и соединение с ним не будет (автоматически) установлено. Таким образом, рекомендуется сначала запустить симуляцию SIMIT. Поскольку соединения раздельные, в редких случаях они могут выходить из строя независимо друг от друга.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark12" class="hmanchor"></a><span style="font-size: 18pt;">Обмен значениями сигналов между коммуникационным плагином SIMIT и сопряжением Рационального Производства</span></h2>
+<p class="p_Normal">Реализация события изменения значения имеет такие особенности, как поддержка множества параллельных слушателей и предотвращение дико растущего буфера старых сообщений. Однако существенным недостатком является то, что если произойдет какой-либо всплеск задержки связи, события изменения значения будут потеряны. &nbsp; </p>
+<p class="p_Normal">Поскольку обмен данными между Рациональным Производством и шлюзом происходит асинхронно, он не предоставляет SIMIT точную информацию о нагрузке. Нагрузка шлюза отражает только время, затраченное на обновление кэша значений сигналов, который может периодически блокироваться на время обработки запроса на чтение и запись. &nbsp; </p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark13" class="hmanchor"></a><span style="font-size: 18pt;">Производительность</span></h2>
+<p class="p_Normal">Настоятельно рекомендуется использовать:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Режим циклического обновления для группы переменных <span style="font-weight: bold;">Симуляция на сервер</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Выберите интервал цикла, равный или превышающий интервал времени, используемый для соединения Рационального Производства с проектом SIMIT.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Отправка значений в SIMIT со скоростью, превышающей цикл обновления связи Рационального Производства, не дает никаких преимуществ, в том числе в этом направлении работает режим на основе событий.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Режим обновления на основе событий для группы переменных <span style="font-weight: bold;">Сервер для симуляции</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>SIMIT попытается отправить обновления значений со скоростью временного интервала сопряжения Рациональное Производство. Только если эта частота излишне высока или поток данных переполняет Рациональное Производство, рекомендуется переключиться на более низкую частоту дискретизации, используя режим циклического обновления.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>См. также Примечания о пропущенных обновлениях значений из предыдущего раздела.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание: </span>Временной интервал сопряжения Рационального Производства должен быть установлен на разумное значение. Например, нет смысла обновлять связь быстрее, чем диаграммы SIMIT, которые предоставляют или используют данные. Для визуализации 60 Гц является общепринятой частотой обновления для очень плавной анимации, а 30 Гц достаточно для большинства целей.</p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+if (window.topicInitScriptAvailable) {
+function HMInitToggleStates() {
+HMInitToggle('toggle0186a1_ICON','hm.type','dropdown','hm.state','0','hm.src0','hmtoggle_plus0.gif','hm.src1','hmtoggle_plus1.gif','onclick','HMToggle(\'toggle\',\'toggle0186a1\',\'toggle0186a1_ICON\')');
+HMInitToggle('toggle0186a1','hm.type','dropdown','hm.state','0');
+
+}
+var checkTimer=setTimeout("HMInitToggleStates()", 0);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="Python,add-on,command,custom control,localization">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>Template for Python Add-on</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Template for Python Add-on</h1>
+<p>This template can help you quickly develop and localize your Python 
+ add-on. You can download the files <a href="templatePythonAddon.zip">here</a>. 
+ Remember to put the files in the My Commands folder of your application's 
+ documents. As follows are sections that briefly explain each file and 
+ its use.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot52437" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot52437', 'MTPOPUP52437');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP52437" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Initialization File</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Command Files</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Icon File</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Resource File</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Initialization File</h2>
+<p>An initialization file (__init__.py) is used to register your add-on 
+ with the application and define its location in the user interface. You 
+ can, of course, develop an add-on that runs in the background and listens 
+ for events.</p>
+<div class="ScrollTable">
+	<table class="CodeBlock" cellspacing="0" width="100%">
+		<col>
+		<tr>
+			<td>''' 
+			<br>template for add-on that uses contextual tab group, ribbon tab and group 
+			<br>a contextual tab group requires a command that defines when to show or hide it 
+			<br>''' 
+			<br>from vcApplication import * 
+			<br>&#160; 
+			<br>def OnAppInitialized(): 
+			<br>&#160;&#160;cmduri = getApplicationPath() + &quot;ShowContextualRibbonTab.py&quot; 
+			<br>&#160;&#160;cmd = loadCommand(&quot;ShowContextualRibbonTab&quot;,cmduri) 
+			<br>&#160;&#160; 
+			<br>&#160;&#160;cmduri2 = getApplicationPath() + &quot;printHelloLocalized.py&quot; 
+			<br>&#160;&#160;cmd = loadCommand(&quot;printHelloLocalized&quot;,cmduri2) 
+			<br>&#160;&#160; 
+			<br>&#160;&#160;iconPath = getCommandPath() + &quot;Hello.svg&quot; 
+			<br>&#160;&#160;localize = findCommand(&quot;netCommand&quot;) 
+			<br>&#160;&#160; 
+			<br>&#160;&#160;localize.execute(&quot;SetLocalizationCommand&quot;, &quot;English&quot;, &quot;Python&quot;, &quot;printHelloLocalized&quot;, &quot;Icon&quot;, iconPath) 
+			<br>&#160;&#160;localize.execute(&quot;SetLocalizationCommand&quot;, &quot;English&quot;, &quot;Python&quot;, &quot;NewRibbonGroup&quot;, &quot;Icon&quot;, iconPath) 
+			<br>&#160;&#160;&#160;&#160; 
+			<br>&#160;&#160; 
+			<br>&#160;&#160;#Step 1: First add Ribbon Contextual tab group. Id is the id of the group which Ribbon tab created in step 2 is going to associate. &#160; 
+			<br>&#160;&#160;addMenuItem(UxSite = 'pyContextTabGroup',UxName = &quot;PythonExtraContextTab&quot;, Index = -1, Id = &quot;pyContextTabGroup&quot;,Parent=&quot;gmAction&quot;,ControlType=&quot;ContextualTabGroup&quot;,BaseBackColor=&quot;#ff1985&quot;) #ssisss 
+			<br>&#160;&#160;#Step 2: Add Ribbon Tab and associated it with Contextual ribbon group.The Parent attribute is to set the Contextual tab group. Id of Ribbon tab is the id it is used to be identified. 
+			<br>&#160;&#160;addMenuItem(UxSite = &quot;pyContextTabGroup/TabHeader&quot;, UxName=&quot;1st Tab&quot;, Index = -1, Id = &quot;TabHeader&quot;,Parent=&quot;pyContextTabGroup&quot;, ControlType=&quot;RibbonTab&quot;) 
+			<br>&#160;&#160;# now you can add ribbon items in this 
+			<br>&#160;&#160;addMenuItem('pyContextTabGroup/TabHeader/NewRibbonGroup', &quot;R Group&quot; , -1, &quot;printHelloLocalized&quot; , &quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;)</td>
+		</tr>
+	</table>
+</div>
+<p><span class="Strong">Important:</span> If you are placing your add-on 
+ in a gallery menu that is not defined by the initialization (INI) file 
+ of your add-on, the files of your add-on must be in a child folder of 
+ the INI file defining the menu. For example, the INI file of your add-on 
+ might reference a gallery menu before it is created when initializing 
+ the application. This rule does not apply to gallery menus defined by 
+ the application.</p>
+<p><span class="Example">Example. __init__ file defines gallery menu that 
+ is referenced by __init__ file in child folder</span></p>
+<p><img src="GalleryMenuFolderExample.png" alt="" style="border: none;" border="0"></p>
+<h2><a name="MiniTOCBookMark3"></a>Command Files</h2>
+<p>A command file defines the functionality of your add-on. Your add-on 
+ can have one or more command files. Generally, a command has at least 
+ one state that occurs when you execute the command. You have the option 
+ of extending a command by adding properties, using pre/post-execution 
+ events, showing message boxes, and executing a command with the help of 
+ a task pane/action panel.</p>
+<div class="ScrollTable">
+	<table class="CodeBlock" cellspacing="0" width="100%">
+		<col>
+		<tr>
+			<td>''' 
+			<br>template for command executed in action panel/task pane 
+			<br>you can see how to localize: 
+			<br>&#160;&#160;message box 
+			<br>&#160;&#160;command property 
+			<br>&#160;&#160;command property with step values 
+			<br>&#160;&#160;command property grouped in tab other than default 
+			<br>''' 
+			<br>from vcCommand import * 
+			<br>app = getApplication() 
+			<br>cmd = getCommand() 
+			<br>&#160;&#160; 
+			<br>def showMessage(prop): 
+			<br>&#160;&#160;&#160;&#160;title = app.getLocalizedString(&quot;Python&quot;,&quot;MsgBoxTitle&quot;,&quot;Text&quot;) #1st way 
+			<br>&#160;&#160;&#160;&#160;message = app.getLocalizedString(&quot;ComboKey::Python.MsgBoxMessage.Text&quot;) #2nd way &#160;&#160;&#160; 
+			<br>&#160;&#160;&#160;&#160;retval = app.messageBox(message,#message text 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;title, #Title 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;iconValues['Information'], #icon 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;buttonValues['YesNoCancel'], #button 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0, #default result 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;yep!&quot;, #yesbutton 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;no...&quot;, #nobutton 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;idk&quot;) #cancelbutton 
+			<br>&#160;&#160;&#160;&#160; 
+			<br>&#160;&#160;&#160;&#160; 
+			<br>prop1 = cmd.createProperty(VC_BUTTON,&quot;btnPropName&quot;) 
+			<br>prop1.OnChanged = showMessage 
+			<br>&#160; 
+			<br>prop2 = cmd.createProperty(VC_STRING,&quot;ColorPropName&quot;,VC_PROPERTY_STEP) 
+			<br>prop2.StepValues = [&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;] 
+			<br>prop2.Value = prop2.StepValues[0] 
+			<br>&#160; 
+			<br>prop3 = cmd.createProperty(VC_BOOLEAN,&quot;Advanced::togglePropName&quot;) 
+			<br>prop3.Value = False 
+			<br>&#160; 
+			<br>def state(): 
+			<br>&#160;&#160;&#160;&#160;executeInActionPanel() 
+			<br>&#160;&#160;&#160;&#160; 
+			<br>cmd.addState(state) 
+			<br>returnValues = {0 : 'None', 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;1 : 'OK', 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;2 : 'Cancel', 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;6 : 'Yes', 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;7 : 'No'} 
+			<br>buttonValues = { 'OK' : 0, 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'OKCancel': 1, 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'YesNoCancel' : 3, 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'YesNo' : 4} 
+			<br>iconValues = { 'None' : 0, 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'Error': 16, 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'Question' : 32, 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'Warning' : 48, 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'Information' : 64}</td>
+		</tr>
+	</table>
+</div>
+<p>In some cases, another command file is needed to show or hide your add-on 
+ or disable it.</p>
+<div class="ScrollTable">
+	<table class="CodeBlock" cellspacing="0" width="100%">
+		<col>
+		<tr>
+			<td>#example on how to show/hide contextual tab group 
+			<br>#in this case, the command runs in background as event handler 
+			<br>from vcCommand import * 
+			<br>&#160; 
+			<br>app = getApplication() 
+			<br>cmd = getCommand() 
+			<br>&#160; 
+			<br>def ShowOrHideCustomRibbonTab(): 
+			<br>&#160;&#160;if app.CurrentContext.Id == &quot;Drawing&quot;: 
+			<br>&#160;&#160;&#160;&#160;app.setContextualTabGroup(&quot;pyContextTabGroup&quot;,False) 
+			<br>&#160;&#160;&#160;&#160;print &quot;Your custom pyContextTabGroup is hidden in &quot; + app.CurrentContext.Id + &quot;context&quot; 
+			<br>&#160;&#160;elif app.CurrentContext.Id == &quot;Teach&quot;: 
+			<br>&#160;&#160;&#160;&#160;app.setContextualTabGroup(&quot;pyContextTabGroup&quot;,True) 
+			<br>&#160;&#160;&#160;&#160;print &quot;Your custom pyContextTabGroup is shown in &quot; + app.CurrentContext.Id + &quot;context&quot; 
+			<br>&#160;&#160;else: 
+			<br>&#160;&#160;&#160;&#160;app.setContextualTabGroup(&quot;pyContextTabGroup&quot;,True) 
+			<br>&#160;&#160;&#160;&#160;print &quot;Your custom pyContextTabGroup is shown in &quot; + app.CurrentContext.Id + &quot;context&quot; 
+			<br>&#160;&#160; 
+			<br>app.OnContextChanged = ShowOrHideCustomRibbonTab</td>
+		</tr>
+	</table>
+</div>
+<h2><a name="MiniTOCBookMark4"></a>Icon File</h2>
+<p>An SVG file can be used as an icon for your add-on. You can either create 
+ your own or reference the ones used by the application. For example, in 
+ the program files of the application you will find an Icons folder. In 
+ that case, the Icons folder can be a working directory, so you could pass 
+ a relative path, for example &quot;rUndo.svg&quot;, instead of an absolute 
+ path. In any case, an SVG file must have a &lt;path&gt; tag with a 'd' 
+ attribute to be rendered in the user interface.</p>
+<div class="ScrollTable">
+	<table class="CodeBlock" cellspacing="0" width="100%">
+		<col>
+		<tr>
+			<td>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; 
+			<br>&lt;!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) &#160;--&gt; 
+			<br>&lt;svg version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; 
+			<br>&#160;viewBox=&quot;0 0 16 16&quot; enable-background=&quot;new 0 0 16 16&quot; xml:space=&quot;preserve&quot;&gt; 
+			<br>&lt;g id=&quot;XMLID_20_&quot;&gt; 
+			<br>&#160; 
+			<br>&lt;path id=&quot;XMLID_79_&quot; fill=&quot;#393939&quot; d=&quot;M10.912,3v1.623L9.403,6.34L8.808,7.016l0.611,0.662L11,9.391V11H5V9.377L6.509,7.66L7.09,7 
+			<br>l-0.58-0.66L5,4.623V3H10.912 M11.912,2H4v3l1.758,2L4,9v3h8V9l-1.846-2l1.758-2V2L11.912,2z M16,13H0v1h16V13L16,13z&quot;/&gt; 
+			<br>&#160; 
+			<br>&lt;/g&gt; 
+			<br>&lt;path id=&quot;XMLID_25_&quot; fill=&quot;#FAA519&quot; d=&quot;M5.45,11l2.2-4l-1.2-2h3l-1,2l2.1,4H5.45z&quot;/&gt; 
+			<br>&lt;g id=&quot;XMLID_26_&quot;&gt; 
+			<br>&lt;/g&gt; 
+			<br>&lt;g id=&quot;XMLID_28_&quot;&gt; 
+			<br>&lt;/g&gt; 
+			<br>&lt;g id=&quot;XMLID_29_&quot;&gt; 
+			<br>&lt;/g&gt; 
+			<br>&lt;g id=&quot;XMLID_30_&quot;&gt; 
+			<br>&lt;/g&gt; 
+			<br>&lt;g id=&quot;XMLID_31_&quot;&gt; 
+			<br>&lt;/g&gt; 
+			<br>&lt;g id=&quot;XMLID_32_&quot;&gt; 
+			<br>&lt;/g&gt; 
+			<br>&lt;/svg&gt;</td>
+		</tr>
+	</table>
+</div>
+<p><span class="Strong">Tip:</span> The hex color of #393939 can be used 
+ to contrast the Light and Dark themes of the application. The color is 
+ white when using Dark theme and black when using Light theme.</p>
+<h2><a name="MiniTOCBookMark5"></a>Resource File</h2>
+<p>A resource file allows you to localize your add-on for languages supported 
+ by the application. A resource file uses key-value pairs that define localized 
+ strings. These key-value pairs are then merged with other resource files 
+ to create a one large dictionary for the application. In this case, the 
+ localized strings are added from Python not .NET. When localizing your 
+ add-on, make sure to reference keys not values. A key is then used to 
+ get localized text based on the active language of the application. To 
+ create and use a resource file, name it &quot;PyResource.&lt;language&gt;&quot; 
+ and save it with a .xaml file extension.</p>
+<div class="ScrollTable">
+	<table class="CodeBlock" cellspacing="0" width="100%">
+		<col>
+		<tr>
+			<td>&lt;ResourceDictionary xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot; 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot; 
+			<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;xmlns:s=&quot;clr-namespace:System;assembly=mscorlib&quot;&gt; 
+			<br>&#160;&#160; 
+			<br>&#160;&#160;&#160;&#160;&lt;!-- for ribbon button/command --&gt; 
+			<br>&#160;&#160;&#160;&#160;&lt;s:String x:Key=&quot;ComboKey::Python.printHelloLocalized.Text&quot;&gt;Print Hello(in English)&lt;/s:String&gt; 
+			<br>&#160;&#160;&#160;&#160;&lt;s:String x:Key=&quot;ComboKey::Python.printHelloLocalized.Tooltip&quot;&gt;Print hello World in message panel(in English)&lt;/s:String&gt; 
+			<br>&#160;&#160;&#160;&#160;&lt;s:String x:Key=&quot;ComboKey::Python.printHelloLocalized.Icon&quot;&gt;rUndo.svg&lt;/s:String&gt; 
+			<br>&#160;&#160;&#160;&#160; 
+			<br>&#160;&#160;&#160;&#160;&lt;!-- for ribbon group --&gt; 
+			<br>&#160;&#160;&#160;&#160;&lt;s:String x:Key=&quot;ComboKey::Python.NewRibbonGroup.Text&quot;&gt;Localized Group (in English)&lt;/s:String&gt; 
+			<br>&#160;&#160;&#160;&#160;&lt;s:String x:Key=&quot;ComboKey::Python.NewRibbonGroup.Tooltip&quot;&gt;Contains localized button(in English)&lt;/s:String&gt; 
+			<br>&#160;&#160;&#160; 
+			<br>&#160;&#160;&#160;&#160;&lt;!-- for ribbon context tab and tab group --&gt; 
+			<br>&#160;&#160;&#160;&#160;&lt;s:String x:Key=&quot;ComboKey::Python.TabHeader.Text&quot;&gt;English Tab&lt;/s:String&gt; 
+			<br>&#160;&#160;&#160;&#160;&lt;s:String x:Key=&quot;ComboKey::Python.pyContextTabGroup.Text&quot;&gt;English&lt;/s:String&gt; 
+			<br>&#160;&#160;&#160;&#160; 
+			<br>&#160;&#160;&#160;&#160;&lt;!-- for message box --&gt; 
+			<br>&#160;&#160;&#160;&#160;&lt;s:String x:Key=&quot;ComboKey::Python.MsgBoxTitle.Text&quot;&gt;Hello (in English)&lt;/s:String&gt; 
+			<br>&#160;&#160;&#160;&#160;&lt;s:String x:Key=&quot;ComboKey::Python.MsgBoxMessage.Text&quot;&gt;I am localized Message in English&lt;/s:String&gt; 
+			<br>&#160;&#160;&#160;&#160; 
+			<br>&#160;&#160;&#160;&#160;&lt;!-- for properties in content panel --&gt; 
+			<br>&#160;&#160;&#160;&#160;&lt;s:String x:Key=&quot;ComboKey::Python.printHelloLocalized.btnPropName.Name&quot;&gt;Button (in English)&lt;/s:String&gt; 
+			<br>&#160;&#160;&#160;&#160;&lt;s:String x:Key=&quot;ComboKey::Python.printHelloLocalized.ColorPropName.Name&quot;&gt;Color (in English)&lt;/s:String&gt; 
+			<br>&#160;&#160;&#160;&#160;&lt;s:String x:Key=&quot;ComboKey::Python.printHelloLocalized.Advanced::togglePropName.Name&quot;&gt;Toogle (in English)&lt;/s:String&gt; 
+			<br>&#160;&#160;&#160;&#160; 
+			<br>&#160;&#160;&#160;&#160;&lt;!-- for step values --&gt; 
+			<br>&#160;&#160;&#160;&#160;&lt;s:String x:Key=&quot;ComboKey::Python.printHelloLocalized.ColorPropName.red&quot;&gt;Red (in English)&lt;/s:String&gt; 
+			<br>&#160;&#160;&#160;&#160;&lt;s:String x:Key=&quot;ComboKey::Python.printHelloLocalized.ColorPropName.blue&quot;&gt;Blue (in English)&lt;/s:String&gt; 
+			<br>&#160;&#160;&#160;&#160;&lt;s:String x:Key=&quot;ComboKey::Python.printHelloLocalized.ColorPropName.green&quot;&gt;Green (in English)&lt;/s:String&gt; 
+			<br>&#160; 
+			<br>&lt;/ResourceDictionary&gt;</td>
+		</tr>
+	</table>
+</div>
+<p><span class="Strong">Note:</span> You do have the option of localizing 
+ your add-on by using the netCommand to call the SetLocalizationCommand 
+ in .NET API. However, a resource file is easier to manage, share and edit. 
+ It has also been shown that the application performs better when a Python 
+ add-on uses resource files.</p>
+</body>
+</html>

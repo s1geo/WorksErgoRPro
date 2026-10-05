@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Контейнер компонентов</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Контейнер компонентов позволяет вам содержать в нем компоненты. Компоненты можно перемещать в контейнер, помещать туда другие компоненты, а также добавлять с помощью скрипта..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Контейнер компонентов</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Контейнер компонентов позволяет вам содержать в нем компоненты. Компоненты можно перемещать в контейнер, помещать туда другие компоненты, а также добавлять с помощью скрипта Python.</p>
+<p class="p_Normal"><img alt="ClipboardImg160" style="margin:0;width:4.4688in;height:3.1250in;border:none" src="clipboardimg160.png"/></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Порты контейнера компонентов перечислены вместе с поведением на панели Диаграммы Компонента.</p>
+<p class="p_Normal"><img alt="ClipboardImg161" style="margin:0;width:3.9271in;height:2.4688in;border:none" src="clipboardimg161.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.9271in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.4896in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.9271in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:10.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет наименование контейнера.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9271in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Статистика</p>
+</td>
+<td style="vertical-align:top; width:10.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет поведение статистики, которое собирает статистику, созданную контейнером.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9271in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Вместимость</p>
+</td>
+<td style="vertical-align:top; width:10.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет количество компонентов, которые могут находиться в контейнере в любой момент времени.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9271in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Блоки емкости</p>
+</td>
+<td style="vertical-align:top; width:10.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет список вариантов поведения контроллера емкости для глобального определения емкости контейнера. Как правило, контроллер емкости используется в качестве переменной для управления емкостью одного или нескольких контейнеров, чтобы избежать взаимной блокировки.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9271in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СигналПерехода</p>
+</td>
+<td style="vertical-align:top; width:10.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет логический сигнал, сигнализирующий о прибытии и уходе компонента в контейнере. Значение True сигнализирует о прибытии компонента. Значение False сигнализирует об уходе компонента.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9271in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Местоположение</p>
+</td>
+<td style="vertical-align:top; width:10.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет объект Рамка, который действует как физическое местоположение контейнера.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

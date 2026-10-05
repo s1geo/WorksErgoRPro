@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Получить сборку</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Создает объект «Порядок сборки», который определяет подмножество сборки, которое можно передать другим операторам для выполнения действий, специфичных для оператора, для..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Получить сборку</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Создает объект «Порядок сборки», который определяет подмножество сборки, которое можно передать другим операторам для выполнения действий, специфичных для оператора, для выбранных шагов сборки. Все этапы сборки принадлежат Типу сборочного продукта, поэтому в Заказе на сборку также всегда указывается один Тип сборочного продукта.</p>
+<p class="p_Normal">ИсточникДанныхСборки - Тип сборочного изделия :</p>
+<p class="p_Normal">Порядок сборки, включая выбор типа продукта сборки и шага сборки, может оставаться неизменным на протяжении всей симуляции и использоваться повторно. Шаги сборки можно свободно выбирать из выбранного типа продукта сборки.</p>
+<p class="p_Normal"><img alt="ClipboardImg261" style="margin:0;width:10.0000in;height:3.7292in;border:none" src="clipboardimg261.png"/></p>
+<p class="p_Normal"><span style="font-style: italic;">Рисунок 1. Пример процесса, в котором шаги сборки выбираются в порядке сборки, создается новый экземпляр сборки и выбранные шаги сборки заполняются оператором TransportIn. Наконец, созданный экземпляр сборки транспортируется к следующему процессу. </span></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Источник Данных Сборки Экземпляр сборки :</p>
+<p class="p_Normal">Этот режим следует выбирать, если процессу необходимо обрабатывать меняющиеся типы экземпляров сборки или если экземпляры сборки имеют разные состояния завершения, когда они прибывают. Этот режим позволяет общий выбор одного шага сборки с использованием нескольких различных правил. Используйте этот режим, например, для полной сборки или разборки любого экземпляра сборки с помощью цикла или для создания универсальной реализации процесса, которая продвигает работу над экземпляром сборки на один шаг, а затем передает его вперед.</p>
+<p class="p_Normal"><img alt="ClipboardImg262" style="margin:0;width:10.5313in;height:3.6771in;border:none" src="clipboardimg262.png"/></p>
+<p class="p_Normal"><span style="font-style: italic;">Рисунок 2. Пример процесса, в котором транспортируется экземпляр сборки, из него извлекается следующий незавершенный шаг сборки, затем этот шаг сборки заполняется TransportIn. Наконец, экземпляр сборки транспортируется к следующему процессу.</span></p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.9063in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5104in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ИсточникДанныхСборки</p>
+<p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Режим ввода, определяющий, какие свойства следует использовать для генерации вывода.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Экземпляр сборки - Считайте данные из экземпляра продукта сборки.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Тип сборочного изделия - Считайте данные из Типа продукта сборки, определенного в макете.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ИмяПеременнойСборки</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование переменной процесса, из которой можно получить экземпляр сборки.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ШагиСборки</p>
+<p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Режим выбора, определяющий, какой шаг должен быть выбран из экземпляра сборки.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Первый незавершенный шаг - Выберите первый этап сборки, хотя бы один из слотов которого заполнен, но не все.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Первый пустой шаг - Выберите первый этап сборки, ни один из слотов которого не заполнен.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Первый завершенный шаг - Выберите первый шаг сборки, все слоты которого заполнены.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Последний шаг с продуктами - Выберите последний шаг сборки, хотя бы один слот которого заполнен.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Сборка</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Тип продукта сборки для использования в качестве источника данных и выбора шагов сборки.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ШагиСборки</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Этапы сборки для включения в качестве «выбранных» в заказ на сборку.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ВключитьШагиДетей</p>
+<p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Должны ли быть также включены все дочерние шаги выбранных шагов сборки.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ВернутьСписком</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">При значении True оператор выводит список ссылок на экземпляры продукта вместо создания заказа на сборку. Эти выходные данные можно использовать для проверки или управления экземплярами продукта, которые находятся в сборке, без их предварительного извлечения. Список создается в правильном порядке сборки сборочного типа продукта.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Обратный список</p>
+<p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет, должен ли список экземпляров продукта выводиться в обратном порядке, т. е. в порядке разборки типа сборки продукта. Применимо, только если для параметра ВернутьСписоком установлено значение True.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ВернутьИмяПеременной</p>
+<p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:9.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Имя переменной процесса, используемой для хранения результата. Типом переменной будет либо Заказ на сборку, либо список Экземпляров продукта, в зависимости от выбора ВернутьСписоком.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

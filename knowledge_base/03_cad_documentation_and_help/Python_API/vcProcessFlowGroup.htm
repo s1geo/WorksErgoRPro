@@ -1,0 +1,161 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProcessFlowGroup</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcProcessFlowGroup</h1>
+<p>Process flow group is a grouping of product types that share same process 
+ flow sequence and can navigate through the same transport links. Every 
+ product type (<a href="vcProductType.htm">vcProductType</a>) belongs to 
+ exactly one flow group, with the only exception being the system “Any” 
+ product type that doesn’t belong to a flow group. </p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot33737" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot33737', 'MTPOPUP33737');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP33737" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of the group. Must be unique within the process controller.</td>
+	</tr>
+	<tr>
+		<td>FlowGroupManager </td>
+		<td><a href="vcProcessFlowGroupManager.htm">vcProcessFlowGroupManager</a> 
+		 </td>
+		<td>R</td>
+		<td>Gets the manager this flow group belongs to.</td>
+	</tr>
+	<tr>
+		<td>Properties </td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td>Gets the properties of this flow group. All properties might 
+		 not have a <a href="vcProperty.htm">vcProperty</a> implementation.</td>
+	</tr>
+	<tr>
+		<td>ProductTypes </td>
+		<td>List of <a href="vcProductType.htm">vcProductType</a></td>
+		<td>R</td>
+		<td>The list of product types that belong to this group.</td>
+	</tr>
+	<tr>
+		<td>IsVisible </td>
+		<td>Boolean </td>
+		<td>RW</td>
+		<td>Whether this group is visible in certain areas of the user 
+		 interface.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getProperty </td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String <span class="hcp1">Name</span></td>
+		<td>Returns a property matching a given <span class="hcp1">name</span> 
+		 in the group; otherwise returns None. All properties might not 
+		 have a <a href="vcProperty.htm">vcProperty</a> implementation.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnProductTypeAdded </td>
+		<td><p><a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> 
+		 <span class="hcp1">flowGroup</span>,</p>
+		<p><a href="vcProductType.htm">vcProductType</a> <span class="hcp1">productType</span> 
+		 </p></td>
+		<td>Triggered when a product type has been added to this flow group.</td>
+	</tr>
+	<tr>
+		<td>OnProductTypeRemoving </td>
+		<td><p><a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> 
+		 <span class="hcp1">flowGroup</span>,</p>
+		<p><a href="vcProductType.htm">vcProductType</a> <span class="hcp1">productType</span> 
+		 </p></td>
+		<td>Triggered when a product type is being removed from this flow 
+		 group.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p class="Example"><span class="Example">Example. List the product types 
+ of this Flow Group.</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>sim = getSimulation() 
+		<br>process_controller = sim.ProcessController 
+		<br>flow_grp_mgr = process_controller.FlowGroupManager 
+		<br>flow_group1 = flow_grp_mgr.findGroup('Flow Group #1') 
+		<br># Check if the Flow Group exists 
+		<br>if flow_group1: 
+		<br>&#160;&#160;# List the product types of this Flow Group 
+		<br>&#160;&#160;print flow_group1.Name, 'has the following product types:' 
+		<br>&#160;&#160;product_types = flow_group1.ProductTypes 
+		<br>&#160;&#160;for p in product_types: 
+		<br>&#160;&#160;&#160;&#160;print p.Name 
+		<br># Here you can define custom logic for when a Product Type is removed 
+		<br>def product_type_deletion_handler(flow_group, product_type): 
+		<br>&#160;&#160;print product_type.Name, 'removed from', flow_group.Name 
+		<br>if flow_group1: 
+		<br>&#160;&#160;flow_group1.OnProductTypeRemoving = product_type_deletion_handler</td>
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,59 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcStatisticsManager</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body page-style="x-size: A4;" page-frame-style="margin-left: 0.25in; margin-right: 0.25in;">
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+
+<h1>vcStatisticsManager</h1>
+<p>vcStatisticsManager is used by a <a href="vcSimulation.htm">vcSimulation</a> 
+ object for defining the sampling rate at which interval based statistics 
+ are recorded during a simulation.</p>
+<p><img src="StatisticsInterval.png" alt="" style="border: none;" border="0"></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>SamplingInterval</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the sampling interval used by simulation for recording 
+		 interval based statistics. 
+		<p class="TableNormal">The default rate is 60.0 seconds, so an 
+		 interval is recorded every 60 seconds in simulation.</p></td>
+	</tr>
+</table>
+<h2>Examples</h2>
+<p><span class="Example">Example. Define global interval for interval based 
+ statistics in a simulation</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td><span>from vcScript import *</span> 
+		<br><span>&#160;</span> 
+		<br><span>sim = getSimulation()</span> 
+		<br><span>stats = sim.Statistics</span> 
+		<br><span>&#160;</span> 
+		<br><span>#Define global interval statistics sampling interval</span> 
+		<br><span>stats.SamplingInterval = 10.0</span> 
+		<br>&#160;</td>
+	</tr>
+</table>
+</body>
+</html>

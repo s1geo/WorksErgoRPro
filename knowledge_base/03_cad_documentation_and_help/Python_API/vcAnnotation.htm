@@ -1,0 +1,132 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcAnnotation</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+<body>
+<h1><a name="MiniTOCBookMark1"></a>vcAnnotation</h1>
+<p>vcAnnotation is a layout item used for authoring new and existing annotations in a layout.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcLayoutItem.htm">vcLayoutItem</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot45805" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot45805', 'MTPOPUP45805');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP45805" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Property</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Height</td>
+<td>Real</td>
+<td>RW</td>
+<td>Defines the height of text displayed in annotation.</td>
+</tr>
+<tr>
+<td>LineWidth</td>
+<td>Real</td>
+<td>RW</td>
+<td>Defines the line width of annotation.</td>
+</tr>
+<tr>
+<td>Location</td>
+<td><a href="vcMatrix.htm">vcMatrix</a></td>
+<td>RW</td>
+<td>Defines the position matrix of annotation in World coordinate system).</td>
+</tr>
+<tr>
+<td>LockToNode</td>
+<td>Boolean</td>
+<td>RW</td>
+<td>Defines if the annotation is attached to a node in component. That is, whether or not the annotation is anchored to a component or 3D world.</td>
+</tr>
+<tr>
+<td>Material</td>
+<td><a href="vcMaterial.htm">vcMaterial</a></td>
+<td>RW</td>
+<td>Defines the material of annotation.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines the annotation's name.</td>
+</tr>
+<tr>
+<td>Node</td>
+<td><a href="vcNode.htm">vcNode</a></td>
+<td>RW</td>
+<td>Defines the node the annotation is attached to in the 3D world.
+<p class="TableNormal">If the annotation is not locked to a node, the value is None.</p>
+</td>
+</tr>
+<tr>
+<td>Position</td>
+<td><a href="vcMatrix.htm">vcMatrix</a></td>
+<td>RW</td>
+<td>Defines the location of the annotation in its parent's coordinate system. That is, the anchor point of the annotation.
+<p class="TableNormal">If the annotation is not anchored to a component, the location is based in the World (simulation root node) coordinate system.</p>
+</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines the text of the annotation displayed in an environment.</td>
+</tr>
+<tr>
+<td>Thickness</td>
+<td>Real</td>
+<td>RW</td>
+<td>Defines the thickness of the annotation's text in an environment.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Method</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>getProperty</td>
+<td><a href="vcProperty.htm">vcProperty</a></td>
+<td>String <span class="Italic">name</span></td>
+<td>Returns a property matching a given <span class="Italic">name</span> in the annotation; otherwise returns None.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Examples</h2>
+<p><span class="Example">Example. Find and get annotation in layout</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td>from vcScript import * <br>&#160; <br>app = getApplication() <br>annotation = app.findLayoutItem("[AnnotationName]")</td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Постпроцессор</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Дополнение St&#228;ubli позволяет перевести программу робота в 3D-мир в приложение VAL 3. Это называется постобработкой программы робота. Созданное приложение VAL 3 представляет..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><a name="minitocbookmark1" class="hmanchor"></a><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Постпроцессор&nbsp;</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Дополнение St&#228;ubli позволяет перевести программу робота в 3D-мир в приложение VAL 3. Это называется постобработкой программы робота. Созданное приложение VAL 3 представляет собой набор XML-файлов, образующих проект, который можно открыть в St&#228;ubli Robotics Suite (SRS) 2013 и 2016, а также в VAL3 Studio 7.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание:</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Имя приложения VAL3 может содержать символы a–z, A–Z и 0–9 и должно начинаться с буквы. В противном случае приложение VAL3 не может использоваться контроллером.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Когда вы подключены к контроллеру CS9, менеджер передачи нельзя использовать для переноса приложения VAL3 на эмулируемый контроллер CS9, но можно использовать для переноса приложения VAL3 на реальный контроллер CS9.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Для получения дополнительной информации о том, как выполнить постобработку программы робота, см. <a href="russian_tasks_connectivity_staubli_user_interface.html#postprocessval3" class="topiclink">Создать приложение VAL 3 </a>.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0.0625in;"><table cellpadding="0" cellspacing="0" style="border:none;border-spacing:0;padding:0;line-height: normal;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:0.1875in"><a name="mthotspot42708" class="hmanchor"></a><img id="toggle0186a1_ICON" class="dropdown-toggle-icon" alt="hmtoggle_plus1" style="margin:0;width:0.0938in;height:0.0938in;border:none" src="hmtoggle_plus1.gif"/></td><td style="border:none;padding:0"><a class="dropdown-toggle" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;" href="javascript:HMToggle('toggle','toggle0186a1','toggle0186a1_ICON')">СОДЕРЖАНИЕ</a></td></tr></table></div>
+<div id="toggle0186a1" class="dropdown-toggle-body" style="text-align: left; padding: 0 0 0 0; margin: 0 0 0.0417in 0.2500in;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_staubli_post_processor.html#minitocbookmark2" class="topiclink">ПОДДЕРЖИВАЕМЫЕ ОПЕРАТОРЫ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_staubli_post_processor.html#minitocbookmark3" class="topiclink">ИНСТРУКЦИИ ПО ИСПОЛЬЗОВАНИЮ КЛЮЧЕВЫХ СЛОВ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_staubli_post_processor.html#minitocbookmark4" class="topiclink">ОГРАНИЧЕНИЯ ВЫРАЖЕНИЙ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_staubli_post_processor.html#minitocbookmark5" class="topiclink">ПЕРЕМЕННЫЕ ПРОГРАММЫ</a></p>
+</td>
+</tr>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark2" class="hmanchor"></a><span style="font-size: 18pt;">Поддерживаемые операторы</span></h2>
+<p class="p_Normal">Язык, используемый для операторов роботов в R-Pro, аналогичен языку VAL 3. Во многих случаях переводы просты, но VAL 3 не поддерживает операторы Break и Continue.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.8854in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:6.9479in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Примечания</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Assign Variable (Присвоение переменной)</p>
+</td>
+<td style="vertical-align:top; width:6.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Смотрите <a href="russian_tasks_connectivity_staubli_post_processor.html#limitationsexpressions" class="topiclink">ограничения </a>для перевода выражений и <span style="text-decoration: underline;">переменные </span><a href="russian_tasks_connectivity_staubli_post_processor.html#programvariables" class="topiclink">программы</a>.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Call Sequence (Вызов подпрограммы)</p>
+</td>
+<td style="vertical-align:top; width:6.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Comment (Комментарий)</p>
+</td>
+<td style="vertical-align:top; width:6.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Добавляет однострочный комментарий к коду VAL 3.</p>
+<p class="p_Normal">Видеть <a href="russian_tasks_connectivity_staubli_post_processor.html#instructionskeywords" class="topiclink">Специальные инструкции </a>для использования ключевых слов в операторах комментариев.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Define Base (Определить базу)</p>
+</td>
+<td style="vertical-align:top; width:6.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Define Tool (Определить инструмент)</p>
+</td>
+<td style="vertical-align:top; width:6.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Delay (Задержка)</p>
+</td>
+<td style="vertical-align:top; width:6.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Halt (Остановка)</p>
+</td>
+<td style="vertical-align:top; width:6.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Записывает команду stopMove(), которая останавливает движение робота и предотвращает выполнение других команд перемещения.</p>
+<p class="p_Normal">Это не мешает программе запускать другой код.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">If</p>
+</td>
+<td style="vertical-align:top; width:6.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Смотрите <a href="russian_tasks_connectivity_staubli_post_processor.html#limitationsexpressions" class="topiclink">ограничения </a>для перевода выражений.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Linear Motion (Линейное движение)</p>
+</td>
+<td style="vertical-align:top; width:6.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Accuracy method и Accuracy value в свойствах выражения можно использовать, если выбран метод Distance.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Point-to-Point Motion (Движение от точки к точке)</p>
+</td>
+<td style="vertical-align:top; width:6.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Accuracy method и Accuracy value в свойствах выражения можно использовать, если выбран метод Distance.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Print (Печать)</p>
+</td>
+<td style="vertical-align:top; width:6.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Записывает строку текста в пользовательский интерфейс контроллера.</p>
+<p class="p_Normal">Текст должен содержать только символы ASCII.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Return</p>
+</td>
+<td style="vertical-align:top; width:6.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Set Binary Output (Установить бинарный выход)</p>
+</td>
+<td style="vertical-align:top; width:6.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Выходной порт должен иметь сопоставление ввода-вывода.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Wait for Binary Input (Ожидать бинарный вход)</p>
+</td>
+<td style="vertical-align:top; width:6.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Входной порт должен иметь сопоставление ввода-вывода.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">While</p>
+</td>
+<td style="vertical-align:top; width:6.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Смотрите <a href="russian_tasks_connectivity_staubli_post_processor.html#limitationsexpressions" class="topiclink">ограничения </a>для перевода выражений.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание:</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Операторы движения в Рациональном Производстве выполняются последовательно с другими операторами, тогда как операторы движения в VAL 3 являются асинхронными и добавляются в очередь движения.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы сгенерированное приложение VAL 3 вело себя аналогично своему аналогу Рационального Производства, постпроцессор вставляет инструкции waitEndMove() между блоками перемещения и другими типами инструкций. Это означает, что следующая инструкция не будет выполняться до тех пор, пока не будут завершены все движения в очереди.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Для поддержки смешивания движения инструкция waitEndMove() не вставляется между соседними операторами движения.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Если цикл while содержит только операторы движения, инструкция waitEndMove() вставляется после цикла.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="instructionskeywords" class="hmanchor"></a></h2>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark3" class="hmanchor"></a><span style="font-size: 18pt;">Инструкции по использованию ключевых слов</span></h2>
+<p class="p_Normal">Специальные ключевые слова могут использоваться для создания конкретных инструкций в программе VAL 3. Ключевые слова чувствительны к регистру и используются с комментариями.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Ключевое слово</span></p>
+</th>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">VAL 3 Инструкция</span></p>
+</th>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Цель</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">lastMove</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">bLastMove=true</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Позволяет указать, что следующий вызов таймера должен записывать сводку времени цикла на экран контроллера.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">timer &lt;text&gt;</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">call timer(&quot;&lt;text&gt;&quot;)</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Позволяет вам написать заданный текст и время, прошедшее с момента предыдущего вызова таймера, на экран контроллера.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">waitEndMove()</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">waitEndMove()</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Позволяет вручную вставить инструкцию waitEndMove() в блок перемещений.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="limitationsexpressions" class="hmanchor"></a></h2>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark4" class="hmanchor"></a><span style="font-size: 18pt;">Ограничения выражений </span></h2>
+<p class="p_Normal">Некоторые операторы робота имеют свойства, позволяющие определять выражения.</p>
+<p class="p_Normal">Обратите внимание на следующие ограничения:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Оператор &amp;&amp; переводится как «и».</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Оператор || переводится как &quot;или&quot;.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Имена переменных, например переменные подпрограммы, транслируются с использованием информации об отображении ввода/вывода.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Переменные программы и определяемые пользователем свойства робота могут использоваться в выражениях и поддерживаются постпроцессором.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>И «True», и «False» переводятся в нижний регистр.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Все остальное не переводится, поэтому оно будет работать только в том случае, если его синтаксис такой же, как в VAL 3, например, большинство логических и простых расчетных выражений.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark5" class="hmanchor"></a></h2>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="programvariables" class="hmanchor"></a><span style="font-size: 18pt;">Переменные программы</span></h2>
+<p class="p_Normal">VAL 3 имеет глобальные прикладные и локальные программные переменные. Постпроцессор создает глобальные переменные VAL 3 для свойств компонентов робота, а также обычные переменные в его программе. Это связано с тем, что переменные подпрограммы в Рациональном Производстве не сбрасываются, как это делают локальные переменные VAL 3, когда вы выполняете подпрограмму.</p>
+<p class="p_Normal">Пожалуйста, обратите внимание на следующую информацию:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Свойства компонента транслируются в переменные приложения VAL 3 с тем же именем.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Постпроцессор создаст словари, которые являются коллекциями в VAL 3 Studio, для стандартных переменных в соответствии с каждым типом данных. Словарь будет иметь то же имя, что и соответствующая подпрограмма, но однобуквенный префикс для идентификации его типа. Пары ключ-значение формируются с использованием имени и значения каждой переменной. Например, подпрограмма с именем &quot;Pick&quot; с логическими и строковыми переменными будет преобразована как два словаря, bPick и sPick. Доступ к значению логической переменной с именем «Skip» будет осуществляться через bPick[&quot;Skip&quot;].</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Постпроцессор включает начальные значения переменных Рационального Производства в определения переменных приложения VAL 3.</p>
+</td></tr></table>
+
+<script type="text/javascript">
+if (window.topicInitScriptAvailable) {
+function HMInitToggleStates() {
+HMInitToggle('toggle0186a1_ICON','hm.type','dropdown','hm.state','0','hm.src0','hmtoggle_plus0.gif','hm.src1','hmtoggle_plus1.gif','onclick','HMToggle(\'toggle\',\'toggle0186a1\',\'toggle0186a1_ICON\')');
+HMInitToggle('toggle0186a1','hm.type','dropdown','hm.state','0');
+
+}
+var checkTimer=setTimeout("HMInitToggleStates()", 0);
+}
+</script>
+</body>
+</html>

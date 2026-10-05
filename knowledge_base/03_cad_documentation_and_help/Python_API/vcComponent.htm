@@ -1,0 +1,549 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcComponent</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcComponent</h1>
+<p>vcComponent is the object type for a component and its associated root 
+ node.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcNode.htm">vcNode</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot55048" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot55048', 'MTPOPUP55048');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP55048" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>BackfaceMode</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the mode for rendering geometry backfaces of component. 
+		 That is, geometry not facing active camera. 
+		<p class="TableNormal">See <a href="Constants.htm#Component_Constants">Component 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>BOM</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>If a component is included in the bill of materials.</td>
+	</tr>
+	<tr>
+		<td>BOMdescription</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Component description in the bill of materials.</td>
+	</tr>
+	<tr>
+		<td>BOMname</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Component name in the bill of materials.</td>
+	</tr>
+	<tr>
+		<td>Category</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the component group in Cell Graph.</td>
+	</tr>
+	<tr>
+		<td>Container</td>
+		<td><span><a href="vcContainer.htm">vcContainer</a></span></td>
+		<td>R</td>
+		<td>Gets the container storing the component. 
+		<p class="TableNormal">If a component is not stored in a container, 
+		 the value is None.</p>
+		<p class="TableNormal"><span class="Strong">Note:</span> Container 
+		 refers to a behavior that can store components, for example a 
+		 One Way Path.</p></td>
+	</tr>
+	<tr>
+		<td>CreationTime</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the creation time of component. 
+		<p class="TableNormal">Generally, creation time is used for gathering 
+		 statistics about components created during a simulation.</p>
+		<p class="TableNormal">In some cases, you might want to edit the 
+		 creation time of a component for filtering, tracking, assembly 
+		 and manufacturing purposes.</p></td>
+	</tr>
+	<tr>
+		<td>IsUnique</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if the component is sharing its feature trees with 
+		 other components.</td>
+	</tr>
+	<tr>
+		<td>Locked</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the component is locked from being edited or manipulated 
+		 in 3D world.</td>
+	</tr>
+	<tr>
+		<td>Material</td>
+		<td><span><a href="vcMaterial.htm">vcMaterial</a></span></td>
+		<td>RW</td>
+		<td>Defines the material of component and any of its features which 
+		 do not have an assigned material or whose node is set to inherit 
+		 a material. 
+		<p class="TableNormal">This material definition is persistent data, 
+		 meaning that the definition is stored when saving component.</p>
+		<p class="TableNormal"><span class="Strong">Note:</span> Changing 
+		 the material definition of a component causes all geometries to 
+		 be rebuilt, which can be a computing intensive operation. For 
+		 in-simulation visualization purposes, we recommend using the NodeMaterial 
+		 property instead.</p></td>
+	</tr>
+	<tr>
+		<td>MovementOrigin</td>
+		<td><span><a href="vcMatrix.htm">vcMatrix</a></span></td>
+		<td>RW</td>
+		<td>Defines the offset of component when moving on a path.</td>
+	</tr>
+	<tr>
+		<td>PackFolder</td>
+		<td><a href="vcPackFolder.htm">vcPackFolder</a></td>
+		<td>R</td>
+		<td>Gets the mechanism for attaching files to component.</td>
+	</tr>
+	<tr>
+		<td>PathAcceleration</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the acceleration of component when moving on a path.</td>
+	</tr>
+	<tr>
+		<td>PathDeceleration</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the deceleration of component when moving on a path.</td>
+	</tr>
+	<tr>
+		<td>PathVelocity</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the velocity of component when moving on and in the 
+		 direction of a path. 
+		<p class="TableNormal">If a zero value, the velocity of the component 
+		 is defined by the path.</p></td>
+	</tr>
+	<tr>
+		<td>PDFExportLevel</td>
+		<td><span>Enumeration</span></td>
+		<td>RW</td>
+		<td>Defines the level of detail when exporting component to a 3D 
+		 PDF. 
+		<p class="TableNormal">See <a href="Constants.htm#PDF_Export_Level">Component 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Product</td>
+		<td><a 
+		 href="vcProduct.htm">vcProduct</a></td>
+		<td>R</td>
+		<td>The Process Modeling product 
+		 instance linked to this component, if any.</td>
+	</tr>
+	<tr>
+		<td>Properties</td>
+		<td><span>List of <a href="vcProperty.htm">vcProperty</a></span></td>
+		<td>R</td>
+		<td>Gets a list of all user defined properties in component.</td>
+	</tr>
+	<tr>
+		<td><a name="vcComponent_SimulationLevel">SimulationLevel</a></td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the simulation level of the component. 
+		<p class="TableNormal">See <a href="Constants.htm#Simulation_Level">Component 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Uri</td>
+		<td>String</td>
+		<td>R</td>
+		<td>Gets the URI of component</td>
+	</tr>
+	<tr>
+		<td>VCID</td>
+		<td><span>String</span></td>
+		<td>RW</td>
+		<td>Defines the VCID of component. That is, the unique key identifier 
+		 of the component. 
+		<p class="TableNormal">Generally, you should never set this property. 
+		 Instead, allow the application to generate a VCID when you save 
+		 the component.</p></td>
+	</tr>
+	<tr>
+		<td>Visible</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the visibility of component in 3D world.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><a name="clone"></a>clone</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td>[Integer <span class="hcp1">shared</span><span>]</span></td>
+		<td>Creates a clone of component in 3D world, and then returns 
+		 the new component. 
+		<p class="TableNormal">If <span class="hcp1">shared</span> 
+		 argument is non-zero the clone and original share geometry. That 
+		 is, feature tree is shared not copied. This improves performance 
+		 during simulation, but the cloned components cannot be edited 
+		 separately (changing the appearance of either clone or original 
+		 component affects all the others.)</p>
+		<p class="TableNormal">Cloning of a component is not allowed when 
+		 1) it's not attached to World 2) there is a hierarchy lock in 
+		 the node tree, which happens during layout loading, or while moving 
+		 a node from one place to another.</p></td>
+	</tr>
+	<tr>
+		<td>createProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>Enumeration <span class="hcp1">type</span><span>, 
+		 String</span> <span class="hcp1">name</span>, <span>[Enumeration</span> 
+		 <span class="hcp1">constraints</span><span>]</span></td>
+		<td>Adds a new property of a given <span class="Italic">type</span> 
+		 and <span class="Italic">name</span> to component, and then returns 
+		 the new property. 
+		<p class="TableNormal">An optional <span class="Italic">constraints</span> 
+		 argument can be used to define constraints for new property, which 
+		 must be defined at the time of creation.</p>
+		See <a href="Constants.htm#Property_Constants">Property Constants</a> 
+		 for more information.</td>
+	</tr>
+	<tr>
+		<td>deleteProperty</td>
+		<td>None</td>
+		<td><span><a href="vcProperty.htm">vcProperty</a></span> <span class="hcp1">property</span></td>
+		<td>Deletes a given <span class="hcp1">property</span> 
+		 <span>from component.</span></td>
+	</tr>
+	<tr>
+		<td>getPathDistance</td>
+		<td><span>Real</span></td>
+		<td>None</td>
+		<td>If component is on a path, for example a conveyor path, returns 
+		 the distance of component on path.</td>
+	</tr>
+	<tr>
+		<td>getProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td><span>String</span> <span class="hcp1">name</span></td>
+		<td>Returns a property matching a given <span class="Italic">name</span> 
+		 in component; otherwise returns None.</td>
+	</tr>
+	<tr>
+		<td>getTransportInfo</td>
+		<td>4-tuple (Enumeration <span>availability</span>, <a href="vcNode.htm">vcNode</a> 
+		 <span>node</span>, <a href="vcContainer.htm">vcContainer</a> <span>container</span>, 
+		 <a href="vcMatrix.htm">vcMatrix</a> <span>location</span>)</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="hcp1">targetComponent</span></td>
+		<td>Returns information about a transport action for a given component. 
+		 
+		<p class="TableNormal">Generally, a transport action is defined 
+		 using an Action Container, Python Script and Transport Protocol.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Transportation">Transportation 
+		 Constants</a> for information on <span class="Italic">availability</span> 
+		 options.</p></td>
+	</tr>
+	<tr>
+		<td>incrementRevision</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Increments the revision number of a file when using the save() 
+		 method. 
+		<p class="TableNormal">The effect is the same as the Increment 
+		 Revision property in the Credits dialog when saving a file.</p></td>
+	</tr>
+	<tr>
+		<td>makeUnique</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Makes the feature trees of the component unique, thereby they 
+		 are not shared with other components.</td>
+	</tr>
+	<tr>
+		<td>save</td>
+		<td>None</td>
+		<td><span>String</span> <span class="hcp1">uri</span></td>
+		<td>Saves component to file using a given <span class="hcp1">uri</span>. 
+		 
+		<p class="TableNormal">To save the component with a new VCID, set 
+		 the VCID property of the component to an empty string.</p></td>
+	</tr>
+	<tr>
+		<td>saveState</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Saves the current state of component as its initial state.</td>
+	</tr>
+	<tr>
+		<td>startMovement</td>
+		<td>None</td>
+		<td>[B<span>oolean</span>]</td>
+		<td>Start the movement of component in a flow, for example a path. 
+		 
+		<p class="TableNormal">An optional Boolean argument can be used 
+		 to override flow logic, thereby forcing component to move in flow.</p></td>
+	</tr>
+	<tr>
+		<td>stopMovement</td>
+		<td>None</td>
+		<td>[B<span>oolean</span>]</td>
+		<td>Stops the movement of component in a flow, for example a path. 
+		 
+		<p class="TableNormal">An optional Boolean argument can be used 
+		 to override flow logic, thereby forcing component to not move 
+		 in flow.</p></td>
+	</tr>
+	<tr>
+		<td>transfer</td>
+		<td>None</td>
+		<td><p class="TableNormal"><a href="vcBehaviour.htm">vcBehaviour</a> 
+		 <span class="Italic">behaviour</span>, Integer <span class="Italic">port</span></p>
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcConnector.htm">vcConnector</a> 
+		 <span class="Italic">connector</span></p></td>
+		<td>Transfers component into a flow and blocks Python execution 
+		 until completion of transfer. 
+		<p class="TableNormal">One option allows you to give two separate 
+		 arguments for a behavior and port.</p>
+		<p class="TableNormal">Another option allows you to give a connector 
+		 for performing transfer.</p>
+		<p class="TableNormal">A given behavior must be or derive from 
+		 <a href="vcFlow.htm">vcFlow</a> and you should check for available 
+		 capacity.</p></td>
+	</tr>
+	<tr>
+		<td>transferNonBlocking</td>
+		<td>None</td>
+		<td><span><a href="vcBehaviour.htm">vcBehaviour</a></span> <span class="hcp1">behaviour</span><span>, Integer</span> 
+		 <span class="hcp1">port</span></td>
+		<td>Transfers component into a flow defined by a given <span class="Italic">behaviour</span> 
+		 and <span class="Italic">port</span> without blocking Python execution. 
+		 That is, call is executed immediately and does not wait for completion 
+		 of transfer. 
+		<p class="TableNormal">A given behavior must be or derive from 
+		 <a href="vcFlow.htm">vcFlow</a> and you should check for available 
+		 capacity.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnNodeConfigurationChange</td>
+		<td>Enumeration <span class="hcp1">type</span>, 
+		 <a href="vcNode.htm">vcNode</a> <span class="hcp1">node1</span>, 
+		 <a href="vcNode.htm">vcNode</a> <span class="hcp1">node2</span></td>
+		<td>Triggered when a change occurs in component node hierarchy. 
+		 
+		<p class="TableNormal">The <span class="hcp1">node1</span> 
+		 and <span class="hcp1">node2</span> arguments are 
+		 nodes affected by change.</p>
+		<p class="TableNormal">The <span class="hcp1">type</span> 
+		 argument is the type of change that occurred in component.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Component_Constants">Component 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>OnContainerTransition</td>
+		<td><a href="vcContainer.htm">vcContainer</a> <span class="hcp1">container</span>, 
+		 Boolean <span class="hcp1">value</span></td>
+		<td>Triggered when component enters or exits a <a href="vcContainer.htm">vcContainer</a> 
+		 object. 
+		<p class="TableNormal">The <span class="Italic">value</span> argument 
+		 will be True if component is entering a container; otherwise value 
+		 is False if component exiting a container.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Basic uses of vcComponent</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br># note: some of the methods called via comp in this snippet are documented under vcNode 
+		<br>&#160; 
+		<br>def OnRun(): 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;## COMPONENT 
+		<br>&#160;&#160;## get the handle to a vcComponent object 
+		<br>&#160;&#160;app = getApplication() 
+		<br>&#160;&#160;comp = app.findComponent('MyConveyor') # access any component in the layout by name 
+		<br>&#160;&#160;comp = getComponent()# typical way to access the owner component of the python script (preferred approach) 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;## BEHAVIOURS 
+		<br>&#160;&#160;## this is how you can create new behaviours in python 
+		<br>&#160;&#160;cont = comp.createBehaviour(VC_ONEWAYPATH,'MainPath') 
+		<br>&#160;&#160;cont = comp.createBehaviour(VC_COMPONENTCONTAINER,'MyCont') 
+		<br>&#160;&#160;creator = comp.createBehaviour(VC_COMPONENTCREATOR,'MyCreator') 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;## this is how you can access the existing behaviours in the component (note: british english spelling) 
+		<br>&#160;&#160;path = comp.findBehaviour('MainPath')&#160;&#160;# by name 
+		<br>&#160;&#160;paths = comp.findBehavioursByType(VC_ONEWAYPATH) # by name (returns a list) 
+		<br>&#160;&#160;path = paths[0] # access the first item in the list like this 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;## FEATURES 
+		<br>&#160;&#160;## this is how you can create new features in python 
+		<br>&#160;&#160;transform = comp.RootFeature.createFeature(VC_TRANSFORM,'Trans') 
+		<br>&#160;&#160;transform.Expression = 'Tx(200.0).Tz(400.0)' 
+		<br>&#160;&#160;transform.Expression = 'Tx(%f).Tz(%f)' % (200.0, 400.0)&#160;&#160;# more pythonic way to do the same 
+		<br>&#160;&#160;cylinder = transform.createFeature(VC_CYLINDER,'MyCylinder') 
+		<br>&#160;&#160;cylinder.Height = str(500) 
+		<br>&#160; 
+		<br>&#160;&#160;## this is how you can access the existing features 
+		<br>&#160;&#160;block = comp.findFeature('Block') # find feature by name in the whole component 
+		<br>&#160;&#160;root = comp.RootFeature # root feature exists for all nodes even if the component contains no geometry 
+		<br>&#160;&#160;kids = root.Children # returns the list of all the direct children&#160; 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;## PARAMETERS i.e. properties 
+		<br>&#160;&#160;## this is how you can create new parameters 
+		<br>&#160;&#160;radius_prop = comp.createProperty(VC_REAL, 'CylinderRadius') 
+		<br>&#160;&#160;bool_prop = comp.createProperty(VC_BOOLEAN, 'ToggleThis') 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;## this is how you can access existing properties 
+		<br>&#160;&#160;prop = comp.getProperty('CylinderRadius') 
+		<br>&#160;&#160;prop.Value = 250.0 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;# or 
+		<br>&#160;&#160;comp.CylinderRadius = 250.0 
+		<br>&#160;&#160;all_props = comp.Properties # list of all user defined properties in the component 
+		<br>&#160;&#160;for p in all_props: # (Visible, PDFExportLevel and BackfaceMode -properties are also included) 
+		<br>&#160;&#160;&#160;&#160;# loop the list and print name and value for each 
+		<br>&#160;&#160;&#160;&#160;print p.Name, p.Value 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;## NODES i.e. links 
+		<br>&#160;&#160;## this is how you can create new links 
+		<br>&#160;&#160;link1 = comp.createNode(VC_NODE, 'FirstLink') 
+		<br>&#160;&#160;link1.OffsetExpression = 'Tz(200).Ry(45)' 
+		<br>&#160;&#160;path = link1.getBehaviour('MainPath') # use get- instead of findBehaviour to search behs in specific node 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;## this is how you can access existing nodes 
+		<br>&#160;&#160;link2 = comp.findNode('SecondLink') 
+		<br>&#160;&#160;if link2: 
+		<br>&#160;&#160;&#160;&#160;# test if a node named &quot;SecondLink&quot; exists 
+		<br>&#160;&#160;&#160;&#160;print 'It is there! :) ' 
+		<br>&#160;&#160;else: 
+		<br>&#160;&#160;&#160;&#160;<span>print &quot;It's missing! :( &quot;</span></td>
+	</tr>
+</table>
+<p><span class="Example">Example. Create Real Property with Min, Max and 
+ Default Values</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td><span>from vcScript import *</span> 
+		<br><span>&#160;</span>&#160; 
+		<br><span>comp = getComponent()</span> 
+		<br><span>comp.createProperty(VC_REAL, &quot;SurfaceLength&quot;,1)</span> 
+		<br><span>&#160;</span>&#160; 
+		<br><span>foo = comp.getProperty(&quot;SurfaceLength&quot;)</span> 
+		<br><span>foo.MinValue = 100</span> 
+		<br><span>foo.MaxValue = 1000</span> 
+		<br><span>foo.Value = 800</span></td>
+	</tr>
+</table>
+<p class="Example"><span class="Example">Example. Save file and increment 
+ revision number</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>app = getApplication() 
+		<br>comp = app.findComponent(&quot;component_name&quot;) 
+		<br>name = comp.Name 
+		<br>uri = &quot;file:///C:\\Users\\[Username]\\Documents\\[ProductName]\\4.0\My Models\\&quot; + name + &quot;.vcm&quot; 
+		<br>&#160; 
+		<br>comp.incrementRevision() 
+		<br>comp.save(uri)</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Identify components stored in containers</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>#when the simulation is paused 
+		<br>def OnStop(): 
+		<br>&#160;&#160;app = getApplication() 
+		<br>&#160;&#160;for c in app.Components: 
+		<br>&#160;&#160;&#160;&#160;if c.Container != None: 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;print c.Name 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;#prints the name of components in storage</td>
+	</tr>
+</table>
+<p><span class="Example"><a name="SharedFeatures"></a>Example. Get components 
+ with shared features</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>shared = [c for c in app.Components if c.IsUnique == False] 
+		<br>for c in shared: 
+		<br>&#160;&#160;#prints the same memory address 
+		<br>&#160;&#160;print c.RootFeature</td>
+	</tr>
+</table>
+</body>
+</html>

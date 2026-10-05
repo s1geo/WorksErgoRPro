@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Использование переменных процесса </title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Переменные процесса являются локальными переменными в процессе, специфичном для процедуры. Переменная в процедуре может быть установлена и на нее можно ссылаться только в одной..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><a name="minitocbookmark1" class="hmanchor"></a><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Использование переменных процесса&nbsp;</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Переменные процесса являются локальными переменными в процессе, специфичном для процедуры. Переменная в процедуре может быть установлена и на нее можно ссылаться только в одной и той же процедуре. Однако, как операторы требований процедуры, так и операторы процедуры могут обращаться к одним и тем же переменным.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Смотрите также <a href="reference_expressions_process_statement_expressions.html" class="topiclink">Выражения оператора процесса </a>.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark2" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Статические переменные</span></h3>
+<p class="p_Normal">Статические переменные процедуры процесса создаются вручную из пользовательского интерфейса и остаются между запусками симуляции.</p>
+<p class="p_Normal"><img alt="ClipboardImg146" style="margin:0;width:10.5729in;height:2.7813in;border:none" src="clipboardimg146.png"/></p>
+<p class="p_Normal">Значение переменной сбрасывается на значение по умолчанию для типа данных при сбросе симуляции и запуске симуляции, но не для каждого выполнения процедуры процесса.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:0.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Тип Данных</span></p>
+</th>
+<th style="vertical-align:top; width:11.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Значение по умолчанию</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:0.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Boolean</p>
+</td>
+<td style="vertical-align:top; width:11.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">False</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:0.8958in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Integer</p>
+</td>
+<td style="vertical-align:top; width:11.5208in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">0</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:0.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Real</p>
+</td>
+<td style="vertical-align:top; width:11.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">0.0</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:0.8958in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">String</p>
+</td>
+<td style="vertical-align:top; width:11.5208in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">&quot;&quot;</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark3" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Переменные среды выполнения</span></h3>
+<p class="p_Normal">Переменные среды выполнения создаются операторами, когда определенная выходная переменная не существует. </p>
+<p class="p_Normal">Это удобная функция, поэтому пользователям не нужно заранее определять все используемые переменные. Переменные среды выполнения сбрасываются до значения по умолчанию перед оценкой требований процесса, что означает, что требования процесса могут передавать значения операторам процедуры процесса, но значения сбрасываются между каждым выполнением. Все переменные среды выполнения также удаляются при запуске и сбросе симуляции.</p>
+<p class="p_Normal">Переменные среды выполнения могут содержать ссылки на такие объекты, как экземпляры Product, а также список значений, например целые числа, или ссылки на объекты. Ссылки на объекты и списки ссылок также являются строго типизированными, что означает, что тип объекта, на который делается ссылка, известен и не может быть изменен или ссылка на объект другого типа хранится в переменной. Списки могут содержать только значения одного типа или ссылки на объекты одного типа.</p>
+<p class="p_Normal">Все ссылки на объекты реализованы таким образом, что если объект, на который делается ссылка, удаляется, ссылка становится Null (“None” в Python). Null означает, что ссылка ни на что не указывает. Если ссылка находится в списке, значение Null останется в списке.</p>
+
+</td></tr></table>
+
+</body>
+</html>

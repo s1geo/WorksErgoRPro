@@ -1,0 +1,64 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="schema,position frame,path position">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcSchemaPositionFrame</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcSchemaPositionFrame</h1>
+<p>vcSchemaPositionFrame is a position defined by schema properties. Generally, 
+ this is a position of a path statement. One case is to extract data from 
+ the position, and then export or use the data elsewhere.</p>
+<h2>Properties</h2>
+<p>The properties are the schema properties associated with the position. 
+ For example, the position of a <a href="vcPathStatement.htm">vcPathStatement</a> 
+ object would have at least seven, built-in properties.</p>
+<h2>Examples</h2>
+<p><span class="Example"><a name="CheckPathPositionStatus"></a>Example. 
+ Get configuration warnings of path positions</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import *
+		<br>import vcMatrix
+		<br>&#160;
+		<br>comp = getComponent()
+		<br>rx = comp.findBehaviour(&quot;Executor&quot;)
+		<br>mr = rx.Program.MainRoutine
+		<br>&#160;
+		<br>mr.clear()
+		<br>path = mr.addStatement(&quot;Path&quot;)
+		<br>&#160;
+		<br>path.beginBatchUpdate(10) 
+		<br>for i in range(10):
+		<br>&#160;&#160;position = vcMatrix.new()
+		<br>&#160;&#160;position.translateAbs(1000,i*100,1000)
+		<br>&#160;&#160;path.setSchemaValues(i,&quot;Position&quot;,position)
+		<br>path.endBatchUpdate(10)
+		<br>&#160;
+		<br>#use iterator to make list of positions
+		<br>positions = list(path.Positions)
+		<br>rc = rx.Controller
+		<br>for p in positions:
+		<br>&#160;&#160;target = rc.createTarget(p.Position)
+		<br>&#160;&#160;
+		<br>&#160;&#160;#simple test with Generic Articulated Robot
+		<br>&#160;&#160;#warning and status numbering are flipped
+		<br>&#160;&#160;config_warning = target.getConfigWarning(target.RobotConfig)
+		<br>&#160;&#160;status = 7 - config_warning
+		<br>&#160;&#160;p_index = positions.index(p)
+		<br>&#160;&#160;path.setSchemaValues(p_index, &quot;PositionStatus&quot;, status)
+		<br>&#160;
+		<br>app = getApplication()
+		<br>app.render()</td>
+	</tr>
+</table>
+</body>
+</html>

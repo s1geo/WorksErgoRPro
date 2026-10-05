@@ -1,0 +1,563 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcHelpers.Selection</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+p.hcp1 { margin-left:20px; }
+span.hcp2 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body page-style="x-size: A4;" page-frame-style="margin-left: 0.25in; margin-right: 0.25in;">
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcHelpers.Selection</h1>
+<p>vcHelpers.Selection is a library of useful methods designed to simplify 
+ the selection of objects.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot16013" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot16013', 'MTPOPUP16013');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP16013" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Methods</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark3" >Component Selection</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark4" >Node Selection</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark5" >Feature Selection</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark6" >Geometry Set Selection</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark7" >Behavior Selection</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark8" >Robot Program selection</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark9" >Filter Results</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark10" >List Trees</a></p>
+  <p align="left" class="hcp1"><a href="#MiniTOCBookMark11" >Other</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark12" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Methods</h2>
+<h3><a name="MiniTOCBookMark3"></a>Component Selection</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getAllComponents</td>
+		<td>List of <a href="vcComponent.htm">vcComponent</a></td>
+		<td>None</td>
+		<td>Returns a list of components in the 3D world.</td>
+	</tr>
+	<tr>
+		<td>getSelectedComponents</td>
+		<td>List of <a href="vcComponent.htm">vcComponent</a></td>
+		<td>None</td>
+		<td>Returns a list of selected components in the 3D world.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark4"></a>Node Selection</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getAllComponentsNodes</td>
+		<td>List of <a href="vcNode.htm">vcNode</a></td>
+		<td>None</td>
+		<td>Returns a list of nodes for all components in the 3D world.</td>
+	</tr>
+	<tr>
+		<td>getGivenComponentsNodes</td>
+		<td>List of <a href="vcNode.htm">vcNode</a></td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span></td>
+		<td>Returns a list of nodes for a given component.</td>
+	</tr>
+	<tr>
+		<td>getSelectedComponentsNodes</td>
+		<td>List of <a href="vcNode.htm">vcNode</a></td>
+		<td>None</td>
+		<td>Returns a list of nodes for selected components in the 3D world.</td>
+	</tr>
+	<tr>
+		<td>getSelectedNodes</td>
+		<td>List of <a href="vcNode.htm">vcNode</a></td>
+		<td>None</td>
+		<td>Returns a list of selected nodes in the 3D world.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark5"></a>Feature Selection</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getAllComponentsFeatures</td>
+		<td>List of <a href="vcFeature.htm">vcFeature</a></td>
+		<td>None</td>
+		<td>Returns a list of features for all components in the 3D world.</td>
+	</tr>
+	<tr>
+		<td>getGivenComponentsFeatures</td>
+		<td>List of <a href="vcFeature.htm">vcFeature</a></td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span></td>
+		<td>Returns a list of features for a given component.</td>
+	</tr>
+	<tr>
+		<td>getGivenNodesFeatures</td>
+		<td>List of <a href="vcFeature.htm">vcFeature</a></td>
+		<td><a href="vcNode.htm">vcNode</a> <span class="Italic">node</span></td>
+		<td>Returns a list of features for a given node.</td>
+	</tr>
+	<tr>
+		<td>getSelectedComponentsFeatures</td>
+		<td>List of <a href="vcFeature.htm">vcFeature</a></td>
+		<td>None</td>
+		<td>Returns a list of features for selected components in the 3D 
+		 world.</td>
+	</tr>
+	<tr>
+		<td>getSelectedFeatures</td>
+		<td>List of <a href="vcFeature.htm">vcFeature</a></td>
+		<td>None</td>
+		<td>Returns a list of selected features in the 3D world.</td>
+	</tr>
+	<tr>
+		<td>getSelectedNodesFeatures</td>
+		<td>List of <a href="vcFeature.htm">vcFeature</a></td>
+		<td>None</td>
+		<td>Returns a list of features for selected nodes in the 3D world.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark6"></a>Geometry Set Selection</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getAllComponentsGeosets</td>
+		<td>List of <a href="vcGeometrySet.htm">vcGeometrySet</a></td>
+		<td>[Boolean <span class="hcp2">fromFeatureTree</span>]</td>
+		<td>Returns a list of geometry sets for all components in the 3D 
+		 world. 
+		<p class="TableNormal">Setting <span class="hcp2">fromFeatureTree</span> 
+		 to True will get the source geometry sets from geometry features 
+		 on feature tree instead of vcNode.Geometry. Use this if you want 
+		 to make changes to the geometry sets. The default value of <span class="hcp2">fromFeatureTree</span> is False.</p></td>
+	</tr>
+	<tr>
+		<td>getGivenComponentsGeosets</td>
+		<td>List of <a href="vcGeometrySet.htm">vcGeometrySet</a></td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span>, 
+		 [Boolean <span class="hcp2">fromFeatureTree</span>]</td>
+		<td>Returns a list of geometry sets for a given component. 
+		<p class="TableNormal">Setting <span class="hcp2">fromFeatureTree</span> 
+		 to True will get the source geometry sets from geometry features 
+		 on feature tree instead of vcNode.Geometry. Use this if you want 
+		 to make changes to the geometry sets. The default value of <span class="hcp2">fromFeatureTree</span> is False.</p></td>
+	</tr>
+	<tr>
+		<td>getGivenFeaturesGeosets</td>
+		<td>List of <a href="vcGeometrySet.htm">vcGeometrySet</a></td>
+		<td><a href="vcFeature.htm">vcFeature</a> <span class="Italic">feature</span></td>
+		<td>Returns a list of geometry sets for a given feature.</td>
+	</tr>
+	<tr>
+		<td>getGivenNodesGeosets</td>
+		<td>List of <a href="vcGeometrySet.htm">vcGeometrySet</a></td>
+		<td><a href="vcNode.htm">vcNode</a> <span class="Italic">node</span>, 
+		 [Boolean <span class="hcp2">fromFeatureTree</span>]</td>
+		<td>Returns a list of geometry sets for a given node. 
+		<p class="TableNormal">Setting <span class="hcp2">fromFeatureTree</span> 
+		 to True will get the source geometry sets from geometry features 
+		 on feature tree instead of vcNode.Geometry. Use this if you want 
+		 to make changes to the geometry sets. The default value of <span class="hcp2">fromFeatureTree</span> is False.</p></td>
+	</tr>
+	<tr>
+		<td>getSelectedComponentsGeosets</td>
+		<td>List of <a href="vcGeometrySet.htm">vcGeometrySet</a></td>
+		<td>[Boolean <span class="hcp2">fromFeatureTree</span>]</td>
+		<td>Returns a list of geometry sets for selected components in 
+		 the 3D world. 
+		<p class="TableNormal">Setting <span class="hcp2">fromFeatureTree</span> 
+		 to True will get the source geometry sets from geometry features 
+		 on feature tree instead of vcNode.Geometry. Use this if you want 
+		 to make changes to the geometry sets. The default value of <span class="hcp2">fromFeatureTree</span> is False.</p></td>
+	</tr>
+	<tr>
+		<td>getSelectedFeaturesGeosets</td>
+		<td>List of <a href="vcGeometrySet.htm">vcGeometrySet</a></td>
+		<td>None</td>
+		<td>Returns a list of geometry sets for selected features in the 
+		 3D world.</td>
+	</tr>
+	<tr>
+		<td>getSelectedGeosets</td>
+		<td>List of <a href="vcGeometrySet.htm">vcGeometrySet</a></td>
+		<td>None</td>
+		<td>Returns a list of selected geometry sets in the 3D world.</td>
+	</tr>
+	<tr>
+		<td>getSelectedNodesGeosets</td>
+		<td>List of <a href="vcGeometrySet.htm">vcGeometrySet</a></td>
+		<td>[Boolean <span class="hcp2">fromFeatureTree</span>]</td>
+		<td>Returns a list of geometry sets for selected nodes in the 3D 
+		 world.
+		<p class="TableNormal">Setting <span class="hcp2">fromFeatureTree</span> 
+		 to True will get the source geometry sets from geometry features 
+		 on feature tree instead of vcNode.Geometry. Use this if you want 
+		 to make changes to the geometry sets. The default value of <span class="hcp2">fromFeatureTree</span> is False.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark7"></a>Behavior Selection</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getAllComponentsBehaviours</td>
+		<td>List of <a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td>None</td>
+		<td>Returns a list of behaviors for all components in the 3D world.</td>
+	</tr>
+	<tr>
+		<td>getGivenComponentsBehaviours</td>
+		<td>List of <a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span></td>
+		<td>Returns a list of behaviors for a given component.</td>
+	</tr>
+	<tr>
+		<td>getGivenNodesBehaviours</td>
+		<td>List of <a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td><a href="vcNode.htm">vcNode</a> <span class="Italic">node</span></td>
+		<td>Returns a list of behaviors for a given node.</td>
+	</tr>
+	<tr>
+		<td>getSelectedComponentsBehaviours</td>
+		<td>List of <a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td>None</td>
+		<td>Returns a list of behaviors for selected components in the 
+		 3D world.</td>
+	</tr>
+	<tr>
+		<td>getSelectedNodesBehaviours</td>
+		<td>List of <a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td>None</td>
+		<td>Returns a list of behaviors for selected nodes in the 3D world.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark8"></a>Robot Program selection</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>extendStatements</td>
+		<td>List of <a href="vcStatement.htm">vcStatement</a></td>
+		<td><a href="vcStatement.htm">vcStatement</a> <span class="hcp2">statement</span>, 
+		 List of <a href="vcStatement.htm">vcStatement</a> <span class="hcp2">statements</span></td>
+		<td>Returns a list of <span class="hcp2">statements</span> 
+		 which is extended by a given <span class="hcp2">statement</span> 
+		 and all <span>statements</span> nested in it.</td>
+	</tr>
+	<tr>
+		<td>getAllComponentsPrograms</td>
+		<td>List of <a href="vcProgram.htm">vcProgram</a></td>
+		<td>None</td>
+		<td>Returns a list of all robot programs in 3D world.</td>
+	</tr>
+	<tr>
+		<td>getAllComponentsStatements</td>
+		<td>List of <a href="vcStatement.htm">vcStatement</a></td>
+		<td>None 
+		<br>&#160;</td>
+		<td>Returns a list of all statements in all robot programs in 3D 
+		 world.</td>
+	</tr>
+	<tr>
+		<td>getGivenComponentsProgram</td>
+		<td>List of <a href="vcProgram.htm">vcProgram</a></td>
+		<td><a href="vcComponent.htm">vcComponent</a> 
+		<br>&#160;</td>
+		<td>Returns a list of robot programs in a given component.</td>
+	</tr>
+	<tr>
+		<td>getGivenComponentsStatements</td>
+		<td>List of <a href="vcStatement.htm">vcStatement</a></td>
+		<td><a href="vcComponent.htm">vcComponent</a> 
+		<br>&#160;</td>
+		<td>Returns a list of all statements in the robot programs of a 
+		 given component.</td>
+	</tr>
+	<tr>
+		<td>getGivenProgramsRoutines</td>
+		<td>List of <a href="vcRoutine.htm">vcRoutine</a> 
+		<br>&#160;</td>
+		<td><a href="vcProgram.htm">vcProgram</a></td>
+		<td>Returns a list of routines in a given robot program.</td>
+	</tr>
+	<tr>
+		<td>getGivenProgramsStatements</td>
+		<td>List of <a href="vcStatement.htm">vcStatement</a></td>
+		<td><a href="vcProgram.htm">vcProgram</a> 
+		<br>&#160;</td>
+		<td>Returns a list of all statements in a given robot program.</td>
+	</tr>
+	<tr>
+		<td>getGivenRoutinesStatements</td>
+		<td>List of <a href="vcStatement.htm">vcStatement</a> 
+		<br>&#160;</td>
+		<td><a href="vcRoutine.htm">vcRoutine</a> </td>
+		<td>Returns a list of all statements in a given routine.</td>
+	</tr>
+	<tr>
+		<td>getSelectedComponentsPrograms</td>
+		<td>List of <a href="vcProgram.htm">vcProgram</a></td>
+		<td>None 
+		<br>&#160;</td>
+		<td>Returns a list of robot programs for currently selected components.</td>
+	</tr>
+	<tr>
+		<td>getSelectedComponentsStatements</td>
+		<td>List of <a href="vcStatement.htm">vcStatement</a></td>
+		<td>None 
+		<br>&#160;</td>
+		<td>Returns a list of all statements in the robot programs of currently 
+		 selected components.</td>
+	</tr>
+	<tr>
+		<td>getSelectedProgram</td>
+		<td><a href="vcProgram.htm">vcProgram</a></td>
+		<td>None 
+		<br>&#160;</td>
+		<td>Returns the active program of a robot.</td>
+	</tr>
+	<tr>
+		<td>getSelectedProgramsRoutines</td>
+		<td>List of <a href="vcRoutine.htm">vcRoutine</a> 
+		<br>&#160;</td>
+		<td>None 
+		<br>&#160;</td>
+		<td>Returns a list of routines in active program of robot.</td>
+	</tr>
+	<tr>
+		<td>getSelectedProgramsStatements</td>
+		<td>List of <a href="vcStatement.htm">vcStatement</a> 
+		<br>&#160;</td>
+		<td>None 
+		<br>&#160;</td>
+		<td>Returns a list of all statements in the active program of a 
+		 robot.</td>
+	</tr>
+	<tr>
+		<td>getSelectedRoutine</td>
+		<td><a href="vcRoutine.htm">vcRoutine</a> </td>
+		<td>None 
+		<br>&#160;</td>
+		<td>Returns the active routine of a robot.</td>
+	</tr>
+	<tr>
+		<td>getSelectedRoutinesStatements</td>
+		<td>List of <a href="vcStatement.htm">vcStatement</a></td>
+		<td>None 
+		<br>&#160;</td>
+		<td>Returns a list of all statements in the active routine of a 
+		 robot.</td>
+	</tr>
+	<tr>
+		<td>getSelectedStatements</td>
+		<td>List of <a href="vcStatement.htm">vcStatement</a></td>
+		<td>None 
+		<br>&#160;</td>
+		<td>Returns a list of currently selected statements.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark9"></a>Filter Results</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>filterTypes</td>
+		<td>List of items</td>
+		<td>List of <span class="hcp2">items</span>, List 
+		 of <span class="hcp2">types</span></td>
+		<td>Returns a filtered list of <span class="hcp2">items</span> 
+		 matching a given <span class="hcp2">type</span>. 
+		 
+		<br>&#160; 
+		<br>See <a href="Constants.htm">Constants</a> for 
+		 more information of types.</td>
+	</tr>
+	<tr>
+		<td>filterBehaviours</td>
+		<td>List of <a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td>List of <a href="vcBehaviour.htm">vcBehaviour</a> <span class="Italic">behaviors</span>, 
+		 Enumeration <span class="Italic">type</span></td>
+		<td>Returns a new list of behaviors matching a given behavior type. 
+		 
+		<p class="TableNormal">See <a href="Constants.htm#Behavior_Constants">Behavior 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>filterFeatures</td>
+		<td>List of <a href="vcFeature.htm">vcFeature</a></td>
+		<td><p class="large_image">List of <a href="vcFeature.htm">vcFeature</a> 
+		 <span class="Italic">features</span>, Enumeration <span class="Italic">type</span></p></td>
+		<td>Returns a new list of features matching a given feature type. 
+		 
+		<p class="TableNormal">See <a href="Constants.htm#Feature_Constants">Feature 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>filterGeosets</td>
+		<td>List of <a href="vcGeometrySet.htm">vcGeometrySet</a></td>
+		<td>List of <a href="vcGeometrySet.htm">vcGeometrySet</a> <span 
+		 class="Italic">geosets</span>, Enumeration <span class="Italic">type</span></td>
+		<td>Returns a new list of geometry sets matching a given geometry 
+		 set type. 
+		<p class="TableNormal">See <a href="Constants.htm#Geometry_Constants">Geometry 
+		 Constants</a> for more information.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark10"></a>List Trees</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>traverseFeatureChildren</td>
+		<td>List of <a href="vcFeature.htm">vcFeature</a></td>
+		<td><a href="vcFeature.htm">vcFeature</a> <span class="Italic">parent</span></td>
+		<td>Returns a list of child features for a given feature by using 
+		 traversal.</td>
+	</tr>
+	<tr>
+		<td>traverseNodeChildren</td>
+		<td>List of <a href="vcNode.htm">vcNode</a></td>
+		<td><a href="vcNode.htm">vcNode</a> <span class="Italic">parent</span></td>
+		<td>Returns a list of child nodes for a given node by using traversal.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark11"></a>Other</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getCurrentSelectionType</td>
+		<td>String</td>
+		<td>None</td>
+		<td>Returns the active selection type in the 3D world. 
+		<p class="TableNormal">See <a href="Constants.htm#Selection">Selection 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>getSelectedNodeGeosetMap</td>
+		<td>3-tuple (Dictionary of String <span class="Italic">node_name</span> 
+		 and <a href="vcNode.htm">vcNode</a> <span class="Italic">node</span>, 
+		 Dictionary of String <span class="Italic">node_name</span> and 
+		 list of <a href="vcGeometrySet.htm">vcGeometrySet</a> <span class="Italic">node_geosets</span>, 
+		 List of <a href="vcGeometrySet.htm">vcGeometrySet</a> <span class="Italic">all_geosets</span>)</td>
+		<td>None</td>
+		<td>Returns a 3-tuple detailing the geometry sets of a selected 
+		 node and any other node that may share the same geometry.</td>
+	</tr>
+	<tr>
+		<td>rebuildSelectedGeosetNodes</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Rebuilds selected geometry sets of a component and any other 
+		 component that shares the same geometry.</td>
+	</tr>
+	<tr>
+		<td>setCurrentSelectionType</td>
+		<td>None</td>
+		<td>Enumeration <span class="Italic">type</span></td>
+		<td>Sets the active selection type in the 3D world. 
+		<p class="TableNormal">See <a href="Constants.htm#Selection">Selection 
+		 Constants</a> for more information.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark12"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Print all point coordinates for all lines 
+ in the 3D world</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td><span>from vcScript import *</span> 
+		<br><span>from vcHelpers.Selection import *</span> 
+		<br><span>&#160;</span> 
+		<br><span>for Is in filterGeosets(getAllComponentsGeosets(), VC_COMPACTLINESET):</span> 
+		<br><span>&#160;&#160;for p1,p2 in Is.Lines:</span> 
+		<br><span>&#160;&#160;&#160;&#160;print p1.X, p1.Y, p1.Z, p2.X, p2.Y, p2.Z</span></td>
+	</tr>
+</table>
+</body>
+</html>

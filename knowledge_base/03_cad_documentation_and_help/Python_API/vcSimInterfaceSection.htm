@@ -1,0 +1,109 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcSimInterfaceSection</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcSimInterfaceSection</h1>
+<p>vcSimInterfaceSection is a collection of connector fields in an interface.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot18946" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot18946', 'MTPOPUP18946');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP18946" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>ConnectedToSection</td>
+<td><a href="vcSimInterfaceSection.htm">vcSimInterfaceSection</a></td>
+<td>R</td>
+<td>Gets a section connected to the section.
+<p class="TableNormal">If section is not connected, value is None.</p>
+</td>
+</tr>
+<tr>
+<td>Fields</td>
+<td>List of <a href="vcSimInterfaceField.htm">vcSimInterfaceField</a></td>
+<td>R</td>
+<td>Gets a list of all fields in section.</td>
+</tr>
+<tr>
+<td>Frame</td>
+<td><a href="vcFeature.htm">vcFeature</a></td>
+<td>RW</td>
+<td>If belonging to physical interface, defines the Frame feature referenced as the location of section.</td>
+</tr>
+<tr>
+<td>Index</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Defines the index of section in interface.</td>
+</tr>
+<tr>
+<td>Interface</td>
+<td><a href="vcSimInterface.htm">vcSimInterface</a></td>
+<td>R</td>
+<td>Gets the interface of section.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines the name of section.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>createField</td>
+<td><a href="vcSimInterfaceField.htm">vcSimInterfaceField</a></td>
+<td>Enumeration <span class="Italic">field</span>, String <span class="Italic">name</span></td>
+<td>Creates a new field of a given type and <span class="Italic">name</span> in section, and then returns the new field.
+<p class="TableNormal">See <a href="Constants.htm#Interface_Constants">Interface Constants</a> for more information.</p>
+</td>
+</tr>
+<tr>
+<td>deleteField</td>
+<td>Boolean</td>
+<td>Integer <span class="Italic">field_index</span></td>
+<td>Deletes a field at a given index from the section.
+<p class="TableNormal">If deletion is successful, returns True; otherwise returns False.</p>
+</td>
+</tr>
+</table>
+<!--======================================Methods=======================================-->
+</body>
+</html>

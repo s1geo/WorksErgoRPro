@@ -1,0 +1,2557 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcStatement</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+p.hcp1 { margin-left:80px; }
+span.hcp2 { font-weight:bold; }
+span.hcp3 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcStatement</h1>
+<p>vcStatement is the basic implementation for statements in a robot program 
+ and a process routine.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot20419" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot20419', 'MTPOPUP20419');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP20419" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Hierarchy</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Scope</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Robot Motions</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Common Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark6" >Robot Statement Specific Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark25" >Process Statement Specific Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark67" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Hierarchy</h2>
+<p>Most statements can be manipulated directly as vcStatement type objects, 
+ while others have their own implementations that inherit vcStatement.</p>
+<p style="margin-left: 40px;"><a href="vcStatement.htm">vcStatement</a></p>
+<p class="hcp1"><a href="vcIfStatement.htm">vcIfStatement</a></p>
+<p class="hcp1"><a href="vcPathStatement.htm">vcPathStatement</a></p>
+<p class="hcp1"><a href="vcPositionStatement.htm">vcPositionStatement</a></p>
+<p style="margin-left: 120px;"><a href="vcMotionStatement.htm">vcMotionStatement</a></p>
+<p class="hcp1"><a href="vcScopeStatement.htm">vcScopeStatement</a></p>
+<h2><a name="MiniTOCBookMark3"></a>Scope</h2>
+<p>Statements are created and contained in a <a href="vcScope.htm">vcScope</a> 
+ object. The scope of a statement can be manipulated to change the order 
+ in which statements are executed and nest statements to form conditional 
+ loops and paths in a routine.</p>
+<h2><a name="MiniTOCBookMark4"></a>Robot Motions</h2>
+<p>Positions for motion type statements are frames implemented as <a href="vcPositionFrame.htm">vcPositionFrame</a> 
+ objects. New positions can created using methods in <a href="vcPositionStatement.htm">vcPositionStatement</a>. 
+ A position can be referenced by more than one statement, thereby allowing 
+ statements to call set positions in a robot program.</p>
+<p>For information on types of statements, go to <a href="Constants.htm#Statistics_Constants">Statement 
+ Constants</a>.</p>
+<h2><a name="MiniTOCBookMark5"></a>Common Properties</h2>
+<p>The following properties are common to all statements.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of the statement.</td>
+	</tr>
+	<tr>
+		<td>ParentScope</td>
+		<td><a href="vcScope.htm">vcScope</a></td>
+		<td>R</td>
+		<td>Gets the scope of the statement.</td>
+	</tr>
+	<tr>
+		<td>Properties</td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td>Gets a list of properties of the statement.</td>
+	</tr>
+	<tr>
+		<td>ParentRoutine</td>
+		<td><a href="vcRoutine.htm">vcRoutine</a></td>
+		<td>R</td>
+		<td>Gets the routine of the statement.</td>
+	</tr>
+	<tr>
+		<td>Type</td>
+		<td>Enumeration</td>
+		<td>R</td>
+		<td>Gets the statement's type. 
+		<p class="TableNormal">See <a href="Constants.htm#Statement_Constants">Statement 
+		 Constants</a> for more information.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark6"></a>Robot Statement Specific Properties</h2>
+<h3><a name="MiniTOCBookMark7"></a>Assign Variable</h3>
+<p>An Assign Variable statement sets the value of a variable in a routine. 
+ The statement and variable must belong to the same routine in a robot 
+ program.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>TargetProperty</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of variable to assign a value.</td>
+	</tr>
+	<tr>
+		<td>ValueExpression</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the value 
+		 to assign TargetProperty.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark8"></a>Break</h3>
+<p>A Break statement immediately ends the execution of a While statement. 
+ This statement has no other specific properties.</p>
+<h3><a name="MiniTOCBookMark9"></a>Call Sequence</h3>
+<p>A Call Sequence statement allows a routine to branch out and execute 
+ another subroutine in a robot program.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Routine</td>
+		<td><a href="vcRoutine.htm">vcRoutine</a></td>
+		<td>RW</td>
+		<td>Defines a subroutine in robot program called by the statement.</td>
+	</tr>
+</table>
+<p><span class="Strong">Notes:</span></p>
+<ul style="list-style: disc;">
+	<li class="Unordered">In some cases, you may want to use a Return statement 
+	 in a called subroutine in order to end that branch of execution and 
+	 complete a Call Sequence statement.</li>
+</ul>
+<h3><a name="MiniTOCBookMark10"></a>Comment</h3>
+<p>A Comment statement is a non-executable statement in a robot program 
+ that is used to leave comments about the program.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Comment</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the text of the comment.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark11"></a>Continue</h3>
+<p>A Continue statement is used to loop back the execution of a While statement 
+ to its beginning. This, of course, would skip over all other remaining 
+ statements in the scope and reevaluate the condition of the loop. This 
+ statement has no other specific properties.</p>
+<h3><a name="MiniTOCBookMark12"></a>Define Base</h3>
+<p>A Define Base statement changes the position of a base frame in robot 
+ during a simulation. When you reset a simulation, the base frame returns 
+ to its initial position.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>IPOMode</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the interpolation mode of the frame and the external 
+		 configuration of a referencing robot controller. 
+		<p class="TableNormal"><span class="Term">0</span><br>
+		Default setting, so no effect on robot's external configuration.</p>
+		<p class="TableNormal"><span class="Term">1</span><br>
+		Robot position inherits orientation of base frame.</p>
+		<p class="TableNormal"><span class="Term">2</span><br>
+		Robot position inherits orientation of base frame.</p>
+		<p class="TableNormal"><a href="Constants.htm#Interpolation_Constants">Interpolation</a> 
+		 constants can be used with this property.</p>
+		<p class="TableNormal"><span class="Strong">Note:</span> A conflict 
+		 can occur if a base-tool pair in a referencing robot have the 
+		 same IPOMode property value or cannot be used with the robot's 
+		 current configuration.</p></td>
+	</tr>
+	<tr>
+		<td>IsRelative</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if Position is based in base frame coordinate system 
+		 or its parent coordinate system. 
+		<p class="TableNormal">A True value uses base frame coordinate 
+		 system, so frame will be moved relative to its location at the 
+		 time of statement execution.</p>
+		<p class="TableNormal">A False value uses the parent coordinate 
+		 system of base frame defined in Node, so frame will be moved to 
+		 an absolute location.</p></td>
+	</tr>
+	<tr>
+		<td>Node</td>
+		<td><a href="vcNode.htm">vcNode</a></td>
+		<td>RW</td>
+		<td>Defines the parent node of base frame.</td>
+	</tr>
+	<tr>
+		<td>Position</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines the position matrix of referenced base frame.</td>
+	</tr>
+	<tr>
+		<td>Base</td>
+		<td><a href="vcToolFrame.htm">vcToolFrame</a></td>
+		<td>RW</td>
+		<td>Defines the base frame in robot affected by the statement.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark13"></a>Define Tool</h3>
+<p>A Define Tool statement changes the position of a tool frame in robot 
+ during a simulation. When you reset a simulation, the tool frame returns 
+ to its initial position.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>IPOMode</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the interpolation mode of the frame and the external 
+		 configuration of a referencing robot controller. 
+		<p class="TableNormal"><span class="Term">0</span><br>
+		Default setting, so no effect on robot's external configuration.</p>
+		<p class="TableNormal"><span class="Term">1</span><br>
+		Robot position inherits orientation of tool frame.</p>
+		<p class="TableNormal"><span class="Term">2</span><br>
+		Robot position inherits orientation of tool frame.</p>
+		<p class="TableNormal"><a href="Constants.htm#Interpolation_Constants">Interpolation</a> 
+		 constants can be used with this property.</p>
+		<p class="TableNormal"><span class="Strong">Note:</span> A conflict 
+		 can occur if a base-tool pair in a referencing robot have the 
+		 same IPOMode property value or cannot be used with the robot's 
+		 current configuration.</p></td>
+	</tr>
+	<tr>
+		<td>IsRelative</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if Position is based in tool frame coordinate system 
+		 or its parent coordinate system. 
+		<p class="TableNormal">A True value uses tool frame coordinate 
+		 system, so frame will be moved relative to its location at the 
+		 time of statement execution.</p>
+		<p class="TableNormal">A False value uses the parent coordinate 
+		 system of tool frame defined in Node, so frame will be moved to 
+		 an absolute location.</p></td>
+	</tr>
+	<tr>
+		<td>Node</td>
+		<td><a href="vcNode.htm">vcNode</a></td>
+		<td>RW</td>
+		<td>Defines the parent node of tool frame.</td>
+	</tr>
+	<tr>
+		<td>Position</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines the position matrix of referenced tool frame.</td>
+	</tr>
+	<tr>
+		<td>Tool</td>
+		<td><a href="vcToolFrame.htm">vcToolFrame</a></td>
+		<td>RW</td>
+		<td>Defines the tool frame in robot affected by the statement.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark14"></a>Delay</h3>
+<p>A Delay statement delays the execution of a robot program by a given 
+ amount of time.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Delay</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the amount of time in seconds of the delay.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark15"></a>Halt</h3>
+<p>A Halt statement can stop a simulation.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>HaltSimulation</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the statement stops a simulation. 
+		<p class="TableNormal">A True value stops a simulation, whereas 
+		 a False value has no effect on a simulation.</p></td>
+	</tr>
+	<tr>
+		<td>ResetSimulation</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the statement stops and then resets a simulation. 
+		 
+		<p class="TableNormal">A True value resets a simulation, whereas 
+		 a False value has no effect on a simulation.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark16"></a>Print Message</h3>
+<p>A Print Message statement allows you to print feedback in the Output 
+ panel.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Message</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the text of the message.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark17"></a>Program Synchronize</h3>
+<p>A Program Synchronize statement allows the execution of a robot program 
+ to be synced with programs in other robots.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>SyncComponents</td>
+		<td>List of <a href="vcComponent.htm">vcComponent</a></td>
+		<td>RW</td>
+		<td>Defines a list of components to sync with the statement. 
+		<p class="TableNormal">This means each component is also executing 
+		 its own Program Synchronize statement.</p></td>
+	</tr>
+	<tr>
+		<td>SyncMessage</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the message to trigger synchronization. 
+		<p class="TableNormal">All components in SyncComponents must use 
+		 the same message.</p></td>
+	</tr>
+	<tr>
+		<td>WaitSync</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the statement sends its message and waits to receive 
+		 the same message from all other components in SyncComponents. 
+		 
+		<p class="TableNormal">A True value waits, whereas a False value 
+		 sends a message and ends the execution of the statement.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark18"></a>Return</h3>
+<p>A Return statement ends the execution of a routine. In most cases, you 
+ would use a Return statement to end the execution of a called subroutine 
+ in a robot program. This statement has no other specific properties.</p>
+<h3><a name="MiniTOCBookMark19"></a>Set Binary Output</h3>
+<p>A Set Binary Output statement sets the value of a signal mapped to an 
+ output port of a robot.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OutputPort</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the port of robot set by the statement.</td>
+	</tr>
+	<tr>
+		<td>OutputValue</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines the value of the port set by the statement.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark20"></a><a name="Set_Statistics" id="Set_Statistics"></a>Set 
+ Statistics</h3>
+<p>A Set Statistics statement sets the 
+ statistics behavior of a robot.</p>
+<p>Type constant: VC_STATEMENT_SETROBOTSTATISTICSSTATE</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Statistics</td>
+		<td><a href="vcStatistics.htm">vcStatistics</a></td>
+		<td>RW</td>
+		<td>Defines the statistics behavior of robot referenced by the 
+		 statement.</td>
+	</tr>
+	<tr>
+		<td>State</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the current state of robot. 
+		<br>&#160; 
+		<br>When you create a new Set Statiscs statement, 
+		 the initial state is NULL. You can also add custom states. </td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark21"></a><a name="Switch_Case" id="Switch_Case"></a>Switch Case</h3>
+<p>Switch Case statement executes the 
+ first <a href="vcCaseScope.htm">vcCaseScope</a> for which the value of 
+ its CaseCondition property matches that of statement’s Condition property.</p>
+<p>Type constant: VC_STATEMENT_SWITCHCASE</p>
+<h4><a name="MiniTOCBookMark22"></a>Properties</h4>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Condition</td>
+		<td>Expression</td>
+		<td>RW</td>
+		<td><p>Expression that defines the value against which the case 
+		 conditions are evaluated. </p>
+		See also &#160;<a href="&quot;Help_English.chm::/Reference/Robot_Statements.htm%26%22">Robot 
+		 Statements</a>.</td>
+	</tr>
+	<tr>
+		<td>Cases</td>
+		<td>List of <a href="vcCaseScope.htm">vcCaseScope</a></td>
+		<td>RO</td>
+		<td>All case scopes in this statement. Each scope has an RW property 
+		 CaseCondition of type String which will be evaluated against statement’s 
+		 Condition.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark23"></a>View</h3>
+<p>A View statement is used with <a href="vcViewAnimation.htm">vcViewAnimation</a> 
+ to set the view of the 3D world. Generally, this statement is used for 
+ animating camera movements during a simulation.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Delay</td>
+		<td>RW</td>
+		<td>RW</td>
+		<td>Defines the amount of time in seconds it takes camera to move 
+		 to view in 3D world. 
+		<br>&#160;</td>
+	</tr>
+	<tr>
+		<td>View</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of view to move camera to in 3D world. 
+		<p class="TableNormal">If the view does not exist in layout, the 
+		 statement will still execute its Delay.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark24"></a>Wait for Binary Input</h3>
+<p>A Wait for Binary Input statement delays the execution of a robot program 
+ until the value of a signal mapped to an input port in a robot has a specific 
+ value. The evaluation of the port can be cyclic or triggered by a signal 
+ event.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>InputPort</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the port of robot evaluated by the statement.</td>
+	</tr>
+	<tr>
+		<td>InputValue</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if InputPort value needs to be True or False to complete 
+		 the statement.</td>
+	</tr>
+	<tr>
+		<td>WaitTrigger</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if InputValue is evaluated when a signal mapped to 
+		 InputPort has an event, for example a change in its value. 
+		<p class="TableNormal">A True value waits for a signal event or 
+		 trigger, whereas a False value will not wait to check the value 
+		 of InputPort.</p>
+		<p class="TableNormal"><span class="Strong">Note:</span> A signal 
+		 event or trigger must occur while the robot is executing the statement, 
+		 otherwise the robot wil miss the event.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark25"></a>Process Statement Specific Properties</h2>
+<h3><a name="MiniTOCBookMark26"></a>Append To List</h3>
+<p>Append To List statement joins content 
+ of source variable to end of the target variable.</p>
+<p>Type constant: VC_STATEMENT_APPENDTOLIST 
+ </p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AllowDuplicates</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td><p>If already existing values should be added to the target 
+		 variable.</p></td>
+	</tr>
+	<tr>
+		<td>SourceVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p>Name of the variable from which values are copied. Can be 
+		 a list or a single variable.</p></td>
+	</tr>
+	<tr>
+		<td>TargetVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p>Name of the variable where values are appended. A new list 
+		 variable is created if necessary.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark27"></a>Assign Variable</h3>
+<p>An Assign Variable statement sets the 
+ value of a variable in a routine. The statement and variable must belong 
+ to the same routine in a robot program.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>TargetProperty</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of variable to assign a value.</td>
+	</tr>
+	<tr>
+		<td>ValueExpression</td>
+		<td>Expression</td>
+		<td>RW</td>
+		<td><p>Defines an expression that when evaluated returns the value 
+		 to assign TargetProperty. The value is casted automatically to 
+		 the target property type. </p>
+		<p>See also <a href="Help_English.chm::/Reference/Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark28"></a>Attach</h3>
+<p>This statement attaches components 
+ of one or more child products to component of a parent product.</p>
+<p>Type constant: VC_STATEMENT_ATTACHPRODUCT</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Child </td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of the variable that holds one or more references to the 
+		 <a href="vcProduct.htm">vcProduct</a> 
+		 that are to be attached to the Parent. Can be a list or a single 
+		 variable.</td>
+	</tr>
+	<tr>
+		<td>Parent </td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of the variable that holds reference to a single <a 
+		 href="vcProduct.htm">vcProduct</a> where to attach.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark29"></a>Break</h3>
+<p>A Break statement immediately ends 
+ the execution of a While statement. This statement has no other specific 
+ properties.</p>
+&#160; 
+<h3><a name="MiniTOCBookMark30"></a><a name="Buffer_Statements" id="Buffer_Statements"></a>Buffer</h3>
+<p>Buffer statement creates a temporary 
+ storage for products in a grid pattern. Multiple products can be coming 
+ in and leaving the buffer in parallel. Transport of products is handled 
+ similarly to the Transport statements. The statement continues execution 
+ until the break condition is met and the buffer has emptied.</p>
+<p>Type constant: VC_STATEMENT_BUFFERPRODUCTS</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AcceptAllProductTypes </td>
+		<td><p>Boolean</p></td>
+		<td>RW</td>
+		<td>When True, any product is accepted, ignoring AcceptedFlowGroups 
+		 and AcceptedProductTypes.</td>
+	</tr>
+	<tr>
+		<td>AcceptedFlowGroups</td>
+		<td><p>List of <a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a></p></td>
+		<td>RW</td>
+		<td>Allows only the selected flow groups.</td>
+	</tr>
+	<tr>
+		<td>AcceptedProductTypes</td>
+		<td><p>List of <a href="vcProductType.htm">vcProductType</a></p></td>
+		<td>RW</td>
+		<td>Allows only the selected product types.</td>
+	</tr>
+	<tr>
+		<td>BreakCondition </td>
+		<td><p>Expression (boolean) </p></td>
+		<td>RW</td>
+		<td><p>When this expression evaluates to True (at least once), 
+		 the buffer stops accepting products. This allows the buffer to 
+		 empty and then the statement execution to end. </p>
+		<p><span class="hcp2">Note</span>: The expression 
+		 is evaluated at the start of the statement execution and every 
+		 time a product arrives to or leaves the buffer. </p>
+		<p><span class="hcp2">Note</span>: Must be from the 
+		 same component. </p>
+		See also <a href="Help_English.chm::/Reference/Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</td>
+	</tr>
+	<tr>
+		<td>BufferMode</td>
+		<td><p>BufferMode enumeration</p></td>
+		<td>RW</td>
+		<td>Defines the product access order of the buffer.</td>
+	</tr>
+	<tr>
+		<td>Destination</td>
+		<td><p>TransportOutType enumeration</p></td>
+		<td>RW</td>
+		<td>Defines the destination to where products leave the buffer.</td>
+	</tr>
+	<tr>
+		<td>DestinationContainer</td>
+		<td><p><a href="vcContainer.htm">vcContainer</a></p></td>
+		<td>RW</td>
+		<td>Component container whose output connection is used to place 
+		 the outgoing products. Only used when Destination is set to VC_TRANSPORTOUTTYPE_CONTAINER. 
+		 </td>
+	</tr>
+	<tr>
+		<td>InputResourcePositionFrame</td>
+		<td><p><a href="vcFrameFeature.htm">vcFrameFeature</a></p></td>
+		<td>RW</td>
+		<td>Defines resource position offset from product position and 
+		 XY plane on which resource position is projected to while emptying 
+		 the buffer. 
+		<p>This allows the resource position to move along with the product 
+		 position but still remain on a certain plane.</p>
+		<p>Note: Must be from the same component.</p></td>
+	</tr>
+	<tr>
+		<td>ParallelInputLimit</td>
+		<td><p>Integer</p></td>
+		<td>RW</td>
+		<td>Defines how many products can be arriving to the buffer in 
+		 parallel. 
+		<br>Note: Must be greater than zero.</td>
+	</tr>
+	<tr>
+		<td>ParallelOutputLimit</td>
+		<td><p>Integer</p></td>
+		<td>RW</td>
+		<td>Defines how many products can be leaving the buffer in parallel. 
+		 <br>
+		 Note: Must be greater than zero.</td>
+	</tr>
+	<tr>
+		<td>PatternCount</td>
+		<td><p><a href="vcVector.htm">vcVector</a></p></td>
+		<td>RW</td>
+		<td>Number of buffer slots per X,Y,Z axis. The Real values of the 
+		 vector are rounded to nearest Integer values. Each dimension should 
+		 in inclusive range 0 to 1289.</td>
+	</tr>
+	<tr>
+		<td>PatternStep</td>
+		<td><p><a href="vcVector.htm">vcVector</a></p></td>
+		<td>RW</td>
+		<td>Step between products in pattern per X,Y,Z axis.</td>
+	</tr>
+	<tr>
+		<td>ProductPositionFrame</td>
+		<td><p><a href="vcFrameFeature.htm">vcFrameFeature</a></p></td>
+		<td>RW</td>
+		<td><p>Frame defining the position and orientation of the product 
+		 pattern in combination with the Offset property.</p>
+		<p>Note: Must be from the same component.</p></td>
+	</tr>
+	<tr>
+		<td>ReservedProductVariableName</td>
+		<td><p>String</p></td>
+		<td>RW</td>
+		<td><p>Name of variable containing products already reserved using 
+		 Reserve Product statement. The buffer will be first filled using 
+		 these products and then will continue to receive further products 
+		 as defined by the Source property.</p>
+		<p>Note: The product filtering defined by properties AcceptAllProductTypes, 
+		 AcceptedFlowGroups and AcceptedProductTypes is not applied to 
+		 the pre-reserved products.</p></td>
+	</tr>
+	<tr>
+		<td>Source</td>
+		<td><p>TransportInType enumeration</p></td>
+		<td>RW</td>
+		<td>Defines how products get into the buffer.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark31"></a>Change Type</h3>
+<p>Change Type statement changes one or 
+ more product instances to be of another product type both logically and 
+ visually. </p>
+<p>Type constant: VC_STATEMENT_CHANGEPRODUCTTYPE</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>DeleteAttached</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>When True, any components attached to the changed product’s 
+		 component are deleted. 
+		<br>When False, any attached components are reattached 
+		 to new nodes in the rebuilt parent component based on the parent 
+		 node names.</td>
+	</tr>
+	<tr>
+		<td>NewType</td>
+		<td><a href="vcProductType.htm">vcProductType</a></td>
+		<td>RW</td>
+		<td>The product type to change the products to.</td>
+	</tr>
+	<tr>
+		<td>ProductVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of variable containing the products (<a href="vcProduct.htm">vcProduct</a>) 
+		 to change. Can be a list of products.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark32"></a>Comment</h3>
+<p>A Comment statement is a non-executable 
+ statement in a robot program that is used to leave comments about the 
+ program.</p>
+<p>Type constant: VC_STATEMENT_COMMENT</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Comment</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the text of the comment.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark33"></a>Continue</h3>
+<p>A Continue statement is used to loop 
+ back the execution of a While statement to its beginning. This, of course, 
+ would skip over all other remaining statements in the scope and reevaluate 
+ the condition of the loop. This statement has no other specific properties.</p>
+<p>Type constant: VC_STATEMENT_CONTINUE</p>
+<h3><a name="MiniTOCBookMark34"></a>Create</h3>
+<p>Create statement waits for free capacity 
+ at the target Container and then creates a new product instance (<a href="vcProduct.htm">vcProduct</a>). 
+ The product is created at the position of the Container.</p>
+<p>Type constant: VC_STATEMENT_CREATEPRODUCT</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Container</td>
+		<td><a href="vcContainer.htm">vcContainer</a></td>
+		<td>RW</td>
+		<td><p>Component container where to place the created product’s 
+		 component.</p>
+		<p>If set to None, the associated transport node’s (<a href="vcTransportNode.htm">vcTransportNode</a>) 
+		 container is used.</p></td>
+	</tr>
+	<tr>
+		<td>ProductType</td>
+		<td><a href="vcProductType.htm">vcProductType</a></td>
+		<td>RW</td>
+		<td>The product type to instantiate.</td>
+	</tr>
+	<tr>
+		<td>ProductVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of a variable where to store a reference to the created 
+		 product instance. A runtime variable is created if one doesn’t 
+		 exist. Can be a list of products.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark35"></a>Delay</h3>
+<p>Delay statement waits for a specified 
+ amount of simulation time.</p>
+<p>Type constant: VC_STATEMENT_PROCESSDELAY</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Distribution</td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p>Defines an expression to calculate a value for the amount 
+		 of seconds to wait for. A sample is taken when the statement execution 
+		 begins.</p>
+		<p class="TableNormal">Available functions include:</p>
+		<p class="TableNormal"><span class="Term">normal( u, s )</span><br>
+		Normal distribution for mean value u, and the standard deviation 
+		 s.</p>
+		<p class="TableNormal"><span class="Term">lognormal( u, s )</span><br>
+		Log normal distribution for mean u, and the standard deviation 
+		 s.</p>
+		<p class="TableNormal"><span class="Term">uniform( a, b )</span><br>
+		Uniform distribution in range a &lt;= x &lt; b.</p>
+		<p class="TableNormal"><span class="Term">exponential( lambda )</span><br>
+		Exponential distribution where the mean is 1/lambda and the variance 
+		 is 1/lambda^2.</p>
+		<p class="TableNormal"><span class="Term">gamma( k, theta )</span><br>
+		Gamma distribution with shape k and scale theta.</p>
+		<p class="TableNormal"><span class="Term">triangular( min, mode, 
+		 max )</span><br>
+		Triangular distribution with the specified minimum, mode and maximum 
+		 values.</p>
+		<p class="TableNormal"><span class="Term">weibull( k, lambda )</span><br>
+		Weibull distribution with shape k and scale lambda.</p>
+		<p class="TableNormal"><span class="Strong">Tip:</span> Use RandomStream 
+		 to have the distribution use a stream for seeding a value and 
+		 generating the same set of random numbers during a simulation. 
+		 That is, if you reset and run a simulation you should expect the 
+		 same values given in the previous simulation.</p></td>
+	</tr>
+	<tr>
+		<td>Expression</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td><p>Amount to wait for defined as an expression that must evaluate 
+		 to a Real value at the start of the statement execution.</p>
+		<p>Unit is seconds of simulation time.</p>
+		<p>See also <a href="Help_English.chm::/Reference/Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</p></td>
+	</tr>
+	<tr>
+		<td>TimeSource</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td><p>Defines whether to evaluate the Distribution or Expression 
+		 property to get the amount of time to wait for.</p>
+		<p>See <a href="Constants.htm#TimeSource_Enumeration">Time Source 
+		 Constants</a> for more information.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark36"></a>Detach</h3>
+<p>Detach statement detaches the component(s) 
+ (<a href="vcComponent.htm">vcComponent</a>) of one or more products (<a 
+	 href="vcProduct.htm">vcProduct</a>) from the component of a common 
+ parent product (<a href="vcProduct.htm">vcProduct</a>). The products to 
+ detach can be filtered by type (<a href="vcProductType.htm">vcProductType</a>).</p>
+<p>Type constant: VC_STATEMENT_DETACHPRODUCT</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AcceptAllProductTypes</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>When True any product is accepted, ignoring AcceptedFlowGroups 
+		 and AcceptedProductTypes</td>
+	</tr>
+	<tr>
+		<td>AcceptedFlowGroups</td>
+		<td>List of <a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a></td>
+		<td>RW</td>
+		<td><p>Allows only the selected flow groups.</p></td>
+	</tr>
+	<tr>
+		<td>AcceptedProductTypes</td>
+		<td>List of <a href="vcProductType.htm">vcProductType</a></td>
+		<td>RW</td>
+		<td><p>Allows only the selected product types.</p></td>
+	</tr>
+	<tr>
+		<td>DetachedVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p>Name of output variable where to store references to the 
+		 detached products (<a href="vcProduct.htm">vcProduct</a>).</p></td>
+	</tr>
+	<tr>
+		<td>DetachMany</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td><p>When True, detaches all products that match the filter, 
+		 otherwise only the first one.</p></td>
+	</tr>
+	<tr>
+		<td>ProductVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p>Name of input variable from which to get the parent product 
+		 instance (<a href="vcProduct.htm">vcProduct</a>).</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark37"></a>Flow</h3>
+<p>Flow statement updates statistics behavior 
+ (<a href="vcStatistics.htm">vcStatistics</a>) and it records one or more 
+ products’ (<a href="vcProduct.htm">vcProduct</a>) components (<a href="vcComponent.htm">vcComponent</a>) 
+ transferring in or out. If more than one product is given as input, they 
+ are all recorded at once.</p>
+<p>Type constant: VC_STATEMENT_SETSTATISTICSFLOW</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>FlowDirection</td>
+		<td>StatisticsFlowDirection enumeration</td>
+		<td>RW</td>
+		<td>Whether the product transferred into the process or left it.</td>
+	</tr>
+	<tr>
+		<td>ProductVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p>Name of input variable from which to get the product instances 
+		 to record (<a href="vcProduct.htm">vcProduct</a>).</p>
+		<p><span class="hcp2">Note</span>: Can be a list 
+		 of products.</p></td>
+	</tr>
+	<tr>
+		<td>Statistics</td>
+		<td><span><a href="vcStatistics.htm">vcStatistics</a></span></td>
+		<td>RW</td>
+		<td>The statistics behavior to change the state of. 
+		<br><span class="hcp2">Note</span>: 
+		 Must be from the same component.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark38"></a>Get Property</h3>
+<p>Get Property statement creates a runtime 
+ variable that acts as a proxy to a property (<a href="vcProperty.htm">vcProperty</a>). 
+ The proxy variable’s value and the targeted property’s value are tied 
+ together such that changing one means changing the other as well. The 
+ targeted property can be a static component’s (<a href="vcComponent.htm">vcComponent</a>) 
+ property or a static component’s behavior’s (<a href="vcBehaviour.htm">vcBehaviour</a>) 
+ property.</p>
+<p><span class="hcp2">Note</span>: 
+ The target property is specified using 3 properties (SelectedComponent, 
+ SelectedBehavior, SelectedProperty) for UI reasons. They have to be set 
+ in correct order.</p>
+<p>Type constant: VC_STATEMENT_GETPROPERTY</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>PropertyVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of the proxy runtime variable to create.</td>
+	</tr>
+	<tr>
+		<td>SelectedComponent</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td>RW</td>
+		<td><p>The static component that owns the target property. None 
+		 value means parent component of the statement.</p></td>
+	</tr>
+	<tr>
+		<td>SelectedBehavior</td>
+		<td><a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td>RW</td>
+		<td><p>Behaviour that owns the target property. </p>
+		<p>Must be owned by the SelectedComponent.</p>
+		<p>None value means SelectedProperty is a component property of 
+		 SelectedComponent.</p>
+		<p>Must be set after SelectedComponent has been set.</p></td>
+	</tr>
+	<tr>
+		<td>SelectedProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>RW</td>
+		<td><p>The target property to get. </p>
+		<p><span class="hcp2">Note</span>: Must be a property 
+		 of either SelectedComponent or SelectedBehavior depending on the 
+		 value of SelectedBehavior.</p>
+		<p><span class="hcp2">Note</span>: Must be set after 
+		 SelectedComponent and SelectedBehavior.</p>
+		<p><span class="hcp2">Note</span>: Value type of 
+		 the property must be Integer, Real, <a href="vcVector.htm">vcVector</a>, 
+		 <a href="vcMatrix.htm">vcMatrix</a> or String.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark39"></a>Halt</h3>
+<p>A Halt statement can stop a simulation.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>HaltSimulation</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the statement stops a simulation. 
+		<p class="TableNormal">A True value stops a simulation, whereas 
+		 a False value has no effect on a simulation.</p></td>
+	</tr>
+	<tr>
+		<td>ResetSimulation</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the statement stops and then resets a simulation. 
+		 
+		<p class="TableNormal">A True value resets a simulation, whereas 
+		 a False value has no effect on a simulation.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark40"></a>If</h3>
+<p>If statement executes ThenScope when 
+ Condition evaluates to True or ElseScope when it evaluates to False. If 
+ Condition is invalid neither ThenScope nor ElseScope are executed.</p>
+<p>Type constant: VC_STATEMENT_PROCESSIF</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Condition</td>
+		<td>Expression (boolean)</td>
+		<td>RW</td>
+		<td><p>Condition expression to evaluate when the statement is executed. 
+		 </p>
+		See also <a href="Help_English.chm::/Reference/Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</td>
+	</tr>
+	<tr>
+		<td>Message</td>
+		<td>vcScope</td>
+		<td>R</td>
+		<td>Scope to execute when Condition evaluates to False.</td>
+	</tr>
+	<tr>
+		<td>ThenScope</td>
+		<td>vcScope</td>
+		<td>R</td>
+		<td>Scope to execute when Condition evaluates to True.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark41"></a>Move Joint</h3>
+<p>Move Joint statement uses a servo controller 
+ behavior (<a href="vcServoController.htm">vcServoController</a>) to move 
+ a joint to given value and waits until the motion completes.</p>
+<p>Type constant: VC_STATEMENT_MOVEJOINT</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Controller</td>
+		<td><a href="vcServoController.htm">vcServoController</a></td>
+		<td>RW</td>
+		<td><p>The controller that owns the joint. This can be a servo 
+		 controller or a derived controller, e.g. a <a href="vcServoController.htm">vcRobotController</a>. 
+		 </p>
+		<p>Note: Must be from the same component.</p></td>
+	</tr>
+	<tr>
+		<td>Joint</td>
+		<td><a href="vcJoint.htm">vcJoint</a></td>
+		<td>RW</td>
+		<td><p>The joint to move. </p>
+		<p>Note: Must be set after Controller has been set.</p></td>
+	</tr>
+	<tr>
+		<td>MotionTime</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td><p>An expression for motion time. This can be left empty to 
+		 let the controller plan the motion. If not left empty, this expression 
+		 must evaluate to a Real or Integer result. </p>
+		See also <a href="Help_English.chm::/Reference/Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</td>
+	</tr>
+	<tr>
+		<td>TargetValue</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td><p>An expression for the target value. </p>
+		<p>Note: Must evaluate to a Real or Integer result. </p>
+		See also <a href="Help_English.chm::/Reference/Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark42"></a>Print</h3>
+<p>A Print statement allows you to print 
+ feedback in the Output panel.</p>
+<p><span style="font-size: 11.0pt; line-height: 107%; 
+											 font-family: Calibri, sans-serif; 
+											 mso-ascii-theme-font: minor-latin; 
+											 mso-fareast-font-family: Calibri; 
+											 mso-fareast-theme-font: minor-latin; 
+											 mso-hansi-theme-font: minor-latin; 
+											 mso-bidi-font-family: 'Times New Roman'; 
+											 mso-bidi-theme-font: minor-bidi; 
+											 mso-ansi-language: EN-US; 
+											 mso-fareast-language: EN-US; 
+											 mso-bidi-language: AR-SA;">Type 
+ constant: VC_STATEMENT_PRINT</span> </p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Message</td>
+		<td>Expression</td>
+		<td>RW</td>
+		<td><p>Expression that is evaluated to create the message. The 
+		 expression can evaluate to any value type, not just a String.</p>
+		<p>See also <a href="Help_English.chm::/Reference/Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</p></td>
+	</tr>
+	<tr>
+		<td>PrependHeader</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td><p>When True, the message is printed along with a prefix indicating 
+		 its owner.</p>
+		<p>ComponentName::ProcessExecutorName::ProcessRoutineName: YourMessage</p>
+		<p>Otherwise prints only result of the Message expression.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark43"></a>Property Condition</h3>
+<p>Property Condition statement creates 
+ a process requirement based on a property value. The targeted property 
+ can be a static component’s property or a static component’s behavior’s 
+ (<a href="vcBehaviour.htm">vcBehaviour</a>) property.</p>
+<p>This is a requirement statement and 
+ thus can be only added to the Requirements routine of a process routine 
+ (<a href="vcProcessRoutine.htm">vcProcessRoutine</a>).</p>
+<p><span class="hcp2">Note: 
+ </span>The target property is specified using 3 properties (SelectedComponent, 
+ SelectedBehavior, SelectedProperty) for UI reasons. They have to be set 
+ in correct order.</p>
+<p>Type constant: VC_STATEMENT_PROPERTYCONDITION</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Condition</td>
+		<td>Expression</td>
+		<td>RW</td>
+		<td><p>The condition expression to evaluate against the SelectedProperty. 
+		 </p>
+		<p>Note: The condition can reference process variables but the 
+		 condition is re-evaluated only when the SelectedProperty changes 
+		 value.</p>
+		<p>See also <a href="Help_English.chm::/Reference/Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</p></td>
+	</tr>
+	<tr>
+		<td>SelectedComponent</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td>RW</td>
+		<td>The static component that owns the target property. None value 
+		 means parent component of the statement.</td>
+	</tr>
+	<tr>
+		<td>SelectedBehavior</td>
+		<td><a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td>RW</td>
+		<td><p>Behavior that owns the target property. </p>
+		<p>Note: Must be owned by the SelectedComponent.</p>
+		<p>Note: None value means SelectedProperty is a component property 
+		 of SelectedComponent.</p>
+		<p>Note: Must be set after SelectedComponent has been set.</p></td>
+	</tr>
+	<tr>
+		<td>SelectedProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>RW</td>
+		<td><p>The target property to get. </p>
+		<p>Note: Must be a property of either SelectedComponent or SelectedBehavior 
+		 depending on the value of SelectedBehavior.</p>
+		<p>Note: Must be set after SelectedComponent and SelectedBehavior.</p>
+		<p>Note: Value type of the property must be Integer, Real, <a href="vcVector.htm">vcVector</a>, 
+		 <a href="vcMatrix.htm">vcMatrix</a> or String.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark44"></a>Release Product Reservation</h3>
+<p>Release Product Reservation statement 
+ releases reserved product instances which are reserved by ReserveProduct 
+ statement(s). Reservation cannot be released after a product’s transport 
+ has started.</p>
+<p>Type constant: VC_STATEMENT_RELEASEPRODUCTRESERVATION</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ProductVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of the variable that holds the reserved products (<a href="vcProduct.htm">vcProduct</a>).</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark45"></a>Remove</h3>
+<p>Remove statement deletes one or more 
+ product instances and resets value of the variable.</p>
+<p>Type constant: VC_STATEMENT_REMOVEPRODUCT</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ProductVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of the variable that holds the products to delete (<a 
+		 href="vcProduct.htm">vcProduct</a>).</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark46"></a>Reserve Product</h3>
+<p>Reserve Product statement creates a 
+ process requirement for a matching product (<a href="vcProduct.htm">vcProduct</a>) 
+ to be available and reserves it for this process.</p>
+<p>This is a requirement statement and 
+ thus can be only added to the Requirements routine of a process routine 
+ (<a href="vcProcessRoutine.htm">vcProcessRoutine</a>).</p>
+<p>Type constant: VC_STATEMENT_RESERVEPRODUCT</p>
+<p><span class="hcp2">Wrapper 
+ type:</span> vcReserveProductStatement, inherits vcStatement</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AcceptAllProductTypes</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>When True any product is accepted, ignoring AcceptedFlowGroups 
+		 and AcceptedProductTypes</td>
+	</tr>
+	<tr>
+		<td>AcceptedFlowGroups</td>
+		<td>List of <a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a></td>
+		<td>RW</td>
+		<td>Allows only the selected flow groups.</td>
+	</tr>
+	<tr>
+		<td>AcceptedProductTypes</td>
+		<td>List of <a href="vcProductType.htm">vcProductType</a></td>
+		<td>RW</td>
+		<td>Allows only the selected product types.</td>
+	</tr>
+	<tr>
+		<td>ProductVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of the process variable where to store the reserved product 
+		 instance (<span><a href="vcProduct.htm">vcProduct</a></span>).</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark47"></a>Run Robot Routine</h3>
+<p>Waits until the robot is idle, then 
+ evaluates the given RoutineName expression and tries to find the routine, 
+ then start the routine, and waits until the routine has been executed 
+ to completion.</p>
+<p>Type constant: VC_STATEMENT_RUNROBOTROUTINE</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Component</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td>RW</td>
+		<td><p>The component from which to search for a robot executor. 
+		 </p>
+		<p>Note: If the component has multiple robot executors, the first 
+		 one of the these will be selected.</p>
+		<p>Note: None can be used to select the component that owns the 
+		 process executor that is running this statement.</p></td>
+	</tr>
+	<tr>
+		<td>RoutineName</td>
+		<td>Expression</td>
+		<td>RW</td>
+		<td><p>An expression that must evaluate to a string value. </p>
+		<p>During execution, the statement will attempt to find a routine 
+		 from the selected robot executor with that name. This expression 
+		 evaluation and routine search will be performed again each time 
+		 the robot becomes idle.</p>
+		See also <a href="Help_English.chm::/Reference/Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark48"></a>Select Products</h3>
+<p>Copies product instance (<a href="vcProduct.htm">vcProduct</a>) 
+ references from one list to another variable. Product type filtering can 
+ be applied to only copy some product references.</p>
+<p>Type constant: VC_STATEMENT_SELECTPRODUCTS</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AcceptAllProductTypes</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>When True any product is accepted, ignoring AcceptedFlowGroups 
+		 and AcceptedProductTypes</td>
+	</tr>
+	<tr>
+		<td>AcceptedFlowGroups</td>
+		<td>List of <a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a></td>
+		<td>RW</td>
+		<td>Allows only the selected flow groups.</td>
+	</tr>
+	<tr>
+		<td>AcceptedProductTypes</td>
+		<td>List of <a href="vcProductType.htm">vcProductType</a></td>
+		<td>RW</td>
+		<td>Allows only the selected product types.</td>
+	</tr>
+	<tr>
+		<td>ProductVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of the input list variable to copy product instance (<span><a 
+		 href="vcProduct.htm">vcProduct</a></span>) references &#160;from.</td>
+	</tr>
+	<tr>
+		<td>SplitVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p>Name of the variable where to copy the product instance 
+		 (<a href="vcProduct.htm">vcProduct</a>) references to.</p>
+		<p>Note: The variable is created if it does not exist already. 
+		 The variable is always made into a list of products regardless 
+		 of if any products got copied from the input.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark49"></a>Send Signal</h3>
+<p>Send Signal statement sends a simulation 
+ signal, i.e. triggers a <a href="vcSignal.htm">vcSignal</a> behavior, 
+ with a given value.</p>
+<p>Type constant: VC_STATEMENT_SENDSIGNAL</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Component</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td>RW</td>
+		<td><p>The component that owns the signal. </p>
+		<p>Note: Must be a static component.</p>
+		<p>Note: None means the parent component of this statement.</p></td>
+	</tr>
+	<tr>
+		<td>Signal</td>
+		<td><a href="vcSignal.htm">vcSignal</a></td>
+		<td>RW</td>
+		<td><p>The signal behavior to trigger.</p>
+		<p>Note: Must be either Boolean, Integer, Real or String signal.</p>
+		<p>Note: Must be from the component assigned to the Component property.</p>
+		<p>Note: Must be set after the Component property has been set.</p></td>
+	</tr>
+	<tr>
+		<td>Value</td>
+		<td>Expression</td>
+		<td>RW</td>
+		<td><p>An expression to generate the value for the signal. </p>
+		<p>This can reference e.g. static properties or properties in dynamic 
+		 products.</p>
+		<p>See also <a href="Help_English.chm::/Reference/Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark50"></a>Set Node Material</h3>
+<p>Set Node Material statement changes 
+ the material of a node in one or more product instances’ components.</p>
+<p>Type constant: VC_STATEMENT_SETNODEMATERIAL</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Force</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td><p>When True, sets the <a href="vcNode.htm">vcNode</a>.MaterialInheritance 
+		 to VC_MATERIAL_FORCE_INHERIT_NODE.</p>
+		<p>When False, material inheritance setting in the target node 
+		 is not changed.</p></td>
+	</tr>
+	<tr>
+		<td>Material</td>
+		<td><a href="vcMaterial.htm">vcMaterial</a></td>
+		<td>RW</td>
+		<td>The material to set to the node.</td>
+	</tr>
+	<tr>
+		<td>NodeName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p>Name of the target node (<a href="vcNode.htm">vcNode</a>). 
+		 </p>
+		<p>Note: Empty string means the root node of the target product 
+		 (<a href="vcProduct.htm">vcProduct</a>).</p></td>
+	</tr>
+	<tr>
+		<td>ProductVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of the input variable where to get the Product instances.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark51"></a>Set Node Visibility</h3>
+<p>Changes the visibility of a node in 
+ one or more product instances’ components.</p>
+<p>Type constant: VC_STATEMENT_SETNODEVISIBILITY</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>NodeName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p>Name of the target node (<a href="vcNode.htm">vcNode</a>). 
+		 </p>
+		<p>Empty string means the root node of the target product (vcProduct).</p></td>
+	</tr>
+	<tr>
+		<td>ProductVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of the input variable where to get the Product instances.</td>
+	</tr>
+	<tr>
+		<td>Visibility</td>
+		<td>NodeVisibilityState enumeration</td>
+		<td>RW</td>
+		<td>Target visibility state to set.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark52"></a>Set State</h3>
+<p>Sets the current state of a statistics 
+ behavior (<a href="vcStatistics.htm">vcStatistics</a>).</p>
+<p>Type constant: VC_STATEMENT_SETSTATISTICSSTATE</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>State</td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p>Name of the state to set.</p>
+		<p>Note: Must be set after the Statistics property has been set.</p></td>
+	</tr>
+	<tr>
+		<td>Statistics</td>
+		<td><span><a href="vcStatistics.htm">vcStatistics</a></span></td>
+		<td>RW</td>
+		<td><p>The statistics behavior to change the state of.</p>
+		<p>Note: Must be from the same component.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark53"></a>Start Transport In</h3>
+<p>Start Transport In statement transports 
+ product(s) into the process. More than one pre-reserved product can be 
+ transported in, otherwise transports only a single product. </p>
+<p>The statement execution is asynchronous, 
+ meaning that next statements may execute before the transport is finished. 
+ Must be used in combination with the Wait Transport statement.</p>
+<p>Type constant: VC_STATEMENT_STARTTRANSPORTIN</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AcceptAllProductTypes</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>When True any product is accepted, ignoring AcceptedFlowGroups 
+		 and AcceptedProductTypes.</td>
+	</tr>
+	<tr>
+		<td>AcceptedFlowGroups</td>
+		<td>List of <a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a></td>
+		<td>RW</td>
+		<td>Allows only the selected flow groups.</td>
+	</tr>
+	<tr>
+		<td>AcceptedProductTypes</td>
+		<td>List of <a href="vcProductType.htm">vcProductType</a></td>
+		<td>RW</td>
+		<td>Allows only the selected product types.</td>
+	</tr>
+	<tr>
+		<td>ProductPositionFrame</td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td><p>Defines the position and orientation where the product instance 
+		 should be placed. </p>
+		<p>Note: Must be from the same component.</p></td>
+	</tr>
+	<tr>
+		<td>ProductVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of output variable where to store the transported product(s) 
+		 (<a href="vcProduct.htm">vcProduct</a>).</td>
+	</tr>
+	<tr>
+		<td>ReservedProductVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p>Name of a variable containing products (<a href="vcProduct.htm">vcProduct</a>) 
+		 already reserved using Reserve Product statement. If defined, 
+		 the statement will transport in those specific products.</p>
+		<p>Note: The product filtering defined by properties AcceptAllProductTypes, 
+		 AcceptedFlowGroups and AcceptedProductTypes is not applied to 
+		 the pre-reserved products.</p></td>
+	</tr>
+	<tr>
+		<td>ResourcePositionFrame</td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td><p>Defines a position hint where a transport resource should 
+		 be when placing the product.</p>
+		<p>Must be from the same component.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark54"></a>Start Transport Out</h3>
+<p>Transports one or more products (<a 
+	 href="vcProduct.htm">vcProduct</a>) out from the process in parallel. 
+ The statement execution is asynchronous, meaning that next statements 
+ may execute before the transport is finished. Must be used in combination 
+ with the Wait Transport statement.</p>
+<p>Type constant: VC_STATEMENT_STARTTRANSPORTOUT</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Container</td>
+		<td><a href="vcContainer.htm">vcContainer</a></td>
+		<td>RW</td>
+		<td><p>Defines a component container where to place the products 
+		 (<a href="vcProduct.htm">vcProduct</a>).</p>
+		<p>Must be from the same component.</p>
+		<p>Only used when Destination is VC_TRANSPORTOUTTYPE_CONTAINER</p></td>
+	</tr>
+	<tr>
+		<td>Destination</td>
+		<td>TransportOutType enumeration</td>
+		<td>RW</td>
+		<td>Defines where the products should go.</td>
+	</tr>
+	<tr>
+		<td>DestinationNode</td>
+		<td><a href="vcTransportNode.htm">vcTransportNode</a></td>
+		<td>RW</td>
+		<td><p>Defines a transport node where to send the products using 
+		 the transport system (<a href="vcProduct.htm">vcProduct</a>).</p>
+		<p><span class="hcp2">Note</span>: Only used when 
+		 Destination is VC_TRANSPORTOUTTYPE_TRANSPORTNODE</p></td>
+	</tr>
+	<tr>
+		<td>ProductVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of input variable where to get the products (<a href="vcProduct.htm">vcProduct</a>).</td>
+	</tr>
+	<tr>
+		<td>ResourcePositionFrame</td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td><p>Defines a position hint where a transport resource should 
+		 be when picking the products.</p>
+		<p><span class="hcp2">Note</span>: Must be from the 
+		 same component.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark55"></a>Switch Case</h3>
+<p>Switch Case statement executes the 
+ first <a href="vcCaseScope.htm">vcCaseScope</a> for which the value of 
+ its CaseCondition property matches that of statement’s Condition property.</p>
+<p>Type constant: VC_STATEMENT_SWITCHCASE</p>
+<h4><a name="MiniTOCBookMark56"></a>Properties</h4>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Condition</td>
+		<td>Expression</td>
+		<td>RW</td>
+		<td><p>Expression that defines the value against which the case 
+		 conditions are evaluated. </p>
+		See also <a href="Help_English.chm::/Reference/Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</td>
+	</tr>
+	<tr>
+		<td>Cases</td>
+		<td>List of <a href="vcCaseScope.htm">vcCaseScope</a></td>
+		<td>RO</td>
+		<td>All case scopes in this statement. Each scope has an RW property 
+		 CaseCondition of type String which will be evaluated against statement’s 
+		 Condition.</td>
+	</tr>
+</table>
+<h4><a name="MiniTOCBookMark57"></a>Methods</h4>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return value</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addCase</td>
+		<td><p><a href="vcCaseScope.htm">vcCaseScope</a></p>
+		<p>or</p>
+		<p><a href="vcCaseScope.htm">vcCaseScope</a></p>
+		<p>or</p>
+		<p>None</p></td>
+		<td><p>None</p>
+		<p>or</p>
+		<p>Integer <span class="hcp3">index</span></p>
+		<p>or </p>
+		<p>Integer <span class="hcp3">index</span>,</p>
+		<p style="font-style: italic;"><a href="vcCaseScope.htm" style="font-style: normal;">vcCaseScope</a> 
+		 scope</p></td>
+		<td><p>Creates a new case and appends it to the end.</p>
+		<p>or</p>
+		<p>Creates a new case and inserts it to the given index. If index 
+		 is less than zero or greater than the current case count, the 
+		 case will be appended to the end.</p>
+		<p>or</p>
+		<p>Inserts an existing case to the given index. If index is less 
+		 than zero or greater than the current case count, the case will 
+		 be appended to the end.</p></td>
+	</tr>
+	<tr>
+		<td>moveCase</td>
+		<td>None</td>
+		<td><p><a href="vcCaseScope.htm">vcCaseScope</a> <span class="hcp3">scope</span>,</p>
+		<p>Integer <span class="hcp3">newIndex</span></p></td>
+		<td>Moves an existing case to the new position. If the given index 
+		 is less than zero or greater than the current case count, the 
+		 case will be moved to the end.</td>
+	</tr>
+	<tr>
+		<td>deleteCase</td>
+		<td>None</td>
+		<td><a href="vcCaseScope.htm">vcCaseScope</a> <span class="hcp3">scope</span></td>
+		<td><p>Removes an existing case and deletes it.</p></td>
+	</tr>
+	<tr>
+		<td>releaseCase</td>
+		<td>None</td>
+		<td><a href="vcCaseScope.htm">vcCaseScope</a> <span class="hcp3">scope</span></td>
+		<td>Removes an existing case.</td>
+	</tr>
+	<tr>
+		<td>getCase</td>
+		<td><a href="vcCaseScope.htm">vcCaseScope</a></td>
+		<td>Integer <span class="hcp3">index</span></td>
+		<td>Gets an existing case.</td>
+	</tr>
+</table>
+<h4><a name="MiniTOCBookMark58"></a>Events</h4>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnCaseAdded</td>
+		<td><p><a href="vcCaseScope.htm">vcCaseScope</a> <span class="hcp3">scope</span>,</p>
+		<p>Integer <span class="hcp3">index</span></p></td>
+		<td>Event that occurs when a case has been added. Provides an index 
+		 where case was inserted.</td>
+	</tr>
+	<tr>
+		<td>OnCaseMoved</td>
+		<td><p><a href="vcCaseScope.htm">vcCaseScope</a> <span class="hcp3">scope</span>,</p>
+		<p>Integer <span class="hcp3">oldIndex</span>,</p>
+		<p>Integer <span class="hcp3">newIndex</span></p></td>
+		<td>Event that occurs when a case has been moved to a new index. 
+		 Provides both old and new indices.</td>
+	</tr>
+	<tr>
+		<td>OnCaseRemoved</td>
+		<td><p><a href="vcCaseScope.htm">vcCaseScope</a> <span class="hcp3">scope</span>,</p>
+		<p>Integer <span class="hcp3">index</span></p></td>
+		<td>Event that occurs when a case has been removed. Provides an 
+		 index case was removed from.</td>
+	</tr>
+</table>
+&#160; 
+<h3><a name="MiniTOCBookMark59"></a><a name="TransportIn_Statements" id="TransportIn_Statements"></a>Transport 
+ In</h3>
+<p>Transport In statement sequentially 
+ transports product(s) (<a href="vcProduct.htm">vcProduct</a>) into the 
+ process and waits until they have arrived. More than one pre-reserved 
+ product can be transported in, otherwise transports only a single product.</p>
+<p>Type constant: VC_STATEMENT_TRANSPORTIN</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AcceptAllProductTypes</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>When True any product is accepted, ignoring AcceptedFlowGroups 
+		 and AcceptedProductTypes</td>
+	</tr>
+	<tr>
+		<td>AcceptedFlowGroups</td>
+		<td>List of <a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a></td>
+		<td>RW</td>
+		<td>Allows only the selected flow groups.</td>
+	</tr>
+	<tr>
+		<td>AcceptedProductTypes</td>
+		<td>List of <a href="vcProductType.htm">vcProductType</a></td>
+		<td>RW</td>
+		<td>Allows only the selected product types.</td>
+	</tr>
+	<tr>
+		<td>ProductPositionFrame</td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td><p>Defines the position and orientation where the product instance 
+		 should be placed. </p>
+		<p>Note: Must be from the same component.</p></td>
+	</tr>
+	<tr>
+		<td>ProductVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of output variable where to store the transported product(s) 
+		 (<span><a href="vcProduct.htm">vcProduct</a></span>).</td>
+	</tr>
+	<tr>
+		<td>ReservedProductVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p>Name of a variable containing products (<a href="vcProduct.htm">vcProduct</a>) 
+		 already reserved using Reserve Product statement. If defined, 
+		 the statement will transport in those specific products.</p>
+		<p>Note: The product filtering defined by properties AcceptAllProductTypes, 
+		 AcceptedFlowGroups and AcceptedProductTypes is not applied to 
+		 the pre-reserved products.</p></td>
+	</tr>
+	<tr>
+		<td>ResourcePositionFrame</td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td><p>Defines a position hint where a transport resource should 
+		 be when placing the product.</p>
+		<p>Must be from the same component.</p></td>
+	</tr>
+	<tr>
+		<td>Source</td>
+		<td>TransportInType enumeration</td>
+		<td>RW</td>
+		<td>Defines how to get the product (<span><a href="vcProduct.htm">vcProduct</a></span>).</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark60"></a><a name="TransportOut_Statements" 
+										 id="TransportOut_Statements"></a>Transport 
+ Out</h3>
+<p>Transport Out statement sequentially 
+ transports one or more products (<a href="vcProduct.htm">vcProduct</a>) 
+ out from the process and waits until the last one has left. </p>
+<p>Type constant: VC_STATEMENT_TRANSPORTOUT</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Container</td>
+		<td><a href="vcContainer.htm">vcContainer</a></td>
+		<td>RW</td>
+		<td><p>Defines a component container where to place the products 
+		 (<a href="vcProduct.htm">vcProduct</a>).</p>
+		<p>Note: Must be from the same component.</p>
+		<p>Only used when Destination is VC_TRANSPORTOUTTYPE_CONTAINER</p></td>
+	</tr>
+	<tr>
+		<td>Destination</td>
+		<td>TransportOutType enumeration</td>
+		<td>RW</td>
+		<td>Defines where the products should go.</td>
+	</tr>
+	<tr>
+		<td>DestinationNode</td>
+		<td><a href="vcTransportNode.htm">vcTransportNode</a></td>
+		<td>RW</td>
+		<td><p>Defines a transport node where to send the products using 
+		 the transport system (<a href="vcProduct.htm">vcProduct</a>).</p>
+		<p>Only used when Destination is VC_TRANSPORTOUTTYPE_TRANSPORTNODE</p></td>
+	</tr>
+	<tr>
+		<td>ProductVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of input variable where to get the products (<span><a 
+		 href="vcProduct.htm">vcProduct</a></span>).</td>
+	</tr>
+	<tr>
+		<td>ResourcePositionFrame</td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td><p>Defines a position hint where a transport resource should 
+		 be when picking the products.</p>
+		<p>Note: Must be from the same component.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark61"></a><a name="TransportPatternIn_Statements" 
+										 id="TransportPatternIn_Statements"></a>Transport 
+ Pattern In</h3>
+<p>Sequentially transports products (<a 
+	 href="vcProduct.htm">vcProduct</a>) into a regular grid pattern and 
+ waits until they have arrived. </p>
+<p>Type constant: VC_STATEMENT_TRANSPORTPATTERNIN</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AcceptAllProductTypes</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>When True any product is accepted, ignoring AcceptedFlowGroups 
+		 and AcceptedProductTypes</td>
+	</tr>
+	<tr>
+		<td>AcceptedFlowGroups</td>
+		<td>List of <a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a></td>
+		<td>RW</td>
+		<td>Allows only the selected flow groups.</td>
+	</tr>
+	<tr>
+		<td>AcceptedProductTypes</td>
+		<td>List of <a href="vcProductType.htm">vcProductType</a></td>
+		<td>RW</td>
+		<td>Allows only the selected product types.</td>
+	</tr>
+	<tr>
+		<td>Offset</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Offset of the first product position from ProductPositionFrame.</td>
+	</tr>
+	<tr>
+		<td>PatternCount</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Number of pattern slots per X,Y,Z axis. The Real values of 
+		 the vector are rounded to nearest Integer values. Each dimension 
+		 should in inclusive range 0 to 1289.</td>
+	</tr>
+	<tr>
+		<td>PatternStep</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Step between products in pattern per X,Y,Z axis.</td>
+	</tr>
+	<tr>
+		<td>ProductPositionFrame</td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td><p>Frame defining the position and orientation of the product 
+		 pattern in combination with the Offset property.</p>
+		<p>Must be from the same component.</p></td>
+	</tr>
+	<tr>
+		<td>ReservedProductVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p>Name of variable containing products (<a href="vcProduct.htm">vcProduct</a>) 
+		 already reserved using Reserve Product statement. The pattern 
+		 will be first filled using these products and then will continue 
+		 to receive further products if needed.</p>
+		<p>Note: The product filtering defined by properties AcceptAllProductTypes, 
+		 AcceptedFlowGroups and AcceptedProductTypes is not applied to 
+		 the pre-reserved products.</p></td>
+	</tr>
+	<tr>
+		<td>ResourcePositionFrame</td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td><p>Defines a position hint where a transport resource should 
+		 be when placing the products.</p>
+		<p>Note: Must be from the same component.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark62"></a>Wait Property Condition</h3>
+<p>Waits for a variable’s value to pass 
+ a specified condition. VariableName and Condition property values form 
+ a single expression that is evaluated every time the value of the variable 
+ defined by VariableName changes. Variable name property can refer to process 
+ variables or component properties of the owner component.</p>
+<p>Type constant: VC_STATEMENT_WAITPROPERTYCONDITION</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Condition</td>
+		<td>Expression (boolean)</td>
+		<td>RW</td>
+		<td><p>Expression to evaluate the variable value. Needs to form 
+		 a Boolean expression together with the variable value.</p>
+		<p>See also <a href="Help_English.chm::/Reference/Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</p></td>
+	</tr>
+	<tr>
+		<td>VariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of the variable or component property to monitor.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark63"></a>Wait Signal</h3>
+<p>Wait Signal statement waits for signal 
+ to be triggered with a value that matches a given condition or until an 
+ optional timeout is reached.</p>
+<p>Type constant: VC_STATEMENT_WAITSIGNAL</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Component</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td>RW</td>
+		<td><p>Component that owns the signal. </p>
+		<p>None means the parent component of the statement. </p></td>
+	</tr>
+	<tr>
+		<td>Condition</td>
+		<td>Expression</td>
+		<td>RW</td>
+		<td><p>Condition expression that the signal's value has to pass. 
+		 </p>
+		<p>Leave empty to accept any value. </p>
+		<p>See also <a href="Help_English.chm::/Reference/Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</p></td>
+	</tr>
+	<tr>
+		<td>Signal</td>
+		<td><a href="vcSignal.htm">vcSignal</a></td>
+		<td>RW</td>
+		<td><p>Signal behavior to listen for.</p>
+		<p>Must be from the component specified by the Component property.</p>
+		<p>Must be set after the Component property has been set.</p></td>
+	</tr>
+	<tr>
+		<td>Timeout</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td><p>Maximum amount of simulation time in seconds to wait for 
+		 a value that matches the condition. </p>
+		<p>0 means no time limit.</p></td>
+	</tr>
+	<tr>
+		<td>TimedOutVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p>Name of a process variable where to store a Boolean value 
+		 whether the timeout was reached or not. </p>
+		<p>Can be left empty. </p></td>
+	</tr>
+	<tr>
+		<td>ValueOutputVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p>Name of a process variable where to store the signal value 
+		 that passed the condition. </p>
+		<p>Can be left empty.</p></td>
+	</tr>
+	<tr>
+		<td>WaitTrigger</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Whether to always wait for a new signal value. When False, 
+		 also considers the current value of the signal when this statement's 
+		 execution starts.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark64"></a>Wait Transport</h3>
+<p>Wait Transport statement waits for 
+ one or more transport operations started with StartTransportIn or StartTransportOut 
+ statements to complete.</p>
+<p>Type constant: VC_STATEMENT_WAITTRANSPORT</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ProductVariableName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Name of the variable that identifies the transport operations 
+		 to wait for.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark65"></a>While</h3>
+<p>While statement executes Scope in a 
+ loop as long as Condition evaluates to True.</p>
+<p>Type constant: VC_STATEMENT_PROCESSWHILE</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Condition</td>
+		<td>Expression (boolean)</td>
+		<td>RW</td>
+		<td><p>Condition expression to evaluate on each loop iteration. 
+		 </p>
+		See also <a href="Help_English.chm::/Reference/Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</td>
+	</tr>
+	<tr>
+		<td>Scope</td>
+		<td>vcScope</td>
+		<td>R</td>
+		<td>Scope to keep executing while Condition evaluates to True.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark66"></a>Work</h3>
+<p>Sends a work request to a transport 
+ controller (<a href="vcPythonTransportController.htm">vcPythonTransportController</a>) 
+ and waits until the work is complete.</p>
+<p>Type constant: VC_STATEMENT_WORK</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Controller</td>
+		<td><span><a href="vcPythonTransportController.htm">vcPythonTransportController</a></span></td>
+		<td>RW</td>
+		<td>Defines the transport controller delegating the work to a resource.</td>
+	</tr>
+	<tr>
+		<td>ProcessTime</td>
+		<td>Distribution (real)</td>
+		<td>RW</td>
+		<td><p>Defines an expression to calculate a value for the work 
+		 duration in seconds. A sample is taken when the statement execution 
+		 begins.</p>
+		<p class="TableNormal">Available functions include:</p>
+		<p class="TableNormal"><span class="Term">normal( u, s )</span><br>
+		Normal distribution for mean value u, and the standard deviation 
+		 s.</p>
+		<p class="TableNormal"><span class="Term">lognormal( u, s )</span><br>
+		Log normal distribution for mean u, and the standard deviation 
+		 s.</p>
+		<p class="TableNormal"><span class="Term">uniform( a, b )</span><br>
+		Uniform distribution in range a &lt;= x &lt; b.</p>
+		<p class="TableNormal"><span class="Term">exponential( lambda )</span><br>
+		Exponential distribution where the mean is 1/lambda and the variance 
+		 is 1/lambda^2.</p>
+		<p class="TableNormal"><span class="Term">gamma( k, theta )</span><br>
+		Gamma distribution with shape k and scale theta.</p>
+		<p class="TableNormal"><span class="Term">triangular( min, mode, 
+		 max )</span><br>
+		Triangular distribution with the specified minimum, mode and maximum 
+		 values.</p>
+		<p class="TableNormal"><span class="Term">weibull( k, lambda )</span><br>
+		Weibull distribution with shape k and scale lambda.</p>
+		<p class="TableNormal"><span class="Strong">Tip:</span> Use RandomStream 
+		 to have the distribution use a stream for seeding a value and 
+		 generating the same set of random numbers during a simulation. 
+		 That is, if you reset and run a simulation you should expect the 
+		 same values given in the previous simulation.</p></td>
+	</tr>
+	<tr>
+		<td>ProcessTimeExpression</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td><p>Work duration defined as an expression that must evaluate 
+		 to a Real value at the start of the statement execution.</p>
+		<p>Unit is seconds of simulation time.</p>
+		<p>See also <a href="Help_English.chm::/Reference/Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a>.</p></td>
+	</tr>
+	<tr>
+		<td>ResourcePositionFrame</td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td><p>Defines a position hint where a resource should be when 
+		 doing the work.</p>
+		<p><span class="hcp2">Note</span>: Must be from the 
+		 same component.</p></td>
+	</tr>
+	<tr>
+		<td>TimeSource</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td><p>Defines whether to evaluate the ProcessTime or ProcessTimeExpression 
+		 property to get the work duration. </p>
+		See <a href="Constants.htm#TimeSource_Enumeration">Time Source 
+		 Constants</a> for more information.</td>
+	</tr>
+	<tr>
+		<td>WorkPositionFrame</td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td>Defines a position hint where the actual work happens.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark67"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>Enumeration <span class="Italic">type</span>, String <span 
+		 class="Italic">name</span></td>
+		<td>Creates a new property of a given <span class="Italic">type</span> 
+		 and <span class="Italic">name</span> in the statement, and then 
+		 returns the new property. 
+		<p class="TableNormal">An optional <span class="Italic">constraints</span> 
+		 argument can be used to define constraints for new property, which 
+		 must be defined at the time of creation.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Property_Constants">Property 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>deleteProperty</td>
+		<td>None</td>
+		<td><a href="vcProperty.htm">vcProperty</a> <span class="Italic">property</span></td>
+		<td>Deletes a given <span class="Italic">property</span> in the 
+		 statement.</td>
+	</tr>
+	<tr>
+		<td>getProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Returns a property matching a given <span class="Italic">name</span> 
+		 in the statement; otherwise returns None.</td>
+	</tr>
+</table>
+</body>
+</html>

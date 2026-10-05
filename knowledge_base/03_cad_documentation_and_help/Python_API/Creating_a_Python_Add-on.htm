@@ -1,0 +1,676 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Creating a Python Add-on</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content="python command,add-on">
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"><LINK rel=StyleSheet 
+type=text/css href="StyleSheet.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript src="ehlpdhtm.js"></SCRIPT>
+
+<STYLE title=hcp type=text/css>
+<!--
+p.hcp1 { margin-left:20px; }
+p.hcp2 { margin-left:40px; }
+img.hcp3 { border:none; }
+ul.hcp4 { list-style:disc; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>Creating a Python Add-on</H1>
+<P>Adding your own tools to the user interface can be accomplished in a few 
+simple steps.</P>
+<DIV class=Contents>
+<P align=left>Contents&nbsp;<A id=MTHotSpot42757 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot42757', 'MTPOPUP42757');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP42757 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">Step 1. Create Command File</A></P>
+<P class=hcp1 align=left><A href="#MiniTOCBookMark3">Simple Command</A></P>
+<P class=hcp1 align=left><A href="#MiniTOCBookMark4">Contextual Command</A></P>
+<P class=hcp1 align=left><A href="#MiniTOCBookMark5">Command Task Pane</A></P>
+<P align=left><A href="#MiniTOCBookMark6">Step 2. Create Add-on Image</A></P>
+<P class=hcp1 align=left><A href="#MiniTOCBookMark7">Color</A></P>
+<P class=hcp1 align=left><A href="#MiniTOCBookMark8">Path</A></P>
+<P align=left><A href="#MiniTOCBookMark9">Step 3. Create Initialization 
+File</A></P>
+<P class=hcp1 align=left><A href="#MiniTOCBookMark10">Register Command</A></P>
+<P class=hcp1 align=left><A href="#MiniTOCBookMark11">Manage Command</A></P>
+<P class=hcp1 align=left><A href="#MiniTOCBookMark12">Command Execution</A></P>
+<P class=hcp1 align=left><A href="#MiniTOCBookMark13">Command Menu Item</A></P>
+<P class=hcp2 align=left><A href="#MiniTOCBookMark14">Gallery Menu</A></P>
+<P class=hcp2 align=left><A href="#MiniTOCBookMark15">Ribbon Tab</A></P>
+<P class=hcp2 align=left><A href="#MiniTOCBookMark16">Contextual Tab 
+Group</A></P>
+<P align=left><A href="#MiniTOCBookMark17">Step 4. Localize using XAML File 
+(optional)</A></P>
+<P align=left><A href="#MiniTOCBookMark18">Step 5. Put Files</A></P>
+<P align=left><A href="#MiniTOCBookMark19">Step 6. Test</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>Step 1. Create Command File</H2>
+<P>A command file contains the actions executed by your add-on. Every command 
+must have at least one state defined by a function. For example, when a user 
+clicks a button that event executes the first state of a command tied to that 
+button.</P>
+<P>To add command states, import <A href="vcCommand.htm">vcCommand</A> and use 
+the addState() method. The states of a command are initialized when the command 
+is registered and loaded by the application.</P>
+<P><SPAN class=Strong>Tip:</SPAN> You can edit a command file while running the 
+application since it will detect changes and automatically recompile the command 
+before executing it.</P>
+<H3><A name=MiniTOCBookMark3></A>Simple Command</H3>
+<OL>
+  <LI class=Ordered>Open a text editor, for example Notepad, and then create a 
+  new file. 
+  <LI class=Ordered>In the file, type the following code to define the first 
+  state or action of the command. </LI></OL>
+<DIV class=ScrollTable style="MARGIN-LEFT: 40px">
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>from vcCommand import * <BR>&nbsp;&nbsp;&nbsp; <BR>def first_state(): 
+      <BR>&nbsp;&nbsp;print "Hello World" <BR>&nbsp;&nbsp; 
+      <BR>addState(first_state)</TD></TR></TBODY></TABLE></DIV>
+<OL start=3>
+  <LI class=Ordered>Save the file as a Python file. That is, with a .py file 
+  extension. </LI></OL>
+<H3><A name=MiniTOCBookMark4></A>Contextual Command</H3>
+<P>The context of the application can be used to define access to and the 
+functionality of your add-on. In some cases, you can place the menu item of a 
+command in a way that requires no additional work. For example, menu items bound 
+to the Program tab would not appear when the Home tab is active in the 
+workspace. This also applies to menu items that are displayed in context menus, 
+for example the context menu of a statement in the Program Editor panel.</P>
+<P><IMG class=hcp3 border=0 alt="" src="ProgramStatementContext.png"></P>
+<P>You can get a handle for the application, and then use its context properties 
+to affect the execution of your add-on.</P>
+<OL>
+  <LI class=Ordered>Edit your command file so that it prints a different message 
+  for the 3D world and drawing world. </LI></OL>
+<DIV class=ScrollTable style="MARGIN-LEFT: 40px">
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>from vcCommand import * <BR>&nbsp; <BR>cmd = getCommand() 
+      <BR>&nbsp;&nbsp;&nbsp; <BR>def first_state(): <BR>&nbsp;&nbsp;app = 
+      cmd.Application <BR>&nbsp;&nbsp; <BR>&nbsp;&nbsp;if app.CurrentContext.Id 
+      == "Drawing": <BR>&nbsp;&nbsp;&nbsp;&nbsp;print "Hello Drawing World" 
+      <BR>&nbsp;&nbsp;else: <BR>&nbsp;&nbsp;&nbsp;&nbsp;print "Hello 3D World" 
+      <BR>&nbsp;&nbsp; <BR>addState(first_state)</TD></TR></TBODY></TABLE></DIV>
+<OL start=2>
+  <LI class=Ordered>Save the file. </LI></OL>
+<H3><A name=MiniTOCBookMark5></A><A name=Command_Task_Pane></A>Command Task 
+Pane</H3>
+<P>Properties can be added to a command and displayed in a task pane. This 
+allows you to customize the execution of a command in real time using a 
+graphical interface. Any property of a command that is set to visible will be 
+displayed in its task pane.</P>
+<P><SPAN class=Strong>Note:</SPAN> A task pane is sometimes referred to as an 
+action panel.</P>
+<OL>
+  <LI class=Ordered>Edit your command file so that it displays a String property 
+  and a Button property in a task pane. The String property can be used to read 
+  in a message that can be printed to the Output panel using the Button 
+  property. </LI></OL>
+<DIV class=ScrollTable style="MARGIN-LEFT: 40px">
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>from vcCommand import * <BR>&nbsp; <BR>cmd = getCommand() <BR>message 
+      = cmd.createProperty(VC_STRING, "Message") <BR>end_button = 
+      cmd.createProperty(VC_BUTTON, "Respond") <BR>&nbsp;&nbsp;&nbsp; <BR>def 
+      first_state(): <BR>&nbsp;&nbsp;executeInActionPanel() <BR>&nbsp;&nbsp; 
+      <BR>&nbsp;&nbsp;app = cmd.Application <BR>&nbsp;&nbsp;if 
+      app.CurrentContext.Id == "Drawing": <BR>&nbsp;&nbsp;&nbsp;&nbsp;print 
+      "Hello Drawing World" <BR>&nbsp;&nbsp;else: 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;print "Hello 3D World" <BR>&nbsp;&nbsp; 
+      <BR>addState(first_state) <BR>&nbsp; <BR>def OnRespond(args): 
+      <BR>&nbsp;&nbsp;print cmd.Message <BR>&nbsp; 
+      <BR><SPAN>end_button.OnChanged = 
+OnRespond</SPAN></TD></TR></TBODY></TABLE></DIV>
+<OL start=2>
+  <LI class=Ordered>Save the file. </LI></OL>
+<H2><A name=MiniTOCBookMark6></A>Step 2. Create Add-on Image</H2>
+<P>Add some style to your add-on by including an image. The image must be a SVG 
+file and contain a &lt;path&gt; element that defines its shape. It is 
+recommended to use dimensions of 16x16 pixels, otherwise the application will 
+automatically scale down your image.</P>
+<H3><A name=MiniTOCBookMark7></A>Color</H3>
+<P>An SVG for an add-on can have color . If your SVG uses hexadecimal color 
+#393939, the color will change depending on the Theme setting of the 
+application. For example, color #393939 is white in Dark theme and black in 
+Light theme.</P>
+<H3><A name=MiniTOCBookMark8></A>Path</H3>
+<P>If your SVG uses basic shapes or primitives, you would need to convert them 
+to compound paths. That is, the shape or object is rendered using a &lt;path&gt; 
+element. Most SVG editors should have an option available to perform the 
+conversion.</P>
+<P><SPAN class=Example>Example. Basic Shape converted to Path</SPAN></P>
+<DIV class=ScrollTable>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>&lt;polygon fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" 
+      points="20.182,10.809 30.07,12.047 23.072,19.144 24.951,28.932 
+      16.04,24.469 7.312,29.279 8.803,19.426 1.53,12.612 11.362,10.983 
+      15.595,1.961 "/&gt; <BR>&nbsp; <BR>converted in Adobe Illustrator using 
+      Compound Path &gt; Make command or CTRL+8 shortcut <BR>&nbsp; <BR>&lt;path 
+      fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" 
+      d="M20.182,10.809l9.889,1.238l-6.998,7.097l1.879,9.788l-8.912-4.463 
+      l-8.728,4.811l1.491-9.854L1.53,12.612l9.832-1.629l4.233-9.022L20.182,10.809z"/&gt;</TD></TR></TBODY></TABLE></DIV>
+<H2><A name=MiniTOCBookMark9></A>Step 3. Create Initialization File</H2>
+<P>An initialization file contains instructions for loading and displaying your 
+add-on when you start the application.</P>
+<H3><A name=MiniTOCBookMark10></A>Register Command</H3>
+<P>To register a command, import <A href="vcApplication.htm">vcApplication</A>, 
+get the path to the command file of your add-on, and then use the loadCommand() 
+method.</P>
+<P>In all cases, the initialization and command files of your add-on will be in 
+the My Commands folder of the application's documents. You can use the 
+getApplicationPath() method and then concatenate a string that identifies your 
+command file to form a URI. You can put your add-on files in a subfolder to 
+better organize the My Commands folder. In that case, the application would 
+still be able to find your commands by name without knowing its absolute 
+path.</P>
+<OL>
+  <LI class=Ordered>In your text editor, create a new file. 
+  <LI class=Ordered>In the file, type the following code to register your 
+  command. </LI></OL>
+<DIV class=ScrollTable style="MARGIN-LEFT: 40px">
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>from vcApplication import * <BR>&nbsp; <BR>def OnAppInitialized(): 
+      <BR>&nbsp;&nbsp;cmduri = getApplicationPath() + "hello.py" 
+      <BR>&nbsp;&nbsp;cmd = 
+loadCommand("hello",cmduri)</TD></TR></TBODY></TABLE></DIV>
+<OL start=4>
+  <LI class=Ordered>Save the file as "__init__.py" in order for the application 
+  to initialize the add-on. </LI></OL>
+<H3><A name=MiniTOCBookMark11></A>Manage Command</H3>
+<P>The netCommand allows you to call .NET API commands and use them in Python. 
+This is helpful since some API might not be available in Python.</P>
+<P>In this case, you will use the netCommand to call SetLocalizationCommand, 
+which means a total of six command arguments.</P>
+<UL class=hcp4>
+  <LI class=Unordered>The first argument defines what command you want to call 
+  from .NET side of API. In this case, SetLocalizationCommand. The five 
+  remaining arguments will be passed to that command. 
+  <LI class=Unordered>The second argument defines the language for localization. 
+  You must reference a language supported by the application. 
+  <LI class=Unordered>The third argument defines the context/scope of the 
+  command, which in this case is Python. 
+  <LI class=Unordered>The fourth argument defines what command id/name to 
+  localize, so refer to the name you used when registering the command for your 
+  add-on. You can also localize command properties using this format, 
+  &lt;command_name.property_name&gt;. 
+  <LI class=Unordered>The fifth argument defines what to localize in your 
+  command, which can be one of three things. "Text" allows you to edit the label 
+  of a command or one of its properties. "Icon" allows you to set the icon for 
+  the command. "Tooltip" allows you to edit the description of a command or one 
+  of its properties shown in a tooltip. 
+  <LI class=Unordered>The sixth argument defines the content for the command or 
+  property attribute you are localizing. If you are localizing an icon, you must 
+  pass a URI or string that provides the points of a path needed to generate an 
+  SVG. By default, the application references the Icons folder in its program 
+  files, so you can refer to any image there by its relative path. </LI></UL>
+<P>In all cases, if a command has not been localized for a language supported by 
+the application, the command will use certain defaults. The label of a command 
+will be the caption given to it when you add it to a menu. The labels of command 
+properties will use the name of each property. The icon of a command or its 
+properties will either be empty or use a default icon picked by the 
+application.</P>
+<OL>
+  <LI class=Ordered>Edit your initialization file so that it localizes your 
+  add-on for English and German. </LI></OL>
+<DIV class=ScrollTable style="MARGIN-LEFT: 40px">
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>from vcApplication import * <BR>&nbsp; <BR>def OnAppInitialized(): 
+      <BR>&nbsp;&nbsp;cmduri = getApplicationPath() + "hello.py" 
+      <BR>&nbsp;&nbsp;cmd = loadCommand("hello",cmduri) <BR>&nbsp;&nbsp; 
+      <BR>&nbsp;&nbsp;localize = findCommand("netCommand") 
+      <BR>&nbsp;&nbsp;localize.execute("SetLocalizationCommand", "English", 
+      "Python", "hello", "Text", "Hello") 
+      <BR>&nbsp;&nbsp;localize.execute("SetLocalizationCommand", "English", 
+      "Python", "hello", "Tooltip", "Print Hello World") 
+      <BR>&nbsp;&nbsp;localize.execute("SetLocalizationCommand", "English", 
+      "Python", "hello", "Icon", "HelloWorld.svg") 
+      <BR>&nbsp;&nbsp;localize.execute("SetLocalizationCommand", "German", 
+      "Python", "hello", "Text", "Hallo") 
+      <BR>&nbsp;&nbsp;localize.execute("SetLocalizationCommand", "German", 
+      "Python", "hello", "Text", "Print Hallo Welt") 
+      <BR>&nbsp;&nbsp;localize.execute("SetLocalizationCommand", "German", 
+      "Python", "hello", "Icon", "HelloWorld.svg")</TD></TR></TBODY></TABLE></DIV>
+<OL start=2>
+  <LI class=Ordered>Save the file. </LI></OL>
+<P><SPAN class=Strong>Tip:</SPAN> The application automatically checks the Icons 
+folder located in its program files to source an icon for a command. Any image 
+in the Icons folder can be referenced by name or its file path in that 
+directory. Otherwise, you need to pass the full URI of an icon or a string that 
+provides the 'd' attribute value of an SVG &lt;path&gt; element.</P>
+<P><SPAN class=Example>Example. Description of path for rendering 
+icon</SPAN></P>
+<DIV class=ScrollTable>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>&nbsp;&nbsp;icon = 
+      """M11.477,11.12l4.303-9.092l4.599,8.945l9.977,1.282l-7.086,7.139 
+      l1.864,9.884l-8.979-4.532l-8.825,4.826l1.537-9.94L1.549,12.73L11.477,11.12z""" 
+      <BR>&nbsp;&nbsp; <BR>&nbsp;&nbsp;localize = findCommand("netCommand") 
+      <BR>&nbsp;&nbsp;localize.execute("SetLocalizationCommand", "English", 
+      "Python", "hello", "Icon", icon)</TD></TR></TBODY></TABLE></DIV>
+<P><SPAN class=Strong>Note:</SPAN> When the size of the main window becomes too 
+small to display all items of a Ribbon group, the Ribbon group and its items are 
+displayed as a drop-down menu. The icon of that drop-down menu can be an icon 
+assigned to the Ribbon group.</P>
+<P><SPAN class=Example>Example. Define icon of Ribbon group</SPAN></P>
+<DIV class=ScrollTable>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>from vcApplication import * <BR>&nbsp; <BR>def OnAppInitialized(): 
+      <BR>&nbsp;&nbsp;localize = findCommand("netCommand") <BR>&nbsp;&nbsp; 
+      <BR>&nbsp;&nbsp;##sets the group icon by referring to group name 
+      <BR>&nbsp;&nbsp;##when group is collapsed it becomes a drop-down menu that 
+      uses its group icon 
+      <BR>&nbsp;&nbsp;localize.execute("SetLocalizationCommand", "English", 
+      "Python", "rMyGroup", "Icon", "rAdd") <BR>&nbsp;&nbsp; 
+      <BR>&nbsp;&nbsp;##adds two items to group that have default Python icon 
+      <BR>&nbsp;&nbsp;addMenuItem("VcTabHome/rMyGroup", "Item 1", -1, "") 
+      <BR>&nbsp;&nbsp;addMenuItem("VcTabHome/rMyGroup", "Item 2", -1, 
+  "")</TD></TR></TBODY></TABLE></DIV>
+<P><IMG class=hcp3 border=0 alt="" src="CollapsedRibbonGroup"></P>
+<H3><A name=MiniTOCBookMark12></A>Command Execution</H3>
+<P>As long as the commands of an add-on are registered with the application, you 
+can execute them. For component scripting, you can use the findCommand() method 
+in <A href="vcApplication.htm">vcApplication</A> to get handle for a command in 
+your add-on. You can do the same for application scripting, but remember in both 
+cases to take into consideration the command stack of the application. For 
+example, a command might not end when another command is called, so use the 
+cancelCommand() in <A href="vcApplication.htm">vcApplication</A> to manage this 
+issue.</P>
+<H3><A name=MiniTOCBookMark13></A>Command Menu Item</H3>
+<P>You may want to start and stop the execution a command using menu items. A 
+menu item is an area of the user interface commonly referred to as a section. 
+Each section can be identified by either a constant or an id. In some cases, you 
+might use a constant plus an id to refer to a section. In other cases, you would 
+use as many IDs as needed to identify the section where you want to add a menu 
+item.</P>
+<P>If you refer to an existing section, the application will add your item to 
+that section with some exceptions.</P>
+<UL class=hcp4>
+  <LI class=Unordered>Due to current limitations, you cannot add items to the 
+  Backstage view of the user interface using Python. 
+  <LI class=Unordered>A Ribbon group has a maximum of three rows, so in some 
+  cases your item might not fit there. </LI></UL>
+<P>If you refer to a section that does not exist, the application will either 
+add or not add your item.</P>
+<UL class=hcp4>
+  <LI class=Unordered>If you give an unknown constant or invalid id, the item 
+  will not be added and the exception will print an error message. 
+  <LI class=Unordered>If you give a <A href="Constants.htm#Menu">constant</A> or 
+  id that is too vague, the item will not be added. For example, some constants 
+  refer to menu lists, so an extra id is needed to define which category or 
+  "gallery" to nest the item within that list. If the gallery name does not 
+  exist, a new one will be added for that item. Another example is "VcTabHome" 
+  which points to the Home tab, but is not enough for the application to know 
+  where on the Ribbon you want to add the item. 
+  <LI class=Unordered>If you give a valid constant and/or id that ends with an 
+  unknown section, the item might be added depending on the menu. For example, 
+  "VcTabHome/Example" points to the Home tab, but there is no Ribbon group with 
+  an id of Example. So the application will create a Ribbon group called 
+  "Example" and add the item there. Some shortcut menus may not allow gallery 
+  names, so in most cases it is safer to add the item to the menu without any 
+  type of category or divider. </LI></UL>
+<P><SPAN class=Strong>Caution:</SPAN> You can refer to the 
+&lt;UXSitesSection&gt; element of your application's configuration file to know 
+valid IDs. Each id is an 'ItemId' attribute of a &lt;Site&gt; element. However, 
+some ids might not work, and you should not directly edit the configuration 
+file. Refer to the EULA of the application as needed. In most cases, you should 
+use the Forum or contact support to know what IDs you need to use for your 
+add-on.</P>
+<OL>
+  <LI class=Ordered>Edit your initialization file so that it adds a menu item 
+  for your add-on to the context menu of both the 3D world and drawing world. 
+  </LI></OL>
+<DIV class=ScrollTable style="MARGIN-LEFT: 40px">
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>from vcApplication import * <BR>&nbsp; <BR>def OnAppInitialized(): 
+      <BR>&nbsp;&nbsp;cmduri = getApplicationPath() + "hello.py" 
+      <BR>&nbsp;&nbsp;cmd = loadCommand("hello",cmduri) <BR>&nbsp;&nbsp; 
+      <BR>&nbsp;&nbsp;localize = findCommand("netCommand") 
+      <BR>&nbsp;&nbsp;localize.execute("SetLocalizationCommand", "English", 
+      "Python", "hello", "Text", "Hello") 
+      <BR>&nbsp;&nbsp;localize.execute("SetLocalizationCommand", "English", 
+      "Python", "hello", "Tooltip", "Print Hello World") 
+      <BR>&nbsp;&nbsp;localize.execute("SetLocalizationCommand", "English", 
+      "Python", "hello", "Icon", "HelloWorld.svg") 
+      <BR>&nbsp;&nbsp;localize.execute("SetLocalizationCommand", "German", 
+      "Python", "hello", "Text", "Hallo") 
+      <BR>&nbsp;&nbsp;localize.execute("SetLocalizationCommand", "German", 
+      "Python", "hello", "Tooltip", "Print Hallo Welt") 
+      <BR>&nbsp;&nbsp;localize.execute("SetLocalizationCommand", "German", 
+      "Python", "hello", "Icon", "HelloWorld.svg") <BR>&nbsp;&nbsp; 
+      <BR>&nbsp;&nbsp;addMenuItem(VC_MENU_HOME, "hello", -1, "hello") 
+      <BR>&nbsp;&nbsp;addMenuItem(VC_MENU_DRAWING, "hello", -1, 
+  "hello")</TD></TR></TBODY></TABLE></DIV>
+<OL start=2>
+  <LI class=Ordered>Save the file. </LI></OL>
+<H4><A name=MiniTOCBookMark14></A><A name=Gallery_Menu>Gallery Menu</A></H4>
+<P>A gallery menu (drop-down menu) is a type of control that allows you to list 
+add-ons and group them by section. The menu item itself is a placeholder but can 
+also be associated with a command.</P>
+<P><IMG class=hcp3 border=0 alt="" src="GalleryMenuTool.png"></P>
+<P>You can add a gallery menu to the Ribbon by specifying a group in its site 
+path, and then define its control type as a <SPAN 
+class=Italic>GalleryMenuTool</SPAN>. Next, a menu item for that gallery would 
+reference the same group in its site path followed by its section. The menu item 
+would then need to reference the id of the gallery menu, and then define its 
+control type as a <SPAN class=Italic>GalleryMenuToolItem</SPAN>. For 
+localization, refer to the control id or command of a gallery menu and its 
+items. You can also localize sections by referring to them by name.</P>
+<P><SPAN class=Example>Example. Create a gallery menu placeholder</SPAN></P>
+<DIV class=ScrollTable>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>from vcApplication import* <BR>&nbsp; <BR>def OnAppInitialized(): 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;addMenuItem("VcTabHome/Test", "Widgets", -1, 
+      "GalleryMenuId01", "A gallery of my widgets", "rDetach", "", 
+      "GalleryMenuTool")</TD></TR></TBODY></TABLE></DIV>
+<P><IMG class=hcp3 border=0 alt="" src="AddGalleryMenu"></P>
+<P><SPAN class=Example>Example. Create gallery menu items with 
+sections</SPAN></P>
+<DIV class=ScrollTable>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>from vcApplication import* <BR>&nbsp; <BR>def OnAppInitialized(): 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;addMenuItem("VcTabHome/Test", "Widgets", -1, 
+      "GalleryMenuId01", "A gallery of my widgets", "rDetach", "", 
+      "GalleryMenuTool") 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;addMenuItem("VcTabHome/Test/SectionA", 
+      "Clear", -1, "", "Clears the Output panel","rClearAll", 
+      "GalleryMenuId01","GalleryMenuToolItem") 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;addMenuItem("VcTabHome/Test/SectionA", "Save", 
+      -1, "", "Saves the content of Output panel","rSave", 
+      "GalleryMenuId01","GalleryMenuToolItem") 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;addMenuItem("VcTabHome/Test/SectionB", 
+      "Export", -1, "", "Exports metadata of layout components","rExpanderIcon", 
+      "GalleryMenuId01","GalleryMenuToolItem")</TD></TR></TBODY></TABLE></DIV>
+<P><IMG class=hcp3 border=0 alt="" src="AddGalleryMenuItems"></P>
+<P><SPAN class=Example>Example. Localize a gallery menu as well as its sections 
+and items</SPAN></P>
+<DIV class=ScrollTable>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>from vcApplication import* <BR>&nbsp; <BR>def OnAppInitialized(): 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;localize = findCommand("netCommand") 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;localize.execute("SetLocalizationCommand", 
+      "English", "Python", "GalleryMenuId01", "Text", "Widgets") 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;localize.execute("SetLocalizationCommand", 
+      "English", "Python", "SectionA", "Text", "SectionA") 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;localize.execute("SetLocalizationCommand", 
+      "English", "Python", "GalleryMenuId01", "Text", "Widgets") 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;localize.execute("SetLocalizationCommand", 
+      "German", "Python", "GalleryMenuId01", "Text", "Widgets") 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;localize.execute("SetLocalizationCommand", 
+      "German", "Python", "SectionA", "Text", "Abschnitt") 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;localize.execute("SetLocalizationCommand", 
+      "German", "Python", "ItemId01", "Text", "Speichern") <BR>&nbsp; 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;addMenuItem("VcTabHome/Test", "Widgets", -1, 
+      "GalleryMenuId01", "A gallery of my widgets", "rDetach", "", 
+      "GalleryMenuTool") 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;addMenuItem("VcTabHome/Test/SectionA", "Save", 
+      -1, "ItemId01", "Saves the content of Output panel ","rSave", 
+      "GalleryMenuId01","GalleryMenuToolItem")</TD></TR></TBODY></TABLE></DIV>
+<P><IMG class=hcp3 border=0 alt="" src="LocalizeGalleryMenu"></P>
+<P><SPAN class=Strong>Important:</SPAN> If you are placing your add-on in a 
+gallery menu that is not defined by the initialization (INI) file of your 
+add-on, the files of your add-on must be in a child folder of the INI file 
+defining the menu. For example, the INI file of your add-on might reference a 
+gallery menu before it is created when initializing the application. This rule 
+does not apply to gallery menus defined by the application.</P>
+<P><SPAN class=Example>Example. __init__ file defines gallery menu that is 
+referenced by __init__ file in child folder</SPAN></P>
+<P><IMG class=hcp3 border=0 alt="" src="GalleryMenuFolderExample.png"></P>
+<H4><A name=MiniTOCBookMark15></A>Ribbon Tab</H4>
+<P>A Ribbon tab is a type of control that allows you to display groups of 
+commands in a ribbon. The menu item would need to reference itself using its 
+site id, which needs to contain the word "Tab", for example <SPAN 
+class=Term>Tab&lt;Tab name&gt;</SPAN>. The control type is <SPAN 
+class=Term>RibbonTab</SPAN>.</P>
+<P><SPAN class=Example>Example. Add tabs to ribbon</SPAN></P>
+<DIV class=ScrollTable>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>from vcApplication import * <BR>&nbsp; <BR>def OnAppInitialized(): 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;localize = findCommand("netCommand") 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;localize.execute("SetLocalizationCommand", 
+      "English", "Python", "TabExample01", "Text", "My Tab 01") 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;localize.execute("SetLocalizationCommand", 
+      "English", "Python", "TabExample02", "Text", "My Tab 02") 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;#long form 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;addMenuItem("TabExample01", "", -1, 
+      "TabExample01", "", "", "", "RibbonTab") <BR>&nbsp;&nbsp;&nbsp;&nbsp; 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;#short form 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;addMenuItem(UxSite="TabExample02", Index=-1, 
+      Id="TabExample02", ControlType="RibbonTab")</TD></TR></TBODY></TABLE></DIV>
+<H4><A name=MiniTOCBookMark16></A>Contextual Tab Group</H4>
+<P>A contextual tab group is a group of Ribbon tabs that appear based on the 
+context of main application. The menu item would need to reference itself using 
+its site id, which needs to contain the word "ContextTab", for example <SPAN 
+class=Term>ContextTab&lt;Group name&gt;</SPAN>. The control type is <SPAN 
+class=Term>ContextualTabGroup</SPAN> and supports a custom background color for 
+the group.</P>
+<P>A custom Ribbon tab can be attached to the group by referencing the site id 
+of the group in the path and parent arguments.</P>
+<P><IMG class=hcp3 border=0 alt="" src="ContextualTabGroup"></P>
+<P><SPAN class=Example>Example. Turn on/off the visibility of contextual tab 
+group</SPAN></P>
+<DIV class=ScrollTable>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>from vcCommand import * <BR>&nbsp; <BR>app = getApplication() 
+      <BR>&nbsp; <BR>cmd = getCommand() <BR>&nbsp; <BR>def 
+      ShowOrHideCustomRibbonTab():<BR>&nbsp;&nbsp;if app.CurrentContext.Id == 
+      "Teach":<BR>&nbsp;&nbsp;&nbsp;&nbsp;app.setContextualTabGroup("pyContextTabGroup",True)<BR>&nbsp;&nbsp;&nbsp;&nbsp;print 
+      "Your custom pyContextTabGroup is shown in " + app.CurrentContext.Id + " 
+      context."<BR>&nbsp;&nbsp;else:<BR>&nbsp;&nbsp;&nbsp;&nbsp;app.setContextualTabGroup("pyContextTabGroup",False)<BR>&nbsp;&nbsp;&nbsp;&nbsp;print 
+      "Your custom pyContextTabGroup is hidden in " + app.CurrentContext.Id + " 
+      context."<BR><BR><BR>app.OnContextChanged = 
+    ShowOrHideCustomRibbonTab</TD><BR>
+    <TD>&nbsp;</TD><BR>
+    <TD>&nbsp;</TD><BR>
+    <TD>&nbsp;</TD><BR>
+    <TD>&nbsp;</TD><BR>
+    <TD>&nbsp;</TD><BR>
+    <TD>&nbsp;</TD></TR></TBODY></TABLE></DIV>
+<P><SPAN class=Example>Example. Add contextual tab group to Ribbon</SPAN></P>
+<DIV class=ScrollTable>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>from vcApplication import * <BR>&nbsp; <BR>def 
+      OnStart():<BR>&nbsp;cmduri = getApplicationPath() + "<A 
+      href="http://ShowContextualRibbonTab.py" rel=nofollow 
+      target=_blank>ShowContextualRibbonTab.py</A>" <BR>&nbsp;cmd = 
+      loadCommand("ShowContextualRibbonTab",cmduri)<BR><BR>&nbsp;cmduri2 = 
+      getApplicationPath() + "<A href="http://printHelloLocalized.py" 
+      rel=nofollow target=_blank>printHelloLocalized.py</A>" <BR>&nbsp;cmd = 
+      loadCommand("printHelloLocalized",cmduri2)<BR><BR>&nbsp;iconPath = 
+      getCommandPath() + "Hello.svg"<BR>&nbsp;# Localisation is done through 
+      referencing to DotNet functionality<BR><BR>&nbsp;localize = 
+      findCommand("netCommand")<BR><BR>&nbsp;# Localisation in English language 
+      <BR>&nbsp;localize.execute("SetLocalizationCommand", "English", "Python", 
+      "printHelloLocalized", "Text", "Print 
+      Hello")<BR>&nbsp;localize.execute("SetLocalizationCommand", "English", 
+      "Python", "printHelloLocalized", "Tooltip", "Print hello World in message 
+      panel")<BR>&nbsp;localize.execute("SetLocalizationCommand", "English", 
+      "Python", "printHelloLocalized", "Icon", 
+      iconPath)<BR>&nbsp;localize.execute("SetLocalizationCommand", "English", 
+      "Python", "VcTabExample01" , "Text", "My English Tab 01")<BR><BR>&nbsp;# 
+      Localisation in German 
+      language<BR>&nbsp;localize.execute("SetLocalizationCommand", "German", 
+      "Python", "printHelloLocalized", "Text", "Hallo in 
+      Meldungsfenster")<BR>&nbsp;localize.execute("SetLocalizationCommand", 
+      "German", "Python", "printHelloLocalized", "Tooltip", "Hallo Welt in 
+      Berichtfenster 
+      drücken")<BR>&nbsp;localize.execute("SetLocalizationCommand", "German", 
+      "Python", "printHelloLocalized", "Icon", 
+      "CellGraph\cgOpenFolder.svg")<BR>&nbsp;localize.execute("SetLocalizationCommand", 
+      "German", "Python", "VcTabExample01" , "Text", "My German Tab 
+      01")<BR><BR>&nbsp;# Localisation in simplified Chinese 
+      language<BR>&nbsp;localize.execute("SetLocalizationCommand", "Chinese", 
+      "Python", "printHelloLocalized", "Text", 
+      "&#20320;&#22909;&#19990;&#30028;")<BR>&nbsp;localize.execute("SetLocalizationCommand", "Chinese", 
+      "Python", "printHelloLocalized", "Tooltip", 
+      "&#20320;&#22909;&#19990;&#30028;")<BR>&nbsp;localize.execute("SetLocalizationCommand", "Chinese", 
+      "Python", "printHelloLocalized", "Icon", 
+      iconPath)<BR>&nbsp;localize.execute("SetLocalizationCommand", "Chinese", 
+      "Python", "VcTabExample01" , "Text", "My Chinese Tab 
+      01")<BR><BR>&nbsp;#Step 1: First add Ribbon Contextual tab group. Id is 
+      the id of the group which Ribbon tab created in step 2 is going to 
+      associate. <BR>&nbsp;addMenuItem(UxSite = 'pyContextTabGroup',UxName = 
+      "PythonExtraContextTab", Index = -1, Id = 
+      "pyContextTabGroup",Parent="gmAction",ControlType="ContextualTabGroup",BaseBackColor="#ff1985") 
+      #ssisss<BR><BR>&nbsp;#Step 2: Add Ribbon Tab and associate it with 
+      Contextual ribbon group.<BR>&nbsp;# The Parent attribute is to set to the 
+      Contextual tab group. <BR>&nbsp;# Id of Ribbon tab is the id used to 
+      identify it.<BR>&nbsp;addMenuItem(UxSite = 
+      "pyContextTabGroup/VcTabExample01", Index=-1, Id="VcTabExample01", 
+      ControlType="RibbonTab", 
+      Parent="pyContextTabGroup")<BR>&nbsp;addMenuItem(UxSite = 
+      "pyContextTabGroup/VcTabExample02", UxName="My unlocalized Tab 02", Index 
+      = -1, Id = "VcTabExample02", ControlType="RibbonTab", 
+      Parent="pyContextTabGroup")<BR><BR>&nbsp;# now you can add ribbon items in 
+      this<BR>&nbsp;addMenuItem('pyContextTabGroup/VcTabExample01/NewRibbonGroup', 
+      "R Group" , -1, "printHelloLocalized" , 
+      "","","","")<BR>&nbsp;addMenuItem('pyContextTabGroup/VcTabExample02/NewRibbonGroup', 
+      "R Group" , -1, "printHelloLocalized" , "","","","")<BR>&nbsp;#or 
+      <BR>&nbsp;#addMenuItem(UxSite='pyContextTabGroup/VcTabExample01/NewRibbonGroup',UxName="R 
+      Group" ,Index=-1, Id="printHelloLocalized")</TD></TR></TBODY></TABLE></DIV>
+<H2><A name=MiniTOCBookMark17></A>Step 4. Localize using XAML File 
+(optional)</H2>
+<P>For localizing your add-on, you can use the netCommand, as shown in previous 
+examples, to call the SetLocalizationCommand defined in .NET API. You can also 
+use a XAML resource dictionary to localize your add-on for one or more 
+languages. Each language is a separate file stored with your add-on. The 
+language must be supported by the application, but you can modify the labels and 
+tooltips of properties as needed for intended users. For example, you can have 
+an add-on that supports English with tooltips in both English, Creole, and 
+English-based Pidgin.</P>
+<P>Each language file must be named "PyResource.&lt;language&gt;" and saved as a 
+XAML file.</P>
+<P><SPAN class=Strong>Note:</SPAN> In some cases, you might see a language file 
+prefixed with the name of its directory. This can be done to avoid checking 
+language files not associated with your add-on.</P>
+<P><SPAN class=Example>Example. English language file for add-on</SPAN></P>
+<DIV class=ScrollTable>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL>
+  <TBODY>
+  <TR>
+    <TD>&lt;ResourceDictionary 
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xmlns:s="clr-namespace:System;assembly=mscorlib"&gt; 
+      <BR>&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- This localizes the 
+      group where I put the command --&gt; 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;s:String 
+      x:Key="ComboKey::Python.rMyGroup.Text"&gt;Label for group&lt;/s:String&gt; 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;s:String 
+      x:Key="ComboKey::Python.rMyGroup.Tooltip"&gt;Tooltip for 
+      group&lt;/s:String&gt; <BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;s:String 
+      x:Key="ComboKey::Python.rMyGroup.Icon"&gt;pLock.svg&lt;/s:String&gt; 
+      <BR>&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- This localizes the 
+      command itself --&gt; <BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;s:String 
+      x:Key="ComboKey::Python.example.Text"&gt;Label for 
+      command&lt;/s:String&gt; <BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;s:String 
+      x:Key="ComboKey::Python.example.Tooltip"&gt;Tooltip for 
+      command&lt;/s:String&gt; <BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;s:String 
+      x:Key="ComboKey::Python.example.Icon"&gt;rUndo.svg&lt;/s:String&gt; 
+      <BR>&nbsp; <BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- This localizes command 
+      properties --&gt; <BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;s:String 
+      x:Key="ComboKey::Python.example.ExampleProperty.Name"&gt;Label for command 
+      property&lt;/s:String&gt; <BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;s:String 
+      x:Key="ComboKey::Python.example.ExampleProperty.Description"&gt;Tooltip 
+      for command property&lt;/s:String&gt; <BR>&nbsp;&nbsp;&nbsp;&nbsp; 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ResourceDictionary&gt;</TD></TR></TBODY></TABLE></DIV>
+<P><SPAN class=Strong>Notes:</SPAN></P>
+<UL class=hcp4>
+  <LI class=Unordered>The names of the command and its properties that were 
+  registered to application are referenced in the language file. 
+  <LI class=Unordered>A command uses Text for its label, whereas a command 
+  property uses Name. 
+  <LI class=Unordered>A command uses Tooltip for its tooltip, whereas a command 
+  property uses Description. 
+  <LI class=Unordered>For localizing the step values (drop-down menu options) of 
+  a command property, reference the step value to localize its text. For example 
+  "ComboKey::Python.example.ExampleProperty.red" would be a key for localizing 
+  the step value of red in that property. 
+  <LI class=Unordered>For localizing message boxes, create unique keys for its 
+  title and message, for example "ComboKey::Python.ExampleMsgBoxTitle.Text" and 
+  "ComboKey::Python.ExampleMsgBoxMessage.Text". 
+  <LI class=Unordered>The files for this example can be downloaded <A 
+  href="ExampleLocalizationCommand.zip">here</A>. </LI></UL>
+<H2><A name=MiniTOCBookMark18></A>Step 5. Put Files</H2>
+<P>In order for the application to load and initialize your add-on, you must 
+place its initialization and command files in the My Commands folder of your 
+application's documents. The path to your My Commands folder will be similar to 
+the example below, including your unique PC user name and the version of R-Pro 
+installed. <BR><SPAN class=Term>C:\Users\%USERNAME%\Documents\R-Pro\%VERSION%\My 
+Commands</SPAN> <BR><BR>It is recommended to put the icons of your add-on in the 
+Icons folder of your application's program files e.g. <SPAN 
+class=Term>C:\Program Files\R-Pro %VERSION%\Icons. </SPAN>Otherwise, make sure 
+the URI of an icon matches the one you reference in your initialization 
+file.</P>
+<P><IMG class=hcp3 border=0 alt="" src="AddOnFiles.png"></P>
+<P><A href="HelloWorldAddon.zip">Source files of example add-on</A></P>
+<H2><A name=MiniTOCBookMark19></A>Step 6. Test</H2>
+<P>Run the application, and then test your add-on. One benefit is that you can 
+edit the command files of your add-on in real time since the application will 
+automatically recompile them for you.</P>
+<P><IMG class=hcp3 border=0 alt="" 
+src="AddCommandRecompile.png"></P></BODY></HTML>

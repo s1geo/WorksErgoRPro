@@ -1,0 +1,59 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcVectorQuantity</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcVectorQuantity</h1>
+<p>vcVectorQuantity extends <a href="vcScalarQuantity.htm">vcScalarQuantity</a> to support vector quantities.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcScalarQuantity.htm">vcScalarQuantity</a></p>
+<h2>Usage</h2>
+<p>A vector quantity can be one of two types: Cartesian and angular vector. Velocity and displacement are Cartesian vector quantities, whereas angular momentum and torque are angular vector quantities. Some Cartesian types can be paired with their corresponding angular equivalents, and then used in matrices. For example, distance and angle values can be formed into a position matrix in which distance units define position and angle units define orientation.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>IsAngular</td>
+<td>Boolean</td>
+<td>RW/R</td>
+<td>Defines if vector quantity is angular or Cartesian type.
+<p class="TableNormal">If quantity is built-in, you can only get value.</p>
+</td>
+</tr>
+<tr>
+<td>Pair</td>
+<td><a href="vcVectorQuantity.htm">vcVectorQuantity</a></td>
+<td>RW/R</td>
+<td>Defines a vector quantity paired with the quantity in order to be used as matrix properties.
+<p class="TableNormal">If IsAngular is set to True, pair must be a Cartesian vector quantity; otherwise the pair must be an angular vector quantity.</p>
+<p class="TableNormal">If quantity is built-in, you can only get value.</p>
+</td>
+</tr>
+<tr>
+<td>VectorName</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines an alternative name for quantity instead of its inherited Name property.
+<p class="TableNormal">If value is None or empty string, quantity uses its inherited Name property.</p>
+</td>
+</tr>
+</table>
+<!--======================================Properties==================================-->
+</body>
+</html>

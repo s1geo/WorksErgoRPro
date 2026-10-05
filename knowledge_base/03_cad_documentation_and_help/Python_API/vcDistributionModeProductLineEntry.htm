@@ -1,0 +1,53 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="UPM,distribution,feed,product creator,probability">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcDistributionModeProductLineEntry</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcDistributionModeProductLineEntry</h1>
+<p>vcDistributionModeProductLineEntry is an entry used for creating a product 
+ based on a weighted probability. Entries are associated with a <a href="vcProductCreatorDistributionMode.htm">vcProductCreatorDistributionMode</a> 
+ and used when a <a href="vcProductCreator.htm">vcProductCreator</a> object 
+ is using a distribution feed mode.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Probability</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the weight of the product type, which is used to calculate 
+		 the probability for creating product instances of.
+		<br>&#160;
+		<p>It is evaluated as relative to the sum of all configured probabilities 
+		 like a weight value in a weighted sum. The value must be greater 
+		 than or equal to zero.</p></td>
+	</tr>
+	<tr>
+		<td>ProductType</td>
+		<td><a href="vcProductType.htm">vcProductType</a></td>
+		<td>RW</td>
+		<td>Defines the product type of entry to create product instances 
+		 of.</td>
+	</tr>
+</table>
+</body>
+</html>

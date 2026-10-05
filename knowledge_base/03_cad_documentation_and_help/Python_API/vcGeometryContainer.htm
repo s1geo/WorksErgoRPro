@@ -1,0 +1,162 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcGeometryContainer</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcGeometryContainer</h1>
+<p>vcGeometryContainer is a container used to store all types of geometry 
+ sets for nodes and Geometry features.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot5286" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot5286', 'MTPOPUP5286');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP5286" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>BoundCenter</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>R</td>
+		<td>Gets a vector from the origin to the center of the container's 
+		 bound box.</td>
+	</tr>
+	<tr>
+		<td>BoundDiagonal</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>R</td>
+		<td>Gets a half diagonal vector from the center to an upper corner 
+		 of the container's bound box using positive axis directions.</td>
+	</tr>
+	<tr>
+		<td>GeometrySetCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the amount of geometry sets in container.</td>
+	</tr>
+	<tr>
+		<td>GeometrySets</td>
+		<td>List of <a href="vcGeometrySet.htm">vcGeometrySet</a></td>
+		<td>R</td>
+		<td>Gets a list of geometry sets in container.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>clear</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Removes all geometry sets from container.</td>
+	</tr>
+	<tr>
+		<td>cloneGeometrySets</td>
+		<td>None</td>
+		<td><a href="vcGeometryContainer.htm">vcGeometryContainer</a> <span 
+		 class="Italic">container</span>, [<a href="vcMatrix.htm">vcMatrix</a> 
+		 <span class="Italic">offset</span>]</td>
+		<td>Copies all geometry sets in the container to a given container. 
+		 
+		<p class="TableNormal">An optional <span class="Italic">offset</span> 
+		 argument can be given to offset the copied geometry, thereby making 
+		 it easier to distinguish the original from its copy.</p>
+		<p class="TableNormal">In this case, geometry is shared between 
+		 both containers.</p></td>
+	</tr>
+	<tr>
+		<td>createGeometrySet</td>
+		<td><a href="vcGeometrySet.htm">vcGeometrySet</a></td>
+		<td>Enumeration <span class="Italic">type</span></td>
+		<td>Creates a new geometry set of a given <span class="Italic">type</span> 
+		 in container. 
+		<p class="TableNormal">See <a href="Constants.htm#Geometry_Constants">Geometry 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>deleteGeometrySet</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">index</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcGeometrySet.htm">vcGeometrySet</a> 
+		 <span class="Italic">set</span></p></td>
+		<td>Deletes a given geometry set or one at a given <span class="Italic">index</span> 
+		 from container.</td>
+	</tr>
+	<tr>
+		<td>getGeometrySet</td>
+		<td><a href="vcGeometrySet.htm">vcGeometrySet</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns a geometry set at a given <span class="Italic">index</span> 
+		 in container.</td>
+	</tr>
+	<tr>
+		<td>moveGeometrySets</td>
+		<td>None</td>
+		<td><a href="vcGeometryContainer.htm">vcGeometryContainer</a> <span 
+		 class="Italic">container</span>, [<a href="vcMatrix.htm">vcMatrix</a> 
+		 <span class="Italic">offset</span>]</td>
+		<td>Moves all geometry sets in the container to a given <span class="Italic">container</span>. 
+		 
+		<p class="TableNormal">An optional <span class="Italic">offset</span> 
+		 argument can be given to offset the moved geometry, for example 
+		 to apply a node offset.</p>
+		<p class="TableNormal">In this case, geometry is not shared between 
+		 both containers since the original container is now empty.</p></td>
+	</tr>
+	<tr>
+		<td>setModified</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Marks the geometry of container as being modified, thereby 
+		 alerting the application that changes need to be saved to file.</td>
+	</tr>
+	<tr>
+		<td>transformContent</td>
+		<td>None</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a> <span class="Italic">matrix</span></td>
+		<td>Transforms all geometry sets of container by the given <span 
+		 class="Italic">matrix</span>.</td>
+	</tr>
+	<tr>
+		<td>update</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Updates the bound box of container.</td>
+	</tr>
+</table>
+</body>
+</html>

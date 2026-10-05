@@ -1,0 +1,64 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="path statement,schema,position frame">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcPositionFrameIterator</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcPositionFrameIterator</h1>
+<p>vcPositionFrameIterator is an iterator for positions of a motion statement. 
+ Generally, this is used with a <a href="vcPathStatement.htm">vcPathStatement</a> 
+ object which has schema properties for handling a large amount of positional 
+ data.</p>
+<h2>Examples</h2>
+<p><span class="Example">Example. Get path of positions as list</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import *
+		<br>&#160;
+		<br>comp = getComponent()
+		<br>rx = comp.findBehaviour(&quot;Executor&quot;)
+		<br>mr = rx.Program.MainRoutine
+		<br>&#160;
+		<br>path = None
+		<br>for s in mr.Statements:
+		<br>&#160;&#160;if s.Type == &quot;Path&quot;:
+		<br>&#160;&#160;&#160;&#160;path = s
+		<br>&#160;&#160;&#160;&#160;break
+		<br>&#160;
+		<br>if path:
+		<br>&#160;&#160;positions = list(path.Positions)
+		<br>&#160;&#160;print positions</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Iterate positions of path statement</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import *
+		<br>&#160;
+		<br>comp = getComponent()
+		<br>rx = comp.findBehaviour(&quot;Executor&quot;)
+		<br>mr = rx.Program.MainRoutine
+		<br>&#160;
+		<br>path = None
+		<br>for s in mr.Statements:
+		<br>&#160;&#160;if s.Type == &quot;Path&quot;:
+		<br>&#160;&#160;&#160;&#160;path = s
+		<br>&#160;&#160;&#160;&#160;break
+		<br>&#160;
+		<br>if path:
+		<br>&#160;&#160;for p in path.Positions:
+		<br>&#160;&#160;&#160;&#160;print p</td>
+	</tr>
+</table>
+</body>
+</html>

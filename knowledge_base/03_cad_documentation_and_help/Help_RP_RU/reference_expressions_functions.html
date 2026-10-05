@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Функции</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Поддерживаемые функции могут использоваться для записи выражения." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><a name="minitocbookmark1" class="hmanchor"></a><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Функции</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Поддерживаемые функции могут использоваться для записи выражения.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0.0625in;"><table cellpadding="0" cellspacing="0" style="border:none;border-spacing:0;padding:0;line-height: normal;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:0.1875in"><a name="mthotspot40179" class="hmanchor"></a><img id="toggle0186a1_ICON" class="dropdown-toggle-icon" alt="hmtoggle_plus1" style="margin:0;width:0.0938in;height:0.0938in;border:none" src="hmtoggle_plus1.gif"/></td><td style="border:none;padding:0"><a class="dropdown-toggle" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;" href="javascript:HMToggle('toggle','toggle0186a1','toggle0186a1_ICON')">СОДЕРЖАНИЕ</a></td></tr></table></div>
+<div id="toggle0186a1" class="dropdown-toggle-body" style="text-align: left; padding: 0 0 0 0; margin: 0 0 0.0417in 0.2500in;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="reference_expressions_functions.html#minitocbookmark2" class="topiclink">ТРИГОНОМЕТРИЧЕСКИЕ ФУНКЦИИ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="reference_expressions_functions.html#minitocbookmark7" class="topiclink">СТЕПЕННЫЕ ФУНКЦИИ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="reference_expressions_functions.html#minitocbookmark8" class="topiclink">ГИПЕРБОЛИЧЕСКИЕ ФУНКЦИИ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="reference_expressions_functions.html#minitocbookmark9" class="topiclink">ВЕКТОРНЫЕ И МАТРИЧНЫЕ ФУНКЦИИ ПОСТРОЕНИЯ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="reference_expressions_functions.html#minitocbookmark10" class="topiclink">РАЗНЫЕ ФУНКЦИИ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="reference_expressions_functions.html#minitocbookmark11" class="topiclink">ПСЕВДОСЛУЧАЙНЫЕ ФУНКЦИИ РАСПРЕДЕЛЕНИЯ</a></p>
+</td>
+</tr>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark2" class="hmanchor"></a><span style="font-size: 18pt;">Тригонометрические функции</span></h2>
+<p class="p_Normal">Каждая функция возвращает действительное числовое значение. По умолчанию тригонометрические функции используют радианы для вычисления углов. Вы можете добавить к имени функции символ «d», чтобы использовать градусы, например, sind(), sasad() и sasssa1d().</p>
+<p class="p_Normal">Все стандартные тригонометрические функции реализованы так, чтобы максимально походить на функции из стандартной математической библиотеки C. Таким образом, радианы являются единицей измерения по умолчанию. Это отличается от функций преобразования матриц, которые работают с использованием градцсов.</p>
+<p class="p_Normal">Вы можете указать единицу измерения, но не забывайте всегда использовать каноническую единицу измерения углов. Например, sin(45 {deg}) и sind(.5 {rad}) являются допустимыми выражениями.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Единичная окружность</span></h3>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8438in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5729in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8438in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">sin(a)</p>
+</td>
+<td style="vertical-align:top; width:10.5729in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Синусоидальная функция.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8438in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">cos(a)</p>
+</td>
+<td style="vertical-align:top; width:10.5729in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Косинусная функция.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8438in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">tan(a)</p>
+</td>
+<td style="vertical-align:top; width:10.5729in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Тангенс функции.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8438in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">asin(a)</p>
+</td>
+<td style="vertical-align:top; width:10.5729in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Функция обратного синуса.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8438in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">acos(a)</p>
+</td>
+<td style="vertical-align:top; width:10.5729in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Функция обратного косинуса.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8438in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">atan(a)</p>
+</td>
+<td style="vertical-align:top; width:10.5729in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Функция обратного тангенса.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8438in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">atan2(a, b)</p>
+</td>
+<td style="vertical-align:top; width:10.5729in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Если <span style="font-style: italic;">а </span>отличен от нуля, вычисляет арктангенс <span style="font-style: italic;">b/a </span>; <span style="font-style: italic;">pi/2</span>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark4" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Общие треугольники</span></h3>
+<p class="p_Normal"><img alt="Trigonometric Example1" style="margin:0;width:2.8646in;height:3.2813in;border:none" src="hmfile_hash_e84bb569.png"/></p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8750in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5417in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8750in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">sasa(a, beta, c)</p>
+</td>
+<td style="vertical-align:top; width:10.5417in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает значение альфа.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8750in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">sass(a, beta, c)</p>
+</td>
+<td style="vertical-align:top; width:10.5417in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает значение b.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8750in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">sssa(a, b, c)</p>
+</td>
+<td style="vertical-align:top; width:10.5417in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает значение альфа.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark5" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Четырехугольники</span></h3>
+<p class="p_Normal"><img alt="fourlinks" style="margin:0;width:1.8958in;height:1.8646in;border:none" src="fourlinks.png"/></p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">sasasa(A, a, B, b, C)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает значение c.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">sasass(A, a, B, b, C)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает значение d.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">sasssa1(A, a, B, C, D)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает значение b.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">sasssa2(A, a, B, C, D)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает значение c.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark6" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Функции преобразования угла</span></h3>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">degree(a)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Преобразует заданное значение радиана в значение градуса.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">radian(a)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Преобразует заданное значение градуса в значение радиана.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark7" class="hmanchor"></a><span style="font-size: 18pt;">Степенные функции</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.9063in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5104in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">pow(a, b)</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает <span style="font-style: italic;">а </span>в степени <span style="font-style: italic;">b</span>.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">sqrt(a)</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает квадратный корень из <span style="font-style: italic;">а</span>.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">exp(a)</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает значение e в степени <span style="font-style: italic;">а </span>.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">log(a)</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает натуральный логарифм <span style="font-style: italic;">а</span>.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">log10(a)</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает логарифма числа <span style="font-style: italic;">а</span> по основанию 10</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark8" class="hmanchor"></a><span style="font-size: 18pt;">Гиперболические функции</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.9063in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5104in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">sinh(a)</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Гиперболическая синусоидальная функция.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">cosh(a)</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Функция гиперболического косинуса.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">tanh(a)</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Функция гиперболического тангенса.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark9" class="hmanchor"></a><span style="font-size: 18pt;">Векторные и матричные функции построения</span></h2>
+<p class="p_Normal">Следующие функции могут использоваться для возврата вектора или матрицы в выражении.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.9167in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5000in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">AxisAngle(i, j, k, angle)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает единичную матрицу, повернутую вокруг заданной оси и угол.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Euler(a, b, c)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает матрицу с заданными углами Эйлера и нулевой позицией.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Identity()</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает единичную матрицу.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">IJK(i, j, k)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает единичную матрицу с осью приближения (осью Z), параллельной заданному вектору.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Pos(x, y, z)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает единичную матрицу, переведенную в заданную позицию.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Quaternion(q1, q2, q3, q4)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает единичную матрицу, повернутую с заданными значениями кватерниона.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Rx(angle)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает единичную матрицу, повернутую вокруг оси X на заданный угол.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Ry(angle)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает единичную матрицу, повернутую вокруг оси Y на заданный угол.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Rz(angle)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает единичную матрицу, повернутую вокруг оси Z на заданный угол.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Set(v1, v2, ..., v16)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает матрицу, инициализированную заданными значениями, где v1...v4 — значения N векторов, v5...v8 — значения векторов O, v9...v12 — значения векторов A, а v13...16 — значения векторов P.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Sx(factor)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает единичную матрицу, масштабированную по оси X с заданным коэффициентом.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Sy(factor)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает единичную матрицу, масштабированную по оси Y с заданным коэффициентом.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Sz(factor)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает единичную матрицу, масштабированную по оси Z с заданным коэффициентом.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Tx(dist)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает единичную матрицу, сдвинутую по оси X на заданное расстояние.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Ty(dist)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает единичную матрицу, сдвинутую по оси Y на заданное расстояние.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Tz(dist)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает единичную матрицу, сдвинутую по оси Z на заданное расстояние.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Vector(x, y, z)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает вектор с заданными координатами XYZ.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Vector(x, y, z, w)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает вектор с заданными координатами XYZ и значением W.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">WPR(w, p, r)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает единичную матрицу, повернутую на заданные углы рыскания, тангажа и крена.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark10" class="hmanchor"></a><span style="font-size: 18pt;">Разные функции</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.9167in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5000in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">abs(x)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает абсолютное значение |x|.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ceil(x)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает наименьшее целое число, большее или равное x.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание: </span>Тип возвращаемого значения является вещественным значением.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">floor(x)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает наибольшее целое число, меньшее или равное x.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание: </span>Тип возвращаемого значения является вещественным значением.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">inrange(a, b, c)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает Истина, если <span style="font-style: italic;">b </span>находится в пределах отрезка <span style="font-style: italic;">а </span>и <span style="font-style: italic;">с </span>;</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">max(a, b)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает <span style="font-style: italic;">а </span>или <span style="font-style: italic;">b, </span>в зависимости от того, что является наибольшим значением.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">min(a, b)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает <span style="font-style: italic;">а </span>или <span style="font-style: italic;">b, </span>в зависимости от того, что является наименьшим значением.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">mod(a, b)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает остаток <span style="font-style: italic;">а/b</span>.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ramp(x, x1, y1, x2, y2)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает значение y, соответствующее x в строке (x1, y1) - (x2, y2).</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">range(a, b, c)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает <span style="font-style: italic;">а </span>если <span style="font-style: italic;">b </span>меньше чем <span style="font-style: italic;">а</span>.</p>
+<p class="p_Normal">Возвращает <span style="font-style: italic;">b </span>если <span style="font-style: italic;">b </span>находится в пределах отрезка <span style="font-style: italic;">а </span>и <span style="font-style: italic;">с</span>.</p>
+<p class="p_Normal">Возвращает <span style="font-style: italic;">с </span>если <span style="font-style: italic;">b </span>больше, чем <span style="font-style: italic;">с</span>.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">round(x)</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает целое число, ближайшее к x. Эта функция округляет в большую сторону, если x находится ровно посередине между целыми числами.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание: </span>Тип возвращаемого значения является вещественным значением.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark11" class="hmanchor"></a><span style="font-size: 18pt;">Псевдослучайные функции распределения</span></h2>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark12" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Распределение</span></h3>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">normal(u, s)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нормальное распределение среднего значения <span style="font-style: italic;">u </span>и стандартное отклонение <span style="font-style: italic;">s</span>.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">lognormal(u, s)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Логарифмическое нормальное распределение для среднего значения <span style="font-style: italic;">u </span>и стандартное отклонение <span style="font-style: italic;">s</span>.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">uniform(a, b)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Равномерное распределение по диапазону <span style="font-style: italic;">а </span>&lt;= х &lt; <span style="font-style: italic;">b</span>.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">exponential(lambda)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Экспоненциальное распределение, где среднее значение равно 1/ <span style="font-style: italic;">lambda </span>и дисперсия 1/ <span style="font-style: italic;">lambda</span>^ 2.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">gamma(k, theta)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Гамма-распределение с формой <span style="font-style: italic;">k </span>и масштаб <span style="font-style: italic;">theta</span>.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">triangular(min, mode, max)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Треугольное распределение для данный <span style="font-style: italic;">min</span>, <span style="font-style: italic;">mode </span>и <span style="font-style: italic;">max </span>значений.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">weibull(k, lambda)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Распределение Вейбулла с формой <span style="font-style: italic;">k </span>и масштаб <span style="font-style: italic;">lambda</span>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark13" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Случайный поток</span></h3>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">normal(stream, u, s)</p>
+</td>
+<td rowspan="7"  style="vertical-align:middle; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">То же, что и функции распределения, но с аргументом потока.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">lognormal(stream, u, s)</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">uniform(stream, a, b)</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">exponential(stream, lambda)</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">gamma(stream, k, theta)</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">triangular(stream, min, mode, max)</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">weibull(stream, k, lambda)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+<script type="text/javascript">
+if (window.topicInitScriptAvailable) {
+function HMInitToggleStates() {
+HMInitToggle('toggle0186a1_ICON','hm.type','dropdown','hm.state','0','hm.src0','hmtoggle_plus0.gif','hm.src1','hmtoggle_plus1.gif','onclick','HMToggle(\'toggle\',\'toggle0186a1\',\'toggle0186a1_ICON\')');
+HMInitToggle('toggle0186a1','hm.type','dropdown','hm.state','0');
+
+}
+var checkTimer=setTimeout("HMInitToggleStates()", 0);
+}
+</script>
+</body>
+</html>

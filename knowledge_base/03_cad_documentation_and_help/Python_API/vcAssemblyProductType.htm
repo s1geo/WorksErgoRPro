@@ -1,0 +1,164 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="vcAssemblyProductType, AssemblyProductType, Assembly Product Type">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcAssemblyProductType</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcAssemblyProductType</h1>
+<p>Assembly product type is a subcategory of a product type that represents 
+ an assembly. Assembly product type defines how an assembly is formed from 
+ multiple product types, and this information is used to create <a href="vcProduct.htm">vcProduct</a> 
+ instances with assembly structure metadata.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcProductType.htm">vcProductType</a></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>RootStep</td>
+		<td><a href="vcAssemblyStep.htm">vcAssemblyStep</a></td>
+		<td>R</td>
+		<td>The root step of the assembly product type. The root step cannot 
+		 be removed.</td>
+	</tr>
+	<tr>
+		<td>AssemblySteps</td>
+		<td>List of <a href="vcAssemblyStep.htm">vcAssemblyStep</a></td>
+		<td>R</td>
+		<td>List of all assembly steps defined for the assembly product 
+		 type.</td>
+	</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>canBeAddedTo</td>
+		<td>Boolean</td>
+		<td><a href="vcAssemblyStep.htm">vcAssemblyStep</a> <i>parent</i>, 
+		 <a href="vcAssemblyStep.htm">vcAssemblyStep</a> <i>child</i></td>
+		<td>Returns boolean if <i>child</i> step can be added as a child 
+		 to the<i>parent</i> step. 
+		<br>&#160; 
+		<br>If the relation already exists, returns False.</td>
+	</tr>
+	<tr>
+		<td>canBeMovedTo</td>
+		<td>Boolean</td>
+		<td><a href="vcAssemblyStep.htm">vcAssemblyStep</a> <i>parent</i>, 
+		 <a href="vcAssemblyStep.htm">vcAssemblyStep</a> <i>child</i>, 
+		 Integer <i>index</i></td>
+		<td>Returns boolean if <i>child</i> step can be moved to be a child 
+		 of the <i>parent</i> step at a specified <i>index</i>. 
+		<br>&#160; 
+		<br>If <i>index</i> is outside the range of existing 
+		 steps, the method checks if the step can be appended to existing 
+		 steps of the <i>parent</i>. 
+		<br>&#160; 
+		<br>If <i>child</i> is already at the requested location 
+		 within children of <i>parent</i>, returns False.</td>
+	</tr>
+	<tr>
+		<td>moveStepTo</td>
+		<td>None</td>
+		<td><a href="vcAssemblyStep.htm">vcAssemblyStep</a> <i>parent</i>, 
+		 <a href="vcAssemblyStep.htm">vcAssemblyStep</a> <i>stepToMove</i>, 
+		 Integer <i>index</i></td>
+		<td>Moves <i>stepToMove</i> and adds it as a child to <i>parent</i> 
+		 at specified <i>index</i>. If <i>index</i> is outside the range 
+		 of existing steps, the moved step is appended to existing steps 
+		 of the <i>parent</i>.</td>
+	</tr>
+	<tr>
+		<td>cloneStepFrom</td>
+		<td><a href="vcAssemblyStep.htm">vcAssemblyStep</a></td>
+		<td><a href="vcAssemblyStep.htm">vcAssemblyStep</a> <i>parent</i>, 
+		 <a href="vcAssemblyStep.htm">vcAssemblyStep</a> <i>stepToClone</i>, 
+		 Integer <i>index</i></td>
+		<td>Creates a copy of <i>stepToClone</i> and adds it as a child 
+		 to <i>parent</i> at specified <i>index</i>. If <i>index</i> is 
+		 outside the range of existing steps, the created copy is appended 
+		 to existing steps of the <i>parent</i>. 
+		<br>&#160; 
+		<br>If successful, returns the cloned step.</td>
+	</tr>
+	<tr>
+		<td>createStepTo</td>
+		<td><a href="vcAssemblyStep.htm">vcAssemblyStep</a></td>
+		<td><a href="vcAssemblyStep.htm">vcAssemblyStep</a> <i>parent</i>, 
+		 [string <span style="font-style: italic;">name</span>], Integer 
+		 <i>index</i></td>
+		<td><p class="MsoNormal"><span lang="EN-US" xml:lang="EN-US">Create 
+		 a new assembly step and adds it as a child to <i>parent</i> at 
+		 specified&#160;<i>index</i>. If&#160;<i>index</i> is outside the 
+		 range of existing steps, the created step is appended to existing 
+		 steps of the</span> <span lang="EN-US" xml:lang="EN-US"><i>parent</i></span><span 
+		 lang="EN-US" xml:lang="EN-US">.</span></p>
+		<span lang="EN-US" xml:lang="EN-US" style="font-size: 11.0pt; line-height: 107%; 
+				 font-family: Calibri, sans-serif; mso-ascii-theme-font: minor-latin; 
+				 mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; 
+				 mso-hansi-theme-font: minor-latin; mso-bidi-font-family: 'Times New Roman'; 
+				 mso-bidi-theme-font: minor-bidi; mso-ansi-language: EN-US; 
+				 mso-fareast-language: EN-US; mso-bidi-language: AR-SA;">If 
+		 successful, returns the created step.</span></td>
+	</tr>
+	<tr>
+		<td>deleteStep</td>
+		<td>None</td>
+		<td><a href="vcAssemblyStep.htm">vcAssemblyStep</a> <i>step</i></td>
+		<td>Deleted the given <i>step.</i></td>
+	</tr>
+</table>
+<h2>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.33%;">
+	<col style="width: 33.33%;">
+	<col style="width: 33.33%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnStepAdded</td>
+		<td><a href="vcAssemblyStep.htm">vcAssemblyStep</a>, Integer <i>index</i></td>
+		<td>Triggered when a step has been added to the assembly product 
+		 type. <i>Index</i> identifies the current location of the step 
+		 within its parent.</td>
+	</tr>
+	<tr>
+		<td>OnStepRemoving</td>
+		<td><a href="vcAssemblyStep.htm">vcAssemblyStep</a>, Integer <i>index</i></td>
+		<td>Triggered when a step is being removed from the assembly product 
+		 type. <i>Index</i> identifies the current location of the step 
+		 within its parent.</td>
+	</tr>
+</table>
+</body>
+</html>

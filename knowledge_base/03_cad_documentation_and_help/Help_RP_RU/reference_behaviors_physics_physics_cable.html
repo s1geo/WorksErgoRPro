@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Физический кабель</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Физический кабель позволяет создать гибкий физический кабель, который можно прикрепить к узлам в трехмерном мире и использовать для симуляции веревок, цепей, шкивов, ремней,..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Физический кабель</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Физический кабель позволяет создать гибкий физический кабель, который можно прикрепить к узлам в трехмерном мире и использовать для симуляции веревок, цепей, шкивов, ремней, проводов и кабелей.</p>
+<p class="p_Normal"><img alt="ClipboardImg189" style="margin:0;width:7.2292in;height:10.4063in;border:none" src="clipboardimg189.png"/></p>
+<p class="p_Normal">Выводы физического кабеля перечислены как отдельные узлы на панели Диаграммы Компонентов.</p>
+<p class="p_Normal"><img alt="ClipboardImg190" style="margin:0;width:3.9167in;height:1.9896in;border:none" src="clipboardimg190.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет наименование кабеля.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Толщина</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет толщину кабеля.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Длинна кабеля</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет длину кабеля.</p>
+<p class="p_Normal">Если ноль, длина кабеля является динамической и зависит от других свойств.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Длина звена</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет размер звена кабеля относительно длины кабеля. </p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Жесткость</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет жесткость кабеля.</p>
+<p class="p_Normal">#Низкая - Кабель очень гибкий.</p>
+<p class="p_Normal">#Средняя - Кабель достаточно гибкий.</p>
+<p class="p_Normal">#Высокая - Кабель очень жесткий.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Узел 1</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет узел, к которому привязана первая конечная точка в 3D-мире.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Узел 2</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет узел, к которому привязана вторая конечная точка в 3D-мире.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Тип заделки 1</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет тип привязки первой конечной точки.</p>
+<p class="p_Normal">#Свободный - Кабель свободно свисает при подключении к узлу 1.</p>
+<p class="p_Normal">#Вращающийся - Кабель может раскачиваться вперед и назад или вращаться, когда он подключен к узлу 1.</p>
+<p class="p_Normal">#Фиксированный - Кабель надежно закреплен на узле 1.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Тип заделки &nbsp;2</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет тип привязки второй конечной точки.</p>
+<p class="p_Normal">#Свободный - Кабель свободно свисает при подключении к узлу 2.</p>
+<p class="p_Normal">#Вращающийся - Кабель может раскачиваться вперед и назад или вращаться, когда он подключен к узлу 2.</p>
+<p class="p_Normal">#Фиксированный - Кабель надежно закреплен на узле 2.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Общий Коэффициент Длины</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет коэффициент для определения длины кабеля.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Материал</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет материал кабеля.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Дополнительно</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Включает/выключает отображение дополнительных свойств кабеля.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Расширенные свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Имя</span></p>
+</th>
+<th style="vertical-align:top; width:9.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Spring Strength</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет прочность кабеля по отношению к силе, приложенной при сжатии/растяжении кабеля, например, его прочность на растяжение.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Spring Damping</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет демпфирование кабеля, тем самым влияя на упругость кабеля.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Spring Tangential Strength</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет тангенциальную прочность кабеля по отношению к силе, приложенной при контакте с поверхностью.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Spring Tangential Damping</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет тангенциальное демпфирование кабеля относительно силы, приложенной при контакте с поверхностью.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Rendering Steps</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет количество шагов для рендеринга кабеля.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Collider Overlap</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет допустимое перекрытие коллайдера кабеля по отношению к другим.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Solver Iter Position</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет положение итерации решателя кабеля.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Solver Iter Velocity</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет скорость итерации решателя кабеля.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Solver Iter Internal</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет внутреннюю настройку итерации решателя для кабеля.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Solver Iter External</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет внешнюю настройку итерации решателя для кабеля.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Solver Iter Projections</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет прогноз итерации решателя кабеля.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Solver Separation Limit</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет предел разделения решателя для кабеля.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Material Friction Static</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет статическое трение материала кабеля.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Material Friction Dynamic</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет динамическое трение материала кабеля.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Material Restitution</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет восстановление материала кабеля.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Material Density</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет плотность материала кабеля.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Scene Id</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет идентификатор сцены кабеля, что позволяет изолировать кабель в разных физических сценах/слоях физического мира.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Collision Group</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет группу столкновений кабеля, которую можно использовать для фильтрации столкновений с кабелем в физическом мире.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Center Position</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Центрирует кабель.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

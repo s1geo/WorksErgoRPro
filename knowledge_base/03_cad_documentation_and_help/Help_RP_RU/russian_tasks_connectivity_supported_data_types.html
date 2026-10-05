@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Поддерживаемые типы данных </title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="На стороне симуляции вы можете подключить свойства компонентов, сигналы, базы контроллеров и инструменты. Эти переменные симуляции могут быть подключены к внешнему программному..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><a name="minitocbookmark1" class="hmanchor"></a><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Поддерживаемые типы данных&nbsp;</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">На стороне симуляции вы можете подключить свойства компонентов, сигналы, базы контроллеров и инструменты. Эти переменные симуляции могут быть подключены к внешнему программному обеспечению и устройствам через подключаемые модули.</p>
+<p class="p_Normal">Функция подключения поддерживает следующие типы переменных симуляции: логическое значение, вещественное число, целое число, строку, матрицу и вектор. Обратите внимание, что рамки инструмента робота и базы также могут быть прочитаны и записаны как матрицы и векторы.</p>
+<p class="p_Normal">Если тип переменной симуляции и поддерживаемый тип данных подключаемого модуля не совпадают, предпринимается попытка автоматического преобразования данных.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark2" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Таблица преобразования данных</span></h3>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Тип данных симуляции</span></p>
+</th>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Подробности</span></p>
+</th>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Тип данных преобразования плагина</span></p>
+</th>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Информация о преобразовании</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><a href="ms-its:Python_API.chm::/vcMatrix.htm" class="topiclink">Matrix</a></p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Матрица представляет собой матрицу &nbsp;размерностью 4x4. Каждое из 16 полей представляет собой 64-битную переменную с плавающей запятой.</p>
+<p class="p_Normal">Каждая матричная переменная включает в себя положение (P), ориентацию (O) и вектор масштабирования (S).</p>
+<p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">String</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Матрицы имеют формат столбца. Преобразование из Matrix в строку всегда использует определенный формат, разделенный запятыми, со всеми 16 значениями.</p>
+<p class="p_Normal">Строки с 16 значениями определяют все поля матрицы.</p>
+<p class="p_Normal">Строки с 6 значениями создают матрицу перемещения и поворота (X, Y, Z, W, P, R)</p>
+<p class="p_Normal">Строки с 3 значениями создают матрицу перемещения (X, Y, Z)</p>
+<p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><a href="ms-its:Python_API.chm::/vcVector.htm" class="topiclink">Vector</a></p>
+</td>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Вектор — это 4-элементный (X, Y, Z, W). Каждое из 4 полей представляет собой 64-битную переменную с плавающей запятой.</p>
+</td>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">String</p>
+</td>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Строка с одним числовым значением создает вектор X, Y и Z, присваивая им это значение, а для W устанавливается значение 1.</p>
+<p class="p_Normal">Строки с 2-4 значениями создают вектор X, Y, Z, W присваивая значения в соответствующем порядке. Неназначенные поля остаются в состоянии по умолчанию, которое равно 0 для X, Y и Z и 1 для W.</p>
+<p class="p_Normal">Преобразование из вектора в строку всегда использует определенный формат, разделенный запятыми, со всеми 4 значениями.</p>
+<p class="p_Normal">Значение элемента вектора W всегда должно быть равно 1, чтобы вектор оставался нормализованным.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0.0625in;"><table cellpadding="0" cellspacing="0" style="border:none;border-spacing:0;padding:0;line-height: normal;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:0.1875in"><a name="mthotspot35640" class="hmanchor"></a><img id="toggle0186a1_ICON" class="dropdown-toggle-icon" alt="hmtoggle_plus1" style="margin:0;width:0.0938in;height:0.0938in;border:none" src="hmtoggle_plus1.gif"/></td><td style="border:none;padding:0"><a class="dropdown-toggle" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;" href="javascript:HMToggle('toggle','toggle0186a1','toggle0186a1_ICON')">ТИПЫ ДАННЫХ ПЛАГИНА</a></td></tr></table></div>
+<div id="toggle0186a1" class="dropdown-toggle-body" style="text-align: left; padding: 0 0 0 0; margin: 0 0 0.0417in 0.2500in;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_supported_data_types.html#minitocbookmark4" class="topiclink">OPC UA СТАНДАРТ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_supported_data_types.html#minitocbookmark5" class="topiclink">SIEMENS S7</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_supported_data_types.html#minitocbookmark6" class="topiclink">UNIVERSAL ROBOTS RTDE</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_supported_data_types.html#minitocbookmark7" class="topiclink">WINMOD</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_connectivity_supported_data_types.html#minitocbookmark8" class="topiclink">SIEMENS SIMIT</a></p>
+</td>
+</tr>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark4" class="hmanchor"></a><span style="font-size: 18pt;">OPC UA Стандарт</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.9375in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">OPC UA Type</span></p>
+</th>
+<th style="vertical-align:top; width:10.4792in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">.NET Type</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Boolean</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Boolean</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Byte</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Byte</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Double</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Double</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Float</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Single</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Int16</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Int16</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Int32</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Int32</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Int64</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Int64</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Integer</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Int32</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">SByte</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.SByte</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">String</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.String</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">LocalizedText</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.String (использует язык по умолчанию )</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">UInt16</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.UInt16</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">UInt32</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.UInt32</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">UInt64</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.UInt64</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">UInteger</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.UInt32</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание:</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Если вы хотите подключить переменную в массиве, сервер должен поддерживать чтение и запись в произвольном доступе отдельных индексов в статическом массиве. Плагин OPC UA нельзя использовать для чтения/записи всего массива. Дополнительные сведения см. в документации по стандарту OPC UA.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark5" class="hmanchor"></a><span style="font-size: 18pt;">Siemens S7</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.9375in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Тип STEP7</span></p>
+</th>
+<th style="vertical-align:top; width:10.4792in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Тип .NET</span></p>
+</th>
+</tr>
+<tr>
+<th style="vertical-align:top; width:1.9375in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">BOOL</p>
+</th>
+<th style="vertical-align:top; width:10.4792in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Boolean</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">BYTE</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Byte</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">WORD</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.UInt16</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">DWORD</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.UInt32</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">SINT</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.SByte</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">USINT</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Byte</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">INT</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Int16</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">UINT</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.UInt16</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">DINT</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Int32</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">UDINT</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.UInt32</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9375in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">REAL</p>
+</td>
+<td style="vertical-align:top; width:10.4792in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Single</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark6" class="hmanchor"></a><span style="font-size: 18pt;">Universal Robots RTDE</span></h2>
+<p class="p_Normal">Плагин Universal Robots RTDE поддерживает доступ ко всем доступным переменным. Все signed и unsigned integer переменные могут быть объединены в пары напрямую или отдельные биты могут быть объединены в пары как Boolean. Векторы можно читать как string, но нельзя записывать целиком.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.9479in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Тип RTDE</span></p>
+</th>
+<th style="vertical-align:top; width:10.4688in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Тип .NET</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">DOUBLE</p>
+</td>
+<td style="vertical-align:top; width:10.4688in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Double</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9479in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">INT32</p>
+</td>
+<td style="vertical-align:top; width:10.4688in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Int32</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">UINT16</p>
+</td>
+<td style="vertical-align:top; width:10.4688in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.UInt16</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9479in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">UINT32</p>
+</td>
+<td style="vertical-align:top; width:10.4688in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.UInt32</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">UINT64</p>
+</td>
+<td style="vertical-align:top; width:10.4688in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.UInt64</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9479in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">UINT8</p>
+</td>
+<td style="vertical-align:top; width:10.4688in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Byte</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">VECTOR3D</p>
+</td>
+<td style="vertical-align:top; width:10.4688in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.String</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9479in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">VECTOR6D</p>
+</td>
+<td style="vertical-align:top; width:10.4688in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.String</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">VECTOR6INT32</p>
+</td>
+<td style="vertical-align:top; width:10.4688in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.String</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9479in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">VECTOR6UINT32</p>
+</td>
+<td style="vertical-align:top; width:10.4688in; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.String</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание:</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Векторы преобразуются в одну строку подключаемым модулем RTDE при чтении из контроллера. Компоненты Элементы можно читать и записывать отдельно. </p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark7" class="hmanchor"></a><span style="font-size: 18pt;">WinMOD</span></h2>
+<p class="p_Normal">WinMOD позволяет добавлять только три типа данных к своим внешним коммуникационным блокам, которые затем можно читать и записывать с помощью коммуникационной библиотеки WinMOD Net.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Тип WinMOD</span></p>
+</th>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Тип .NET</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Binary</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Boolean</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Digital</p>
+</td>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Int32</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Analog</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Double</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание:</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Диапазон масштабирования, используемый для аналоговых сигналов, составляет от -1 000 000 до +1 000 000, что приводит к размеру шага значения около 0,0005. Возможно, вам потребуется соответствующим образом настроить масштабирование подключенных аналоговых сигналов на стороне WinMOD, чтобы получить правильные результаты.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark8" class="hmanchor"></a><span style="font-size: 18pt;">Siemens SIMIT</span></h2>
+<p class="p_Normal">Внешние соединения SIMIT могут иметь только три типа сигналов: двоичный, целочисленный и аналоговый.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Тип SIMIT</span></p>
+</th>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Тип .NET</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Binary</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Boolean</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Digital</p>
+</td>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Int64</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Analog</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">System.Double</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание:</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Integer в R-Pro являются 32-битными.</p>
+</td></tr></table>
+
+<script type="text/javascript">
+if (window.topicInitScriptAvailable) {
+function HMInitToggleStates() {
+HMInitToggle('toggle0186a1_ICON','hm.type','dropdown','hm.state','0','hm.src0','hmtoggle_plus0.gif','hm.src1','hmtoggle_plus1.gif','onclick','HMToggle(\'toggle\',\'toggle0186a1\',\'toggle0186a1_ICON\')');
+HMInitToggle('toggle0186a1','hm.type','dropdown','hm.state','0');
+
+}
+var checkTimer=setTimeout("HMInitToggleStates()", 0);
+}
+</script>
+</body>
+</html>

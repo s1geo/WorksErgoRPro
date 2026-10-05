@@ -1,0 +1,190 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcBaseFrame</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcBaseFrame</h1>
+<p>vcBaseFrame allows you to manipulate a Frame feature used as base or 
+ tool frame for robot programming.</p>
+<p>A base frame is a robot coordinate system used for simplifying robot 
+ positions. A tool frame is a tool center point (TCP) used for defining 
+ the end of a robot arm or target position. How a robot interpolates base 
+ and tool frames is dependent on the IPO mode of each frame. Generally, 
+ a robot position is defined at a tool frame (point robot must reach/target) 
+ and references the coordinate system of a base frame. In some cases, the 
+ relationship between base and tool frames can be switched, thereby affecting 
+ the external configuration of robot. For example, a robot might use an 
+ external tool frame to reference a static tool, thereby the robot moves 
+ around not with the tool frame.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot12194" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot12194', 'MTPOPUP12194');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP12194" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Common Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Frame Specific Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Common Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>IPOMode</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the interpolation mode of the frame and the external 
+		 configuration of a referencing robot controller. 
+		<p class="TableNormal"><span class="Term">0</span><br>
+		Default setting, so no effect on robot's external configuration.</p>
+		<p class="TableNormal"><span class="Term">1</span><br>
+		Robot position inherits orientation of base frame.</p>
+		<p class="TableNormal"><span class="Term">2</span><br>
+		Robot position inherits orientation of tool frame.</p>
+		<p class="TableNormal"><a href="Constants.htm#Interpolation_Constants">Interpolation</a> 
+		 constants can be used with this property.</p>
+		<p class="TableNormal"><span class="Strong">Note:</span> A conflict 
+		 can occur if a base-tool pair in a referencing robot have the 
+		 same IPOMode property value or cannot be used with the robot's 
+		 current configuration.</p></td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of the frame.</td>
+	</tr>
+	<tr>
+		<td>Node</td>
+		<td><a href="vcNode.htm" title="vcNode">vcNode</a></td>
+		<td>RW</td>
+		<td>Defines the node the frame is attached to in the 3D world.</td>
+	</tr>
+	<tr>
+		<td>PositionMatrix</td>
+		<td><a href="vcMatrix.htm" title="vcMatrix">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines the frame's position and orientation in the Node property's 
+		 coordinate system. 
+		<p class="TableNormal">The position matrix is a result of the node's 
+		 offset, pivot and joint expressions but can be set manually.</p></td>
+	</tr>
+	<tr>
+		<td>PositionExpression</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>The matrix offset expression for the frame's location.</td>
+	</tr>
+	<tr>
+		<td>Properties</td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td>Gets a list of all user defined properties for base frame.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Frame Specific Properties</h2>
+<h3><a name="MiniTOCBookMark4"></a>Tool Frame</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>CenterOfGravity</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines the mass center point of payload and if needed the 
+		 orientation for LoadInertia.</td>
+	</tr>
+	<tr>
+		<td>Inertia</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Defines the inertia value (kgm^2) for each axis defined by 
+		 LoadCenterOfGravity.</td>
+	</tr>
+	<tr>
+		<td>Mass</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the weight (kg) of payload.</td>
+	</tr>
+</table>
+<p>&#160;</p>
+<h2><a name="MiniTOCBookMark5"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>Enumeration <span class="hcp1">type</span><span>, 
+		 String</span> <span class="hcp1">name</span> <span>[Enumeration</span> 
+		 <span class="hcp1">constraints</span><span>]</span></td>
+		<td>Adds a new property of a given <span class="Italic">type</span> 
+		 and <span class="Italic">name</span> to component, and then returns 
+		 the new property. 
+		<p class="TableNormal">An optional <span class="Italic">constraints</span> 
+		 argument can be used to define constraints for new property, which 
+		 must be defined at the time of creation.&#160;&#160;</p>
+		See <a href="Constants.htm#Property_Constants">Property Constants</a> 
+		 for more information.</td>
+	</tr>
+	<tr>
+		<td>deleteProperty</td>
+		<td>None</td>
+		<td><span><a href="vcProperty.htm">vcProperty</a></span> <span class="hcp1">property</span></td>
+		<td>Deletes a given <span class="hcp1">property</span> 
+		 <span>from component.</span></td>
+	</tr>
+	<tr>
+		<td>getProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td><span>String</span> <span class="hcp1">name</span></td>
+		<td>Returns a property matching a given <span class="Italic">name</span> 
+		 in component; otherwise returns None.</td>
+	</tr>
+</table>
+<p>&#160;</p>
+<!--======================================Properties==================================-->
+</body>
+</html>

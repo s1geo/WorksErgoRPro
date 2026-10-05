@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Шарнирная кинематика</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Поведение шарнирной кинематики — это список кинематических свойств, используемых контроллером робота для решения движений сочлененного робота, которые связаны с длиной..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Шарнирная кинематика</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Поведение шарнирной кинематики — это список кинематических свойств, используемых контроллером робота для решения движений сочлененного робота, которые связаны с длиной соединения, углом, положением, соединением, конфигурацией и <span style="font-size: 12pt; font-family: 'Times New Roman',Times,Georgia,serif;">допусками</span>.</p>
+<p class="p_Normal"><img alt="ClipboardImg152" style="margin:0;width:6.9896in;height:13.8854in;border:none" src="clipboardimg152.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.8854in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5313in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет наименование кинематики.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">от L01Z до L56Z</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет смещение между двумя суставами по заданной оси.</p>
+<p class="p_Normal">L01Z - Относится к смещению от основания робота до первого соединения по оси Z.</p>
+<p class="p_Normal">L23X - Относится к смещению от второго сустава к третьему по оси X, которое обычно меньше или равно 0 и почти никогда не превышает 0.</p>
+<p class="p_Normal">L56X - Относится к смещению между пятым и шестым суставами по оси X.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">А45</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет угол (в градусах) между четвертым и пятым суставами. Как правило, используется 90° или -90°, но в некоторых случаях также распространено значение угла, близкое к 45°.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">НулевоеСмещениеСоединения1 по НулевоеСмещениеСоединения6</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет нулевую позицию соединения робота. НулевоеСмещениеСоединения (JointZeroOffsets) используются в качестве кинематического решения для определения положения робота, когда его суставы имеют нулевое значение (градусы). Различные поставщики роботов, как правило, используют разные совместные нулевые позиции для роботов.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ЗнакСоединения1 по </p>
+<p class="p_Normal">ЗнакСоединения6</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет, какое направление является положительным направлением соединения, например, если вы переключаете вращение сустава с по часовой стрелке на против часовой стрелки.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Соединение23</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Указывает, связаны ли второй и третий суставы, либо механически, либо программно. Например, если вы двигаете вторым суставом, то третий сустав будет совершать встречное движение.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ВалидноеПлечо</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Включает/выключает использование допустимых конфигураций.</p>
+<p class="p_Normal">Значение True включает следующие конфигурации:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Front above no flip</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Front above flipped</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Front below no flip</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Front below flipped </p>
+<p class="p_Normal">Значение False отключает следующие конфигурации:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Back above no flip </p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Back above flipped</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Back below no flip</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Back below flipped</p></td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ВалидныйЛокоть</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Включает/выключает использование допустимых конфигураций.</p>
+<p class="p_Normal">Значение True включает следующие конфигурации:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Front above no flip </p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Front above flipped</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Back above no flip</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Back above flipped </p>
+<p class="p_Normal">Значение False отключает следующие конфигурации:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Front below no flip &nbsp;</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Front below flipped</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Back below no flip</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Back below flipped</p></td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ВалиднаяКисть</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Включает/выключает использование допустимых конфигураций.</p>
+<p class="p_Normal">Значение True включает следующие конфигурации:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Front above no flip </p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Front below no flip</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Back above no flip</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Back below no flip </p>
+<p class="p_Normal">Значение False отключает следующие конфигурации:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Front above flipped </p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Front below flipped</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Back above flipped</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Back below flipped</p></td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">от НаименованиеКонфиг1 до НаименованиеКонфигN</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет имена конфигураций для руки робота. Разные типы роботов могут использовать разные обозначения для одних и тех же конфигураций.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">РежимПаллетизации</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Включает/выключает направление запястья робота в направлении, определенном параметром НормальнаяПаллетизация.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">НормальнаяПаллетизация XYZ</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет направление запястья робота, когда включен режим Паллетизации.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ДопускПолярнойСингулярности</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет радиус круга сингулярности робота, небольшого круглого пространства, определяемого на конце руки робота.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ДопускСингулярностиЗапястья</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет угловой допуск сингулярности запястья робота. То есть, когда пятый шарнир приближается к нулевому значению, это можно считать сингулярностью, поэтому в таких случаях можно использовать допуск на угол.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">РасширенныйДопускПоложения</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет значение допуска для обнаружения сингулярности в конфигурации робота, когда либо робот находится в выдвинутом положении, либо его локоть проходит через нулевое значение, чтобы достичь точки. Значение (в градусах) должно быть больше или равно нулю. Если значение равно нулю, то единственного решения нет и, скорее всего, пользователь получает ошибку достижимости. Решение сингулярности или ориентация, основанное на изменениях конфигурации локтя робота для достижения точки, может потребовать от пользователя определения РасширенныйДопускПоложения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Сцепление456</p>
+</td>
+<td style="vertical-align:top; width:9.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет связь между 4, 5 и 6 осями. Повороты 5-й и 6-й осей определяются при индуцировании движения по 4-й оси. Это свойство используется редко, а коэффициент связи является дробным и должен предоставляться производителем робота. В противном случае используйте нулевое значение. Сцепление456 необходимо, например, при использовании полого запястья с тройным роликом, когда конструкция механизма обеспечивает соединение между всеми осями.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

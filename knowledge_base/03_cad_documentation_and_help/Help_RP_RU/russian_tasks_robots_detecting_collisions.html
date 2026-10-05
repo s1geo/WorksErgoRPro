@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Обнаружение столкновений</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Столкновения между роботом и другими компонентами можно обнаружить в 3D-мире с помощью глобальных настроек и детекторов." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Обнаружение столкновений</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Столкновения между роботом и другими компонентами можно обнаружить в 3D-мире с помощью глобальных настроек и детекторов.</p>
+<p class="p_Normal">Детектор — это тест на коллизии между двумя списками, A и B, каждый из которых содержит узлы. Геометрия узлов в списке A сравнивается с геометрией узлов в списке B для обнаружения коллизий. Областью действия детектора может быть один, несколько или все компоненты трехмерного мира.</p>
+<p class="p_Normal">Детектором столкновений по умолчанию является &quot;Выделенное пртив мирового&quot;. Это позволяет сравнить выбранный компонент со всеми другими компонентами в трехмерном мире. Выбор будет автоматически включать любые дочерние компоненты, например, выбор робота с установленным инструментом будет включать компонент инструмента в этот детектор.</p>
+<p class="p_Normal">В некоторых случаях может потребоваться, чтобы дочерний компонент или узел был исключен из теста на коллизии. В таких случаях вам нужно будет создать новый детектор и, возможно, отключить другие тесты на столкновения. При создании нового детектора узлы в списке A будут выделены зеленым цветом, а узлы в списке B — синим цветом.</p>
+<p class="p_Normal">Чтобы обнаружить столкновение, не обязательно запускать симуляцию. Например, вы можете обнаруживать столкновения при обучении робота. Когда происходит столкновение, геометрия сталкивающихся узлов в трехмерном мире окрашивается в желтый цвет. </p>
+<p class="p_Normal">При запуске симуляции важно отметить, что скорость симуляции может влиять на скорость обнаружения столкновений в трехмерном мире.</p>
+<p class="p_Normal">Шаги</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>Перейдите на вкладку <span style="font-weight: bold;">Программирование</span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>Убедитесь, что параметр <span style="font-weight: bold;">Активировать детекторы</span> включен.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>Нажмите кноку <span style="font-weight: bold;">Детекторы</span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">4.</span>Откроется панель <span style="font-weight: bold;">Детекторы столкновений</span> из<span style="font-weight: bold;"> Обнаружение столкновений</span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">5.</span>Создайте и настройте детекторы.</p>
+<p class="p_Normal">Смотрите также панель <a href="russian_user_interface_panels_collision_detectors.html" class="topiclink">Детекторы столкновений </a>.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание: </span>Детектор столкновений — это тип элемента макета, который можно сохранить вместе с макетом.</p>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,314 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcSnapCommand</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcSnapCommand</h1>
+<p>vcSnapCommand provides options for handling the position and orientation 
+ of 3D world points selected using the interactiveSnap command.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcCommand.htm">vcCommand</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot26340" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot26340', 'MTPOPUP26340');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP26340" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table summary="" class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><span>Snap</span></td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on or off the ability to snap to a target.</td>
+	</tr>
+	<tr>
+		<td>SnapOnCircleCenter</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on or off the center of circles as potential targets.</td>
+	</tr>
+	<tr>
+		<td>SnapOnCurve</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on or off curves as potential targets. &#160;</td>
+	</tr>
+	<tr>
+		<td><span>SnapOnEdge</span></td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on or off edges as potential targets.</td>
+	</tr>
+	<tr>
+		<td>SnapOnEdgeCenter</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on or off the midpoint of edges as potential targets.</td>
+	</tr>
+	<tr>
+		<td>SnapOnFaceCenter</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on or off the center of faces as potential targets.</td>
+	</tr>
+	<tr>
+		<td><span>SnapOnFrame</span></td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on or off frames as potential targets.</td>
+	</tr>
+	<tr>
+		<td>SnapOnNodeCenter</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on or off the center of nodes as potential targets.</td>
+	</tr>
+	<tr>
+		<td>SnapOnNodeOrigin</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on or off the origin of nodes as potential targets.</td>
+	</tr>
+	<tr>
+		<td><span>SnapOnPoint</span></td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on or off points on lines and polygons, for example corner 
+		 points, as potential targets.</td>
+	</tr>
+	<tr>
+		<td><span>SnapOnPolygon</span></td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on or off polygons as potential targets.</td>
+	</tr>
+	<tr>
+		<td>SnapOnSurface</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on or off faces as potential targets.</td>
+	</tr>
+	<tr>
+		<td><span>TargetAvailable</span></td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if pointing at an available target in the 3D world.</td>
+	</tr>
+	<tr>
+		<td>TargetCircleCenterAvailable</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if center of a circle is available as a target.</td>
+	</tr>
+	<tr>
+		<td>TargetCurve</td>
+		<td>List of <a href="vcVector.htm">vcVector</a></td>
+		<td>R</td>
+		<td>Provides a list of positions for a target curve in World coordinate 
+		 system.</td>
+	</tr>
+	<tr>
+		<td>TargetCurveAvailable</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if a curve is available as a target.</td>
+	</tr>
+	<tr>
+		<td>TargetCurveIndex</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Indicates the index position of a target curve in a geometry 
+		 set.</td>
+	</tr>
+	<tr>
+		<td>TargetFaceCenterAvailable</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if the center of a face is available as a target.</td>
+	</tr>
+	<tr>
+		<td>TargetGeoset</td>
+		<td><a href="vcGeometrySet.htm">vcGeometrySet</a></td>
+		<td>R</td>
+		<td>Indicates the geometry set of a target.</td>
+	</tr>
+	<tr>
+		<td>TargetLocked</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if a target has been selected in the 3D world.</td>
+	</tr>
+	<tr>
+		<td>TargetMatrix</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>R</td>
+		<td>Indicates the position and orientation matrix for target in 
+		 World coordinates.</td>
+	</tr>
+	<tr>
+		<td>TargetMatrixAvailable</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if the position and orientation matrix for a target 
+		 is available. (only valid for frame type targets)</td>
+	</tr>
+	<tr>
+		<td>TargetNode</td>
+		<td><a href="vcNode.htm">vcNode</a></td>
+		<td>R</td>
+		<td>Indicates the node containing a target.</td>
+	</tr>
+	<tr>
+		<td>TargetNormal</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>R</td>
+		<td>Indicates the normal vector of a target in World coordinates.</td>
+	</tr>
+	<tr>
+		<td>TargetNormalAvailable</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if the normal vector of a target is available. (only 
+		 valid for polygon and frame type targets).</td>
+	</tr>
+	<tr>
+		<td>TargetPosition</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>R</td>
+		<td>Indicates the position of a target in World coordinates.</td>
+	</tr>
+	<tr>
+		<td>TargetPrimitive</td>
+		<td><a href="vcPrimative.htm">vcPrimitive</a></td>
+		<td>R</td>
+		<td>Indicates the geometry primitive object of a target.</td>
+	</tr>
+	<tr>
+		<td>TargetSurfaceAvailable</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if the surface of a target is available.</td>
+	</tr>
+	<tr>
+		<td>TargetSurfaceIndex</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Indicates the index position of a target surface in a component, 
+		 for example the faces of a cube.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>clear</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Resets the command and clears its target data.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnTargetAvailable</td>
+		<td><a href="vcSnapCommand.htm">vcSnapCommand</a> <span class="Italic">command</span></td>
+		<td>Triggered when pointer is hovering over a valid target in 3D 
+		 world. 
+		<p class="TableNormal">The command itself as passed as an argument, 
+		 thereby allowing you to access its updated properties.</p></td>
+	</tr>
+	<tr>
+		<td>OnTargetSet</td>
+		<td><a href="vcSnapCommand.htm">vcSnapCommand</a> <span class="Italic">command</span></td>
+		<td>Triggered when a valid target has been selected in 3D world. 
+		 
+		<p class="TableNormal">The command itself as passed as an argument, 
+		 thereby allowing you to access its updated properties.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Execute snap command and use event handlers</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>snap = app.findCommand('interactiveSnap') 
+		<br>&#160; 
+		<br>def TargetPicked(args): 
+		<br>&#160;&#160;global snap 
+		<br>&#160;&#160;pos = snap.TargetPosition 
+		<br>&#160;&#160;print 'Picked: %.2f %.2f %.2f' % (pos.X, pos.Y, pos.Z) 
+		<br>&#160;&#160;if snap.TargetAvailable: 
+		<br>&#160;&#160;&#160;&#160;print 'Starting picking!' 
+		<br>&#160;&#160;&#160;&#160;snap.execute() 
+		<br>&#160;&#160;else: 
+		<br>&#160;&#160;&#160;&#160;print &quot;Finished snapping!&quot; 
+		<br>&#160; 
+		<br>def StartPicking(): 
+		<br>&#160;&#160;global snap 
+		<br>&#160;&#160;snap.clear() 
+		<br>&#160;&#160;snap.SnapOnPoint = True 
+		<br>&#160;&#160;snap.SnapOnEdge = True 
+		<br>&#160;&#160;snap.SnapOnPolygon = True 
+		<br>&#160;&#160;snap.SnapOnSurface = True 
+		<br>&#160;&#160;snap.SnapOnNodeCenter = False 
+		<br>&#160;&#160;snap.SnapOnNodeOrigin = False 
+		<br>&#160;&#160;snap.OnTargetSet = TargetPicked 
+		<br>&#160;&#160;print 'Starting picking!' 
+		<br>&#160;&#160;snap.execute() 
+		<br>&#160; 
+		<br>def StopPicking(): 
+		<br>&#160;&#160;global snap 
+		<br>&#160;&#160;snap.clear() 
+		<br>&#160;&#160; 
+		<br>StartPicking() 
+		<br>#StopPicking()</td>
+	</tr>
+</table>
+</body>
+</html>

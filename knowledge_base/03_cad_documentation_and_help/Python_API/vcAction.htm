@@ -1,0 +1,194 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcAction</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcAction</h1>
+<p>vcAction is a container of information and user-defined properties for 
+ an action that can be executed during a simulation.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot55349" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot55349', 'MTPOPUP55349');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP55349" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ActionContainer</td>
+		<td><span class="type"><a href="vcActionContainer.htm">vcActionContainer</a></span></td>
+		<td>R</td>
+		<td>Gets the action container of action.</td>
+	</tr>
+	<tr>
+		<td>ActionTime</td>
+		<td><span class="type">Real</span></td>
+		<td>R</td>
+		<td>Gets the creation time of action.</td>
+	</tr>
+	<tr>
+		<td>AllProperties</td>
+		<td><span class="type">List of <a href="vcProperty.htm">vcProperty</a></span></td>
+		<td>R</td>
+		<td>Gets a list of all user-defined properties for the action.</td>
+	</tr>
+	<tr>
+		<td>Filter</td>
+		<td><span class="type">String</span></td>
+		<td>RW</td>
+		<td>Defines a filter for limiting what resource can perform the 
+		 action.</td>
+	</tr>
+	<tr>
+		<td>From</td>
+		<td><span class="type"><a href="vcActionContainer.htm">vcActionContainer</a></span></td>
+		<td>RW</td>
+		<td>Defines the original sender of this action. 
+		<p class="TableNormal">Generally, this is used to track and manipulate 
+		 where an action is sent from. For example, an action might be 
+		 forwarded and passed to different resources and task managers.</p></td>
+	</tr>
+	<tr>
+		<td>Message</td>
+		<td><span class="type">String</span></td>
+		<td>RW</td>
+		<td>Defines the status information about the action's execution.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td><span class="type">String</span></td>
+		<td>RW</td>
+		<td>Defines the name of action.</td>
+	</tr>
+	<tr>
+		<td>AllProperties</td>
+		<td><span class="type">List of <a href="vcProperty.htm">vcProperty</a></span></td>
+		<td>R</td>
+		<td>Gets a list of all user-defined properties for the action.</td>
+	</tr>
+	<tr>
+		<td>Properties</td>
+		<td><span class="type">List of <a href="vcProperty.htm">vcProperty</a></span></td>
+		<td>R</td>
+		<td>Gets a list of all user-defined properties created for the 
+		 action after the action container was loaded.</td>
+	</tr>
+	<tr>
+		<td>Receiver</td>
+		<td><span class="type"><a href="vcActionContainer.htm">vcActionContainer</a></span></td>
+		<td>RW</td>
+		<td>Defines the receiver of action in its current workflow. 
+		<p class="TableNormal">For example, an action might need to be 
+		 handled at a workstation before the action is sent to a target 
+		 defined by its To property.</p></td>
+	</tr>
+	<tr>
+		<td>Sender</td>
+		<td><span class="type"><a href="vcActionContainer.htm">vcActionContainer</a></span></td>
+		<td>RW</td>
+		<td>Defines the current sender of the action. 
+		<p class="TableNormal">Generally, this is used to clearly identify 
+		 which object is responsible for sending this action.</p></td>
+	</tr>
+	<tr>
+		<td>To</td>
+		<td><span class="type"><a href="vcActionContainer.htm">vcActionContainer</a></span></td>
+		<td>RW</td>
+		<td>Defines the final target where the action should be sent to. 
+		 
+		<p class="TableNormal">In some cases, an action's final destination 
+		 might be redefined to handle issues such as quality inspections, 
+		 rerouting of materials, and availability of resource providers.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>Enumeration <span class="Italic">type</span>, String <span 
+		 class="Italic">name</span>, [Enumeration <span class="Italic">constraints</span>]</td>
+		<td>Adds a new user-defined property of a given <span class="Italic">type</span> 
+		 and <span class="Italic">name</span> to action, and then returns 
+		 the new property. 
+		<p class="TableNormal">An optional <span class="Italic">constraints</span> 
+		 argument can be given to define the constraints of the property, 
+		 which must be given at the time of creation.</p>
+		See <a href="Constants.htm#Property_Constants">Property</a> constants 
+		 for available property types and constraints.</td>
+	</tr>
+	<tr>
+		<td>deleteProperty</td>
+		<td>None</td>
+		<td><span class="type"><a href="vcProperty.htm">vcProperty</a></span> 
+		 <span class="Italic">property</span></td>
+		<td>Deletes a given <span class="Italic">property</span> from action.</td>
+	</tr>
+	<tr>
+		<td>getProperty</td>
+		<td><a href="vcProperty.htm" title="vcProperty">vcProperty</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Returns the first property matching a given <span class="Italic">name</span> 
+		 in action; otherwise returns None.</td>
+	</tr>
+	<tr>
+		<td>send</td>
+		<td>None</td>
+		<td>[<span class="optional"><a href="vcActionContainer.htm">vcActionContainer</a></span> 
+		 <span class="Italic">container</span>]</td>
+		<td>Sends action to the defined <span class="Italic">container</span>. 
+		 
+		<p class="TableNormal">If no arguments are given, the action is 
+		 broadcast to all connected Action Containers.</p></td>
+	</tr>
+	<tr>
+		<td>sendMessage</td>
+		<td>None</td>
+		<td>String <span class="Italic">message</span>, [<a href="vcActionContainer.htm">vcActionContainer</a> 
+		 <span class="Italic">container</span>]</td>
+		<td>Sends action with a given <span class="Italic">message</span> 
+		 to all connected Action Containers. 
+		<p class="TableNormal">An optional <span class="Italic">container</span> 
+		 argument can be given to specify which action container receives 
+		 the action.</p>
+		<p class="TableNormal">Generally, the message of an action defines 
+		 the action's type and is used by an action container to execute 
+		 the action. In some cases, the message is used to filter actions.</p></td>
+	</tr>
+</table>
+</body>
+</html>

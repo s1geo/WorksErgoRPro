@@ -1,0 +1,171 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcTransportSolution</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-weight:bold; }
+span.hcp2 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcTransportSolution</h1>
+<p>Transport solution is a single route from one transport node (<a href="vcTransportNode.htm">vcTransportNode</a>) 
+ to another transport node without any branches or loops. The transport 
+ solutions are enforced to be valid when they are created or modified. 
+ The solution consists of an ordered list of transport link references 
+ (<a href="vcTransportLink.htm">vcTransportLink</a>), starting from the 
+ Source node and ending to the Destination node.</p>
+<p><span class="hcp1">Note:</span> A valid transport solution 
+ conforms to these rules:</p>
+<p>&#160;• Transport solution can be empty i.e. contain no links. Using 
+ empty solutions is not recommended. Set the <a href="vcProduct.htm">vcProduct</a>.TransportSolution 
+ to None instead.</p>
+<p>&#160;• Each transport link’s Source node is the same as the previous 
+ link’s Destination node (must form a continuous one-directional path)</p>
+<p>&#160;• No two links have the same Source node (cannot contain branches)</p>
+<p>&#160;• No two links have the same Destination node (cannot contain 
+ joins or loops)</p>
+<p>&#160;• The Source and Destination nodes of the whole solution cannot 
+ be the same (cannot be a loop).</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot13515" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot13515', 'MTPOPUP13515');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP13515" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Source </td>
+		<td><a href="vcTransportNode.htm">vcTransportNode</a></td>
+		<td>R</td>
+		<td><p>The transport node this route starts from. </p>
+		<p>Returns None if the solution is empty.</p></td>
+	</tr>
+	<tr>
+		<td>Destination </td>
+		<td><a href="vcTransportNode.htm">vcTransportNode</a></td>
+		<td>R</td>
+		<td><p>The transport node this route ends to. </p>
+		<p>Returns None if the solution is empty.</p></td>
+	</tr>
+	<tr>
+		<td>Links </td>
+		<td>List of <a href="vcTransportLink.htm">vcTransportLink</a></td>
+		<td>R</td>
+		<td>The list of transport links that need to be travelled to get 
+		 from the Source node to the Destination node, starting from Source.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getNextLink </td>
+		<td><a href="vcTransportLink.htm">vcTransportLink</a></td>
+		<td><a href="vcTransportNode.htm">vcTransportNode</a></td>
+		<td><p>Returns the transport link (there can be only one) that 
+		 has the given transport node as its Source.</p>
+		<p>Returns None if such link doesn’t exist in the solution i.e. 
+		 the route doesn’t start from or pass through that transport node.</p></td>
+	</tr>
+	<tr>
+		<td>replaceLinks </td>
+		<td>None</td>
+		<td>List of <a href="vcTransportLink.htm">vcTransportLink</a></td>
+		<td>Replaces the route with given links. If the given links do 
+		 not form a valid transport solution, an error is raised and the 
+		 previous route is preserved.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnSolutionInvalidated </td>
+		<td><p><a href="vcTransportSolution.htm">vcTransportSolution</a> 
+		 <span class="hcp2">solution</span> </p></td>
+		<td><p>Triggered when any of the transport links in this <span class="hcp2">solution</span> has been deleted from 
+		 the transport system, which would make the <span class="hcp2">solution</span> 
+		 either invalid or change its ends. </p>
+		<p><span class="hcp1">Note:</span> All transport 
+		 links are removed from the <span class="hcp2">solution</span> 
+		 before this event is triggered. The solution parameter is always 
+		 this transport <span class="hcp2">solution</span> 
+		 instance.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p class="Example"><span class="Example">Example. Event handler when a 
+ product arrives to node.</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td><br>from vcScript import *
+		<br>sim = getSimulation()
+		<br>process_controller = sim.ProcessController
+		<br>transport_system = process_controller.TransportSystem
+		<br>nodes = transport_system.Nodes
+		<br>node = nodes[1]
+		<br># Event handler when a product arrives to node
+		<br>def product_arrived_handler(product, link, event_data):
+		<br>&#160;&#160;print product.ProductType.Name, 'arrived to', link.Destination.Parent.Name
+		<br>&#160;&#160;
+		<br>&#160;&#160;source_name = product.TransportSolution.Source.Parent.Name
+		<br>&#160;&#160;destination_name = product.TransportSolution.Destination.Parent.Name
+		<br>&#160;&#160;print 'The products current Transport Solution is from', source_name, 'to', destination_name
+		<br>&#160;&#160;
+		<br>&#160;&#160;next_link = product.TransportSolution.getNextLink(node)
+		<br>&#160;&#160;if next_link:
+		<br>&#160;&#160;&#160;&#160;print 'The next Transport Link for this Transport Solution is', next_link
+		<br>&#160;&#160;else:
+		<br>&#160;&#160;&#160;&#160;print 'This Transport Solution does not have any more links'
+		<br>node.OnProductArriving = product_arrived_handler</td>
+	</tr>
+</table>
+</body>
+</html>

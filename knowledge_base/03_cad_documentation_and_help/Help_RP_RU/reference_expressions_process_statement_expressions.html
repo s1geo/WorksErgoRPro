@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Выражения оператора процесса</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="При написании выражений для операторов процесса вы можете получить доступ к свойствам объектов динамических компонентов и элементов списков." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Выражения оператора процесса</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">При написании выражений для операторов процесса вы можете получить доступ к свойствам объектов динамических компонентов и элементов списков.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Доступ</span></h2>
+<p class="p_Normal">Вы можете использовать запись через точку (.), чтобы получить значение свойства <span style="font-weight: bold;">Продукта</span>, <span style="font-weight: bold;">Типа продукта</span>, <span style="font-weight: bold;">Компонента </span>или <span style="font-weight: bold;">Группы</span>.</p>
+<p class="p_Normal"><img alt="ClipboardImg219" style="margin:0;width:4.2083in;height:1.2604in;border:none" src="clipboardimg219.png"/></p>
+<p class="p_Normal">Синтаксис</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:middle; padding:0; border:none"><p class="p_Normal">&lt;ИмяПеременной&gt;.&lt;ИмяСвойства&gt;</p>
+<p class="p_Normal">&lt;ИмяПеременной&gt;.ProductType.&lt;ИмяСвойства&gt;</p>
+<p class="p_Normal">&lt;ИмяПеременной&gt;.Component.&lt;ИмяСвойства&gt;</p>
+<p class="p_Normal">&lt;ИмяПеременной&gt;.ProductType.Group.&lt;ИмяСвойства&gt;</p>
+</td>
+</tr>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Оператор индекса</span></h2>
+<p class="p_Normal">Вы также можете использовать квадратные скобки для доступа к элементу списка.</p>
+<p class="p_Normal"><img alt="ClipboardImg220" style="margin:0;width:8.5417in;height:2.9271in;border:none" src="clipboardimg220.png"/></p>
+<p class="p_Normal">При написании строк в выражениях используйте двойные кавычки, например: &quot;string&quot;.</p>
+<p class="p_Normal"><img alt="ClipboardImg221" style="margin:0;width:4.2292in;height:1.9271in;border:none" src="clipboardimg221.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Дополнительно</span></h2>
+<p class="p_Normal">Чтобы получить доступ к текущему времени симуляции, внутренняя функция <span style="font-style: italic;">SimTime () </span>может быть использована внутри выражений.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Поддерживаемые операторы</span></h2>
+<p class="p_Normal">Доступ к свойствам с точечной нотацией и элементам списка со скобками в выражениях поддерживается с помощью следующих операторов:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Если (If) </p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Печать (Print)</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Переключатель Случаев (Switch)</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Ждать Состояния Свойства (WaitPropertyCondition)</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Пока (While) </p>
+</td></tr></table>
+
+</body>
+</html>

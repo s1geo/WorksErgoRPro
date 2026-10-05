@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<BODY>
+<OBJECT type="text/site properties">
+	<param name="Window Styles" value="0x800025">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Содержание">
+	<param name="Local" value="introduction.html">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Описание">
+	<param name="Local" value="welcome-topic.html">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Установка">
+	<param name="Local" value="second-topic.html">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Использование">
+	<param name="Local" value="new-topic.html">
+</OBJECT>
+</UL>
+</UL>
+</BODY></HTML>

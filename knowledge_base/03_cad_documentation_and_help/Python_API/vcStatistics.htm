@@ -1,0 +1,649 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcStatistics</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+td.hcp1 { vertical-align:middle; }
+-->
+</style>
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcStatistics</h1>
+<p>vcStatistics allows you to create flow type and state based statistics 
+ as well as access the properties of a Statistics behavior and related 
+ simulation statistics.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot39662" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot39662', 'MTPOPUP39662');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP39662" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark6" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark7" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<p>The values of a Statistics behavior's properties depend on the amount 
+ of behaviors referencing the Statistics behavior. That is, a Statistics 
+ behavior is capable of collecting data from more than one container, path 
+ or executor to result in cumulative data. In some cases, a component may 
+ use more than one Statistics behavior, thereby the data of those objects 
+ are compared to yield results. Generally, a component has only one Statistics 
+ behavior, so collected data represents the whole component.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ComponentMaxCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the maximum number of components that have been contained 
+		 in a component at any given time.</td>
+	</tr>
+	<tr>
+		<td>ComponentMaxTime</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the maximum amount of time a component spent contained 
+		 in a component.</td>
+	</tr>
+	<tr>
+		<td>ComponentMinCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the minimum number of components that been contained in 
+		 a component at any given time.</td>
+	</tr>
+	<tr>
+		<td>ComponentMinTime</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the minimum amount of time a component spent contained 
+		 in a component.</td>
+	</tr>
+	<tr>
+		<td>ComponentsArrived</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the total number of components that have been transferred 
+		 into a component.</td>
+	</tr>
+	<tr>
+		<td>ComponentsAverageTime</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the average amount of time components have spent in a 
+		 component.</td>
+	</tr>
+	<tr>
+		<td>ComponentsCurrent</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the total number of components currently contained in 
+		 a component.</td>
+	</tr>
+	<tr>
+		<td>ComponentsDeparted</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the total amount of components that have been transferred 
+		 out of a component.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of Statistics behavior.</td>
+	</tr>
+	<tr>
+		<td>States</td>
+		<td>List of n-tuple (String state_name, Enumeration system_state_type)</td>
+		<td>RW</td>
+		<td>Defines a list of defined states mapped to system states. 
+		<p class="TableNormal">A state must be mapped to a system state. 
+		 See <a href="Help_English.chm::/Reference/Behaviors/Misc/Statistics.htm">Statistics</a> 
+		 for more information.</p></td>
+	</tr>
+	<tr>
+		<td>SystemStates</td>
+		<td>List of n-tuple (String system_state_description, Enumeration 
+		 system_state_type)</td>
+		<td>R</td>
+		<td>Gets a list of available system states, which provides system 
+		 state description and type. 
+		<p class="TableNormal">See <a href="Constants.htm#Statistics_Constants">Statistics 
+		 Constants</a> for more information.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark3"></a>Flow type properties</h3>
+<p>During a simulation, a <a href="vcFlow.htm">vcFlow</a> object can update 
+ flow type statistics automatically if that object's Statistics property 
+ references a <a href="vcStatistics.htm">vcStatistics</a> object. Flow 
+ type statistics can be controlled manually by using flowEnter() and flowLeave() 
+ methods.</p>
+<p>The following properties are cumulative and based on total simulation 
+ runtime.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>PartsAverageCount</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the average amount of components that have been contained 
+		 in a component.</td>
+	</tr>
+	<tr>
+		<td>PartsAverageTime</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the average amount of time components spent in a component.</td>
+	</tr>
+	<tr>
+		<td>PartsCurrent</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the current amount of components contained in a component.</td>
+	</tr>
+	<tr>
+		<td>PartsEntered</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Gets/Sets the number of components that have been transferred 
+		 into a component. 
+		<p class="TableNormal">Generally, this property is set to reset 
+		 a count or collect from the start of a new process.</p></td>
+	</tr>
+	<tr>
+		<td>PartsExited</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Gets/Sets the number of components that have been transferred 
+		 out of a component. 
+		<p class="TableNormal">Generally, this property is set to reset 
+		 a count or collect from the start of a new process.</p></td>
+	</tr>
+	<tr>
+		<td>PartsMaxCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the maximum number of components that have been contained 
+		 in a component at any given time.</td>
+	</tr>
+	<tr>
+		<td>PartsMaxTime</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the maximum amount of time a component has spent in a 
+		 component.</td>
+	</tr>
+	<tr>
+		<td>PartsMinCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the minimum number of components that have been contained 
+		 in a component at any given time.</td>
+	</tr>
+	<tr>
+		<td>PartsMinTime</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the minimum amount of time a component has spent in a 
+		 component.</td>
+	</tr>
+	<tr>
+		<td>PartsTotalTime</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets sum total of the amount of time each component had spent 
+		 in a component, for example the duration of each component on 
+		 a conveyor added together.</td>
+	</tr>
+	<tr>
+		<td>PartsUtilization</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the percentage of a component's capacity being utilized: 
+		 number of parts divided by component's capacity.</td>
+	</tr>
+</table>
+<p>The following properties are based on the last recorded interval of 
+ a simulation.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>PartsIntervalAverageCount</td>
+		<td>Real</td>
+		<td>R</td>
+		<td rowspan="11" class="hcp1">Same as other 
+		 flow type properties, yet each value reflects the last recorded 
+		 interval during a simulation, which by default is every 60.0 seconds. 
+		 
+		<br>&#160; 
+		<br>See <a href="vcStatisticsManager.htm">vcStatisticsManager</a> 
+		 for more information on how to change interval.</td>
+	</tr>
+	<tr>
+		<td>PartsIntervalAverageTime</td>
+		<td>Real</td>
+		<td>R</td>
+		
+	</tr>
+	<tr>
+		<td>PartsIntervalCurrent</td>
+		<td>Integer</td>
+		<td>R</td>
+		
+	</tr>
+	<tr>
+		<td>PartsIntervalEntered</td>
+		<td>Integer</td>
+		<td>R</td>
+		
+	</tr>
+	<tr>
+		<td>PartsIntervalExited</td>
+		<td>Integer</td>
+		<td>R</td>
+		
+	</tr>
+	<tr>
+		<td>PartsIntervalMaxCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		
+	</tr>
+	<tr>
+		<td>PartsIntervalMaxTime</td>
+		<td>Real</td>
+		<td>R</td>
+		
+	</tr>
+	<tr>
+		<td>PartsIntervalMinCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		
+	</tr>
+	<tr>
+		<td>PartsIntervalMinTime</td>
+		<td>Real</td>
+		<td>R</td>
+		
+	</tr>
+	<tr>
+		<td>PartsIntervalTotalTime</td>
+		<td>Real</td>
+		<td>R</td>
+		
+	</tr>
+	<tr>
+		<td>PartsIntervalUtilization</td>
+		<td>Real</td>
+		<td>R</td>
+		
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark4"></a>State based properties</h3>
+<p>State based statistics are controlled by setting an object's State property 
+ to a different state. Therefore, a Statistics behavior would need to have 
+ defined states.</p>
+<p>The following properties are cumulative and based on total simulation 
+ runtime.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Properties</td>
+	</tr>
+	<tr>
+		<td>AverageActivePeriodTime</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the average amount of time a component was in one of its 
+		 defined states.</td>
+	</tr>
+	<tr>
+		<td>BlockedPercentage</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the amount of time a component spent in a blocked state, 
+		 for example capacity issue, as a percentage of total time.</td>
+	</tr>
+	<tr>
+		<td>BreakPercentage</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the amount of time a component spent in a broken state 
+		 as a percentage of total time.</td>
+	</tr>
+	<tr>
+		<td>BusyPercentage</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the amount of time a component spent in a busy state or 
+		 was being used as a percentage of total time.</td>
+	</tr>
+	<tr>
+		<td>FailedPercentage</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the amount of time a component spent in a failed state 
+		 as a percentage of total time.</td>
+	</tr>
+	<tr>
+		<td>IdlePercentage</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the amount of time a component spent in an idle state 
+		 as a percentage of total time.</td>
+	</tr>
+	<tr>
+		<td>RepairPercentage</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the amount of time a component spent in a repair state 
+		 as a percentage of total time. 
+		<p class="TableNormal">Scripting can be used to set repair time 
+		 and include time waiting for a repair.</p></td>
+	</tr>
+	<tr>
+		<td>SetupPercentage</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the amount of time a component spent in a setup state, 
+		 for example warm up time, as a percentage of total time.</td>
+	</tr>
+	<tr>
+		<td>State</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the current state of component. 
+		<p class="TableNormal">Use the States property to get an indication 
+		 of available states in component.</p></td>
+	</tr>
+	<tr>
+		<td>State&lt;name&gt;Percentage</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the amount of time a component spent in a user-defined 
+		 state as a percentage of total time. 
+		<p class="TableNormal">For example, <span class="Italic">StateExamplePercentage</span> 
+		 would refer to defined state called Example.</p></td>
+	</tr>
+	<tr>
+		<td>TotalStateTime</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the total amount of time a component was in one of its 
+		 defined states based on total time.</td>
+	</tr>
+	<tr>
+		<td>Utilization</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the amount of time a component was busy during a simulation 
+		 as a percentage (busy state/100 * 100%).</td>
+	</tr>
+</table>
+<p>The following properties are based on the last recorded interval of 
+ a simulation.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>IntervalBlockedPercentage</td>
+		<td>Real</td>
+		<td>R</td>
+		<td rowspan="10" class="hcp1">Same as other 
+		 state based properties, yet each value reflects the last recorded 
+		 interval during a simulation, which by default is every 60.0 seconds. 
+		 
+		<p class="TableNormal">See <a href="vcStatisticsManager.htm">vcStatisticsManager</a> 
+		 for more information on how to change interval.</p></td>
+	</tr>
+	<tr>
+		<td>IntervalBreakPercentage</td>
+		<td>Real</td>
+		<td>R</td>
+		
+	</tr>
+	<tr>
+		<td>IntervalBusyPercentage</td>
+		<td>Real</td>
+		<td>R</td>
+		
+	</tr>
+	<tr>
+		<td>IntervalFailedPercentage</td>
+		<td>Real</td>
+		<td>R</td>
+		
+	</tr>
+	<tr>
+		<td>IntervalIdlePercentage</td>
+		<td>Real</td>
+		<td>R</td>
+		
+	</tr>
+	<tr>
+		<td>IntervalRepairPercentage</td>
+		<td>Real</td>
+		<td>R</td>
+		
+	</tr>
+	<tr>
+		<td>IntervalSetupPercentage</td>
+		<td>Real</td>
+		<td>R</td>
+		
+	</tr>
+	<tr>
+		<td>IntervalTotalStateTime</td>
+		<td>Real</td>
+		<td>R</td>
+		
+	</tr>
+	<tr>
+		<td>IntervalUtilization</td>
+		<td>Real</td>
+		<td>R</td>
+		
+	</tr>
+	<tr>
+		<td>State&lt;name&gt;IntervalPercentage</td>
+		<td>Real</td>
+		<td>R</td>
+		
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>flowEnter</td>
+		<td>None</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span></td>
+		<td>Manually records a given <span class="Italic">component</span> 
+		 transferring into component.</td>
+	</tr>
+	<tr>
+		<td>flowLeave</td>
+		<td>None</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span></td>
+		<td>Manually records a given <span class="Italic">component</span> 
+		 transferring out of component.</td>
+	</tr>
+	<tr>
+		<td>getIntervalPercentage</td>
+		<td>Real</td>
+		<td>String <span class="Italic">state</span></td>
+		<td>Returns the accumulated time of a given <span class="Italic">state</span> 
+		 as a percentage of the last recorded interval during a simulation.</td>
+	</tr>
+	<tr>
+		<td>getPercentage</td>
+		<td>Real</td>
+		<td>String <span class="Italic">state</span></td>
+		<td>Returns the accumulated time of a given <span class="Italic">state</span> 
+		 as a percentage of total time at the time of call.</td>
+	</tr>
+	<tr>
+		<td>getSystemIntervalPercentage</td>
+		<td>Real</td>
+		<td>Enumeration <span class="Italic">system_state</span></td>
+		<td>Returns the accumulated time of a given <span class="Italic">system_state</span> 
+		 as a percentage of the last recorded interval during a simulation.</td>
+	</tr>
+	<tr>
+		<td>getSystemPercentage</td>
+		<td>Real</td>
+		<td>Enumeration <span class="Italic">system_state</span></td>
+		<td>Returns the accumulated time of a given <span class="Italic">system_state</span> 
+		 as a percentage of total time at the time of call.</td>
+	</tr>
+	<tr>
+		<td>getSystemTime</td>
+		<td>Real</td>
+		<td>Enumeration <span class="Italic">system_state</span></td>
+		<td>Returns the accumulated time of a given <span class="Italic">system_state</span> 
+		 at the time of call.</td>
+	</tr>
+	<tr>
+		<td>getTime</td>
+		<td>Real</td>
+		<td>String <span class="Italic">state</span></td>
+		<td>Returns the accumulated time of a given <span class="Italic">state</span> 
+		 at the time of call.</td>
+	</tr>
+	<tr>
+		<td>warmupCompleted</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Marks the completion/end of a component's warm up period, thereby 
+		 setting all statistics to zero at the time of call. 
+		<p class="TableNormal">For example, a component can be configured 
+		 to run a delay or a certain number of time consuming tasks at 
+		 the start of a simulation. When this method is called, warm up 
+		 time is calculated from simulation start to time of call.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark6"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnFlowChange</td>
+		<td><a href="vcStatistics.htm">vcStatistics</a> <span class="Italic">statistics</span>, 
+		 Real <span class="Italic">time</span>, Boolean <span class="Italic">incoming</span>, 
+		 <a href="vcNode.htm">vcNode</a> <span class="Italic">component</span></td>
+		<td>Triggered when a component is transferred into or out of a 
+		 component. 
+		<p class="TableNormal">The <span class="Italic">statistics</span> 
+		 argument is the Statistics behavior that recorded the event.</p>
+		<p class="TableNormal">The <span class="Italic">time</span> argument 
+		 is simulation time when flow change occurred.</p>
+		<p class="TableNormal">The <span class="Italic">incoming</span> 
+		 argument is True when component transfers in and False when component 
+		 transfers out of component.</p></td>
+	</tr>
+	<tr>
+		<td>OnStateChange</td>
+		<td><a href="vcStatistics.htm">vcStatistics</a> <span class="Italic">statistics</span>, 
+		 Real <span class="Italic">time</span>, Integer <span class="Italic">state</span>, 
+		 <a href="vcNode.htm">vcNode</a> <span class="Italic">component</span></td>
+		<td>Triggered when the state change occurs in a component. 
+		<p class="TableNormal">The <span class="Italic">statistics</span> 
+		 argument is the Statistics behavior that recorded the event.</p>
+		<p class="TableNormal">The <span class="Italic">time</span> argument 
+		 is simulation time when state change occurred.</p>
+		<p class="TableNormal">The <span class="Italic">state</span> argument 
+		 is the new state or system state of component. Refer to States 
+		 or SystemStates property values as needed.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark7"></a>Examples</h2>
+<p><span class="Example">Example. Print statistical properties and values</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td><span>from vcScript import *</span> 
+		<br>&#160; 
+		<br><span>comp = getComponent()</span> 
+		<br><span>statistics = comp.findBehaviour('Statistics')</span> 
+		<br>&#160; 
+		<br><span>#create loop</span> 
+		<br>&#160; 
+		<br><span>for i in statistics.Properties:</span> 
+		<br><span>&#160;&#160;print i.Name, i.Value</span></td>
+	</tr>
+</table>
+</body>
+</html>

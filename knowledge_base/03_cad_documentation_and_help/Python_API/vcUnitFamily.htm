@@ -1,0 +1,115 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcUnitFamily</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcUnitFamily</h1>
+<p>vcUnitFamily is a collection of units that belong to the same system of measurements. This unit family concept is not a strict definition rather a way to simplify unit selection</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot23306" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot23306', 'MTPOPUP23306');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP23306" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Usage</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Usage</h2>
+<p>A unit family contains any number of unit groups, which are collections of related units. When a unit family is selected, each of its unit groups become the current groups for quantities. This eliminates the need to manually change each quantity when changing the active unit family of application as well as preserving selected units in quantities.</p>
+<h2><a name="MiniTOCBookMark3"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Groups</td>
+<td>List of <a href="vcUnitGroup.htm">vcUnitGroup</a></td>
+<td>R</td>
+<td>Gets a list of all unit groups in unit family.</td>
+</tr>
+<tr>
+<td>IsBuiltIn</td>
+<td>Boolean</td>
+<td>R</td>
+<td>Indicates if unit family is a built-in type.
+<p class="TableNormal">If True, adding and removing custom unit groups from unit family is allowed but not for built-in unit groups.</p>
+</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>String</td>
+<td>RW/R</td>
+<td>If unit family is built-in, gets the unit family's name; otherwise defines the name of unit family which cannot contain any dot (.) characters.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>addGroup</td>
+<td>Integer</td>
+<td><a href="vcUnitGroup.htm">vcUnitGroup</a> <span class="Italic">group</span>
+<p class="TableNormal">or</p>
+<p class="TableNormal">String <span class="Italic">groupName</span></p>
+</td>
+<td>Adds a given unit group or one matching a given name to unit family, and then returns the index of unit group in unit family.</td>
+</tr>
+<tr>
+<td>containsGroup</td>
+<td>Boolean</td>
+<td><a href="vcUnitGroup.htm">vcUnitGroup</a> <span class="Italic">group</span>
+<p class="TableNormal">or</p>
+<p class="TableNormal">String <span class="Italic">groupName</span></p>
+</td>
+<td>Returns True if a given unit group or one matching a given name is in the unit family; otherwise returns False.</td>
+</tr>
+<tr>
+<td>removeGroup</td>
+<td>Boolean</td>
+<td><a href="vcUnitGroup.htm">vcUnitGroup</a> <span class="Italic">group</span>
+<p class="TableNormal">or</p>
+<p class="TableNormal">String <span class="Italic">groupName</span></p>
+</td>
+<td>Removes a given unit group or one matching a given name from unit family.
+<p class="TableNormal">Returns True if removal is successful; otherwise returns False if name does not match a unit group or throws an exception if unit group is built-in.</p>
+</td>
+</tr>
+<tr>
+<td>removeGroupAt</td>
+<td>None</td>
+<td>Integer <span class="Italic">index</span></td>
+<td>Removes a unit group at a given index from unit family.
+<p class="TableNormal">This method throws an exception if unit group is built-in.</p>
+</td>
+</tr>
+</table>
+<!--======================================Methods=======================================-->
+</body>
+</html>

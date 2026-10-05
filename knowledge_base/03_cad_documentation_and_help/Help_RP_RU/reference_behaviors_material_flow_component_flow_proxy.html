@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Прокси потока компонентов</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Прокси-процесс потока компонентов позволяет вам управлять потоком компонентов в различных режимах, используя любое количество портов." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Прокси потока компонентов</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Прокси-процесс потока компонентов позволяет вам управлять потоком компонентов в различных режимах, используя любое количество портов.</p>
+<p class="p_Normal"><img alt="ClipboardImg164" style="margin:0;width:6.7188in;height:2.9792in;border:none" src="clipboardimg164.png"/></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Порты прокси-процесса потока компонентов добавляются и удаляются с помощью меню и перечислены вместе с поведением на панели Диаграммы Компонентов.</p>
+<p class="p_Normal"><img alt="ClipboardImg165" style="margin:0;width:3.9479in;height:3.0625in;border:none" src="clipboardimg165.png"/></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Каждый порт прокси-процесса потока компонентов имеет скрытый внутренний порт, который следует использовать для подключения прокси-процесса к поведениям в том же компоненте. </p>
+<p class="p_Normal"><img alt="ClipboardImg166" style="margin:0;width:4.1979in;height:3.3438in;border:none" src="clipboardimg166.png"/></p>
+<p class="p_Normal">Входной порт одностороннего пути, подключенный к внутреннему порту прокси-процесса потока компонентов</p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.9063in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5104in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет наименование прокси.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Статистика</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет поведение статистики, когда собирает статистику, сгенерированную прокси.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СигналКомпонента</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет сигнал компонента, используемый для обозначения того, какой компонент пытается войти в прокси.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СигналПорта</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет целочисленный сигнал, используемый для обозначения порта, через который компонент пытается войти в прокси.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ДинамическиеСоединения</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Включает/выключает использование соединителей, определенных скриптом Python. То есть во время моделирования сценарий Python может подключать порты прокси-сервера к соединителям в других режимах на основе определенной логики, например поворотный стол, который должен направлять компоненты по разным путям.</p>
+<p class="p_Normal">Значение True означает, что прокси будет динамически формировать соединения во время моделирования, что в большинстве случаев требует использования скрипта Python. Значение False означает, что прокси-сервер будет передавать компоненты через соединение своих внутренних и внешних портов. Например, если внутренний порт прокси-сервера получает компонент, компонент будет передан с внутреннего порта на сопряженный с ним внешний порт, а затем в другое место, если внешний порт (коннектор, добавленный к прокси-серверу) подключен к точке передачи, например входной порт пути.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СохранитьCмещение</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Включает/выключает возможность сохранять положение компонента при его прохождении по маршруту.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

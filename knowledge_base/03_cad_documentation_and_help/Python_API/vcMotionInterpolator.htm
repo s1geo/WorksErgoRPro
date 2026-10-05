@@ -1,0 +1,90 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcMotionInterpolator</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcMotionInterpolator</h1>
+<p>vcMotionInterpolator is used by a robot to interpolate motion targets and joint values.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot35007" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot35007', 'MTPOPUP35007');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP35007" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>DefaultTargetMode</td>
+<td>Enumeration</td>
+<td>RW</td>
+<td>Defines the relationship between motion targets and robot.
+<p class="TableNormal">See <a href="Constants.htm#Motion_Target_Constants">Motion Target Constants</a> for more information.</p>
+</td>
+</tr>
+<tr>
+<td>Targets</td>
+<td>List of <a href="vcMotionTarget.htm">vcMotionTarget</a></td>
+<td>RW</td>
+<td>Lists all motion targets in the interpolator.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>createTarget</td>
+<td><a href="vcMotionTarget.htm">vcMotionTarget</a></td>
+<td>[<a href="vcMatrix.htm">vcMatrix</a> <span class="Italic">target</span>], [Enumeration <span class="Italic">motiontype</span>], [Real <span class="Italic">speed</span>], [Real <span class="Italic">accuracy</span>]</td>
+<td>Adds a new motion target to the interpolator using either the robot's current posture or given arguments.
+<p class="TableNormal">If <span class="Italic">motiontype</span> argument is VC_MOTIONTARGET_MT_LINEAR, <span class="Italic">speed</span> argument defines CartesianSpeed (mm/s) property of motion target.</p>
+<p class="TableNormal">If <span class="Italic">motiontype</span> argument is VC_MOTIONTARGET_MT_JOINT, <span class="Italic">speed</span> argument defines JointSpeedFactor (mm/s) property of motion target.</p>
+<p class="TableNormal">See <a href="vcRslMotionStatement.htm">vcRslMotionStatement</a> and <a href="vcMotionTarget.htm">vcMotionTarget</a> for more information.</p>
+</td>
+</tr>
+<tr>
+<td>getCycleTimeAtTarget</td>
+<td>Real</td>
+<td>Integer <span class="Italic">index</span></td>
+<td>Returns the cycle time of a motion target at a given index in interpolator's Targets property.</td>
+</tr>
+<tr>
+<td>interpolate</td>
+<td><a href="vcMotionTarget.htm">vcMotionTarget</a></td>
+<td>Real <span class="Italic">cycletime</span></td>
+<td>Returns an interpolated motion target based on a given <span class="Italic">cycletime</span>.</td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,164 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProcessFlowTable</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcProcessFlowTable</h1>
+<p>The process flow table holds the sequences of processes (<a href="vcProcessSequence.htm">vcProcessSequence</a>) 
+ that each product (<a href="vcProduct.htm">vcProduct</a>) belonging to 
+ a certain flow group (<a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a>) 
+ shall follow as it travels in the simulation under this process controller 
+ (<a href="vcProcessController.htm">vcProcessController</a>).</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot43948" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot43948', 'MTPOPUP43948');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP43948" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Controller </td>
+		<td><a href="vcProcessController.htm">vcProcessController</a></td>
+		<td>R</td>
+		<td>The controller that owns this object.</td>
+	</tr>
+	<tr>
+		<td>Sequences</td>
+		<td>List of <a href="vcProcessSequence.htm">vcProcessSequence</a></td>
+		<td>R</td>
+		<td>All sequences in this table.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createSequence </td>
+		<td><a href="vcProcessSequence.htm">vcProcessSequence</a> </td>
+		<td>String <span class="hcp1">groupName</span> OR 
+		 <a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> <span class="hcp1">group</span></td>
+		<td>Creates a new sequence for the given <span class="hcp1">group</span>.</td>
+	</tr>
+	<tr>
+		<td>deleteSequence </td>
+		<td>None</td>
+		<td>String <span class="hcp1">groupName</span> OR 
+		 <a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> <span class="hcp1">group</span></td>
+		<td>Deletes the sequence for a given <span class="hcp1">group</span>.</td>
+	</tr>
+	<tr>
+		<td>getSequence </td>
+		<td><a href="vcProcessSequence.htm">vcProcessSequence</a> </td>
+		<td>String <span class="hcp1">groupName</span> OR 
+		 <a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> <span class="hcp1">group</span></td>
+		<td>Returns a sequence for the given <span class="hcp1">group</span>, 
+		 if found.</td>
+	</tr>
+	<tr>
+		<td>copySequenceFrom</td>
+		<td><a href="vcProcessSequence.htm">vcProcessSequence</a> </td>
+		<td><span class="hcp1"><a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> 
+		 source</span>, <a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> 
+		 <span class="hcp1">target</span></td>
+		<td>Copies the sequence defined for the given <span class="hcp1">source</span> 
+		 flow group and adds it to this flow table, for the <span class="hcp1">target</span> 
+		 flow group. There should not already be a sequence registered 
+		 for the <span class="hcp1">target</span> flow group.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnSequenceAdded</td>
+		<td><a href="vcProcessSequence.htm">vcProcessSequence</a> <span class="hcp1">sequence</span> </td>
+		<td>Triggered when a new <span class="hcp1">sequence</span> 
+		 has been added.</td>
+	</tr>
+	<tr>
+		<td>OnSequenceRemoving </td>
+		<td><a href="vcProcessSequence.htm">vcProcessSequence</a> <span class="hcp1">sequence</span> </td>
+		<td>Triggered when a <span class="hcp1">sequence</span> 
+		 is about to be removed.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a>Examples</h2>
+<p><span class="Example">Example. Create Process Steps to the flow group 
+ in Process Flow Editor</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col>
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>sim = getSimulation() 
+		<br>process_controller = sim.ProcessController 
+		<br>&#160; 
+		<br># Get the handle for product flow groups 
+		<br>flow_grp_mgr = process_controller.FlowGroupManager 
+		<br>flow_groups = flow_grp_mgr.Groups 
+		<br>flow_group1 = flow_groups[0] 
+		<br>&#160; 
+		<br># Create a Process Sequence 
+		<br>flow_table = process_controller.FlowTable 
+		<br>process_sequence = flow_table.getSequence(flow_group1) 
+		<br>if not process_sequence: 
+		<br>&#160;&#160;process_sequence = flow_table.createSequence(flow_group1) 
+		<br>&#160; 
+		<br># Add Process Groups to the Process Sequence 
+		<br>process_manager = process_controller.ProcessManager 
+		<br>for process_group in process_manager.ProcessGroups: 
+		<br>&#160;&#160;print process_group.ProcessId 
+		<br>&#160;&#160;process_sequence.addProcessGroup(process_group)</td>
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,71 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="tool center point,base frame">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcToolFrame</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcToolFrame</h1>
+<p>vcToolFrame allows you to manipulate Frame features used as tool frames for tool center points of robot.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>IPOMode</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Defines the interpolation mode of the frame and the external configuration of a referencing robot controller.
+<p class="TableNormal"><span class="Term">0</span><br>
+Default setting, so no effect on robot's external configuration.</p>
+<p class="TableNormal"><span class="Term">1</span><br>
+Robot position inherits orientation of base frame.</p>
+<p class="TableNormal"><span class="Term">2</span><br>
+Robot position inherits orientation of tool frame.</p>
+<p class="TableNormal"><a href="Constants.htm#Interpolation_Constants">Interpolation</a> constants can be used with this property.</p>
+<p class="TableNormal"><span class="Strong">Note:</span> A conflict can occur if a base-tool pair in a referencing robot have the same IPOMode property value or cannot be used with the robot's current configuration.</p>
+</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines the name of the frame.</td>
+</tr>
+<tr>
+<td>Node</td>
+<td><a href="vcNode.htm" title="vcNode">vcNode</a></td>
+<td>RW</td>
+<td>Defines the node the frame is attached to in the 3D world.</td>
+</tr>
+<tr>
+<td>PositionMatrix</td>
+<td><a href="vcMatrix.htm" title="vcMatrix">vcMatrix</a></td>
+<td>RW</td>
+<td>Defines the frame's position and orientation in the Node property's coordinate system.
+<p class="TableNormal">The position matrix is a result of the node's offset, pivot and joint expressions but can be set manually.</p>
+</td>
+</tr>
+<tr>
+<td>PositionExpression</td>
+<td>String</td>
+<td>RW</td>
+<td>The matrix offset expression for the frame's location.</td>
+</tr>
+</table>
+</body>
+</html>

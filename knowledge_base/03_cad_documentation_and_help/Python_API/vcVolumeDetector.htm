@@ -1,0 +1,181 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcVolumeDetector</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcVolumeDetector</h1>
+<p>vcVolumeDetector allows you to detect collisions in the 3D world using 
+ a box. Collision detection requires at least one node list and a box defined 
+ by lower and upper corners.</p>
+<p><img src="VolumeDetector.png" alt="" style="border: none;" border="0"></p>
+<p>A collision is detected when nodes in a given list collide with the 
+ box. The collision can be tested using geometry or bounding boxes of nodes 
+ and limited to the first recorded collision or all collisions.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot48154" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot48154', 'MTPOPUP48154');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP48154" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Corner1</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Defines the lower corner of box in World coordinate system.</td>
+	</tr>
+	<tr>
+		<td>Corner2</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Defines the upper corner of box in World coordinate system.</td>
+	</tr>
+	<tr>
+		<td>HitCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the number of detected collisions with box.</td>
+	</tr>
+	<tr>
+		<td>NodeList</td>
+		<td>List of 3-tuple (<a href="vcNode.htm">vcNode</a> <span>node</span>, 
+		 Enumeration <span>inclusion_type</span>, Enumeration <span>inclusion_scope</span>)</td>
+		<td>RW</td>
+		<td>Defines a list of one or more nodes that can trigger a collision 
+		 with box. 
+		<p class="TableNormal">See <a href="Constants.htm#Collision_Detector_Constants">Collision 
+		 Detector Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>TestMethod</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines test method for detecting collisions. 
+		<p class="TableNormal">See <a href="Constants.htm#Collision_Detector_Constants">Collision 
+		 Detector Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Transformation</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines the position matrix of box in World coordinate system.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getHitFeature</td>
+		<td><a href="vcFeature.htm">vcFeature</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns a feature at a given <span class="Italic">index</span> 
+		 in detected collisions list.</td>
+	</tr>
+	<tr>
+		<td>getHitGeometrySet</td>
+		<td><a href="vcGeometrySet.htm">vcGeometrySet</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns a geometry set at a given <span class="Italic">index</span> 
+		 in detected collisions list.</td>
+	</tr>
+	<tr>
+		<td>getHitNode</td>
+		<td><a href="vcNode.htm">vcNode</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns a node at a given index in detected collisions list.</td>
+	</tr>
+	<tr>
+		<td>testAllCollisions</td>
+		<td>Boolean</td>
+		<td>[Real <span class="Italic">tolerance</span>]</td>
+		<td>Detects all collisions of box with node list. 
+		<p class="TableNormal">An optional <span class="Italic">tolerance</span> 
+		 argument can be given to detect collisions within a certain distance. 
+		 By default, tolerance is zero.</p>
+		<p class="TableNormal">If a collision is detected, returns True; 
+		 otherwise returns False.</p></td>
+	</tr>
+	<tr>
+		<td>testOneCollision</td>
+		<td>Boolean</td>
+		<td>[Real <span class="Italic">tolerance</span>]</td>
+		<td>Detects the first collision of box with node list. 
+		<p class="TableNormal">An optional <span class="Italic">tolerance</span> 
+		 argument can be given to detect collisions within a certain distance. 
+		 By default, tolerance is zero.</p>
+		<p class="TableNormal">If a collision is detected, returns True; 
+		 otherwise returns False.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Examples</h2>
+<p><span class="Example"><a name="volume_detector"></a>Example. Test collisions 
+ using volume detector</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>import vcMatrix 
+		<br>import vcVector 
+		<br>&#160; 
+		<br>def OnRun(): 
+		<br>&#160;&#160;comp = getComponent() 
+		<br>&#160;&#160;sim = getSimulation() 
+		<br>&#160; 
+		<br>&#160;&#160;insideDetector = sim.newVolumeDetector() &#160; 
+		<br>&#160;&#160;insideDetector.Corner1 = vcVector.new() 
+		<br>&#160;&#160;insideDetector.Corner2 = vcVector.new(102.0, 102.0, 102.0) 
+		<br>&#160;&#160;insideDetector.NodeList = [(comp, VC_NODELIST_INCLUDE, VC_NODELIST_TREE)] 
+		<br>&#160; 
+		<br>&#160;&#160;insideDetector.TestMethod = VC_INTERSECT 
+		<br>&#160;&#160;insideHit1 = insideDetector.testAllCollisions() 
+		<br>&#160; 
+		<br>&#160;&#160;insideDetector.TestMethod = VC_CENTER_INSIDE 
+		<br>&#160;&#160;insideHit2 = insideDetector.testAllCollisions() 
+		<br>&#160; 
+		<br>&#160;&#160;insideDetector.TestMethod = VC_INSIDE 
+		<br>&#160;&#160;insideHit3 = insideDetector.testAllCollisions() 
+		<br>&#160; 
+		<br>&#160;&#160;print &quot;--------&quot; 
+		<br>&#160;&#160;print insideHit1, &quot;VC_INTERSECT&quot; 
+		<br>&#160;&#160;print insideHit2, &quot;VC_CENTER_INSIDE&quot; 
+		<br>&#160;&#160;print insideHit3, &quot;VC_INSIDE&quot;</td>
+	</tr>
+</table>
+<!--======================================Methods=======================================-->
+</body>
+</html>

@@ -1,0 +1,171 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcComponentCreator</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcComponentCreator</h1>
+<p>vcComponentCreator uses a component as a template for creating other 
+ components.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a>, 
+ <a href="vcFlow.htm">vcFlow</a>, <a href="vcContainer.htm">vcContainer</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot50315" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot50315', 'MTPOPUP50315');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP50315" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table summary="" class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>BlockingOptimization</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the optimization 
+		 of creator when making new components, thereby improving simulation 
+		 performance. 
+		<p class="TableNormal">If True, the creator will not check for 
+		 capacity rather listen for event. The creator is informed, for 
+		 example by component or capacity controller, when there is capacity 
+		 to make a new component.</p></td>
+	</tr>
+	<tr>
+		<td>Interval</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the interval (in seconds) for creating components.</td>
+	</tr>
+	<tr>
+		<td>Limit</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the maximum number of components that can be created 
+		 by creator during a simulation.</td>
+	</tr>
+	<tr>
+		<td>Part</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the URI or VCID of template component.</td>
+	</tr>
+	<tr>
+		<td>PartPooling</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the reuse of components 
+		 made by the creator, thereby improving simulation performance. 
+		 
+		<p class="TableNormal">If True, dynamic components removed during 
+		 simulation are recirculated to make new components, thereby reducing 
+		 memory allocation.</p>
+		<p class="TableNormal"><span class="Strong">Caution:</span> Be 
+		 careful when recirculating components that were modified during 
+		 simulation, for example a change in node material.</p></td>
+	</tr>
+	<tr>
+		<td><span>TemplateComponent</span></td>
+		<td><span><a href="vcComponent.htm">vcComponent</a></span></td>
+		<td>RW</td>
+		<td>Defines the template used by creator to create new components 
+		 during a simulation. 
+		<p class="TableNormal">Either this property or Part can be used 
+		 to define the template component of creator.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table summary="" class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>create</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td>
+		<p>[Boolean <span class="Italic">wait</span>]</p></td>
+		<td>Creates a new component from template, and then returns the 
+		 new component. 
+		<p class="TableNormal">An optional 
+		 <span class="Italic">wait</span> argument can be given to use 
+		 BlockingOptimization. If True, the creator waits for capacity 
+		 before trying to make a component.</p>
+		<p class="TableNormal">If creation fails, returns None. Generally, 
+		 this occurs when the template is undefined or because of capacity 
+		 issues.</p>
+		<p class="TableNormal"><span class="Strong">Tip:</span> Set the 
+		 Limit property to zero in order to disable the internal logic 
+		 of the creator.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p class="Example"><span class="Example">Example. Set creation interval 
+ and limit</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>comp = app.findComponent(&quot;Feeder Template&quot;) 
+		<br>creator = comp.findBehaviour(&quot;ComponentCreator&quot;) 
+		<br>creator.Interval = 20 
+		<br>creator.Limit = 99999</td>
+	</tr>
+</table>
+<p class="Example"><span class="Example">Example. Print created products 
+ and their details during simulation</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>creator = comp.findBehaviour(&quot;ComponentCreator&quot;) 
+		<br>&#160; 
+		<br>def OnStart(): 
+		<br>&#160;&#160;creator.Interval = 3 
+		<br>&#160;&#160;creator.Limit = 0 
+		<br>&#160; 
+		<br>def OnRun(): 
+		<br>&#160;&#160;while True: 
+		<br>&#160;&#160;&#160;&#160;part = creator.create() # returns None if creation fails (e.g. if path is blocked) 
+		<br>&#160; 
+		<br>&#160;&#160;&#160;&#160;#test if part creation was successful 
+		<br>&#160;&#160;&#160;&#160;#then print name and height of created component 
+		<br>&#160;&#160;&#160;&#160;if part: # test if part creation was successful 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;print part.Name, part.BoundDiagonal.Z*2 
+		<br>&#160;&#160;&#160;&#160;delay(creator.Interval)</td>
+	</tr>
+</table>
+</body>
+</html>

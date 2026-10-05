@@ -1,0 +1,137 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcCompactLineSet</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcCompactLineSet</h1>
+<p>vcCompactLineSet is used for creating and reading line type geometry, 
+ which is a set of two or more points.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcGeometrySet.htm">vcGeometrySet</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot20448" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot20448', 'MTPOPUP20448');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP20448" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>CurveData</td>
+		<td><a 
+		 href="vcCurveData.htm">vcCurveData</a></td>
+		<td>R</td>
+		<td>Gets the container of 
+		 mathematical information used for rendering curves.</td>
+	</tr>
+	<tr>
+		<td>Lines</td>
+		<td>Two-dimensional list of <a href="vcVector.htm">vcVector</a></td>
+		<td>R</td>
+		<td>Gets a list of lines where each line is a list of position 
+		 vectors for its points.</td>
+	</tr>
+	<tr>
+		<td>LineCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the total number of lines in the set.</td>
+	</tr>
+	<tr>
+		<td>LineWidth</td>
+		<td><span>Real</span></td>
+		<td>RW</td>
+		<td>Defines the width of each line in the set.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addLine</td>
+		<td>None</td>
+		<td>List of <a href="vcVector.htm">vcVector</a> <span class="Italic">points</span></td>
+		<td>Creates a new line in set using a list of given <span class="Italic">points</span>.</td>
+	</tr>
+	<tr>
+		<td>deleteLine</td>
+		<td>None</td>
+		<td>Integer <span class="hcp1">index</span></td>
+		<td>Deletes a line at a given <span class="Italic">index</span> 
+		 from set.</td>
+	</tr>
+	<tr>
+		<td>getLinePointCount</td>
+		<td>Integer</td>
+		<td>Integer <span class="hcp1">index</span></td>
+		<td>Returns the number of points in a line at a given <span class="Italic">index</span> 
+		 in set.</td>
+	</tr>
+	<tr>
+		<td>getLine</td>
+		<td>List of <a href="vcVector.htm">vcVectors</a></td>
+		<td>Integer <span class="hcp1">index</span></td>
+		<td>Returns a list of position vectors for each point of a line 
+		 at a given <span class="Italic">index</span> in set.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Examples</h2>
+<p class="Example"><span class="Example">Example. Creating a line</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td style="vertical-align: middle;">from vcScript import * 
+		<br>import vcVector 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>comp = getComponent() 
+		<br>gf = comp.RootFeature.createFeature(VC_GEOMETRY, &quot;MyGeometry&quot;) 
+		<br>ls = gf.Geometry.createGeometrySet(VC_COMPACTLINESET) 
+		<br>&#160; 
+		<br>line = [vcVector.new(0,0,0), vcVector.new(1000,0,0)] 
+		<br>ls.addLine(line) 
+		<br>ls.LineWidth = 1000.0 
+		<br>&#160; 
+		<br>gf.rebuild() 
+		<br>app.render()</td>
+	</tr>
+</table>
+</body>
+</html>

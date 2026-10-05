@@ -1,0 +1,293 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcSimInterface</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcSimInterface</h1>
+<p>vcSimInterface is an interface used for connecting components physically 
+ or remotely to one another and exchanging data.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<p>vcSimInterface can support one-to-one and one-to-many connections and 
+ is the object type for <a href="Help_English.chm::/Reference/Behaviors/Interfaces/One_to_One_Interface.htm">One 
+ to One Interface</a> and <a href="Help_English.chm::/Reference/Behaviors/Interfaces/One_to_Many_Interface.htm">One 
+ to Many Interface</a> behaviors.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot36141" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot36141', 'MTPOPUP36141');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP36141" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AngleTolerance</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines an angle tolerance for allowing interfaces to connect 
+		 to the interface when not aligned on same axis.</td>
+	</tr>
+	<tr>
+		<td>ConnectedComponent</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td>R</td>
+		<td>Gets the component connected to interface. 
+		<p class="TableNormal">If no connection, value is None.</p></td>
+	</tr>
+	<tr>
+		<td>ConnectedComponents</td>
+		<td>List of <a href="vcComponent.htm">vcComponent</a></td>
+		<td>R</td>
+		<td>If one-to-many interface, gets a list of all components connected 
+		 to interface. 
+		<p class="TableNormal">If no connection, value is an empty list.</p></td>
+	</tr>
+	<tr>
+		<td>ConnectedFromSections</td>
+		<td>List of <a href="vcSimInterfaceSection.htm">vcSimInterfaceSection</a></td>
+		<td>R</td>
+		<td>If one-to-many interface, gets a list of all sections in interface 
+		 that have an active connection. 
+		<p class="TableNormal">If no connection, value is an empty list.</p></td>
+	</tr>
+	<tr>
+		<td>ConnectedSection</td>
+		<td><a href="vcSimInterfaceSection.htm">vcSimInterfaceSection</a></td>
+		<td>R</td>
+		<td>If one-to-one interface, gets a section of interface that have 
+		 an active connection. 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span></p></td>
+	</tr>
+	<tr>
+		<td><p>DistanceTolerance</p></td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Defines the distance at which the interface snaps to an available 
+		 connection, thereby completing Plug and Play.</td>
+	</tr>
+	<tr>
+		<td>ConnectedSections</td>
+		<td>List of <a href="vcSimInterfaceSection.htm">vcSimInterfaceSection</a><br>
+		</td>
+		<td>R</td>
+		<td>If one-to-many interface, gets a list of all sections in interface 
+		 that have an active connection. 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span></p></td>
+	</tr>
+	<tr>
+		<td>ConnectedToSections</td>
+		<td>List of <a href="vcSimInterfaceSection.htm">vcSimInterfaceSection</a></td>
+		<td>R</td>
+		<td>Gets a list of sections connected to interface. 
+		<p class="TableNormal">If no connection, value is an empty list.</p></td>
+	</tr>
+	<tr>
+		<td>ConnectionEditName</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of a Button property to temporarily create 
+		 in component for connecting the interface. 
+		<p class="TableNormal">If an empty string, button is not created 
+		 and/or removed from GUI. The string can use format <span class="Term">[tab 
+		 name]::[button name</span>] to list button in a specific tab. 
+		 If tab does not exist, it will be automatically created to contain 
+		 button as long as string refers to that tab. If tab name is not 
+		 given, button is listed as a default property.</p></td>
+	</tr>
+	<tr>
+		<td>IsAbstract</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if interface supports remote connections.</td>
+	</tr>
+	<tr>
+		<td>IsConnected</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>If True, interface is connected; otherwise interface is not 
+		 connected.</td>
+	</tr>
+	<tr>
+		<td>Sections</td>
+		<td>List of <a href="vcSimInterfaceSection.htm">vcSimInterfaceSection</a></td>
+		<td>R</td>
+		<td>Gets a list of all sections in interface. 
+		<p class="TableNormal">If no sections, value is an empty list.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>canConnect</td>
+		<td>Boolean</td>
+		<td><a href="vcSimInterface.htm">vcSimInterface</a> <span class="Italic">interface</span></td>
+		<td>Returns True if a given <span class="Italic">interface</span> 
+		 can connect to the interface; otherwise, returns False.</td>
+	</tr>
+	<tr>
+		<td>connect</td>
+		<td>Boolean</td>
+		<td><a href="vcSimInterface.htm">vcSimInterface</a> <span class="Italic">interface, 
+		 </span><span class="Italic" style="font-style: normal;">[Boolean 
+		 </span><span class="Italic">retain_offset</span><span class="Italic" 
+		 style="font-style: normal;">]</span></td>
+		<td>Connects a given <span class="Italic">interface</span> to the 
+		 interface. 
+		<br>&#160; 
+		<br>An optional <span class="Italic">retain_offset</span> 
+		 argument can be used to retain the offset when attaching component 
+		 to another using Hierarchy field. 
+		<br>&#160; 
+		<br>If connection is successful, returns True; otherwise 
+		 returns False.</td>
+	</tr>
+	<tr>
+		<td>createSection</td>
+		<td><a href="vcSimInterfaceSection.htm">vcSimInterfaceSection</a></td>
+		<td>String <span class="Italic">section_name</span></td>
+		<td>Adds a new section of a given <span class="Italic">name</span> 
+		 to interface, and then returns the new section.</td>
+	</tr>
+	<tr>
+		<td>deleteSection</td>
+		<td>Boolean</td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>If one-to-one interface, deletes a section at a given index 
+		 from interface. 
+		<p class="TableNormal">Returns True is deletion is successful; 
+		 otherwise returns False.</p></td>
+	</tr>
+	<tr>
+		<td>disconnect</td>
+		<td>Boolean</td>
+		<td>[<a href="Users/SmithWi1/Desktop/updated version 20-11-2019/Python API/vcSimInterface.htm">vcSimInterface</a> 
+		 <span class="Italic">other_interface</span>]</td>
+		<td>Removes all connections in interface. 
+		<p class="TableNormal">An optional <span class="Italic">other_interface</span> 
+		 argument can be used to disconnect a specific interface from the 
+		 interface, for example when interface is one-to-many.</p>
+		<p class="TableNormal">Returns True if disconnection is successful; 
+		 otherwise returns None.</p></td>
+	</tr>
+	<tr>
+		<td>overrideEventResult</td>
+		<td>None</td>
+		<td>1, Integer <span class="Italic">result</span></td>
+		<td>Overrides event result to have a given <span class="Italic">result</span>.</td>
+	</tr>
+	<tr>
+		<td>unConnect</td>
+		<td>Boolean</td>
+		<td>[<a href="vcSimInterface.htm">vcSimInterface</a> <span class="Italic">other_interface</span>]</td>
+		<td><span class="Strong">(Deprecated)</span> Use disconnect().</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnConnect</td>
+		<td><a href="vcSimInterface.htm">vcSimInterface</a> <span class="Italic">other_interface</span>, 
+		 Boolean <span class="Italic">retain_offset</span></td>
+		<td>Triggered when interface is connected to another interface.</td>
+	</tr>
+	<tr>
+		<td>OnDisconnect</td>
+		<td><a href="vcSimInterface.htm">vcSimInterface</a> <span class="Italic">other_interface</span></td>
+		<td>Triggered when interface is disconnected from another interface.</td>
+	</tr>
+	<tr>
+		<td>OnMatch</td>
+		<td><a href="vcSimInterface.htm">vcSimInterface</a> <span class="Italic">other_interface</span></td>
+		<td>Triggered when interfaces are tested as being able to connect 
+		 to one another.</td>
+	</tr>
+	<tr>
+		<td>OnUnConnect</td>
+		<td><a href="vcSimInterface.htm">vcSimInterface</a> <span class="Italic">other_interface</span></td>
+		<td><span class="Strong">(Deprecated)</span> Use OnDisconnect.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Manipulate a conveyor line</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>comp = getComponent() 
+		<br>&#160; 
+		<br>iface = comp.findBehaviour('OutInterface') 
+		<br># name of the interface need to match with this one 
+		<br><span>other_component = iface.ConnectedComponent</span> 
+		<br># this returns a component which is connected to this interface, 
+		<br># return None if nothing is connected 
+		<br>&#160; 
+		<br>all_conveyors = [comp] # create a python list where all conveyors will be added 
+		<br>&#160; 
+		<br>while iface.ConnectedComponent: 
+		<br>&#160;&#160;# traverse thru a chain of connected conveyors 
+		<br>&#160;&#160;other_component = iface.ConnectedComponent 
+		<br>&#160;&#160;all_conveyors.append( other_component ) 
+		<br>&#160;&#160;iface = other_component.findBehaviour('OutInterface') 
+		<br>&#160;&#160;#name of the interface need to match with this one 
+		<br>&#160; 
+		<br>print [x.Name for x in all_conveyors] 
+		<br># prints a list of names of the conveyors in the chain 
+		<br>&#160; 
+		<br># connect a component at the end of the conveyor chain 
+		<br>app = getApplication() 
+		<br>myConv = app.findComponent('MyConveyor') 
+		<br>inIface = myConv.findBehaviour('InInterface') 
+		<br>lastConvInChain = all_conveyors[-1] # take the last item from the list 
+		<br>outIface = lastConvInChain.findBehaviour('OutInterface') 
+		<br>if outIface.canConnect(inIface): 
+		<br>&#160;&#160;outIface.connect(inIface) #OPTION 1: this will not move the connected component 
+		<br>&#160;&#160;#app.connectComponents(lastConvInChain, myConv) # OPTION 2: this will move them 
+		<br><span>app.render()</span></td>
+	</tr>
+</table>
+<!--======================================Events========================================-->
+</body>
+</html>

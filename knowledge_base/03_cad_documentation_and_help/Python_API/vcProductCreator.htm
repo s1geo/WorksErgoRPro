@@ -1,0 +1,148 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+<meta name="search-keywords" content="UPM,product,create product,material flow">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProductCreator</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-weight:bold; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcProductCreator</h1>
+<p>vcProductCreator acts as a feeder and creates one or more types of products 
+ for use in a Process Modeling.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcFlow.htm">vcFlow</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot40202" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot40202', 'MTPOPUP40202');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP40202" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >How it Works</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>How it Works</h2>
+<p>The product creator is a behaviour that creates product instances (vcProduct) 
+ to a container during simulation according to specified configuration. 
+ Different Rules of what and when to create can be configured independently 
+ using the feed modes, but only one feed mode can be active at a time. 
+ The feed mode to use is defined by the FeedMode property. </p>
+<p><span class="hcp1">Note:</span> The product creation can 
+ be blocked or delayed if the connected container doesn’t have free capacity. 
+ </p>
+<p>Inherits from <a href="vcBehaviour.htm">vcBehaviour</a>, <a href="vcFlow.htm">vcFlow</a> 
+ </p>
+<p>Type constant: VC_PRODUCTCREATOR </p>
+<h2><a name="MiniTOCBookMark3"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ApplyProductTypeOrigin</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td><p>Defines whether origin offset defined in the Product Type 
+		 is taking into account or not. See <a href="vcProductType.htm">vcProductType.OriginFrame</a></p></td>
+	</tr>
+	<tr>
+		<td>BatchFeed</td>
+		<td><a href="vcProductCreatorBatchMode.htm">vcProductCreatorBatchMode</a></td>
+		<td>R</td>
+		<td>Gets the configuration for batch feed mode.</td>
+	</tr>
+	<tr>
+		<td>DistributionFeed</td>
+		<td><a href="vcProductCreatorDistributionMode.htm">vcProductCreatorDistributionMode</a></td>
+		<td>R</td>
+		<td>Gets the configuration for distribution feed mode.</td>
+	</tr>
+	<tr>
+		<td>FeedMode</td>
+		<td>Integer enumeration</td>
+		<td>RW</td>
+		<td>Defines the mode for feeding products. That is, when and what 
+		 type of product to create during a simulation. 
+		<p class="TableNormal">See <a href="Constants.htm#Feed_Mode_Constants">Feed 
+		 Mode Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>PartPooling </td>
+		<td><p>Boolean</p></td>
+		<td>RW</td>
+		<td><p>Turns on/off the reuse of components made by the creator, 
+		 thereby improving simulation performance. </p>
+		<p>If True, dynamic components removed during simulation are recirculated 
+		 to make new components, thereby reducing memory allocation.</p>
+		<p><span class="hcp1">Note:</span> Be careful when 
+		 recirculating components that were modified during simulation, 
+		 for example a change in node material.</p></td>
+	</tr>
+	<tr>
+		<td>SingleFeed</td>
+		<td><p><a href="vcProductCreatorSingleMode.htm">vcProductCreatorSingleMode</a></p></td>
+		<td>R</td>
+		<td>Gets the configuration for single feed mode. 
+		<p class="TableNormal">&#160;</p></td>
+	</tr>
+	<tr>
+		<td>TableFeed</td>
+		<td><a href="vcProductCreatorTableMode.htm">vcProductCreatorTableMode</a></td>
+		<td>R</td>
+		<td>Gets the configuration for table feed mode.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnProductCreated</td>
+		<td><a href="vcProduct.htm">vcProduct</a> <span style="font-style: italic;">product</span></td>
+		<td><p>Triggered when a new product instance has been created by 
+		 this creator.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a>Examples</h2>
+<p><span class="Example">Example. Create products variants</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col>
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160;&#160; 
+		<br>#creating product properties that not supported in UI 
+		<br># 1. create a distribution property to a product type 
+		<br># 2. during simulation, take a sample of the distribution 
+		<br># 3. use that sample value to a Real type property in the Product instance.</td>
+	</tr>
+</table>
+</body>
+</html>

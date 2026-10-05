@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Кинематика параллелограмма</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Поведение «Параллелограммная кинематика» вычисляет прямую и обратную кинематику контроллера робота, используемого для операций укладки на поддоны, при которых ориентация..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Кинематика параллелограмма</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Поведение «Параллелограммная кинематика» вычисляет прямую и обратную кинематику контроллера робота, используемого для операций укладки на поддоны, при которых ориентация запястья всегда направлена вниз.</p>
+<p class="p_Normal"><img alt="ClipboardImg155" style="margin:0;width:4.8438in;height:3.5833in;border:none" src="clipboardimg155.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<p class="p_Normal">Если вы хотите использовать кинематику параллелограмм с обычными шарнирными роботами, установите <span style="font-style: italic;">ДлинаЗвена4 </span>в ноль и введите расстояние от центра оси 3 до центра запястья в <span style="font-style: italic;">ДлинаЗвена3</span>. В этом случае геометрия четвертого соединения может сместиться на значение <span style="font-style: italic;">ДлинаЗвена</span>4. Чтобы компенсировать этот эффект, рассмотрите возможность перемещения фактической геометрии.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет наименование кинематики.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ДлинаЗвена1 до ДлинаЗвена5</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет длину каждого соединения в контроллере робота.</p>
+<p class="p_Normal">ДлинаЗвена1 - Высота по оси Z от основания робота до центральной точки оси 2.</p>
+<p class="p_Normal">ДлинаЗвена2 - Расстояние от центра оси 2 до центра оси 3 с использованием направления оси 2.</p>
+<p class="p_Normal">ДлинаЗвена3 - Расстояние от центра оси 3 до центра запястья робота.</p>
+<p class="p_Normal">ДлинаЗвена4 - Смещение от центра запястья до центральной линии фланцевого узла.</p>
+<p class="p_Normal">ДлинаЗвена5 - Расстояние от центра запястья до центра фланца узла в направлении фланца.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СмещениеСоединения1</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет расстояние от центра оси 1 до центра оси 2 по оси X.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СмещениеСоединения3</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет расстояние от центра оси 3 до центра запястья робота по оси Z. В некоторых случаях СмещениеСоединения3 устанавливается равным нулю.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

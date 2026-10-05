@@ -1,0 +1,155 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcSwitchCaseStatement</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcSwitchCaseStatement</h1>
+<p>A vcSwitchCaseStatement executes the first <a href="vcCaseScope.htm">vcCaseScope</a> 
+ for which the value of its CaseCondition property matches that of statement’s 
+ Condition property.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcStatement.htm">vcStatement</a></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Condition</td>
+		<td>Expression</td>
+		<td>RW</td>
+		<td><p>Expression that defines the value against which the case 
+		 conditions are evaluated. </p>
+		See also <a href="Help_English.chm::/Reference/Expressions/Process_Statement_Expressions.htm">Process 
+		 Statement Expressions</a> and <a href="&quot;Help_English.chm::/Reference/Robot_Statements.htm%26%22">Robot 
+		 Statements</a>.</td>
+	</tr>
+	<tr>
+		<td>Cases</td>
+		<td>List of <a href="vcCaseScope.htm">vcCaseScope</a></td>
+		<td>RO</td>
+		<td>All case scopes in this statement. Each scope has an RW property 
+		 CaseCondition of type String which will be evaluated against statement’s 
+		 Condition.</td>
+	</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return value</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addCase</td>
+		<td><p><a href="vcCaseScope.htm">vcCaseScope</a></p>
+		<p>or</p>
+		<p><a href="vcCaseScope.htm">vcCaseScope</a></p>
+		<p>or</p>
+		<p>None</p></td>
+		<td><p>None</p>
+		<p>or</p>
+		<p>Integer <span class="hcp1">index</span></p>
+		<p>or </p>
+		<p>Integer <span class="hcp1">index</span>,</p>
+		<p style="font-style: italic;"><a href="vcCaseScope.htm">vcCaseScope</a> 
+		 scope</p></td>
+		<td><p>Creates a new case and appends it to the end.</p>
+		<p>or</p>
+		<p>Creates a new case and inserts it to the given index. If index 
+		 is less than zero or greater than the current case count, the 
+		 case will be appended to the end.</p>
+		<p>or</p>
+		<p>Inserts an existing case to the given index. If index is less 
+		 than zero or greater than the current case count, the case will 
+		 be appended to the end.</p></td>
+	</tr>
+	<tr>
+		<td>moveCase</td>
+		<td>None</td>
+		<td><p><a href="vcCaseScope.htm">vcCaseScope</a> <span class="hcp1">scope</span>,</p>
+		<p>Integer <span class="hcp1">newIndex</span></p></td>
+		<td>Moves an existing case to the new position. If the given index 
+		 is less than zero or greater than the current case count, the 
+		 case will be moved to the end.</td>
+	</tr>
+	<tr>
+		<td>deleteCase</td>
+		<td>None</td>
+		<td><a href="vcCaseScope.htm">vcCaseScope</a> <span class="hcp1">scope</span></td>
+		<td><p>Removes an existing case and deletes it.</p></td>
+	</tr>
+	<tr>
+		<td>releaseCase</td>
+		<td>None</td>
+		<td><a href="vcCaseScope.htm">vcCaseScope</a> <span class="hcp1">scope</span></td>
+		<td>Removes an existing case.</td>
+	</tr>
+	<tr>
+		<td>getCase</td>
+		<td><a href="vcCaseScope.htm">vcCaseScope</a></td>
+		<td>Integer <span class="hcp1">index</span></td>
+		<td>Gets an existing case.</td>
+	</tr>
+</table>
+<h2>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnCaseAdded</td>
+		<td><p><a href="vcCaseScope.htm">vcCaseScope</a> <span class="hcp1">scope</span>,</p>
+		<p>Integer <span class="hcp1">index</span></p></td>
+		<td>Event that occurs when a case has been added. Provides an index 
+		 where case was inserted.</td>
+	</tr>
+	<tr>
+		<td>OnCaseMoved</td>
+		<td><p><a href="vcCaseScope.htm">vcCaseScope</a> <span class="hcp1">scope</span>,</p>
+		<p>Integer <span class="hcp1">oldIndex</span>,</p>
+		<p>Integer <span class="hcp1">newIndex</span></p></td>
+		<td>Event that occurs when a case has been moved to a new index. 
+		 Provides both old and new indices.</td>
+	</tr>
+	<tr>
+		<td>OnCaseRemoved</td>
+		<td><p><a href="vcCaseScope.htm">vcCaseScope</a> <span class="hcp1">scope</span>,</p>
+		<p>Integer <span class="hcp1">index</span></p></td>
+		<td>Event that occurs when a case has been removed. Provides an 
+		 index case was removed from.</td>
+	</tr>
+</table>
+</body>
+</html>

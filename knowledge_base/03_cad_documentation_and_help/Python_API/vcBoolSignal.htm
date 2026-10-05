@@ -1,0 +1,117 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcBoolSignal</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcBoolSignal</h1>
+<p>vcBoolSignal is a signal that can send a Boolean value.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a>, 
+ <a href="vcSignal.htm">vcSignal</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot37613" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot37613', 'MTPOPUP37613');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP37613" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Value</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines the value of signal. 
+		<p class="TableNormal">Setting this value does not trigger the 
+		 OnSignal event unless you use the signal() method.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>signal</td>
+		<td>None</td>
+		<td>[Boolean <span class="Italic">value</span>]</td>
+		<td>Signals the current value of signal to all connected behaviors, 
+		 thereby triggering the OnSignal event. 
+		<p class="TableNormal">An optional <span class="Italic">value</span> 
+		 argument can be given to set the Value property of the signal.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Use a signal and its value to turn on/off 
+ the path of a conveyor</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col>
+	<tr>
+		<td>from vcScript import* 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>sensorSignal = comp.findBehaviour(&quot;SensorBooleanSignal&quot;) 
+		<br>path = comp.findBehaviour(&quot;MyPathWayBehaviour&quot;) 
+		<br>&#160; 
+		<br># set path behavior ON 
+		<br>path.Enabled = True 
+		<br>&#160; 
+		<br># next line blocks execution until the 'sensorSignal' is trigged to value 'True' 
+		<br># (i.e. component arrives on sensor) 
+		<br># the trigger, in this case, is specific as is its value 
+		<br>triggerCondition(lambda : getTrigger() == sensorSignal and sensorSignal.Value == True) 
+		<br>&#160; 
+		<br># set path behavior OFF (i.e. stop conveyor) 
+		<br>path.Enabled = False</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Connect a signal to a port in a different 
+ component</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col>
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>comp = getComponent() 
+		<br>&#160; 
+		<br>signal1 = comp.findBehaviour(&quot;BooleanSignal&quot;) 
+		<br>signal2 = app.findComponent(&quot;Example&quot;).findBehaviour(&quot;SignalMap&quot;) 
+		<br>&#160; 
+		<br>#A connection between a signal and signal map port is established 
+		<br>signal2.connect(0,signal1)</td>
+	</tr>
+</table>
+<p>&#160;</p>
+</body>
+</html>

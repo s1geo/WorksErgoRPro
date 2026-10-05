@@ -1,0 +1,846 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcCommand</title>
+<link rel="StyleSheet" type="text/css" href="StyleSheet.css">
+<style title="hcp" type="text/css">
+<!--
+li.hcp1 { list-style:none; }
+span.hcp2 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcCommand</h1>
+<p>vcCommand is the object type for commands that can be executed using 
+ Python API and made available in user interface of application.</p>
+<h2>Hierarchy</h2>
+<p>Some commands have specific implementations.</p>
+<ol>
+	<li class="hcp1"><a href="vcCommand.htm">vcCommand</a> 
+	 
+	<ol>
+		<li class="hcp1"><a href="vcInteractiveCommand.htm">vcInteractiveCommand</a> 
+		 
+		<ol>
+			<li class="hcp1"><a href="vcTranslateCommand.htm" 
+											 title="vcTranslateCommand">vcTranslateCommand</a></li>
+			<li class="hcp1"><a href="vcSelectCommand.htm" 
+											 title="vcSelectCommand">vcSelectCommand</a></li>
+		</ol></li>
+		<li class="hcp1"><a href="vcSnapCommand.htm" title="vcSnapCommand">vcSnapCommand</a></li>
+		<li class="hcp1"><a 
+		 href="vcTopologyPick.htm">vcTopologyPickCommand</a></li>
+	</ol></li>
+</ol>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Application</td>
+		<td><a href="vcApplication.htm">vcApplication</a></td>
+		<td>R</td>
+		<td>Gets the application object.</td>
+	</tr>
+	<tr>
+		<td>Checked</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if command is checked or visually indicated as active 
+		 in the GUI, which is only for Python commands.</td>
+	</tr>
+	<tr>
+		<td>Enabled</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if command is enabled/disabled, which is only for Python 
+		 commands. 
+		<p class="TableNormal">A False value means the command will be 
+		 greyed out in the GUI.</p></td>
+	</tr>
+	<tr>
+		<td>ExecutionType</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines how other active commands are managed when executing 
+		 this command. 
+		<p class="TableNormal">See <a href="Constants.htm#Command_Constants">Command 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Icon</td>
+		<td><a href="vcBitMap.htm">vcBitmap</a></td>
+		<td>RW</td>
+		<td>Defines the icon of command in the GUI.</td>
+	</tr>
+	<tr>
+		<td>IgnoreEvents</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if event passing is ignored when executing command. 
+		 
+		<p class="TableNormal">This flag is used in situations where events 
+		 could create cyclic calls.</p></td>
+	</tr>
+	<tr>
+		<td>IsActive</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Gets the current state of command. 
+		<p class="TableNormal">A True value means the command is active.</p></td>
+	</tr>
+	<tr>
+		<td>IsModelingCommand</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if command is used for manipulating geometry and related 
+		 properties.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of command.</td>
+	</tr>
+	<tr>
+		<td>Properties</td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td>Gets a list containing all properties of command. 
+		<p class="TableNormal">Generally, properties are used to pass information 
+		 to and from the command implementation for execution.</p></td>
+	</tr>
+	<tr>
+		<td>Simulation</td>
+		<td><a href="vcSimulation.htm">vcSimulation</a></td>
+		<td>R</td>
+		<td>Gets the simulation object.</td>
+	</tr>
+	<tr>
+		<td>SupportsOverrideActivation</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if command is restarted after the execution of an override 
+		 command, which is only for Python commands.</td>
+	</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addState</td>
+		<td>None</td>
+		<td>Function <span class="hcp2">state_func</span></td>
+		<td>Adds a command state function to Python command. 
+		<p class="TableNormal">The first added command state is the function 
+		 called when command is executed.</p>
+		This method is only available for user-defined Python commands.</td>
+	</tr>
+	<tr>
+		<td>cancelNextClick</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Cancels a next click event. 
+		<p class="TableNormal">This prevents a mouse click from being detected 
+		 during the next mouse up event. This is only useful when called 
+		 from an event processing handler function. Generally, this is 
+		 used to prevent the activation of the Select command in response 
+		 to a mouse click.</p>
+		This method is only available for user-defined Python commands 
+		 and can only be called from within the command script itself.</td>
+	</tr>
+	<tr>
+		<td>createProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>Enumeration <span class="hcp2">type</span>, 
+		 String <span class="hcp2">name</span>, [enumeration 
+		 <span class="hcp2">constraints</span>]</td>
+		<td>Adds a new property of a given <span class="Italic">type</span> 
+		 and <span class="Italic">name</span> to command object. 
+		<p class="TableNormal">An optional constraints argument can be 
+		 used to define constraints for property, which must be done at 
+		 time of creation.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Property_Constants">Property 
+		 Constants</a> for more information.</p>
+		<p class="TableNormal">This method is only available for user-defined 
+		 Python commands.</p></td>
+	</tr>
+	<tr>
+		<td>deleteProperty</td>
+		<td>None</td>
+		<td><a href="vcProperty.htm">vcProperty</a> <span class="hcp2">property</span> 
+		 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">String <span class="hcp2">name</span></p></td>
+		<td>Removes a given <span class="Italic">property</span> or one 
+		 matching a given <span class="Italic">name</span> from command. 
+		 
+		<p class="TableNormal">This method is only available for user-defined 
+		 Python commands.</p></td>
+	</tr>
+	<tr>
+		<td>execute</td>
+		<td>None</td>
+		<td>[<span class="hcp2">arg . . .</span>] 
+		<p class="TableNormal">o-</p>
+		<p class="TableNormal">[<span class="hcp2">name=arg</span> 
+		 <span>. . .</span>]</p></td>
+		<td>Executes the command, and then waits for the execution of first 
+		 command state to be completed. 
+		<br>&#160; 
+		<br>If this method is called with no arguments, the 
+		 arguments used are those currently set in the command object. 
+		 
+		<br>&#160; 
+		<br>If this method is called with positional arguments, 
+		 each value is assigned to command properties in the order they 
+		 were created before command execution. 
+		<br>&#160; 
+		<br>If the method is called with keyword arguments, 
+		 the corresponding command parameter property is looked up and 
+		 assigned the argument value. If a parameter cannot be found, the 
+		 function fails.</td>
+	</tr>
+	<tr>
+		<td>executeAsTool</td>
+		<td>None</td>
+		<td>[<span class="hcp2">arg</span> . . .] 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">[<span class="hcp2">name=arg</span> 
+		 . . .]</p></td>
+		<td>Executes the command as if its execution type is VC_COMMAND_TOOL. 
+		 
+		<p class="TableNormal">This method overrides the command's ExecutionType 
+		 property.</p></td>
+	</tr>
+	<tr>
+		<td>executeInActionPanel</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Executes a command using a task pane. 
+		<p class="TableNormal">Generally, you would use a task pane to 
+		 display the options of a registered Python or .NET command and 
+		 to further control its execution.</p>
+		<p class="TableNormal">For more information, see <a href="Creating_a_Python_Add-on.htm#Command_Task_Pane">Command 
+		 Task Pane</a> in Creating a Python Add-on topic.</p></td>
+	</tr>
+	<tr>
+		<td>getApplication</td>
+		<td><a href="vcApplication.htm">vcApplication</a></td>
+		<td>None</td>
+		<td>Returns the application object.</td>
+	</tr>
+	<tr>
+		<td>getCommand</td>
+		<td><a href="vcCommand.htm">vcCommand</a></td>
+		<td>None</td>
+		<td>Returns the command object.</td>
+	</tr>
+	<tr>
+		<td>getCommandPath</td>
+		<td>String</td>
+		<td>None</td>
+		<td>Returns the URI used by application to load the Python file 
+		 of command. 
+		<p class="TableNormal">This method returns an empty string if the 
+		 command is not a Python command.</p></td>
+	</tr>
+	<tr>
+		<td>getProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String <span class="hcp2">name</span></td>
+		<td>Returns a property matching a given <span class="Italic">name</span> 
+		 in command; otherwise returns None.</td>
+	</tr>
+	<tr>
+		<td>getSimulation</td>
+		<td><a href="vcSimulation.htm">vcSimulation</a></td>
+		<td>None</td>
+		<td>Returns the simulation object.</td>
+	</tr>
+	<tr>
+		<td>genVarSpaceDialog</td>
+		<td>None</td>
+		<td>String <span class="hcp2">command_name</span><span>, 
+		 String</span> <span class="hcp2">dialog_title</span><span>, 
+		 String</span> <span class="hcp2">first_tab_caption</span></td>
+		<td>Shows a modal property dialog containing the properties of 
+		 a registered command matching a given <span class="hcp2">command_name.</span> 
+		 
+		<p class="TableNormal"><span class="Strong">Note:</span> The <span class="hcp2">command_name</span> is specific to 
+		 Python, so COM or other programming commands cannot be used as 
+		 an argument.</p>
+		<p class="TableNormal">The title of the dialog window is set to 
+		 <span class="hcp2">dialog_title</span>. The <span class="hcp2">first_tab_caption</span> parameter 
+		 determines whether a tabbed dialog is used. If <span class="hcp2">first_tab_caption</span> 
+		 is an empty string, the properties are displayed in a single pane. 
+		 Otherwise, the properties are displayed in separate tabs. In that 
+		 case, property names are parsed as &quot;tabName::propertyName&quot; 
+		 and distributed into tabs according to tabName; and properties 
+		 without a double colon &quot;::&quot; in the name are displayed 
+		 in the first tab, which will have the caption set to <span class="hcp2">first_tab_caption</span>.</p>
+		<p class="TableNormal">After the command is executed, the Param_4 
+		 property of the command object contains the result of the dialog, 
+		 as an integer. A value of 1 means a user clicked OK, whereas a 
+		 value of 2 means a user clicked Cancel.</p></td>
+	</tr>
+	<tr>
+		<td>recompile</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Recompiles the command.</td>
+	</tr>
+	<tr>
+		<td>setEventState</td>
+		<td>None</td>
+		<td>Function <span class="hcp2">state_func</span></td>
+		<td>Enters event processing mode. This method also sets event state 
+		 handler function, where interactive events can be processed. 
+		<p class="TableNormal">The event handler function is called with 
+		 one parameter, which is of type <a href="vcCommandEvent.htm">vcCommandEvent</a>. 
+		 The only way to leave event processing mode is to call setNextState() 
+		 method.</p>
+		<p class="TableNormal">This method is only available with Python 
+		 commands, and can only be called from within the command script 
+		 itself.</p></td>
+	</tr>
+	<tr>
+		<td>setNextState</td>
+		<td>None</td>
+		<td>Function <span class="hcp2">state_func</span></td>
+		<td>Sets the next command state <span class="hcp2">function</span>. 
+		 This is a function which is called with no parameters in order 
+		 to execute the next state. If None is passed as a parameter, the 
+		 command will exit after the current state function or event processing 
+		 function returns. 
+		<p class="TableNormal">Calling this method will also cause the 
+		 command to leave event processing mode.</p>
+		<p class="TableNormal">This method is only available in Python 
+		 commands, and can only be called from within the command script 
+		 itself.</p>
+		<p class="TableNormal">For more information, see an <a href="#SetNextStateSnap">example</a> 
+		 for setting the next state of a snap command.</p></td>
+	</tr>
+</table>
+<h2>Events</h2>
+<p>Note that command events need to be executed in the following order: 
+ </p>
+<ol style="list-style: decimal;">
+	<li>OnStart</li>
+	<li>OnPreExecute</li>
+	<li>first_state (Added with addState)</li>
+	<li>OnPostExecute</li>
+</ol>
+<h3>OnStart &amp; OnStop</h3>
+<p>OnStart and OnStop event handlers will automatically be called if they 
+ are defined in the Python command script.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnStart</td>
+		<td>None</td>
+		<td>Triggered at the start of command execution.</td>
+	</tr>
+	<tr>
+		<td>OnStop</td>
+		<td>None</td>
+		<td>Triggered at the end of command execution, regardless if the 
+		 command exited properly or was aborted.</td>
+	</tr>
+</table>
+<h3>OnPreExecute &amp; OnPostExecute</h3>
+<p>The command object can be given as an argument in OnPreExecute and OnPostExecute 
+ event handlers defined in the Python command script.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnPreExecute</td>
+		<td><a href="vcCommand.htm">vcCommand</a> <span class="hcp2">command</span></td>
+		<td>Triggered immediately before the start of command execution. 
+		 
+		<br>&#160; 
+		<br>See an example below.</td>
+	</tr>
+	<tr>
+		<td>OnPostExecute </td>
+		<td><a href="vcCommand.htm">vcCommand</a> <span class="hcp2">command</span> 
+		 </td>
+		<td><span>Triggered immediately after the end of command execution.</span><br>
+		<br>
+		See an example below. </td>
+	</tr>
+</table>
+<p>&#160;</p>
+<h2>Available Standard Commands</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>centerView</td>
+		<td>None</td>
+		<td>Centers the view of the 3D world.</td>
+	</tr>
+	<tr>
+		<td>clearWorld</td>
+		<td>None</td>
+		<td>Clears the simulation world.</td>
+	</tr>
+	<tr>
+		<td><b>(Deprecated)</b> countData</td>
+		<td>None</td>
+		<td>Counts the amount of items in the current simulation.</td>
+	</tr>
+	<tr>
+		<td>dialogOpen</td>
+		<td>String <span class="Italic">uri</span>, Boolean <span class="Italic">defined</span>, 
+		 String <span class="Italic">filter</span></td>
+		<td>Opens a dialog box for opening a file in the application. 
+		<p class="TableNormal">A <span class="Italic">uri</span> argument 
+		 defines the initial directory for the dialog box.</p>
+		<p class="TableNormal">A <span class="Italic">filter</span> argument 
+		 defines file extension filter(s) using a standard Windows filter 
+		 format.</p>
+		<p class="TableNormal">A <span class="Italic">defined</span> property 
+		 will have a true value if a file was selected, and then the <span 
+		 class="Italic">uri</span> property is set as the output.</p></td>
+	</tr>
+	<tr>
+		<td>dialogSave</td>
+		<td>String <span class="Italic">uri</span>, Boolean <span class="Italic">defined</span></td>
+		<td>Opens a dialog box for saving a file. 
+		<p class="TableNormal">A <span class="Italic">uri</span> property 
+		 defines the initial directory for the dialog box.</p>
+		<p class="TableNormal">A <span class="Italic">defined</span> property 
+		 will have a true value if a path is defined, and then the <span 
+		 class="Italic">uri</span> property is set as the output.</p></td>
+	</tr>
+	<tr>
+		<td>dialogSaveFile</td>
+		<td>String <span class="Italic">uri</span><span>, Boolean</span> 
+		 <span class="Italic">defined</span><span>, String</span> <span 
+		 class="Italic">filter</span><span>, String</span> <span class="Italic">title</span></td>
+		<td>Same as dialogSave() method with additional arguments for filtering 
+		 file types and the title of the dialog box.</td>
+	</tr>
+	<tr>
+		<td>exportLayoutAsGeometry</td>
+		<td>None</td>
+		<td>Opens a dialog box for saving the current layout as a supported 
+		 file type.</td>
+	</tr>
+	<tr>
+		<td>fillView</td>
+		<td>None</td>
+		<td>Adjusts the camera in order to center and fill the 3D world 
+		 view with all components in the current layout</td>
+	</tr>
+	<tr>
+		<td><b>(Deprecated) </b>genPropertyDialog</td>
+		<td>String <span class="hcp2">Param_1</span>, String 
+		 <span class="hcp2">Param_2</span></td>
+		<td>Displays a modal property dialog that allows a user to edit 
+		 the property values of a Python command. 
+		<p class="TableNormal">The first argument given must be the registered 
+		 name of the Python command whose properties you want to list in 
+		 the dialog.</p>
+		<p class="TableNormal">The second argument defines the title of 
+		 the dialog.</p>
+		<p class="TableNormal">In order to be listed in the dialog, a command 
+		 property must have been created using Python API, for example 
+		 using the command object with the createProperty() method.</p></td>
+	</tr>
+	<tr>
+		<td><b>(Deprecated) </b>getUniqueComponentName</td>
+		<td>String <span class="hcp2">seed</span></td>
+		<td>Generates a unique name based on the given <span class="Italic">seed</span> 
+		 name.</td>
+	</tr>
+	<tr>
+		<td><b>(Deprecated) </b>interactiveBoolValue</td>
+		<td>None</td>
+		<td>Opens a Yes/No dialog box in which the result can be read from 
+		 the first parameter.</td>
+	</tr>
+	<tr>
+		<td><b>(Deprecated) </b>interactiveCenterView</td>
+		<td>None</td>
+		<td>Allows a user to center the 3D world view by picking a type 
+		 of geometry in the current layout.</td>
+	</tr>
+	<tr>
+		<td>interactiveClearWorld</td>
+		<td>None</td>
+		<td>Removes all components from the current layout in the 3D world. 
+		 
+		<p class="TableNormal">If a layout contains one or more components, 
+		 a prompt is given to confirm command execution.</p></td>
+	</tr>
+	<tr>
+		<td>interactiveComponentSelect</td>
+		<td>None</td>
+		<td>Allows a user to select a component in the 3D world.</td>
+	</tr>
+	<tr>
+		<td><b>(Deprecated) </b>interactiveCreatePackage</td>
+		<td>None</td>
+		<td>Opens a dialog box for creating a package of components.</td>
+	</tr>
+	<tr>
+		<td><b>(Deprecated) </b>interactiveDoubleValue</td>
+		<td>None</td>
+		<td>Opens a dialog box for entering a real number in which the 
+		 result can be read from the first parameter.</td>
+	</tr>
+	<tr>
+		<td><b>(Deprecated) </b>interactiveImportModel</td>
+		<td>None</td>
+		<td>Opens a dialog box for importing a supported file as a component 
+		 in the current layout.</td>
+	</tr>
+	<tr>
+		<td>interactiveJogJoints</td>
+		<td>None</td>
+		<td>Allows a user to interact with joints and other objects in 
+		 the 3D world.</td>
+	</tr>
+	<tr>
+		<td>interactiveLoadModel</td>
+		<td>None</td>
+		<td>Opens a dialog box for opening a supported file as a new layout, 
+		 thereby closing the current layout in the 3D world.</td>
+	</tr>
+	<tr>
+		<td>interactiveMeasureDistance</td>
+		<td>None</td>
+		<td>Allows a user to take measurements in a simulated environment.</td>
+	</tr>
+	<tr>
+		<td><b>(Deprecated) </b>interactiveOrbitView</td>
+		<td>None</td>
+		<td>Allows a user to orbit/rotate the camera of the 3D world by 
+		 using a mouse.</td>
+	</tr>
+	<tr>
+		<td><b>(Deprecated) </b>interactivePanView</td>
+		<td>None</td>
+		<td>Allows a user to pan the camera of the 3D world by using a 
+		 mouse.</td>
+	</tr>
+	<tr>
+		<td><b>(Deprecated) </b>interactivePickPosition</td>
+		<td>None</td>
+		<td>Allows a user to pick a location in the 3D world by using a 
+		 mouse.</td>
+	</tr>
+	<tr>
+		<td>interactivePlugPlay</td>
+		<td>None</td>
+		<td>Enables Plug and Play mode in the 3D world.</td>
+	</tr>
+	<tr>
+		<td>interactiveRotate</td>
+		<td>None</td>
+		<td><p>Allows a user to rotate a selection in the 3D world.</p></td>
+	</tr>
+	<tr>
+		<td>interactiveRotateTCP</td>
+		<td>None</td>
+		<td>Allows a user to rotate the active tool frame for a selected 
+		 robot in the 3D world.</td>
+	</tr>
+	<tr>
+		<td>interactiveSaveBitmap</td>
+		<td>None</td>
+		<td>Opens a dialog box for saving the current 3D view or drawing 
+		 as an image.</td>
+	</tr>
+	<tr>
+		<td>interactiveSaveComponent</td>
+		<td>None</td>
+		<td>Opens a dialog box for saving a selected component.</td>
+	</tr>
+	<tr>
+		<td>interactiveSaveComponentAs</td>
+		<td>None</td>
+		<td>Opens a dialog box for saving a selected component as a new 
+		 component.</td>
+	</tr>
+	<tr>
+		<td>interactiveSaveLayout</td>
+		<td>None</td>
+		<td>Saves the current layout.</td>
+	</tr>
+	<tr>
+		<td>interactiveSaveLayoutAs</td>
+		<td>None</td>
+		<td>Saves the current layout as a new layout.</td>
+	</tr>
+	<tr>
+		<td>interactiveSnap</td>
+		<td>None</td>
+		<td>Allows a user to snap a selection to a location picked in the 
+		 3D world by using a mouse.</td>
+	</tr>
+	<tr>
+		<td>interactiveToggleCollisionTesting</td>
+		<td>None</td>
+		<td>Turns on/off collision testing globally in the 3D world.</td>
+	</tr>
+	<tr>
+		<td><span>interactiveTopologyPick</span></td>
+		<td>None</td>
+		<td><span>Allows a user to 
+		 pick geometric topology elements in the 3D world.</span> 
+		<p class="TableNormal">See 
+		 <a href="vcTopologyPick.htm">vcTopologyPickCommand</a> 
+		 for more information.</p></td>
+	</tr>
+	<tr>
+		<td>interactiveTranslate</td>
+		<td>None</td>
+		<td>Allows a user to move a selection in the 3D world by using 
+		 a mouse.</td>
+	</tr>
+	<tr>
+		<td>interactiveTranslateTCP</td>
+		<td>None</td>
+		<td>Allows a user to move the active tool frame for a selected 
+		 robot in the 3D world.</td>
+	</tr>
+	<tr>
+		<td><b>(Deprecated) </b>interactiveZoomView</td>
+		<td>None</td>
+		<td><span>Allow a user to zoom the camera of a simulated environment 
+		 by using a mouse.</span></td>
+	</tr>
+	<tr>
+		<td>loadGeometryAsComponent</td>
+		<td>String <span class="Italic">uri</span><span>,</span> 
+		<br><a href="vcVector.htm">vcVector</a> <span class="hcp2">position</span></td>
+		<td><span>Opens a supported CAD file from a given</span> <span 
+		 class="Italic">uri</span> <span>as a new component in the 3D world 
+		 at a given</span> <span class="Italic">position</span><span>.</span></td>
+	</tr>
+	<tr>
+		<td>loadLayout</td>
+		<td>String <span class="Italic">uri</span></td>
+		<td>Opens a component or layout from a given <span class="Italic">uri</span> 
+		 at the 3D world origin.</td>
+	</tr>
+	<tr>
+		<td><span>loadLayoutToPosition</span></td>
+		<td><span>String</span> <span class="Italic">uri</span><span>,</span> 
+		 
+		<p><a href="vcVector.htm">vcVector</a> <span class="hcp2">position</span></p></td>
+		<td><span>Opens a component from a given </span><span class="Italic">uri</span><span> 
+		 to a given </span><span class="Italic">position</span><span> in 
+		 the 3D world. You can open a layout, but the layout would be opened 
+		 at the 3D world origin.</span></td>
+	</tr>
+	<tr>
+		<td>netCommand</td>
+		<td>String <span class="Italic">command_name</span>, [args*]</td>
+		<td>Allows a .NET command to be executed using Python. 
+		<p class="TableNormal">The <span class="Italic">command_name</span> 
+		 argument specifies a .NET command by id. You would then need to 
+		 pass arguments for executing that command. For example, the SetLocalizationCommand 
+		 takes five arguments.</p>
+		<p class="TableNormal">For more information and example, see <a 
+		 href="Executing_a_NET_Command.htm">Executing a NET Command</a>.</p></td>
+	</tr>
+	<tr>
+		<td><b>(Deprecated) </b>readLicenseData</td>
+		<td>String <span class="hcp2">product_name</span>, 
+		 String <span class="hcp2">product_key</span>, String 
+		 <span class="hcp2">product_activation_code</span></td>
+		<td>Gets license information for a given product and its key.</td>
+	</tr>
+	<tr>
+		<td><b>(Deprecated) </b>rebuildECatalog</td>
+		<td>None</td>
+		<td>Rebuilds all mappings in the product's eCatalog library.</td>
+	</tr>
+	<tr>
+		<td>resetSimulation</td>
+		<td>None</td>
+		<td>Resets a simulation.</td>
+	</tr>
+	<tr>
+		<td>saveBitmap</td>
+		<td>String <span class="Italic">uri</span>, String <span class="hcp2">filter</span>, 
+		 Integer <span class="hcp2">xres</span>, Integer 
+		 <span class="hcp2">yres</span></td>
+		<td>Saves the current 3D world view as a supported image type with 
+		 a given resolution. 
+		<p class="TableNormal">The <span class="Italic">filter</span> argument 
+		 allows you to write to a specific format.</p>
+		<p class="TableNormal"><span class="Term">bmp</span> or <span class="Term">rbmp</span> 
+		 writes to BMP.</p>
+		<p class="TableNormal"><span class="Term">jpeg</span>, <span class="Term">rjpegstd</span> 
+		 or <span class="Term">rjpegnstd</span> writes to JPEG.</p>
+		<p class="TableNormal"><span class="Term">png</span> or <span class="Term">rpng</span> 
+		 writes to PNG.</p>
+		<p class="TableNormal"><span class="Term">tga</span> or <span class="Term">rtargareader</span> 
+		 writes to TGA.</p>
+		<p class="TableNormal">See <a href="vcBitMap.htm#SaveBitmapExamples">vcBitmap</a> 
+		 for more information.</p></td>
+	</tr>
+	<tr>
+		<td>saveComponentToUri</td>
+		<td>String <span class="Italic">uri</span>, <a href="vcComponent.htm">vcComponent</a> 
+		 <span class="hcp2">component</span><span>, Boolean</span> 
+		 <span class="Italic">new_vcid</span></td>
+		<td>Saves a given <span class="Italic">component</span> at the 
+		 given <span class="Italic">uri</span>. 
+		<p class="TableNormal">The component will be given a new VCID if 
+		 its VCID property is an empty string or a False value is passed 
+		 as a third argument with this method.</p>
+		<p class="TableNormal"><span class="Strong">Warning:</span> Do 
+		 not pass an empty string in the first argument.</p></td>
+	</tr>
+	<tr>
+		<td>saveLayoutToUri</td>
+		<td>String <span class="Italic">uri</span></td>
+		<td>Saves the current layout at the given <span class="Italic">uri</span>.</td>
+	</tr>
+	<tr>
+		<td><b>(Deprecated) </b>saveScreen</td>
+		<td>String <span class="Italic">uri</span></td>
+		<td>Saves the current view and screen size of the 3D world as a 
+		 bitmap image at the given <span class="Italic">uri</span>.</td>
+	</tr>
+	<tr>
+		<td><span>saveState</span></td>
+		<td>None</td>
+		<td><span>Saves the current state of a simulation, which affects 
+		 all components in the current layout.</span> 
+		<p class="TableNormal"><span>Generally, this is used to save the 
+		 joint configurations of robots and other types of equipment when 
+		 collisions occur or at the end of a simulated process.</span></p></td>
+	</tr>
+	<tr>
+		<td><span><b>(Deprecated) </b>setNotesVisibility</span></td>
+		<td><span>Boolean</span> <span class="hcp2">flag</span></td>
+		<td><span>Turns on/off the global visibility of notes in the 3D 
+		 world.</span></td>
+	</tr>
+	<tr>
+		<td><b>(Deprecated) </b>simLimitTest</td>
+		<td>None</td>
+		<td>Defines if a simulation is stopped when a joint in a component 
+		 exceeds its limits.</td>
+	</tr>
+	<tr>
+		<td><b>(Deprecated) </b>writeLicenseData</td>
+		<td>String <span class="hcp2">product_name</span><span>, 
+		 String</span> <span class="hcp2">product_key</span><span>, 
+		 String</span> <span class="hcp2">product_activation_code</span></td>
+		<td>Sets license information for a given product and its key.</td>
+	</tr>
+</table>
+<h2>Examples</h2>
+<p><span class="Example"><a name="SetNextStateSnap"></a>Example. Set next 
+ state for Python command</span></p>
+<p><a href="CustomSnapCommand.zip">Download the Python add-on</a></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>#command file for Python add-on 
+		<br>from vcCommand import * 
+		<br>&#160; 
+		<br>def testSet(cmd): 
+		<br>&#160;&#160;if cmd.TargetAvailable: 
+		<br>&#160;&#160;&#160;&#160;print &quot;##------------SET--------------&quot; 
+		<br>&#160;&#160;&#160;&#160;print cmd.TargetGeoset 
+		<br>&#160;&#160;&#160;&#160;p = cmd.TargetPosition 
+		<br>&#160;&#160;&#160;&#160;print p.X, p.Y, p.Z 
+		<br>&#160;&#160;&#160;&#160; 
+		<br>&#160;&#160;&#160;&#160;#continue if target was selected 
+		<br>&#160;&#160;&#160;&#160;setNextState(pick) 
+		<br>&#160;&#160;else: 
+		<br>&#160;&#160;&#160;&#160;#stop if no target selected 
+		<br>&#160;&#160;&#160;&#160;print &quot;Command exit&quot; 
+		<br>&#160;&#160;&#160;&#160;setNextState(None) 
+		<br>&#160; 
+		<br>def pick(): 
+		<br>&#160;&#160;print &quot;pick!&quot; 
+		<br>&#160;&#160;cmd.execute() 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>cmd = app.findCommand(&quot;interactiveSnap&quot;) 
+		<br>cmd.SnapOnCurve = True 
+		<br>cmd.SnapOnEdge = True 
+		<br>cmd.SnapOnSurface = True 
+		<br>cmd.OnTargetSet = testSet 
+		<br>addState(pick)</td>
+	</tr>
+</table>
+<p><span class="Example"><a name="SetNextStateSnap"></a>Example. Use OnPreExecute 
+ and OnPostExecute events</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcCommand import * <br>
+		<br>
+		def first_state(): <br>
+		&#160;&#160;print &quot;Hello World!&quot; <br>
+		<br>
+		def before_handler(arg): <br>
+		&#160;&#160;print 'Starting', arg.Name <br>
+		<br>
+		def after_handler(arg): <br>
+		&#160;&#160;print arg.Name, 'execution finished.' <br>
+		<br>
+		cmd = getCommand() <br>
+		cmd.OnPreExecute = before_handler <br>
+		cmd.OnPostExecute = after_handler <br>
+		addState(first_state) </td>
+	</tr>
+</table>
+</body>
+</html>

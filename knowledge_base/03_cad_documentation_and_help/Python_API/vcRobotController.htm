@@ -1,0 +1,333 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcRobotController</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcRobotController</h1>
+<p>vcRobotController allows you control a robot and drive its joints.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a>, 
+ <a href="vcServoController.htm">vcServoController</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot32096" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot32096', 'MTPOPUP32096');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP32096" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td >ApproachAxis</td>
+		<td >Enumeration</td>
+		<td >RW</td>
+		<td >Defines how to orient the robot based on the orientation of 
+		 the active tool frame.
+		<p class="TableNormal">See <a href="Constants.htm#ApproachAxisConstants">Approach 
+		 Axis Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Bases</td>
+		<td>List of <a href="vcBaseFrame.htm">vcBaseFrame</a></td>
+		<td>R</td>
+		<td>Gets a list of all base frames available in controller.</td>
+	</tr>
+	<tr>
+		<td>ConfigurationMode</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the configuration mode for joints driven by robot controller 
+		 during linear motion interpolation. 
+		<p class="TableNormal"><span class="Term">0 = Fixed</span><br>
+		No change. That is, current configuration is used and does not 
+		 change.</p>
+		<p class="TableNormal"><span class="Term">1 = Follow frame</span><br>
+		Configuration closest to previous joint values is used.</p>
+		<p class="TableNormal"><span class="Term">2 = Interpolate joint 
+		 values</span><br>
+		Configuration is determined by point-to-point interpolation of 
+		 joint values.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Motion_Target_Constants">Motion 
+		 Target Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>FlangeOffset</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines an offset from flange node origin. 
+		<p class="TableNormal">Generally, this is used when flange node 
+		 origin is not the exact place where to mount a tool or kinematics 
+		 structure to end of robot arm.</p></td>
+	</tr>
+	<tr>
+		<td>InitialBase</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the initial base frame by name of the controller.</td>
+	</tr>
+	<tr>
+		<td>InitialTool</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the initial tool frame by name of the controller.</td>
+	</tr>
+	<tr>
+		<td>Kinematics</td>
+		<td><a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td>RW</td>
+		<td>Defines the kinematics object used by the controller which 
+		 describes the robot's kinematic structure.</td>
+	</tr>
+	<tr>
+		<td>LagTime</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>If linear motion, defines default lag time.</td>
+	</tr>
+	<tr>
+		<td>MaxAngularAccel</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>If linear motion, defines maximum acceleration for angular 
+		 movement (degrees/s^2).</td>
+	</tr>
+	<tr>
+		<td>MaxAngularSpeed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>If linear motion, defines maximum speed for angular movement 
+		 (degrees/s).</td>
+	</tr>
+	<tr>
+		<td>MaxCartesianAccel</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>If linear motion, defines maximum acceleration for linear movement 
+		 (mm/s^2).</td>
+	</tr>
+	<tr>
+		<td>MaxCartesianSpeed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>If linear motion, defines maximum speed for linear movement 
+		 (mm/s).</td>
+	</tr>
+	<tr>
+		<td>OrientationInterpolationMode</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the orientation interpolation mode for linear movement.</td>
+	</tr>
+	<tr>
+		<td>RootOffset</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines an offset from root node origin, thereby defining the 
+		 start of kinematics structure.</td>
+	</tr>
+	<tr>
+		<td>SettleTime</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>If linear motion, defines default settle time.</td>
+	</tr>
+	<tr>
+		<td>Tools</td>
+		<td>List of <a href="vcBaseFrame.htm">vcBaseFrame</a></td>
+		<td>R</td>
+		<td>Gets a list of all tool frames available in controller.</td>
+	</tr>
+	<tr>
+		<td>TrackWorldFrameMode</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines Robot World Frame (RWF) of robot when mounted on track. 
+		 
+		<p class="TableNormal"><span class="Term">0</span><br>
+		Track origin is used as RWF.</p>
+		<p class="TableNormal"><span class="Term">1</span><br>
+		RWF of robot is used as RWF.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Track_World_Frame_Modes">Track 
+		 World Frame Modes</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>WorldTransformMatrix</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines Robot World Frame of robot.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addBase</td>
+		<td><a href="vcBaseFrame.htm">vcBaseFrame</a></td>
+		<td>None</td>
+		<td>Adds a new base frame to controller.</td>
+	</tr>
+	<tr>
+		<td>addTarget</td>
+		<td>None</td>
+		<td><a href="vcMotionTarget.htm">vcMotionTarget</a> <span class="Italic">target</span> 
+		 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcMatrix.htm">vcMatrix</a> <span 
+		 class="Italic">matrix</span>, [Enumeration <span class="Italic">target_mode</span>]</p></td>
+		<td>Adds a given motion target or target matrix to robot target 
+		 list. 
+		<p class="TableNormal">If target matrix, current settings of robot 
+		 controller are used and an optional <span class="Italic">target_mode</span> 
+		 can be given to define how target relates to robot. This is similar 
+		 to moveTo() method.</p>
+		<p class="TableNormal">Generally, you use addTarget() when you 
+		 are creating a batch of targets and the robot will use non-zero 
+		 accuracy limits.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Target_Matrix">Motion 
+		 Target Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>addTool</td>
+		<td><a href="vcBaseFrame.htm">vcBaseFrame</a></td>
+		<td>None</td>
+		<td>Adds a new tool frame to controller.</td>
+	</tr>
+	<tr>
+		<td>clearTargets</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Removes all motion targets and target matrices from robot target 
+		 list.</td>
+	</tr>
+	<tr>
+		<td>createMotionInterpolator</td>
+		<td><a href="vcMotionInterpolator.htm">vcMotionInterpolator</a></td>
+		<td>None</td>
+		<td>Creates a new motion interpolator for robot.</td>
+	</tr>
+	<tr>
+		<td>createTarget</td>
+		<td><a href="vcMotionTarget.htm">vcMotionTarget</a></td>
+		<td>[<a href="vcMatrix.htm">vcMatrix</a> <span class="Italic">matrix</span>]</td>
+		<td>Create a new motion target using current controller settings, 
+		 and then returns the new motion target. 
+		<p class="TableNormal">An optional <span class="Italic">matrix</span> 
+		 argument can be given to define target matrix of target.</p></td>
+	</tr>
+	<tr>
+		<td>move</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Moves robot to all targets in robot target list. 
+		<p class="TableNormal">Python execution will wait until robot has 
+		 motioned to all previously added targets.</p></td>
+	</tr>
+	<tr>
+		<td>moveImmediate</td>
+		<td>None</td>
+		<td><a href="vcMotionTarget.htm">vcMotionTarget</a> <span class="Italic">target</span>, 
+		 [Enumeration <span class="Italic">target_mode</span>]</td>
+		<td>Moves robot to a given <span class="Italic">target</span> immediately. 
+		 
+		<p class="TableNormal">An optional <span class="Italic">target_mode</span> 
+		 argument can be given to define how target relates to robot.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Target_Matrix">Motion 
+		 Target Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>moveTo</td>
+		<td>None</td>
+		<td><a href="vcMotionTarget.htm">vcMotionTarget</a> <span class="Italic">target</span> 
+		 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcMatrix.htm">vcMatrix</a> <span 
+		 class="Italic">matrix</span>, [Enumeration <span class="Italic">target_mode</span>]</p></td>
+		<td>Moves robot to a given <span class="Italic">target</span> or 
+		 <span class="Italic">matrix</span>, thereby clearing any previously 
+		 added targets. 
+		<p class="TableNormal">An optional <span class="Italic">target_mode</span> 
+		 argument can be given to define how target relates to robot.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Target_Matrix">Motion 
+		 Target Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>moveRelTo</td>
+		<td>None</td>
+		<td><a href="vcVector.htm">vcVector</a> <span class="Italic">offset</span>, 
+		 [Enumeration <span class="Italic">target_mode</span>] 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">Real <span class="Italic">x</span>, Real 
+		 <span class="Italic">y</span>, Real <span class="Italic">z</span>, 
+		 [Enumeration <span class="Italic">target_mode</span>]</p></td>
+		<td>Moves robot to a position relative to current robot pose using 
+		 current controller settings. 
+		<p class="TableNormal">An optional <span class="Italic">target_mode</span> 
+		 argument can be given to define how target relates to robot.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Target_Matrix">Motion 
+		 Target Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>removeBase</td>
+		<td>None</td>
+		<td><a href="vcBaseFrame.htm">vcBaseFrame</a> <span class="Italic">Base</span></td>
+		<td>Removes a given <span class="Italic">Base</span> from controller.</td>
+	</tr>
+	<tr>
+		<td>removeTool</td>
+		<td>None</td>
+		<td><a href="vcBaseFrame.htm">vcBaseFrame</a> <span class="Italic">Tool</span></td>
+		<td>Removes a given <span class="Italic">Tool</span> from controller.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnPosition</td>
+		<td><a href="vcRobotController.htm">vcRobotController</a> <span 
+		 class="Italic">robot</span></td>
+		<td>Triggered when robot reaches a motion target in its robot target 
+		 list.</td>
+	</tr>
+</table>
+</body>
+</html>

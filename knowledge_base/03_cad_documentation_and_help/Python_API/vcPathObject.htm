@@ -1,0 +1,272 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcPathObject</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<p id="warning"><span class="Strong">(Deprecated)</span></p>
+<h1><a name="MiniTOCBookMark1"></a>vcPathObject</h1>
+<p>vcPathObject is a layout item used for creating and storing path object 
+ nodes and segments.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcLayoutItem.htm">vcLayoutItem</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot27621" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot27621', 'MTPOPUP27621');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP27621" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Path Objects</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Path Objects</h2>
+<p>A path object can contain one or more types of nodes and segments used 
+ for special purposes.</p>
+<ul style="list-style: disc;">
+	<li class="Unordered"><a href="vcPathObjectActionNode.htm">vcPathObjectActionNode</a> 
+	 is an action related to a motion node.</li>
+	<li class="Unordered"><a href="vcPathObjectMotionNode.htm">vcPathObjectMotionNode</a> 
+	 defines the trajectory of a motion.</li>
+	<li class="Unordered"><a href="vcPathObjectParameterNode.htm">vcPathObjectParameterNode</a> 
+	 contains generic parametric information, for example calibration status.</li>
+	<li class="Unordered"><a href="vcPathObjectReferenceNode.htm">vcPathObjectReferenceNode</a> 
+	 references another node, which may include component nodes.</li>
+	<li class="Unordered"><a href="vcPathObjectSegment.htm">vcPathObjectSegment</a> 
+	 is a section of path with its own visualization properties and can 
+	 include several segments.</li>
+</ul>
+<h2><a name="MiniTOCBookMark3"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ActionNodeCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the number of action nodes in path object.</td>
+	</tr>
+	<tr>
+		<td>ActionNodeVisualization</td>
+		<td><a href="vcFrameSetVisualization.htm">vcFrameSetVisualization</a></td>
+		<td>R</td>
+		<td>Gets the object controlling the visualization of action nodes 
+		 in path object.</td>
+	</tr>
+	<tr>
+		<td>MotionNodeCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the number of motion nodes in path object.</td>
+	</tr>
+	<tr>
+		<td>MotionNodeVisualization</td>
+		<td><a href="vcFrameSetVisualization.htm">vcFrameSetVisualization</a></td>
+		<td>R</td>
+		<td>Gets the object controlling the visualization of motion nodes 
+		 in path object.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of path object.</td>
+	</tr>
+	<tr>
+		<td>ParameterNodeCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the number of parameter nodes in path object.</td>
+	</tr>
+	<tr>
+		<td>ParameterNodeVisualization</td>
+		<td><a href="vcFrameSetVisualization.htm">vcFrameSetVisualization</a></td>
+		<td>R</td>
+		<td>Gets the object controlling the visualization of parameter 
+		 nodes in path object.</td>
+	</tr>
+	<tr>
+		<td>Persistent</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines if the path object is saved with a layout. 
+		<p class="TableNormal">If 0, path object is not saved with layout. 
+		 If 1, path object is saved with layout.</p></td>
+	</tr>
+	<tr>
+		<td>ReferenceNodeCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the number of reference nodes in path object.</td>
+	</tr>
+	<tr>
+		<td>ReferenceNodeVisualization</td>
+		<td><a href="vcFrameSetVisualization.htm">vcFrameSetVisualization</a></td>
+		<td>R</td>
+		<td>Gets the object controlling the visualization of reference 
+		 nodes in the path object.</td>
+	</tr>
+	<tr>
+		<td>SegmentCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the number of segments in the path object.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>clear</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Removes all nodes and segments from path object.</td>
+	</tr>
+	<tr>
+		<td>clearNodes</td>
+		<td>None</td>
+		<td>Enumeration <span class="Italic">type</span></td>
+		<td>Removes all nodes of a given <span class="Italic">type</span> 
+		 from path object. 
+		<p class="TableNormal">See <a href="Constants.htm#Path_Object_Constants">Path 
+		 Object Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>clearSegments</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Removes all segments from path object.</td>
+	</tr>
+	<tr>
+		<td>createNode</td>
+		<td>&lt;Type&gt;</td>
+		<td>Enumeration <span class="Italic">type</span>, [Integer <span 
+		 class="Italic">index</span>]</td>
+		<td>Adds a new node of a given <span class="Italic">type</span> 
+		 to the path object, and then returns the new node. 
+		<p class="TableNormal">See <a href="Constants.htm#Path_Object_Constants">Path 
+		 Object Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>createSegment</td>
+		<td><a href="vcPathObjectSegment.htm">vcPathObjectSegment</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Adds a new segment to the path object at a given <span class="Italic">index</span>, 
+		 and then returns the new segment.</td>
+	</tr>
+	<tr>
+		<td>deleteNode</td>
+		<td>None</td>
+		<td><a href="vcPathObjectNode.htm">vcPathObjectNode</a> <span class="Italic">node</span></td>
+		<td>Deletes a given <span class="Italic">node</span> from path 
+		 object.</td>
+	</tr>
+	<tr>
+		<td>deleteSegment</td>
+		<td>None</td>
+		<td><a href="vcPathObjectSegment.htm">vcPathObjectSegment</a> <span 
+		 class="Italic">segment</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">Integer <span class="Italic">index</span></p></td>
+		<td>Deletes a given <span class="Italic">segment</span> or one 
+		 at a given <span class="Italic">index</span> from the path object.</td>
+	</tr>
+	<tr>
+		<td>findNode</td>
+		<td>&lt;Type&gt;</td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Returns a node matching a given <span class="Italic">name</span> 
+		 in path object.</td>
+	</tr>
+	<tr>
+		<td>findSegment</td>
+		<td><a href="vcPathObjectSegment.htm">vcPathObjectSegment</a></td>
+		<td>Real <span class="Italic">logical_distance</span></td>
+		<td>Returns a segment at a given <span class="Italic">logical_distance</span> 
+		 in path object.</td>
+	</tr>
+	<tr>
+		<td>getNode</td>
+		<td>&lt;Type&gt;</td>
+		<td>Enumeration <span class="Italic">type</span>, Integer <span 
+		 class="Italic">index</span></td>
+		<td>Returns a node of a given <span class="Italic">type</span> 
+		 at a given <span class="Italic">index</span> in path object.</td>
+	</tr>
+	<tr>
+		<td>getNodes</td>
+		<td>List of &lt;Type&gt;</td>
+		<td>Enumeration <span class="Italic">type</span></td>
+		<td>Returns a list of nodes of a given <span class="Italic">type</span> 
+		 in path object.</td>
+	</tr>
+	<tr>
+		<td>getSegment</td>
+		<td><a href="vcPathObjectSegment.htm">vcPathObjectSegment</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns a segment at a given <span class="Italic">index</span> 
+		 in path object.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Create a path of motion nodes</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>import random 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>for i in app.LayoutItems: 
+		<br>&#160;&#160;if i.Type == VC_LAYOUTITEM_IT_PATHOBJECT: 
+		<br>&#160;&#160;&#160;&#160;app.deleteLayoutItem(i) 
+		<br>&#160; 
+		<br>po = app.createLayoutItem(VC_LAYOUTITEM_IT_PATHOBJECT) 
+		<br>vis = po.MotionNodeVisualization 
+		<br>vis.ConnectingLinesVisible = True 
+		<br>vis.LineDisplayMode = VC_LINEDISPLAY_LINE 
+		<br>vis.FramesVisible = True 
+		<br>vis.FrameDisplayMode = VC_FRAMEDISPLAY_COLOR_AXIS 
+		<br>&#160; 
+		<br># Note: pathobjects are only visible in the Teach tab 
+		<br>&#160; 
+		<br>for i in range(5): 
+		<br>&#160;&#160;point = po.createNode(VC_PATHOBJECT_NT_MOTION) 
+		<br>&#160;&#160;m = point.PositionMatrix 
+		<br>&#160;&#160;m.translateRel(100*i, random.random()*20, random.random()*20) 
+		<br>&#160;&#160;point.PositionMatrix = m 
+		<br>&#160;&#160;prop = point.createProperty(VC_STRING, 'ExtraData') 
+		<br>&#160;&#160;prop.Value = str(i)+'_example' 
+		<br>&#160; 
+		<br>po.update()</td>
+	</tr>
+</table>
+</body>
+</html>

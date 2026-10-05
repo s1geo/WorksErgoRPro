@@ -1,0 +1,129 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="vcProductMatcher, ProductMatcher, Product Matcher">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProductMatcher</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcProductMatcher</h1>
+<p>vcProductMatcher monitors product needs (<a href="vcProductNeed.htm">vcProductNeed</a>) 
+ and feeds (<a href="vcProductFeed.htm">vcProductFeed</a>) and matches 
+ the needs and feeds with each other. A <a href="vcProductNeedFeedMatch.htm">vcProductNeedFeedMatch</a> 
+ instance is created for each matched pair.</p>
+<p>A match can be made if the process group ID of the need and feed matches, 
+ the product type is accepted by the need (defined in <a href="vcProductFilter.htm">vcProductFilter</a>), 
+ and a valid transport solution exists between the transport nodes.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>PendingNeedsCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Number of needs that have not yet been matched.</td>
+	</tr>
+	<tr>
+		<td>PendingNeeds</td>
+		<td>List of <a href="vcProductNeedInfo.htm">vcProductNeedInfo</a></td>
+		<td>R</td>
+		<td>List of all pending needs.</td>
+	</tr>
+	<tr>
+		<td>PendingFeedsCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Number of feeds that have not yet been matched.</td>
+	</tr>
+	<tr>
+		<td>PendingFeeds</td>
+		<td>List of <a href="vcProductFeedInfo.htm">vcProductFeedInfo</a></td>
+		<td>R</td>
+		<td>List of all pending feeds.</td>
+	</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>getPendingNeed</td>
+		<td><a href="vcProductNeedInfo.htm">vcProductNeedInfo</a></td>
+		<td>Integer <i>index</i></td>
+		<td>Returns a pending need found at a given index in list.</td>
+	</tr>
+	<tr>
+		<td>getPendingFeed</td>
+		<td><a href="vcProductFeedInfo.htm">vcProductFeedInfo</a></td>
+		<td>Integer <i>index</i></td>
+		<td>Returns a pending feed found at a given index in list.</td>
+	</tr>
+	<tr>
+		<td>addNeed</td>
+		<td>None</td>
+		<td><a href="vcProductNeed.htm">vcProductNeed</a> <i>productNeed</i></td>
+		<td>Adds the <i>productNeed</i> to the product matcher to be matched 
+		 with a feed.<br>
+		
+		<br>An error occurs if the same <i>productNeed</i> 
+		 has already been added, or if the&#160;<i>productNeed</i> is linked 
+		 to an active <a href="vcProductNeedFeedMatch.htm">vcProductNeedFeedMatch</a> 
+		 object.</td>
+	</tr>
+	<tr>
+		<td>addFeed</td>
+		<td>None</td>
+		<td><a href="vcProductFeed.htm">vcProductFeed</a> <i>productFeed</i></td>
+		<td>Adds the <i>productFeed</i> to the product matcher to be matched 
+		 with a need.<br>
+		<br>
+		An error occurs if the same <i>productFeed</i> has already been 
+		 added, or if the <i>productFeed</i> is already linked to an active 
+		 <a href="vcProductNeedFeedMatch.htm">vcProductNeedFeedMatch</a> 
+		 object.</td>
+	</tr>
+</table>
+<h2>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnPendingNeedAdded</td>
+		<td><a href="vcProductNeedInfo.htm">vcProductNeedInfo</a> <i>newProductNeed</i></td>
+		<td>Triggered when a new need has been added to the product matcher.</td>
+	</tr>
+	<tr>
+		<td>OnPendingFeedAdded</td>
+		<td><a href="vcProductFeedInfo.htm">vcProductFeedInfo</a> <i>newProductFeed</i></td>
+		<td>Triggered when a new feed has been added to the product matcher.</td>
+	</tr>
+</table>
+</body>
+</html>

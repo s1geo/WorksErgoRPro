@@ -1,0 +1,112 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcFrameSetVisualization</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcFrameSetVisualization</h1>
+<p>vcFrameSetVisualization is a list containing properties that affect the display of frames in the 3D world.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>AxisTextVisible</td>
+<td>Boolean</td>
+<td>RW</td>
+<td>Turns on/off the display of axis labels for Frame features in set. That is, XYZ labels for coordinate axes in a Frame feature.
+<p class="TableNormal">This property is disabled if FramesVisible is set to False.</p>
+</td>
+</tr>
+<tr>
+<td>ConnectingLinesVisible</td>
+<td>Boolean</td>
+<td>RW</td>
+<td>Defines if lines are drawn in the 3D world between each Frame feature in set.
+<p class="TableNormal">The line type is defined by the LineDisplayMode property.</p>
+</td>
+</tr>
+<tr>
+<td>CustomIcon</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines the name of a <a href="vc3DIcon.htm">vc3DIcon</a> object used for rendering each Frame feature in set.
+<p class="TableNormal">Other properties determine if and how a 3D icon is used with the set.</p>
+</td>
+</tr>
+<tr>
+<td>FixedSize</td>
+<td>Boolean</td>
+<td>RW</td>
+<td>Defines if CustomIcon is scaled to have a constant size relative to a user's 3D world view.
+<p class="TableNormal">This property is enabled when FrameDisplayMode is set to use icons and FramesVisible is set to True.</p>
+</td>
+</tr>
+<tr>
+<td>FrameDisplayMode</td>
+<td>Long</td>
+<td>RW</td>
+<td>Defines the mode for rendering Frame features in set.
+<p class="TableNormal">This property is disabled if FramesVisible is set to False.</p>
+<p class="TableNormal">See <a href="Constants.htm#Frame_Display_Mode">Frame Display Mode Constants</a> for more information.</p>
+</td>
+</tr>
+<tr>
+<td>FramesVisible</td>
+<td>Boolean</td>
+<td>RW</td>
+<td>Turns on/off the display of Frame features in set.</td>
+</tr>
+<tr>
+<td>LineDisplayMode</td>
+<td>Long</td>
+<td>RW</td>
+<td>Defines the mode for rendering lines between Frame features in set.
+<p class="TableNormal">This property is disabled if ConnectingLinesVisible is set to False.</p>
+<p class="TableNormal">See <a href="Constants.htm#Line_Display_Mode">Line Display Mode Constants</a> for more information.</p>
+</td>
+</tr>
+<tr>
+<td>LoopLines</td>
+<td>Boolean</td>
+<td>RW</td>
+<td>Defines if a line is drawn to connect the first and last Frame feature in set.
+<p class="TableNormal">This property is disabled if ConnectingLinesVisible is set to False.</p>
+</td>
+</tr>
+<tr>
+<td>Material</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines the material of Frame features in set.
+<p class="TableNormal">This might be overridden by the material of CustomIcon or an individual Frame feature.</p>
+</td>
+</tr>
+<tr>
+<td>NamesVisible</td>
+<td>Boolean</td>
+<td>RW</td>
+<td>Defines if the name of each Frame feature in set is displayed in the 3D world.
+<p class="TableNormal">This property is disabled if FramesVisible is set to False.</p>
+<p class="TableNormal"><span class="Strong">Note:</span> Displaying the names of Frame features can slow performance and degrade usability when a large amount of Frame features are contained in a small area.</p>
+</td>
+</tr>
+</table>
+<p>See also <a href="vcPathObject.htm">vcPathObject</a> and <a href="vcPathObjectSegment.htm">vcPathObjectSegment</a>.</p>
+</body>
+</html>

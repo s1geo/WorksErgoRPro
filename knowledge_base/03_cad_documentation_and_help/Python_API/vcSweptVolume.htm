@@ -1,0 +1,198 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcSweptVolume</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+img.hcp1 { border-left-style:Solid;
+border-left-width:1px;
+border-right-style:Solid;
+border-right-width:1px;
+border-top-style:Solid;
+border-top-width:1px;
+border-bottom-style:Solid;
+border-bottom-width:1px;
+margin-left:0cm;
+margin-right:0px;
+margin-bottom:0px; }
+p.hcp2 { mso-bidi-font-weight:normal;
+line-height:normal; }
+-->
+</style>
+</head>
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcSweptVolume</h1>
+<p>vcSweptVolume is a layout item used to measure and simulate volume displacement of moving objects and detect collisions.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcLayoutItem.htm">vcLayoutItem</a></p>
+<p>A swept volume requires at least two <a href="vcNode.htm">vcNode</a> objects: one designated as the object being swept (InputNodeList) and one designated as the container of swept geometry (TargetNode). In all cases, the target container should remain static and not move during a simulation.</p>
+<p>When an object is swept, it is transformed into one or more convex hulls upon movement, an iterative process ensures, and then the swept volume from convex hulls is rendered in 3D world. Swept geometry can be cleared from 3D world or stored in target container, thereby allowing you to save generated swept geometry in a component or layout.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot34834" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot34834', 'MTPOPUP34834');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP34834" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Decomposition</td>
+<td>Integer</td>
+<td>RW</td>
+<td>Defines the number of convex hulls created for included nodes, for example one conveyor hull encompassing all nodes or several convex hulls based on geometry of each node.
+<p class="TableNormal"><span class="Term">0</span><br>
+One convex hull.</p>
+<p class="TableNormal"><span class="Term">1</span><br>
+One or more convex hulls using convex decomposition.</p>
+<p class="TableNormal"><span class="Term">2</span><br>
+One convex hull for each triangle mesh in input nodes.</p>
+<p class="TableNormal">See <a href="Constants.htm#Decomposition_Modes">Decomposition Modes</a> for more information.</p>
+</td>
+</tr>
+<tr>
+<td>DecompositionDecimationTarget</td>
+<td>Integer</td>
+<td>W</td>
+<td>If Decomposition set to 1, sets the number of triangle sets remaining after decimation process of input nodes with fewer triangle sets than decimation target, thereby allowing you to expedite/speed up the process.
+<p class="TableNormal">Set to zero to have no effect.</p>
+</td>
+</tr>
+<tr>
+<td>DecompositionQuality</td>
+<td>Real</td>
+<td>W</td>
+<td>If Decomposition set to 1, sets the quality of decomposition in range 0 to 100, thereby affecting the approximation of convex hulls to the shape of input node geometry.
+<p class="TableNormal">A higher value produces better approximation and convex-shaped triangle sets at the cost of increasing a component's data count and simulation performance.</p>
+</td>
+</tr>
+<tr>
+<td>InputNodeList</td>
+<td>List of 3-tuple (<a href="vcNode.htm">vcNode</a>, Enumeration inclusion, Enumeration scope)</td>
+<td>RW</td>
+<td>Defines which nodes will be swept during a simulation.
+<p class="TableNormal">The value type is similar to Nodes property of a <a href="vcNodeList.htm">vcNodeList</a> object in which a given node and its scope is either included or excluded from swept volume.</p>
+</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>Integer</td>
+<td>W</td>
+<td>Sets the method used for generating convex hulls as swept geometry, for example hollow or filled convex hulls.
+<p class="TableNormal"><span class="Term">0</span><br>
+Uses lofting. Good for movements requiring small changes, for example small rotational and directional changes in linear motions and bending of curves.</p>
+<p class="TableNormal"><span class="Term">1</span><br>
+Uses hull from hulls generation. Creates internal faces and more points, thereby a higher data count but supports all types of movement.</p>
+<p class="TableNormal"><span class="Term">2</span><br>
+Uses hull from silhouettes generation. Balance of methods 0 and 1 to support small and complex movements.</p>
+<p class="TableNormal"><span class="Strong">Note:</span> Each method type has about the same performance level.</p>
+<p class="TableNormal">See <a href="Constants.htm#Swept_Generation">Swept Generation</a> for more information.</p>
+</td>
+</tr>
+<tr>
+<td>TargetNode</td>
+<td><a href="vcNode.htm">vcNode</a></td>
+<td>W</td>
+<td>Sets the node used for containing swept geometry, which should be static and not move during simulation.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>begin</td>
+<td>None</td>
+<td>[<a href="vcVector.htm">vcVector</a> <span class="Italic">vector</span>]</td>
+<td>Starts swept volume process, thereby initiating decomposition.
+<p class="TableNormal">An optional <span class="Italic">vector</span> argument can be given to define a frame of reference or center point in input node. If not, process uses center point of input node bound box.</p>
+</td>
+</tr>
+<tr>
+<td>clear</td>
+<td>None</td>
+<td>None</td>
+<td>Removes all swept geometry of layout item from 3D world.</td>
+</tr>
+<tr>
+<td>end</td>
+<td>None</td>
+<td>None</td>
+<td>Stops swept volume process.
+<p class="TableNormal">After swept volume process has ended, you can perform capping of swept geometry.</p>
+</td>
+</tr>
+<tr>
+<td>next</td>
+<td>None</td>
+<td>[<a href="vcVector.htm">vcVector</a> <span class="Italic">vector</span>]</td>
+<td>Executes an iterative process that renders swept geometry based on positions of input nodes. That is, you should call this method each time you want to render swept volume in 3D world during swept process.
+<p class="TableNormal">An optional <span class="Italic">vector</span> argument can be given to define a frame of reference or center point in input node as it moves during a simulation. If not, process uses center point of input node bound box. Generally, this is used to offset swept geometry.</p>
+</td>
+</tr>
+<tr>
+<td>store</td>
+<td><a href="vcFeature.htm">vcFeature</a></td>
+<td>None</td>
+<td>Stores swept geometry in TargetNode, thereby allowing you to save swept geometry in component and/or layout.
+<p class="TableNormal">Returns the Geometry feature where swept volume is stored in TargetNode. The naming convention for feature is VC_SweptVolumeResult, and the feature is an immediate child of TargetNode root feature.</p>
+<p class="TableNormal">If no swept geometry is generated during simulation, returns None.</p>
+<p class="TableNormal">Generally, you should call store() method after calling end() method and before clear() method.</p>
+</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Decomposition and Method results</span></p>
+<p>Decomposition = 0 | Method = 0 (lofting)</p>
+<p><img src="Images/vcSweptVolume/clip_image002.jpg" alt="" border="1" class="hcp1"></p>
+<p>Decomposition = 1 | Method = 0 (lofting)</p>
+<p style="line-height: normal;"><img src="Images/vcSweptVolume/clip_image004.jpg" alt="" border="1" class="hcp1"></p>
+<p>Decomposition = 0 | Method = 1</p>
+<p style="mso-bidi-font-weight: normal;"><span style="font-weight: bold;"><b><img src="Images/vcSweptVolume/clip_image006.jpg" alt="" border="1" class="hcp1"></b></span></p>
+<p>Decomposition = 1 | Method = 1</p>
+<p class="hcp2"><img src="Images/vcSweptVolume/clip_image008.jpg" alt="" border="1" class="hcp1"></p>
+<p class="hcp2"><span class="Example">Example. Basic implementation of swept volume</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td>from vcScript import* <br>&#160; <br>#create swept volume object <br>app = getApplication() <br>sv = app.findLayoutItem('swept') <br>if sv == None: <br>&#160;&#160;sv = app.createLayoutItem(VC_LAYOUTITEM_IT_SWEPTVOLUME) <br>&#160;&#160;sv.Name = 'swept' <br>&#160; <br>#setup nodes to include/exclude in node list and scope <br>comp = getComponent() <br>nodes = comp.findNode('Enter Node Name') <br>sv.InputNodeList = [( nodes, VC_NODELIST_INCLUDE, VC_NODELIST_NODE )] <br>&#160; <br>#define if decomposition is done and what method to sweep <br>sv.Decomposition = 1 <br>sv.Method = 1 <br>&#160; <br>#define container of swept volume geometry (must be static/not move) <br>sv.TargetNode = getNode() <br>&#160; <br>#define when to begin, update and end swept volume during simulation <br>def OnRun(): <br>&#160;&#160;sv.begin() <br>&#160;&#160;while True: <br>&#160;&#160;&#160;&#160;sv.next() <br>&#160;&#160;&#160;&#160;delay(0.05) <br>&#160;&#160;&#160;&#160;#how often the swept volume is updated affects visualization of node's location <br>&#160; <br>def OnStop(): <br>&#160;&#160;sv.end() <br>&#160; <br>#remove swept volume as needed <br>#remember generated swept volume is parented to target node <br>def OnReset(): <br>&#160;&#160;sv.clear()</td>
+</tr>
+</table>
+<p><span class="Example">Example. Generate swept volume for robot and gripper</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td>#The following code should be inserted as an Python Script of the component where the #swept volume is stored <br>&#160;&#160; <br>from vcScript import* <br>&#160; <br>app = getApplication() <br>comp = getComponent() <br>sim = getSimulation() <br>finalized = False <br>sweptdefinition = None <br>&#160; <br>def OnFinalize(): <br>&#160;&#160;global follownode, boundcenter, sweptdefinition, finalized, sweptnode <br>&#160;&#160;if finalized: <br>&#160;&#160;&#160;&#160;return <br>&#160; <br>&#160;&#160;# Change the name of the node according to your model <br>&#160;&#160;follownode = app.findComponent("Press Gripper") <br>&#160;&#160;boundcenter = follownode.BoundCenter <br>&#160; <br>&#160;&#160;# You may also want to change the name of the layout item. <br>&#160;&#160;# Keep it specific in case you have multiple items <br>&#160;&#160;sweptdefinition = app.findLayoutItem("PressGripperSweptDefintion") <br>&#160; <br>&#160;&#160;if(sweptdefinition): <br>&#160;&#160;&#160;&#160;app.deleteLayoutItem(sweptdefinition) <br>&#160;&#160;<span>sweptdefinition = app.createLayoutItem(VC_LAYOUTITEM_IT_SWEPTVOLUME)</span> <br>&#160;&#160;sweptdefinition.Name = "PressGripperSweptDefintion" <br>&#160; <br>&#160; <br># The following includes the node only <br>&#160;&#160;sweptdefinition.InputNodeList =\ <br>&#160;&#160;[(follownode,VC_NODELIST_INCLUDE,VC_NODELIST_NODE)] <br>&#160; <br># Create a node in component to consist of the swept volume only. <br># This is handy when defining collision queues <br>&#160;&#160;sweptnode = comp.findNode('Swept') <br>&#160;&#160;if not sweptnode: <br><span>&#160;&#160;&#160;&#160;sweptnode = comp.createNode(VC_NODE,'Swept')</span> <br>&#160;&#160;sweptdefinition.TargetNode = sweptnode <br>&#160; <br># This is the fastest combination of method and decomposition <br># to generate swept volume <br>&#160;&#160;sweptdefinition.method = VC_SWEPT_HULL_FROM_HULLS <br>&#160;&#160;sweptdefinition.decomposition = VC_CONVEXHULL <br>&#160;&#160;finalized = True <br>&#160; <br>def OnReset(): <br>&#160;&#160;global sweptdefinition <br>&#160;&#160;if sweptdefinition: <br>&#160;&#160;&#160; <br># Tell the Swept Definition to clear all recording <br>&#160;&#160;&#160;&#160;sweptdefinition.clear() <br>&#160; <br>def OnStart(): <br>&#160;&#160;global sweptdefinition, finalized, follownode, boundcenter <br>&#160;&#160; <br>&#160;&#160;OnFinalize() <br>&#160; <br># Tell the Swept Definition to start recording <br>&#160;&#160;sweptdefinition.begin(follownode.WorldPositionMatrix * boundcenter) <br>&#160; <br>def OnSimulationUpdate(time): <br>&#160;&#160;global sweptdefinition, finalized, follownode, boundcenter <br>&#160;&#160;if finalized and sim.IsRunning: <br>&#160;&#160;&#160; <br># Tell the Swept Definition to record one step <br>&#160;&#160;&#160;&#160;sweptdefinition.next(follownode.WorldPositionMatrix * boundcenter) <br>&#160; <br>def OnStop(): <br>&#160;&#160;global sweptdefinition <br>&#160;&#160;if sweptdefinition: <br>&#160;&#160;&#160; <br># Tell the Swept Definition to stop recording <br>&#160;&#160;&#160;&#160;sweptdefinition.end()</td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Односторонний путь</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Односторонний путь позволяет вам содержать и перемещать компоненты вперед по пути, определенному элементами системы координат." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Односторонний путь</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Односторонний путь позволяет вам содержать и перемещать компоненты вперед по пути, определенному элементами системы координат.</p>
+<p class="p_Normal"><img alt="ClipboardImg167" style="margin:0;width:7.3021in;height:6.5000in;border:none" src="clipboardimg167.png"/></p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Порты одностороннего пути перечислены вместе с поведением на панели Диаграммы Компонентов.</p>
+<p class="p_Normal"><img alt="ClipboardImg168" style="margin:0;width:3.9167in;height:2.4583in;border:none" src="clipboardimg168.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет наименование пути.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Статистика</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет поведение статистики, которое собирает статистику, сгенерированную путем.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Вместимость</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет количество компонентов, которые может содержать путь в любой момент времени.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Блоки емкости</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет контроллер емкости для глобального определения емкости пути. Как правило, контроллер емкости используется в качестве переменной для управления емкостью одного или нескольких контейнеров, чтобы избежать тупиковых ситуаций.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СигналПерехода</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет поведение логического сигнала, которое сигнализирует о прибытии и уходе компонентов на путь и с пути. Значение True сигнализирует о прибытии компонента. Значение False сигнализирует об уходе компонента.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Скорость</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет скорость, с которой компоненты перемещаются по пути. Чтобы позволить компонентам обгонять друг друга, вам необходимо переопределить скорость пути с помощью скрипта Python.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Ускорение</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет максимальное ускорение для движущихся компонентов по траектории. Нулевое значение отключает ускорение пути.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Замедление</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет максимальное замедление для движущихся компонентов по траектории. Нулевое значение отключает замедление пути.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Интерполяция</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет режим управления поведением пути при перемещении компонентов.</p>
+<p class="p_Normal">Шаг - Привязывает компоненты к путевым точкам и от них с интервалом времени (линейное расстояние пути, деленное на скорость пути).</p>
+<p class="p_Normal">Линейное движение - Перемещает компоненты к путевым точкам и от них по прямой линии.</p>
+<p class="p_Normal">Кубическая кривая - Перемещает компоненты к путевым точкам и обратно по цепочке кубических сплайнов, например, по криволинейному пути. Как правило, кривизна пути более определена, когда путь имеет большее количество путевых точек (элементов Системы координат).</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Аккумулирование</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет, отключается ли путь, когда выход компонента заблокирован. Значение True останавливает путь. Значение False не останавливает путь.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">РазмерСегмента</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет длину и использование сегментов пути. Например, если линейное расстояние пути составляет 1000 {мм}, РазмерСегмента равный 100, формирует 10 сегментов и ограничивает перемещение компонентов в каждый сегмент и из него. То есть по одному компоненту на сегмент. Нулевое значение отключает использование сегментов.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СохраненитьСмещение</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Включает/выключает способность компонента сохранять свое положение при входе в путь. Например, партия компонентов, случайно размещенная по ширине конвейерной ленты, может сохранять свое распределение, а не привязываться к линии пути.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ИспользованиеПространства</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Включает/выключает наложение компонентов на пути. Значение True означает, что компоненты могут граничить друг с другом, но не обгонять друг друга в одном и том же сегменте пути. Значение Fale означает, что компоненты могут располагаться рядом друг с другом и перекрываться.</p>
+<p class="p_Normal">ИспользованиеПространства не влияет на индексирование компонентов пути. Таким образом, значение False не означает, что компоненты будут обгонять друг друга в списке. Вы можете использовать скрипт Python для управления индексацией для буферизации, укладки в стек, маршрутизации и т. д.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">БыстроеПланирование</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Включает/выключает оптимизацию движущихся компонентов по траектории. Если значение равно True, путь ограничивает количество генерируемых событий, тем самым повышая производительность симуляции. Если False, путь перемещает компоненты с более коротким шагом, тем самым увеличивая количество событий и снижая производительность симуляции.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание </span>: вам необходимо включить эту опцию вручную в компонентах, созданных с помощью более старых версий продукта.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Датчики</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет список поведений, связанных с путем и используемых для обнаружения компонентов на траектории. Каждое поведение должно относиться к типу датчик и определять его местоположение относительно траектории, например, расстояние от датчика вдоль траектории или одна из рамок траектории.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Путь</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет упорядоченный список систем координат элементов в компоненте пути, которые действуют как путевые точки пути. Последовательность точек важна при определении начала и конца пути.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ОсьТраектории</p>
+</td>
+<td style="vertical-align:top; width:9.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет ориентацию точек пути относительно расчетной оси.</p>
+<p class="p_Normal">автоматический режим - Использует ориентацию каждой путевой точки для расчета соответствующей оси. Общий будет использоваться, если путевые точки значительно различаются по ориентации.</p>
+<p class="p_Normal">Х-положительная ось &nbsp;- Использует расстояние от начала координат компонента пути до положительного предела по оси X граничной системы координат этого компонента.</p>
+<p class="p_Normal">Y-положительная ось - Использует расстояние от источника компонента пути до положительного предела по оси Y граничной системы координат этого компонента.</p>
+<p class="p_Normal">Z-положительная ось - Использует расстояние от источника компонента пути до положительного предела по оси Z граничной системы координат этого компонента.</p>
+<p class="p_Normal">X-отрицательная ось - Использует расстояние от начала координат компонента пути до отрицательного предела по оси X граничной системы координат этого компонента.</p>
+<p class="p_Normal">Y-отрицательная ось - Использует расстояние от начала координат компонента пути до отрицательного предела по оси Y граничной системы координат этого компонента.</p>
+<p class="p_Normal">Z-отрицательная ось - Использует расстояние от начала координат компонента пути до отрицательного предела по оси Z граничной системы координат этого компонента</p>
+<p class="p_Normal">Общий режим - Использует оценку наихудшего случая, основанную на граничной системе координат этого компонента.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

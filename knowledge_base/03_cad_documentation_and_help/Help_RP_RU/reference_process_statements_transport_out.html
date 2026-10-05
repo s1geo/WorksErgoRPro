@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>ТранспортИз</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Описание Оператор ТранспортИз позволяет вам транспортировать один или несколько экземпляров продукта из процесса. Оператор может работать в одном из двух режимов: в режиме..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Транспорт Из</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+<p class="p_Normal">Оператор ТранспортИз позволяет вам транспортировать один или несколько экземпляров продукта из процесса. Оператор может работать в одном из двух режимов: в режиме Transport Products предполагается, что входная переменная будет содержать один или несколько экземпляров продукта, которые будут отправлены последовательно, в то время как в режиме Process an Assembly ожидается, что входная переменная будет содержать один экземпляр сборки, чьи слоты сборки будут очищены путем отправки экземпляров продукта, которые были помещены в них.</p>
+<p class="p_Normal"><img alt="ProcessStatementsTransportOut" style="margin:0;width:10.1458in;height:2.5417in;border:none" src="processstatementstransportout.png"/></p>
+<p class="p_Normal"><span style="font-weight: bold;">Дополнительная информация</span></p>
+<p class="p_Normal">Если Место назначения &quot;К Следующей Операции&quot;, для успешной перевозки требуется:</p>
+<p class="p_Normal">1. чтобы в настоящее время существовал получатель того типа продукта, о котором идет речь в данном операторе.</p>
+<p class="p_Normal">2. получатель должен быть следующим шагом в последовательности шагов процесса.</p>
+<p class="p_Normal">3. чтобы существовал допустимый маршрут транспортировки от этого процесса к процессу-получателю.</p>
+<p class="p_Normal">4. наличие ресурсов, необходимых для транспортировки.</p>
+<p class="p_Normal">Этот оператор будет ждать, пока продукт покинет процесс или сборку. Продолжительность ожидания может зависеть, например, от того, когда другому процессу требуется продукт, доступны ли ресурсы или есть ли емкость в целевом контейнере компонентов.</p>
+<p class="p_Normal">Оператор ТранспортИз обычно сочетается с оператором ТранспортВ принимающего процесса. Убедитесь, что свойство &quot;Место назначения&quot; оператора ТранспортИз совместимо со свойством Источник оператора ТранспортВ. Также можно использовать оператор ТранспортИз без соответствующего оператора ТранспортВ, обычно в режиме К Контейнеру Компонента.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Транспортировка сборок</span></p>
+<p class="p_Normal">Режим Transport Products:</p>
+<p class="p_Normal">Сборку можно транспортировать как один тип продукта, как и любой другой продукт.</p>
+<p class="p_Normal">Режим Process an Assembly:</p>
+<p class="p_Normal">При обработке сборок оператор ТранспортИз обычно используется с оператором Получить сборку. С помощью Получить сборку пользователь может выбрать, какие этапы сборки будут перенесены, а затем эта информация будет передана в качестве заказа на сборку оператору ТранспортИз через свойство НаименованиеПеременнойПорядкаСборки.</p>
+<p class="p_Normal">Этапы сборки выводятся последовательно, в обратном порядке в ширину. Внутри шага свойство OrderIndex слотов сборки определяет порядок транспортировки. Слоты с одинаковым значением OrderIndex будут транспортироваться одновременно.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.8646in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5521in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">НаименованиеПеременнойДетали</p>
+</td>
+<td style="vertical-align:top; width:9.5521in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование переменной, которая содержит либо Продукт(ы), которые необходимо вывезти, либо Сборку, слоты которой будут освобождены от Продуктов.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Эта переменная может быть одним ссылочным типом или списком. В режиме «Transport Products» все продукты в списке будут транспортироваться последовательно. В режиме обработки сборки будет обработан только первый элемент в списке.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Режим</p>
+</td>
+<td style="vertical-align:top; width:9.5521in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет, как продукты транспортируются.</p>
+<p class="p_Normal">Transport Products - В этом режиме этот оператор переносит экземпляры продукта между процессами.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Подсказка</span>: Экземпляр продукта — это общий термин, который включает в себя как экземпляры деталей, так и экземпляры сборок, поэтому его можно использовать для включения в процесс сборок (частично собранных или полностью собранных).</p>
+<p class="p_Normal">Process an Assembly - В этом режиме этот оператор используется для переноса экземпляров продукта в экземпляр сборки, который находится в этом процессе.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">НаименованиеПеременнойПорядкаСборки</p>
+</td>
+<td style="vertical-align:top; width:9.5521in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование переменной AssemblyOrder, определяющей, какие слоты сборки будут очищены, если они в данный момент заполнены.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Подсказка</span>: Используйте оператор Получить сборку &nbsp;для создания AssemblyOrder.</p>
+<p class="p_Normal">Если оставить пустым, все слоты сборки будут перемещены.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">РамкаПоложенияРесурса</p>
+</td>
+<td style="vertical-align:top; width:9.5521in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Расположение рамки, куда будет перемещаться ресурс для выбора продукта.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Место Назначения</p>
+</td>
+<td style="vertical-align:top; width:9.5521in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет пункт назначения, куда будут переданы продукты для транспортировки.</p>
+<p class="p_Normal">К Следующей Операции - Экземпляр продукта транспортируется к следующему процессу с помощью транспортной системы. Транспортировка осуществляется по принципу вытягивания, что означает, что следующий процесс запрашивает продукт, как только у него появляется возможность для этого. Этот оператор завершится после того, как продукт будет получен Исполнителем первой транспортной ссылки.</p>
+<p class="p_Normal">К Контейнеру Компонента - Экземпляр продукта помещается в контейнер компонента, определенный в Место назначения. Если Контейнер имеет выходной порт, связанный с поведением другого контейнера, продукт проходит через Контейнер в подключенный к нему контейнер. Транспортировка осуществляется толкающим способом, что означает, что продукт вывозится,как только в контейнере назначения появляется свободное место.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Подсказка</span>: обычно используется в поточном процессе для буферизации продуктов на конвейере.</p>
+<p class="p_Normal">К Транспортному Узлу - Экземпляр продукта транспортируется к определенному транспортному узлу с помощью транспортной системы. В этом режиме можно использовать транспортную систему в режиме проталкивания, что означает, что продукты транспортируются к целевому узлу, используя, например, конвейерную систему в качестве буфера.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">УзелМестаНазначения</p>
+</td>
+<td style="vertical-align:top; width:9.5521in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">На какой транспортный узел транспортируется Экземпляр продукта, если свойство Место назначения &nbsp;определено как <span style="font-style: italic;">К Транспортному Узлу</span>.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Контейнер</p>
+</td>
+<td style="vertical-align:top; width:9.5521in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">В какой контейнер транспортируется экземпляр продукта, если свойство Место назначения &nbsp;определено как К<span style="font-style: italic;"> Контейнеру Компонента</span>.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ОтправитьКакПакетПродуктов</p>
+</td>
+<td style="vertical-align:top; width:9.5521in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Это свойство может быть использовано для транспортировки нескольких продуктов в виде связки в рамках одной транспортировки.</p>
+<p class="p_Normal">Выбранные шаги сборки в порядке сборки всегда будут перемещаться индивидуально (по одному слоту сборки за раз при циклическом выполнении выбранных шагов сборки).</p>
+<p class="p_Normal">Если значение свойства равно true, невыбранные дочерние шаги выбранных шагов сборки (если есть) будут прикреплены к экземпляру продукта в первом слоте их выбранного родительского шага сборки. Более подробно, прикрепленные продукты будут транспортироваться как наборы продуктов. Пакет продуктов — это набор экземпляров продукта, созданный путем объединения их динамических компонентов. Пакеты продуктов не являются экземплярами сборки и не имеют метаданных структуры сборки.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcHelpers.Solver</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body page-style="x-size: A4;" page-frame-style="margin-left: 0.25in; margin-right: 0.25in;">
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcHelpers.Solver</h1>
+<p>vcHelpers.Solver provides a method and callback function for finding 
+ a local minimum, which is helpful for solving numerical problems.</p>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>findLocalMinimum</td>
+		<td>Real</td>
+		<td>Function <span class="Italic">evaluator</span>, List of Real 
+		 <span class="Italic">values</span></td>
+		<td>Calls a given function and modifies a list of values until 
+		 the evaluator returns a minimum real value.</td>
+	</tr>
+</table>
+<h2><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Calculate local minimum</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td><span>from vcScript import *</span> 
+		<br>import vcHelpers.Solver 
+		<br>&#160; 
+		<br>def calcError(pl): 
+		<br>&#160;&#160;targetvalues = [1.0,-20.0,45.0] 
+		<br>&#160;&#160;error = 0.0 
+		<br>&#160;&#160;for i in range(3): 
+		<br>&#160;&#160;&#160;&#160;error += abs(targetvalues[i]-pl[i]) 
+		<br>&#160;&#160;print error, pl 
+		<br>&#160;&#160;return error 
+		<br>&#160; 
+		<br>initialguess = [0.0, 0.0, 0.0] 
+		<br>noise = vcHelpers.Solver.findLocalMinimum(calcError,initialguess) 
+		<br>print noise, initialguess</td>
+	</tr>
+</table>
+</body>
+</html>

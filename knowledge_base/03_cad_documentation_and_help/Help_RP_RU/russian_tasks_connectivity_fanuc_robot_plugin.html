@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Подключение к контроллеру робота Fanuc</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="1. О плагине Плагин Fanuc Robot позволяет подключаться к контроллеру робота Fanuc во время моделирования и обмена данными. Например, программа, работающая в виртуальном или..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Подключение к контроллеру робота Fanuc</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">1. О плагине</span></h2>
+<p class="p_Normal">Плагин Fanuc Robot позволяет подключаться к контроллеру робота Fanuc во время моделирования и обмена данными. Например, программа, работающая в виртуальном или физическом контроллере Fanuc, может управлять соединениями робота Fanuc в моделировании, считывать данные с датчиков и задавать выходные параметры для выбора и размещения продуктов.</p>
+<p class="p_Normal">Плагин связан с функцией подключения Рационального Производства и может подключаться к одному или нескольким контроллерам роботов Fanuc. Упрощенный рабочий процесс выглядит следующим образом:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>Добавить сервер</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>Подключиться к серверу</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>Настройте переменные</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">4.</span>Запустите симуляцию</p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">2. Поддержка чтения и записи</span></h2>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Таблица Чтения и записи</span></h3>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Тип</span></p>
+</th>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Чтение</span></p>
+</th>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Запись</span></p>
+</th>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Примечание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Цифровые и аналоговые входы и выходы контроллера робота</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Да</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Да</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Цифровые входы и выходы манипулятора робота</p>
+</td>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Да</p>
+</td>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Да</p>
+</td>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Системные переменные базовых типов (логические, целые, вещественные, строковые)</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Да</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Да</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Диапазон значений ограничен. Кроме того, длина строки ограничена максимальной длиной системной переменной.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Текущие совместные значения из любой группы движения</p>
+</td>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Да</p>
+</td>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; background-color:#FFFFFF; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">&nbsp;</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Парные переменные в режиме </span><span style="font-size: 14pt; font-weight: bold; color: #717171;">Симуляция на сервер</span><span style="font-size: 14pt; color: #717171;">:</span></h3>
+<p class="p_Normal">Когда цифровые или аналоговые входы и выходы (IO) объединены в пары, эти парные входы/выходы автоматически устанавливаются на режим <span style="font-weight: bold;">симуляции </span> на контроллере робота.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Значения, записанные через API, теперь применяются и о отображаются в программе роботов.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Рекомендуется режим обновления на основе событий.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>IO не сбрасываются автоматически в исходное состояние перед запуском симуляции, и пользователь должен сделать это с пульта обучения.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Roboguide имеет пользовательский интерфейс для просмотра и установки значений ввода-вывода. Это не работает с IO в режиме <span style="font-weight: bold;">симуляции</span>, но пульт обучения может отображать и устанавливать состояние смоделированных входов/выходов.</p>
+<p class="p_Normal">&nbsp;</p>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Парные переменные в режиме </span><span style="font-size: 14pt; font-weight: bold; color: #717171;">Сервер для симуляции</span><span style="font-size: 14pt; color: #717171;">:</span></h3>
+<p class="p_Normal">Поддерживаются только циклические обновления. Если сервер для направления передачи симуляции установлен на режим событийно-управляемый, вы получите сообщение об ошибке подключения на панели Вывода.</p>
+<p class="p_Normal">Циклическое чтение и запись оптимизированы с помощью функции распределенного доступа FANUC API/PC DK.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Автоматически считывает и записывает как можно больше переменных при использовании одного запроса.</p>
+<p class="p_Normal">Плагин использует один коммуникационный поток для каждой группы переменных для снижения задержки. Обратите внимание: если одна и та же переменная связана с несколькими переменными, переменная может измениться несколько раз или быть потерянной. Это связано с тем, что обновления могут перекрываться или отменять изменения, сделанные другим обновлением.</p>
+<p class="p_Normal">Скорость связи с локальным контроллером виртуального робота (сервером робота Fanuc) достаточно эффективна. Однако скорость может варьироваться в зависимости от нагрузки симуляции и контроллера робота.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">3. Требования</span></h2>
+<p class="p_Normal">Для подключения требуется, чтобы на одном компьютере было установлено программное обеспечение Рациональное Производство и Fanuc Robot Server. См. следующие параметры:</p>
+<p class="p_Normal"><span style="font-weight: bold;">Опция 1 </span>- Рациональное Производство + Fanuc PC DK:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Опция PC DK #A08B-9410-J535 (Комплект разработчика ПК-роботов Fanuc)</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>PC DK включает Fanuc Robot Server</p>
+<p class="p_Normal"><span style="font-weight: bold;">Вариант 2 </span>- Рациональное Производство + Fanuc Robot Server:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Опция Robot Server # A08B-9410-J536 (библиотека времени выполнения Fanuc Robot PC Developer’s Kit)</p>
+<p class="p_Normal"><span style="font-weight: bold;">Вариант 3 </span>- Рациональное Производство + Fanuc:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Roboguide (A08B-9410-J688)</p>
+<p class="p_Normal">Обратите внимание, что контроллер робота Fanuc требует наличия опции интерфейса ПК для поддержки соединения с плагином.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">4. Установка</span></h2>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>Убедитесь, что ваш хост-компьютер соответствует требованиям.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>Получите доступ к контроллеру Fanuc.</p>
+<p class="p_Normal" style="margin: 0 0 0.0417in 0.4167in;">Плагин подключается к контроллеру робота, поэтому виртуальный или физический контроллер робота должен быть доступен через прямое сетевое соединение (IP-адрес) или robot neighborhood. Например, достаточно открыть проект в Fanuc RoboGuide и запустить виртуальный контроллер робота.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>В Рациональном Производстве добавьте новый сервер с подключаемым модулем и подключитесь к контроллеру.</p>
+<p class="p_Normal" style="margin: 0 0 0.0417in 0.4167in;">Подсказка: Если вы используете виртуальный контроллер робота, работающий в RoboGuide, по умолчанию он будет иметь IP-адрес хост-компьютера RoboGuide.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">4.</span>Сопоставьте переменные.</p>
+<p class="p_Normal" style="margin: 0 0 0.0417in 0.4167in;">Например, сопоставьте свойство VALUE каждой степени свободы (DOF)/Joint компонента робота с шарниром контроллера. Таким образом, контроллер управляет роботом в трехмерном мире.</p>
+<p class="p_Normal" style="margin: 0 0 0.0417in 0.4167in;">Для имитации таких действий, как захват/освобождение, сопоставьте выходные данные компонента робота для этих действий с вводом-выводом контроллера, который вы будете использовать для этих действий.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">5.</span>Запустите симуляцию.</p>
+<p class="p_Normal" style="margin: 0 0 0.0417in 0.4167in;">Начните симуляцию, чтобы начать обмен данными. Обратите внимание, что в панели <span style="font-weight: bold;">Подключенные переменные </span>, в столбце <span style="font-weight: bold;">Подготовленное значения </span>можно задать значения для тестирования.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">5. Работа с ошибками</span></h2>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>При потере связи с контроллером обмен данными прекратится. В таких случаях плагин ожидает получения событий от контроллера.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Любые исключения, возникшие во время просмотра переменных подключенного контроллера (цифровой ввод, цифровой вывод и т. д.), будут перехвачены, зарегистрированы в файле журнала ошибок и обработаны путем возврата пустого набора узлов дерева. Эти исключения приведут к тому, что переменные контроллера робота не будут отображаться в редакторе <span style="font-weight: bold;">Создания пар переменных </span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Если соединение с контроллером потеряно, повторно подключитесь к контроллеру.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Если структура сервера подключенного контроллера пуста или не отображает актуальные данные в редакторе <span style="font-weight: bold;">Создания пар переменных</span>, попробуйте переподключиться к контроллеру и перезагрузить структуру сервера. Если это не работает, отключите/снова включите группу переменных.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Системные переменные загружаются по уровню по запросу контроллера.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Просмотр всей структуры системных переменных может занять до 5-10 минут. Обратите внимание, что существуют тысячи системных переменных. Если соединение потеряно во время активного просмотра, просмотр для каждого уровня будет давать сбой отдельно всякий раз, когда Рациональное Производство пытается получить доступ к дочерним узлам. Когда вы пытаетесь получить доступ к невидимым дочерним узлам каждого уже обнаруженного узла, каждый создаст исключение, зарегистрированное в файле журнала ошибок. Это может привести, например, к 100 зарегистрированным исключениям.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Вы не получаете отдельного сообщения об ошибке, если при просмотре произошла ошибка. Дерево может быть неполным, а в файле журнала ошибок будут зарегистрированы некоторые исключения. Обратите внимание, что при потере соединения в окно вывода выводятся сообщения об ошибках, а других ошибок не ожидается.</p>
+</td></tr></table>
+
+</body>
+</html>

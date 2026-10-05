@@ -1,0 +1,51 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcFrameFeature</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcFrameFeature</h1>
+<p>vcFrameFeature is a type of feature used to reference a point in the 3D world.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcFeature.htm">vcFeature</a></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>FramePositionMatrix</td>
+<td><a href="vcMatrix.htm">vcMatrix</a></td>
+<td>R</td>
+<td>Gets the position matrix of frame.</td>
+</tr>
+<tr>
+<td>OriginalFramePositionMatrix</td>
+<td><a href="vcMatrix.htm">vcMatrix</a></td>
+<td>R</td>
+<td>Gets the original position matrix of frame.</td>
+</tr>
+</table>
+<h2><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Frame position matrix relative to its containing node's coordinate system</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td>from vcScript import * <br>&#160; <br>app = getApplication() <br>comp = app.findComponent("Feeder Template") <br>node = comp.findNode("Feeder Template") <br>feature = node.findFeature("Frame" ) <br>pos = feature.NodePositionMatrix <br>print pos.N.X, pos.N.Y, pos.N.Z</td>
+</tr>
+</table>
+</body>
+</html>

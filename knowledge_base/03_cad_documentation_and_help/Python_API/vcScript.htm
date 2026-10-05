@@ -1,0 +1,332 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcScript</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcScript</h1>
+<p>vcScript allows you to publish and execute a Python script.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot12182" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot12182', 'MTPOPUP12182');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP12182" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Application</td>
+		<td><a href="vcApplication.htm">vcApplication</a></td>
+		<td>R</td>
+		<td>Gets the application object.</td>
+	</tr>
+	<tr>
+		<td>Component</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td>R</td>
+		<td>Gets the component of script.</td>
+	</tr>
+	<tr>
+		<td>IsRunning</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if code of script is being executed.</td>
+	</tr>
+	<tr>
+		<td>Node</td>
+		<td><a href="vcNode.htm">vcNode</a></td>
+		<td>R</td>
+		<td>Gets the node containing script.</td>
+	</tr>
+	<tr>
+		<td>Script</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the executable Python code of script.</td>
+	</tr>
+	<tr>
+		<td>Simulation</td>
+		<td><a href="vcSimulation.htm">vcSimulation</a></td>
+		<td>R</td>
+		<td>Gets the simulation object.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a><a name="vcScript_Methods">Methods</a></h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>condition</td>
+		<td>Boolean</td>
+		<td>Function <span class="Italic">expression_function</span>, [Real 
+		 <span class="Italic">timeout</span>]</td>
+		<td>Delays the execution of script until a given <span class="Italic">function</span> 
+		 returns a True value or&#160;<span class="Italic">timeout</span> 
+		 period. 
+		<p class="TableNormal">The first evaluation of the function is 
+		 immediate, and then each subsequent test is triggered, for example, 
+		 by signal connected to script. The default <span class="Italic">timeout</span> 
+		 period is zero.</p>
+		<p class="TableNormal">Returns a True value if condition is True 
+		 before timeout, otherwise returns a False value.</p></td>
+	</tr>
+	<tr>
+		<td>convertToByteCode</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Converts the code of script to bytecode. 
+		<p class="TableNormal">Generally, this method is used to encrypt 
+		 the code of script.</p></td>
+	</tr>
+	<tr>
+		<td>delay</td>
+		<td>None</td>
+		<td>Real <span class="Italic">time</span></td>
+		<td>Delays the execution of script for a given amount of <span 
+		 class="Italic">time</span>.</td>
+	</tr>
+	<tr>
+		<td>evaluateCondition</td>
+		<td>None</td>
+		<td>None </td>
+		<td>Triggers the evaluation of an active condition() or triggerCondition() 
+		 function in the script.</td>
+	</tr>
+	<tr>
+		<td>getApplication</td>
+		<td><a href="vcApplication.htm">vcApplication</a></td>
+		<td>None</td>
+		<td>Returns the application object.</td>
+	</tr>
+	<tr>
+		<td>getComponent</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td>None</td>
+		<td>Returns the component of script.</td>
+	</tr>
+	<tr>
+		<td>getNode</td>
+		<td><a href="vcNode.htm">vcNode</a></td>
+		<td>None</td>
+		<td>Returns the node containing script.</td>
+	</tr>
+	<tr>
+		<td>getSimulation</td>
+		<td><a href="vcSimulation.htm">vcSimulation</a></td>
+		<td>None</td>
+		<td>Returns the simulation object.</td>
+	</tr>
+	<tr>
+		<td>getTrigger</td>
+		<td><a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td>None</td>
+		<td>Returns an object that acts as a trigger in script, for example 
+		 a signal connected to script. 
+		<p class="TableNormal">Generally, this method is called in a condition() 
+		 or triggerCondition() expression to evaluate a trigger.</p></td>
+	</tr>
+	<tr>
+		<td>resumeRun</td>
+		<td>None</td>
+		<td>[Real <span class="Italic">timeout</span>]</td>
+		<td>Resumes the execution of OnRun, the main program of script, 
+		 that was placed in suspended state.</td>
+	</tr>
+	<tr>
+		<td>suspendRun</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Suspends the execution of OnRun, the main program of script.</td>
+	</tr>
+	<tr>
+		<td>triggerCondition</td>
+		<td>Boolean</td>
+		<td>Function <span class="Italic">expression_function</span>, [Real 
+		 <span class="Italic">timeout</span>]</td>
+		<td>Delays the execution of script until a given <span class="Italic">function</span> 
+		 returns a True value or&#160;<span class="Italic">timeout</span> 
+		 period. 
+		<p class="TableNormal">The evaluation of the function is triggered, 
+		 for example, by signal connected to script. The default <span 
+		 class="Italic">timeout</span> period is zero.</p>
+		<p class="TableNormal">Returns a True value if condition is True 
+		 before timeout, otherwise returns a False value.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<p>The following event handlers are functions that can be defined and used 
+ in a script. In most cases, you use the OnRun event to define the main 
+ program/loop of script which is executed while a simulation is running.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnAction</td>
+		<td><a href="vcAction.htm">vcAction</a> <span class="Italic">action</span></td>
+		<td>Triggered when an Action Container connected to script handles 
+		 an action.</td>
+	</tr>
+	<tr>
+		<td>OnContinue</td>
+		<td>None</td>
+		<td>Triggered when a simulation resumes after being halted.</td>
+	</tr>
+	<tr>
+		<td>OnDestroy</td>
+		<td>None</td>
+		<td>Triggered when an object is destroyed, for example a node.</td>
+	</tr>
+	<tr>
+		<td>OnFinalize</td>
+		<td>None</td>
+		<td>Triggered when layout or component is being loaded in 3D world. 
+		 
+		<p class="TableNormal">The event occurs, for example, when copying 
+		 a component, or loading a layout of components. The event is triggered 
+		 before the needed components are attached to the 3D world.</p></td>
+	</tr>
+	<tr>
+		<td>OnRebuild</td>
+		<td>None</td>
+		<td>Triggered when component geometry is rebuilt.</td>
+	</tr>
+	<tr>
+		<td>OnReset</td>
+		<td>None</td>
+		<td>Triggered when simulation is reset to its initial state and 
+		 simulation clock is set at zero.</td>
+	</tr>
+	<tr>
+		<td>OnRun</td>
+		<td>None</td>
+		<td>Triggered at the start of a simulation and is used as the main 
+		 function/loop of script.</td>
+	</tr>
+	<tr>
+		<td>OnSignal</td>
+		<td><a href="vcSignal.htm">vcSignal</a> <span class="Italic">signal</span></td>
+		<td>Triggered when a signal connected to script signals its value.</td>
+	</tr>
+	<tr>
+		<td>OnSimulationUpdate</td>
+		<td>Real <span class="Italic">time</span></td>
+		<td>Triggered when simulation and scene are updated.</td>
+	</tr>
+	<tr>
+		<td><a name="vcScriptOnSimulationLevelChanged">OnSimulationLevelChanged</a></td>
+		<td><a href="vcComponent.htm#vcComponent_SimulationLevel">Enumerator</a></td>
+		<td><p>Triggered when the simulation level is changed.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Simulation_Level">Component 
+		 Constants</a> for more information.<br>
+		<br>
+		Refers to <span class="hcp1">SimulationLevel</span> 
+		 Property in <span class="hcp1">vcComponent.</span></p></td>
+	</tr>
+	<tr>
+		<td>OnStart</td>
+		<td>None</td>
+		<td>Triggered at the immediate start of simulation.</td>
+	</tr>
+	<tr>
+		<td>OnStop</td>
+		<td>None</td>
+		<td>Triggered when a simulation is halted.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Use condition() and triggerCondition() 
+ methods</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>#A condition calls the function test_func() immediately w/o waiting for a trigger 
+		<br>#A triggerCondition calls the function when a trigger is received 
+		<br>#Use this script as an example for executing a condition and/or a triggerCondition 
+		<br>&#160; 
+		<br>from vcScript import * 
+		<br>import vcMatrix 
+		<br>&#160; 
+		<br>finalizing = True 
+		<br>comp = getComponent() 
+		<br>pathxx = comp.findBehaviour(&quot;One-WayPath__HIDE__&quot;) 
+		<br>pathxx.Enabled = True 
+		<br>preSensorSgnl = comp.findBehaviour(&quot;PreSignal&quot;) 
+		<br>postSensorSgnl = comp.findBehaviour(&quot;BooleanSignal&quot;) 
+		<br>&#160; 
+		<br>&#160; 
+		<br>def test_func(): 
+		<br>&#160;&#160;triggerer = getTrigger() 
+		<br>&#160;&#160;print '-'*99 # print a line 
+		<br>&#160;&#160;print '- triggerer:',triggerer 
+		<br>&#160;&#160;print '- postSensorSgnl value:',postSensorSgnl.Value 
+		<br>&#160;&#160;if triggerer == postSensorSgnl: 
+		<br>&#160;&#160;&#160;&#160;if postSensorSgnl.Value == False: 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;print 'TEST PASSED' 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;return True # return true which makes condition test to pass 
+		<br>&#160;&#160;&#160;&#160;else: 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;print 'TEST FAILED because postSensorSgnl.Value is not False' 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;return False # return false which makes condition test to fail 
+		<br>&#160;&#160;else: 
+		<br>&#160;&#160;&#160;&#160;print 'TEST FAILED because triggerer is not postSensorSgnl' 
+		<br>&#160;&#160;&#160;&#160;return False # return false which makes condition test to fail 
+		<br>&#160; 
+		<br>def OnRun(): 
+		<br>&#160;&#160;## condition 
+		<br>&#160;&#160;#condition(lambda: test_func() ) # case1 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;## triggerCondition 
+		<br>&#160;&#160;#triggerCondition(lambda: test_func() ) # case2 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;pathxx.Enabled = False &#160; 
+		<br>&#160;&#160;print '&lt; test passed and path disabled &gt;' 
+		<br>&#160;&#160;print ''</td>
+	</tr>
+</table>
+<!--======================================Events========================================-->
+</body>
+</html>

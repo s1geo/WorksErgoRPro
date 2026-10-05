@@ -1,0 +1,525 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcTopology</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcTopology</h1>
+<p>vcTopology represents the topology data of tessellated geometry and 
+ can be used to generate simple and complex geometry, for example NURBS, 
+ meshes and splines.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot48575" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot48575', 'MTPOPUP48575');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP48575" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Usage</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Usage</h2>
+<p>When a CAD file is loaded in 3D world, any topology data for tessellated 
+ geometry grouped in a <a href="vcTriangleSet.htm">vcTriangleSet</a> object 
+ can be accessed from the object's Topology property. This differs from 
+ curve data, which is stored in a CurveData property of a <a href="vcCompactLineSet.htm">vcCompactLineSet</a> 
+ object.</p>
+<p>Generally, topology data stored in a Geometry feature never duplicated 
+ unless contained triangle sets are updated using scripts. Any edits or 
+ modifying operations performed on tessellated geometry will automatically 
+ update topology data as needed.</p>
+<p><img src="topology.png" alt="" style="border: none; margin-left: 0px; 
+		 margin-right: 0px;" border="0"></p>
+<h2><a name="MiniTOCBookMark3"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>CurveCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the total number of curves in set.</td>
+	</tr>
+	<tr>
+		<td>CurveLoopCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the total number of curve loops in set.</td>
+	</tr>
+	<tr>
+		<td>FaceCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the total number of faces in set.</td>
+	</tr>
+	<tr>
+		<td>PointCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the total number of points considered boundary-corners 
+		 in mesh, for example curve ends. If set is not a mesh, gives zero. 
+		 
+		<p class="TableNormal"><span class="Strong">Note:</span> To get 
+		 the total number of points in set, use PointCount in <a href="vcTriangleSet.htm">vcTriangleSet</a>.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>brepAvailable</td>
+		<td>Boolean</td>
+		<td>None</td>
+		<td>Returns True if set contains boundary representation; otherwise 
+		 returns False.</td>
+	</tr>
+	<tr>
+		<td>createCurveLoop</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">face</span></td>
+		<td>Adds a new curve loop to a face at a given index in set, and 
+		 then returns the index of new curve loop in set.</td>
+	</tr>
+	<tr>
+		<td>createNurbsFace</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">udegree</span>, Integer <span 
+		 class="Italic">vdegree</span>, List of <a href="vcVector.htm">vcVector</a> 
+		 <span class="Italic">ctrl_pts</span>, List of Integer <span class="Italic">umultiply</span>, 
+		 List of Integer <span class="Italic">vmultiply</span>, List of 
+		 Real <span class="Italic">uknots</span>, List of Real <span class="Italic">vknots</span>, 
+		 List of Real <span class="Italic">uknots</span>, List of Real 
+		 <span class="Italic">ctrl_weights</span></td>
+		<td>Adds a new non-uniform b-spline surface (NURBS) to set, and 
+		 then returns the index of new surface in set.</td>
+	</tr>
+	<tr>
+		<td>createPlanarFace</td>
+		<td>Integer</td>
+		<td><a href="vcVector.htm">vcVector</a> <span class="Italic">pos</span>, 
+		 <a href="vcVector.htm">vcVector</a> <span class="Italic">normal</span></td>
+		<td>Adds a new planar (unlimited) face using given position and 
+		 surface normal vectors, and then returns the index of new face 
+		 in set.</td>
+	</tr>
+	<tr>
+		<td>createOffsetSurface</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">face</span>, Real <span class="Italic">offset</span>, 
+		 <a href="vcTriangleSet.htm">vcTriangleSet</a> <span class="Italic">target</span></td>
+		<td>Creates a copy of face at a given index in set, and then returns 
+		 the index of new face in a given geometry set. 
+		<p class="TableNormal">New face is offset from original face. If 
+		 <span class="Italic">offset</span> argument is positive value, 
+		 new face is offset in surface normal direction; otherwise offset 
+		 is the opposite direction of surface normal.</p></td>
+	</tr>
+	<tr>
+		<td>createTrimPolyLine</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">loop</span></td>
+		<td>Creates a new polyline using a curve loop at a given index 
+		 in set, which can then be used for trimming and extending operations, 
+		 and polyline is surface domain (XY coordinates only). 
+		<p class="TableNormal">The returned value is the index of trim 
+		 polyline in set.</p></td>
+	</tr>
+	<tr>
+		<td>createTrimSpline</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">loop</span>, Integer <span class="Italic">degree</span>, 
+		 List of <a href="vcVector.htm">vcVector</a> <span class="Italic">ctrl_pts</span>, 
+		 List of Integer <span class="Italic">knotmultiply</span>, List 
+		 of real <span class="Italic">knots</span>, List of Real <span 
+		 class="Italic">weights</span></td>
+		<td>Create a new spline in set used for trimming and extending 
+		 operations, and spline is surface domain (XY coordinates only).</td>
+	</tr>
+	<tr>
+		<td>deleteNurbFace</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">face</span></td>
+		<td>Deletes a NURBS face at a given index in set. 
+		<p class="TableNormal">If NURBS surface contains more than one 
+		 face, geometry is tessellated after deletion.</p></td>
+	</tr>
+	<tr>
+		<td>getCurveCurveLoop</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">curveindex</span></td>
+		<td>Returns the index of curve loop that a curve belongs to in 
+		 set.</td>
+	</tr>
+	<tr>
+		<td>getCurveFace</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">curveindex</span></td>
+		<td>Returns the index of face that a curve belongs to in set.</td>
+	</tr>
+	<tr>
+		<td>getCurveIntersections</td>
+		<td>List of 4-tuple (<a href="vcVector.htm">vcVector</a> <span>pos</span>, 
+		 real <span>curve_dist</span>, Real <span>face_u</span>, Real <span>face_v</span>)</td>
+		<td>Integer <span class="Italic">face</span>, <a href="vcCompactLineSet.htm">vcCompactLineSet</a> 
+		 <span class="Italic">curveset</span>, Integer <span class="Italic">curve</span></td>
+		<td>Returns a list of curve intersection points based on given 
+		 arguments.</td>
+	</tr>
+	<tr>
+		<td>getCurveLength</td>
+		<td>Real</td>
+		<td>Integer <span class="Italic">curve_index</span></td>
+		<td>Returns the length of a curve at a given index in set. That 
+		 is, the total distance along the curve.</td>
+	</tr>
+	<tr>
+		<td>getCurveLoopCurve</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">curveloopindex</span>, Integer 
+		 <span class="Italic">relcurveindex</span></td>
+		<td>Returns the absolute index of an inner curve loop relative 
+		 to its curve loop in set.</td>
+	</tr>
+	<tr>
+		<td>getCurveLoopCurveCount</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">curveloopindex</span></td>
+		<td>Returns the total number of inner curve loops for a curve loop 
+		 of face in set.</td>
+	</tr>
+	<tr>
+		<td>getCurveNeighbor</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">curve_index</span></td>
+		<td>Returns the index of a curve neighboring another curve in set.</td>
+	</tr>
+	<tr>
+		<td>getCurvePointCount</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">curveindex</span></td>
+		<td>Returns the total number of points for a curve at a given index 
+		 in set.</td>
+	</tr>
+	<tr>
+		<td>getCurvePointIndex</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">curveindex</span>, Integer <span 
+		 class="Italic">relpointindex</span></td>
+		<td>Returns the absolute index of point relative to its curve in 
+		 set.</td>
+	</tr>
+	<tr>
+		<td>getCurvePosition</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>Integer <span class="Italic">curve_index</span>, Real <span 
+		 class="Italic">position</span></td>
+		<td>Returns the position matrix of a point on a curve at a given 
+		 distance along curve. 
+		<p class="TableNormal">Details about the position matrix:</p>
+		<p class="TableNormal"><span class="Term">Position vector</span><br>
+		Actual position of point on curve.</p>
+		<p class="TableNormal"><span class="Term">Normal vector</span><br>
+		Direction of curve at the given point (derivative of curve position).</p>
+		<p class="TableNormal"><span class="Term">Orientation vector</span><br>
+		Aligned to face inwards of curve's face.</p>
+		<p class="TableNormal"><span class="Term">Approach vector</span><br>
+		Surface normal of face at curve position.</p>
+		<p class="TableNormal">See table footnotes for more information.</p></td>
+	</tr>
+	<tr>
+		<td>getCurvePositions</td>
+		<td>List of <a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>Integer <span class="Italic">curve_index</span>, [Real <span 
+		 class="Italic">minstep</span>], [Real <span class="Italic">maxstep</span>], 
+		 [Real <span class="Italic">maxerror</span>], [Real <span class="Italic">maxangle</span>]</td>
+		<td>Returns a list of position matrices for points along a curve 
+		 using different criteria. 
+		<p class="TableNormal">The <span class="Italic">minstep</span> 
+		 and <span class="Italic">maxstep</span> arguments define the step 
+		 values along distance of curve for generating new points.</p>
+		<p class="TableNormal">The <span class="Italic">maxerror</span> 
+		 argument defines a maximum distance error along length of curve 
+		 for generating a new point.</p>
+		<p class="TableNormal">The <span class="Italic">maxangle</span> 
+		 argument defines a angle tolerance along curve for generating 
+		 new points.</p>
+		<p class="TableNormal">See table footnotes for more information.</p></td>
+	</tr>
+	<tr>
+		<td>getCurveType</td>
+		<td>Enumeration</td>
+		<td>Integer <span class="Italic">curve</span></td>
+		<td>Returns a trim curve's type, which is either a polyline or 
+		 spline. 
+		<p class="TableNormal">See <a href="Constants.htm#Topology_Constants">Topology 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>getFaceBound</td>
+		<td>2-tuple (<a href="vcMatrix.htm">vcMatrix</a> bbox_center, <a 
+		 href="vcVector.htm">vcVector</a> bbox_diagonal)</td>
+		<td>Integer <span class="Italic">face_index</span></td>
+		<td>Returns bound box data for a face as an ordered pair (position 
+		 matrix of bound box center, vector of bound box half-diagonal). 
+		 
+		<p class="TableNormal">See table footnotes for more information.</p></td>
+	</tr>
+	<tr>
+		<td>getFaceCurveLoop</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">faceindex</span>, Integer <span 
+		 class="Italic">relcurveloopindex</span></td>
+		<td>Returns the absolute index of a curve loop relative to its 
+		 face in set.</td>
+	</tr>
+	<tr>
+		<td>getFaceCurveLoopCount</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">faceindex</span></td>
+		<td>Returns the total number of curve loops in a face.</td>
+	</tr>
+	<tr>
+		<td>getFaceMinPointDistance</td>
+		<td>3-tuple (<a href="vcVector.htm">vcVector</a> uv, <a href="vcVector.htm">vcVector</a> 
+		 pos, Real distance)</td>
+		<td>Integer <span class="Italic">face</span>, <a href="vcVector.htm">vcVector</a> 
+		 <span class="Italic">point</span></td>
+		<td>Returns UV coordinates, position vector and distance of a given 
+		 <span class="Italic">point</span> to a face.</td>
+	</tr>
+	<tr>
+		<td>getFaceNormal</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>Integer <span class="Italic">face</span>, <a href="vcVector.htm">vcVector</a> 
+		 <span class="Italic">uv</span></td>
+		<td>Returns surface normal of a face at parametric UV coordinates.</td>
+	</tr>
+	<tr>
+		<td>getFacePlaneIntersections</td>
+		<td>List of (List of <a href="vcMatrix.htm">vcMatrix</a>)</td>
+		<td>Integer <span class="Italic">face_index</span>, <a href="vcMatrix.htm">vcMatrix</a> 
+		 <span class="Italic">plane</span>, Real <span class="Italic">minstep</span>, 
+		 Real <span class="Italic">maxstep</span>, Real <span class="Italic">maxerror</span>, 
+		 Real <span class="Italic">maxangle</span></td>
+		<td>Returns a list containing lists of position matrices for points 
+		 where a defined plane intersects a face. 
+		<p class="TableNormal">Each time a plane goes through hole in face 
+		 a new list is added, thereby allowing you to infer hole points 
+		 on face-plane intersection.</p>
+		<p class="TableNormal">Details about the position matrix:</p>
+		<p class="TableNormal"><span class="Term">Position vector</span><br>
+		Actual position of point intersection.</p>
+		<p class="TableNormal"><span class="Term">Normal vector</span><br>
+		Direction along plane intersecting face.</p>
+		<p class="TableNormal"><span class="Term">Orientation vector</span><br>
+		Projected from normal of plane to surface of face using face derivate 
+		 for projected direction.</p>
+		<p class="TableNormal"><span class="Term">Approach vector</span><br>
+		Surface normal of face.</p>
+		<p class="TableNormal">See table footnotes for more information.</p></td>
+	</tr>
+	<tr>
+		<td>getFacePoint</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>Integer <span class="Italic">face</span>, <a href="vcVector.htm">vcVector</a> 
+		 <span class="Italic">uv</span></td>
+		<td>Returns the position vector of a point on a face at given UV 
+		 coordinates.</td>
+	</tr>
+	<tr>
+		<td>getFacePointAndDerivate</td>
+		<td>3-tuple (<a href="vcVector.htm">vcVector</a> pos, <a href="vcVector.htm">vcVector</a> 
+		 udir, <a href="vcVector.htm">vcVector</a> vdir)</td>
+		<td>Integer <span class="Italic">face</span>, <a href="vcVector.htm">vcVector</a> 
+		 <span class="Italic">uv</span></td>
+		<td>Returns the position vector and UV direction first derivates 
+		 of a face at given UV coordinates.</td>
+	</tr>
+	<tr>
+		<td>getFaceStartTriangle</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">face_index</span></td>
+		<td>Returns the absolute index of first triangle of a face in set.</td>
+	</tr>
+	<tr>
+		<td>getFaceTriangleCount</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">face_index</span></td>
+		<td>Returns the total number of triangles of a face.</td>
+	</tr>
+	<tr>
+		<td>getFaceType</td>
+		<td>Enumeration</td>
+		<td>Integer <span class="Italic">face</span></td>
+		<td>Returns the type of a face, which is either a tessellated, 
+		 planar or NURBS. 
+		<p class="TableNormal">See <a href="Constants.htm#Topology_Constants">Topology 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>getNurbsFaceControlPoints</td>
+		<td>List of <a href="vcVector.htm">vcVector</a></td>
+		<td>Integer <span class="Italic">face</span></td>
+		<td>Returns a list of control points for a NURBS face.</td>
+	</tr>
+	<tr>
+		<td>getNurbsFaceControlWeights</td>
+		<td>List of Real</td>
+		<td>Integer <span class="Italic">face</span></td>
+		<td>Returns a list of control weights for a NURBS face.</td>
+	</tr>
+	<tr>
+		<td>getNurbsFaceDegree</td>
+		<td>2-tuple (Integer udegree, Integer vdegree)</td>
+		<td>Integer <span class="Italic">face</span></td>
+		<td>Returns UV degree values for a NURBS face.</td>
+	</tr>
+	<tr>
+		<td>getNurbsFaceUKnots</td>
+		<td>2-tuple (List of Real uknots, List of Integer umultiply)</td>
+		<td>Integer <span class="Italic">face</span></td>
+		<td>Returns U direction knot weight values and knot multiplicities.</td>
+	</tr>
+	<tr>
+		<td>getNurbsFaceVKnots</td>
+		<td>2-tuple (List of Real vknots, List of Integer vmultiply)</td>
+		<td>Integer <span class="Italic">face</span></td>
+		<td>Returns V direction knot weight values and knot multiplicities.</td>
+	</tr>
+	<tr>
+		<td>getPlanarFacePositionAndNormal</td>
+		<td>2-tuple (<a href="vcVector.htm">vcVector</a> position, <a href="vcVector.htm">vcVector</a> 
+		 normal), <a href="vcVector.htm">vcVector</a></td>
+		<td>Integer <span class="Italic">face</span></td>
+		<td>Returns a planar face position and normal vectors.</td>
+	</tr>
+	<tr>
+		<td>getPolyLineCurvePoints</td>
+		<td>List of <a href="vcVector.htm">vcVector</a></td>
+		<td>Integer <span class="Italic">curve</span></td>
+		<td>Returns a list of position vectors for all points in a polyline.</td>
+	</tr>
+	<tr>
+		<td>getPoint</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>Integer <span class="Italic">pointindex</span></td>
+		<td>Returns the position vector of a curve end (corner point) at 
+		 a given index relative to either its curve or face.</td>
+	</tr>
+	<tr>
+		<td>getSplineCurveDegree</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">curve</span></td>
+		<td>Returns the degree of a spline.</td>
+	</tr>
+	<tr>
+		<td>getSplineCurveControlPoints</td>
+		<td>List of <a href="vcVector.htm">vcVector</a></td>
+		<td>Integer <span class="Italic">curve</span></td>
+		<td>Returns a list of control points for a face trimming spline.</td>
+	</tr>
+	<tr>
+		<td>getSplineCurveControlWeights</td>
+		<td>List of Real</td>
+		<td>Integer <span class="Italic">curve</span></td>
+		<td>Returns a list of control weight values for a face trimming 
+		 spline.</td>
+	</tr>
+	<tr>
+		<td>getSplineCurveKnots</td>
+		<td>2-tuple (List of Real knots, List of Integer multiplicities)</td>
+		<td>Integer <span class="Italic">curve</span></td>
+		<td>Returns a list of knot weights and multiplicities for a face 
+		 trimming spline as an ordered pair.</td>
+	</tr>
+	<tr>
+		<td>getSurfaceIntersections</td>
+		<td>2-tuple (Integer curve_count, Integer curves_start)</td>
+		<td>Integer <span class="Italic">face</span>, <a href="vcTriangleSet.htm">vcTriangleSet</a> 
+		 <span class="Italic">other_set</span>, Integer <span class="Italic">other_face</span>, 
+		 Real <span class="Italic">approxtol</span>, Real <span class="Italic">angletol</span>, 
+		 <a href="vcCompactLineSet.htm">vcCompactLineSet</a> <span class="Italic">target</span></td>
+		<td>Returns the amount of intersecting curves between two faces 
+		 in the same <a href="vcGeometryContainer.htm">vcGeometryContainer</a> 
+		 object.</td>
+	</tr>
+	<tr>
+		<td>isCurveCircular</td>
+		<td>Boolean</td>
+		<td>Integer <span class="Italic">curve_index</span></td>
+		<td>Returns True if a curve at a given index in set is circular 
+		 where start and end points are same; otherwise returns False.</td>
+	</tr>
+	<tr>
+		<td>isFaceLinear</td>
+		<td>2-tuple (Boolean udir, Boolean vdir)</td>
+		<td>Integer <span class="Italic">face</span></td>
+		<td>Returns True if a face at a given index in set is linear in 
+		 parametric UV directions; otherwise returns False.</td>
+	</tr>
+	<tr>
+		<td>projectCurve</td>
+		<td>2-tuple (Integer curve_count, Integer curves_start)</td>
+		<td>Integer <span class="Italic">face</span>, <a href="vcCompactLineSet.htm">vcCompactLineSet</a> 
+		 <span class="Italic">curve</span>, Real <span class="Italic">approxtol</span>, 
+		 Real <span class="Italic">maxdist</span>, Real <span class="Italic">deviation</span>, 
+		 <a href="vcCompactLineSet.htm">vcCompactLineSet</a> <span class="Italic">targetlineset</span></td>
+		<td>Projects a given <span class="Italic">curve</span> along the 
+		 shape of a given <span class="Italic">face</span> based on direction 
+		 vector of curve.</td>
+	</tr>
+	<tr>
+		<td>trimFace</td>
+		<td>Integer</td>
+		<td>Integer <span class="Italic">face</span></td>
+		<td>Trims a face at a given index in set using trimming polylines 
+		 and/or splines. 
+		<p class="TableNormal">Returns 1/True if trimming is successful; 
+		 otherwise returns 0/False.</p></td>
+	</tr>
+</table>
+<p><span class="Strong">Notes:</span></p>
+<ul style="list-style: disc;">
+	<li class="Unordered">Position matrix for curve point.<br>
+	<img class="step_image" src="CurvePositionMatrix.png" alt="" style="border-width: 1px; 
+		 border-style: solid;" border="1"></li>
+	<li class="Unordered">Position matrices for curve points based on step 
+	 values and min/max limits.<br>
+	<img class="step_image" src="CurvePositions.png" alt="" border="0"></li>
+	<li class="Unordered">Bound box data for face.<br>
+	<img class="step_image" src="getFaceBound.png" alt="" style="border-width: 1px; 
+		 border-style: solid;" border="1"></li>
+	<li class="Unordered">Face-plane intersection points.<br>
+	<img class="step_image" src="getIntersectingPlan.png" alt="" style="border-width: 1px; 
+		 border-style: solid;" border="1"></li>
+</ul>
+</body>
+</html>

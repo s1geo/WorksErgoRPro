@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Получить Продукты</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Получает ссылки на экземпляры продукта из контейнера компонентов и сохраняет их в переменной процесса." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Получить Продукты</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Получает ссылки на экземпляры продукта из контейнера компонентов и сохраняет их в переменной процесса.</p>
+<p class="p_Normal">Возвращаются только экземпляры продукта, соответствующие фильтру типа продукта, а максимальное количество возвращаемых экземпляров продукта может быть ограничено с помощью свойства MaxCount.</p>
+<p class="p_Normal">Обратите внимание, что этот оператор просто возвращает ссылки на экземпляры продукта, соответствующие критериям фильтра. Следует проявлять особую осторожность, чтобы избежать дублирования ссылок на одни и те же Экземпляры Продукта или другой логики, также управляющей Экземплярами Продукта параллельно с вашим Процессом.</p>
+<p class="p_Normal">Например, вы можете случайно сохранить ссылки на Экземпляры Продукта после того, как они были перемещены из контейнера или даже в другой Процесс. Параллельное управление одними и теми же Экземплярами продукта из разных Процессов или с помощью другой логики параллельно операторам Процесса обычно не поддерживается и может привести к непредвиденному поведению.</p>
+<p class="p_Normal"><img alt="ClipboardImg264" style="margin:0;width:9.9688in;height:3.8646in;border:none" src="clipboardimg264.png"/></p>
+<p class="p_Normal"><span style="font-style: italic;">Рисунок 1. Пример Процесса, ожидающего внешней логики для размещения Экземпляров Продукта в контейнере компонентов и запуска сигнала. Затем он получает ссылки на Экземпляры продукта, которые принадлежат некоторым Продуктам, в переменную процесса «ProductIn». Наконец, он транспортирует продукты к следующему процессу.</span></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.9167in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5000in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Контейнер</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Контейнер компонента, из которого считываются экземпляры продукта.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Принять все виды продуктов</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">При выборе подойдет любой экземпляр продукта.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Принятые виды продуктов</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Экземпляр продукта любого из этих типов будет принят.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Принятые группы процесса</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Экземпляр продукта типа, принадлежащего любой из этих групп, будет принят.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Максимальное значение</p>
+<p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Выражение для максимального количества возвращаемых Экземпляров продукта. Должен указываться как целочисленное значение. Если оставить выражение пустым или отрицательным, будет означать отсутствие ограничений.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Имя переменной</p>
+<p class="p_Normal">&nbsp;</p>
+</td>
+<td style="vertical-align:top; width:9.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование переменной процесса, используемой для хранения результата. Если переменная уже существует с правильным типом, она преобразуется в список Экземпляров продукта, и к ней добавляются ссылки. Переменная создается как список экземпляров продукта, если он еще не существует, даже если он будет пустым.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

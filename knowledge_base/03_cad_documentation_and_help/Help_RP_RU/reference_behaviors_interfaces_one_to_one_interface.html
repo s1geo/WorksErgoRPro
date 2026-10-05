@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Интерфейс один к одному</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Интерфейс один к одному позволяет установить соединение с другим соответствующим интерфейсом." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Интерфейс один к одному&nbsp;</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Интерфейс один к одному позволяет установить соединение с другим соответствующим интерфейсом.</p>
+<p class="p_Normal"><img alt="ClipboardImg150" style="margin:0;width:3.3333in;height:4.0833in;border:none" src="clipboardimg150.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.9375in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.4792in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет название интерфейса.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Абстрактный</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет тип соединения, поддерживаемый интерфейсом. Значение True поддерживает только удаленные подключения. Значение False поддерживает только физические соединения.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПодключитьТолькоОдинаковыйУровень</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет, может ли интерфейс подключаться только к интерфейсам того же уровня в иерархии. Как правило, это используется, когда вы соединяете большую группу компонентов, составляющих сборку, и хотите избежать соединения неправильных компонентов, тем самым разбирая группу.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ДопускУгла</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет угол для ограничения физического подключения к интерфейсу. Как правило, меньший угол используется, чтобы не позволять компоненту приблизиться к интерфейсу сзади или сбоку.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ДопускРасстояния</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет расстояние для ограничения физического подключения к интерфейсу. Как правило, меньшее расстояние используется для того, чтобы попытаться установить соединение в непосредственной близости от интерфейса.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ИзменитьНаименованиеСоединения</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет нименование Кнопки в редакторе соединений.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ОписаниеИнтерфейса</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет описание интерфейса. Как правило, это используется для того, чтобы оставить Примечание о том, для чего и как интерфейс используется в компоненте.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Секции и поля</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет секции и поля интерфейса. Секция похожа на вилку или розетку, а ее поля - на разъемы или контакты, которые позволяют подключать и соединять устройства. Поэтому поля двух интерфейсов должны совпадать, чтобы соединяться друг с другом. &nbsp; </p>
+<p class="p_Normal">Добавить новую секцию - Создает новую секцию.</p>
+<p class="p_Normal">Название - Определяет название секции. В некоторых случаях название секции важно для определения точек соединения в компоненте.</p>
+<p class="p_Normal">Система координат секции - Определяет элемент рамки, определяющий местоположение секции. Это не требуется, если интерфейс абстрактный, поэтому выберите NONE. Если вы хотите создать новый элемент Frame для интерфейса, выберите NEW.</p>
+<p class="p_Normal">Добавить новое поле - Создает новое поле в разделе. Каждый тип поля имеет собственный набор свойств и общее свойство Имя. Дополнительные сведения см. в разделе «Типы полей» в этом разделе.</p>
+<p class="p_Normal">Варианты в правом углу - Позволяет удалять и переупорядочивать секции и поля. Секции являются отдельными точками подключения, поэтому в большинстве случаев важно расположение секций, а не их порядок. Поля определяют тип соединения секции, поэтому их порядок важен при оценке возможного соединения. Например, два интерфейса могут иметь одинаковое количество и тип полей, но не могут соединиться, потому что их поля расположены в неправильном порядке.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Типы полей</span></h2>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Action</span></h3>
+<p class="p_Normal">Поле Action позволяет отправлять и получать действия, а также подключать клиентов ресурсов, поставщиков и менеджеров. Как правило, поле Action используется при удаленном соединении.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Action </span>определяет контейнер действий, используемый для управления действиями.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Connection </span>определяет, как контейнер действий управляет действиями.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы отправить действия, выберите <span style="font-style: italic;">Client</span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы получать действия, выберите <span style="font-style: italic;">Provider</span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы отправлять и получать действия в другие контейнеры действий, выберите <span style="font-style: italic;">Broker</span>.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание: </span>Как правило, сценарий Python используется с контейнерами действий и полями действий для имитации задач и процессов.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Attachment</span></h3>
+<p class="p_Normal">Поле Attachment позволяет вам прикреплять и соединять физические объекты. Как правило, поле Attachment используется для расширения Plug and Play, позволяя прикреплять соединения компонента к другим компонентам. В таких случаях поле Attachment визуализируется как бумажная плоскость, которую можно перетащить к доступному соединению в трехмерном мире.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">BaseExport</span></h3>
+<p class="p_Normal">Поле BaseExport позволяет импортировать/экспортировать координаты баз. Например, позиционер робота экспортирует базы установленному роботу, который их импортирует.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">BaseList </span>определяет контейнер баз, используемый для хранения баз.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Export </span>определяет, будут ли базы импортированы или экспортированы полем. Значение True экспортирует базы. Значение False импортирует базы.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Flow</span></h3>
+<p class="p_Normal">Поле Flow &nbsp;позволяет переносить компоненты из одного контейнера в другой контейнер. Например, большинство конвейеров используют поля Flow для имитации перемещения материалов между одной или несколькими конвейерными линиями.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Container </span>определяет поведение, используемое для получения или отправки компонентов. Поведение должно содержать компоненты, например односторонний путь.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">PortName </span>определяет коннектор контейнера. Как правило, значение 0 относится к порту ввода поведения (компоненты приема), а значение 1 относится к порту вывода поведения (компоненты отправки). В некоторых случаях поведение может иметь любое количество портов, которые привязаны к поведению на панели Диаграммы компонентов.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Hierarchy</span></h3>
+<p class="p_Normal">Поле Hierarchy позволяет вам присоединить узел на планировке к узлу в другом компоненте. Узлы должны иметь допустимые отношения, чтобы соединиться друг с другом. Например, если оба узла обозначены как Родительский или Дочерний, они не будут подключаться. То есть один узел должен быть Родителем, а другой узел должен быть определен как Дочерний.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Узел </span>определяет узел в компоненте для использования при формировании иерархии.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Система координат </span>определяет точку для присоединения родительского или дочернего узла.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Parent </span>определяет отношение узла. Значение True означает, что к узлу будет присоединен другой узел. Значение False означает, что узел будет присоединен к другому узлу.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">IntegerCompatibility</span></h3>
+<p class="p_Normal">Поле IntegerCompatibility позволяет ограничить соединение, если оно не имеет соответствующего целого числа. Обычно целое число используется в качестве номера модели, чтобы ограничить соединение компонентов друг с другом, если в реальном мире они не могут этого сделать.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Value </span>определяет целое число, используемое в сравнительном тесте.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">JointExport</span></h3>
+<p class="p_Normal">Поле JointExport позволяет импортировать/экспортировать информацию о соединениях. Например, позиционер заготовки экспортирует информацию о соединении роботу, который импортирует ее для использования внешних соединений.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Контроллер </span>определяет контроллер сервопривода/робота.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Export </span>определяет, будут ли соединения импортироваться или экспортироваться полем. Значение True экспортирует информацию о соединении для любого соединения, на которое ссылается Контроллер. Значение False импортирует информацию о соединении, которая затем определяется как внешнее соединение в контроллере.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Processor</span></h3>
+<p class="p_Normal">Поле Processor позволяет подключать датчики пути компонента и точки процесса к типу поведения путь. В некоторых случаях конвейер использует интерфейс один ко многим, позволяющий подключать несколько датчиков. Во всех случаях съемный датчик подключается к пути с помощью команды PnP. Местоположение датчика на пути можно проверить в свойстве расстояния датчика или в родительской системе координат. То есть путь является Родителем к датчику, который является Дочерним.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Path </span>определяет поведение, которое может содержать съемные датчики. Тип поведения должен являться путем. Если Parent имеет значение False, то Path отключен.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Sensor </span>определяет путь к компоненту или датчик точки процесса, который присоединяется к пути в другом компоненте. Если Parent имеет значение True, сенсор отключен.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Parent </span>определяет отношение поля. Значение True означает, что поле поддерживает вложения в Path. Значение False означает, что поле поддерживает присоединение датчика к пути другого компонента.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Rsl</span></h3>
+<p class="p_Normal">Поле Rsl позволяет импортировать/экспортировать программу исполнителя робота для удаленного вызова подпрограмм. Как правило, поле Rsl используется в удаленном соединении.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Publish </span>определяет, экспортирует ли поле программу исполнителя робота. Значение True означает, что другие роботы могут читать и выполнять подпрограммы в программе. Значение False означает, что другие роботы не могут читать или выполнять подпрограммы в программе.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Subscribe </span>определяет, импортирует ли поле программу исполнителя робота. Значение True означает, что робот может читать и выполнять подпрограммы в других программах. Значение False означает, что робот не может читать или выполнять подпрограммы в других программах.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание: </span>Сценарии Python часто используются для вызова подпрограмм, а также для создания пользовательских операторов в программе робота, тем самым устраняя необходимость в полях Rsl.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Signal</span></h3>
+<p class="p_Normal">Поле Signal &nbsp;позволяет подключать и отображать сигналы. Например, поле Signal можно использовать для сопоставления сигнала с элементом в соединении с ПЛК (удаленное соединение) или сигнала в смонтированном инструменте с системой ввода-вывода робота (физическое соединение).</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Сигнал </span>определяет поведение, используемое полем. Поведение должно быть типом сигнал.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Connection </span>определяет, как интерфейс может быть подключен. Его можно использовать для ограничения нежелательных подключений пользователя.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-style: italic;">Normal </span>означает, что сигнал может соединяться с другим сигналом.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-style: italic;">Begin </span>означает, что сигнал может соединяться с другим сигналом, имеющим связь <span style="font-style: italic;">End</span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-style: italic;">End </span>означает, что сигнал может соединяться с другим сигналом, имеющим связь <span style="font-style: italic;">Begin</span>.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">ToolExport</span></h3>
+<p class="p_Normal">Поле ToolExport позволяет импортировать/экспортировать системы координат инструментов. Например, инструмент, установленный на роботе, будет экспортировать СК инструментов, а робот будет импортировать их для использования в качестве TCP.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">ToolList </span>определяет контейнер инструментов, используемый для хранения СК инструментов.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Export </span>определяет, будут ли СК инструментов импортированы или экспортированы полем. Значение True экспортирует СК инструментов. Значение False импортирует СК инструментов.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><span style="font-size: 14pt; color: #717171;">Transport</span></h3>
+<p class="p_Normal">Поле Transport позволяет отправлять и получать транспортные задачи. Транспортный протокол использует сигнал для получения информации, поэтому поле Transport используется в основном для обмена данными (какой компонент забрать, место получения, принимающий компонент, место выгрузки).</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Transport </span>определяет транспортный протокол, используемый полем.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span><span style="font-weight: bold;">Connection </span>определяет, как транспорт используется полем.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Для получения транспортных задач выберите <span style="font-style: italic;">Input</span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Для отправки транспортных задач выберите <span style="font-style: italic;">Output</span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.3542in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Для отправки и получения транспортных задач выберите <span style="font-style: italic;">Input and Output</span>.</p>
+<p class="p_Normal" style="text-indent: -0.1667in; margin: 0 0 0.0417in 0.1667in;">&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

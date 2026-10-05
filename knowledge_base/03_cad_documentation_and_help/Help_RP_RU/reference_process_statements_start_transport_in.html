@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Начать транспортировку в</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Оператор Начать транспортировку в позволяет начать перенос одного или нескольких экземпляров продуктов в процесс и выполнять другие операторы, пока это выполняется. Этот..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Начать транспортировку в</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Оператор Начать транспортировку в позволяет начать перенос одного или нескольких экземпляров продуктов в процесс и выполнять другие операторы, пока это выполняется. Этот оператор обычно используется перед оператором Ждать Транспорт с любым количеством других операторов между ними.</p>
+<p class="p_Normal"><img alt="ProcessStatementsStartTransportIn" style="margin:0;width:11.4896in;height:2.8021in;border:none" src="processstatementsstarttransportin.png"/></p>
+<p class="p_Normal">Дополнительную информацию см. в операторе Транспорт В.</p>
+<p class="p_Normal">В режиме Transport Products все транспорты продукта начнутся одновременно.</p>
+<p class="p_Normal">В режиме Process an Assembly операции выполняются в том же порядке, что и в операторе Транспорт В.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.8646in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.4063in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Модификация</p>
+</td>
+<td style="vertical-align:top; width:9.4063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет, как продукты транспортируются.</p>
+<p class="p_Normal">Transport Products - В этом режиме этот оператор переносит экземпляры продукта между процессами.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Подсказка</span>: Экземпляр продукта — это общий термин, который включает в себя как экземпляры деталей, так и экземпляры сборок, поэтому его можно использовать для включения в процесс сборок (частично собранных или полностью собранных).</p>
+<p class="p_Normal">Process an Assembly - В этом режиме этот оператор используется для переноса экземпляров продукта в экземпляр сборки, который находится в этом процессе.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">НаименованиеПеременнойСборки</p>
+</td>
+<td style="vertical-align:top; width:9.4063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование переменной экземпляра сборки, которая получит экземпляр(ы) продукта. Обрабатывается только один экземпляр - тип этой переменной может быть списком, но в этом случае список может содержать только один элемент.</p>
+<p class="p_Normal">Если оставить пустым, будет создан новый экземпляр сборки.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">НаименованиеПеременнойПорядкаСборки</p>
+</td>
+<td style="vertical-align:top; width:9.4063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование переменной AssemblyOrder, определяющей, какие слоты сборки будут заполнены, если они в данный момент пусты.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Подсказка</span>: Используйте оператор GetAssembly для создания AssemblyOrder.</p>
+<p class="p_Normal">Если оставить пустым, все слоты сборки будут заполнены.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ЗарезервированноеНаименованиеПеременнойДетали</p>
+</td>
+<td style="vertical-align:top; width:9.4063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование переменной продукта, определенное в отчете о резервах. Переменная может быть списком.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Если режим установлен на Транспортные продукты и эта переменная не пуста, этот оператор будет передавать продукты в переменной без учета настроек фильтра продуктов в этом операторе.</p>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Если режим установлен на Обработка сборки и эта переменная не пуста, этот оператор попытается использовать продукт(ы) в переменной для заполнения слотов в сборке с учетом настроек фильтра продуктов в слотах сборки.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">НаименованиеПеременнойДетали</p>
+</td>
+<td style="vertical-align:top; width:9.4063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование переменной, в которой этот оператор хранит либо продукт, который был перенесен, либо сборку, которая была перенесена или создана.</p>
+<p class="p_Normal">Если переменная с заданным именем не существует, она будет создана. Если он существует и является списком, этот оператор будет добавлен к этому списку. Если переменная существует и уже имеет значение, то перед добавлением переменная будет преобразована в список.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">РамкаПоложенияДетали</p>
+</td>
+<td style="vertical-align:top; width:9.4063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Расположение системы координат, где размещаются продукты.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">РамкаПоложенияРесурса</p>
+</td>
+<td style="vertical-align:top; width:9.4063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Расположение системы координат, куда будет перемещаться ресурс при размещении продукта.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПриниматьВсеВидыДеталей</p>
+</td>
+<td style="vertical-align:top; width:9.4063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Если выбрано, принимается любой продукт.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПринятыеГруппыПроцессов</p>
+</td>
+<td style="vertical-align:top; width:9.4063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Разрешает только выбранные группы потоков.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПринятыеВидыДеталей</p>
+</td>
+<td style="vertical-align:top; width:9.4063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Разрешает только выбранные типы продуктов.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

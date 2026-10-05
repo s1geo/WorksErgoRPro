@@ -1,0 +1,101 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcUnitGroup</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcUnitGroup</h1>
+<p>vcUnitGroup represents a group of units that apply to the same quantity and belong to the same unit family, thereby allowing you to create and delete <a href="vcUnit.htm">vcUnit</a> objects.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot43859" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot43859', 'MTPOPUP43859');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP43859" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>IsBuiltIn</td>
+<td>Boolean</td>
+<td>R</td>
+<td>Indicates if unit group is a built-in group.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>String</td>
+<td>RW/R</td>
+<td>If unit group is built-in, gets the unit group's name; otherwise defines the name of unit group which cannot contain any dot (.) characters.</td>
+</tr>
+<tr>
+<td>Quantity</td>
+<td><a href="vcScalarQuantity.htm">vcScalarQuantity</a></td>
+<td>R</td>
+<td>Gets the quantity referencing unit group.</td>
+</tr>
+<tr>
+<td>Units</td>
+<td>List of <a href="vcUnit.htm">vcUnit</a></td>
+<td>R</td>
+<td>Gets a list of all units in unit group.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>createUnit</td>
+<td>Integer</td>
+<td>String <span class="Italic">name</span>, String <span class="Italic">suffix</span></td>
+<td>If not a built-in unit group, adds a new unit of a given <span class="Italic">name</span> and <span class="Italic">suffix</span> to unit group, and then returns the index of new unit in unit group.
+<p class="TableNormal">If built-in unit group, throws an exception.</p>
+</td>
+</tr>
+<tr>
+<td>deleteUnitAt</td>
+<td>None</td>
+<td>Integer <span class="Italic">index</span></td>
+<td>If not a built-in unit group, removes a unit at a given <span class="Italic">index</span> in unit group.
+<p class="TableNormal">If built-in unit group, throws an exception.</p>
+</td>
+</tr>
+<tr>
+<td>getUnitWithMagnitude</td>
+<td><a href="vcUnit.htm">vcUnit</a></td>
+<td>Real <span class="Italic">magnitude</span></td>
+<td>Returns a unit in unit group that best matches a given <span class="Italic">magnitude</span>.</td>
+</tr>
+</table>
+<!--======================================Methods=======================================-->
+</body>
+</html>

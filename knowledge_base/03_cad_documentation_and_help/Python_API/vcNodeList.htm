@@ -1,0 +1,64 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcNodeList</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcNodeList</h1>
+<p>vcNodeList is a behavior type used to generate a filtered list of nodes.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Nodes</td>
+<td>List of 3-tuple (<a href="vcNode.htm">vcNode</a>, Enumeration inclusion type, Enumeration inclusion scope)</td>
+<td>RW</td>
+<td>Defines a node and filters used to generate the list's content.
+<p class="TableNormal">See <a href="Constants.htm#Collision_Detector_Constants">Collision Detector Constants</a> for information about inclusion type and scope arguments.</p>
+</td>
+</tr>
+<tr>
+<td>PureNodes</td>
+<td>List of <a href="vcNode.htm">vcNode</a></td>
+<td>R</td>
+<td>Gets a list of unfiltered nodes in the list.</td>
+</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>getFilteredNodes</td>
+<td>List of <a href="vcNode.htm">vcNode</a></td>
+<td>[<a href="vcNode.htm">vcNode</a> <span class="Italic">node</span>]</td>
+<td>Returns a list of filtered nodes in the list.</td>
+</tr>
+</table>
+</body>
+</html>

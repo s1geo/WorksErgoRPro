@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Проверить траекторию</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Робот может послать, в своей программе, выходной сигнал, который запускает трассировку объемом. По умолчанию сигнал 81 в роботе предназначен для выполнения этого действия." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Проверить траекторию</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Робот может послать, в своей программе, выходной сигнал, который запускает трассировку объемом. По умолчанию сигнал 81 в роботе предназначен для выполнения этого действия.</p>
+<p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a name="mthotspot56370" class="hmanchor"></a><a class="dropdown-toggle" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;" href="javascript:HMToggle('toggle','toggle0186a1')">СОДЕРЖАНИЕ</a></p>
+<div id="toggle0186a1" class="dropdown-toggle-body" style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0.0625in;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_robots_sweeping_geometry.html#minitocbookmark2" class="topiclink">ТРАССИРОВКА ОБЪЕМОМ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_robots_sweeping_geometry.html#minitocbookmark5" class="topiclink">НАСТРОЙКА ДЕЙСТВИЯ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="russian_tasks_robots_sweeping_geometry.html#minitocbookmark6" class="topiclink">СИМУЛЯЦИЯ ДЕЙСТВИЯ</a></p>
+</td>
+</tr>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark2" class="hmanchor"></a><span style="font-size: 18pt;">Трассировка объемом</span></h2>
+<p class="p_Normal">Это процесс, заключающий геометрию в выпуклую оболочку для создания профиля. Затем этот профиль или объем геометрии можно многократно генерировать от начала и до конца его движения.</p>
+<p class="p_Normal">Если профиль не перемещается, вы будете создавать его геометрию на каждой итерации в одном и том же пространстве. Если профиль перемещается, вы будете создавать его геометрию на каждой итерации вдоль траектории движения.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark3" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Методы</span></h3>
+<p class="p_Normal">Метод генерации развертки определяет его точность.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Lofting хорош для движений, требующих небольших изменений.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Hull from Hulls поддерживает все типы движений, но дает больше данных.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Hull from Silhouettes представляет собой баланс двух других методов и поддерживает простые и сложные движения.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark4" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Хранилище</span></h3>
+<p class="p_Normal">Во всех случаях вы должны содержать охватываемый объем в узле, который не перемещается во время симуляции. В противном случае движение этого узла повлияет на охватываемый объем. Узел может находиться либо в:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Выбранном узле (компоненте).</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>В компоненте, обнаруженным сигнальным объемом инструмента робота.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Новый компонент, который создается при первом симулировании действия.</p>
+<p class="p_Normal">Трассировка объемом может быть постоянно сохранена в компоненте или удалена из 3D-мира при сбросе симуляции.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark5" class="hmanchor"></a><span style="font-size: 18pt;">Настройка действия</span></h2>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>В 3D-мире выберите робота.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>На панели <span style="font-weight: bold;">Свойства,</span> развернуть раздел <span style="font-weight: bold;">Конфигурация действий.</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>Под <span style="font-weight: bold;">Сигнальные действия,</span> сделайте одно из следующих действий:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы настроить новое действие, установите в <span style="font-weight: bold;">Вывод </span>любой сигнал больше 81, а затем установите <span style="font-weight: bold;">На Истинном  </span>-  <span style="font-weight: bold;">Трассировка Объемом Включена.</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы настроить существующее действие, установите в <span style="font-weight: bold;">Вывод </span>сигнал <span style="font-weight: bold;">81</span>, или сигнал который вы уже настроили для выполнения развертки.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">4.</span>Под параметром <span style="font-weight: bold;">Трассировка Объемом Включена,</span> выполните все следующие действия:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы определить метод, который будет использоваться для генерации охвата, установите <span style="font-weight: bold;">Метод трассировки </span>к нужному варианту.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы определить геометрию и профиль развертки, установите <span style="font-weight: bold;">Геометрия трассировки </span>для включения узлов, содержащих желаемую геометрию. Вы можете включить любой узел из 3D-мира, но сначала вам нужно развернуть Геометрия трассировки, а затем использовать либо кнопку Выбрать, чтобы напрямую выбрать узел в 3D-мире, либо кнопку Добавить, чтобы выбрать узел из списка. Порядок узлов, перечисленных в Геометрии трассировки, не влияет на действие.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы определить материал рабочего объема, установите нужный вариант в <span style="font-weight: bold;">Материал</span>. Если материал не выбран, материал по умолчанию имеет желтый цвет. Действие не может использовать несколько материалов, учитывая его текущую реализацию, но вы можете сделать это с помощью API, см. <a href="ms-its:Python_API.chm::/vcSweptVolume.htm" class="topiclink">vcSweptVolume </a>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы определить режим для прикрепления развертки, установите <span style="font-weight: bold;">Прикрепить к </span>в нужный параметр.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.6250in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Если <span style="font-weight: bold;">Node,</span> Выберите <span style="font-weight: bold;">Целевой узел</span>, в котором будет находиться развертка.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.6250in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Если <span style="font-weight: bold;">Closest,</span> определите, какую рамку инструмента в роботе вы хотите использовать и какую область обнаружения вы хотите создать в системе координат рамки инструмента для обнаружения близлежащего узла. Эта опция исключит все узлы робота.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.6250in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Если <span style="font-weight: bold;">New Component,</span> компонент будет добавлен в трехмерный мир при первом симулировании действия. Если вы не сохраняете анализируемый объем, вы можете использовать панель Дерево построения, чтобы выбрать добавленный компонент.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">5.</span>Под параметром <span style="font-weight: bold;">Трассировка Объемом Выключена,</span> сделайте одно из следующих действий:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы сохранить анализируемый объем, установите флажок <span style="font-weight: bold;">Сохранить геометрию.</span> Охватываемый объем, созданный этим действием, не будет удален из трехмерного мира при сбросе симуляции.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы не сохранять анализируемый объем, снимите флажок <span style="font-weight: bold;">Сохранить геометрию.</span> Охватываемый объем, созданный этим действием, будет удален из трехмерного мира при сбросе симуляции.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark6" class="hmanchor"></a><span style="font-size: 18pt;">Симуляция Действия</span></h2>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>Нажмите на вкладку <span style="font-weight: bold;">Программирование,</span> а затем используйте команду <span style="font-weight: bold;">Взаимодействие</span> для выбора робота в 3D-мире.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>На панели <span style="font-weight: bold;">Редактор программы,</span> выберите процедуру, а затем добавьте оператор <span style="font-weight: bold;">Установить бинарный выход</span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>На панели <span style="font-weight: bold;">Свойства выражения,</span> выполните все следующие действия:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Установите <span style="font-weight: bold;">Выходной порт</span> соответственно сигналу в роботе, сконфигурированном для действия с разверткой.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Установите <span style="font-weight: bold;">Выходное значение </span>на <span style="font-weight: bold;">Истинное, </span>чтобы включить создание анализируемого объема во время выполнения программы. В большинстве случаев действие должно быть настроено таким образом, чтобы значение True включало сканируемый объем, а значение False отключало сканируемый объем.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">4.</span>На панели <span style="font-weight: bold;">Редактор программ </span>можете измените положение этого оператора, как это необходимо в подпрограмме. Например, вы можете захотеть, чтобы действие запускалось до того, как робот переместится в определенные позиции.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">5.</span>Повторите шаги со 2 по 4, но на этот раз установите <span style="font-weight: bold;">Выходное значение </span>на <span style="font-weight: bold;">Ложное,</span> чтобы отключить создание анализируемого объема.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">6.</span>Запустите симуляцию, чтобы выполнить трассировку.</p>
+</td></tr></table>
+
+<script type="text/javascript">
+if (window.topicInitScriptAvailable) {
+function HMInitToggleStates() {
+HMInitToggle('toggle0186a1','hm.type','dropdown','hm.state','0');
+
+}
+var checkTimer=setTimeout("HMInitToggleStates()", 0);
+}
+</script>
+</body>
+</html>

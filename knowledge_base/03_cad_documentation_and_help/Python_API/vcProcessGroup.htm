@@ -1,0 +1,55 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProcessGroup</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcProcessGroup</h1>
+<p>Process group is an automatic grouping of all process implementations 
+ that have the same process id (identifier). The process implementations 
+ are not owned but only referenced by this object. The parent <a href="vcProcessManager.htm">vcProcessManager</a> 
+ provides events for tracking the changes. </p>
+<p><span style="font-weight: bold;">Note: </span><a href="vcProcessGroup.htm">vcProcessGroup</a> 
+ is automatically deleted when it becomes empty.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Implementations</td>
+		<td>List of <a href="vcProcessRoutine.htm">vcProcessRoutine</a></td>
+		<td>R</td>
+		<td>Gets all process implementations.</td>
+	</tr>
+	<tr>
+		<td>Manager</td>
+		<td><a href="vcProcessManager.htm">vcProcessManager</a></td>
+		<td>R</td>
+		<td>The process manager that owns this group object.</td>
+	</tr>
+	<tr>
+		<td>ProcessId</td>
+		<td><p>String</p></td>
+		<td>R</td>
+		<td>The process identifier (name) all these implementations share.</td>
+	</tr>
+</table>
+</body>
+</html>

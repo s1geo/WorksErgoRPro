@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>vcVREvents</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=generator content="Adobe RoboHelp 2017"><LINK rel=StyleSheet 
+type=text/css href="StyleSheet.css">
+<SCRIPT language=JavaScript1.2 type=text/javascript src="ehlpdhtm.js"></SCRIPT>
+
+<STYLE title=hcp type=text/css>
+<!--
+span.hcp1 { font-weight:bold; }
+span.hcp2 { color:rgba(0, 0, 0, 0.9); }
+span.hcp3 { color:rgba(0, 0, 0, 0.9);
+font-style:italic; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<H1><A name=MiniTOCBookMark1></A>vcVREvents</H1>
+<P>vcVREvents is used together with R-Pro Experience for interactive Virtual 
+Reality (VR) applications. </P>
+<DIV class=Contents>
+<P align=left>Contents&nbsp;<A id=MTHotSpot15316 class=dropspot 
+href="javascript:TextPopup(this)"><SPAN class=MTText 
+style="DISPLAY: none">Show</SPAN><SPAN class=MTText>Hide</SPAN></A></P>
+<SCRIPT language=JavaScript1.2 type=text/javascript>//<![CDATA[
+TextPopupInit('MTHotSpot15316', 'MTPOPUP15316');
+//]]></SCRIPT>
+
+<DIV id=MTPOPUP15316 class=droptext align=left>
+<P align=left><A href="#MiniTOCBookMark2">How It Works</A></P>
+<P align=left><A href="#MiniTOCBookMark3">Properties</A></P>
+<P align=left><A href="#MiniTOCBookMark4">Methods</A></P>
+<P align=left><A href="#MiniTOCBookMark5">Events</A></P>
+<P align=left><A href="#MiniTOCBookMark6">Examples</A></P></DIV></DIV>
+<H2><A name=MiniTOCBookMark2></A>How It Works</H2>
+<P>VRStreaming must be enabled in the configuration file.</P>
+<H2><A name=MiniTOCBookMark3></A>Properties</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Type</TD>
+    <TD>Access</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Buttons</TD>
+    <TD>List of Integer</TD>
+    <TD>R</TD>
+    <TD>
+      <P>- Index 0: a bitmask for pressed buttons, first 32 bits (see <A 
+      href="https://github.com/ValveSoftware/openvr/wiki/IVRSystem%3a%3aGetControllerState">ulButtonPressed</A> 
+      )</P>
+      <P>- Index 1: see above, last 32 bits</P>
+      <P>- Index 2: a bitmask for touched buttons, first 32 bits (see <A 
+      href="https://github.com/ValveSoftware/openvr/wiki/IVRSystem%3a%3aGetControllerState">ulButtonTouched</A> 
+      )</P>
+      <P>- Index 3: see above, last 32 bits</P></TD></TR>
+  <TR>
+    <TD>ClientId</TD>
+    <TD>Integer</TD>
+    <TD>R</TD>
+    <TD>a number identifying which client sent the data that is currently 
+      stored in the VREvents object</TD></TR>
+  <TR>
+    <TD>DeviceInputs</TD>
+    <TD>List of Dictionaries</TD>
+    <TD>R</TD>
+    <TD>
+      <P>a list of dictionaries, where each dictionary contains the following 
+      key-value pairs</P>
+      <P>- key: "DeviceRole", value: string, "LeftHanded"/"RightHanded"</P>
+      <P>- key: "Axis2DInputs", value: dict&lt;string, Tuple&lt;float, 
+      float&gt;&gt;, 2D inputs (e.g. touchpad)</P>
+      <P>- key: "AxisInputs", value: dict&lt;string, float&gt;, 1D inputs (e.g. 
+      trigger)</P>
+      <P>- key: "ButtonInputs", value: dict&lt;string, bool&gt;, digital (0/1) 
+      button inputs</P>
+      <P><SPAN class=hcp1>Note:</SPAN> in all input dictionaries the key value 
+      is a string value identifying the input type</P>
+      <P>(see InputFeatureUsage column in <A 
+      href="https://docs.unity3d.com/Manual/xr_input.html#XRInputMappings">Unity 
+      XR input mappings</A>)</P></TD></TR>
+  <TR>
+    <TD>DeviceModel</TD>
+    <TD>String</TD>
+    <TD>R</TD>
+    <TD>The model of the connected VR device</TD></TR>
+  <TR>
+    <TD>Directions</TD>
+    <TD>List of <A href="vcVector.htm">vcVector</A></TD>
+    <TD>R</TD>
+    <TD>
+      <P>- Index 0: right controller - forward</P>
+      <P>- Index 1: right controller - right</P>
+      <P>- Index 2: left controller - forward</P>
+      <P>- Index 3: left controller - right</P>
+      <P>- Index 4: HMD - forward</P>
+      <P>- Index 5: HMD - right</P>
+      <P><SPAN class=hcp1>Note:</SPAN> the up vector can be computed as the 
+      crossproduct of the right and forward vector</P></TD></TR>
+  <TR>
+    <TD>EventCounter</TD>
+    <TD>Integer</TD>
+    <TD>R</TD>
+    <TD>The number of events processed by the server</TD></TR>
+  <TR>
+    <TD>EventsEnabled</TD>
+    <TD>Boolean</TD>
+    <TD>RW</TD>
+    <TD>Enable/disable the events</TD></TR>
+  <TR>
+    <TD>MaxUpdateRate</TD>
+    <TD>Integer</TD>
+    <TD>RW</TD>
+    <TD>Defines the maximum update rate</TD></TR>
+  <TR>
+    <TD>OneMeterLength</TD>
+    <TD>Real</TD>
+    <TD>RW</TD>
+    <TD>Defines the scale of the units used in Experience. For example, when 
+      the value is 1000.0, one meter in Experience is 1000 units in 
+    simulation.</TD></TR>
+  <TR>
+    <TD>Position</TD>
+    <TD>List of <A href="vcVector.htm">vcVector</A></TD>
+    <TD>R</TD>
+    <TD>
+      <P>- Index 0: right controller position</P>
+      <P>- Index 1: left controller position</P>
+      <P>- Index 2: Head-mounted device (HMD) position</P></TD></TR>
+  <TR>
+    <TD>RealEventCounter</TD>
+    <TD>Integer</TD>
+    <TD>R</TD>
+    <TD>Number of events sent by the client</TD></TR>
+  <TR>
+    <TD>
+      <P>RoomCenter</P></TD>
+    <TD><A href="vcVector.htm">vcVector</A></TD>
+    <TD>R</TD>
+    <TD>The physical location of the room</TD></TR>
+  <TR>
+    <TD>Times</TD>
+    <TD>List of Real</TD>
+    <TD>R</TD>
+    <TD>
+      <P>- Index 0: time as reported by Experience</P>
+      <P>- Index 1: delta from the last message sent by Experience</P>
+      <P>- Index 2: delta from the last update (basically the frametime in 
+      Experience)</P>
+      <P>- Index 3: VR event updates skipped before the last update (the client 
+      skips sending updates according to the MaxUpdateRate and also if the 
+      server is still processing a certain number of old messages)</P>
+      <P>- Index 4: VR event updates skipped in total</P></TD></TR>
+  <TR>
+    <TD>Touches</TD>
+    <TD>List of <A href="vcVector.htm">vcVector</A></TD>
+    <TD>R</TD>
+    <TD>
+      <P>- Index 0: Vector (touchpad x-axis, touchpad y-axis, touchpad is 
+      pressed (0.0/1.0)) (right controller)</P>
+      <P>- Index 1: Vector (??? x-axis, ??? y-axis, 0.0) (right controller, 
+      device-specific)</P>
+      <P>- Index 2: Vector (trigger value, has teleported (0.0/1.0), trigger 
+      pressed (0.0/1.0)) (right controller)</P></TD></TR></TBODY></TABLE>
+<H2><A name=MiniTOCBookMark4></A>Methods</H2>
+<TABLE class=Property style="BORDER-COLLAPSE: separate" cellSpacing=0 
+width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Return Type</TD>
+    <TD>Parameters</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>toggleAction</TD>
+    <TD>None</TD>
+    <TD><SPAN class=hcp2>Integer c</SPAN><SPAN class=hcp3>lientId</SPAN><SPAN 
+      class=hcp2>, String </SPAN><SPAN class=hcp3>action</SPAN><SPAN 
+      class=hcp2>, Boolean </SPAN><SPAN class=hcp3>value</SPAN></TD>
+    <TD>Makes it possible to enable or disable certain VR actions in R-Pro 
+      Experience. <BR>&nbsp; <BR><SPAN class=hcp2>The c</SPAN><SPAN 
+      class=hcp3>lientId</SPAN> <SPAN class=hcp2>argument </SPAN>is the ClientId 
+      received through the VREvents object. <BR>&nbsp; <BR><SPAN class=hcp3>The 
+      action</SPAN> argument defines the action to be enabled or disabled. 
+      <BR>&nbsp; <BR><SPAN class=Term>Teleport</SPAN> <BR>toggles the user's 
+      ability to teleport, <BR>&nbsp; <BR><SPAN class=Term>Elevator</SPAN> 
+      <BR>toggles the user's ability to use the built-in elevator platform 
+      <BR>&nbsp; <BR><SPAN class=Term>Pause</SPAN> <BR>toggles the user's 
+      ability to pause and resume the simulation within Experience. <BR>&nbsp; 
+      <BR><SPAN class=hcp3>The value</SPAN> argument denotes whether the action 
+      is enabled (True) or disabled (False).</TD></TR></TBODY></TABLE>
+<H2><A name=MiniTOCBookMark5></A>Events</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 33.33%">
+  <COL style="WIDTH: 33.33%">
+  <COL style="WIDTH: 33.33%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Parameters</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>OnVREvents</TD>
+    <TD>None</TD>
+    <TD>Called when a VR event has been received and the data in the VREvents 
+      object has been updated.</TD></TR></TBODY></TABLE>
+<H2><A name=MiniTOCBookMark6></A>Examples</H2>
+<P><SPAN class=Example>Example. Print the info for VREvents</SPAN></P>
+<TABLE class=CodeBlock cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 100%">
+  <TBODY>
+  <TR>
+    <TD>from vcScript import * <BR>&nbsp; <BR>app = getApplication() 
+      <BR>vrevents = getApplication().VREvents <BR>last_update = 
+      getApplication().RealTime <BR>processed_count = 0 <BR>&nbsp; <BR>def 
+      OnVREvents(): <BR>&nbsp;&nbsp;global last_update, processed_count, 
+      vrevents, app <BR>&nbsp;&nbsp;if app.RealTime - last_update &gt; 1.0: 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;last_update = app.RealTime 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp;&nbsp;onemeter = 
+      vrevents.OneMeterLength <BR>&nbsp;&nbsp;&nbsp;&nbsp;physical_room_center = 
+      vrevents.RoomCenter <BR>&nbsp;&nbsp;&nbsp;&nbsp;helmet_pos = 
+      vrevents.Positions[2] <BR>&nbsp;&nbsp;&nbsp;&nbsp;helmet_dir = 
+      vrevents.Directions[2*2 + 0] 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;right_controller_pos = vrevents.Positions[0] 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;right_controller_dir = vrevents.Directions[0*2 
+      + 0] <BR>&nbsp;&nbsp;&nbsp;&nbsp;axis1 = vrevents.Touches[0] 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;axis2 = vrevents.Touches[1] 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;axis3 = vrevents.Touches[2] 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp;&nbsp;print "VREvents: 
+      TIMING: ", processed_count, vrevents.Times[0], vrevents.Times[1], 
+      vrevents.Times[2], vrevents.Times[3], vrevents.Times[4] 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;print "VREvents: ROOM INFO: ", 
+      physical_room_center.X, physical_room_center.Y, physical_room_center.Z, ", 
+      OneMeter:", onemeter <BR>&nbsp;&nbsp;&nbsp;&nbsp;print "VREvents: 
+      HELMET:", helmet_pos.X, helmet_pos.Y, helmet_pos.Z, helmet_dir.X, 
+      helmet_dir.Y, helmet_dir.Z <BR>&nbsp;&nbsp;&nbsp;&nbsp;print "VREvents: 
+      CONTROLLER:", right_controller_pos.X, right_controller_pos.Y, 
+      right_controller_pos.Z, right_controller_dir.X, right_controller_dir.Y, 
+      right_controller_dir.Z <BR>&nbsp;&nbsp;&nbsp;&nbsp;print "VREvents: 
+      AXIS1:", axis1.X, axis1.Y, axis1.Z <BR>&nbsp;&nbsp;&nbsp;&nbsp;print 
+      "VREvents: AXIS2:", axis2.X, axis2.Y, axis2.Z 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;print "VREvents: AXIS3:", axis3.X, axis3.Y, 
+      axis3.Z <BR>&nbsp;&nbsp;&nbsp;&nbsp;print "VREvents: BUTTONS: ", 
+      vrevents.Buttons[0], vrevents.Buttons[1], vrevents.Buttons[2], 
+      vrevents.Buttons[3] <BR>&nbsp;&nbsp;&nbsp;&nbsp; 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;print 
+      "---------------------------------------" 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;print "Device model:", vrevents.DeviceModel 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;print "Client ID:", vrevents.ClientId 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp;&nbsp;for di in 
+      vrevents.DeviceInputs: <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print 
+      "---------------------------------------" 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "Device role:", 
+      di["DeviceRole"] <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for name, value 
+      in di["Axis2DInputs"].iteritems(): 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "Input:", name, 
+      value <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for name, value in 
+      di["AxisInputs"].iteritems(): 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "Input:", name, 
+      value <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for name, value in 
+      di["ButtonInputs"].iteritems(): 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "Input:", name, 
+      value <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print 
+      "---------------------------------------" <BR>&nbsp;&nbsp;&nbsp;&nbsp; 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;processed_count = 0 <BR>&nbsp;&nbsp;else: 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;processed_count = processed_count + 1 
+      <BR>&nbsp; <BR>vrevents.EventsEnabled = True <BR>vrevents.MaxUpdateRate = 
+      20 <BR>vrevents.OnVREvents = OnVREvents <BR>&nbsp; <BR>print "VREvents: ", 
+      vrevents.EventsEnabled, vrevents.MaxUpdateRate 
+</TD></TR></TBODY></TABLE></BODY></HTML>

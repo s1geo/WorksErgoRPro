@@ -1,0 +1,484 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProperty</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcProperty</h1>
+<p>vcProperty is a property object with its own set of properties, methods 
+ and event handlers.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot29174" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot29174', 'MTPOPUP29174');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP29174" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>CalculatedValue</td>
+		<td>&lt;Type&gt;</td>
+		<td>R</td>
+		<td>Gets the calculated value of property. 
+		<p class="TableNormal">Generally, this is used to get the result 
+		 of an Expression &#160;type property whose Value is an expression 
+		 passed as a string. All other types, except Distribution, would 
+		 return the same as Value.</p></td>
+	</tr>
+	<tr>
+		<td>ChangeOnRebuild</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if component geometry is rebuilt when property value 
+		 is changed.</td>
+	</tr>
+	<tr>
+		<td>ChangeOnReconfigure</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if component structure is reconfigured when property 
+		 value is changed.</td>
+	</tr>
+	<tr>
+		<td>ChangeOnUpdate</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if simulation world is updated when property value 
+		 is changed.</td>
+	</tr>
+	<tr>
+		<td>Distribution</td>
+		<td>String</td>
+		<td>RW</td>
+		<td><a name="distribution_expression"></a>If Distribution type 
+		 property, defines an expression to use for calculating values. 
+		 
+		<p class="TableNormal">Available functions include:</p>
+		<p class="TableNormal"><span class="Term">normal( u, s )</span><br>
+		Normal distribution for mean value u, and the standard deviation 
+		 s.</p>
+		<p class="TableNormal"><span class="Term">lognormal( u, s )</span><br>
+		Log normal distribution for mean u, and the standard deviation 
+		 s.</p>
+		<p class="TableNormal"><span class="Term">uniform( a, b )</span><br>
+		Uniform distribution in range a &lt;= x &lt; b.</p>
+		<p class="TableNormal"><span class="Term">exponential( lambda )</span><br>
+		Exponential distribution where the mean is 1/lambda and the variance 
+		 is 1/lambda^2.</p>
+		<p class="TableNormal"><span class="Term">gamma( k, theta )</span><br>
+		Gamma distribution with shape k and scale theta.</p>
+		<p class="TableNormal"><span class="Term">triangular( min, mode, 
+		 max )</span><br>
+		Triangular distribution with the specified minimum, mode and maximum 
+		 values.</p>
+		<p class="TableNormal"><span class="Term">weibull( k, lambda )</span><br>
+		Weibull distribution with shape k and scale lambda.</p>
+		<p class="TableNormal"><span class="Strong">Tip:</span> Use RandomStream 
+		 to have the distribution use a stream for seeding a value and 
+		 generating the same set of random numbers during a simulation. 
+		 That is, if you reset and run a simulation you should expect the 
+		 same values given in the previous simulation.</p></td>
+	</tr>
+	<tr>
+		<td>Group</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the group assignment of property. 
+		<p class="TableNormal">Properties are ordered by groups, and a 
+		 group number is automatically assigned at the time of creation. 
+		 This order can be overridden to have properties come before or 
+		 after one another when listed in the GUI.</p></td>
+	</tr>
+	<tr>
+		<td>IgnoreEvents</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if event passing is ignored by property, for example 
+		 to avoid cyclic calls.</td>
+	</tr>
+	<tr>
+		<td>IsVisible</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the visibility of property in Properties panel.</td>
+	</tr>
+	<tr>
+		<td>IsVisibleDesignTime</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the visibility of property in Component Cell Graph 
+		 panel.</td>
+	</tr>
+	<tr>
+		<td>IsDesignTime</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if property is used for component authoring.</td>
+	</tr>
+	<tr>
+		<td>IsPersistent</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if property value is saved with component or layout.</td>
+	</tr>
+	<tr>
+		<td>ListValueCount</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the number of values listed in property.</td>
+	</tr>
+	<tr>
+		<td>ListValues</td>
+		<td>List of <a href="vcPropertyListValue.htm">vcPropertyListValue</a></td>
+		<td>R</td>
+		<td>Gets a list of values for property.</td>
+	</tr>
+	<tr>
+		<td>Magnitude</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the conversion factor of unit assigned to property. 
+		<p class="TableNormal">The conversion factor is used to convert 
+		 the value of property to and from its canonical unit. For example, 
+		 if the property has a Quantity of Distance with a Unit of millimeters 
+		 (mm), the magnitude is 1. If Unit is meters (m), the magnitude 
+		 is 1000.0.</p>
+		<p class="TableNormal"><span class="Strong">Note:</span> You can 
+		 use setUnitMagnitude() to change the unit of property based on 
+		 the current unit group of its quantity. For example, a magnitude 
+		 of 10 would most likely change the unit to centimeters (cm) if 
+		 the quantity of property was Distance.</p></td>
+	</tr>
+	<tr>
+		<td>MaxValue</td>
+		<td>&lt;Type&gt;</td>
+		<td>W</td>
+		<td>If property supports a limit constraint, defines maximum value 
+		 of property.</td>
+	</tr>
+	<tr>
+		<td>MinValue</td>
+		<td>&lt;Type&gt;</td>
+		<td>W</td>
+		<td>If property supports a limit constraint, defines the minimum 
+		 value of property.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of property.</td>
+	</tr>
+	<tr>
+		<td>Quantity</td>
+		<td><a href="vcScalarQuantity.htm">vcScalarQuantity</a> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcVectorQuantity.htm">vcVectorQuantity</a></p></td>
+		<td>RW</td>
+		<td>Defines the quantity of property. 
+		<p class="TableNormal"><span class="Strong">Tip:</span> You assign 
+		 the quantity by name using a string, for example Distance, thereby 
+		 the application will search for and assign a quantity matching 
+		 that name.</p></td>
+	</tr>
+	<tr>
+		<td>RandomStream</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>If Distribution type property, defines a stream used for generating 
+		 pseudo-random values. 
+		<p class="TableNormal">Every layout has a RandomStreams layout 
+		 item, which has a set of RandomSeedN properties where N is 0 to 
+		 63, which contain the seed values for each stream.</p>
+		<p class="TableNormal">A random stream can be used in distribution 
+		 function, for example <span class="Term">normal(stream,u,s)</span> 
+		 in which <span class="Italic">stream</span> is the index of stream 
+		 in the layout to use, <span class="Italic">u</span> is mean value 
+		 and s is standard deviation.</p></td>
+	</tr>
+	<tr>
+		<td>StepValues</td>
+		<td>List of &lt;Type&gt;</td>
+		<td>RW</td>
+		<td>If property has a step constraint, defines a list of step values 
+		 for property.</td>
+	</tr>
+	<tr>
+		<td>SupportsTemplate</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if property supports the use of a templates.</td>
+	</tr>
+	<tr>
+		<td>Templates</td>
+		<td>List of template</td>
+		<td>R</td>
+		<td>Gets a list of templates in property.</td>
+	</tr>
+	<tr>
+		<td>Type</td>
+		<td>Enumeration</td>
+		<td>R</td>
+		<td>Gets the property type. 
+		<p class="TableNormal">See <a href="Constants.htm#Property_Constants">Property 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Unit</td>
+		<td><a href="vcUnit.htm">vcUnit</a></td>
+		<td>R</td>
+		<td>Gets the unit of property. 
+		<p class="TableNormal"><span class="Strong">Note:</span> Use setUnitMagnitude() 
+		 to change the unit of property. The magnitude should be the conversion 
+		 factor of unit in the current unit group of quantity assigned 
+		 to property.</p></td>
+	</tr>
+	<tr>
+		<td>Value</td>
+		<td>&lt;Type&gt;</td>
+		<td>RW</td>
+		<td>Gets/Sets property value.</td>
+	</tr>
+	<tr>
+		<td>WritableWhenConnected</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if property value can be set when component of property 
+		 is connected to another component via interface.</td>
+	</tr>
+	<tr>
+		<td>WritableWhenDisconnected</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if property value can be set when component of property 
+		 is not connected to another component via interface.</td>
+	</tr>
+	<tr>
+		<td>WritableWhenSimulating</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if property value can be set when a simulation is running.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addValueFromTemplate</td>
+		<td><a href="vcPropertyListValue.htm">vcPropertyListValue</a></td>
+		<td>String <span class="Italic">prop</span></td>
+		<td>Adds value from template to property.</td>
+	</tr>
+	<tr>
+		<td>deleteValue</td>
+		<td>None</td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>If property has step constraint, deletes a value at a given 
+		 <span class="Italic">index</span> from property.</td>
+	</tr>
+	<tr>
+		<td>getValue</td>
+		<td><a href="vcPropertyListValue.htm">vcPropertyListValue</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>If property has step constraint, gets value at a given <span 
+		 class="Italic">index</span> from property.</td>
+	</tr>
+	<tr>
+		<td>setUnitMagnitude</td>
+		<td>None</td>
+		<td>Real magnitude</td>
+		<td>Sets the unit of property based on the given <span class="Italic">magnitude</span>. 
+		 
+		<p class="TableNormal">The magnitude is the conversion factor of 
+		 unit you want to assign to property. The unit should belong to 
+		 the current unit group of quantity assigned to property.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnChanged</td>
+		<td><a href="vcProperty.htm">vcProperty</a> <span class="Italic">property</span></td>
+		<td>Triggered when value of property is changed.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Define min and max values of properties</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>&#160; 
+		<br>##Real property - supports limit constraint, thereby min and max range values 
+		<br>p = comp.getProperty(&quot;Test_Real&quot;) 
+		<br>if not p: 
+		<br>&#160;&#160;p = comp.createProperty(VC_REAL, &quot;Test_Real&quot;, VC_PROPERTY_LIMIT) 
+		<br>&#160; 
+		<br>p.MinValue = 0x00000A 
+		<br>p.MaxValue = 0144 
+		<br>p.Value = 0b00110010 
+		<br>print p.MinValue, p.MaxValue, p.Value 
+		<br>#prints 10.0 100.0 50.0 
+		<br>&#160; 
+		<br>##Integer property - supports limit constraint, must pass integer values 
+		<br>p = comp.getProperty(&quot;Test_Integer&quot;) 
+		<br>if not p: 
+		<br>&#160;&#160;p = comp.createProperty(VC_INTEGER, &quot;Test_Integer&quot;, VC_PROPERTY_LIMIT) 
+		<br>&#160; 
+		<br>p.MinValue = int(45.5) 
+		<br>p.MaxValue = int(940.457) 
+		<br>p.Value = int(468.319) 
+		<br>print p.MinValue, p.MaxValue, p.Value 
+		<br>#prints 45 940 468</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Get calculated value of properties</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>&#160; 
+		<br>##Expression property - Value is the expression to be evaluated; CalculatedValue is result of expression 
+		<br>p = comp.getProperty(&quot;Test_Expression&quot;) 
+		<br>if not p: 
+		<br>&#160;&#160;p = comp.createProperty(VC_EXPRESSION, &quot;Test_Expression&quot;) 
+		<br>&#160; 
+		<br>p.Value = &quot;2+2&quot; 
+		<br>print p.Value, &quot; = &quot;, p.CalculatedValue 
+		<br>#prints 2 + 2 = 4 
+		<br>&#160; 
+		<br>##Real property - CalculatedValue and Value return same values 
+		<br>p = comp.getProperty(&quot;Test_Real&quot;) 
+		<br>if not p: 
+		<br>&#160;&#160;p = comp.createProperty(VC_REAL, &quot;Test_Real&quot;) 
+		<br>&#160; 
+		<br>p.Value = 2+2 
+		<br>print p.Value, &quot; = &quot;, p.CalculatedValue 
+		<br>#prints 4.0 = 4.0 
+		<br>&#160; 
+		<br>##Distribution property - CalculatedValue and Value return different values 
+		<br>p = comp.getProperty(&quot;Test_Distribution&quot;) 
+		<br>if not p: 
+		<br>&#160;&#160;p = comp.createProperty(VC_DISTRIBUTION, &quot;Test_Distribution&quot;) 
+		<br>&#160; 
+		<br>p.Distribution = &quot;normal(100.0,5.0)&quot; 
+		<br>print p.Value 
+		<br>print p.CalculatedValue 
+		<br>print p.Value 
+		<br>#each call returns, most likely, different pseudo-random value; so printed results will vary</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Using a real distribution with a random 
+ stream</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>&#160; 
+		<br>prop = comp.getProperty(&quot;Test_Distribution&quot;) 
+		<br>if not prop: 
+		<br>&#160;&#160;prop = comp.createProperty(VC_DISTRIBUTION, &quot;Test_Distribution&quot;) 
+		<br>&#160; 
+		<br>#prop.Distribution = &quot;normal(100.0, 5.0)&quot; 
+		<br>#prop.RandomStream = 4 
+		<br>prop.Distribution = &quot;normal(4, 100.0, 5.0)&quot; 
+		<br>&#160; 
+		<br>def OnRun(): 
+		<br>&#160;&#160;&#160;&#160;count = 0 
+		<br>&#160;&#160;&#160;&#160;while count &lt; 5: 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;delay(1) 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;count += 1 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;print prop.Value</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Using OnChange event</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>def myActionFunction(arg): #function arguments need to match with event parameters 
+		<br>&#160;&#160;print arg.Value 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>&#160; 
+		<br># get handle to a property (in this example a component property) 
+		<br>myprop = comp.getProperty('MyParameter') 
+		<br># this property needs to be a global so events registered to this stay alive 
+		<br># for example -- &gt; global myprop 
+		<br>&#160; 
+		<br>myprop.OnChanged = myActionFunction #register a custom function to an event</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Add different types of properties to 
+ a component</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>comp = getComponent() 
+		<br>&#160; 
+		<br># create a new property, this returns None if property with same name already exists 
+		<br>prop1 = comp.createProperty(VC_REAL, 'Fever') 
+		<br>prop1.Value = 36.8 
+		<br>&#160; 
+		<br><span># another new property with step values</span> 
+		<br>prop2 = comp.createProperty(VC_STRING, 'MyLocationParam', VC_PROPERTY_STEP) 
+		<br>&#160; 
+		<br><span># polulate drop-down menu with pre-defined values</span> 
+		<br>prop2.StepValues = ['Europe', 'America', 'Asia', 'Africa', 'Australia'] 
+		<br># set value: option1 
+		<br>comp.MyLocationParam = 'Asia' 
+		<br># set value: option2 --&gt; <span>prop2.Value = 'Asia'</span></td>
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,945 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcFeature</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+p.hcp1 { margin-left:80px; }
+span.hcp2 { color:#000000; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcFeature</h1>
+<p>vcFeature is the base class for all types of features in a component.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot22075" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot22075', 'MTPOPUP22075');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP22075" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Hierarchy</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Common Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Feature Specific Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark22" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark23" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Hierarchy</h2>
+<p>Only Geometry and Frame features have a specific implementations. For 
+ example, a <a href="vcGeometryFeature.htm">vcGeometry</a> type object 
+ and its <a href="vcGeometryContainer.htm">vcGeometryContainer</a> type 
+ property can be used to create custom geometry. All other features can 
+ be manipulated as vcFeature type objects.</p>
+<p style="margin-left: 40px;"><a href="vcFeature.htm">vcFeature</a></p>
+<p class="hcp1"><a href="vcFrameFeature.htm">vcFrameFeature</a></p>
+<p class="hcp1"><a href="vcGeometryFeature.htm">vcGeometryFeature</a></p>
+<p style="margin-left: 0px;">Features can represent geometry loaded from 
+ a CAD file, generated from a primitive or the result of an operation applied 
+ to subfeatures. The result of a feature tree evaluation is placed into 
+ the geometry container of a <a href="vcNode.htm">vcNode</a> object. This 
+ process is governed by properties in feature objects, which are accessible 
+ through vcFeature.</p>
+<h2><a name="MiniTOCBookMark3"></a>Common Properties</h2>
+<p>The following properties are common in all feature types.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Children</td>
+		<td>List of <a href="vcFeature.htm">vcFeature</a></td>
+		<td>R</td>
+		<td>Gets a list of feature's immediate child features.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of feature.</td>
+	</tr>
+	<tr>
+		<td>NodePositionMatrix</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>R</td>
+		<td>Gets the position matrix of the feature relative to its node's 
+		 coordinate system.</td>
+	</tr>
+	<tr>
+		<td>Parent</td>
+		<td><a href="vcFeature.htm" title="vcFeature">vcFeature</a></td>
+		<td>R</td>
+		<td>Gets the parent of this feature in the node feature tree. 
+		<p class="TableNormal">If the feature is root feature, return value 
+		 is None.</p></td>
+	</tr>
+	<tr>
+		<td>PhysicsCollider</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the type of collider used by the feature for physics. 
+		 
+		<p class="TableNormal"><span class="Strong">Note:</span> A feature 
+		 inherits the collider of its parent feature.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Collider_Constants">Collider 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>PositionMatrix</td>
+		<td><a href="vcMatrix.htm" title="vcMatrix">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines the position matrix of this feature relative to its 
+		 parent feature's coordinate system.</td>
+	</tr>
+	<tr>
+		<td>Properties</td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td>Gets a list of all properties in feature.</td>
+	</tr>
+	<tr>
+		<td>Type</td>
+		<td>Enumeration</td>
+		<td>R</td>
+		<td>Gets the feature type. 
+		<p class="TableNormal">See <a href="Constants.htm#Feature_Constants">Feature 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Visible</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the visibility of the frame in the 3D world.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Feature Specific Properties</h2>
+<h3><a name="MiniTOCBookMark5"></a>Angular Clone</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Count</td>
+		<td>Expression (integer)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the number 
+		 of times to clone the feature's subtree. 
+		<p class="TableNormal"><span class="Term">0</span><br>
+		No geometry is rendered.</p>
+		<p class="TableNormal"><span class="Term">1</span><br>
+		The original geometry of the feature's subtree is rendered.</p>
+		<p class="TableNormal"><span class="Term">1+n</span><br>
+		The original geometry is rendered and cloned <span class="Italic">n</span> 
+		 amount of times.</p>
+		<p class="TableNormal">When evaluated, the expression should return 
+		 an integer.</p></td>
+	</tr>
+	<tr>
+		<td>Offset</td>
+		<td>Expression (vector)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns a vector 
+		 used to offset the direction of each clone from one another.</td>
+	</tr>
+	<tr>
+		<td>Step</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the angular 
+		 distance used to offset each clone from one another.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark6"></a>Block</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Height</td>
+		<td><span>Expression (real)</span></td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the height 
+		 of the block projected along its Z-axis.</td>
+	</tr>
+	<tr>
+		<td>Length</td>
+		<td><span>Expression (real)</span></td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the length 
+		 of the block projected along its X-axis.</td>
+	</tr>
+	<tr>
+		<td>Material</td>
+		<td><span><a href="vcMaterial.htm" title="vcMaterial">vcMaterial</a></span></td>
+		<td>RW</td>
+		<td>Defines the material of the block.</td>
+	</tr>
+	<tr>
+		<td>Width</td>
+		<td><span>Expression (real)</span></td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the width 
+		 of the block projected along its Y-axis.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark7"></a><a name="VC_Feature_Boolean">Boolean</a></h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><span class="hcp2">Operation</span></td>
+		<td><span><a href="Constants.htm#Boolean Feature Constants" title="vcMaterial">Enumeration</a></span></td>
+		<td><span class="hcp2">RW</span></td>
+		<td><p style="color: #000000;">Defines how the geometry is visualized.</p></td>
+	</tr>
+	<tr>
+		<td><span class="hcp2">Material</span></td>
+		<td><span><a href="vcMaterial.htm" title="vcMaterial">vcMaterial</a></span></td>
+		<td><span class="hcp2">RW</span></td>
+		<td><span class="hcp2">Defines the material.</span></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark8"></a>Cone</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>BottomRadius</td>
+		<td><span>Expression (real)</span></td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the bottom 
+		 radius of the cone.</td>
+	</tr>
+	<tr>
+		<td>Caps</td>
+		<td><span>Boolean</span></td>
+		<td>RW</td>
+		<td>Turns on/off the rendering of caps for the cone.</td>
+	</tr>
+	<tr>
+		<td>EndSweep</td>
+		<td><span>Expression (real)</span></td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the angle 
+		 where the cone's geometry is swept to relative to the cone's center.</td>
+	</tr>
+	<tr>
+		<td>Height</td>
+		<td><span>Expression (real)</span></td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the height 
+		 of the cone projected along its Z-axis.</td>
+	</tr>
+	<tr>
+		<td>Material</td>
+		<td><span><a href="vcMaterial.htm" title="vcMaterial">vcMaterial</a></span></td>
+		<td>RW</td>
+		<td>Defines the material of the cone.</td>
+	</tr>
+	<tr>
+		<td>Sections</td>
+		<td><span>Expression (integer)</span></td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the number 
+		 of sections (sides) generated for the cone.</td>
+	</tr>
+	<tr>
+		<td>StartSweep</td>
+		<td><span>Expression (real)</span></td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the angle 
+		 where the cone's geometry is swept from relative to the cone's 
+		 center.</td>
+	</tr>
+	<tr>
+		<td>TopRadius</td>
+		<td><span>Expression (real)</span></td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the top radius 
+		 of the cone.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark9"></a>Cylinder</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Caps</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the rendering of caps for th cylinder.</td>
+	</tr>
+	<tr>
+		<td>EndSweep</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the angle 
+		 the cylinder's geometry is swept to relative to the cylinder's 
+		 center.</td>
+	</tr>
+	<tr>
+		<td>Height</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the height 
+		 of the cylinder projected along its Z-axis.</td>
+	</tr>
+	<tr>
+		<td>Material</td>
+		<td><a href="vcMaterial.htm">vcMaterial</a></td>
+		<td>RW</td>
+		<td>Defines the material of the cylinder.</td>
+	</tr>
+	<tr>
+		<td>Radius</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the radius 
+		 of the cylinder.</td>
+	</tr>
+	<tr>
+		<td>Sections</td>
+		<td>Expression (integer)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the number 
+		 of sections (sides) generated for the cylinder.</td>
+	</tr>
+	<tr>
+		<td>StartSweep</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the angle 
+		 the cylinder's geometry is swept from relative to the cylinder's 
+		 center.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark10"></a>Extrude</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Direction</td>
+		<td>Expression (vector)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns a vector 
+		 defining the direction of the extrusion.</td>
+	</tr>
+	<tr>
+		<td>Length</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the length 
+		 of the extrusion.</td>
+	</tr>
+	<tr>
+		<td>Material</td>
+		<td><a href="vcMaterial.htm">vcMaterial</a></td>
+		<td>RW</td>
+		<td>Defines the material of the extrusion.</td>
+	</tr>
+	<tr>
+		<td>ShowBackFaces</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the rendering of geometry backfaces in the extrusion.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark11"></a>Frame</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>UseAsGuide</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines if the frame can be selected when adding dimensions 
+		 in the Drawing view. </td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark12"></a>Linear Clone</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Count</td>
+		<td><span>Expression (integer)</span></td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the number 
+		 of times to clone the feature's subtree. 
+		<p class="TableNormal"><span class="Term">0</span><br>
+		No geometry is rendered.</p>
+		<p class="TableNormal"><span class="Term">1</span><br>
+		The original geometry of the feature's subtree is rendered.</p>
+		<p class="TableNormal"><span class="Term">1+n</span><br>
+		The original geometry is rendered and cloned <span class="Italic">n</span> 
+		 amount of times.</p>
+		<p class="TableNormal">When evaluated, the expression should return 
+		 an integer.</p></td>
+	</tr>
+	<tr>
+		<td>Direction</td>
+		<td>Expression (vector)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns a vector 
+		 used to offset the direction of each clone from one another.</td>
+	</tr>
+	<tr>
+		<td>Step</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the linear 
+		 distance used to offset each clone from one another.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark13"></a>Mirror</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>HideOriginal</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the visibility of feature being mirrored.</td>
+	</tr>
+	<tr>
+		<td>Offset</td>
+		<td>Expression (vector)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns a vector/the 
+		 axis of reflection, for example (1,0,0) would reflect along X-axis.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark14"></a>Plane</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Size</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the length 
+		 and width of the plane.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark15"></a>Python Feature</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Script</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the code of the Python feature.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark16"></a>Revolve</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Caps</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the rendering of caps for revolved geometry.</td>
+	</tr>
+	<tr>
+		<td>Material</td>
+		<td><a href="vcMaterial.htm">vcMaterial</a></td>
+		<td>RW</td>
+		<td>Defines the material of revolved geometry.</td>
+	</tr>
+	<tr>
+		<td>RevolveAngle</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the angle 
+		 for revolving geometry.</td>
+	</tr>
+	<tr>
+		<td>RevolveAxis</td>
+		<td>Expression (vector)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns a vector/direction 
+		 for revolving geometry, for example (0,0,1) would revolve geometry 
+		 around Z-axis.</td>
+	</tr>
+	<tr>
+		<td>RevolveOffset</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns an offset 
+		 for revolved geometry.</td>
+	</tr>
+	<tr>
+		<td>Reverse</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the inverting of revolved geometry.</td>
+	</tr>
+	<tr>
+		<td>Sections</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the number 
+		 of sections/sides for revolved geometry.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark17"></a>Sphere</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Caps</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the rendering of caps for the sphere.</td>
+	</tr>
+	<tr>
+		<td>EndSweep</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the end angle 
+		 for sweeping geometry.</td>
+	</tr>
+	<tr>
+		<td>Material</td>
+		<td><a href="vcMaterial.htm">vcMaterial</a></td>
+		<td>RW</td>
+		<td>Defines the material of the sphere.</td>
+	</tr>
+	<tr>
+		<td>Radius</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the radius 
+		 of the sphere.</td>
+	</tr>
+	<tr>
+		<td>Sections</td>
+		<td>Expression (integer)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the number 
+		 of sections/sides along the longitude of swept geometry.</td>
+	</tr>
+	<tr>
+		<td>Spans</td>
+		<td>Expression (integer)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the number 
+		 of sections/sides between the equator and poles of swept geometry.</td>
+	</tr>
+	<tr>
+		<td>StartSweep</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the starting 
+		 angle for sweeping geometry.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark18"></a>Switch</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Choice</td>
+		<td>Expression (integer)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns which immediate 
+		 child of the switch to render in 3D world. 
+		<p class="TableNormal">A zero value selects the switch, thereby 
+		 not rendering any of its subfeatures. That is, indexing starts 
+		 at one.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark19"></a>Text</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>IsFloating</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the text floats freely in 3D world or is anchored 
+		 directly to feature location.</td>
+	</tr>
+	<tr>
+		<td>IsReadOnly</td>
+		<td>Boolean 
+		<br>&#160;</td>
+		<td>RW</td>
+		<td>Defines if the text is read-only and locked from editing.</td>
+	</tr>
+	<tr>
+		<td>Material</td>
+		<td><a href="vcMaterial.htm">vcMaterial</a></td>
+		<td>RW</td>
+		<td>Defines the material of the text.</td>
+	</tr>
+	<tr>
+		<td><p>Size</p></td>
+		<td><p>Real</p>
+		
+		&#160;</td>
+		<td>RW</td>
+		<td>Defines the scale factor for sizing rendered text. 
+		<br></td>
+	</tr>
+	<tr>
+		<td><p>Text</p></td>
+		<td>String 
+		<br>&#160;</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the text 
+		 to be visualized in the 3D world.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark20"></a>Transform</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Expression</td>
+		<td>Expression (matrix)</td>
+		<td>RW</td>
+		<td>Defines an expression for transforming subfeatures.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark21"></a>Wedge</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>BiggerHeight</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the Z-axis 
+		 height of the wedge's back end.</td>
+	</tr>
+	<tr>
+		<td>BiggerLength</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the X-axis 
+		 length of the wedge's bottom.</td>
+	</tr>
+	<tr>
+		<td>Material</td>
+		<td><a href="vcMaterial.htm">vcMaterial</a></td>
+		<td>RW</td>
+		<td>Defines the material of the wedge.</td>
+	</tr>
+	<tr>
+		<td>MirrorBack</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the mirroring of the wedge along its X-axis.</td>
+	</tr>
+	<tr>
+		<td>MirrorDown</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the mirroring of the wedge along its negative 
+		 Z-axis.</td>
+	</tr>
+	<tr>
+		<td>SmallerHeight</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the Z-axis 
+		 height of the wedge's front end.</td>
+	</tr>
+	<tr>
+		<td>SmallerLength</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the X-axis 
+		 length of the wedge's top.</td>
+	</tr>
+	<tr>
+		<td>Width</td>
+		<td>Expression (real)</td>
+		<td>RW</td>
+		<td>Defines an expression that when evaluated returns the Y-axis 
+		 width of the wedge.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark22"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>attach</td>
+		<td>Boolean</td>
+		<td><a href="vcFeature.htm">vcFeature</a> <span class="Italic">feature</span><span>, 
+		 [Boolean</span> <span class="Italic">rebuild</span><span>]</span></td>
+		<td>Attaches a given <span class="Italic">feature</span> to this 
+		 feature, thereby allowing you to reorder the containing node's 
+		 feature tree. 
+		<p class="TableNormal">The given <span class="Italic">feature</span> 
+		 cannot be the root feature or parent of this feature.</p>
+		<p class="TableNormal">An optional <span class="Italic">rebuild</span> 
+		 argument can be used to control the rebuilding of geometry for 
+		 an attached feature. Default is False value and will not rebuild 
+		 geometry, whereas a True value will rebuild geometry.</p>
+		<p class="TableNormal">Returns True if attachment is successful; 
+		 otherwise returns False.</p></td>
+	</tr>
+	<tr>
+		<td>clone</td>
+		<td><a href="vcFeature.htm">vcFeature</a></td>
+		<td>None</td>
+		<td>Copies the feature to the same level in containing node's feature 
+		 tree, and then returns the clone.</td>
+	</tr>
+	<tr>
+		<td>collapse</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Collapses the feature into a new Geometry feature. 
+		<p class="TableNormal">The original feature will be deleted, thereby 
+		 you need to get handle for the new feature.</p></td>
+	</tr>
+	<tr>
+		<td>createFeature</td>
+		<td><a href="vcFeature.htm">vcFeature</a></td>
+		<td>Enumeration <span class="Italic">type</span>, String <span 
+		 class="Italic">name</span></td>
+		<td>Adds a new feature of a given <span class="Italic">type</span> 
+		 and <span class="Italic">name</span> as a child of this feature. 
+		 
+		<p class="TableNormal">See <a href="Constants.htm#Feature_Constants">Feature 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>createProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>Enumeration <span class="Italic">type</span>, String <span 
+		 class="Italic">name</span>, [Enumeration <span class="Italic">constraints</span>]</td>
+		<td>Adds a new property of a given <span class="Italic">type</span> 
+		 and <span class="Italic">name</span> to the feature. 
+		<p class="TableNormal">An optional <span class="Italic">constraints</span> 
+		 argument can be given to define constraints for the new property, 
+		 which must be done at the time of creation.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Property_Constants">Property 
+		 Constant</a>s for more information.</p></td>
+	</tr>
+	<tr>
+		<td>delete</td>
+		<td>Boolean</td>
+		<td>None</td>
+		<td>Deletes the feature and its subfeatures, and then returns True; 
+		 otherwise returns False.</td>
+	</tr>
+	<tr>
+		<td>deleteProperty</td>
+		<td>None</td>
+		<td><a href="vcProperty.htm">vcProperty</a> <span class="Italic">property</span></td>
+		<td>Deletes a given <span class="Italic">property</span> from the 
+		 feature.</td>
+	</tr>
+	<tr>
+		<td>getFeature</td>
+		<td><a href="vcFeature.htm">vcFeature</a></td>
+		<td>None</td>
+		<td>Returns the feature.</td>
+	</tr>
+	<tr>
+		<td>getProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Returns a property of the feature that matches the given <span 
+		 class="Italic">name</span>; otherwise returns None.</td>
+	</tr>
+	<tr>
+		<td>rebuild</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Rebuilds the feature and its subfeature tree.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark23"></a>Examples</h2>
+<p><span class="Example">Example. Create features and rebuild geometry</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>comp = app.findComponent(&quot;MyComponent&quot;) 
+		<br>transform = comp.findFeature(&quot;Transform&quot;) 
+		<br>transform.Expression = 'Tx(400.0)' 
+		<br>block = transform.createFeature(VC_BLOCK, &quot;MyBlock&quot;) &#160;&#160; 
+		<br>&#160; 
+		<br># create feature under another feature 
+		<br>cylinder = comp.RootFeature.createFeature(VC_CYLINDER, &quot;MyCylinder&quot;) &#160;&#160; 
+		<br>&#160; 
+		<br>#create feature under the tree root 
+		<br>cylinder.Height = '300' 
+		<br>&#160; 
+		<br>#expression properties are set as strings 
+		<br>cylinder.Radius = '150' 
+		<br>cylinder.Sections = '24' 
+		<br>cylinder.rebuild() 
+		<br><span>app.render()</span></td>
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,1830 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcBehaviour</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+li.hcp1 { list-style:none; }
+td.hcp2 { vertical-align:middle; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcBehaviour</h1>
+<p>vcBehaviour is the basic implementation of all behavior type objects.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot8383" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot8383', 'MTPOPUP8383');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP8383" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Hierarchy</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Common Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Behavior Specific Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark30" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark31" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Hierarchy</h2>
+<p>Most behaviors have specific implementations that inherit vcBehaviour, 
+ while others can be manipulated directly as vcBehaviour type objects. 
+ In order to create a behavior, use the createBehaviour() method in <a 
+	 href="vcNode.htm">vcNode</a>.</p>
+<ol>
+	<li class="hcp1"><a href="vcBehaviour.htm" title="vcBehaviour">vcBehaviour</a> 
+	 
+	<ol>
+		<li class="hcp1"><a href="vcActionContainer.htm" title="vcActionContainer">vcActionContainer</a></li>
+		<li class="hcp1"><a href="vcBaseContainer.htm">vcBaseContainer</a></li>
+		<li class="hcp1"><a href="vcBooleanSignalMap.htm" 
+										 title="vcBooleanSignalMap">vcBooleanSignalMap</a></li>
+		<li class="hcp1"><a href="vcFlow.htm" title="vcFlow">vcFlow</a> 
+		 
+		<ol>
+			<li class="hcp1"><a href="vcComponentFlowProxy.htm" 
+											 title="vcComponentFlowProxy">vcComponentFlowProxy</a></li>
+			<li class="hcp1"><a href="vcContainer.htm" title="vcContainer">vcContainer</a> 
+			 
+			<ol>
+				<li class="hcp1"><a href="vcContainer.htm#Component_Container">vcComponentContainer</a> 
+				 
+				<ol>
+					<li class="hcp1"><span><a href="vcPatternContainer.htm">vcPatternContainer</a></span></li>
+				</ol></li>
+				<li class="hcp1"><a href="vcComponentsCreator.htm" 
+												 title="vcComponentCreator"><span>v</span>cComponentCreator</a></li>
+				<li class="hcp1"><a href="vcMotionPath.htm" 
+												 title="vcMotionPath">vcMotionPath</a></li>
+				<li class="hcp1"><a href="vcContainer.htm#One_Directional_Path">vcOneDirectionalPath</a> 
+				 <span class="Strong">(Deprecated)</span> use <a href="vcMotionPath.htm">vcMotionPath</a></li>
+				<li class="hcp1"><a href="vcRoutingRule.htm" 
+												 title="vcRoutingRule">vcRoutingRule</a></li>
+				<li class="hcp1"><a href="vcContainer.htm#two_directional_path">vcTwoDirectionalPath</a> 
+				 <span class="Strong">(Deprecated)</span> use <a href="vcMotionPath.htm">vcMotionPath</a></li>
+				<li class="hcp1"><a href="vcTransport.htm">vcTransport</a></li>
+			</ol></li>
+		</ol></li>
+		<li class="hcp1"><a href="vcIntergerSignalMap.htm" 
+										 title="vcIntegerSignalMap">vcIntegerSignalMap</a></li>
+		<li class="hcp1"><a href="vcJogInfo.htm">vcJogInfo</a></li>
+		<li class="hcp1"><a href="vcPythonKinematics.htm" 
+										 title="vcPythonKinematics">vcPythonKinematics</a></li>
+		<li class="hcp1"><a href="vcNodeList.htm" title="vcNodeList">vcNodeList</a></li>
+		<li class="hcp1"><a href="vcProcessPointSensor.htm" 
+										 title="vcProcessPointSensor">vcProcessPointSensor</a></li>
+		<li class="hcp1"><p><a 
+		 href="vcProductCreator.htm">vcProductCreator</a></p></li>
+		<li class="hcp1"><a href="vcRslProcessHandler.htm" 
+										 title="vcRslProcessHandler">vcRslProcessHandler</a> 
+		 <span class="Strong">(Deprecated)</span> use <a href="vcPythonProcessHandler.htm">vcPythonProcessHandler</a></li>
+		<li class="hcp1"><a href="vcPythonProcessHandler.htm">vcPythonProcessHandler</a></li>
+		<li class="hcp1"><a href="vcExecutor.htm">vcExecutor</a></li>
+		
+		<li class="hcp1"><a href="vcRslProgramExecutor.htm" 
+										 title="vcRslProgramExecutor">vcRslProgramExecutor</a> 
+		 <span class="Strong">(Deprecated)</span> use <a href="vcExecutor.htm">vcExecutor</a></li>
+		<li class="hcp1"><a href="vcScript.htm" title="vcScript">vcScript</a></li>
+		<li class="hcp1"><a href="vcServoController.htm" title="vcServoController">vcServoController</a> 
+		 
+		<ol>
+			<li class="hcp1"><a href="vcRobotController.htm">vcRobotController</a></li>
+		</ol></li>
+		<li class="hcp1"><a href="vcSignal.htm" title="vcSignal">vcSignal</a> 
+		 
+		<ol>
+			<li class="hcp1"><a href="vcBoolSignal.htm">vcBoolSignal</a></li>
+			<li class="hcp1"><a href="vcComponentSignal.htm" 
+											 title="vcSignal">vcComponentSignal</a></li>
+			<li class="hcp1"><a href="vcIntegerSignal.htm" 
+											 title="vcIntegerSignal">vcIntegerSignal</a></li>
+			<li class="hcp1"><a href="vcMatrixSignal.htm" 
+											 title="vcMatrixSignal">vcMatrixSignal</a></li>
+			<li class="hcp1"><a href="vcRealSignal.htm" title="vcRealSignal">vcRealSignal</a></li>
+			<li class="hcp1"><a href="vcStringSignal.htm" 
+											 title="vcStringSignal">vcStringSignal</a></li>
+		</ol></li>
+		<li class="hcp1"><a href="vcSimVehicle.htm">vcSimVehicle</a></li>
+		<li class="hcp1"><a href="vcSimInterface.htm" title="vcSimInterface">vcSimInterface</a></li>
+		<li class="hcp1"><a href="vcStatistics.htm" title="vcStatistics">vcStatistics</a></li>
+		<li class="hcp1"><a href="vcStringSignalMap.htm" title="vcStringSignalMap">vcStringSignalMap</a></li>
+		<li class="hcp1"><a href="vcToolContainer.htm">vcToolContainer</a></li>
+		<li class="hcp1"><a href="vcTransportNode.htm">vcTransportNode</a></li>
+		<li class="hcp1"><a href="vcProcessExecutor.htm">vcProcessExecutor</a></li>
+		<li class="hcp1"><a href="vcTransportController.htm">vcTransportController</a></li>
+		<ol>
+			<li class="hcp1"><a href="vcPythonTransportController.htm">vcPythonTransportController</a></li>
+			<li class="hcp1"><a href="vcInterpolatingTransportController.htm">vcInterpolatingTransportController</a></li>
+		</ol>
+	</ol></li>
+</ol>
+<h2><a name="MiniTOCBookMark3"></a>Common Properties</h2>
+<p>The following properties are common in all behavior types.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Component</td>
+		<td><span><a href="vcComponent.htm">vcComponent</a></span></td>
+		<td>R</td>
+		<td>Gets the component of the behavior.</td>
+	</tr>
+	<tr>
+		<td>Enabled</td>
+		<td><span>Boolean</span></td>
+		<td>RW</td>
+		<td>Turns on/off the use of the behavior.</td>
+	</tr>
+	<tr>
+		<td>IgnoreEvents</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the behavior ignores events. 
+		<p class="TableNormal">For example, a container type behavior may 
+		 disregard the transition of a component into and out of the container 
+		 to avoid passing the event to a user-defined function.</p></td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of the behavior which is unique for every 
+		 behavior in a component.</td>
+	</tr>
+	<tr>
+		<td>Parent</td>
+		<td><span><a href="vcNode.htm">vcNode</a></span></td>
+		<td>R</td>
+		<td>Gets the node the behavior belongs to in a component.</td>
+	</tr>
+	<tr>
+		<td>Properties</td>
+		<td><span>List of <a href="vcProperty.htm">vcProperty</a></span></td>
+		<td>R</td>
+		<td>Gets a list of all properties in the behavior.</td>
+	</tr>
+	<tr>
+		<td>Type</td>
+		<td>Enumeration integer</td>
+		<td>R</td>
+		<td>Gets the behavior's type. 
+		<p class="TableNormal">See <a href="Constants.htm#Behavior_Constants">Behavior 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>World</td>
+		<td><span><a href="vcNode.htm">vcNode</a></span></td>
+		<td>R</td>
+		<td>Gets the 3D world (simulation root node).</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Behavior Specific Properties</h2>
+<h3><a name="MiniTOCBookMark5"></a>Articulated Kinematics (old)</h3>
+<p>An old, deprecated version Articulated Kinematics might be used in some 
+ components. This is not exposed in the GUI and can only be created intentionally 
+ by a user.</p>
+<p><span class="Strong">Important:</span> The constant value for this behavior 
+ type is VC_ARTICULATEDKINEMATICS.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>LinkLength1...5</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td rowspan="6" class="hcp2">See <a href="Help_English.chm::/Reference/Behaviors/Kinematics/Articulated_Kinematics.htm">Articulated 
+		 Kinematics</a> for descriptions of properties.</td>
+	</tr>
+	<tr>
+		<td>JointOffset1</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>JointOffset3</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>ConfigName1...8</td>
+		<td>String</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>PalletizingMode</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>PalletizingNormal</td>
+		<td>vcVector</td>
+		<td>RW</td>
+		
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark6"></a>Articulated Kinematics (new)</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Kinematics/Articulated_Kinematics.htm">Articulated 
+ Kinematics</a> is a forward and inverse kinematics solver for articulated 
+ robots.</p>
+<p><span class="Strong">Important:</span> The constant value for this behavior 
+ type is VC_ARTICULATEDKINEMATICS2.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>L01Z...L56Z</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td rowspan="15" class="hcp2">See <a href="Help_English.chm::/Reference/Behaviors/Kinematics/Articulated_Kinematics.htm">Articulated 
+		 Kinematics</a> for descriptions of properties.</td>
+	</tr>
+	<tr>
+		<td>A45</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>JointZeroOffset1...6</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>JointSign1...6</td>
+		<td>Integer</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>Coupling23</td>
+		<td>Integer</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>ShoulderValid</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>ElbowValid</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>WristValid</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>ConfigName1...8</td>
+		<td>String</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>PalletizingMode</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>PalletizingNormal</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>PolarSingularityTolerance</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>WristSingularityTolerance</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>ExtendedPositionTolerance</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>Coupling456</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark7"></a>Base Container</h3>
+<p>See <a href="vcBaseContainer.htm">vcBaseContainer</a> for more information.</p>
+<h3><a name="MiniTOCBookMark8"></a><a name="Capacity_Controller" id="Capacity_Controller"></a>Capacity 
+ Controller</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Material_Flow/Capacity_Controller.htm">Capacity 
+ Controller</a> manages the total allotted capacity for a group of container 
+ type behaviors. Be aware vcCapacityController is the type of a Capacity 
+ Controller in Python API. However, it does not have a separate implementation.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Capacity</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Total logical capacity of the controller.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark9"></a>Component Grabber</h3>
+<p>Component Grabber is an old, deprecated behavior for grasping and releasing 
+ components in different containers. This is not exposed in the GUI and 
+ has been replaced by an Action Script behavior and robot I/O statements.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ComponentSignalIn</td>
+		<td><a href="vcComponentSignal.htm">vcComponentSignal</a></td>
+		<td>RW</td>
+		<td>Defines the signal used for signaling the arrival of components 
+		 into the grabber's container.</td>
+	</tr>
+	<tr>
+		<td>Container</td>
+		<td><a href="vcContainer.htm">vcContainer</a></td>
+		<td>RW</td>
+		<td>Defines the container type behavior used for storing components 
+		 grasped by the grabber.</td>
+	</tr>
+	<tr>
+		<td>DoneSignalOut</td>
+		<td><a href="vcBoolSignal.htm">vcBoolSignal</a></td>
+		<td>RW</td>
+		<td>Defines the signal used for signaling the completion of an 
+		 action by the grabber.</td>
+	</tr>
+	<tr>
+		<td>FunctionalitySignalIn</td>
+		<td><a href="vcSignal.htm">vcSignal</a></td>
+		<td>RW</td>
+		<td>Defines the behavior signal used for signalling the current 
+		 state of the grabber. 
+		<p class="TableNormal"><span class="Strong">Note:</span> A Behaviour 
+		 Signal has a constant value of VC_BEHAVIOURSIGNAL and can only 
+		 be created using the API.</p></td>
+	</tr>
+	<tr>
+		<td>GrabReleaseSignalIn</td>
+		<td><a href="vcBoolSignal.htm">vcBoolSignal</a></td>
+		<td>RW</td>
+		<td>Defines the signal used for triggering the grasp and release 
+		 of components by the grabber.</td>
+	</tr>
+	<tr>
+		<td>GrabTriggerSignalOut</td>
+		<td><a href="vcBoolSignal.htm">vcBoolSignal</a></td>
+		<td>RW</td>
+		<td>Defines the signal used for signaling the completion of a grasp 
+		 action.</td>
+	</tr>
+	<tr>
+		<td>Interface</td>
+		<td><a href="vcSimInterface.htm">vcSimInterface</a></td>
+		<td>RW</td>
+		<td>Defines the interface used for exchanging components between 
+		 containers.</td>
+	</tr>
+	<tr>
+		<td>ReleaseMode</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the mode for releasing components from the grabber.</td>
+	</tr>
+	<tr>
+		<td>ReleaseTriggerSignalOut</td>
+		<td><a href="vcBoolSignal.htm">vcBoolSignal</a></td>
+		<td>RW</td>
+		<td>Defines the signal used for signaling the completion of a release 
+		 action.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark10"></a>Cartesian Kinematics</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Kinematics/Cartesian_Kinematics.htm">Cartesian 
+ Kinematics</a> is a forward and inverse kinematics solver for Cartesian 
+ type (gantry/portal) robots. It has no additional properties.</p>
+<h3><a name="MiniTOCBookMark11"></a>Component Path Sensor</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Sensors/Component_Path_Sensor.htm">Component 
+ Path Sensor</a> detects components moving along a path, and then signals 
+ the detected information.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>BoolSignal</td>
+		<td><a href="vcBoolSignal.htm">vcBoolSignal</a></td>
+		<td>RW</td>
+		<td>Defines the signal used for signaling the value of the BoolSignalValue 
+		 property.</td>
+	</tr>
+	<tr>
+		<td>BoolSignalValue</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines the current state of the sensor. That is, a True value 
+		 means the sensor has been triggered, whereas a False value means 
+		 the sensor has either not been triggered or has been reset.</td>
+	</tr>
+	<tr>
+		<td>ComponentSignal</td>
+		<td><a href="vcComponentSignal.htm">vcComponentSignal</a></td>
+		<td>RW</td>
+		<td>Defines the signal used for signaling which component triggered 
+		 the sensor.</td>
+	</tr>
+	<tr>
+		<td>Frame</td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td>Defines the Frame feature referenced as the sensor's physical 
+		 location.</td>
+	</tr>
+	<tr>
+		<td>ResetAt</td>
+		<td>Enumeration integer</td>
+		<td>RW</td>
+		<td>Defines the mode for resetting the sensor. 
+		<p class="TableNormal">See <a href="Constants.htm#Path">Path Constants</a> 
+		 for more information.</p></td>
+	</tr>
+	<tr>
+		<td>TriggerAt</td>
+		<td>Enumeration integer</td>
+		<td>RW</td>
+		<td>Defines the mode for triggering the sensor. 
+		<p class="TableNormal">See <a href="Constants.htm#Path">Path Constants</a> 
+		 for more information.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark12"></a>Delta Kinematics</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Kinematics/Delta_Kinematics.htm">Delta 
+ Kinematics</a> is a forward and inverse kinematics solver for delta type 
+ parallel kinematic robots.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Height1</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td rowspan="6" class="hcp2"><p>See <a href="Help_English.chm::/Reference/Behaviors/Kinematics/Delta_Kinematics.htm">Delta 
+		 Kinematics</a> for descriptions of properties.</p></td>
+	</tr>
+	<tr>
+		<td>Height2</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>LinkLength1</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>LinkLength2</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>ShoulderOffset</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>WristOffset</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark13"></a>Document Link</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Misc/Document_Link.htm">Document 
+ Link</a> has no additional Python properties.</p>
+<h3><a name="MiniTOCBookMark14"></a>Jog Info</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Misc/Jog_Info.htm">Jog 
+ Info</a> manipulates a component's parameter values interactively.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>DOF</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the degree of freedom (DOF) for interaction, which 
+		 is either a rotation or translation based in a coordinate axis.</td>
+	</tr>
+	<tr>
+		<td>Message</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the message written to the Output panel when the pointer 
+		 hovers over the Variable property and the Interact or Jog command 
+		 is enabled.</td>
+	</tr>
+	<tr>
+		<td>Offset</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines the offset matrix (pivot point) where interaction can 
+		 occur in the containing node's coordinate system.</td>
+	</tr>
+	<tr>
+		<td>Scale</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the scale factor for jogging. 
+		<p class="TableNormal">Generally, the value is 1.0 or -1.0 in order 
+		 to invert the method of interaction in the 3D world.</p></td>
+	</tr>
+	<tr>
+		<td>Variable</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>RW</td>
+		<td>Defines the property that is modified during interaction, which 
+		 in all cases must be a Real type property.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark15"></a>Note</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Misc/Note.htm">Note</a> 
+ is a container of user-defined notes, free-form text that can include 
+ web links to other documents.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Note</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the text in the note.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark16"></a>Parallelogram Kinematics</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Kinematics/Parallelogram_Kinematics.htm">Parallelogram 
+ Kinematics</a> is a forward and inverse kinematics solver for articulated 
+ robots with the tool pointing down (palletization).</p>
+<p><span class="Strong">Note:</span> Parallelogram kinematics is different 
+ from parallel kinematics.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>JointOffset1</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td rowspan="7" class="hcp2">See <a href="Help_English.chm::/Reference/Behaviors/Kinematics/Parallelogram_Kinematics.htm">Parallelogram 
+		 Kinematics</a> for descriptions of properties.</td>
+	</tr>
+	<tr>
+		<td>JointOffset3</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>LinkLength1</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>LinkLength2</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>LinkLength3</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>LinkLength4</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>LinkLength5</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark17"></a>Particle System</h3>
+<p><span class="Strong">(Deprecated)</span> Particle System allows you 
+ to create swarms of particles in the 3D world for visualization purposes. 
+ A Particle System can only be created using Python API and must be triggered 
+ by a connected Boolean Signal during a simulation in order to generate 
+ particles.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>BurstAmount</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the amount of particles to use in the burst.</td>
+	</tr>
+	<tr>
+		<td>BurstLife</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the life span of the particle burst.</td>
+	</tr>
+	<tr>
+		<td>BurstMode</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines the burst mode of the particle system.</td>
+	</tr>
+	<tr>
+		<td>BurstSpeed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the speed of the particle burst.</td>
+	</tr>
+	<tr>
+		<td>Frame</td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td>Defines the Frame feature referenced as the physical location 
+		 of the particle system and the departure point for particles.</td>
+	</tr>
+	<tr>
+		<td>Interval</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the time interval of each burst or swarm.</td>
+	</tr>
+	<tr>
+		<td>Material</td>
+		<td><a href="vcMaterial.htm">vcMaterial</a></td>
+		<td>RW</td>
+		<td>Defines the material of each particle. 
+		<p class="TableNormal"><span class="Strong">Note:</span> The material 
+		 must have a texture (<a href="vcBitMap.htm" style="font-weight: normal;">vcBitmap</a>) 
+		 assigned to it in order for particles to be visible in the 3D 
+		 world.</p></td>
+	</tr>
+	<tr>
+		<td>ParticleSize</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the size of each particle.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark18"></a>Physics Cable</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Physics/Physics_Cable.htm">Physics 
+ Cable</a> generates a cable and spring in the 3D world that can be anchored/pinned 
+ to nodes. The cable can have a fixed length and stretch based on its physical 
+ properties.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>CableLength</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the length of cable. 
+		<p class="TableNormal">If 0.0, the length is dynamic and based 
+		 on the location of cable endpoints.</p></td>
+	</tr>
+	<tr>
+		<td>ColliderLength</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the size of collider relative to length of cable.</td>
+	</tr>
+	<tr>
+		<td>ColliderOverlap</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines an acceptable overlap of collider in relation to others.</td>
+	</tr>
+	<tr>
+		<td>EndType1</td>
+		<td>Enumeration integer</td>
+		<td>RW</td>
+		<td>Defines an anchor type of the first endpoint. 
+		<p class="TableNormal"><span class="Term">0 = Free</span><br>
+		The cable hangs freely while attached to Node1.</p>
+		<p class="TableNormal"><span class="Term">1 = Rotating</span><br>
+		The cable can swing back and forth or rotate while attached to 
+		 Node1.</p>
+		<p class="TableNormal"><span class="Term">2 = Fixed</span><br>
+		The cable is securely anchored to Node1.</p></td>
+	</tr>
+	<tr>
+		<td>EndType2</td>
+		<td>Enumeration integer</td>
+		<td>RW</td>
+		<td>Defines an anchor type of the second endpoint. 
+		<p class="TableNormal"><span class="Term">0 = Free</span><br>
+		The cable hangs freely while attached to Node2.</p>
+		<p class="TableNormal"><span class="Term">1 = Rotating</span><br>
+		The cable can swing back and forth or rotate while attached to 
+		 Node2.</p>
+		<p class="TableNormal"><span class="Term">2 = Fixed</span><br>
+		The cable is securely anchored to Node2.</p></td>
+	</tr>
+	<tr>
+		<td>Material</td>
+		<td><a href="vcMaterial.htm">vcMaterial</a></td>
+		<td>RW</td>
+		<td>Defines the material of cable.</td>
+	</tr>
+	<tr>
+		<td>MaterialDensity</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the density of cable material.</td>
+	</tr>
+	<tr>
+		<td>MaterialFrictionDynamic</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the dynamic friction of cable material.</td>
+	</tr>
+	<tr>
+		<td>MaterialFrictionStatic</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the static friction of cable material.</td>
+	</tr>
+	<tr>
+		<td>MaterialRestitution</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the restitution of cable material.</td>
+	</tr>
+	<tr>
+		<td>Node1</td>
+		<td><a href="vcNode.htm">vcNode</a></td>
+		<td>RW</td>
+		<td>Defines the node the first endpoint of cable is attached to 
+		 in 3D world.</td>
+	</tr>
+	<tr>
+		<td>Node2</td>
+		<td><a href="vcNode.htm">vcNode</a></td>
+		<td>RW</td>
+		<td>Defines the node the second endpoint of cable is attached to 
+		 in 3D world.</td>
+	</tr>
+	<tr>
+		<td>RenderingSteps</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the amount of steps for rendering cable.</td>
+	</tr>
+	<tr>
+		<td>SolverIterExternal</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the number of iterations for solving external setting 
+		 of cable.</td>
+	</tr>
+	<tr>
+		<td>SolverIterInternal</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the number of iterations for solving internal setting 
+		 of cable.</td>
+	</tr>
+	<tr>
+		<td>SolverIterPosition</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the number of iterations for solving position of cable.</td>
+	</tr>
+	<tr>
+		<td>SolverIterProjections</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the number of iterations for solving the projection 
+		 of cable.</td>
+	</tr>
+	<tr>
+		<td>SolverIterVelocity</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the number of iterations for solving the velocity of 
+		 cable.</td>
+	</tr>
+	<tr>
+		<td>SolverSeparationLimit</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines a limit for cable separation.</td>
+	</tr>
+	<tr>
+		<td>SpringDamping</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the damping of cable, thereby affecting its bounciness.</td>
+	</tr>
+	<tr>
+		<td>SpringStrength</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the strength of cable relative to applied force when 
+		 compressing or stretching the cable, for example its tensile strength.</td>
+	</tr>
+	<tr>
+		<td>SpringTangentialDamping</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the tangential damping of cable relative to applied 
+		 forced when contacting a surface.</td>
+	</tr>
+	<tr>
+		<td>SpringTangentialStrength</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the tangential strength of cable relative to applied 
+		 force when contacting a surface.</td>
+	</tr>
+	<tr>
+		<td>Stiffness</td>
+		<td>Enumeration integer</td>
+		<td>RW</td>
+		<td>Defines the rigidity of cable. 
+		<p class="TableNormal"><span class="Term">0 = Low</span><br>
+		Cable is very flexible.</p>
+		<p class="TableNormal"><span class="Term">1 = Medium</span><br>
+		(Default) Cable is fairly flexible.</p>
+		<p class="TableNormal"><span class="Term">2 = High</span><br>
+		Cable is very rigid.</p></td>
+	</tr>
+	<tr>
+		<td>Thickness</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the thickness of cable.</td>
+	</tr>
+	<tr>
+		<td>TotalLengthFactor</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines a factor for determining cable length.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark19"></a>Physics Entity</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Physics/Physics_entity.htm">Physics 
+ Entity</a> allows its node to be defined as a physical body that is affected 
+ by the physics of the 3D world. </p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>AngularDamping</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the angular damping of entity.</td>
+	</tr>
+	<tr>
+		<td>CenterOfGravity</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines the mass center point of payload and if needed the 
+		 orientation for LoadInertia.</td>
+	</tr>
+	<tr>
+		<td>DynamicFriction</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the kinetic friction of entity.</td>
+	</tr>
+	<tr>
+		<td>Inertia</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>RW</td>
+		<td>Defines the inertia value (kgm^2) for each axis defined by 
+		 LoadCenterOfGravity.</td>
+	</tr>
+	<tr>
+		<td>LinearDamping</td>
+		<td>Real</td>
+		<td>Real</td>
+		<td>Defines the linear damping of entity.</td>
+	</tr>
+	<tr>
+		<td>Mass</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the weight (kg) of payload.</td>
+	</tr>
+	<tr>
+		<td>MaterialDensity</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the density of entity.</td>
+	</tr>
+	<tr>
+		<td>PhysicsType</td>
+		<td>Enumeration integer</td>
+		<td>RW</td>
+		<td>Defines the physics type of entity. 
+		<p class="TableNormal">See <a href="Constants.htm#EntityConstants">Entity 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Restitution</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the restitution of entity.</td>
+	</tr>
+	<tr>
+		<td>SolverPositionIterations</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the number of iterations for solving the motion of 
+		 entity in relation to its position.</td>
+	</tr>
+	<tr>
+		<td>SolverVelocityIterations</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the number of iterations for solving the motion of 
+		 entity in relation to its velocity.</td>
+	</tr>
+	<tr>
+		<td>StaticFriction</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the static friction of entity.</td>
+	</tr>
+	<tr>
+		<td>UpdatePhysics</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Updates the changes on the component during the simulation 
+		 runtime. <span style="font-weight: bold;">Note</span>: You need 
+		 to call the update() method at the end of the changes to do the 
+		 commit.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark20"></a>Physics Joint</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Physics/Physics_Joint.htm">Physics 
+ Joint</a> allows you to configure a D6 joint with multiple degrees of 
+ freedom for nodes in a component. The joint itself can be attached to 
+ any node in component and you can manipulate its constraint frame. The 
+ joint can have linear movement in XYZ axes. The swing of a D6 joint is 
+ around its X- and Y-axes, whereas twist is around the Z-axis of joint. 
+ All motions depend on how the joint is configured in a component, specifically 
+ the constraints and parent node of joint.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Attachinchildmat</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines anchor point of joint in coordinate system of connected 
+		 node.</td>
+	</tr>
+	<tr>
+		<td>Attachinparentmat</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines anchor point of joint in coordinate system of parent 
+		 node. 
+		<p class="TableNormal"><span class="Strong">Note:</span> The joint 
+		 behavior can be contained in one node, but attached to a different 
+		 node. The node attached to a joint is its parent.</p></td>
+	</tr>
+	<tr>
+		<td>BreakForce</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines force needed to break joint.</td>
+	</tr>
+	<tr>
+		<td>BreakTorque</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines torque needed to break joint.</td>
+	</tr>
+	<tr>
+		<td>ExMotion</td>
+		<td>Enumeration integer</td>
+		<td>RW</td>
+		<td>Defines movement of joint in X-axis. 
+		<p class="TableNormal"><span class="Term">0 = Locked</span></p>
+		<p class="TableNormal"><span class="Term">1 = Limited</span></p>
+		<p class="TableNormal"><span class="Term">2 = Free</span></p></td>
+	</tr>
+	<tr>
+		<td>EyMotion</td>
+		<td>Enumeration integer</td>
+		<td>RW</td>
+		<td>Defines movement of joint in Y-axis. 
+		<p class="TableNormal"><span class="Term">0 = Locked</span></p>
+		<p class="TableNormal"><span class="Term">1 = Limited</span></p>
+		<p class="TableNormal"><span class="Term">2 = Free</span></p></td>
+	</tr>
+	<tr>
+		<td>EzMotion</td>
+		<td>Enumeration integer</td>
+		<td>RW</td>
+		<td>Defines movement of joint in Z-axis. 
+		<p class="TableNormal"><span class="Term">0 = Locked</span></p>
+		<p class="TableNormal"><span class="Term">1 = Limited</span></p>
+		<p class="TableNormal"><span class="Term">2 = Free</span></p></td>
+	</tr>
+	<tr>
+		<td>LinearLimitdamping</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines damping of spring for linear limit of joint.</td>
+	</tr>
+	<tr>
+		<td>LinearLimitdistance</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines limit for linear movement of joint based on the distance 
+		 from its origin.</td>
+	</tr>
+	<tr>
+		<td>LinearLimitextend</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines extended limit for linear movement of joint.</td>
+	</tr>
+	<tr>
+		<td>LinearLimitrestitution</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines restitution for linear limit of joint.</td>
+	</tr>
+	<tr>
+		<td>LinearLimitsoft</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off soft linear limit of joint.</td>
+	</tr>
+	<tr>
+		<td>LinearLimitspring</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines stiffness of spring for linear limit of joint.</td>
+	</tr>
+	<tr>
+		<td>Parent</td>
+		<td><a href="vcNode.htm">vcNode</a></td>
+		<td>RW</td>
+		<td>Defines the node the joint attaches itself to in component.</td>
+	</tr>
+	<tr>
+		<td>ProjectionAngular</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines angular tolerance for solver to project joint and its 
+		 bodies back together.</td>
+	</tr>
+	<tr>
+		<td>ProjectionLinear</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines linear tolerance for solver to project joint and its 
+		 bodies back together.</td>
+	</tr>
+	<tr>
+		<td>Swing1Motion</td>
+		<td>Enumeration integer</td>
+		<td>RW</td>
+		<td>Defines freedom of joint to rotate around its X-axis. 
+		<p class="TableNormal"><span class="Term">0 = Locked</span></p>
+		<p class="TableNormal"><span class="Term">1 = Limited</span></p>
+		<p class="TableNormal"><span class="Term">2 = Free</span></p>
+		<p class="TableNormal"><span class="Strong">Note:</span> Swing 
+		 refers to rotation around X- and Y-axes of joint.</p></td>
+	</tr>
+	<tr>
+		<td>Swing2Motion</td>
+		<td>Enumeration integer</td>
+		<td>RW</td>
+		<td>Defines freedom of joint to rotate around its Y-axis. 
+		<p class="TableNormal"><span class="Term">0 = Locked</span></p>
+		<p class="TableNormal"><span class="Term">1 = Limited</span></p>
+		<p class="TableNormal"><span class="Term">2 = Free</span></p></td>
+	</tr>
+	<tr>
+		<td>SwingLimitdamping</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines damping of spring for swing limit of joint.</td>
+	</tr>
+	<tr>
+		<td>Swinglimitdistance</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines limit for swing movement of joint based on the distance 
+		 from its origin.</td>
+	</tr>
+	<tr>
+		<td>SwingLimitrestitution</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines restitution for swing limit of joint.</td>
+	</tr>
+	<tr>
+		<td>SwingLimitsoft</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off soft swing limit of joint.</td>
+	</tr>
+	<tr>
+		<td>SwingLimitspring</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines stiffness of spring for swing limit of joint.</td>
+	</tr>
+	<tr>
+		<td>SwingLimitYangle</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines limit for swing movement of joint around its X-axis.</td>
+	</tr>
+	<tr>
+		<td>SwingLimitZangle</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines limit for swing movement of joint around its Y-axis.</td>
+	</tr>
+	<tr>
+		<td>TwistLimitdamping</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines damping of spring for twist limit of joint.</td>
+	</tr>
+	<tr>
+		<td>Twistlimitdistance</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines limit for twist movement of joint based on the distance 
+		 from its origin.</td>
+	</tr>
+	<tr>
+		<td>TwistLimitLower</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines lower limit for twist movement of joint.</td>
+	</tr>
+	<tr>
+		<td>TwistLimitrestitution</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines restitution for twist limit of joint.</td>
+	</tr>
+	<tr>
+		<td>TwistLimitsoft</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off soft twist limit of joint.</td>
+	</tr>
+	<tr>
+		<td>TwistLimitspring</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines stiffness of spring for twist limit of joint.</td>
+	</tr>
+	<tr>
+		<td>TwistLimitUpper</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines upper limit for twist movement of joint.</td>
+	</tr>
+	<tr>
+		<td>TwistMotion</td>
+		<td>Enumeration integer</td>
+		<td>RW</td>
+		<td>Defines freedom of joint to rotate around its Z-axis. 
+		<p class="TableNormal"><span class="Term">0 = Locked</span></p>
+		<p class="TableNormal"><span class="Term">1 = Limited</span></p>
+		<p class="TableNormal"><span class="Term">2 = Free</span></p>
+		<p class="TableNormal"><span class="Strong">Note:</span> Twist 
+		 refers to rotation around Z-axis of joint.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark21"></a>Physics Path</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Path</td>
+		<td>List of <a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td>Defines the points of path.</td>
+	</tr>
+	<tr>
+		<td>PushingFeatures</td>
+		<td>List of <a href="vcFeature.htm">vcFeature</a></td>
+		<td>RW</td>
+		<td>Defines the geometry of path used to push objects.</td>
+	</tr>
+	<tr>
+		<td>Speed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the speed of the path. If a negative value is given, 
+		 the path direction will be the opposite.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark22"></a>Python Kinematics</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Kinematics/Python_Kinematics.htm">Python 
+ Kinematics</a> is a kinematics object that can be defined by a user with 
+ Python API. See <a href="vcPythonKinematics.htm">vcPythonKinematics</a> 
+ for more information.</p>
+<h3><a name="MiniTOCBookMark23"></a>Python Script</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Misc/Python_Script.htm">Python 
+ Script</a> customizes component behavior by controlling other objects. 
+ The script's execution may use signals and other events to control script 
+ execution.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Script</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the code of the script.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark24"></a>Raycast Sensor</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Sensors/Raycast_Sensor.htm">Raycast 
+ Sensor</a> detects the closest component intersecting with a finite ray 
+ in the 3D world.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>BoolSignal</td>
+		<td><a href="vcBoolSignal.htm">vcBoolSignal</a></td>
+		<td>RW</td>
+		<td>Defines the signal used for signaling whether or not a component 
+		 has intersected the ray within a distance tolerance set by the 
+		 DetectionThreshold property.</td>
+	</tr>
+	<tr>
+		<td>ComponentSignal</td>
+		<td><a href="vcComponentSignal.htm">vcComponentSignal</a></td>
+		<td>RW</td>
+		<td>Defines the signal used for signaling the component detected 
+		 by the ray.</td>
+	</tr>
+	<tr>
+		<td>DetectionContainer</td>
+		<td><a href="vcContainer.htm">vcContainer</a></td>
+		<td>RW</td>
+		<td>Defines if the sensor only detects components in a specific 
+		 container type behavior.</td>
+	</tr>
+	<tr>
+		<td>DetectionThreshold</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the distance at which the RangeSignal property will 
+		 start to send distance information for a detected component.</td>
+	</tr>
+	<tr>
+		<td>Frame</td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td>Defines the Frame feature that is referenced as the physical 
+		 location of the sensor. 
+		<p class="TableNormal">The ray is cast along the positive Z-axis 
+		 of its location.</p></td>
+	</tr>
+	<tr>
+		<td>MaxRange</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the length of the ray cast by the sensor.</td>
+	</tr>
+	<tr>
+		<td>RangeSignal</td>
+		<td><a href="vcRealSignal.htm">vcRealSignal</a></td>
+		<td>RW</td>
+		<td>Defines the signal used for signaling the range of a detected 
+		 component to sensor's location.</td>
+	</tr>
+	<tr>
+		<td>SampleTime</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the time interval (in seconds) for detecting components 
+		 when the UseSampling property has a True value.</td>
+	</tr>
+	<tr>
+		<td>ShowRay</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the visibility of the ray in the 3D world. 
+		<p class="TableNormal">The ray is rendered as a red line.</p></td>
+	</tr>
+	<tr>
+		<td>TestParent</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the sensor can detect geometry contained in the 
+		 sensor's node. 
+		<p class="TableNormal">Generally, a True value is used when you 
+		 want to detect self collisions.</p></td>
+	</tr>
+	<tr>
+		<td>UpdateScene</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the rendering of the scene in the 3D world when 
+		 a component triggers the sensor. 
+		<p class="TableNormal">Generally, a True value is used in cases 
+		 where there are many moving parts, whereas a False value should 
+		 be used if only the sensor's component moves during a simulation.</p></td>
+	</tr>
+	<tr>
+		<td>UseSampling</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines the rate at which the sensor detects components. 
+		<p class="TableNormal">A True value means detection occurs at a 
+		 sampling interval defined by the SampleTime property. A False 
+		 value means detection occurs when a signal is received from a 
+		 connected Boolean Signal (pulse mode).</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark25"></a>Real Signal Map</h3>
+<p>Real Signal Map signals values to ports in a continuous IO space used 
+ in logic executors.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Listeners</td>
+		<td>List of <a href="vcBehaviour.htm">vcBehaviour</a></td>
+		<td>RW</td>
+		<td>Defines a list of behaviors using the signal map.</td>
+	</tr>
+	<tr>
+		<td>PortCount</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the amount of ports in the signal map.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark26"></a>Scara Kinematics (Old)</h3>
+<p>An old, deprecated version Scara Kinematics might be used in some components. 
+ This is not exposed in the GUI and can only be created intentionally by 
+ a user.</p>
+<p><span class="Strong">Important:</span> The constant value for this behavior 
+ type is VC_SCARAKINEMATICS.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>JointOffset1</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td rowspan="4" class="hcp2">See <a href="Help_English.chm::/Reference/Behaviors/Kinematics/Scara_Kinematics.htm">Scara 
+		 Kinematics</a> for descriptions of properties.</td>
+	</tr>
+	<tr>
+		<td>JointOffset3</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>LinkLength1</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>LinkLength2</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark27"></a>Scara Kinematics (New)</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Kinematics/Scara_Kinematics.htm">Scara 
+ Kinematics</a> is a forward and inverse kinematics solver for SCARA type 
+ robots.</p>
+<p><span class="Strong">Important:</span> The constant value for this behavior 
+ type is VC_SCARAKINEMATICS2.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ConfigName1...2</td>
+		<td>String</td>
+		<td>RW</td>
+		<td rowspan="4" class="hcp2">See <a href="Help_English.chm::/Reference/Behaviors/Kinematics/Scara_Kinematics.htm">Scara 
+		 Kinematics</a> for descriptions of properties.</td>
+	</tr>
+	<tr>
+		<td>JointSign1...4</td>
+		<td>Integer</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>L12X...L04Z</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+	<tr>
+		<td>JointZeroOffset1...4</td>
+		<td>Real</td>
+		<td>RW</td>
+		
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark28"></a>Tool Container</h3>
+<p>See <a href="vcToolContainer.htm">vcToolContainer</a> for more information.</p>
+<h3><a name="MiniTOCBookMark29"></a>Volume Sensor</h3>
+<p><a href="Help_English.chm::/Reference/Behaviors/Sensors/Volume_Sensor.htm">Volume 
+ Sensor</a> detects components anywhere in the 3D world by using a detection 
+ box defined by two Frame features.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>BoolSignal</td>
+		<td><a href="vcBoolSignal.htm">vcBoolSignal</a></td>
+		<td>RW</td>
+		<td>Defines the signal used for signaling the current state of 
+		 the sensor. That is, a True value means the sensor has been triggered, 
+		 whereas a False value means the sensor has either not been triggered 
+		 or reset.</td>
+	</tr>
+	<tr>
+		<td>ComponentSignal</td>
+		<td><a href="vcComponentSignal.htm">vcComponentSignal</a></td>
+		<td>RW</td>
+		<td>Defines the signal used for signaling the component that triggered 
+		 the sensor.</td>
+	</tr>
+	<tr>
+		<td>DetectionContainer</td>
+		<td><a href="vcContainer.htm">vcContainer</a></td>
+		<td>RW</td>
+		<td>Defines if the sensor only tests components in a specific container 
+		 type behavior.</td>
+	</tr>
+	<tr>
+		<td>LowerFrame</td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td>Defines the bottom-left corner of the sensor's detection box.</td>
+	</tr>
+	<tr>
+		<td>SampleTime</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the time interval (in seconds) for detecting components 
+		 when the UseSampling property has a True value.</td>
+	</tr>
+	<tr>
+		<td>ShowVolume</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the visibility of the sensor's detection box in 
+		 the 3D world.</td>
+	</tr>
+	<tr>
+		<td>TestMethod</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the mode used by the sensor for detecting components. 
+		 
+		<p class="TableNormal"><span class="Term">0</span><br>
+		BBox Intersect</p>
+		<p class="TableNormal"><span class="Term">1</span><br>
+		BBox Center Inside</p>
+		<p class="TableNormal"><span class="Term">2</span><br>
+		BBox Fully Inside</p>
+		<p class="TableNormal"><span class="Term">3</span><br>
+		Precise Test</p></td>
+	</tr>
+	<tr>
+		<td>TestOnlyContained</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the sensor only tests components stored in container 
+		 type behaviors.</td>
+	</tr>
+	<tr>
+		<td>TestParent</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the sensor can detect geometry contained in the 
+		 sensor's node. 
+		<p class="TableNormal">Generally, a True value is used when you 
+		 want to detect self collisions.</p></td>
+	</tr>
+	<tr>
+		<td>TestSiblings</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the sensor can detect geometry at the same level 
+		 of the sensor in a node hierarchy. That is, any geometry contained 
+		 in siblings of the sensor's node.</td>
+	</tr>
+	<tr>
+		<td>UpdateScene</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Turns on/off the rendering of the scene in the 3D world when 
+		 a component triggers the sensor. 
+		<p class="TableNormal">Generally, a True value is used in cases 
+		 where there are many moving parts, whereas a False value should 
+		 be used if only the sensor's component moves during a simulation.</p></td>
+	</tr>
+	<tr>
+		<td>UpperFrame</td>
+		<td><a href="vcFrameFeature.htm">vcFrameFeature</a></td>
+		<td>RW</td>
+		<td>Defines the top-right corner of the sensor's detection box.</td>
+	</tr>
+	<tr>
+		<td>UseSampling</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines the rate at which the sensor detects components. 
+		<p class="TableNormal">A True value means detection occurs at a 
+		 sampling interval defined by the SampleTime property. A False 
+		 value means detection occurs when a signal is received from a 
+		 connected Boolean Signal (pulse mode).</p></td>
+	</tr>
+	<tr>
+		<td>VolumeMaterial</td>
+		<td><a href="vcMaterial.htm">vcMaterial</a></td>
+		<td>RW</td>
+		<td>Defines the material of the sensor's detection box.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark30"></a>Methods</h2>
+<table class="Property" style="border-collapse: separate;" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>delete</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Deletes the behavior.</td>
+	</tr>
+	<tr>
+		<td>update</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Updates the behavior.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark31"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Find a behavior and its node</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col>
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br># use a robot from the library with this snippet 
+		<br>comp = getComponent() 
+		<br>container = comp.findBehaviour('GraspContainer') 
+		<br># search a behaviour matching the given name in the whole nodal component tree 
+		<br>&#160; 
+		<br>mountPlateNode = container.Parent 
+		<br>&#160; 
+		<br># the owner node of the behaviour 
+		<br>if comp == container.Component: 
+		<br>&#160;&#160;print 'It truly is a back-pointer to the same thing' 
+		<br>&#160; 
+		<br>for prop in container.Properties: 
+		<br>&#160;&#160;print prop.Name, prop.Value</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Call the update after making changes 
+ to the physics entities</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col>
+	<tr>
+		<td>&#160; 
+		<br># In order to trigger the update, user needs to set UpdatePhysics flag. 
+		<br># The flag has one use and will be immediately reset after this. 
+		<br>entity = part.getBehavioursByType('rPhysicsEntity')[0] 
+		<br>entity.UpdatePhysics = True 
+		<br>entity.update() </td>
+	</tr>
+</table>
+</body>
+</html>

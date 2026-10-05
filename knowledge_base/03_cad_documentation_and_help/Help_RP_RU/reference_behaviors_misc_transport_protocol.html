@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Транспортный протокол</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Транспортный протокол позволяет обрабатывать действия по транспортировке, запрашиваемые ресурсами, с помощью скрипта Python." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Транспортный протокол</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Транспортный протокол позволяет обрабатывать действия по транспортировке, запрашиваемые ресурсами, с помощью скрипта Python.</p>
+<p class="p_Normal"><img alt="ClipboardImg187" style="margin:0;width:5.6667in;height:3.4583in;border:none" src="clipboardimg187.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.9167in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5000in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет наименование протокола.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Статистика</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет поведение статистики, которое собирает статистику, созданную протоколом.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Вместимость</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет количество компонентов, которые транспортный контейнер может содержать в любой момент времени.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">БлокиЕмкости</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет список вариантов поведения контроллера емкости для глобального определения емкости транспортного контейнера. Как правило, контроллер емкости используется в качестве переменной для управления емкостью одного или нескольких контейнеров, чтобы избежать тупиковых ситуаций.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СигналПерехода</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет поведение логического сигнала, которое сигнализирует о прибытии и отправлении компонентов в транспортный контейнер и из него. Значение True сигнализирует о прибытии компонента. Значение False сигнализирует об уходе компонента.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Ресурсное обеспечение </p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет поведение, используемое протоколом для управления транспортными задачами. В большинстве случаев вы будете использовать контейнер действий (Action Container).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

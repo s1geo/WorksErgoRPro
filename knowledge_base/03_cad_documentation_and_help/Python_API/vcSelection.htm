@@ -1,0 +1,217 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcSelection</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<p><span class="Strong">(Deprecated)</span> use <a href="vcSelectionManager.htm">vcSelectionManager</a></p>
+<h1><a name="MiniTOCBookMark1"></a>vcSelection</h1>
+<p>vcSelection allows you to access and manipulate selections in the application.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot34315" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot34315', 'MTPOPUP34315');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP34315" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Count</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the number of items in selection.</td>
+	</tr>
+	<tr>
+		<td>IgnoreEvents</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if selection ignores event passing in order to avoid 
+		 cyclic calls.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>R</td>
+		<td>Gets the name of selection.</td>
+	</tr>
+	<tr>
+		<td>Objects</td>
+		<td>List of &lt;Type&gt;</td>
+		<td>R</td>
+		<td>Gets a list of all objects in selection.</td>
+	</tr>
+	<tr>
+		<td>Type</td>
+		<td>Enumeration</td>
+		<td>R</td>
+		<td>Gets the selection type. 
+		<p class="TableNormal">See <a href="Constants.htm#Selection">Selection 
+		 Constants</a> for more information.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addItem</td>
+		<td>None</td>
+		<td>&lt;Type&gt; <span class="Italic">item</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcNode.htm">vcNode</a> <span class="Italic">node</span>, 
+		 &lt;Type&gt; <span class="Italic">item</span></p></td>
+		<td>Adds a given <span class="Italic">item</span> or an <span class="Italic">item</span> 
+		 in a given <span class="Italic">node</span> to selection if item 
+		 is a supported selection type. 
+		<p class="TableNormal">See <a href="Constants.htm#Selection">Selection 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>beginUpdate</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Blocks the application from doing update procedures while an 
+		 item is being added to selection, thereby improving system performance. 
+		 
+		<p class="TableNormal">This method should be called before selecting 
+		 any items.</p></td>
+	</tr>
+	<tr>
+		<td>clear</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Removes all items from selection.</td>
+	</tr>
+	<tr>
+		<td>endUpdate</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Unblocks the application and sends a notification to update 
+		 selection in scene. 
+		<p class="TableNormal">This method should be called after the last 
+		 item is added to selection.</p></td>
+	</tr>
+	<tr>
+		<td>getCommand</td>
+		<td><a href="vcCommand.htm">vcCommand</a></td>
+		<td>String <span class="Italic">name</span></td>
+		<td>Returns a registered command matching a given <span class="Italic">name</span>. 
+		 
+		<p class="TableNormal">The command should support the selection 
+		 of an item, for example, Select, Translate, Rotate, Delete, Cut, 
+		 Copy, and Paste.</p></td>
+	</tr>
+	<tr>
+		<td>getItem</td>
+		<td>&lt;Type&gt;</td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns an item at a given <span class="Italic">index</span> 
+		 in selection.</td>
+	</tr>
+	<tr>
+		<td>getItemNode</td>
+		<td><a href="vcNode.htm">vcNode</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns the node containing an item at a given <span class="Italic">index</span> 
+		 in selection.</td>
+	</tr>
+	<tr>
+		<td>getItemWorldMatrix</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Returns the position matrix of an item at a given <span class="Italic">index</span> 
+		 in selection.</td>
+	</tr>
+	<tr>
+		<td>registerCommand</td>
+		<td>None</td>
+		<td>String <span class="Italic">name</span>, <a href="vcCommand.htm">vcCommand</a> 
+		 <span class="Italic">command</span>, [Enumeration <span class="Italic">options</span>]</td>
+		<td>Registers a given <span class="Italic">command</span> with 
+		 selection and creates a command shortcut/menu item. 
+		<p class="TableNormal">The <span class="Italic">name</span> argument 
+		 defines the name of command displayed in shortcut menu.</p>
+		<p class="TableNormal">An optional options argument can be given 
+		 to enable command based on selection : when no objects are selected; 
+		 a single object is selected; or multiple objects are selected.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Selection">Selection 
+		 Constants</a> of command type for more information or Examples 
+		 section of this topic.</p></td>
+	</tr>
+	<tr>
+		<td>removeItem</td>
+		<td>None</td>
+		<td>&lt;Type&gt; <span class="Italic">item</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcNode.htm">vcNode</a> <span class="Italic">node</span>, 
+		 &lt;Type&gt; <span class="Italic">item</span></p></td>
+		<td>Removes a given <span class="Italic">item</span> or an <span 
+		 class="Italic">item</span> in a given <span class="Italic">node</span> 
+		 from selection.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnPostChange</td>
+		<td><a href="vcSelection.htm">vcSelection</a> <span class="Italic">selection</span></td>
+		<td>Triggered when selection has been changed.</td>
+	</tr>
+	<tr>
+		<td>OnPreChange</td>
+		<td><a href="vcSelection.htm">vcSelection</a> <span class="Italic">selection</span></td>
+		<td>Triggered when current selection is about to be changed.</td>
+	</tr>
+</table>
+<!--======================================Events========================================-->
+<!--======================================Events========================================-->
+<!--======================================Events========================================-->
+<!--======================================Events========================================-->
+<!--======================================Events========================================-->
+<!--======================================Events========================================-->
+<!--======================================Events========================================-->
+<!--======================================Events========================================-->
+<!--======================================Events========================================-->
+<!--======================================Events========================================-->
+</body>
+</html>

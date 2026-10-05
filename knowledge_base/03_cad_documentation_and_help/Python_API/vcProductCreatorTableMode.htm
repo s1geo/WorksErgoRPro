@@ -1,0 +1,150 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="UPM,product creator,table feed,Excel,read file">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProductCreatorTableMode</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcProductCreatorTableMode</h1>
+<p>Configuration for table feed mode in <a href="vcProductCreator.htm">vcProductCreator</a>. 
+ Holds a list of rows, each defining which <a href="vcProductType.htm">vcProductType</a> 
+ to instantiate and at what simulation time. The rows are automatically 
+ sorted in ascending order by the product creation time. The rows can be 
+ loaded from a file or defined using methods of this class. Modifying the 
+ rows during simulation is allowed but may result in e.g. inaccurate timing 
+ of when the products are created. </p>
+<p>To add new rows use vcProductCreatorTableRow.new(), configure the row 
+ and then call the addRow method. </p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot41670" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot41670', 'MTPOPUP41670');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP41670" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>File</td>
+		<td>String</td>
+		<td>RW</td>
+		<td><p>Uri pointing to an xls file where to load the rows. Changing 
+		 the value will cause an immediate attempt to read the file and 
+		 replace all ProductRows if successful.</p>
+		Any errors are printed to output. 
+		<p class="TableNormal"><span class="Strong">(Deprecated) </span>Use 
+		 the ReadRowsFromFile and ReplaceAllRows methods.</p></td>
+	</tr>
+	<tr>
+		<td>RowCount </td>
+		<td>Integer </td>
+		<td>R</td>
+		<td>Gets the current product row count.</td>
+	</tr>
+	<tr>
+		<td>ProductRows </td>
+		<td>List of <a href="vcProductCreatorTableRow.htm">vcProductCreatorTableRow</a></td>
+		<td>R</td>
+		<td>List of all currently defined product rows. The rows are returned 
+		 as copies.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addRow</td>
+		<td>index</td>
+		<td><a href="vcProductCreatorTableRow.htm">vcProductCreatorTableRow</a> 
+		 newRow</td>
+		<td><p>Adds a new row as a copy. The row gets inserted immediately 
+		 after all existing rows with the same or smaller product creation 
+		 time. Returns index of the new row. Throws an exception if the 
+		 new row contains invalid values.</p></td>
+	</tr>
+	<tr>
+		<td>clearRows</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Deletes all product rows.</td>
+	</tr>
+	<tr>
+		<td>deleteRow</td>
+		<td>None</td>
+		<td>Integer <span class="hcp1">index</span></td>
+		<td><p>Deletes the product row at given index. The index must be 
+		 in inclusive range 0 to RowCount – 1</p></td>
+	</tr>
+	<tr>
+		<td>getProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String <span class="hcp1">name</span></td>
+		<td><p>Returns a property matching a given name; otherwise returns 
+		 None.</p></td>
+	</tr>
+	<tr>
+		<td>getRow</td>
+		<td><p><a href="vcProductCreatorTableRow.htm">vcProductCreatorTableRow</a> 
+		 </p></td>
+		<td><p>Integer <span class="hcp1">index</span></p></td>
+		<td><p>Returns a copy of a product row at the given index. The 
+		 index must be in inclusive range 0 to RowCount – 1</p></td>
+	</tr>
+	<tr>
+		<td>readRowsFromFile</td>
+		<td><p>List of <a href="vcProductCreatorTableRow.htm">vcProductCreatorTableRow</a></p></td>
+		<td><p>String <span class="hcp1">fileUri</span>, 
+		 Boolean <span class="hcp1">showErrorMessages</span></p></td>
+		<td><p>Attempts to load rows from an xls file and returns them 
+		 as a list if successful.</p>
+		<p>Does not modify this table mode configuration. Returns None 
+		 if reading or parsing the file failed. If showErrorMessages is 
+		 True, any errors are printed to the output.</p></td>
+	</tr>
+	<tr>
+		<td>replaceAllRows</td>
+		<td>None</td>
+		<td>List of <a href="vcProductCreatorTableRow.htm">vcProductCreatorTableRow</a></td>
+		<td><p>Deletes all rows and then adds the new rows as copies. The 
+		 rows are sorted by the creation time using a stable sort algorithm. 
+		 Throws an exception if any of the new rows contains invalid values.</p></td>
+	</tr>
+</table>
+</body>
+</html>

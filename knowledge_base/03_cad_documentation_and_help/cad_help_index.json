@@ -1,0 +1,44 @@
+[
+  {
+    "source_chm": "Help_Ergonomics_RU.chm",
+    "title": "11226",
+    "rel_path": "Help_Ergonomics_RU/-11226.html",
+    "snippet": "11226 html, body { margin:0; padding:0; background: #ffffff; } #header { width:100%; position: fixed; top: 0; width: 100%; padding: 0; margin: 0 0 0.0625in 0; background: #fff; z-index: 99; } #header span.f_Heading1 { color: #FFFFFF } #headerhead { padding: 0.0625in; min-height: 0.5in; color: #FFFFF"
+  },
+  {
+    "source_chm": "Help_Ergonomics_RU.chm",
+    "title": "",
+    "rel_path": "Help_Ergonomics_RU/introduction.html",
+    "snippet": "html, body { margin:0; padding:0; background: #ffffff; } #header { width:100%; position: fixed; top: 0; width: 100%; padding: 0; margin: 0 0 0.0625in 0; background: #fff; z-index: 99; } #header span.f_Heading1 { color: #FFFFFF } #headerhead { padding: 0.0625in; min-height: 0.5in; color: #FFFFFF; bac"
+  },
+  {
+    "source_chm": "Help_Ergonomics_RU.chm",
+    "title": "",
+    "rel_path": "Help_Ergonomics_RU/new-topic.html",
+    "snippet": "html, body { margin:0; padding:0; background: #ffffff; } #header { width:100%; position: fixed; top: 0; width: 100%; padding: 0; margin: 0 0 0.0625in 0; background: #fff; z-index: 99; } #header span.f_Heading1 { color: #FFFFFF } #headerhead { padding: 0.0625in; min-height: 0.5in; color: #FFFFFF; bac"
+  },
+  {
+    "source_chm": "Help_Ergonomics_RU.chm",
+    "title": "RULA",
+    "rel_path": "Help_Ergonomics_RU/new-topic2.html",
+    "snippet": "RULA html, body { margin:0; padding:0; background: #ffffff; } #header { width:100%; position: fixed; top: 0; width: 100%; padding: 0; margin: 0 0 0.0625in 0; background: #fff; z-index: 99; } #header span.f_Heading1 { color: #FFFFFF } #headerhead { padding: 0.0625in; min-height: 0.5in; color: #FFFFFF"
+  },
+  {
+    "source_chm": "Help_Ergonomics_RU.chm",
+    "title": "REBA",
+    "rel_path": "Help_Ergonomics_RU/reba.html",
+    "snippet": "REBA html, body { margin:0; padding:0; background: #ffffff; } #header { width:100%; position: fixed; top: 0; width: 100%; padding: 0; margin: 0 0 0.0625in 0; background: #fff; z-index: 99; } #header span.f_Heading1 { color: #FFFFFF } #headerhead { padding: 0.0625in; min-height: 0.5in; color: #FFFFFF"
+  },
+  {
+    "source_chm": "Help_Ergonomics_RU.chm",
+    "title": "",
+    "rel_path": "Help_Ergonomics_RU/second-topic.html",
+    "snippet": "html, body { margin:0; padding:0; background: #ffffff; } #header { width:100%; position: fixed; top: 0; width: 100%; padding: 0; margin: 0 0 0.0625in 0; background: #fff; z-index: 99; } #header span.f_Heading1 { color: #FFFFFF } #headerhead { padding: 0.0625in; min-height: 0.5in; color: #FFFFFF; bac"
+  },
+  {
+    "source_chm": "Help_Ergonomics_RU.chm",
+    "title": "",
+    "rel_path": "Help_Ergonomics_RU/welcome-topic.html",
+    "snippet": "html, body { margin:0; padding:0; background: #ffffff; } #header { width:100%; position: fixed; top: 0; width: 100%; padding: 0; margin: 0 0 0.0625in 0; background: #fff; z-index: 99; } #header span.f_Heading1 { color: #FFFFFF } #headerhead { padding: 0.0625in; min-height: 0.5in; color: #FFFFFF; bac"
+  }
+]

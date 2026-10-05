@@ -1,0 +1,246 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcSimulation</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcSimulation</h1>
+<p>vcSimulation is the object type for simulation engine and scene graph, 
+ thereby providing access to simulation controls. This is not the same 
+ as the simulation root node which represents 3D world in global node tree.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot52966" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot52966', 'MTPOPUP52966');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP52966" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>IgnoreEvents</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if simulation object ignores event passing in order 
+		 to avoid cyclic calls.</td>
+	</tr>
+	<tr>
+		<td>IsLooping</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the simulation gets automatically restarted when 
+		 finished.</td>
+	</tr>
+	<tr>
+		<td>IsRunning</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if simulation is running in 3D world.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>R</td>
+		<td><p>Gets the name of simulation object.</p></td>
+	</tr>
+	<tr>
+		<td>ProcessController </td>
+		<td><a 
+		 href="vcProcessController.htm">vcProcessController</a> 
+		 </td>
+		<td>R</td>
+		<td><p>Gets the global process 
+		 controller.</p></td>
+	</tr>
+	<tr>
+		<td>SimSpeed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the step size or speed of simulation.</td>
+	</tr>
+	<tr>
+		<td>SimTime</td>
+		<td>Real</td>
+		<td>R</td>
+		<td>Gets the current time (in seconds) of simulation.</td>
+	</tr>
+	<tr>
+		<td>SimulationRunTime</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td><p>Defines a time (in seconds) when simulation should stop 
+		 running. </p>
+		<p><span style="font-weight: bold;">Note:</span> Changing the SimulationRunTime 
+		 is only allowed in the OnRun event. </p></td>
+	</tr>
+	<tr>
+		<td>Statistics</td>
+		<td><a href="vcStatisticsManager.htm">vcStatisticsManager</a></td>
+		<td>R</td>
+		<td>Gets the statistics manager of simulation used for defining 
+		 intervals. 
+		</td>
+	</tr>
+	<tr>
+		<td>World</td>
+		<td><a href="vcNode.htm">vcNode</a></td>
+		<td>R</td>
+		<td>Gets the simulation root node (3D world node).</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>autoHalt</td>
+		<td>Boolean</td>
+		<td>None</td>
+		<td>Stops a simulation if there is no active component running 
+		 a script that generates simulation events, and then returns True.</td>
+	</tr>
+	<tr>
+		<td>continueRun</td>
+		<td>None</td>
+		<td>[Real <span class="Italic">time</span>]</td>
+		<td>Continues running a simulation with a 10 day runtime or a given 
+		 amount of <span class="Italic">time</span>.</td>
+	</tr>
+	<tr>
+		<td>halt</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Stops a simulation immediately.</td>
+	</tr>
+	<tr>
+		<td>newCollisionDetector</td>
+		<td><a href="vcCollisionDetector.htm">vcCollisionDetector</a></td>
+		<td>None</td>
+		<td>Creates a new collision detector in 3D world, and then returns 
+		 the new detector.</td>
+	</tr>
+	<tr>
+		<td>newVolumeDetector</td>
+		<td><a href="vcVolumeDetector.htm">vcVolumeDetector</a></td>
+		<td>None</td>
+		<td>Creates a new volume detector in 3D world, and then returns 
+		 the new detector.</td>
+	</tr>
+	<tr>
+		<td>reset</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Resets simulation and static components to initial state and 
+		 sets simulation clock at zero.</td>
+	</tr>
+	<tr>
+		<td>restoreInitialState</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Restores simulation and static components to initial state.</td>
+	</tr>
+	<tr>
+		<td>run</td>
+		<td>None</td>
+		<td>[Real <span class="Italic">time</span>]</td>
+		<td>Runs simulation with a 10 day runtime or a given amount of 
+		 <span class="Italic">time</span>.</td>
+	</tr>
+	<tr>
+		<td>setInitialState</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Saves the current state of simulation and static components.</td>
+	</tr>
+	<tr>
+		<td>update</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Updates simulation and 3D world to reflect current state of 
+		 components.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><p>OnCollision</p></td>
+		<td><p><a href="vcCollisionDetector.htm">vcCollisionDetector</a> 
+		 <span class="Italic">detector</span></p></td>
+		<td><p>Triggered when a collision is detected using active tests.</p></td>
+	</tr>
+	<tr>
+		<td>OnReset</td>
+		<td><a href="vcSimulation.htm">vcSimulation</a> <span class="Italic">simulation</span></td>
+		<td>Triggered when simulation is reset.</td>
+	</tr>
+	<tr>
+		<td>OnStartStop</td>
+		<td><a href="vcSimulation.htm">vcSimulation</a> <span class="Italic">simulation</span>, 
+		 Boolean <span class="Italic">start_stop</span></td>
+		<td>Triggered when simulation is started or stopped.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Get simulation object and its properties</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>app = getApplication() 
+		<br>sim = app.getSimulation() #OPTION 1: get handle to vcSimulation-object 
+		<br>sim = app.Simulation &#160;&#160;&#160;&#160;&#160;&#160;&#160;#OPTION 2: get handle to vcSimulation-object 
+		<br>sim = getSimulation() &#160;&#160;&#160;&#160;&#160;&#160;&#160;#OPTION 3: get handle to vcSimulation-object 
+		<br>sim.SimSpeed = 1.1 
+		<br>print 'IsRunning',sim.IsRunning, sim.SimTime 
+		<br>&#160; 
+		<br>#when you compile the script, sim is not running 
+		<br>def OnRun(): 
+		<br>&#160;&#160;while True: 
+		<br>&#160;&#160;&#160;&#160;print 'IsRunning',sim.IsRunning, sim.SimTime # here sim is running 
+		<br>&#160;&#160;&#160;&#160;<span>delay(1)</span></td>
+	</tr>
+</table>
+<!--======================================Events========================================-->
+</body>
+</html>

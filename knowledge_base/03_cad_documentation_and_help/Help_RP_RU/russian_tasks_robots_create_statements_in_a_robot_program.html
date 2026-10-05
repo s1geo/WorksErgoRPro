@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Создание операторов в программе робота </title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Оператор — это команда, выполняемая роботом в своей программе." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Создание операторов в программе робота</span><span class="f_Heading1" style="background-color: #494949;">&nbsp;</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Оператор — это команда, выполняемая роботом в своей программе.</p>
+<p class="p_Normal">Операторы в программе робота содержатся в подпрограммах и выполняются по порядку один за другим. Явные переменные и другие свойства робота, включая порты ввода-вывода, могут использоваться для определения операторов и условий выполнения программы.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">1.</span>Нажмите на вкладку <span style="font-weight: bold;">Программирование</span>, а затем выберите робота в трехмерном мире, которого вы хотите запрограммировать.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">2.</span>На панели <span style="font-weight: bold;">Редактор программы</span>, создайте или выберите подпрограмму.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">3.</span>Если вам будет предложено обновить исполнитель выбранного робота, нажмите <span style="font-weight: bold;">Обновите исполнитель Rsl</span>, а затем вернитесь к шагу 2.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.2083in; margin: 0 0 0.0417in 0.2396in;"><span class="f_Normal" style="display:inline-block;width:0.2083in;margin-left:-0.2083in">4.</span>На панели инструментов <span style="font-weight: bold;">Операторы</span>, сделайте одно из следующих действий:</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы создать движение от точки к точке к текущему положению робота, нажмите <span style="font-weight: bold;">Движение от точки к точке</span>. *</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы создать линейное движение к текущему положению робота, нажмите <span style="font-weight: bold;">Линейное движение</span>. *</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы сгенерировать путь позиций вдоль края или кривой, нажмите <span style="font-weight: bold;">Движение по траектории</span>.* Отобразится панель задач «Выбрать кривую» для выбора и редактирования траектории точек, например швов в заготовке. Сгенерированные точки являются операторами линейного движения и вложены в оператор Path.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы обновить инструментальную рамку во время симуляци, нажмите <span style="font-weight: bold;">Определить инструмент,</span> а затем определите значения для рамки инструмента, установленного этим оператором.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы обновить базовый кадр во время симуляци, нажмите <span style="font-weight: bold;">Определить базу</span>, а затем определите значения для рамки базы, заданного этим оператором.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы обновить выбранный оператор PTP или LIN в программе робота, нажмите <span style="font-weight: bold;">Обновить положение.</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы вызвать подпрограмму, нажмите <span style="font-weight: bold;">Вызов подпрограммы</span>, а затем определите подпрограмму, вызываемую этим оператором.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы присвоить переменной значение, нажмите <span style="font-weight: bold;">Присвоить переменной</span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы создать цикл, нажмите <span style="font-weight: bold;">Пока</span>, а затем определите условие выполнения операторов, вложенных в этот цикл.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы завершить выполнение цикла, нажмите <span style="font-weight: bold;">Break</span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы настроить выполнение цикла со следующей итерации, нажмите <span style="font-weight: bold;">Continue</span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы создать условный оператор, нажмите <span style="font-weight: bold;">Если</span> (<span style="font-weight: bold;">If)</span>, а затем определите условие для выполнения операторов, вложенных в группу THEN или ELSE этого оператора.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы создать условный оператор, нажмите <span style="font-weight: bold;">Переключатель Случаев</span> (<span style="font-weight: bold;">Switch-Case</span>), а затем определите условие для выполнения операторов и добавьте вложенные случаи.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы завершить выполнение подпрограммы, нажмите <span style="font-weight: bold;">Return</span>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы синхронизировать выполнение программы с другими компонентами, нажмите <span style="font-weight: bold;">Оператор синхронизации программы</span>, а затем определите сообщение и компоненты для синхронизации, а также определите, будет ли инструкция ожидать, пока все компоненты в синхронизации отправят правильное сообщение, прежде чем продолжить выполнение программы.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы отложить выполнение подпрограммы, нажмите <span style="font-weight: bold;">Задержка</span>, а затем определите задержку в секундах для этого оператора.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы остановить выполнение подпрограммы, нажмите <span style="font-weight: bold;">Остановка</span>, а затем определите, будет ли эта инструкция сбрасывать симуляцию.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы оставить комментарий, нажмите <span style="font-weight: bold;">Комментарий</span>, а затем определите комментарий для этого утверждения.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы показать сообщение в выводе, нажмите <span style="font-weight: bold;">Печать</span>, а затем определите сообщение для этого оператора.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы дождаться, пока входной сигнал будет иметь определенное значение, нажмите <span style="font-weight: bold;">Ожидать бинарный вход</span>, а затем определите значение и номер порта для ожидания в этом операторе.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы установить значение выходного сигнала, нажмите <span style="font-weight: bold;">Установить бинарный выход</span>, а затем определите состояние и номер порта для этого оператора.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.4167in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.2083in;margin-left:-0.2083in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Чтобы задать состояние робота для статистики, нажмите <span style="font-weight: bold;">Установить состояние</span>.</p>
+<p class="p_Normal"><span style="font-weight: bold;">* Подсказка: </span>Кроме того, вы также можете использовать действия в меню Teach Overlay.<span style="font-weight: bold;">Смотрите <a href="russian_getting_started_how_it_works_fast_robot_teaching.html" class="topiclink">Быстрое обучение траектории роботов</a></span></p>
+
+</td></tr></table>
+
+</body>
+</html>

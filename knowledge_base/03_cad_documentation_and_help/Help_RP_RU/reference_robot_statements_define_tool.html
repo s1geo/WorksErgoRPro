@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Определить инструмент</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Оператор Определить инструмент изменяет свойства системы координат инструмента в роботе во время симуляции. Когда вы сбрасываете симуляцию, система координат инструмента..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Определить инструмент</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Оператор Определить инструмент изменяет свойства системы координат инструмента в роботе во время симуляции. Когда вы сбрасываете симуляцию, система координат инструмента возвращается в исходное положение.</p>
+<p class="p_Normal"><img alt="DefineToolStatement" style="margin:0;width:10.0625in;height:4.6771in;border:none" src="definetoolstatement.png"/></p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание: </span>Систему координат инструмента можно использовать в качестве центральной точки инструмента (tcp) для операторов движения. Перемещение системы координат инструмента изменит положение робота в конечной точке операторов движения. Как правило, оператор «Определить инструмент» используется в программах роботов, включающих смену установленного инструмента, сварку, обслуживание станка и внешние конфигурации со статическими центральными точками инструмента.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8854in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5313in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Инструмент</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет систему координат инструмента контроллера робота, измененную оператором.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание: </span>Вы не можете использовать оператор Определить инструмент для изменения системы координат инструмента в другом роботе.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">IsRelative</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет, основана ли позиция на системе координат инструмента или на родительской системе координат.</p>
+<p class="p_Normal">True использует &nbsp;систему координат инструмента, поэтому система координат будет перемещена относительно своего местоположения во время выполнения оператора.</p>
+<p class="p_Normal">False использует относительную систему координат инструмента, определенную в узле, поэтому система координат будет перемещена в абсолютное местоположение.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Position</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет положение и ориентацию инструмента.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">IPOрежим</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет режим интерполяции системы координат и внешнюю конфигурацию контроллера базы робота.</p>
+<p class="p_Normal">#NONE не имеет никакого эффекта и является настройкой по умолчанию.</p>
+<p class="p_Normal">#BASE устанавливает &nbsp;систему координат инструмента в качестве базовой системы координат.</p>
+<p class="p_Normal">#TCP устанавливает &nbsp;систему координат инструмента в качестве центральной точки инструмента.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание: </span>Конфликт может возникнуть, если пара «база-инструмент» в референтном роботе имеет одинаковое значение свойства IPOMode или не может использоваться с текущей конфигурацией робота.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8854in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">УзеNodeл</p>
+</td>
+<td style="vertical-align:top; width:10.5313in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет узел, к которому прикрепляется система координат инструмента в 3D-мире.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

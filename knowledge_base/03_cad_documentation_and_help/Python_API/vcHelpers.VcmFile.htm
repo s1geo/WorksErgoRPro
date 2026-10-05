@@ -1,0 +1,186 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcHelpers.VcmFile</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body page-style="x-size: A4;" page-frame-style="margin-left: 0.25in; margin-right: 0.25in;">
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcHelpers.VcmFile</h1>
+<p>vcHelpers.VcmFile provides access to the metadata of a local component 
+ file.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot22314" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot22314', 'MTPOPUP22314');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP22314" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Constructors</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Constructors</h2>
+<p>The object type for a local component file and its metadata is ComponentData.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ComponentData</td>
+		<td>vcHelpers.VcmFile.ComponentData</td>
+		<td>String <span class="Italic">filepath</span></td>
+		<td>Create a new ComponentData object for a given file.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Author</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the author of file.</td>
+	</tr>
+	<tr>
+		<td>Description</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines a short description about file and its use.</td>
+	</tr>
+	<tr>
+		<td>DetailedRevision</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the version and change history of file, for example 
+		 <span class="Term">Major.Minor.Batch.Revision</span> numbering.</td>
+	</tr>
+	<tr>
+		<td>Email</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the contact email address of file.</td>
+	</tr>
+	<tr>
+		<td>Icon</td>
+		<td>String</td>
+		<td>R</td>
+		<td>Gets the URI of file's icon.</td>
+	</tr>
+	<tr>
+		<td>Logo</td>
+		<td>String</td>
+		<td>R</td>
+		<td>Gets the URI of file's logo.</td>
+	</tr>
+	<tr>
+		<td>Manufacturer</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the manufacturer of file's real-world model.</td>
+	</tr>
+	<tr>
+		<td>MaxPayLoad</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the maximum payload (in kilograms) of the component, 
+		 for example a robot gripper.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of component.</td>
+	</tr>
+	<tr>
+		<td>PreviewIcon</td>
+		<td>String</td>
+		<td>R</td>
+		<td>Gets the URI of the image displayed when a user previews file 
+		 in the eCatalog panel.</td>
+	</tr>
+	<tr>
+		<td>Revision</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines the revision number of file.</td>
+	</tr>
+	<tr>
+		<td>Tags</td>
+		<td>List of Strings</td>
+		<td>RW</td>
+		<td>Defines a list of tokens used to describe application, industry 
+		 and other information about the component.</td>
+	</tr>
+	<tr>
+		<td>Type</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Classifies the component by type.</td>
+	</tr>
+	<tr>
+		<td>Website</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines a web address/link to associate with component. 
+		<p class="TableNormal"><span class="Strong">Note:</span> This link 
+		 is included with the component in a recorded 3D PDF.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>write</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Saves changes made to the file.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Access, edit and print component metadata</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td><span>from vcScript import *</span> 
+		<br><span>from vcHelpers.VcmFile import *</span> 
+		<br>&#160; 
+		<br>cd = ComponentData(getComponent().Uri[8:]) 
+		<br>cd.Description = 'A high volume feeder' 
+		<br>print cd</td>
+	</tr>
+</table>
+</body>
+</html>

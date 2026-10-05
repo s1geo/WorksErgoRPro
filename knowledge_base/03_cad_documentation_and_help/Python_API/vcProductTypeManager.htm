@@ -1,0 +1,203 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProductTypeManager</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcProductTypeManager</h1>
+<p>The product type manager is used to create, modify and delete <a href="vcProductType.htm">vcProductType</a> 
+ or <a href="vcAssemblyProductType.htm">vcAssemblyProductType</a> objects. 
+ It is owned by a <a href="vcProcessController.htm">vcProcessController</a>.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot55183" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot55183', 'MTPOPUP55183');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP55183" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<p>&#160;</p>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Controller </td>
+		<td><a href="vcProcessController.htm">vcProcessController</a></td>
+		<td>R</td>
+		<td>Gets the owner process controller.</td>
+	</tr>
+	<tr>
+		<td><p>ProductTypes </p></td>
+		<td>List of <a href="vcProductType.htm">vcProductType</a> or <a 
+		 href="vcAssemblyProductType.htm">vcAssemblyProductType</a></td>
+		<td>R</td>
+		<td>Gets a list of all product types in this process controller. 
+		 <a href="vcAssemblyProductType.htm">vcAssemblyProductType</a> 
+		 are listed where appropriate.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createProductType </td>
+		<td><a href="vcProductType.htm">vcProductType</a> or <a href="vcAssemblyProductType.htm">vcAssemblyProductType</a></td>
+		<td><p>String <span class="hcp1">name</span>, <a 
+		 href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> <span class="hcp1">groupToPlaceObject</span>, 
+		 Boolean <i>createAssemblyProductType</i></p></td>
+		<td><p>Creates new product type and assigns it to the given flow 
+		 group. The <span class="hcp1">name</span> must 
+		 be unique.</p>
+		<p>&#160;</p>
+		<p>When <i>createAssemblyProductType</i> is set to True, creates 
+		 and returns <a href="vcAssemblyProductType.htm">vcAssemblyProductType</a>. 
+		 Otherwise, creates and returns <a href="vcProductType.htm">vcProductType</a>.</p></td>
+	</tr>
+	<tr>
+		<td>deleteProductType </td>
+		<td>None</td>
+		<td><a href="vcProductType.htm">vcProductType</a> <span class="hcp1">typeToDelete</span> 
+		 
+		<br>&#160; 
+		<br>or 
+		<br>&#160; 
+		<br>String <span class="hcp1">typeName</span> 
+		 </td>
+		<td><p class="TableNormal">Tries to delete the given product type. 
+		 Cannot delete system product types or product types from a different 
+		 process controller.</p>
+		<p class="TableNormal">Tries to delete product type with given 
+		 name. Cannot delete system product types or product types from 
+		 a different process controller.</p></td>
+	</tr>
+	<tr>
+		<td>findProductType </td>
+		<td><a href="vcProductType.htm">vcProductType</a></td>
+		<td><p>String <span class="hcp1">name</span> </p></td>
+		<td><p>Tries to find a product type with the given <span class="hcp1">name</span>. 
+		 Returns None if not found.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnProductTypeAdded </td>
+		<td><a href="vcProductType.htm">vcProductType</a> <span class="hcp1">productType</span> 
+		 or <a href="vcAssemblyProductType.htm">vcAssemblyProductType</a></td>
+		<td><p>Triggered when a new product type has been added to this 
+		 process controller.</p></td>
+	</tr>
+	<tr>
+		<td>OnProductTypeRemoving </td>
+		<td><a href="vcProductType.htm">vcProductType</a> <span class="hcp1">productType</span> 
+		 or <a href="vcAssemblyProductType.htm">vcAssemblyProductType</a></td>
+		<td><p style="font-style: normal;">Triggered when a product type 
+		 is being removed from this process controller.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p class="Example"><span class="Example">Example. Access the vcProductTypeManager 
+ from the ProcessController</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>process_controller = getSimulation().ProcessController 
+		<br>product_type_manager = &#160;process_controller.ProductTypeManager</td>
+	</tr>
+</table>
+<p class="Example"><span class="Example">Example. Check to which process 
+ controller the manager belongs to.</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>#print product_type_manager.Controller 
+		<br>Get the list of ProductTypes 
+		<br>##To get the list of ProductTypes 
+		<br>#print product_type_manager.ProductTypes </td>
+	</tr>
+</table>
+<p class="Example"><span class="Example">Example. Find and Create a new 
+ product type</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>#You need to get the flow group to add product types 
+		<br>flow_group_manager = &#160;process_controller.FlowGroupManager 
+		<br>flow_group = flow_group_manager.findGroup('Flow Group #1') 
+		<br>my_productType = product_type_manager.findProductType('MyProduct') 
+		<br>if not my_productType: 
+		<br>&#160;&#160;my_productType = product_type_manager.createProductType('MyProduct', flow_group)</td>
+	</tr>
+</table>
+<p class="Example"><span class="Example">Example. Delete a given product 
+ type</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>#if my_productType: 
+		<br># &#160;product_type_manager.deleteProductType('MyProduct')</td>
+	</tr>
+</table>
+<p class="Example"><span class="Example">Example. Get event when you add 
+ and remove product type from UI</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>def productAdded(prod): 
+		<br>&#160;&#160;print 'New ProductType added. Product name is &quot;{}&quot;.'.format(prod.Name) 
+		<br>def productRemoved(prod): 
+		<br>&#160;&#160;print 'ProductType &quot;{}&quot; is removed.'.format(prod.Name) 
+		<br>&#160;&#160; 
+		<br>product_type_manager.OnProductTypeAdded = productAdded #trigger when a new product type is added 
+		<br>product_type_manager.OnProductTypeRemoving &#160;= productRemoved #trigger when a an existing product type is removed</td>
+	</tr>
+</table>
+</body>
+</html>

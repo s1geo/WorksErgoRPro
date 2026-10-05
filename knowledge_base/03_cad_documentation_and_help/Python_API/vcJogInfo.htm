@@ -1,0 +1,54 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcJogInfo</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcJogInfo</h1>
+<p>vcJogInfo is an event listener for an interactive object defined by <a href="Help_English.chm::/Reference/Behaviors/Misc/Jog_Info.htm">Jog Info</a> behavior.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot37621" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot37621', 'MTPOPUP37621');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP37621" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Events</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 33.333%;">
+<col style="width: 33.333%;">
+<col style="width: 33.333%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>OnInteract</td>
+<td><a href="vcBehaviour.htm">vcBehaviour</a> <span class="Italic">type</span>, Enumeration <span class="Italic">cursor_action</span>, List of jog info (<a href="vcCommandEvent.htm">vcCommandEvent</a> <span class="Italic">type-shiftstate</span>, Boolean <span class="Italic">mouseclicked</span>, [not used], Integer <span class="Italic">Xposition</span>, Integer <span class="Italic">Yposition</span>, <a href="vcVector.htm">vcVector</a> <span class="Italic">floor</span>, <a href="vcVector.htm">vcVector</a> <span class="Italic">view</span>, <a href="vcVector.htm">vcVector</a> <span class="Italic">direction</span>, <a href="vcVector.htm">vcVector</a> <span class="Italic">hitposition</span>) <span class="Italic">data</span></td>
+<td>Triggered when user interaction occurs with an object defined by a Jog Info behavior.
+<p class="TableNormal">The <span class="Italic">type</span> argument is the Jog Info behavior of the object.</p>
+<p class="TableNormal">The <span class="Italic">cursor_action</span> argument is the type of mouse action that occurs in the jog area.</p>
+<p class="TableNormal"><span class="Term">0</span><br>
+Hover in.</p>
+<p class="TableNormal"><span class="Term">1</span><br>
+Click or drag</p>
+<p class="TableNormal"><span class="Term">2</span><br>
+Hover out</p>
+<p class="TableNormal">The <span class="Italic">data</span> argument provides a list of jog info that includes command event data and XY coordinates (in pixels) where interaction occurs on the viewport.</p>
+</td>
+</tr>
+</table>
+</body>
+</html>

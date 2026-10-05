@@ -1,0 +1,204 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcGeometrySet</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+p.hcp1 { margin-left:80px; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcGeometrySet</h1>
+<p>vcGeometrySet is the base class for any type of geometry set in a component.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot22540" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot22540', 'MTPOPUP22540');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP22540" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Hierarchy</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Methods</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Hierarchy</h2>
+<p>vcGeometrySet is a collection of one type of geometry primitives. Therefore, 
+ each type of geometry set has its own implementation, and different types 
+ cannot belong to the same geometry set.</p>
+<p style="margin-left: 40px;"><a href="vcGeometrySet.htm">vcGeometrySet</a></p>
+<p class="hcp1"><a href="vcCompactLineSet.htm">vcCompactLineSet</a></p>
+<p class="hcp1"><a href="vcFrameSet.htm">vcFrameSet</a></p>
+<p class="hcp1"><a href="vcLineSet.htm">vcLineSet</a> <span 
+	 class="Strong">(Deprecated)</span> use <a href="vcCompactLineSet.htm">vcCompactLineSet</a></p>
+<p class="hcp1"><a href="vcPoint.htm">vcPoint</a> <span class="Strong">(Deprecated)</span></p>
+<p class="hcp1"><a href="vcPointSet.htm">vcPointSet</a></p>
+<p class="hcp1"><a href="vcPolygonSet.htm">vcPolygonSet</a> 
+ <span class="Strong">(Deprecated)</span> use <a href="vcTriangleSet.htm">vcTriangleSet</a></p>
+<p class="hcp1"><a href="vcText2DSet.htm">vcText2DSet</a></p>
+<p class="hcp1"><a href="vcText3DSet.htm">vcText3DSet</a></p>
+<p class="hcp1"><a href="vcTriangleSet.htm">vcTriangleSet</a></p>
+<h2><a name="MiniTOCBookMark3"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Billboard</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if geometry of set is always facing the 3D world camera. 
+		 
+		<p class="TableNormal">Generally, this property is used for billboard 
+		 text and is only supported for the following types:</p>
+		<p class="TableNormal"><a href="vcCompactLineSet.htm">vcCompactLineSet</a></p>
+		<p class="TableNormal"><a href="vcPointSet.htm">vcPointSet</a></p>
+		<p class="TableNormal"><a href="vcText2DSet.htm">vcText2DSet</a></p>
+		<p class="TableNormal"><a href="vcTriangleSet.htm">vcTriangleSet</a></p></td>
+	</tr>
+	<tr>
+		<td>BoundCenter</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>R</td>
+		<td>Gets a vector from the origin to the center of the container's 
+		 bound box.</td>
+	</tr>
+	<tr>
+		<td>BoundDiagonal</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>R</td>
+		<td>Gets a half diagonal vector from the center to an upper corner 
+		 of the container's bound box using positive axis directions.</td>
+	</tr>
+	<tr>
+		<td>Container</td>
+		<td><a href="vcGeometryContainer.htm">vcGeometryContainer</a></td>
+		<td>R</td>
+		<td>Gets the geometry container of set.</td>
+	</tr>
+	<tr>
+		<td>Feature</td>
+		<td><a href="vcFeature.htm">vcFeature</a></td>
+		<td>R</td>
+		<td>Gets the feature that the set belongs to in node feature tree.</td>
+	</tr>
+	<tr>
+		<td>FixedSize</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the size of set visually remains the same in the 
+		 3D world regardless of camera position. 
+		<p class="TableNormal">This property is only supported for the 
+		 following types:</p>
+		<p class="TableNormal"><a href="vcCompactLineSet.htm">vcCompactLineSet</a></p>
+		<p class="TableNormal"><a href="vcPointSet.htm">vcPointSet</a></p>
+		<p class="TableNormal"><a href="vcText2DSet.htm">vcText2DSet</a></p>
+		<p class="TableNormal"><a href="vcTriangleSet.htm">vcTriangleSet</a></p></td>
+	</tr>
+	<tr>
+		<td>HasMaterialInheritance</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Determines if the geometry set has material inheritance (geo 
+		 set will use the inherited material or its own).</td>
+	</tr>
+	<tr>
+		<td>Layer</td>
+		<td><a href="vcLayer.htm">vcLayer</a></td>
+		<td>RW</td>
+		<td>Defines the layer that the set belongs to in layout.</td>
+	</tr>
+	<tr>
+		<td>LightAmbientTexture</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the material texture of set is used to affect ambient 
+		 light intensity and shininess of surfaces. 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span></p></td>
+	</tr>
+	<tr>
+		<td>LightAmbientVertex</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if vertex color/intensity is blended with light rays 
+		 to render ambient lighting effect. 
+		<p class="TableNormal"><span class="Strong">(Deprecated)</span></p></td>
+	</tr>
+	<tr>
+		<td>Material</td>
+		<td><a href="vcMaterial.htm">vcMaterial</a></td>
+		<td>RW</td>
+		<td>Defines the material of set. 
+		<p class="TableNormal">If None, the set uses default render settings.</p></td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of set.</td>
+	</tr>
+	<tr>
+		<td>Type</td>
+		<td>Enumeration</td>
+		<td>R</td>
+		<td>Gets the set type. 
+		<p class="TableNormal">See <a href="Constants.htm#Geometry_Constants">Geometry 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>UseBackface</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if geometry of set is rendered when not facing the 
+		 3D world camera.</td>
+	</tr>
+	<tr>
+		<td>VertexColor</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines if the set uses vertex coloring. 
+		<p class="TableNormal">See <a href="Constants.htm#Geometry_Constants">Geometry 
+		 Constants</a> for more information.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>updateBoundIncrementally</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>Real <span class="Italic">x</span>, Real <span class="Italic">y</span>, 
+		 Real <span class="Italic">z</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal"><a href="vcVector.htm">vcVector</a> <span 
+		 class="Italic">vector</span></p></td>
+		<td>Increments the bound box of the set's component.</td>
+	</tr>
+</table>
+</body>
+</html>

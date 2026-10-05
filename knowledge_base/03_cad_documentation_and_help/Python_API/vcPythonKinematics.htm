@@ -1,0 +1,539 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcPythonKinematics</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcPythonKinematics</h1>
+<p>vcPythonKinematics allows you to create custom kinematics, which can 
+ be used by robot controllers to drive and manage robot movements.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot40595" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot40595', 'MTPOPUP40595');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP40595" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>RW</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of the kinematics object.</td>
+	</tr>
+	<tr>
+		<td>Application</td>
+		<td><a href="vcApplication.htm">vcApplication</a></td>
+		<td>R</td>
+		<td>Gets the application object.</td>
+	</tr>
+	<tr>
+		<td>Simulation</td>
+		<td><a href="vcSimulation.htm">vcSimulation</a></td>
+		<td>R</td>
+		<td>Gets the simulation object.</td>
+	</tr>
+	<tr>
+		<td>Script</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the executable Python code of kinematics object, thereby 
+		 the custom kinematics of a <a href="vcKinObject.htm">vcKinObject</a> 
+		 object. 
+		<p class="TableNormal">See <a href="Help_English.chm::/Reference/Behaviors/Kinematics/Python_Kinematics.htm">Python 
+		 Kinematics</a> for more information.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><p>forwardKin</p></td>
+		<td><p><a href="vcMatrix.htm">vcMatrix</a></p></td>
+		<td><p>List of Real <span class="Italic">values</span></p></td>
+		<td><p>Returns a forward kinematics matrix calculated for given 
+		 joint <span class="Italic">values</span>.</p></td>
+	</tr>
+	<tr>
+		<td>getApplication</td>
+		<td><a href="vcApplication.htm">vcApplication</a></td>
+		<td>None</td>
+		<td>Returns the application object.</td>
+	</tr>
+	<tr>
+		<td>getComponent</td>
+		<td><a href="vcComponent.htm">vcComponent</a></td>
+		<td>None</td>
+		<td>Returns the component of the kinematics object.</td>
+	</tr>
+	<tr>
+		<td>getNode</td>
+		<td><a href="vcNode.htm">vcNode</a></td>
+		<td>None</td>
+		<td>Returns the node containing the kinematics object.</td>
+	</tr>
+	<tr>
+		<td>getSimulation</td>
+		<td><a href="vcSimulation.htm">vcSimulation</a></td>
+		<td>None</td>
+		<td>Returns the simulation object.</td>
+	</tr>
+	<tr>
+		<td>sasa</td>
+		<td>Real</td>
+		<td>Real <span class="Italic">side</span><span>, Real</span> <span 
+		 class="Italic">angle</span><span>, Real</span> <span class="Italic">side</span></td>
+		<td>Returns the angle (in radians) of a triangle based on two given 
+		 sides and the <span class="Italic">angle</span> between them. 
+		 
+		<p class="TableNormal">In this case, the third side of a triangle 
+		 is calculated, and then used to calculate the angle between that 
+		 side and the second side argument.</p></td>
+	</tr>
+	<tr>
+		<td>sass</td>
+		<td>Real</td>
+		<td>Real <span class="Italic">side</span><span>, Real</span> <span 
+		 class="Italic">angle</span><span>, Real</span> <span class="Italic">side</span></td>
+		<td>Returns the side of a triangle based on two given sides and 
+		 the <span class="Italic">angle</span> between them.</td>
+	</tr>
+	<tr>
+		<td>sssa</td>
+		<td>Real</td>
+		<td>Real <span class="Italic">side</span><span>, Real</span> <span 
+		 class="Italic">side</span><span>, Real</span> <span class="Italic">side</span></td>
+		<td>Returns the angle (in radians) of a triangle based on three 
+		 given sides. 
+		<p class="TableNormal">In this case, returned angle is the angle 
+		 opposite the first side argument.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<p>The following event handlers are functions that can be defined and used 
+ for customizing the kinematics of a <a href="vcKinObject.htm">vcKinObject</a> 
+ type object. In some cases, event handlers need to output values which 
+ are automatically passed as arguments in other related functions.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnCalculateTarget</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a> <span class="Italic">fullTarget</span>, 
+		 <a href="vcMatrix.htm">vcMatrix</a> <span class="Italic">baseFrame</span>, 
+		 <a href="vcMatrix.htm">vcMatrix</a> <span class="Italic">toolFrame</span>, 
+		 Boolean <span class="Italic">targetInverted</span></td>
+		<td>Triggered when a motion target is being calculated, thereby 
+		 allowing you to edit the motion target that will be passed to 
+		 OnInverse event. 
+		<p class="TableNormal">The <span class="Italic">fullTarget</span> 
+		 argument is the target matrix calculated from either World origin 
+		 or Robot World Frame to TCP.</p>
+		<p class="TableNormal">The <span class="Italic">baseFrame</span> 
+		 and <span class="Italic">toolFrame</span> arguments define the 
+		 base and tool frames used for motion target.</p>
+		<p class="TableNormal">The <span class="Italic">targetInverted</span> 
+		 argument can be used to reverse the target's calculation, for 
+		 example from TCP to base frame.</p>
+		<p class="TableNormal">Generally, you should use OnCalculateTarget 
+		 for robots that have less than six degrees of freedom to remove 
+		 potential effects caused by a tool offset.</p></td>
+	</tr>
+	<tr>
+		<td>OnConstrainParams</td>
+		<td><a href="vcKinObject.htm">vcKinObject</a> <span class="Italic">kin_object</span></td>
+		<td>Triggered when the joint configuration of a robot or motion 
+		 target is being interpolated and requires joint limits to determine 
+		 valid kinematic solutions. 
+		<p class="TableNormal">Generally, you use OnConstrainParams to 
+		 avoid potential joint limit errors and narrow possible solutions 
+		 for a joint motion target. For example, you can specify the limits 
+		 of a joint for certain types of movements.</p>
+		<p class="TableNormal">The return value should be a Boolean.</p></td>
+	</tr>
+	<tr>
+		<td>OnFinalize</td>
+		<td>None</td>
+		<td>Triggered when layout or component is being loaded in 3D world.
+		<p class="TableNormal">The event occurs, for example, when copying 
+		 a component, or loading a layout of components. The event is triggered 
+		 before the needed components are attached to the 3D world.</p>
+		<p class="TableNormal">Generally, you use OnFinalize to set the 
+		 joint initial position of a robot or any necessary implementation 
+		 that uses kinematics.</p></td>
+	</tr>
+	<tr>
+		<td>OnForward</td>
+		<td><a href="vcKinObject.htm">vcKinObject</a> <span class="Italic">kin_object</span></td>
+		<td>Triggered when a motion target is calculated using joint values. 
+		 
+		<p class="TableNormal">Return a Boolean value to enable or disable 
+		 forward kinematics.</p></td>
+	</tr>
+	<tr>
+		<td>OnGetConfigurationCount</td>
+		<td>None</td>
+		<td>Triggered when the configuration count of a robot is requested 
+		 by the kinematics solver. 
+		<p class="TableNormal">If configuration properties are dynamically 
+		 changing, this event must be implemented and return a constant 
+		 integer value, which overrides the default count defined in the 
+		 OnInitKinObject event.</p>
+		<p class="TableNormal"><span class="Strong">Important:</span> If 
+		 OnGetConfigurationCount is used, you need to implement the OnGetCurrentConfiguration 
+		 and OnSetCurrentConfiguration events.</p></td>
+	</tr>
+	<tr>
+		<td>OnGetCurrentConfiguration</td>
+		<td>None</td>
+		<td>Triggered when the current configuration of a robot is requested 
+		 by its kinematics solver. 
+		<p class="TableNormal">If this event is implemented, you should 
+		 read the robot's configurations property list, and then return 
+		 the currently selected index position (integer). That value must 
+		 be greater than or equal to 0 and less than the value returned 
+		 by the OnGetConfigurationCount event.</p>
+		<p class="TableNormal"><span class="Strong">Important:</span> If 
+		 OnGetCurrentConfiguration is used, you need to implement the OnGetConfigurationCount 
+		 and OnSetCurrentConfiguration events.</p></td>
+	</tr>
+	<tr>
+		<td>OnGetJointCount</td>
+		<td>None</td>
+		<td>Triggered when the joint count of a robot is requested by the 
+		 kinematics solver. 
+		<p class="TableNormal">In most cases, you should the total joint 
+		 count as an integer.</p></td>
+	</tr>
+	<tr>
+		<td>OnGetJointName</td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Triggered when the name of a joint at a given index is requested 
+		 by kinematics solver. 
+		<p class="TableNormal">The return value should be a string.</p></td>
+	</tr>
+	<tr>
+		<td>OnGetKinematicJointCount</td>
+		<td>None</td>
+		<td>Triggered when the actual number of kinematic joints used in 
+		 forward kinematics is requested by kinematics solver. 
+		<p class="TableNormal">Generally, additional helper joints are 
+		 needed for interpolating redundant solutions.</p>
+		<p class="TableNormal">The return value should be an integer.</p></td>
+	</tr>
+	<tr>
+		<td>OnGetSecondaryJointCount</td>
+		<td>None</td>
+		<td>Triggered when the external joint count of a robot is requested 
+		 by kinematics solver. 
+		<p class="TableNormal">In most cases, you should return the total 
+		 joint count as an integer value.</p></td>
+	</tr>
+	<tr>
+		<td>OnGetSecondaryJointName</td>
+		<td>Integer <span class="Italic">index</span></td>
+		<td>Triggered when the name of an external joint at a given index 
+		 is requested by kinematics solver. 
+		<p class="TableNormal">The return value should be a string.</p></td>
+	</tr>
+	<tr>
+		<td>OnInitKinObject</td>
+		<td><a href="vcKinObject.htm">vcKinObject</a> <span class="Italic">kin_object</span></td>
+		<td>Triggered when a new instance of <a href="vcKinObject.htm">vcKinObject</a> 
+		 is created, thereby allowing you to access and edit the kinematics 
+		 object of a component. 
+		<p class="TableNormal">Generally, you use OnInitKinObject to add 
+		 new properties and define initial values for a kinematics object.</p></td>
+	</tr>
+	<tr>
+		<td>OnInverse</td>
+		<td><a href="vcKinObject.htm">vcKinObject</a> <span class="Italic">kin_object</span></td>
+		<td>Triggered when the joint values of a motion target need to 
+		 be calculated and given as a solution for the kinematics object. 
+		 
+		<p class="TableNormal">Return a Boolean value to enable or disable 
+		 inverse kinematics.</p></td>
+	</tr>
+	<tr>
+		<td>OnRebuild</td>
+		<td>None</td>
+		<td>Triggered when the kinematics object is rebuilt, thereby updating 
+		 changes made to its properties.</td>
+	</tr>
+	<tr>
+		<td>OnRelaxParams</td>
+		<td><a href="vcKinObject.htm">vcKinObject</a> <span class="Italic">kin_object</span></td>
+		<td>Triggered when possible solutions for a motion target are being 
+		 calculated by kinematics solver. 
+		<p class="TableNormal">Generally, you use OnRelaxParams to allow 
+		 for all possible solutions, even those which exceed joint limits. 
+		 For example, you might want to force a robot motion with potential 
+		 risks such as singularity or Gimbal lock.</p></td>
+	</tr>
+	<tr>
+		<td>OnSetCurrentConfiguration</td>
+		<td>Integer <span class="Italic">configurationIndex</span></td>
+		<td>Triggered when the configuration of a robot is needed for a 
+		 kinematic solution. 
+		<p class="TableNormal">If this event is implemented, you should 
+		 set the robot's configurations property list based on the given 
+		 <span class="Italic">configurationIndex</span>.</p>
+		<p class="TableNormal"><span class="Strong">Important:</span> If 
+		 OnSetCurrentConfiguration is used, you need to implement the OnGetConfigurationCount 
+		 and OnGetCurrentConfiguration events.</p></td>
+	</tr>
+	<tr>
+		<td>OnUpdateSecondaryJoints</td>
+		<td><a href="vcKinObject.htm">vcKinObject</a> <span class="Italic">kin_object</span></td>
+		<td>Triggered when external joint values need to be recalculated 
+		 for motion target updates. 
+		<p class="TableNormal">The return value should be a Boolean.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Define custom Cartesian kinematics</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcPythonKinematics import * 
+		<br>import vcMatrix 
+		<br>import vcVector 
+		<br>&#160; 
+		<br># Define the amount of joints and their names what this kinematics supports 
+		<br>JOINT_COUNT = 6 
+		<br>JOINT_NAMES = [ &quot;Joint_1&quot;, &quot;Joint_2&quot;, &quot;Joint_3&quot;, &quot;Joint_4&quot;, &quot;Joint_5&quot;, &quot;Joint_6&quot; ] 
+		<br>&#160; 
+		<br># Base offset is the distance from robot component origin to flange nodes toolpoint 
+		<br>BASE_OFFSET = vcVector.new(234.542, 203.301, 1134.46) 
+		<br>&#160; 
+		<br># Returns the amount of joints this kinematics handles 
+		<br>def OnGetJointCount(): &#160;&#160; 
+		<br>&#160;&#160;return JOINT_COUNT 
+		<br>&#160; 
+		<br># Returns the indexed joint names 
+		<br>def OnGetJointName(index): &#160;&#160; 
+		<br>&#160;&#160;return JOINT_NAMES[index] 
+		<br>&#160; 
+		<br># Returns Kinematic chain target (matrix) value based on joint values 
+		<br>def OnForward(kinobj): &#160;&#160; 
+		<br>&#160;&#160;m = vcMatrix.new() &#160;&#160; 
+		<br>&#160;&#160;p = vcVector.new() &#160;&#160; 
+		<br>&#160;&#160;p.X = kinobj.JointValues[0] &#160;&#160; 
+		<br>&#160;&#160;p.Y = kinobj.JointValues[1] &#160;&#160; 
+		<br>&#160;&#160;p.Z = kinobj.JointValues[2] &#160;&#160; 
+		<br>&#160;&#160;p += BASE_OFFSET &#160;&#160; 
+		<br>&#160;&#160;m.P = p &#160;&#160; 
+		<br>&#160;&#160;e = vcVector.new() &#160;&#160; 
+		<br>&#160;&#160;e.X = kinobj.JointValues[3] &#160;&#160; 
+		<br>&#160;&#160;e.Y = kinobj.JointValues[4] &#160;&#160; 
+		<br>&#160;&#160;e.Z = kinobj.JointValues[5] &#160;&#160; 
+		<br>&#160;&#160;m.WPR = e &#160;&#160; 
+		<br>&#160;&#160;kinobj.Target = m &#160;&#160; 
+		<br>&#160;&#160;return True 
+		<br>&#160; 
+		<br># Returns Kinematic chain joint values based on the target (matrix) 
+		<br>def OnInverse(kinobj): &#160;&#160; 
+		<br>&#160;&#160;m = kinobj.Target &#160;&#160; 
+		<br>&#160;&#160;p = m.P &#160;&#160; 
+		<br>&#160;&#160;e = m.WPR &#160;&#160; 
+		<br>&#160;&#160;kinobj.JointValues = [ p.X-BASE_OFFSET.X, p.Y-BASE_OFFSET.Y, p.Z-BASE_OFFSET.Z, e.X, e.Y, e.Z ] 
+		<br>&#160;&#160;return True</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Define custom Scara kinematics</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcPythonKinematics import * 
+		<br>import vcMatrix 
+		<br>import vcVector 
+		<br>from math import * 
+		<br>&#160; 
+		<br># Define some helpers 
+		<br>DEBUG = False 
+		<br>EPSILON = 0.000001 
+		<br>MAX_DOUBLE = 1e39 
+		<br>PI = atan2(0,-1) 
+		<br>RAD_TO_DEG = 180.0/PI 
+		<br>DEG_TO_RAD = PI/180.0 
+		<br>&#160; 
+		<br>JOINT_COUNT = 4 
+		<br>JOINT_NAMES = [&quot;J1&quot;,&quot;J2&quot;,&quot;J3&quot;,&quot;J4&quot;] 
+		<br>&#160; 
+		<br>CONFIG_COUNT = 2 
+		<br>CONFIG_NAMES = [&quot;LEFTY&quot;,&quot;RIGHTY&quot;] 
+		<br>&#160; 
+		<br>JS = [1,1,1,1] 
+		<br>JZO = [0.0,0.0,0.0,0.0] 
+		<br>&#160; 
+		<br>LL1 = 0.0 
+		<br>LL2 = 0.0 
+		<br>ZeroHeight = 0.0 
+		<br>&#160; 
+		<br>FirstCall = True 
+		<br>&#160; 
+		<br>def OnRebuild(): 
+		<br>&#160;&#160;OnFinalize() 
+		<br>&#160; 
+		<br>def OnFinalize(): 
+		<br>&#160;&#160;global JS, JZO, CONFIG_NAMES, LL1, LL2, ZeroHeight, FirstCall 
+		<br>&#160;&#160;FirstCall = False &#160; 
+		<br>&#160;&#160;comp = getComponent() 
+		<br>&#160;&#160;JS[0] = comp.JointSign1 
+		<br>&#160;&#160;JS[1] = comp.JointSign2 
+		<br>&#160;&#160;JS[2] = comp.JointSign3 
+		<br>&#160;&#160;JS[3] = comp.JointSign4 
+		<br>&#160;&#160;JZO[0] = comp.JointZeroOffset1 
+		<br>&#160;&#160;JZO[1] = comp.JointZeroOffset2 
+		<br>&#160;&#160;JZO[2] = comp.JointZeroOffset3 
+		<br>&#160;&#160;JZO[3] = comp.JointZeroOffset4 
+		<br>&#160;&#160;CONFIG_NAMES[0] = comp.ConfigName1 
+		<br>&#160;&#160;CONFIG_NAMES[1] = comp.ConfigName2 
+		<br>&#160;&#160;LL1 = comp.L12.X 
+		<br>&#160;&#160;LL2 = comp.L23.X 
+		<br>&#160;&#160;ZeroHeight = comp.L01.Z+comp.L12.Z+comp.L23.Z+comp.L34.Z 
+		<br>&#160; 
+		<br># Returns the indexed configuration names 
+		<br>def GetConfigName(index): 
+		<br>&#160;&#160;return CONFIG_NAMES[index] 
+		<br>&#160; 
+		<br>def ANGLE(a): 
+		<br>&#160;&#160;remainder = fmod((a)+180, 360) 
+		<br>&#160;&#160;if remainder &lt; 0: 
+		<br>&#160;&#160;&#160;&#160;remainder += 360 
+		<br>&#160;&#160;return remainder - 180 
+		<br>&#160; 
+		<br>def GetNominalJoints(mappedjoints): 
+		<br>&#160;&#160;nominal = [0.0,0.0,0.0,0.0] 
+		<br>&#160;&#160;for i in range(JOINT_COUNT): 
+		<br>&#160;&#160;&#160;&#160;if i == 2: # translational joint 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;nominal[i] = JS[i]*mappedjoints[i]-JZO[i] 
+		<br>&#160;&#160;&#160;&#160;else: # rotational joint 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;nominal[i] = ANGLE(JS[i]*mappedjoints[i]-JZO[i]) &#160;&#160;&#160;&#160;&#160; 
+		<br>&#160;&#160;return nominal 
+		<br>&#160; 
+		<br>def GetMappedJoints(nominaljoints): 
+		<br>&#160;&#160;mapped = [0.0,0.0,0.0,0.0] 
+		<br>&#160;&#160;for i in range(JOINT_COUNT): 
+		<br>&#160;&#160;&#160;&#160;if i == 2: # translational joint 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;mapped[i] = JS[i]*(nominaljoints[i] + JZO[i]) 
+		<br>&#160;&#160;&#160;&#160;else: # rotational joint 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;mapped[i] = ANGLE(JS[i]*(nominaljoints[i] + JZO[i])) 
+		<br>&#160;&#160;return mapped 
+		<br>&#160; 
+		<br>def OnInitKinObject( kinobj ): 
+		<br>&#160;&#160;prop = kinobj.createProperty(VC_STRING, &quot;Configuration&quot;, VC_PROPERTY_STEP) 
+		<br>&#160;&#160;prop.Value = CONFIG_NAMES[0] 
+		<br>&#160;&#160;prop.StepValues = CONFIG_NAMES 
+		<br>&#160;&#160; 
+		<br>def OnGetJointCount(): 
+		<br>&#160;&#160;return JOINT_COUNT 
+		<br>&#160; 
+		<br>def OnGetJointName(index): 
+		<br>&#160;&#160;return JOINT_NAMES[index] 
+		<br>&#160; 
+		<br>def OnInverse(kinobj): 
+		<br>&#160;&#160;if FirstCall: 
+		<br>&#160;&#160;&#160;&#160;OnFinalize() 
+		<br>&#160;&#160;solutions = [] 
+		<br>&#160;&#160;warning = VC_SOLUTION_REACHABLE 
+		<br>&#160;&#160;px = kinobj.Target.P.X 
+		<br>&#160;&#160;py = kinobj.Target.P.Y 
+		<br>&#160;&#160;pz = kinobj.Target.P.Z 
+		<br>&#160;&#160;ox = kinobj.Target.O.X &#160;&#160; 
+		<br>&#160;&#160;oy = kinobj.Target.O.Y &#160;&#160; 
+		<br>&#160;&#160;# First we calculate the direction to the wrist center 
+		<br>&#160;&#160;a13= atan2( py, px )*RAD_TO_DEG 
+		<br>&#160;&#160;d13 = sqrt( px*px + py*py ) 
+		<br>&#160;&#160;if( d13 &gt; LL1 + LL2 ): 
+		<br>&#160;&#160;&#160;&#160;t1 = 0.0 
+		<br>&#160;&#160;&#160;&#160;t2 = 180.0 
+		<br>&#160;&#160;&#160;&#160;warning = VC_SOLUTION_UNREACHABLE 
+		<br>&#160;&#160;else: 
+		<br>&#160;&#160;&#160;&#160;if( d13 &lt; abs(LL1 - LL2) ): 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;t1 = 180.0 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;t2 = &#160;&#160;0.0 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;warning = VC_SOLUTION_UNREACHABLE 
+		<br>&#160;&#160;&#160;&#160;else: 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;t1 = sssa( LL2, LL1, &#160;d13 )*RAD_TO_DEG 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;t2 = sssa( &#160;d13, LL1, LL2 )*RAD_TO_DEG 
+		<br>&#160;&#160;&#160;&#160;#end if 
+		<br>&#160;&#160;#endif 
+		<br>&#160;&#160;j3 = pz - ZeroHeight 
+		<br>&#160;&#160;t4 = atan2(-ox, oy)*RAD_TO_DEG 
+		<br>&#160;&#160;for iconf in range(CONFIG_COUNT): &#160; 
+		<br>&#160;&#160;&#160;&#160;if iconf == 1: 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;sgn1 = -1 
+		<br>&#160;&#160;&#160;&#160;else: 
+		<br>&#160;&#160;&#160;&#160;&#160;&#160;sgn1 = 1 
+		<br>&#160;&#160;&#160;&#160;#endif 
+		<br>&#160;&#160;&#160;&#160;j1 = a13 + sgn1*t1 
+		<br>&#160;&#160;&#160;&#160;j2 = sgn1*(t2-180.0) 
+		<br>&#160;&#160;&#160;&#160;j4 = t4 - j1 - j2 
+		<br>&#160;&#160;&#160;&#160;solutions.append( [ warning, GetMappedJoints( [j1,j2,j3,j4] ) ] ) 
+		<br>&#160;&#160;# end for NUM_CONFIGS 
+		<br>&#160;&#160;kinobj.Solutions = solutions 
+		<br>&#160;&#160;return True 
+		<br>&#160; 
+		<br>def OnForward(kinobj): 
+		<br>&#160;&#160;if FirstCall: 
+		<br>&#160;&#160;&#160;&#160;OnFinalize() 
+		<br>&#160;&#160;nominal = GetNominalJoints( kinobj.JointValues ) 
+		<br>&#160;&#160;m04 = vcMatrix.new() 
+		<br>&#160;&#160;m04.rotateRelZ( nominal[0] ) 
+		<br>&#160;&#160;m04.translateRel( LL1, 0.0, 0.0 ) 
+		<br>&#160;&#160;m04.rotateRelZ( nominal[1] ) 
+		<br>&#160;&#160;m04.translateRel( LL2, 0.0, nominal[2]+ZeroHeight ) 
+		<br>&#160;&#160;m04.rotateRelZ( nominal[3] ) 
+		<br>&#160;&#160;#m04.rotateRelY( 180.0 ) 
+		<br>&#160;&#160;kinobj.Target = m04 
+		<br>&#160;&#160;if kinobj.JointValues[1] &lt;= 0.0: 
+		<br>&#160;&#160;&#160;&#160;kinobj.Configuration = GetConfigName(0) 
+		<br>&#160;&#160;else: 
+		<br>&#160;&#160;&#160;&#160;kinobj.Configuration = GetConfigName(1) 
+		<br>&#160;&#160;return True</td>
+	</tr>
+</table>
+</body>
+</html>

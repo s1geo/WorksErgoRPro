@@ -1,0 +1,78 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcSelectCommand</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcSelectCommand</h1>
+<p>vcSelectCommand provides options for handling selections made using the interactiveComponentSelect command.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcCommand.htm">vcCommand</a></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>PickedNode</td>
+<td><a href="vcNode.htm">vcNode</a></td>
+<td>R</td>
+<td>Gets the node containing an object picked using startPick() method.</td>
+</tr>
+<tr>
+<td>PickedObject</td>
+<td><a href="vcNode.htm">vcNode</a></td>
+<td>R</td>
+<td>Gets the object picked by command.</td>
+</tr>
+<tr>
+<td>PickedPrimitive</td>
+<td><a href="vcPrimative.htm">vcPrimitive</a></td>
+<td>R</td>
+<td>Gets the geometry primitive of an object picked using startPick() method.</td>
+</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>cancelPick</td>
+<td>None</td>
+<td>None</td>
+<td>Cancels an active pick process.</td>
+</tr>
+<tr>
+<td>startPick</td>
+<td>None</td>
+<td>None</td>
+<td>Starts picking process, thereby allowing an interactive selection to occur.
+<p class="TableNormal">Process ends after first pick or by calling cancelPick() method.</p>
+</td>
+</tr>
+</table>
+<!--======================================Methods=======================================-->
+<!--======================================Methods=======================================-->
+</body>
+</html>

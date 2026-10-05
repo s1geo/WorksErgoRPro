@@ -1,0 +1,109 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProcessFlowTable2</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcProcessFlowTable2</h1>
+<p>FlowTable2 contains a list of ProcessSequence2, one or none for each 
+ ProcessFlowGroup.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Data type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Controller</td>
+		<td><a href="vcProcessController.htm">vcProcessController</a></td>
+		<td>R</td>
+		<td>Owner of this FlowTable2</td>
+	</tr>
+	<tr>
+		<td>Sequences</td>
+		<td><a href="vcProcessSequence2.htm">vcProcessSequence2</a>[]</td>
+		<td>R</td>
+		<td>List of sequences</td>
+	</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>createSequence</td>
+		<td><a href="vcProcessSequence2.htm">vcProcessSequence2</a> or 
+		 None</td>
+		<td><a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> group</td>
+		<td>Creates sequence associated with given FlowGroup. Returns None, 
+		 if sequence already exists.</td>
+	</tr>
+	<tr>
+		<td>deleteSequence</td>
+		<td>None</td>
+		<td><a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> group</td>
+		<td>Deletes sequences associated with given FlowGroup.</td>
+	</tr>
+	<tr>
+		<td>getSequence</td>
+		<td><a href="vcProcessSequence2.htm">vcProcessSequence2</a> or 
+		 None</td>
+		<td><a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> group</td>
+		<td>Gets sequence associated with given FlowGroup. Returns None, 
+		 if FlowGroups does not have a sequence.</td>
+	</tr>
+	<tr>
+		<td>copySequenceFrom</td>
+		<td><a href="vcProcessSequence2.htm">vcProcessSequence2</a> or 
+		 None</td>
+		<td><a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> source, 
+		 <a href="vcProcessFlowGroup.htm">vcProcessFlowGroup</a> target</td>
+		<td>Copies a sequences from FlowGroup `source` to FlowGroup `target`. 
+		 Returns None (and does nothing), if the target FlowGroup already 
+		 has a sequence.</td>
+	</tr>
+</table>
+<h2>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnSequenceAdded</td>
+		<td><a href="vcProcessSequence2.htm">vcProcessSequence2</a></td>
+		<td>Triggered when a sequence is added.</td>
+	</tr>
+	<tr>
+		<td>OnSequenceRemoving</td>
+		<td><a href="vcProcessSequence2.htm">vcProcessSequence2</a></td>
+		<td>Triggered when a sequence is being removed.</td>
+	</tr>
+</table>
+</body>
+</html>

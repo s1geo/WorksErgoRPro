@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Интерактивная Интеллект-Карта Экосистемы WorksErgo R-Pro Edition</title>
+<style>
+:root {
+  --bg-primary: #0a0f1d;
+  --bg-secondary: #131d31;
+  --bg-card: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-blue: #38bdf8;
+  --accent-green: #4ade80;
+  --accent-yellow: #facc15;
+  --accent-orange: #fb923c;
+  --accent-purple: #c084fc;
+  --border: #334155;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+body { background: var(--bg-primary); color: var(--text-main); padding: 24px; min-height: 100vh; }
+.header { max-width: 1300px; margin: 0 auto 24px; text-align: center; }
+.header h1 { font-size: 30px; margin-bottom: 8px; color: var(--accent-blue); letter-spacing: -0.5px; }
+.header p { color: var(--text-muted); font-size: 15px; }
+
+.search-box { max-width: 600px; margin: 0 auto 24px; }
+#searchBar {
+  width: 100%; padding: 12px 18px; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--bg-secondary); color: #fff; font-size: 15px; outline: none; transition: border-color 0.2s;
+}
+#searchBar:focus { border-color: var(--accent-blue); box-shadow: 0 0 0 3px rgba(56,189,248,0.2); }
+
+.tree-container { max-width: 1300px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+
+.root-card {
+  background: linear-gradient(135deg, #1e3a8a, #0369a1);
+  border: 1px solid var(--accent-blue);
+  border-radius: 12px; padding: 20px 24px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+.root-title { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+.root-sub { font-size: 14px; color: #e0f2fe; }
+
+.branches-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 20px; }
+
+.branch-card {
+  background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 10px;
+  padding: 18px 20px; display: flex; flex-direction: column; gap: 14px; transition: transform 0.15s, border-color 0.15s;
+}
+.branch-card:hover { transform: translateY(-2px); border-color: var(--accent-blue); }
+
+.branch-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+.branch-title { font-size: 17px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.badge { font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; }
+
+.b-blue { color: var(--accent-blue); } .badge-blue { background: rgba(56,189,248,0.2); color: var(--accent-blue); }
+.b-green { color: var(--accent-green); } .badge-green { background: rgba(74,222,128,0.2); color: var(--accent-green); }
+.b-yellow { color: var(--accent-yellow); } .badge-yellow { background: rgba(250,204,21,0.2); color: var(--accent-yellow); }
+.b-orange { color: var(--accent-orange); } .badge-orange { background: rgba(251,146,60,0.2); color: var(--accent-orange); }
+.b-purple { color: var(--accent-purple); } .badge-purple { background: rgba(192,132,252,0.2); color: var(--accent-purple); }
+
+.node-list { display: flex; flex-direction: column; gap: 10px; }
+.node-item {
+  background: var(--bg-card); border-radius: 6px; padding: 10px 14px;
+  border-left: 3px solid transparent; font-size: 13.5px; line-height: 1.45;
+}
+.node-item:hover { background: #283548; }
+.node-title { font-weight: 600; color: #fff; margin-bottom: 3px; display: flex; justify-content: space-between; align-items: center; }
+.node-desc { color: var(--text-muted); font-size: 12.5px; }
+.node-links { margin-top: 6px; display: flex; gap: 8px; flex-wrap: wrap; }
+.link-btn {
+  font-size: 11px; padding: 4px 8px; border-radius: 4px; background: rgba(255,255,255,0.08);
+  color: var(--accent-blue); text-decoration: none; font-weight: 600; transition: background 0.2s;
+}
+.link-btn:hover { background: var(--accent-blue); color: #000; }
+
+.footer { text-align: center; margin-top: 30px; color: var(--text-muted); font-size: 13px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Интеллект-Карта Экосистемы WorksErgo R-Pro Edition</h1>
+  <p>Единый навигатор по 3D-механике CAD, 28 видеоисследованиям, 36 научным трудам, датасетам и архитектуре сборок</p>
+</div>
+
+<div class="search-box">
+  <input type="text" id="searchBar" placeholder="Поиск по карте (например, Floating Hands, L5/S1, MoCap, Snapping, EAWS, Omniverse)...">
+</div>
+
+<div class="tree-container">
+  <div class="root-card">
+    <div class="root-title">WorksErgo R-Pro Edition (Zero-Cloud DHM Core)</div>
+    <div class="root-sub">Автономное 100% локальное расширение для Р-Про v2.2.2 и Visual Components</div>
+  </div>
+
+  <div class="branches-grid">
+    <!-- ВЕТВЬ 1: 3D CAD ВЗАИМОДЕЙСТВИЕ -->
+    <div class="branch-card">
+      <div class="branch-header">
+        <span class="branch-title b-blue">1. 3D CAD Взаимодействие (UX)</span>
+        <span class="badge badge-blue">Сцена & Хэндлы</span>
+      </div>
+      <div class="node-list">
+        <div class="node-item" style="border-left-color: var(--accent-blue);">
+          <div class="node-title">Floating Hands (Плавающие кисти)</div>
+          <div class="node-desc">Инженер привязывает кисти через Snapping (Set Orientation, Align Axis: '-X'). Тело манекена автоматически находит позу через IK. Векторы сил тяги/толкания в 3D.</div>
+          <div class="node-links">
+            <a class="link-btn" href="../03_cad_documentation_and_help/Temp_Help_Ergonomics_v0.1.html" target="_blank">Руководство взаимодействия &rarr;</a>
+          </div>
+        </div>
+        <div class="node-item" style="border-left-color: var(--accent-blue);">
+          <div class="node-title">3D Напольный Контроллер (Режим Interact)</div>
+          <div class="node-desc">Напольная зеленая пластина Work(s) Ergo. Желтый цилиндр (MultiPose скраббинг), Синий горизонтальный (смена типа задачи), Розовый цилиндр (сброс в Ready Pose).</div>
+        </div>
+        <div class="node-item" style="border-left-color: var(--accent-blue);">
+          <div class="node-title">Интерактивный Барьер (Barrier.rpro)</div>
+          <div class="node-desc">Параллелепипед препятствия масштабируется перетаскиванием любой из 6 граней. Точка Origin всегда в центре объема. Поддержка упора телом (Body Bracing).</div>
+        </div>
+        <div class="node-item" style="border-left-color: var(--accent-blue);">
+          <div class="node-title">Парящие HUD и Панель Свойств</div>
+          <div class="node-desc">Планшет Body Map Whiteboard, тулбар MultiPose, разметка квадрантов Центра Давления (COP). Вывод DCR и параметров в нативные свойства Р-Про.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ВЕТВЬ 2: 28 ВИДЕО ДЕМОНСТРАЦИЙ -->
+    <div class="branch-card">
+      <div class="branch-header">
+        <span class="branch-title b-green">2. Исследование 28 Видео (@idkfa3)</span>
+        <span class="badge badge-green">28 Роликов</span>
+      </div>
+      <div class="node-list">
+        <div class="node-item" style="border-left-color: var(--accent-green);">
+          <div class="node-title">Серия 01–09: Базовые Механики</div>
+          <div class="node-desc">Floating Hands (01), Copy/Paste (02), Obstructed Eye Gaze (03), Task Types (04), Векторы сил и HandPak (05), Body Bracing (06), Импорт окружения (07), Straight Legs (08), Batch Analysis (09).</div>
+          <div class="node-links">
+            <a class="link-btn" href="../00_video_analysis/MASTER_28_VIDEOS_ANALYSIS.md" target="_blank">Мастер-отчет по 28 видео &rarr;</a>
+          </div>
+        </div>
+        <div class="node-item" style="border-left-color: var(--accent-green);">
+          <div class="node-title">Серия 51–60: Индустриальные Сценарии</div>
+          <div class="node-desc">Несколько манекенов (51-52), Task Types & MultiPose (53-54), Встраивание медиа (55), Верстаки item v1 и v2 (56-57), Эргономика офиса (58), Candy-Wrapper (59), Teamwork (60).</div>
+        </div>
+        <div class="node-item" style="border-left-color: var(--accent-green);">
+          <div class="node-title">Серия 61–68: Глубокая Интеграция</div>
+          <div class="node-desc">Bosch Rexroth (61), Detroit Murals (62), Web Experience (63), NVIDIA Omniverse USD (64), Pose Animation (65), Above Shoulder (66), LM-MMH Snook (67), VR Testing (68).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ВЕТВЬ 3: НАУЧНАЯ БАЗА 36 ИСТОЧНИКОВ -->
+    <div class="branch-card">
+      <div class="branch-header">
+        <span class="branch-title b-yellow">3. Научный Базис (36 Источников)</span>
+        <span class="badge badge-yellow">Академическое Ядро</span>
+      </div>
+      <div class="node-list">
+        <div class="node-item" style="border-left-color: var(--accent-yellow);">
+          <div class="node-title">Вычислительная Кинематика & Демпфирование</div>
+          <div class="node-desc">FABRIK (Aristidou 2011), Damped Least Squares DLS (Buss 2004), Траекторная оптимизация TrajOpt (Schulman 2014), кватернионный бессингулярный решатель.</div>
+          <div class="node-links">
+            <a class="link-btn" href="../01_scientific_papers_and_datasets/SCIENTIFIC_REGISTRY_AND_DATASETS_INDEX.md" target="_blank">Реестр первоисточников &rarr;</a>
+          </div>
+        </div>
+        <div class="node-item" style="border-left-color: var(--accent-yellow);">
+          <div class="node-title">Биомеханика Поясницы L5/S1 & Усталость</div>
+          <div class="node-desc">Модель Chaffin SSPP (предел сжатия 3400 Н), Дортмундский атлас Jäger (возрастная прочность), усталость Потвина MAE (2012), усталостные микротрещины дисков Brinckmann.</div>
+        </div>
+        <div class="node-item" style="border-left-color: var(--accent-yellow);">
+          <div class="node-title">Истинный Баланс Dempster-Winter CoM / BoS</div>
+          <div class="node-desc">Центр тяжести рассчитывается по взвешенной сумме 6 сегментов тела и груза. Проекция CofP обязана лежать в BoS стопы [-70, +180 мм]. Динамика Kingma F=ma.</div>
+        </div>
+        <div class="node-item" style="border-left-color: var(--accent-yellow);">
+          <div class="node-title">Психофизика & Международные Стандарты</div>
+          <div class="node-desc">Snook-Ciriello (LM-MMH), NIOSH Lifting Equation, 23 хвата HandPak, Arm Force Field (AFF), EAWS автоконцернов (BMW, VW, Stellantis), ISO 11228-1/2/3, ISO 11226, RULA, REBA.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ВЕТВЬ 4: ДАТАСЕТЫ И ИИ-СУРРОГАТ -->
+    <div class="branch-card">
+      <div class="branch-header">
+        <span class="branch-title b-orange">4. Датасеты и ИИ-Суррогат (ONNX)</span>
+        <span class="badge badge-orange">Machine Learning</span>
+      </div>
+      <div class="node-list">
+        <div class="node-item" style="border-left-color: var(--accent-orange);">
+          <div class="node-title">Локальный MoCap Датасет Пользователя</div>
+          <div class="node-desc">12 файлов BVH Axis Studio (Perception Neuron), 22 907 кадров @ 96 Гц. Реальные позы приседаний, полуприседа и наклонов. Путь: D:\Задания, Уроки\Запись с датчиков\</div>
+        </div>
+        <div class="node-item" style="border-left-color: var(--accent-orange);">
+          <div class="node-title">Мировые Базы Антропометрии</div>
+          <div class="node-desc">ANSUR II (6068 сканов военнослужащих США), CAESAR (4400 3D сканов), AMASS (SMPL-X), OpenSim Rajagopal (138 мышц). Параметризация перцентилей 5th, 50th, 95th.</div>
+        </div>
+        <div class="node-item" style="border-left-color: var(--accent-orange);">
+          <div class="node-title">Пайплайн Нейросети-Суррогата</div>
+          <div class="node-desc">PyTorch MLP: входы (координаты кистей X,Y,Z и масса груза) &rarr; выходы (24 угла суставов, CoM, сжатие L5/S1). Экспорт в worksergo_surrogate.onnx. Инференс в C# 60 FPS (0.2 мс).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ВЕТВЬ 5: АРХИТЕКТУРА И ДОКУМЕНТАЦИЯ -->
+    <div class="branch-card">
+      <div class="branch-header">
+        <span class="branch-title b-purple">5. Системная Архитектура & Портал</span>
+        <span class="badge badge-purple">.NET & Портал</span>
+      </div>
+      <div class="node-list">
+        <div class="node-item" style="border-left-color: var(--accent-purple);">
+          <div class="node-title">Бинарная Инфраструктура Р-Про v2.2.2</div>
+          <div class="node-desc">Plugin.WorksErgo.dll (.NET Framework 4.8), компиляция против неподписанной UX.Shared.dll (v4.5.0.0). Регистрация MEF DirectoryCatalog, лента WPF, Infragistics DockManager.</div>
+          <div class="node-links">
+            <a class="link-btn" href="../02_rpro_and_vc_binaries/BINARIES_ARCHITECTURE_AND_API_DUMP.md" target="_blank">Анализ сборок DLL &rarr;</a>
+          </div>
+        </div>
+        <div class="node-item" style="border-left-color: var(--accent-purple);">
+          <div class="node-title">Компоненты eCat (.rpro)</div>
+          <div class="node-desc">DHM_Worker.rpro (параметрический манекен, Floating Hands, ServoController, 3 цилиндра), Barrier.rpro (интерактивный 6-гранный параллелепипед).</div>
+        </div>
+        <div class="node-item" style="border-left-color: var(--accent-purple);">
+          <div class="node-title">Локальный Портал Документации (625 тем)</div>
+          <div class="node-desc">Интерактивный поисковый портал documentation_portal.html. Декомпилированные CHM-руководства Р-Про (Help_RP_RU, Python_API, Ergonomics, WPP, MoCap). Нулевой расход токенов.</div>
+          <div class="node-links">
+            <a class="link-btn" href="../03_cad_documentation_and_help/documentation_portal.html" target="_blank">Открыть Портал Документации &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    WorksErgo R-Pro Edition &bull; Среда Р-Про v2.2.2 &bull; Репозиторий D:\Git\WorksErgoRPro\
+  </div>
+</div>
+
+<script>
+const searchBar = document.getElementById('searchBar');
+const nodeItems = document.querySelectorAll('.node-item');
+const branchCards = document.querySelectorAll('.branch-card');
+
+searchBar.addEventListener('input', e => {
+  const q = e.target.value.toLowerCase().trim();
+  nodeItems.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    const match = !q || text.includes(q);
+    item.style.display = match ? 'block' : 'none';
+  });
+});
+</script>
+</body>
+</html>

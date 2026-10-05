@@ -1,0 +1,81 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProductCreatorTableRow</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcProductCreatorTableRow</h1>
+<p>Configuration for creating a single product instance at a specified 
+ simulation time in <a href="vcProductCreatorTableMode.htm">vcProductCreatorTableMode</a>. 
+ Note that instances of this class are stand-alone objects, not wrappers 
+ for internal native objects, which means that modifying them will not 
+ change anything in <a href="vcProductCreatorTableMode.htm">vcProductCreatorTableMode</a>.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot25907" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot25907', 'MTPOPUP25907');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP25907" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Constructors</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Properties</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Constructors</h2>
+<p>vcRobot is the object type used for programming a robot, its controller 
+ and executor with this library.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>new</td>
+		<td><a href="vcProductCreatorTableRow.htm">vcProductCreatorTableRow</a></td>
+		<td>None</td>
+		<td>Creates a new vcProductCreatorTableRow object. The ProductType 
+		 property must be set to make it valid. </td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ProductType</td>
+		<td><a href="vcProductType.htm">vcProductType</a></td>
+		<td>RW</td>
+		<td>The product type to instantiate. Value should not be None.</td>
+	</tr>
+	<tr>
+		<td>CreationTime</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Simulation time in seconds when to create the product instance. 
+		 Value must be greater than or equal to zero.</td>
+	</tr>
+</table>
+</body>
+</html>

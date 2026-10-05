@@ -1,0 +1,90 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcSelectionManager</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcSelectionManager</h1>
+<p>vcSelectionManager is responsible for handling the types of selections 
+ used by the application.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot29682" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot29682', 'MTPOPUP29682');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP29682" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Events</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>clear</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Removes all objects from selection.</td>
+	</tr>
+	<tr>
+		<td>getSelection</td>
+		<td>List of &lt;Type&gt;</td>
+		<td>Enumeration <span class="Italic">type</span></td>
+		<td>Returns a list of objects of a given <span class="Italic">type</span> 
+		 that are in selection. 
+		<p class="TableNormal">See <a href="Constants.htm#Selection">Selection 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>setSelection</td>
+		<td>None</td>
+		<td>&lt;Type&gt; <span class="Italic">object</span>, [Boolean <span 
+		 class="Italic">append</span>]
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">List of &lt;Type&gt; <span class="Italic">objects</span>, 
+		 [Boolean <span class="Italic">append</span>]</p></td>
+		<td>Creates a new selection for a given <span class="Italic">object</span> 
+		 or list of <span class="Italic">objects</span> of a supported 
+		 selection type. 
+		<p class="TableNormal">An optional <span class="Italic">append</span> 
+		 argument can be used to retain current selection, thereby appending 
+		 the given object(s) to that selection.</p>
+		<p class="TableNormal">See <a href="Constants.htm#Selection">Selection 
+		 Constants</a> for more information.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnSelectionChanged</td>
+		<td>None</td>
+		<td>Triggered when a selection has changed in application.</td>
+	</tr>
+</table>
+</body>
+</html>

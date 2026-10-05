@@ -1,0 +1,248 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcHelpers.Math</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body page-style="x-size: A4;" page-frame-style="margin-left: 0.25in; margin-right: 0.25in;">
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcHelpers.Math</h1>
+<p>vcHelpers.Math is a library of helpful methods for calculating common 
+ geometric problems.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot26435" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot26435', 'MTPOPUP26435');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP26435" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Constants</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark7" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Constants</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Value</td>
+	</tr>
+	<tr>
+		<td>DEG_TO_RAD</td>
+		<td>0.017453292519943295769236907684886</td>
+	</tr>
+	<tr>
+		<td>PI</td>
+		<td>3.1415926535897932384626433832795</td>
+	</tr>
+	<tr>
+		<td>RAD_TO_DEG</td>
+		<td>57.296779513082320876798154814105</td>
+	</tr>
+	<tr>
+		<td>ZERO</td>
+		<td>0.0001</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<h3><a name="MiniTOCBookMark4"></a>Triangular Solvers</h3>
+<p>a = side1</p>
+<p>b = side2</p>
+<p>c = side3</p>
+<p>alpha = angle1</p>
+<p>beta = angle2</p>
+<p>gamma = angle3</p>
+<p><img src="Trigonometric%20Example1.png" alt="" border="0"></p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>sasa</td>
+		<td>Real angle1</td>
+		<td>Real <span class="Italic">side1</span>, Real <span class="Italic">angle3</span>, 
+		 Real <span class="Italic">side2</span></td>
+		<td>Returns the value of alpha in radians.</td>
+	</tr>
+	<tr>
+		<td>sass</td>
+		<td>Real side3</td>
+		<td>Real <span class="Italic">side1</span>, Real <span class="Italic">angle3</span>, 
+		 Real <span class="Italic">side2</span></td>
+		<td>Returns the value of b.</td>
+	</tr>
+	<tr>
+		<td>sssa</td>
+		<td>Real angle1</td>
+		<td>Real <span class="Italic">side1</span>, Real <span class="Italic">side2</span>, 
+		 Real <span class="Italic">side3</span></td>
+		<td>Returns the value of alpha in radians.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark5"></a>Quadrilateral Solvers</h3>
+<p>A = side1</p>
+<p>B = side2</p>
+<p>C = side3</p>
+<p>D = side4</p>
+<p>a = angle1</p>
+<p>b = angle2</p>
+<p>c = angle3</p>
+<p>d = angle4</p>
+<p>&#160;</p>
+<p><img src="fourlinks.png" alt="" border="0"></p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>sasasa</td>
+		<td>Real angle3</td>
+		<td>Real <span class="Italic">side1</span>, Real <span class="Italic">angle1</span>, 
+		 Real <span class="Italic">side2</span>, Real <span class="Italic">angle2</span>, 
+		 Real <span class="Italic">side3</span></td>
+		<td>Returns the value of c in radians.</td>
+	</tr>
+	<tr>
+		<td>sasass</td>
+		<td>Real side4</td>
+		<td>Real <span class="Italic">side1</span>, Real <span class="Italic">angle1</span>, 
+		 Real <span class="Italic">side2</span>, Real <span class="Italic">angle2</span>, 
+		 Real <span class="Italic">side3</span></td>
+		<td>Returns the value of D.</td>
+	</tr>
+	<tr>
+		<td>sasssa1</td>
+		<td>Real angle2</td>
+		<td>Real <span class="Italic">side1</span>, Real <span class="Italic">angle1</span>, 
+		 Real <span class="Italic">side2</span>, Real <span class="Italic">side3</span>, 
+		 Real <span class="Italic">side4</span></td>
+		<td>Returns the value of b in radians.</td>
+	</tr>
+	<tr>
+		<td>sasssa2</td>
+		<td>Real angle3</td>
+		<td>Real <span class="Italic">side1</span>, Real <span class="Italic">angle1</span>, 
+		 Real <span class="Italic">side2</span>, Real <span class="Italic">side3</span>, 
+		 Real <span class="Italic">side4</span></td>
+		<td>Returns the value of c in radians.</td>
+	</tr>
+	<tr>
+		<td>sasasad</td>
+		<td>Real angle3</td>
+		<td>Real <span class="Italic">side1</span>, Real <span class="Italic">angle1</span>, 
+		 Real <span class="Italic">side2</span>, Real <span class="Italic">angle2</span>, 
+		 Real <span class="Italic">side3</span></td>
+		<td>Returns the value of c in degrees.</td>
+	</tr>
+	<tr>
+		<td>sasassd</td>
+		<td>Real side4</td>
+		<td>Real <span class="Italic">side1</span>, Real <span class="Italic">angle1</span>, 
+		 Real <span class="Italic">side2</span>, Real <span class="Italic">angle2</span>, 
+		 Real <span class="Italic">side3</span></td>
+		<td>Returns the value of D.</td>
+	</tr>
+	<tr>
+		<td>sasssa1d</td>
+		<td>Real angle2</td>
+		<td>Real <span class="Italic">side1</span>, Real <span class="Italic">angle1</span>, 
+		 Real <span class="Italic">side2</span>, Real <span class="Italic">side3</span>, 
+		 Real <span class="Italic">side4</span></td>
+		<td>Returns the value of b in degrees.</td>
+	</tr>
+	<tr>
+		<td>sasssa2d</td>
+		<td>Real angle3</td>
+		<td>Real <span class="Italic">side1</span>, Real <span class="Italic">angle1</span>, 
+		 Real <span class="Italic">side2</span>, Real <span class="Italic">side3</span>, 
+		 Real <span class="Italic">side4</span></td>
+		<td>Returns the value of c in degrees.</td>
+	</tr>
+	<tr>
+		<td >trapezoid</td>
+		<td >Real y</td>
+		<td >Real a, Real b, Real x, Real c, Real d</td>
+		<td >Return a value between 0-1 based on the x location on trapezoid 
+		 defined by a,b,c,d.</td>
+	</tr>
+	<tr>
+		<td >trapesine</td>
+		<td >Real y</td>
+		<td >Real a, Real b, Real x, Real c, Real d</td>
+		<td >Return a value between 0-1 based on the x location on trapezoid 
+		 defined by a,b,c,d with sinusoidal ramps.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark6"></a>Matrix to Expression Conversion</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>matrixExpr</td>
+		<td>String</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a> <span class="Italic">M</span>, 
+		 [Real <span class="Italic">tolerance</span>]</td>
+		<td>Converts a given <a href="vcMatrix.htm">vcMatrix</a> object 
+		 to a string expression.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark7"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Print angle between side2 and side3 in 
+ a triangle</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td><span>from vcScript import *</span> 
+		<br><span>from vcHelpers.Math import *</span> 
+		<br>&#160; 
+		<br>#angle in radians 
+		<br><span>print sssa(1.0, 1.0, 1.0)</span> 
+		<br>&#160; 
+		<br>#angle in degrees 
+		<br>print (sssa(1.0,1.0,1.0)*180.0)/PI</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Print expression of 4x4 matrix</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcHelpers.Math import * 
+		<br>import vcMatrix 
+		<br>&#160; 
+		<br>#prints Tx(100).Ty(100).Tz(100) 
+		<br>m = vcMatrix.new() 
+		<br>m.translateAbs(100,100,100) 
+		<br>print matrixExpr(m)</td>
+	</tr>
+</table>
+</body>
+</html>

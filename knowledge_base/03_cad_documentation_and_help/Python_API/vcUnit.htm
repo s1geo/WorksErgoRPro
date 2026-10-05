@@ -1,0 +1,161 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcUnit</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcUnit</h1>
+<p>vcUnit represents a single unit of measurement complete with a name, 
+ suffix and properties for describing linear mapping between canonical 
+ and unit values.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot9366" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot9366', 'MTPOPUP9366');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP9366" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Unit Conversion</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Unit Conversion</h2>
+<p>The conversion between canonical and unit values is as follows:</p>
+<ul style="list-style: disc;">
+	<li class="Unordered"><span class="Strong">Canonical value to Unit 
+	 value</span><br>
+	UnitValue := (Canonical - Offset) / Factor</li>
+	<li class="Unordered"><span class="Strong">Unit value to Canonical 
+	 value</span><br>
+	CanonicalValue := UnitValue * Factor + Offset</li>
+</ul>
+<h2><a name="MiniTOCBookMark3"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Factor</td>
+		<td>Real</td>
+		<td>RW/R</td>
+		<td>If unit is built-in, gets conversion factor; otherwise defines 
+		 conversion factor. That is, the size of unit in canonical units 
+		 which must be larger than zero.</td>
+	</tr>
+	<tr>
+		<td>Group</td>
+		<td><a href="vcUnitGroup.htm">vcUnitGroup</a></td>
+		<td>R</td>
+		<td>Gets the unit group of unit, which is defined at the time of 
+		 unit creation.</td>
+	</tr>
+	<tr>
+		<td>IsBuiltIn</td>
+		<td>Boolean</td>
+		<td>R</td>
+		<td>Indicates if unit is built-in.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW/R</td>
+		<td>If unit is built-in, gets the unit's name; otherwise defines 
+		 the name of unit.</td>
+	</tr>
+	<tr>
+		<td>Offset</td>
+		<td>Real</td>
+		<td>RW/R</td>
+		<td>If unit is built-in, gets zero-point offset; otherwise defines 
+		 the canonical value at which the unit value is zero.</td>
+	</tr>
+	<tr>
+		<td>Suffix</td>
+		<td>String</td>
+		<td>RW/R</td>
+		<td>If built-in, gets unit's suffix; otherwise defines the suffix 
+		 of unit , which is displayed in GUI with property values.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>convertFromCanonical</td>
+		<td>Real</td>
+		<td>Real <span class="Italic">value</span></td>
+		<td>Converts a given canonical value to a unit value, and then 
+		 returns the unit value.</td>
+	</tr>
+	<tr>
+		<td>convertToCanonical</td>
+		<td>Real</td>
+		<td>Real <span class="Italic">value</span></td>
+		<td>Converts a given unit value to a canonical value, and then 
+		 returns the canonical value.</td>
+	</tr>
+	<tr>
+		<td>getConstantExpression</td>
+		<td>String</td>
+		<td>Real <span class="Italic">value</span></td>
+		<td>Converts a given canonical value to a unit value, and then 
+		 returns an expression of unit value with an appended unit specification.</td>
+	</tr>
+	<tr>
+		<td>getRelativeMagnitude</td>
+		<td>Real</td>
+		<td>Real <span class="Italic">magnitude</span></td>
+		<td>Returns the size of unit in relation to a given magnitude using 
+		 a logarithm of unit factor and a given <span class="Italic">magnitude</span> 
+		 which must be greater than zero.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a>Examples</h2>
+<p><span class="Example"><a name="ConvertUnitValues"></a>Example. Convert 
+ unit values</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>def OnRun(): 
+		<br>&#160;&#160;comp = getComponent() 
+		<br>&#160;&#160;prop = comp.getProperty(&quot;Temperature&quot;) 
+		<br>&#160;&#160;unit = prop.Unit
+		<br>&#160;&#160; 
+		<br>&#160;&#160;#convert to unit value 
+		<br>&#160;&#160;unit_value = (prop.Value - unit.Offset)*unit.Factor 
+		<br>&#160;&#160; 
+		<br>&#160;&#160;#convert unit to canonical value 
+		<br>&#160;&#160;canonical_value = unit_value * unit.Factor + unit.Offset 
+		<br>&#160;&#160;print canonical_value</td>
+	</tr>
+</table>
+</body>
+</html>

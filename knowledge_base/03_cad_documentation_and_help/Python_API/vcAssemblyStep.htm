@@ -1,0 +1,178 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="vcAssemblyStep, AssemblyStep, Assembly Step">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcAssemblyStep</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcAssemblyStep</h1>
+<p>Assembly step is one phase of the entire assembly.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Properties</td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td>General property container.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Step name.</td>
+	</tr>
+	<tr>
+		<td>ProcessParameters</td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>RW</td>
+		<td>Process parameters property container.</td>
+	</tr>
+	<tr>
+		<td>Owner</td>
+		<td><a href="vcAssemblyProductType.htm">vcAssemblyProductType</a></td>
+		<td>R</td>
+		<td>The assembly product type that the step is part of.</td>
+	</tr>
+	<tr>
+		<td>ChildSteps</td>
+		<td>vcAssemblyStep</td>
+		<td>R</td>
+		<td>Direct children of the assembly step.</td>
+	</tr>
+	<tr>
+		<td>ParentStep</td>
+		<td>vcAssemblyStep</td>
+		<td>R</td>
+		<td>The parent step of the assembly step. 
+		<br>&#160; 
+		<br>The root step of the assembly product type has 
+		 None as parent.</td>
+	</tr>
+	<tr>
+		<td>RelativeFrame</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Relative position of the step with respect to its parent.</td>
+	</tr>
+	<tr>
+		<td>AbsoluteFrame</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>R</td>
+		<td>Position of the step with respect to the root of assembly product 
+		 type.</td>
+	</tr>
+	<tr>
+		<td>Pattern</td>
+		<td><a href="vcAssemblyPattern.htm">vcAssemblyPattern</a></td>
+		<td>RW</td>
+		<td>The assembly pattern used for the assembly step. The value 
+		 may be None.</td>
+	</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>moveChildStep</td>
+		<td>None</td>
+		<td>vcAssemblyStep <i>step</i>, Integer <i>index</i></td>
+		<td>Moves child <i>step</i> within the vcAssemblyStep to new <i>index</i>.</td>
+	</tr>
+	<tr>
+		<td>getProperty</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String <i>propertyName</i></td>
+		<td>Returns a property of the step.</td>
+	</tr>
+	<tr>
+		<td>deleteProcessParameter</td>
+		<td>None</td>
+		<td><a href="vcProperty.htm">vcProperty</a> <i>property</i></td>
+		<td>Deletes a custom process parameter associated with the step.</td>
+	</tr>
+	<tr>
+		<td>getProcessParameter</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String <i>propertyName</i></td>
+		<td>Returns a custom process parameter associated with the step.</td>
+	</tr>
+	<tr>
+		<td>createProcessParameter</td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>Enumeration <i>type</i>, String <i>name</i>, [Enumeration constraints]</td>
+		<td>Creates a new custom process parameter associated to the step. 
+		 
+		<br>&#160; 
+		<br>See <a href="Constants.htm#Property_Constants">Property 
+		 Constraint Constants</a> for more information.</td>
+	</tr>
+</table>
+<h2>Events</h2>
+<p>Note: When assembly steps are moved between different parents steps, 
+ this is seen as an OnChildStepRemoving event for the old parent step and 
+ an OnChildStepAdded event for the new parent step. When assembly steps 
+ are moved to new indexes within the same parent step, this is seen as 
+ an OnChildStepMoved event for the parent step.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.33%;">
+	<col style="width: 33.33%;">
+	<col style="width: 33.33%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnChildStepAdded</td>
+		<td>vcAssemblyStep <i>step</i>, Integer <i>index</i></td>
+		<td>Triggered when a step has been added to the assembly step.</td>
+	</tr>
+	<tr>
+		<td>OnChildStepMoved</td>
+		<td>vcAssemblyStep <i>step</i>, Integer <i>oldIndex</i>, Integer 
+		 <i>newIndex</i></td>
+		<td>Triggered when a step has been moved to a new index within 
+		 the assembly step.</td>
+	</tr>
+	<tr>
+		<td>OnChildStepRemoving</td>
+		<td>vcAssemblyStep <i>step</i>, Integer <i>index</i></td>
+		<td>Triggered when a step is being removed from the assembly step.</td>
+	</tr>
+	<tr>
+		<td>OnPatternChanged</td>
+		<td>vcAssemblyStep <i>step</i>, <a href="vcAssemblyPattern.htm">vcAssemblyPattern</a> 
+		 <i>pattern</i></td>
+		<td>Triggered when a pattern has changed for the assembly step. 
+		 <i>Pattern</i> in the parameters is the new pattern.</td>
+	</tr>
+</table>
+</body>
+</html>

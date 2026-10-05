@@ -1,0 +1,161 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcProduct</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { color:#000000; }
+span.hcp2 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcProduct</h1>
+<p>A product instance is a data object corresponding to a specific vcProductType 
+ and associated to a dynamic vcComponent that gives it a physical presence 
+ in the 3D world. The product type of vcProduct instance can change during 
+ its lifetime, but is always explicitly defined. Every vcProduct is always 
+ linked to exactly one dynamic vcComponent, and this linking doesn’t change 
+ during the product’s lifetime.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot46987" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot46987', 'MTPOPUP46987');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP46987" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+ </div>
+</div>
+<p>&#160;</p>
+<p>&#160;</p>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td><p>Properties </p></td>
+		<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+		<td>R</td>
+		<td>Gets the properties that have <a href="vcProperty.htm">vcProperty</a> 
+		 implementation.</td>
+	</tr>
+	<tr>
+		<td>ProductType </td>
+		<td><a href="vcProductType.htm">vcProductType</a> </td>
+		<td>R</td>
+		<td>The type of this product.</td>
+	</tr>
+	<tr>
+		<td>Component </td>
+		<td><a href="vcComponent.htm">vcComponent</a> </td>
+		<td>R</td>
+		<td>The component associated with this product instance.</td>
+	</tr>
+	<tr>
+		<td><span class="hcp1">CurrentProcessFlowState</span></td>
+		<td><span class="hcp1"><a href="vcProcessFlowState.htm">vcProcessFlowState</a> 
+		 </span></td>
+		<td><span class="hcp1">RW</span></td>
+		<td><span class="hcp1">Current FlowState of the product.</span></td>
+	</tr>
+	<tr>
+		<td>TransportSolution </td>
+		<td><a href="vcTransportSolution.htm">vcTransportSolution</a> </td>
+		<td>RW</td>
+		<td><p>Latest transport solution assigned to this product instance. 
+		 Note that the product may already have reached the destination 
+		 node and continued further by other means.</p></td>
+	</tr>
+	<tr>
+		<td>LastEnteredNode </td>
+		<td><a href="vcTransportNode.htm">vcTransportNode</a> </td>
+		<td>R</td>
+		<td>Gets the transport node this product instance has last arrived 
+		 in. Can be used to determine the product’s position along its 
+		 transport solution.</td>
+	</tr>
+	<tr>
+		<td><span class="hcp1">NextProcessFlowInfo</span></td>
+		<td><span style="color: #000080;"><a href="vcNextProcessFlowInfo.htm">vcNextProcessFlowInfo</a></span></td>
+		<td><span class="hcp1">RW</span></td>
+		<td><span class="hcp1">Information used to determine 
+		 next FlowState of a product.</span></td>
+	</tr>
+	<tr>
+		<td>WorldPositionMatrix </td>
+		<td><a href="vcMatrix.htm">vcMatrix</a> </td>
+		<td>RW</td>
+		<td>Gets (as a copy) or sets the product instance position in world 
+		 coordinates. This takes into account the defined offset between 
+		 the product’s component and the product itself.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>changeType </td>
+		<td>Boolean</td>
+		<td><p><a href="vcProductType.htm">vcProductType</a> <span class="hcp2">newType</span>, 
+		 </p>
+		<p>[Boolean <span class="hcp2">deleteAttachedComponents</span>]</p></td>
+		<td>Recreates this product instance and its visualization component 
+		 to match the new product type defined by <span class="hcp2">newType</span>. 
+		 
+		<br>&#160; 
+		<br><span>An optional argument </span><span class="hcp2">deleteAttachedComponents 
+		 </span><span>can be used to </span>delete any other components 
+		 attached to the component of this product instance. 
+		<br>&#160; 
+		<br>Returns True if successful, False otherwise. 
+		 Any errors messages are concatenated into a Python error message.</td>
+	</tr>
+	<tr>
+		<td>deleteProperty </td>
+		<td>None</td>
+		<td><span><a href="vcProperty.htm">vcProperty</a></span> <span class="hcp2">property</span></td>
+		<td>Deletes a property from this product instance.</td>
+	</tr>
+	<tr>
+		<td>getProperty </td>
+		<td><a href="vcProperty.htm">vcProperty</a></td>
+		<td>String <span class="hcp2">propertyName</span></td>
+		<td>Returns a property from this product instance.</td>
+	</tr>
+	<tr>
+		<td>createProperty </td>
+		<td><a href="vcProperty.htm">vcProperty</a> </td>
+		<td><span><a href="vcProperty.htm">vcProperty</a></span> <span class="hcp2">property</span></td>
+		<td>Creates a new property to this product instance.</td>
+	</tr>
+</table>
+</body>
+</html>

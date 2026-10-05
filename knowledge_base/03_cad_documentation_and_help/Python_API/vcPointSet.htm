@@ -1,0 +1,202 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcPointSet</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { font-style:italic; }
+-->
+</style>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcPointSet</h1>
+<p>vcPointSet is a type of geometry set used for creating and rendering 
+ point clouds and/or data points.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcGeometrySet.htm">vcGeometrySet</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot30101" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot30101', 'MTPOPUP30101');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP30101" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>ColorConfiguration</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the color format for points. By default, the color 
+		 format is RGBA. 
+		<p class="TableNormal">See <a href="Constants.htm#Color_Formats">Color 
+		 Format Constants</a> for more information.</p>
+		<p class="TableNormal">&#160;</p>
+		<p class="TableNormal">Gets or sets the current color configuration. 
+		 There are 2 VC_COLOR_CONFIGURATION_RGBA and VC_COLOR_CONFIGURATION_BGRA</p></td>
+	</tr>
+	<tr>
+		<td><p>IncrementalBoundUpdate</p></td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if the bound box should be updated on every added point 
+		 or not.</td>
+	</tr>
+	<tr>
+		<td>PointCount</td>
+		<td>Real</td>
+		<td><p>R</p></td>
+		<td>Total amount of points in the point set.</td>
+	</tr>
+	<tr>
+		<td>PointSize</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the size (in pixels) of points in set.</td>
+	</tr>
+	<tr>
+		<td>Scale</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines a factor for scaling rendered points in set.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>addPoint</td>
+		<td>Integer</td>
+		<td>Real <span class="Italic">x</span>, Real <span class="Italic">y</span>, 
+		 Real <span class="Italic">z</span> 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">Real <span class="Italic">x</span>, Real 
+		 <span class="Italic">y</span>, Real <span class="Italic">z</span>, 
+		 Real <span class="Italic">r</span>, Real <span class="Italic">g</span>, 
+		 Real <span class="Italic">b</span></p>
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">Real <span class="Italic">x</span>, Real 
+		 <span class="Italic">y</span>, Real <span class="Italic">z</span>, 
+		 Real <span class="Italic">r</span>, Real <span class="Italic">g</span>, 
+		 Real <span class="Italic">b</span>, Real <span class="Italic">a</span></p></td>
+		<td>Adds a point to set, and then returns the index of point in 
+		 the set. 
+		<p class="TableNormal">One option is to give XYZ coordinates for 
+		 point in World coordinate system, thereby the point is assigned 
+		 default color.</p>
+		<p class="TableNormal">A second option is to give XYZ coordinates 
+		 and RGB color for the point.</p>
+		<p class="TableNormal">A third option is to give XYZ coordinates 
+		 and RGB color with alpha channel for the point.</p>
+		<p class="TableNormal">If you are assigning a color, the RGB values 
+		 must be normalized XYZ values for RGB color space.</p>
+		<p class="TableNormal"><img src="RGBColorSpace.png" alt="" border="0"></p></td>
+	</tr>
+	<tr>
+		<td>clearPoints</td>
+		<td>None</td>
+		<td><p>None</p></td>
+		<td>Removes all points from set.</td>
+	</tr>
+	<tr>
+		<td>getPointColor</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>Integer <span class="hcp1">Index</span></td>
+		<td>Gets a point color given an index.</td>
+	</tr>
+	<tr>
+		<td>getPointPosition</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td>Integer <span class="hcp1">Index</span></td>
+		<td>Gets a point position given an index.</td>
+	</tr>
+	<tr>
+		<td>update</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Updates the bound box of set.</td>
+	</tr>
+	<tr>
+		<td>updatePointColor</td>
+		<td>None</td>
+		<td>integer <span class="hcp1">Index</span>, Real 
+		 r, Real g, Real b</td>
+		<td>Updates the color of the point defined by the <span class="hcp1">index</span>.</td>
+	</tr>
+	<tr>
+		<td>updatePointPosition</td>
+		<td>None</td>
+		<td>integer <span class="hcp1">Index</span>, Real 
+		 <span class="hcp1">x</span>, Real <span class="hcp1">y</span>, 
+		 Real <span class="hcp1">z</span></td>
+		<td>Updates a point position given an index.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Examples</h2>
+<p><span class="Example">Example. Render point cloud in 3D world</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td><span>from vcScript import *</span> 
+		<br><span>from random import *</span> 
+		<br>&#160; 
+		<br><span>cloudsize = 1000.0</span> 
+		<br><span>pointamount = 100000</span> 
+		<br>&#160; 
+		<br><span>comp = getComponent()</span> 
+		<br><span>pc = comp.findFeature('pc')</span> 
+		<br><span>if not pc:</span> 
+		<br><span>&#160;&#160;pc = comp.RootFeature.createFeature(VC_GEOMETRY,'pc')</span> 
+		<br><span>if pc.Geometry.GeometrySetCount == 0:</span> 
+		<br><span>&#160;&#160;pcs = pc.Geometry.createGeometrySet(VC_POINTSET)</span> 
+		<br><span>else:</span> 
+		<br><span>&#160;&#160;pcs = pc.Geometry.getGeometrySet(0)&#160;</span> 
+		<br><span>pcs.clearPoints()</span> 
+		<br>&#160; 
+		<br><span>for i in range(pointamount):</span> 
+		<br><span>&#160;&#160;x = cloudsize * random()</span> 
+		<br><span>&#160;&#160;y = cloudsize * random()</span> 
+		<br><span>&#160;&#160;z = cloudsize * random()</span> 
+		<br><span>&#160;&#160;r = random()</span> 
+		<br><span>&#160;&#160;g = random()</span> 
+		<br><span>&#160;&#160;b = random()</span> 
+		<br><span>&#160;&#160;pcs.addPoint(x,y,z,r,g,b)</span> 
+		<br>&#160; 
+		<br><span>pcs.update()</span> 
+		<br>comp.rebuild() 
+		<br><span>getApplication().render()</span></td>
+	</tr>
+</table>
+</body>
+</html>

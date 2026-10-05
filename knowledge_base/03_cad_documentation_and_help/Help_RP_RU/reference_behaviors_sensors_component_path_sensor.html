@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Датчик пути</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Датчик пути позволяет обнаруживать компоненты, движущиеся по пути." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Датчик пути</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Датчик пути позволяет обнаруживать компоненты, движущиеся по пути.</p>
+<p class="p_Normal"><img alt="ClipboardImg203" style="margin:0;width:3.9479in;height:2.8750in;border:none" src="clipboardimg203.png"/></p>
+<h2 style="margin: 0.1979in 0 0 0;"><span style="font-size: 18pt;">Свойства</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.8646in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5521in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Наименование</p>
+</td>
+<td style="vertical-align:top; width:9.5521in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет наименование датчика.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Рамка</p>
+</td>
+<td style="vertical-align:top; width:9.5521in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет объект Рамка, указанный как физическое местоположение датчика.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СрабатыватьПри</p>
+</td>
+<td style="vertical-align:top; width:9.5521in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет режим датчика для обнаружения компонентов.</p>
+<p class="p_Normal">Передний край - срабатывает, когда первый край компонента достигает датчика.</p>
+<p class="p_Normal">Нулевая точка &nbsp;- срабатывает, когда исходная точка компонента достигает датчика.</p>
+<p class="p_Normal">Задний край &nbsp;- срабатывает, когда последний край компонента достигает датчика.</p>
+<p class="p_Normal">Ни один - отключает датчик.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ПерезагружатьПри</p>
+</td>
+<td style="vertical-align:top; width:9.5521in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет режим сброса датчика после обнаружения компонента.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">СигналКомпонента</p>
+</td>
+<td style="vertical-align:top; width:9.5521in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет компонентный сигнал, используемый для обозначения того, какой компонент был обнаружен датчиком.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ЛогическийСигнал</p>
+</td>
+<td style="vertical-align:top; width:9.5521in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет логический сигнал, используемый для подачи сигнала, когда компонент запускает датчик.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8646in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ЗначениеЛогическогоСигнала &nbsp;</p>
+</td>
+<td style="vertical-align:top; width:9.5521in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Определяет, посылает ли сигнал ЛогическийСигнал. Значение True означает, что датчик вызвал срабатывание компонента. Значение False означает, что датчик либо был сброшен, либо еще не сработал компонентом. Как правило, ЗначениеЛогическогоСигнала используется для отключения использования ЛогическийСигнал в датчике.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

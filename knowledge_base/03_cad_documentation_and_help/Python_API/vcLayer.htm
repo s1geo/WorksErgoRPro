@@ -1,0 +1,52 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcLayer</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcLayer</h1>
+<p>vcLayer allows you to group objects in the 3D world into separate layers.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines the name of layer.</td>
+</tr>
+<tr>
+<td>Visibility</td>
+<td>Boolean</td>
+<td>RW</td>
+<td>Turns on/off the visibility of layer and all of its objects.</td>
+</tr>
+</table>
+<h2>Examples</h2>
+<p><span class="Example">Example. Create layer and assign geometry</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td>from vcScript import * <br>&#160; <br>app = getApplication() <br>layerDemo = app.findLayer("Example") <br>if not layerDemo: <br>&#160;&#160;layerDemo = app.createLayer("Example") <br>&#160; <br>#this example was used with an articulated robot <br>comp = getComponent() <br>for geoset in comp.Geometry.GeometrySets: <br>&#160;&#160;geoset.Layer = layerDemo <br>&#160;&#160; <br>layerDemo.Visibility = False <br>app.render()</td>
+</tr>
+</table>
+<p>&#160;</p>
+<p>&#160;</p>
+</body>
+</html>

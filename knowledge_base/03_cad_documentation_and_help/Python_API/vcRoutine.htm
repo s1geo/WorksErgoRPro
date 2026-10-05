@@ -1,0 +1,91 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="search-keywords" content="robot program,subroutine,subprogram">
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcRoutine</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcRoutine</h1>
+<p>vcRoutine contains a collection of statements that can be executed in a robot program.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcScope.htm">vcScope</a></p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>IsPersistent</td>
+<td>Boolean</td>
+<td>RW</td>
+<td>Defines if the routine is saved with the program.
+<p class="TableNormal">The default value is True.</p>
+</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>String</td>
+<td>RW</td>
+<td>Defines the name of the routine.</td>
+</tr>
+<tr>
+<td>Program</td>
+<td><a href="vcProgram.htm">vcProgram</a></td>
+<td>R</td>
+<td>Gets the program associated with the routine.</td>
+</tr>
+<tr>
+<td>Properties</td>
+<td>List of <a href="vcProperty.htm">vcProperty</a></td>
+<td>R</td>
+<td>Gets a list of properties in the routine.</td>
+</tr>
+</table>
+<h2>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>createProperty</td>
+<td><a href="vcProperty.htm">vcProperty</a></td>
+<td>Enumeration <span class="Italic">type</span>, String <span class="Italic">name</span></td>
+<td>Creates a new property of a given <span class="Italic">type</span> and <span class="Italic">name</span> in the routine, and then returns the new property.
+<p class="TableNormal">An optional <span class="Italic">constraints</span> argument can be used to define constraints for new property, which must be defined at the time of creation.</p>
+<p class="TableNormal">See <a href="Constants.htm#Property_Constants">Property Constants</a> for more information.</p>
+</td>
+</tr>
+<tr>
+<td>deleteProperty</td>
+<td>None</td>
+<td><a href="vcProperty.htm">vcProperty</a> <span class="Italic">property</span></td>
+<td>Deletes a given <span class="Italic">property</span> in the routine.</td>
+</tr>
+<tr>
+<td>getProperty</td>
+<td><a href="vcProperty.htm">vcProperty</a></td>
+<td>String <span class="Italic">name</span></td>
+<td>Returns a property matching a given <span class="Italic">name</span> in the routine; otherwise returns None.</td>
+</tr>
+</table>
+</body>
+</html>

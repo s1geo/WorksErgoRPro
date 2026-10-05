@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>vcConfigurableProductTypeFilter</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords 
+content="vcConfigurableProductTypeFilter, ConfigurableProductTypeFilter, Configurable Product Type Filter">
+<META name=generator content="Adobe RoboHelp 2017"><LINK rel=StyleSheet 
+type=text/css href="StyleSheet.css"></HEAD>
+<BODY>
+<SCRIPT language=JavaScript1.2 type=text/javascript src="ehlpdhtm.js"></SCRIPT>
+
+<H1>vcConfigurableProductTypeFilter</H1>
+<P>vcConfigurableProductTypeFilter is a product filter type that can be 
+configured through the properties shown in the R-Pro user interface.</P>
+<P>After a vcConfigurableProductTypeFilter object has been created with the 
+constructor, it must be bound to a statement (<A 
+href="vcStatement.htm">vcStatement</A>) in <A 
+href="vcProcessRoutine.htm">vcProcessRoutine</A>. Binding adds the properties of 
+vcConfigurableProductTypeFilter to the parent object, so that the properties are 
+accessible both through the Python API and in the&nbsp;R-Pro user interface.</P>
+<P><BR><B>Inherits</B>: <A href="vcProductFilter.htm">vcProductFilter</A></P>
+<H2>Properties</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Type</TD>
+    <TD>Access</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>AcceptAllProductTypesProperty</TD>
+    <TD><A href="vcProperty.htm">vcProperty</A></TD>
+    <TD>R</TD>
+    <TD>Returns True if all product types are accepted.<BR><BR>Returns False 
+      if some product types are not accepted.</TD></TR>
+  <TR>
+    <TD>AcceptedFlowGroupsProperty</TD>
+    <TD><A href="vcProperty.htm">vcProperty</A></TD>
+    <TD>R</TD>
+    <TD>Returns the list of flow groups (<A 
+      href="vcProcessFlowGroup.htm">vcProcessFlowGroup</A>) that are 
+  accepted.</TD></TR>
+  <TR>
+    <TD>AcceptedProductTypesProperty</TD>
+    <TD><A href="vcProperty.htm">vcProperty</A></TD>
+    <TD>R</TD>
+    <TD>Returns the list of product types (<A 
+      href="vcProductType.htm">vcProductType</A>) that are 
+  accepted.</TD></TR></TBODY></TABLE>
+<H2>Constructors</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Return Type</TD>
+    <TD>Parameters</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>new</TD>
+    <TD>vcConfigurableProductTypeFilter</TD>
+    <TD>None</TD>
+    <TD>Creates a new vcConfigurableProductTypeFilter object and returns the 
+      new product type filter.</TD></TR></TBODY></TABLE>
+<H2>Methods</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Return Type</TD>
+    <TD>Parameters</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>bindToStatement</TD>
+    <TD>None</TD>
+    <TD><A href="vcStatement.htm">vcStatement</A> 
+      <I>parentObject</I>,<BR>[Integer <I>startingVarGroup</I>]</TD>
+    <TD>Adds the filter properties to the given <I>parentObject</I>. If the 
+      filter is already bound, this method first removes the filter properties 
+      from the current parent object, and then adds the properties to the new 
+      parent object.<BR><BR>To remove the filter properties from the current 
+      parent object, set the value of <I>parentObject</I> to None. <BR>&nbsp; 
+      <BR><I>startingVarGroup</I> defines the <A 
+      href="vcProperty.htm">vcProperty</A>.Group value to assign to the first of 
+      the properties. The group of the other properties is based on that value. 
+      This defines the order of the properties in the R-Pro user interface in 
+      relation to the other properties of the parent object. <BR>&nbsp; <BR>The 
+      default of <I>startingVarGroup</I> value is 
+10.</TD></TR></TBODY></TABLE></BODY></HTML>

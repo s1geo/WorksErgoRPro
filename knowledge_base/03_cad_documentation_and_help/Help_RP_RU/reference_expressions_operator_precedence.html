@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Приоритет оператора</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Операторы оцениваются на основе их приоритета друг перед другом в выражении." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Приоритет оператора</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Операторы оцениваются на основе их приоритета друг перед другом в выражении.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:0.9375in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Приоритет</span></p>
+</th>
+<th style="vertical-align:top; width:3.9583in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Оператор</span></p>
+</th>
+<th style="vertical-align:top; width:1.9896in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Использование</span></p>
+</th>
+<th style="vertical-align:top; width:5.4896in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Порядок разбора</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="7"  style="vertical-align:top; width:0.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">1</p>
+</td>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Пост инкремент</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а++</p>
+</td>
+<td rowspan="7"  style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Слева направо</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Пост декремент</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а--</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Оператор-член</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">a.b</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Оператор индекса</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">a[b]</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Вызов функции</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а(...)</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Круглые скобки</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">(...)</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Спецификация блока</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">a{unit}</p>
+</td>
+</tr>
+<tr>
+<td rowspan="7"  style="vertical-align:top; width:0.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">2</p>
+</td>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Пре инкремент</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">++a</p>
+</td>
+<td style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Пре декремент</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">--а</p>
+</td>
+<td style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Побитовое дополнение / обратная матрица</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">~ а</p>
+</td>
+<td style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Логическое НЕ</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">!а</p>
+</td>
+<td style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Унарный минус</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">-а</p>
+</td>
+<td style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Унарный плюс</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">+а</p>
+</td>
+<td style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Преобразование типов</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">(type)a</p>
+</td>
+<td style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><br>
+</td>
+</tr>
+<tr>
+<td rowspan="3"  style="vertical-align:top; width:0.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">3</p>
+</td>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Произведение</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а*b</p>
+</td>
+<td rowspan="3"  style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Слева направо</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Деление</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а/b</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Остаток от целочисленного деления</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а%b</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2"  style="vertical-align:top; width:0.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">4</p>
+</td>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Сложить</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а+b</p>
+</td>
+<td rowspan="2"  style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Слева направо</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Вычесть</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а-b</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2"  style="vertical-align:top; width:0.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">5</p>
+</td>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Сдвиг влево</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а&lt;&lt;b</p>
+</td>
+<td rowspan="2"  style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Слева направо</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Сдвиг вправо</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а&gt;&gt;b</p>
+</td>
+</tr>
+<tr>
+<td rowspan="4"  style="vertical-align:top; width:0.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">6</p>
+</td>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Меньше, чем</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а&lt;b</p>
+</td>
+<td rowspan="4"  style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Слева направо</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Меньше или равно</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а&lt;=b</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Больше чем</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а&gt;b</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Больше или равно</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а&gt;=b</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2"  style="vertical-align:top; width:0.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">7</p>
+</td>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Равно</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а==b</p>
+</td>
+<td rowspan="2"  style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Слева направо</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Не равно</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а!=b</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:0.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">8</p>
+</td>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Побитовое И</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а&amp;b</p>
+</td>
+<td style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Слева направо</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:0.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">9</p>
+</td>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Побитовое исключающее ИЛИ</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а^b</p>
+</td>
+<td style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Слева направо</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:0.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">10</p>
+</td>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Побитовое ИЛИ</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а|b</p>
+</td>
+<td style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Слева направо</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:0.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">11</p>
+</td>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Логическое И</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а&amp;&amp;b</p>
+</td>
+<td style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Слева направо</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:0.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">12</p>
+</td>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Логическое ИЛИ</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а||b</p>
+</td>
+<td style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Слева направо</p>
+</td>
+</tr>
+<tr>
+<td rowspan="11"  style="vertical-align:top; width:0.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">13</p>
+</td>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Присвоение</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а=b</p>
+</td>
+<td rowspan="11"  style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Справа налево</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Умножить и присвоить</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а*=b</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Разделить и присвоить</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а/=b</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Остаток от деления и присвоить</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а%=b</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Сложить и присвоить</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а+=b</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Вычесть и присвоить</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а-=b</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Сдвинуть влево и присвоить</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а&lt;&lt;=b</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Сдвинуть вправо и присвоить</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а&gt;&gt;=b</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Побитовое И и присвоить</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а&amp;=b</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Побитовое XOR и присвоить</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а^=b</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Побитовое ИЛИ и присвоить</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а|=b</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:0.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">14</p>
+</td>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Условие</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">a?b:c</p>
+</td>
+<td style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Слева направо</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:0.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">15</p>
+</td>
+<td style="vertical-align:top; width:3.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Последовательность</p>
+</td>
+<td style="vertical-align:top; width:1.9896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">а, b</p>
+</td>
+<td style="vertical-align:top; width:5.4896in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Слева направо</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal">Операторы, анализируемые слева направо, являются ассоциативными слева, тогда как операторы, анализируемые справа налево, являются правоассоциативными.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:middle; padding:0; border:none"><p class="p_Normal">а = б = с &lt;-&gt; а = (б = с)</p>
+<p class="p_Normal">а + б + с &lt;-&gt; (а + б) + с</p>
+</td>
+</tr>
+</table>
+</div>
+
+</td></tr></table>
+
+</body>
+</html>

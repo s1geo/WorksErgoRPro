@@ -1,0 +1,151 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcBitMap</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcBitmap</h1>
+<p>vcBitmap represents an image file used in the application, for example 
+ as material textures.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot8907" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot8907', 'MTPOPUP8907');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP8907" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Format</td>
+		<td>Enumeration</td>
+		<td>R</td>
+		<td>Gets the format of bitmap. 
+		<p class="TableNormal">See <a href="Constants.htm#Bitmap_Constants">Bitmap 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Height</td>
+		<td><span>Integer</span></td>
+		<td>R</td>
+		<td>Gets the height (in pixels) of bitmap.</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td><span>String</span></td>
+		<td>RW</td>
+		<td>Defines the name of bitmap.</td>
+	</tr>
+	<tr>
+		<td>URI</td>
+		<td>String</td>
+		<td>R</td>
+		<td>Gets the filename of source file.</td>
+	</tr>
+	<tr>
+		<td>Width</td>
+		<td>Integer</td>
+		<td>R</td>
+		<td>Gets the width (in pixels) of bitmap.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a><a name="SaveBitmapExamples"></a>Examples</h2>
+<p><span class="Example">Example. Create and edit bitmap property</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import *
+		<br>&#160;
+		<br>app = getApplication()
+		<br>comp = getComponent()
+		<br>prop = comp.getProperty(&quot;BmpProp&quot;)
+		<br>if not prop:
+		<br>&#160;&#160;prop = comp.createProperty(VC_BITMAP_PROPERTY, &quot;BmpProp&quot;)
+		<br>bmPath = &quot;&quot; &#160;
+		<br>&#160;&#160;
+		<br>def OnReset():
+		<br>&#160;&#160;pass
+		<br>&#160;
+		<br>def OnRun():
+		<br>&#160;&#160;global prop, bmPath
+		<br>&#160;&#160;
+		<br>&#160;&#160;if bmPath != r&quot;C:\Temp\picture1.jpg&quot;:
+		<br>&#160;&#160;&#160;&#160;bmPath = r&quot;C:\Temp\picture1.jpg&quot;
+		<br>&#160;&#160;else:
+		<br>&#160;&#160;&#160;&#160;bmPath = r&quot;C:\Temp\picture2.jpg&quot;
+		<br>&#160;&#160;
+		<br>&#160;&#160;print &quot;path:&quot;, bmPath
+		<br>&#160;&#160;
+		<br>&#160;&#160;prop.Value = app.loadBitmap(bmPath);</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Load and save bitmap to different image 
+ types</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import *
+		<br>&#160;
+		<br>#options for using vcApplication.saveBitmap()
+		<br>app = getApplication()
+		<br>uri = &quot;file:///C:\\temp\\&quot;
+		<br>bmp = app.loadBitmap(uri+&quot;test.png&quot;)
+		<br>&#160;
+		<br>app.saveBitmap(bmp, uri + &quot;test1.bmp&quot;)
+		<br>app.saveBitmap(bmp, uri + &quot;test2.png&quot;, &quot;rpng&quot;)
+		<br>app.saveBitmap(bmp, uri + &quot;test3.bmp&quot;, &quot;rbmp&quot;)
+		<br>app.saveBitmap(bmp, uri + &quot;test4.jpeg&quot;, &quot;rjpegstd&quot;)
+		<br>app.saveBitmap(bmp, uri + &quot;test5.jpeg&quot;, &quot;rjpegnstd&quot;)
+		<br>app.saveBitmap(bmp, uri + &quot;test6.tga&quot;, &quot;rtargareader&quot;)</td>
+	</tr>
+</table>
+<p><span class="Example">Example. Save view of 3D world to different image 
+ types</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import *
+		<br>&#160;
+		<br>#options for using saveBitmap command
+		<br>_app = getApplication()
+		<br>width = 500
+		<br>cmd = _app.findCommand(&quot;saveBitmap&quot;)
+		<br>&#160;
+		<br>cmd.execute(&quot;file:///C:\\temp\\test1.png&quot;, &quot;png&quot;,width, width)
+		<br>cmd.execute(&quot;file:///C:\\temp\\test2.bmp&quot;, &quot;bmp&quot;,width, width)
+		<br>&#160;
+		<br>cmd.execute(&quot;file:///C:\\temp\\test3.png&quot;, &quot;rpng&quot;,width, width)
+		<br>cmd.execute(&quot;file:///C:\\temp\\test4.bmp&quot;, &quot;rbmp&quot;,width, width)
+		<br>&#160;
+		<br>cmd.execute(&quot;file:///C:\\temp\\test5.tga&quot;, &quot;tga&quot;,width, width)
+		<br>cmd.execute(&quot;file:///C:\\temp\\test6.tga&quot;, &quot;rtargareader&quot;,width, width)
+		<br>&#160;
+		<br>cmd.execute(&quot;file:///C:\\temp\\test7.jpeg&quot;, &quot;jpeg&quot;,width, width)
+		<br>cmd.execute(&quot;file:///C:\\temp\\test8.jpeg&quot;, &quot;rjpegstd&quot;,width, width)
+		<br>cmd.execute(&quot;file:///C:\\temp\\test9.jpeg&quot;, &quot;rjpegnstd&quot;,width, width)</td>
+	</tr>
+</table>
+</body>
+</html>

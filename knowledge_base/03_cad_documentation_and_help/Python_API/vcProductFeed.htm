@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>vcProductFeed</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META name=search-keywords content="vcProductFeed, ProductFeed, Product Feed">
+<META name=generator content="Adobe RoboHelp 2017"><LINK rel=StyleSheet 
+type=text/css href="StyleSheet.css">
+<STYLE title=hcp type=text/css>
+<!--
+span.hcp1 { color:#000000; }
+ol.hcp2 { list-style:decimal; }
+-->
+</STYLE>
+</HEAD>
+<BODY>
+<SCRIPT language=JavaScript1.2 type=text/javascript src="ehlpdhtm.js"></SCRIPT>
+
+<H1>vcProductFeed</H1>
+<P>A product feed is an abstract object that informs R-Pro about a product that 
+is ready for transport or the next process.</P>
+<P>vcProductFeed is the owner of a feed and has full control over the feed.</P>
+<H2>Properties</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Type</TD>
+    <TD>Access</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>Product</TD>
+    <TD><A href="vcProduct.htm">vcProduct</A></TD>
+    <TD>R</TD>
+    <TD>Product instance in the simulation.</TD></TR>
+  <TR>
+    <TD><SPAN class=hcp1>NextProcessFlowOptions</SPAN></TD>
+    <TD><SPAN class=hcp1><A 
+      href="vcFeedOptionFlowInfo.htm">vcFeedOptionFlowInfo[]</A></SPAN></TD>
+    <TD><SPAN class=hcp1>R</SPAN></TD>
+    <TD><SPAN class=hcp1>List of options (in priority order) to be matched to 
+      possible needs.</SPAN></TD></TR>
+  <TR>
+    <TD>NextProcessGroupId</TD>
+    <TD>String</TD>
+    <TD>R</TD>
+    <TD>Name of the target process.</TD></TR>
+  <TR>
+    <TD>SourceNode</TD>
+    <TD><A href="vcTransportNode.htm">vcTransportNode</A></TD>
+    <TD>R</TD>
+    <TD>Current location of the product instance.</TD></TR></TBODY></TABLE>
+<H2>Constructor</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Return Type</TD>
+    <TD>Parameters</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>new</TD>
+    <TD>
+      <OL class=hcp2>
+        <LI><A href="vcProductFeed.htm">vcProductFeed</A><BR><BR>
+        <LI><A href="vcProductFeed.htm">vcProductFeed</A> </LI></OL></TD>
+    <TD>
+      <OL class=hcp2>
+        <LI><A href="vcProduct.htm">vcProduct</A> product, <A 
+        href="vcTransportNode.htm">vcTransportNode</A> node, [string 
+        nextProcessGroupId]<BR><BR>
+        <LI><A href="vcProduct.htm">vcProduct</A> product, <A 
+        href="vcTransportNode.htm">vcTransportNode</A> node, <A 
+        href="vcFeedOptionFlowInfo.htm">vcFeedOptionFlowInfo[]</A> options 
+      </LI></OL></TD>
+    <TD>
+      <OL class=hcp2>
+        <LI>Creates a new vcProductFeed object and returns the new feed.<BR>If 
+        NextProcessGroupId is not defined, the feed can be matched with any 
+        process that has a need with the matching <I>product</I> and a valid 
+        transport solution, including an existing route and necessary links. 
+        <BR><BR>
+        <LI>Creates new product type and assigns it to the given flow group. The 
+        name must be unique. </LI></OL></TD></TR></TBODY></TABLE>
+<H2>Methods</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <COLGROUP>
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <COL style="WIDTH: 25%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Return Type</TD>
+    <TD>Parameters</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>tryCancel</TD>
+    <TD>Boolean</TD>
+    <TD>None</TD>
+    <TD>Cancels a match and removes the feed from <A 
+      href="vcProductMatcher.htm">vcProductMatcher</A>. A match cannot be 
+      cancelled after the match has been finalized. <BR>&nbsp; <BR>Returns True 
+      if the match was cancelled or the feed was not found in the product 
+      matcher.</TD></TR></TBODY></TABLE>
+<H2>Events</H2>
+<TABLE class=Property cellSpacing=0 width="100%">
+  <TBODY>
+  <TR class=t1st>
+    <TD>Name</TD>
+    <TD>Parameters</TD>
+    <TD>Description</TD></TR>
+  <TR>
+    <TD>OnMatched</TD>
+    <TD><A href="vcProductNeedFeedMatch.htm">vcProductNeedFeedMatch</A> 
+      <I>match</I></TD>
+    <TD>Triggered when the feed is matched with a 
+need.</TD></TR></TBODY></TABLE></BODY></HTML>

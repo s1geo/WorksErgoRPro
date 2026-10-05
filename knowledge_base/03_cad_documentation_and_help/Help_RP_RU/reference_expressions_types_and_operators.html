@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Типы и операторы</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Тип задает характеристики значения и определяет набор операций, доступных для значения. Операции включают операторы, функции и методы. Типы, имеющие методы, являются сложными и..." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Типы и операторы</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Тип задает характеристики значения и определяет набор операций, доступных для значения. Операции включают операторы, функции и методы. Типы, имеющие методы, являются сложными и могут содержать атрибуты.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0.0625in;"><table cellpadding="0" cellspacing="0" style="border:none;border-spacing:0;padding:0;line-height: normal;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:0.1875in"><a name="mthotspot39795" class="hmanchor"></a><img id="toggle0186a1_ICON" class="dropdown-toggle-icon" alt="hmtoggle_plus1" style="margin:0;width:0.0938in;height:0.0938in;border:none" src="hmtoggle_plus1.gif"/></td><td style="border:none;padding:0"><a class="dropdown-toggle" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;" href="javascript:HMToggle('toggle','toggle0186a1','toggle0186a1_ICON')">СОДЕРЖАНИЕ</a></td></tr></table></div>
+<div id="toggle0186a1" class="dropdown-toggle-body" style="text-align: left; padding: 0 0 0 0; margin: 0 0 0.0417in 0.2500in;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="reference_expressions_types_and_operators.html#minitocbookmark2" class="topiclink">ТИПЫ ВЫРАЖЕНИЙ И ИМЕНА ВЫРАЖЕНИЙ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="reference_expressions_types_and_operators.html#minitocbookmark3" class="topiclink">ЛОГИЧЕСКИЕ ТИПЫ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="reference_expressions_types_and_operators.html#minitocbookmark5" class="topiclink">ЧИСЛОВЫЕ ТИПЫ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="reference_expressions_types_and_operators.html#minitocbookmark12" class="topiclink">СЛОЖНЫЕ ТИПЫ</a></p>
+</td>
+</tr>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark2" class="hmanchor"></a><span style="font-size: 18pt;">Типы выражений и имена выражений</span></h2>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:0.9583in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Тип</span></p>
+</th>
+<th style="vertical-align:top; width:0.9479in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название выражения</span></p>
+</th>
+<th style="vertical-align:top; width:7.8542in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:0.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><a href="reference_expressions_types_and_operators.html#boolean_types" class="topiclink">Boolean</a></p>
+</td>
+<td style="vertical-align:top; width:0.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">bool</p>
+</td>
+<td style="vertical-align:top; width:7.8542in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Значение, которое может быть True или False.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:0.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><a href="reference_expressions_types_and_operators.html#type_integer" class="topiclink">Integer</a></p>
+</td>
+<td style="vertical-align:top; width:0.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">int</p>
+</td>
+<td style="vertical-align:top; width:7.8542in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">32-битное целое число.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:0.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><a href="reference_expressions_types_and_operators.html#type_real" class="topiclink">Real</a></p>
+</td>
+<td style="vertical-align:top; width:0.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">double</p>
+</td>
+<td style="vertical-align:top; width:7.8542in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">64-битное значение с плавающей запятой.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:0.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><a href="reference_expressions_types_and_operators.html#type_vector" class="topiclink">Vector</a></p>
+</td>
+<td style="vertical-align:top; width:0.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">rVector</p>
+</td>
+<td style="vertical-align:top; width:7.8542in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Четырехэлементный вектор вещественных значений.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:0.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><a href="reference_expressions_types_and_operators.html#type_matrix" class="topiclink">Matrix</a></p>
+</td>
+<td style="vertical-align:top; width:0.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">rMatrix</p>
+</td>
+<td style="vertical-align:top; width:7.8542in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Матрица вещественных значений 4x4.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:0.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><a href="reference_expressions_types_and_operators.html#type_string" class="topiclink">String</a></p>
+</td>
+<td style="vertical-align:top; width:0.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">rString</p>
+</td>
+<td style="vertical-align:top; width:7.8542in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Последовательность символов.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:0.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><a href="reference_expressions_types_and_operators.html#type_reference" class="topiclink">Reference</a></p>
+</td>
+<td style="vertical-align:top; width:0.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">object</p>
+</td>
+<td style="vertical-align:top; width:7.8542in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Адрес, в котором хранятся переменные или методы объекта.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:0.9583in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><a href="reference_expressions_types_and_operators.html#type_list" class="topiclink">List</a></p>
+</td>
+<td style="vertical-align:top; width:0.9479in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">N/A</p>
+</td>
+<td style="vertical-align:top; width:7.8542in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Список объектов одного типа.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание:</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Типы int и double взаимно совместимы.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Название выражения &nbsp;— это название, используемое в <a href="reference_expressions_type_conversion.html" class="topiclink">преобразовании типа </a>.</p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Тип &quot;список&quot; не поддерживает операцию приведения.</p>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="boolean_types" class="hmanchor"></a></h2>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark3" class="hmanchor"></a><span style="font-size: 18pt;">Логические типы</span></h2>
+<p class="p_Normal">Логический тип представляет собой значение True или False и может быть преобразован в числовой тип. При преобразовании логического значения в числовое True становится равным 1, а False становится равным 0. При преобразовании числового значения в логическое значение 0 становится False, а любое другое число становится True.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark4" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Логические операторы</span></h3>
+<p class="p_Normal">Любой логический оператор вернет логический тип. В синтаксисе выражений нет явных логических литералов, поэтому используйте 1 и 0 для True и False соответственно.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.9167in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5000in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Логическое НЕ :</p>
+<p class="p_Normal">!</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Унарный префиксный оператор, который инвертирует заданное логическое значение.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal">!1 &nbsp; &nbsp; &nbsp;ложно</p>
+<p class="p_Normal">!(1==2) &nbsp; &nbsp;истинно</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Логическое И :</p>
+<p class="p_Normal">&amp;&amp;</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Бинарный оператор, который возвращает True, если оба аргумента имеют значение True. То есть, если первый аргумент равен False, второй аргумент не оценивается.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal">1 &amp;&amp; 1 &nbsp; &nbsp; &nbsp;истинно</p>
+<p class="p_Normal">0 &amp;&amp; z&lt;3 &nbsp; &nbsp;ложно, z&lt;3 никогда не оценивается</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9167in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Логическое ИЛИ:</p>
+<p class="p_Normal">||</p>
+</td>
+<td style="vertical-align:top; width:10.5000in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Бинарный оператор возвращает True, если любой из аргументов истинен. То есть, если первый аргумент имеет значение True, второй аргумент не оценивается.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal">1 || 0 &nbsp; &nbsp; &nbsp;истинно</p>
+<p class="p_Normal">1 || z&lt;3 &nbsp; &nbsp;истинно, z&lt;3 никогда не оценивается</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark5" class="hmanchor"></a><span style="font-size: 18pt;">Числовые типы</span></h2>
+<p class="p_Normal">Числовой тип выражает скалярное значение, и большинство из них имеют общие операторы.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark6" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Арифметические операторы</span></h3>
+<p class="p_Normal">Для арифметических операций тип результата зависит от типа каждого аргумента. Если аргументы совпадают, используется общий тип. Если аргументы различаются, используется тип с наибольшим диапазоном. Это изменит поведение некоторых операторов, например деления, когда целочисленное деление выполняется, когда оба операнда являются целыми числами.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.9063in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5104in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Сложение, вычитание, умножение, деление</p>
+<p class="p_Normal">+ - * /</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Основные арифметические операторы.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal">1 + 3 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 4</p>
+<p class="p_Normal">2 * 5 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 10</p>
+<p class="p_Normal">10.0 / 3 &nbsp; &nbsp; &nbsp; &nbsp;3.333333333333333</p>
+<p class="p_Normal">10 / 3 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3 &nbsp;Целочисленное деление </p>
+<p class="p_Normal">1.0 * 10 / 3 &nbsp; &nbsp;3.333333333333333</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Унарный плюс и минус</p>
+<p class="p_Normal">+ -</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Знаковые префиксы. </p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal">-1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;это -1</p>
+<p class="p_Normal">-( 3 - 5 ) &nbsp; &nbsp;это &nbsp;2</p>
+<p class="p_Normal">+5 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; это 5</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Увеличение и уменьшение</p>
+<p class="p_Normal">++ --</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Увеличьте или уменьшите значение на единицу, а затем верните измененное или исходное значение в зависимости от префикса или суффикса переменной.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal">a = 3, b = ++a &nbsp; &nbsp;a == 4, &nbsp;b == 4</p>
+<p class="p_Normal">a = 3, b = a-- &nbsp; &nbsp; &nbsp;a == 2, &nbsp;b == 3</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark7" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Операторы сравнения</span></h3>
+<p class="p_Normal">Для операторов сравнения результатом всегда будет логическое значение.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.9063in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5104in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Меньше, меньше или равно, больше, больше или равно</p>
+<p class="p_Normal">&lt; &lt;= &gt; &gt;=</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Сравнивает аргументы, а затем возвращает значение True, если выражение равно True; </p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal">3 &gt; 2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; результат &nbsp;true</p>
+<p class="p_Normal">4 &lt; 3 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; результат &nbsp;false</p>
+<p class="p_Normal">5 &lt;= 2 +3 &nbsp; результат &nbsp;true</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Равно, Неравно</p>
+<p class="p_Normal">== !=</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Оператор равенства возвращает True, если операнды равны; Неравенство является логической противоположностью оператора равенства.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal">2 + 3 == 5 &nbsp; &nbsp;результат true</p>
+<p class="p_Normal">3 != 1 + 2 &nbsp; &nbsp;результат false</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark8" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Операторы присваивания</span></h3>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Простое присвоение:</p>
+<p class="p_Normal">=</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Присваивает правостороннее значение левостороннему значению, а затем возвращает левостороннее значение после присваивания.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal">a = 1 &nbsp; &nbsp;результат равен 1, и &nbsp;a == 1</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Изменение присвоения:</p>
+<p class="p_Normal">+= -= *= /=</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Применяет операцию к значениям, затем сохраняет результаты в левом аргументе и, наконец, возвращает левое значение после присваивания.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal">a += 3 &nbsp; &nbsp;&lt;=&gt; a = a + 3</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark9" class="hmanchor"></a></h3>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="type_integer" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Тип Целое</span></h3>
+<p class="p_Normal">Целые числа представлены как 32-разрядные целые числа со знаком и имеют имя типа int. Целые числа могут быть указаны как литеральные значения.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:middle; padding:0; border:none"><p class="p_Normal">55 &nbsp; &nbsp; &nbsp;десятичный формат</p>
+<p class="p_Normal">067 &nbsp; &nbsp; ведущий ноль указывает на восьмеричный формат</p>
+<p class="p_Normal">0x37 &nbsp; &nbsp;шестнадцатеричный формат (допускается также 0X37)</p>
+</td>
+</tr>
+</table>
+</div>
+<h4 style="margin: 0.3438in 0 0 0;"><a name="minitocbookmark10" class="hmanchor"></a><span style="font-size: 12pt; font-weight: bold;">Методы</span></h4>
+<p class="p_Normal">Целочисленные значения поддерживают следующие операторы в дополнение к стандартным числовым операторам.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Модуль:</p>
+<p class="p_Normal">%</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Вычисляет остаток от деления между левым и правым аргументами, а затем возвращает это значение.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal">10 % 3 &nbsp; &nbsp;равно 1</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Сдвиг влево, сдвиг вправо:</p>
+<p class="p_Normal">&lt;&lt; &gt;&gt;</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает значение левого аргумента путем сдвига числа битов, указанного правым аргументом, либо влево, либо вправо.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal">2 &gt;&gt; 1 &nbsp; &nbsp;равно 1, двоичная 10 сдвигается вправо - 01</p>
+<p class="p_Normal">1 &lt;&lt; 3 &nbsp; &nbsp;равен 8, двоичный код 0001 смещается влево - 1000</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Побитовое дополнение:</p>
+<p class="p_Normal">~</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Унарный префиксный оператор, который возвращает 32-битное дополнение своего аргумента.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal">~0x0000ffff &nbsp; &nbsp;равно 0xffff0000 отрицательное значение (старший бит указывает знак)</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Побитовое И, ИЛИ, XOR:</p>
+<p class="p_Normal">&amp; | ^</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Применяет логику к обоим аргументам, побитно за раз, а затем возвращает результат.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal">1 &amp; 2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-&gt; 0</p>
+<p class="p_Normal">1 | 2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -&gt; 3</p>
+<p class="p_Normal">1 ^ 3 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -&gt; 2</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание:</span></p>
+<p class="p_Normal" style="text-indent: 0; padding-left: 0.1771in; margin: 0 0 0.0417in 0.2396in;"><span style="display:inline-block;width:0.1771in;margin-left:-0.1771in;font-size:11pt;font-family:'Symbol';font-style:normal;color:#000000;text-decoration:none;">&#183;</span>Все поддерживаемые операторы для целочисленного типа, кроме побитового дополнения, существуют как операции присваивания. : %=, &lt;&lt;=, &gt;&gt;=, &amp;=, |= и ^=.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark11" class="hmanchor"></a></h3>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="type_real" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Тип Вещественный</span></h3>
+<p class="p_Normal">Значения типа Real представлены как 64-битные значения с плавающей запятой IEEE и имеют имя приведения типа double. Вещественные типы могут быть указаны как литеральные значения.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:middle; padding:0; border:none"><p class="p_Normal">12.4 &nbsp; &nbsp; :целая часть и дробная часть </p>
+<p class="p_Normal">.63 &nbsp; &nbsp; &nbsp;:присутствует только часть </p>
+<p class="p_Normal">2.4e6 &nbsp; &nbsp;2400000 целая часть, дробная часть и показатель степени </p>
+<p class="p_Normal">.8e-3 &nbsp; &nbsp;0.0008 только дробная часть с отрицательным показателем степени</p>
+</td>
+</tr>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark12" class="hmanchor"></a><span style="font-size: 18pt;">Сложные типы</span></h2>
+<p class="p_Normal">К сложным типам можно получить доступ или управлять ими с помощью атрибутов и методов, доступ к которым осуществляется с помощью оператора доступа к атрибутам.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:middle; padding:0; border:none"><p class="p_Normal">vec.X &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; значение координаты X </p>
+<p class="p_Normal">vec.Length() &nbsp; &nbsp;метод, который возвращает длину или абсолютное значение</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">Основное различие между атрибутами и методами заключается в том, что методы — это функции, принимающие аргументы, тогда как атрибуты просто обращаются к части сложного типа. Как правило, сложные типы поддерживают только небольшое количество операторов.</p>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark13" class="hmanchor"></a></h3>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="type_vector" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Тип Вектор</span></h3>
+<p class="p_Normal">4-мерный массив, состоящий из 4 элементов типа double с псевдонимом rVector. Вектор часто используется для представления позиций или направлений.</p>
+<h4 style="margin: 0.3438in 0 0 0;"><a name="minitocbookmark14" class="hmanchor"></a><span style="font-size: 12pt; font-weight: bold;">Атрибуты</span></h4>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">X</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">X координата.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Y</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Y координата.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Z</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Z координата.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">W</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">W координата.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 style="margin: 0.3438in 0 0 0;"><a name="minitocbookmark15" class="hmanchor"></a><span style="font-size: 12pt; font-weight: bold;">Методы</span></h4>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Length()</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает абсолютную длину вектора как значение типа real.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Square()</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает квадрат длины вектора как значение типа real.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Set(x, y, z)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Задает элементы XYZ вектора, используя заданные аргументы типа double, а затем возвращает измененный rVector.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Set(x, y, z, w)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Задает элементы XYZW вектора, используя заданные аргументы типа real, а затем возвращает измененный rVector.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 style="margin: 0.3438in 0 0 0;"><a name="minitocbookmark16" class="hmanchor"></a><span style="font-size: 12pt; font-weight: bold;">Операторы</span></h4>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.9375in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.4792in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Отрицательный:</p>
+<p class="p_Normal">-Vector</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает противоположный вектор.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Масштабирование :</p>
+<p class="p_Normal">Vector*real, real*Vector, Vector/real</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Умножает или делит каждый компонент вектора на скалярное значение.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Скалярное произведение: </p>
+<p class="p_Normal">Vector*Vector</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает скалярное произведение двух векторов.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Векторное произведение:</p>
+<p class="p_Normal">Vector^Vector</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает векторное произведение двух векторов.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Присваивание и вычитание:</p>
+<p class="p_Normal">Vector+Vector, Vector - Vector</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает сумму или разность двух векторов.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Присваивание:</p>
+<p class="p_Normal">Vector = Vector</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Простое задание вектора.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Присваивание:</p>
+<p class="p_Normal">Vector += Vector, Vector -= Vector</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Сложение или вычитание и присваивание.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.9375in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Присваивание:</p>
+<p class="p_Normal">Vector *= real, Vector /= real</p>
+</td>
+<td style="vertical-align:top; width:9.4792in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Масштабирование вектора и присваивание.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark17" class="hmanchor"></a></h3>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="type_matrix" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Тип Матрица</span></h3>
+<p class="p_Normal">Матрица 4x4 значений типа double с псевдонимом rMatrix. Матрица часто используется для представления позиций в пространстве и линейных преобразований.</p>
+<h4 style="margin: 0.3438in 0 0 0;"><a name="minitocbookmark18" class="hmanchor"></a><span style="font-size: 12pt; font-weight: bold;">Методы</span></h4>
+<p class="p_Normal">Матрица имеет несколько методов установки или изменения ее значения, и все они могут использоваться как функции. В этом случае функция эквивалентна использованию метода на единичной матрице. Все методы будут возвращать измененную матрицу, поэтому вызовы методов могут быть объединены в цепочку.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:middle; padding:0; border:none"><p class="p_Normal">Tx(100).Rz(45) &nbsp; &nbsp;перемещает, а затем вращает матрицу</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+<p class="p_Normal">Следующие методы могут быть использованы с матрицей. Единицей для всех угловых параметров являются градусы, если вы не укажете единицу измерения.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Identity()</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Устанавливает матрицу в соответствии с ее единичной матрицей.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Rx(angle)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Поворачивает матрицу относительно оси X на заданный угол.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Ry(angle)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Поворачивает матрицу относительно оси Y на заданный угол.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Rz(angle)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Поворачивает матрицу относительно оси Z на заданный угол.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Tx(distance)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Смещает матрицу по оси X на заданное расстояние.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Ty(distance)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Смещает матрицу по оси Y на заданное расстояние.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Tz(distance)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Перемещает матрицу по оси Z на заданное расстояние.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Sx(factor)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Масштабирует матрицу относительно ее оси X с заданным коэффициентом.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Sy(factor)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Масштабирует матрицу относительно ее оси Y с заданным коэффициентом.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Sz(factor)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Масштабирует матрицу относительно ее оси Z с заданным коэффициентом.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Pos(x, y, z)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Устанавливает положение матрицы в заданные значения координат.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Euler(a, b, c)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Задает ориентацию матрицы, используя заданные углы Эйлера.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">WPR(a, b, c)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Устанавливает ориентацию матрицы, используя значения рыскания, тангажа и крена.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">IJK(i, j, k)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Выравнивает ось Z матрицы по заданному вектору.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">AxisAngle(i, j, k, angle)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Задает ориентацию матрицы путем поворота единичной матрицы вокруг заданной оси и угла.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Quaternion(q1, q2, q3, q4)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Задает ориентацию матрицы, используя заданные значения кватерниона.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Set(v1, v2, ..., v16)</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Устанавливает значения матрицы построчно.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 style="margin: 0.3438in 0 0 0;"><a name="minitocbookmark19" class="hmanchor"></a><span style="font-size: 12pt; font-weight: bold;">Операторы</span></h4>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:2.8542in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:9.5625in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:2.8542in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Обратное:</p>
+<p class="p_Normal">-Matrix</p>
+</td>
+<td style="vertical-align:top; width:9.5625in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Вычисляет обратную матрицу.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8542in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Равенство:</p>
+<p class="p_Normal">Matrix == Matrix</p>
+</td>
+<td style="vertical-align:top; width:9.5625in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Проверяет две матрицы на равенство.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8542in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Трансформировать :</p>
+<p class="p_Normal">Matrix*Vector</p>
+</td>
+<td style="vertical-align:top; width:9.5625in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает вектор, преобразованный матрицей.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8542in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Матричное умножение:</p>
+<p class="p_Normal">Matrix*Matrix, Matrix/Matrix</p>
+</td>
+<td style="vertical-align:top; width:9.5625in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает матричное произведение или частное.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8542in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Присваивание:</p>
+<p class="p_Normal">Matrix = Matrix</p>
+</td>
+<td style="vertical-align:top; width:9.5625in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Назначает одну матрицу другой матрице.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:2.8542in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Матричное преобразование:</p>
+<p class="p_Normal">Matrix *= rMatrix, Matrix /= Matrix</p>
+</td>
+<td style="vertical-align:top; width:9.5625in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Предварительно умножает матрицу на заданную матрицу или ее обратную величину.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="type_string" class="hmanchor"></a><span style="font-size: 14pt; color: #717171;">Тип строка</span></h3>
+<p class="p_Normal">Строка представляет собой последовательность символов с именем приведения rString. Буквенная форма строки заключена в двойные кавычки.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:middle; padding:0; border:none"><p class="p_Normal">&quot;Hello&quot; &nbsp; &nbsp; &nbsp; &nbsp; строковый литерал, заключенный в двойные кавычки </p>
+<p class="p_Normal">&quot;\&quot;Quoted\&quot;&quot; &nbsp; &nbsp;строковая цитата, содержащая заключенные кавычки</p>
+</td>
+</tr>
+</table>
+</div>
+<h4 style="margin: 0.3438in 0 0 0;"><a name="minitocbookmark21" class="hmanchor"></a><span style="font-size: 12pt; font-weight: bold;">Методы</span></h4>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">length</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Возвращает количество символов в строке.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание:</span> Язык выражений чувствителен к регистру. Используйте маленькую l<span style="font-weight: bold;"> </span>в length.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 style="margin: 0.3438in 0 0 0;"><a name="minitocbookmark22" class="hmanchor"></a><span style="font-size: 12pt; font-weight: bold;">Операторы</span></h4>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.8958in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5208in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Равенство:</p>
+<p class="p_Normal">String == String, String != String</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Сравнивает равенство и неравенство строк.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Сравнение:</p>
+<p class="p_Normal">String &lt; String, String &lt;= String, String &gt; String, String &gt;= String</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Реализует лексикографическую сортировку на основе числового значения символов в строках.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Объединение:</p>
+<p class="p_Normal">String + String</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Объединяет две строки в одну.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.8958in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Назначение:</p>
+<p class="p_Normal">String = String, String += String</p>
+</td>
+<td style="vertical-align:top; width:10.5208in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Присваивает или добавляет одну строку к другой строке.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark23" class="hmanchor"></a></h3>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="type_reference" class="hmanchor"></a><span style="font-size: 14pt; font-weight: bold; color: #717171;">Ссылка на тип</span></h3>
+<p class="p_Normal"><span style="font-weight: bold;">Ссылка — это адрес, в котором хранятся переменные и методы объекта. Тип ссылка может хранить следующие типы объектов: Компонент, Узел, Элемент, Поведение, Материал и Параметр.</span></p>
+<p class="p_Normal"><span style="font-weight: bold;">Ссылка поддерживает оператор доступа к атрибутам для доступа к свойствам объекта.</span></p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:middle; padding:0; border:none"><p class="p_Normal">ref_comp.MyProp &nbsp; &nbsp; &nbsp; &nbsp;MyProp свойство объекта ссылки</p>
+</td>
+</tr>
+</table>
+</div>
+<h4 style="margin: 0.3438in 0 0 0;"><a name="minitocbookmark24" class="hmanchor"></a><span style="font-size: 12pt; font-weight: bold;">Operators</span></h4>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; width:1.9063in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; width:10.5104in; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Описание</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Равенство:</p>
+<p class="p_Normal">Reference == Reference, Reference != Reference</p>
+<p class="p_Normal">Reference == String, &nbsp; Reference != String</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Сравнивает равенство и неравенство двух ссылок или ссылки и строки. При сравнении ссылки со строкой вместо ссылки используется свойство name ссылки.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; width:1.9063in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Выжанения:</p>
+<p class="p_Normal">(bool)Reference</p>
+<p class="p_Normal">(string)Reference</p>
+</td>
+<td style="vertical-align:top; width:10.5104in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Оператор приведения можно использовать для преобразования ссылочного типа в тип bool и тип string. Значение типа Bool — False, если ссылка имеет значение Null, и True, если ссылка не является Null. Значение строкового типа — это имя объекта.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark25" class="hmanchor"></a></h3>
+<h3 style="margin: 0.1979in 0 0 0;"><a name="type_list" class="hmanchor"></a><span style="font-size: 14pt; font-weight: bold; color: #717171;">Список типов</span></h3>
+<p class="p_Normal"><span style="font-weight: bold;">Списки могут содержать только значения одного типа или ссылки на объекты одного типа. Списки также являются строго типизированными, что означает, что тип объекта, на который они ссылаются, известен и не может быть изменен. Если список содержит ссылки, а объект удаляется, ссылка становится Null.</span></p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:middle; padding:0; border:none"><p class="p_Normal">myList[0].Name &nbsp; &nbsp; &nbsp; &nbsp;Название первого элемента myList</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="p_Normal"><span style="font-weight: bold;">&nbsp;</span></p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+if (window.topicInitScriptAvailable) {
+function HMInitToggleStates() {
+HMInitToggle('toggle0186a1_ICON','hm.type','dropdown','hm.state','0','hm.src0','hmtoggle_plus0.gif','hm.src1','hmtoggle_plus1.gif','onclick','HMToggle(\'toggle\',\'toggle0186a1\',\'toggle0186a1_ICON\')');
+HMInitToggle('toggle0186a1','hm.type','dropdown','hm.state','0');
+
+}
+var checkTimer=setTimeout("HMInitToggleStates()", 0);
+}
+</script>
+</body>
+</html>

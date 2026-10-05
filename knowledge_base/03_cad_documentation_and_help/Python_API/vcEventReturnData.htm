@@ -1,0 +1,46 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-US">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcEventReturnData</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>vcEventReturnData</h1>
+<p>Events do not have return values, so having this object as a parameter 
+ allows passing some information back from event handler(s) to the event 
+ publisher.</p>
+<h2>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Handled </td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td><p>Defines if this event has already been handled.</p>
+		<p>This is used when an event should only be handled once. All 
+		 listeners of the event should begin by checking this value before 
+		 performing any operations. If True, then no further operations 
+		 should be performed. Otherwise, logic can continue.</p>
+		<p>If the listener then handles this event and no further handling 
+		 should be done to it, the listener should write True here.</p></td>
+	</tr>
+</table>
+</body>
+</html>

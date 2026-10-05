@@ -1,0 +1,294 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcRslMotionStatement</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<p id="warning"><span class="Strong">(Deprecated)</span> use <a 
+	 href="vcMotionStatement.htm">vcMotionStatement</a></p>
+<h1><a name="MiniTOCBookMark1"></a>vcRslMotionStatement</h1>
+<p>vcRslMotionStatement is a statement used for robot motions.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcRslStatement.htm">vcRslStatement</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot56416" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot56416', 'MTPOPUP56416');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP56416" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Common Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Statement Specific Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark6" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark7" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Common Properties</h2>
+<p>The following properties are common to all motion type statements.</p>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Descriptions</td>
+	</tr>
+	<tr>
+		<td>Base</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of a base frame used by statement.</td>
+	</tr>
+	<tr>
+		<td>CycleTime</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the total elapsed time for executing motion statement, 
+		 which may scale speed and acceleration of joints. 
+		<p class="TableNormal">If zero, this property is ignored.</p></td>
+	</tr>
+	<tr>
+		<td>ExternalTCP</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the interpolation mode for targeting motion. 
+		<p class="TableNormal"><span class="Term">0 = False</span><br>
+		Default setting that uses Base to Tool configuration; position 
+		 created at tool frame.</p>
+		<p class="TableNormal"><span class="Term">1 = True</span><br>
+		Interpolation from Tool to Base; position created at base frame.</p></td>
+	</tr>
+	<tr>
+		<td>Joint1 to JointN</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the value of each joint driven by robot controller 
+		 in statement.</td>
+	</tr>
+	<tr>
+		<td>JointForce</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the percentage of joint acceleration and deceleration 
+		 values to use in statement.</td>
+	</tr>
+	<tr>
+		<td>JointSpeed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum speed for joints driven by robot controller 
+		 as a percentage of nominal joint speed.</td>
+	</tr>
+	<tr>
+		<td>MotionType</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the motion type of statement. 
+		<p class="TableNormal"><span class="Term">0 = Joint</span></p>
+		<p class="TableNormal"><span class="Term">1 = Linear</span></p>
+		<p class="TableNormal">See <a href="Constants.htm#Motion_Constants">Motion 
+		 Constants</a> for more information.</p></td>
+	</tr>
+	<tr>
+		<td>Synchronize</td>
+		<td>Boolean</td>
+		<td>RW</td>
+		<td>Defines if joints driven by robot controller are synchronized 
+		 to reach Target at CycleTime. 
+		<p class="TableNormal">If False, robot might reach Target, and 
+		 then wait for CycleTime to elapse until executing next statement.</p></td>
+	</tr>
+	<tr>
+		<td>Target</td>
+		<td><a href="vcMatrix.htm">vcMatrix</a></td>
+		<td>RW</td>
+		<td>Defines the position matrix of statement.</td>
+	</tr>
+	<tr>
+		<td>Tool</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the name of tool frame used by statement.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Statement Specific Properties</h2>
+<h3><a name="MiniTOCBookMark4"></a>Linear Motion</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Acceleration</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum Cartesian acceleration of motion (units/s^2) 
+		 used to calculate target trajectory.</td>
+	</tr>
+	<tr>
+		<td>AngularAcceleration</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum angular acceleration of motion (degrees/s^2) 
+		 used to calculate target trajectory.</td>
+	</tr>
+	<tr>
+		<td>AngularDeceleration</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum angular deceleration of motion (degrees/s^2) 
+		 used to calculate target trajectory.</td>
+	</tr>
+	<tr>
+		<td>ConfigurationMode</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the configuration mode for joints driven by robot controller 
+		 during linear motion interpolation. 
+		<p class="TableNormal"><span class="Term">0 = Fixed</span><br>
+		No change. That is, current configuration is used and does not 
+		 change.</p>
+		<p class="TableNormal"><span class="Term">1 = Follow frame</span><br>
+		Configuration closest to previous joint values is used.</p>
+		<p class="TableNormal"><span class="Term">2 = Interpolate joint 
+		 values</span><br>
+		Configuration is determined by point-to-point interpolation of 
+		 joint values.</p></td>
+	</tr>
+	<tr>
+		<td>Deceleration</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum Cartesian deceleration of motion (units/s^2) 
+		 used to calculate target trajectory.</td>
+	</tr>
+	<tr>
+		<td>MaxAngularSpeed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum angular speed (degrees/s^2) used to calculate 
+		 target trajectory.</td>
+	</tr>
+	<tr>
+		<td>MaxSpeed</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines the maximum Cartesian speed (units/s) used to calculate 
+		 target trajectory.</td>
+	</tr>
+	<tr>
+		<td>OrientationInterpolationMode</td>
+		<td>Enumeration</td>
+		<td>RW</td>
+		<td>Defines the orientation interpolation mode for linear movement.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark5"></a>Point to Point (Joint) Motion</h3>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>Configuration</td>
+		<td>String</td>
+		<td>RW</td>
+		<td>Defines the joint configuration by name of robot at target. 
+		 
+		<p class="TableNormal">Configuration names are defined in robot's 
+		 kinematics behavior and can be manufacturer specific.</p></td>
+	</tr>
+	<tr>
+		<td>JointTurns1 to JointTurnsN</td>
+		<td>Integer</td>
+		<td>RW</td>
+		<td>Defines joint turn mode for robot based on joint count (1...4...6) 
+		 and type, for example articulated and scara robots. 
+		<p class="TableNormal"><span class="Term">-1</span><br>
+		Angle &lt; minus 180 degrees</p>
+		<p class="TableNormal"><span class="Term">0</span><br>
+		Angle plus/minus 180 degrees</p>
+		<p class="TableNormal"><span class="Term">1</span><br>
+		Angle &gt; 180 degrees</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark6"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>readFromTarget</td>
+		<td>None</td>
+		<td><a href="vcMotionTarget.htm">vcMotionTarget</a> <span class="Italic">target</span></td>
+		<td>Sets the Target property of statement to equal Target property 
+		 of a given <span class="Italic">target</span>.</td>
+	</tr>
+	<tr>
+		<td>writeToTarget</td>
+		<td>None</td>
+		<td><a href="vcMotionTarget.htm">vcMotionTarget</a> <span class="Italic">target</span></td>
+		<td>Sets the Target property of a given <span class="Italic">target</span> 
+		 to equal Target property of statement.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark7"></a>Examples</h2>
+<p><span class="Example">Example. Access and edit statements in robot program</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>&#160; 
+		<br>#Access main program via Executor 
+		<br>comp = getComponent().findBehaviour('Executor') 
+		<br>mainroutine = comp.MainRoutine 
+		<br>&#160; 
+		<br>#Access statements and return type and order 
+		<br>def exampleRsl(): 
+		<br>&#160;&#160;for i in mainroutine.Statements: 
+		<br>&#160;&#160;&#160;&#160;print i.Name, i.Type, i.Index 
+		<br>&#160; 
+		<br>#Create and delete statement via events 
+		<br>def OnRun(): 
+		<br>&#160;&#160;my_statement = mainroutine.createStatement(VC_STATEMENT_COMMENT) 
+		<br>&#160;&#160;my_statement.Comment = &quot;Example Comment&quot; 
+		<br>&#160;&#160;exampleRsl() 
+		<br>&#160; 
+		<br>#deletes the last statement when user hits reset button 
+		<br>def OnReset(): 
+		<br>&#160;&#160;mainroutine.deleteStatement(len(foo.Statements)-1) 
+		<br>&#160;&#160;exampleRsl()</td>
+	</tr>
+</table>
+<!--======================================Methods=======================================-->
+</body>
+</html>

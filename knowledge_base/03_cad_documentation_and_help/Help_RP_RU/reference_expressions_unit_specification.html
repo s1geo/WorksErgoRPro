@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Спецификация единиц измерения</title>
+   <meta name="generator" content="Help+Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="description" content="Спецификация единиц измерения позволяет указать единицу измерения данного значения, которая может быть или не быть канонической единицей." />
+   <meta name="picture" content="" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <style type="text/css">
+     body { margin: 0px; background: #FFFFFF; }
+   </style>
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+
+
+</head>
+<body>
+
+
+<table style="width:100%; border:none; border-spacing:0px; padding:5px; background:#FFFFFF">
+  <tr style="vertical-align:middle">
+    <td style="text-align:left">
+      <h1 class="p_Heading1" style="text-align: center; border-color: #494949; border-style: solid; border-width: thin; background: #494949; padding: 0.0625in 0.0625in 0.0625in 0.0625in; margin: 0 0 0 0;"><span class="f_Heading1" style="color: #ffffff; background-color: #494949;">Спецификация единиц измерения</span></h1>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table style="width:100%;border:none;border-spacing:0px"><tr style="vertical-align:top"><td style="text-align:left;padding:5px">
+<p class="p_Normal">Спецификация единиц измерения позволяет указать единицу измерения данного значения, которая может быть или не быть канонической единицей.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0.0625in;"><table cellpadding="0" cellspacing="0" style="border:none;border-spacing:0;padding:0;line-height: normal;"><tr style="vertical-align:baseline"><td style="border:none;padding:0;width:0.1875in"><a name="mthotspot35291" class="hmanchor"></a><img id="toggle0186a1_ICON" class="dropdown-toggle-icon" alt="hmtoggle_plus1" style="margin:0;width:0.0938in;height:0.0938in;border:none" src="hmtoggle_plus1.gif"/></td><td style="border:none;padding:0"><a class="dropdown-toggle" style="font-style: normal; font-weight: normal; color: #000000; background-color: transparent; text-decoration: none;" href="javascript:HMToggle('toggle','toggle0186a1','toggle0186a1_ICON')">СОДЕРЖАНИЕ</a></td></tr></table></div>
+<div id="toggle0186a1" class="dropdown-toggle-body" style="text-align: left; padding: 0 0 0 0; margin: 0 0 0.0417in 0.2500in;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="reference_expressions_unit_specification.html#minitocbookmark2" class="topiclink">ИСПОЛЬЗОВАНИЕ</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:none"><p class="p_Normal" style="margin: 0 0 0.0417in 0.0625in;"><a href="reference_expressions_unit_specification.html#minitocbookmark3" class="topiclink">ВСТРОЕННЫЕ ЕДИНИЦЫ ИЗМЕРЕНИЯ</a></p>
+</td>
+</tr>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark2" class="hmanchor"></a><span style="font-size: 18pt;">Использование</span></h2>
+<p class="p_Normal">Как правило, единицы измерения используются в выражениях при определении определенного количества. Это позволяет вам указать любую применимую единицу для значения, в то время как базовые вычисления остаются прежними. То есть спецификация единиц измерения не может использоваться для преобразования значения из одной единицы измерения в другую.</p>
+<p class="p_Normal">Спецификация модуля состоит из имени модуля, заключенного в фигурные скобки. Это можно сделать для числовых значений (целых и действительных), и результатом всегда будет значение действительного типа.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="border:none; border-spacing:0;">
+<tr>
+<td style="vertical-align:middle; padding:0; border:none"><p class="p_Normal">10{cm} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 100.0 &nbsp; &nbsp; миллиметр — каноническая единица расстояния</p>
+<p class="p_Normal">(3+4){m} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 7000.0 &nbsp; &nbsp;единицы могут применяться к подвыражениям</p>
+<p class="p_Normal">15{in} + 45{mm} &nbsp; &nbsp;426.0 &nbsp; &nbsp; допускается смешивание единиц в выражении</p>
+<p class="p_Normal">30{centimetres} &nbsp; &nbsp;300.0 &nbsp; &nbsp; вы можете использовать имя единицы в спецификации</p>
+</td>
+</tr>
+</table>
+</div>
+<h2 style="margin: 0.1979in 0 0 0;"><a name="minitocbookmark3" class="hmanchor"></a><span style="font-size: 18pt;">Встроенные Единицы измерения</span></h2>
+<p class="p_Normal">В спецификации единиц измерения можно использовать как встроенные, так и пользовательские единицы. Некоторые встроенные единицы имеют суффиксы, например, градус° и микросекунда мкс, а также альтернативные формы, которые можно использовать в выражениях. Единицы, помеченные &quot;Каноническая&quot;, являются каноническими единицами для величин и используются внутри Рациональное Производство для хранения и вычисления значений.</p>
+<p class="p_Normal"><span style="font-weight: bold;">Примечание:</span> Согласно внутренним расчетам, 1 единица Времени равна 1 секунде, 1 единица Расстояния (Длины) равна 1 миллиметру, а 1 единица Скорости равна 1 миллиметру в секунду.</p>
+<div style="text-align: left; text-indent: 0; padding: 0 0 0 0; margin: 0 0 0.0417in 0;"><table style="width:100%; border:solid 0.0313in #c0c0c0; border-spacing:0; border-collapse:collapse;">
+<thead>
+<tr>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Название</span></p>
+</th>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Суффикс</span></p>
+</th>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Величина</span></p>
+</th>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Примечание</span></p>
+</th>
+<th style="vertical-align:top; background-color:#C0C0C0; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal"><span style="font-weight: bold;">Альтернатива</span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">сантиметры</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">cm</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Расстояние</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">сантиметры</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">cm/s</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Скорость</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">кубические сантиметры</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">cm3</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Объем</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">cm^3</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">кубический дециметр</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">dm3</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Объем</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">dm^3</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">кубический фут</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">cu ft</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Объем</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">кубические дюймы</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">cu in</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Объем</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">кубические метры</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">m3</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Объем</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">m^3</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">кубические ярды</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">cu yd</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Объем</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">чашки</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">cp</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Объем.Жидкость</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">дни</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">days</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Время</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">градусы</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">°</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Угол</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Каноническая</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">deg</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">градусы Цельсия</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">°C</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Температура</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">degC</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">градусы по Фаренгейту</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">°F</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Температура</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">degF</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">градусов в секунду</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">°/s</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Угловая скорость</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Каноническая</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">deg/s</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">градусов на секунду в квадрате</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">°/s2</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Угловое ускорение</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Каноническая</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">deg/s^2</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">драм</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">dr</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Масса</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">футы</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ft</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Расстояние</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">футов в секунду в квадрате</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ft/s2</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Ускорение</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ft/s^2</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">жидкие драмы</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">fl dr</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Объем.Жидкость</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">жидкие унции</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">fl oz</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Объем.Жидкость</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">фут-фунт сила</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ftlbf</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Крутящий момент</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">галлоны</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">gal</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Объем.Жидкость</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">градусы</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">grad</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Угол</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">град в секунду</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">grad/s</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Угловая скорость</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">град на секунду в квадрате</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">grad/s2</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Угловое ускорение</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">grad/s^2</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">грамм градусов в секунду</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">g°/s</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Угловой момент</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">gdeg/s</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">грамм град в секунду</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ggrad/s</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Угловой момент</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">грамм метр в секунду</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">gm/s</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Момент</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">грамм радиан в секунду</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">g rad/s</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Угловой момент</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">грамм</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">g</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Масса</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Каноническая</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">час</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">hr</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Время</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">центнеры</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">cwt</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Масса</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">дюйм фунт силы</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">inlbf</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Крутящий момент</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">дюймы</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">in</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Расстояние</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">дюймов на секунду в квадрате</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">in/s2</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Ускорение</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">in/s^2</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Кельвин</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">K</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Температура</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Каноническая</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">килограмм градусов в секунду</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">kg°/s</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Угловой момент</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Каноническая</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">kgdeg/s</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">килограмм град в секунду</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">kggrad/s</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Угловой момент</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">килограмм метров в секунду</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">kgm/s</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Момент</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Каноническая</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">килограмм радиан в секунду</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">kg rad/s</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Угловой момент</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">килограммы</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">kg</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Масса</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">килоньютоны</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">kN</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Сила</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">литры</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">l</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Объем.Жидкость</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">метры</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">m</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Расстояние</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">метры в секунду</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">m/s</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Скорость</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">метры в секунду в квадрате</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">m/s2</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Ускорение</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">m/s^2</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">микросекунды</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">µs</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Время</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">mus</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">миллилитры</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ml</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Объем.Жидкость</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">миллиметры</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">mm</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Расстояние</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Каноническая</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">миллиметры в секунду</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">mm/s</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Скорость</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Каноническая</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">миллиметры в секунду в квадрате</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">mm/s2</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Ускорение</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Каноническая</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">mm/s^2</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">миллисекунды</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ms</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Время</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">минуты</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">min</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Время</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ньютон-сантиметры</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Ncm</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Крутящий момент</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ньютон-метры</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Nmm</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Крутящий момент</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ньютон-миллиметры</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Nmm</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Крутящий момент</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Каноническая</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">ньютоны</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">N</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Сила</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Каноническая</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">унции</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">oz</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Масса</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">пинты</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">pt</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Объем.Жидкость</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">фунт-градус в секунду</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">lb°/s</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Угловой момент</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">lbdeg/s</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">фунты</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">lb</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Масса</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; height:0.2188in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">фунт силы</p>
+</td>
+<td style="vertical-align:top; height:0.2188in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">lbf</p>
+</td>
+<td style="vertical-align:top; height:0.2188in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Сила</p>
+</td>
+<td style="vertical-align:top; height:0.2188in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; height:0.2188in; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">кварт</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">qt</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Объем.Жидкость</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">радианы</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">rad</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Угол</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">радианы в секунду</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">rad/s</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Угловая скорость</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">радиан на секунду в квадрате</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">rad/s2</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Угловое ускорение</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">rad/s^2</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">секунды</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">s</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Время</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Каноническая</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">квадратные сантиметры</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">cm2</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Площадь</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">cm^2</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">квадратный фут</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">sqft</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Площадь</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">квадратные дюймы</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">sqin</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Площадь</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">квадратные метры</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">m2</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Площадь</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">m^2</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">квадратные миллиметры</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">mm2</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Площадь</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">mm^2</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">тонны</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">t</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Масса</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">недели</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">wks</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Время</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+<td style="vertical-align:top; padding:0; border:solid 0.0208in #c0c0c0;"><p class="p_Normal">Нет</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p_Normal">&nbsp;</p>
+
+</td></tr></table>
+
+<script type="text/javascript">
+if (window.topicInitScriptAvailable) {
+function HMInitToggleStates() {
+HMInitToggle('toggle0186a1_ICON','hm.type','dropdown','hm.state','0','hm.src0','hmtoggle_plus0.gif','hm.src1','hmtoggle_plus1.gif','onclick','HMToggle(\'toggle\',\'toggle0186a1\',\'toggle0186a1_ICON\')');
+HMInitToggle('toggle0186a1','hm.type','dropdown','hm.state','0');
+
+}
+var checkTimer=setTimeout("HMInitToggleStates()", 0);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcTransport</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcTransport</h1>
+<p>vcTransport is a protocol for handling transport actions, which usually 
+ involves the use of Action Container and Python Script behaviors.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a>, 
+ <a href="vcFlow.htm">vcFlow</a>, <a href="vcContainer.htm">vcContainer</a></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot29372" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot29372', 'MTPOPUP29372');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP29372" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Events</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>setTargetInfo</td>
+		<td>None</td>
+		<td>Enumeration <span class="Italic">availability</span>, <a href="vcNode.htm">vcNode</a> 
+		 <span class="Italic">node</span>, <a href="vcContainer.htm">vcContainer</a> 
+		 <span class="Italic">container</span>, <a href="vcMatrix.htm">vcMatrix</a> 
+		 <span class="Italic">location</span></td>
+		<td>Sets target information for a transportation action. 
+		<p class="TableNormal">The <span class="Italic">availability</span> 
+		 argument is used to notify resource of target/pick up container 
+		 status. See <a href="Constants.htm#Transportation">Transportation 
+		 Constants</a> for more information.</p>
+		<p class="TableNormal">The <span class="Italic">node</span> or 
+		 <span class="Italic">container</span> argument should be used 
+		 to specify a buffer area.</p>
+		<p class="TableNormal">The <span class="Italic">location</span> 
+		 argument is used to specify the location of a delivered component 
+		 in either node or container.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<col style="width: 33.333%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>OnTransportInfo</td>
+		<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span></td>
+		<td>Triggered when protocol requests transport details about a 
+		 component.</td>
+	</tr>
+</table>
+</body>
+</html>

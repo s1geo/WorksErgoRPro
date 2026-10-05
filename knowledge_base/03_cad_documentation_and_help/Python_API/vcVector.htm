@@ -1,0 +1,196 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcVector</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcVector</h1>
+<p>vcVector is a 4x1 column vector and is generally used to define joint 
+ lengths in robots, offsets and directions, and angles of rotation.</p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot36865" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot36865', 'MTPOPUP36865');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP36865" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Constructors</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Operators</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark6" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Constructors</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>new</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td><a href="vcVector.htm">vcVector</a> <span class="Italic">vector</span> 
+		 
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">Real <span class="Italic">x</span>, Real 
+		 <span class="Italic">y</span>, Real <span class="Italic">z</span></p>
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">Real <span class="Italic">x</span>, Real 
+		 <span class="Italic">y</span>, Real <span class="Italic">z</span>, 
+		 Real <span class="Italic">w</span></p>
+		<p class="TableNormal">or</p>
+		<p class="TableNormal">[no argument]</p></td>
+		<td>Creates a new vcVector object. 
+		<p class="TableNormal">One option allows you to give an existing 
+		 vector, thereby creating a copy.</p>
+		<p class="TableNormal">A second option allows you to give three 
+		 components for new vector.</p>
+		<p class="TableNormal">A third option allows you to give four components 
+		 for new vector.</p>
+		<p class="TableNormal">A fourth option allows you to give no arguments, 
+		 thereby creating a zero vector.</p></td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>Operators</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td>Allows you to get the dot product of vectors.</td>
+	</tr>
+	<tr>
+		<td>^</td>
+		<td>Allows you to get the cross product of vectors.</td>
+	</tr>
+	<tr>
+		<td>+</td>
+		<td>Allows you to add vectors.</td>
+	</tr>
+	<tr>
+		<td>-</td>
+		<td>Allows you to subtract vectors.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Type</td>
+		<td>Access</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>W</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines w-component (fourth element) of vector.</td>
+	</tr>
+	<tr>
+		<td>X</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines x-component (first element) of vector.</td>
+	</tr>
+	<tr>
+		<td>Y</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines y-component (second element) of vector.</td>
+	</tr>
+	<tr>
+		<td>Z</td>
+		<td>Real</td>
+		<td>RW</td>
+		<td>Defines z-component (third element) of vector.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<col style="width: 25%;">
+	<tr class="t1st">
+		<td>Name</td>
+		<td>Return Type</td>
+		<td>Parameters</td>
+		<td>Description</td>
+	</tr>
+	<tr>
+		<td>angle</td>
+		<td>Real</td>
+		<td><a href="vcVector.htm">vcVector</a> <span class="Italic">vector</span></td>
+		<td>Returns the angle (in radians) between vector and a given <span 
+		 class="Italic">vector</span>.</td>
+	</tr>
+	<tr>
+		<td>getQuaternionAngle</td>
+		<td><a href="vcVector.htm">vcVector</a></td>
+		<td><a href="vcVector.htm">vcVector</a> <span class="Italic">vector</span></td>
+		<td>Returns the quaternion angle between vector and a given <span 
+		 class="Italic">vector</span>.</td>
+	</tr>
+	<tr>
+		<td>length</td>
+		<td>Real</td>
+		<td>None</td>
+		<td>Returns the magnitude (length) of vector.</td>
+	</tr>
+	<tr>
+		<td>normalize</td>
+		<td>None</td>
+		<td>None</td>
+		<td>Normalizes vector.</td>
+	</tr>
+	<tr>
+		<td>square</td>
+		<td>Real</td>
+		<td>None</td>
+		<td>Returns the square of vector.</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark6"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Relocate component using position vector</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr>
+		<td>from vcScript import * 
+		<br>import vcVector 
+		<br>&#160; 
+		<br>comp = getComponent() 
+		<br>vec = vcVector.new(100.0,200.0,300.0) # creates a new vcVector object 
+		<br>m = comp.PositionMatrix 
+		<br>&#160; 
+		<br>m.P = vec # assign the vector to position vector for matrix 
+		<br>comp.PositionMatrix = m 
+		<br>getApplication().render()</td>
+	</tr>
+</table>
+<!--======================================Methods=======================================-->
+<!--======================================Methods=======================================-->
+</body>
+</html>

@@ -1,0 +1,322 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 2017">
+<title>vcSimVehicle</title>
+<link rel="StyleSheet" href="StyleSheet.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2" src="ehlpdhtm.js"></script>
+</head>
+<body>
+
+
+<h1><a name="MiniTOCBookMark1"></a>vcSimVehicle</h1>
+<p>vcSimVehicle allows you to simulate a component as a moving vehicle.</p>
+<p><span class="Strong">Inherits:</span> <a href="vcBehaviour.htm">vcBehaviour</a></p>
+<p>A vcSimVehicle object should be located in the root node of a component. When speed, acceleration and deceleration factors are set, the vcSimVehicle object will automatically handle the movement and orientation of a component to reach a given target.</p>
+<p>As a vehicle, a component can be made to rotate in place, attach and detach wagons, lead or follow other vehicles, and alter its course.</p>
+<p><img src="vehiclegraph.png" alt="" style="margin-left: 0cm; margin-right: 0px; margin-bottom: 0px; border-left-style: Solid; border-left-width: 1px; border-right-style: Solid; border-right-width: 1px; border-top-style: Solid; border-top-width: 1px; border-bottom-style: Solid; border-bottom-width: 1px;" width="684" height="309" border="1"></p>
+<div class="Contents" >
+ <p align="left">Contents&#160;<a class="dropspot" href="javascript:TextPopup(this)" id="MTHotSpot37904" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+TextPopupInit('MTHotSpot37904', 'MTPOPUP37904');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP37904" >
+  <p align="left"  ><a href="#MiniTOCBookMark2" >Properties</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark3" >Methods</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark4" >Events</a></p>
+  <p align="left"  ><a href="#MiniTOCBookMark5" >Examples</a></p>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Properties</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Type</td>
+<td>Access</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Acceleration</td>
+<td>Real</td>
+<td>RW</td>
+<td>Defines the maximum acceleration (mm/s^2) of vehicle. That is, how fast vehicle can speed up.</td>
+</tr>
+<tr>
+<td>Deceleration</td>
+<td>Real</td>
+<td>RW</td>
+<td>Defines the maximum deceleration (mm/s^2) of vehicle. That is, how fast vehicle can slow down.</td>
+</tr>
+<tr>
+<td>DecisionTime</td>
+<td>Real</td>
+<td>R</td>
+<td>Gets the amount of time it will take vehicle to execute a movement and reach decision point of calculated motion path.
+<p class="TableNormal">A decision point is the point at which vehicle will decelerate to stop at target. In some cases, a decision point is used to evaluate a vehicle and target location. For example, you may want to simulate vehicle routing and intersection crossing as well as evaluate if another vehicle is at target location.</p>
+</td>
+</tr>
+<tr>
+<td>Interpolation</td>
+<td>Real</td>
+<td>W</td>
+<td>Sets the tension (0 - n) of calculated motion path for vehicle to reach target.
+<p class="TableNormal"><span class="Strong">(Optional)</span> Default value is 0, which will result in straight lines from each waypoint of path. The bigger the value, the longer the vehicle will navigate along the tangents of waypoints.</p>
+</td>
+</tr>
+<tr>
+<td>LengthIterations</td>
+<td>Integer</td>
+<td>W</td>
+<td>Sets the number of iterations for each path segment when calculating Bezier path length.
+<p class="TableNormal"><span class="Strong">(Optional)</span> Default value is 10. More iterations take longer to compute but give more precise results.</p>
+</td>
+</tr>
+<tr>
+<td>MaxSpeed</td>
+<td>Real</td>
+<td>RW</td>
+<td>Defines the maximum speed (mm/s) of vehicle. That is, the top speed of vehicle.</td>
+</tr>
+<tr>
+<td>OffsetMatrix</td>
+<td><a href="vcMatrix.htm">vcMatrix</a></td>
+<td>W</td>
+<td>Sets an offset for vehicle origin and orientation.
+<p class="TableNormal"><span class="Strong">(Optional)</span> Default is containing node's origin. In some cases, you may want to retain orientation of vehicle when moving in reverse or along an elevated path.</p>
+</td>
+</tr>
+<tr>
+<td>PathLength</td>
+<td>Real</td>
+<td>R</td>
+<td>Gets the length of motion path vehicle will use to reach a target.</td>
+</tr>
+<tr>
+<td>TotalTime</td>
+<td>Real</td>
+<td>R</td>
+<td>Gets the total travel time of vehicle to reach a target using calculated path.</td>
+</tr>
+</table>
+<p><span class="Strong">Note:</span></p>
+<ul style="list-style: disc;">
+<li class="Unordered">Last added control point of vehicle is target, thereby vehicle requires only one control point to calculate path.</li>
+<li class="Unordered">Control points need to be added in sequence, for example using a while or for loop, in order to belong to the same path. Otherwise, you may need to replan vehicle to reach final target.</li>
+</ul>
+<h2><a name="MiniTOCBookMark3"></a>Methods</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Return Type</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>addControlPoint</td>
+<td>None</td>
+<td><a href="vcVector.htm">vcVector</a> <span class="Italic">point</span></td>
+<td>Adds a given <span class="Italic">point</span> to end of vehicle path.</td>
+</tr>
+<tr>
+<td>addOrientationPoint</td>
+<td>None</td>
+<td><a href="vcVector.htm">vcVector</a> <span class="Italic">vector</span></td>
+<td>If Interpolation is not zero, adds a given <span class="Italic">vector</span> to vehicle in order to calculate vehicle orientation at its last control point.
+<p class="TableNormal">This method should be called immediately after adding control points to vehicle path. A given <span class="Italic">vector</span> is not added to path.</p>
+</td>
+</tr>
+<tr>
+<td>attachWagonAtTheEnd</td>
+<td>None</td>
+<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span>, [Real <span class="Italic">distance</span>]</td>
+<td>Attaches a given <span class="Italic">component</span> to vehicle as a wagon.
+<p class="TableNormal">If no previous wagons, <span class="Italic">component</span> is added as lead wagon. Otherwise, <span class="Italic">component</span> is attached to last wagon added to vehicle.</p>
+<p class="TableNormal">An optional <span class="Italic">distance</span> argument can be given to offset distance <span class="Italic">component</span> is attached to vehicle. By default, the method will use distance of component to vehicle at time of call.</p>
+</td>
+</tr>
+<tr>
+<td>calculateDecisionTimeToStopAt</td>
+<td>Real</td>
+<td>Real <span class="Italic">distance</span></td>
+<td>Returns the total simulation time at which vehicle would need to decelerate (decision point) to stop at a given <span class="Italic">distance</span> in calculated motion path.</td>
+</tr>
+<tr>
+<td>calculateEnterExitBox</td>
+<td>2-tuple (Real entry_distance, Real exit_distance)</td>
+<td><a href="vcVector.htm">vcVector</a> <span class="Italic">Center</span>, <a href="vcVector.htm">vcVector</a> <span class="Italic">P1</span>, <a href="vcVector.htm">vcVector</a> <span class="Italic">P2</span>, Real <span class="Italic">distStartAt</span>, Real <span class="Italic">precision</span></td>
+<td>Returns the distance at which vehicle would enter and exit a box based on calculated path, starting distance of vehicle and a given <span class="Italic">precision</span>.
+<p class="TableNormal">The <span class="Italic">Center</span>, <span class="Italic">P1</span> and <span class="Italic">P2</span> arguments define box.</p>
+<p class="TableNormal">The returned distances will be within one-half of <span class="Italic">precision</span> to the theoretical intersection.</p>
+</td>
+</tr>
+<tr>
+<td>calculateFinishedTimeToStopAt</td>
+<td>Real</td>
+<td>Real <span class="Italic">distance</span></td>
+<td>Returns the calculated total simulation time that vehicle will stop at a given <span class="Italic">distance</span> based on calculated path.</td>
+</tr>
+<tr>
+<td>calculateOffsetPathLength</td>
+<td>Real</td>
+<td><a href="vcVector.htm">vcVector</a> <span class="Italic">offset</span></td>
+<td>Returns the length of calculated path for vehicle based on a given <span class="Italic">offset</span>.</td>
+</tr>
+<tr>
+<td>calculatePositionAt</td>
+<td>2-tuple (<a href="vcVector.htm">vcVector</a> position, <a href="vcVector.htm">vcVector</a> direction)</td>
+<td>Real <span class="Italic">time</span>, Integer <span class="Italic">isElapsedTime</span></td>
+<td>Returns the position and direction of vehicle at a given <span class="Italic">time</span> based on calculated path.
+<p class="TableNormal">If <span class="Italic">isElapsedTime</span> argument is 0 (default), a given <span class="Italic">time</span> is the elapsed time since start of vehicle movement. Otherwise, given <span class="Italic">time</span> is elapsed time since start of simulation.</p>
+</td>
+</tr>
+<tr>
+<td>calculatePositionWithDistance</td>
+<td>1-tuple (<a href="vcVector.htm">vcVector</a> position)</td>
+<td>Real <span class="Italic">distance</span></td>
+<td>Returns the position of vehicle at a given <span class="Italic">distance</span> in calculated path.
+<p class="TableNormal">The returned value is a tuple in which first element is position vector.</p>
+</td>
+</tr>
+<tr>
+<td>calculateSpeedAt</td>
+<td>Real</td>
+<td>Real <span class="Italic">time</span>, Integer <span class="Italic">isElapsedTime</span></td>
+<td>Returns the speed of vehicle on calculated path at a given <span class="Italic">time</span>.
+<p class="TableNormal">If <span class="Italic">isElapsedTime</span> argument is 0 (default), a given <span class="Italic">time</span> is the elapsed time since start of vehicle movement. Otherwise, given <span class="Italic">time</span> is elapsed time since start of simulation.</p>
+</td>
+</tr>
+<tr>
+<td>calculateTravelWithTime</td>
+<td>Real</td>
+<td>Real <span class="Italic">time</span>, Integer <span class="Italic">isElapsedTime</span></td>
+<td>Returns the distance traveled by vehicle on calculated path at a given <span class="Italic">time</span>.
+<p class="TableNormal">If <span class="Italic">isElapsedTime</span> argument is 0 (default), a given <span class="Italic">time</span> is the elapsed time since start of vehicle movement. Otherwise, given <span class="Italic">time</span> is elapsed time since start of simulation.</p>
+</td>
+</tr>
+<tr>
+<td>clearMove</td>
+<td>None</td>
+<td>None</td>
+<td>Removes all points from calculated path of vehicle, thereby stopping vehicle movement.
+<p class="TableNormal">This method should be called at start of simulation before any control points are added to vehicle.</p>
+</td>
+</tr>
+<tr>
+<td>clearPassedPoints</td>
+<td>None</td>
+<td>None</td>
+<td>Removes points from calculated path that have been reached by vehicle, thereby resetting the origin of calculated path and its length.</td>
+</tr>
+<tr>
+<td>detachAllWagons</td>
+<td>None</td>
+<td>None</td>
+<td>Detaches all wagons from vehicle and one another.
+<p class="TableNormal">This method should be called when simulation is reset; otherwise components will remain attached to one another.</p>
+</td>
+</tr>
+<tr>
+<td>getControlPointDistance</td>
+<td>Real</td>
+<td>Integer <span class="Italic">controlPointIndex</span></td>
+<td>Returns the distance of a control point at a given index in vehicle based on calculated path.
+<p class="TableNormal"><span class="Strong">Note:</span> If wagons are attached to vehicle, there will be control points with negative distances.</p>
+</td>
+</tr>
+<tr>
+<td>offsetPath</td>
+<td>none</td>
+<td><a href="vcVector.htm">vcVector</a> <span class="Italic">offset</span></td>
+<td>Offsets the calculated path of vehicle parametrically (X-axis is tangent, Y-axis is radial, Z-axis is up).
+<p class="TableNormal">This method should be called after adding points to vehicle.</p>
+</td>
+</tr>
+<tr>
+<td>rePlan</td>
+<td>None</td>
+<td>None</td>
+<td>Clears all points from vehicle except those between vehicle and its wagons, thereby allowing you to replan route of vehicle using current speed, position and orientation. That is, the vehicle will not stop rather reroute itself to newly added control points.</td>
+</tr>
+<tr>
+<td>resetStopAtDistance</td>
+<td>None</td>
+<td>Real <span class="Italic">distance</span></td>
+<td>Instructs vehicle to stop at a given <span class="Italic">distance</span> on calculated path.
+<p class="TableNormal">This method allows you stop vehicle and recalculated route using same or different control points.</p>
+</td>
+</tr>
+<tr>
+<td>rotateInPlace</td>
+<td>None</td>
+<td>Real <span class="Italic">angle</span>, Real <span class="Italic">angularSpeed</span>, Real <span class="Italic">angularAcceleration</span>, Real <span class="Italic">angularDeceleration</span></td>
+<td>Rotates vehicle by a given <span class="Italic">angle</span> using given <span class="Italic">angularSpeed</span>, <span class="Italic">angularAcceleration</span> and <span class="Italic">angularDeceleration</span> arguments.
+<p class="TableNormal">Rotation will trigger OnMovementChanged and OnMovementFinished events. To ensure rotation is completed, use a delay, event or trigger before adding new control points to vehicle.</p>
+</td>
+</tr>
+<tr>
+<td>update</td>
+<td>None</td>
+<td>Real <span class="Italic">time</span></td>
+<td>Updates the position of objects controlled by vehicle.</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark4"></a>Events</h2>
+<table class="Property" cellspacing="0px" width="100%">
+<col style="width: 33.333%;">
+<col style="width: 33.333%;">
+<col style="width: 33.333%;">
+<tr class="t1st">
+<td>Name</td>
+<td>Parameters</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>OnDecisionPointReached</td>
+<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span>, Real <span class="Italic">time</span></td>
+<td>Triggered when vehicle starts to decelerate in order to stop at target. That is, vehicle reaches decision point.
+<p class="TableNormal">The component of vehicle and time of occurrence are passed to event.</p>
+</td>
+</tr>
+<tr>
+<td>OnFinalDestinationReached</td>
+<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span>, Real <span class="Italic">time</span></td>
+<td>Triggered when vehicle reaches last target. That is, vehicle reaches last control point, and then stops with no more targets in queue.
+<p class="TableNormal">The component of vehicle and time of occurrence are passed to event.</p>
+</td>
+</tr>
+<tr>
+<td>OnMovementChanged</td>
+<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span>, Real <span class="Italic">time</span></td>
+<td>Triggered when vehicle route is modified, for example points cleared or added to vehicle or change in stop distance.
+<p class="TableNormal">The component of vehicle and time of occurrence are passed to event.</p>
+</td>
+</tr>
+<tr>
+<td>OnMovementFinished</td>
+<td><a href="vcComponent.htm">vcComponent</a> <span class="Italic">component</span>, Real <span class="Italic">time</span></td>
+<td>Triggered when vehicle reaches target.
+<p class="TableNormal">The component of vehicle and time of occurrence are passed to event.</p>
+</td>
+</tr>
+</table>
+<h2><a name="MiniTOCBookMark5"></a><a name="Examples" id="Examples"></a>Examples</h2>
+<p><span class="Example">Example. Control vehicle speed and set control points</span></p>
+<table class="CodeBlock" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr>
+<td>from vcScript import * <br>import vcVector <br>&#160; <br>#define the vehicle's properties either at the start or execution of the simulation <br>#properties like PathLength should be called after adding points or rotating an object <br>#add points during the OnRun event directly or by calling a function or event <br>&#160; <br>def OnRun(): <br>&#160;&#160;comp = getComponent() <br>&#160;&#160;app = getApplication() <br>&#160;&#160;vehicle = comp.findBehaviour("Vehicle") <br>&#160;&#160;vehicle.clearMove() #clears all previously added control points <br>&#160; <br>&#160;&#160;vehicle.Acceleration = 2000 <br>&#160;&#160;vehicle.Deceleration = 2000 <br>&#160;&#160;vehicle.MaxSpeed = 1200 <br>&#160;&#160;vehicle.Interpolation = .35 # this affects how sharp the curve is in corners <br>&#160; <br>&#160;&#160;#wagons (uncomment next 3 lines if needed) <br>&#160;&#160;#vehicle.detachAllWagons() <br>&#160;&#160;#vehicle.attachWagonAtTheEnd(wagon, 1600) <br>&#160;&#160;#wagon = app.findComponent('wagon') <br>&#160; <br>&#160;&#160;#preferred method is to reference the positions of different components <br>&#160;&#160;#another way is to create a component with Frame features <br>&#160;&#160;v1 = vcVector.new(5000,2000,0) <br>&#160;&#160;v2 = vcVector.new(-2000,-2000,0) <br>&#160;&#160;v3 = vcVector.new(-5000,4000,0) <br>&#160;&#160;for vec in [v1,v2,v3]: <br>&#160;&#160;&#160;&#160;vehicle.addControlPoint( vec )</td>
+</tr>
+</table>
+</body>
+</html>
