@@ -1,0 +1,74 @@
+[
+  {
+    "file": "take001_chr00.bvh",
+    "size_bytes": 3053840,
+    "source_path": "D:\\Задания, Уроки\\Запись с датчиков\\take001_chr00.bvh",
+    "header_sample": "HIERARCHY\nROOT Hips\n{\n    OFFSET 0.000000 97.120003 0.000000\n    CHANNELS 6 Xposition Yposition Zposition Yrotation Xrotation Zrotation\n    JOINT RightUpLeg\n    {\n        OFFSET -11.000000 -0.000000 0.000000\n        CHANNELS 3 Yrotation Xrotation Zrotation\n        JOINT RightLeg\n"
+  },
+  {
+    "file": "take002_chr00.bvh",
+    "size_bytes": 2700413,
+    "source_path": "D:\\Задания, Уроки\\Запись с датчиков\\take002_chr00.bvh",
+    "header_sample": "HIERARCHY\nROOT Hips\n{\n    OFFSET 0.000000 97.120003 0.000000\n    CHANNELS 6 Xposition Yposition Zposition Yrotation Xrotation Zrotation\n    JOINT RightUpLeg\n    {\n        OFFSET -11.000000 -0.000000 0.000000\n        CHANNELS 3 Yrotation Xrotation Zrotation\n        JOINT RightLeg\n"
+  },
+  {
+    "file": "take003_chr00.bvh",
+    "size_bytes": 3164492,
+    "source_path": "D:\\Задания, Уроки\\Запись с датчиков\\take003_chr00.bvh",
+    "header_sample": "HIERARCHY\nROOT Hips\n{\n    OFFSET 0.000000 97.120003 0.000000\n    CHANNELS 6 Xposition Yposition Zposition Yrotation Xrotation Zrotation\n    JOINT RightUpLeg\n    {\n        OFFSET -11.000000 -0.000000 0.000000\n        CHANNELS 3 Yrotation Xrotation Zrotation\n        JOINT RightLeg\n"
+  },
+  {
+    "file": "take004_chr00.bvh",
+    "size_bytes": 2026049,
+    "source_path": "D:\\Задания, Уроки\\Запись с датчиков\\take004_chr00.bvh",
+    "header_sample": "HIERARCHY\nROOT Hips\n{\n    OFFSET 0.000000 97.120003 0.000000\n    CHANNELS 6 Xposition Yposition Zposition Yrotation Xrotation Zrotation\n    JOINT RightUpLeg\n    {\n        OFFSET -11.000000 -0.000000 0.000000\n        CHANNELS 3 Yrotation Xrotation Zrotation\n        JOINT RightLeg\n"
+  },
+  {
+    "file": "take005_chr00.bvh",
+    "size_bytes": 5914929,
+    "source_path": "D:\\Задания, Уроки\\Запись с датчиков\\take005_chr00.bvh",
+    "header_sample": "HIERARCHY\nROOT Hips\n{\n    OFFSET 0.000000 97.120003 0.000000\n    CHANNELS 6 Xposition Yposition Zposition Yrotation Xrotation Zrotation\n    JOINT RightUpLeg\n    {\n        OFFSET -11.000000 -0.000000 0.000000\n        CHANNELS 3 Yrotation Xrotation Zrotation\n        JOINT RightLeg\n"
+  },
+  {
+    "file": "take006_chr00.bvh",
+    "size_bytes": 4418246,
+    "source_path": "D:\\Задания, Уроки\\Запись с датчиков\\take006_chr00.bvh",
+    "header_sample": "HIERARCHY\nROOT Hips\n{\n    OFFSET 0.000000 97.120003 0.000000\n    CHANNELS 6 Xposition Yposition Zposition Yrotation Xrotation Zrotation\n    JOINT RightUpLeg\n    {\n        OFFSET -11.000000 -0.000000 0.000000\n        CHANNELS 3 Yrotation Xrotation Zrotation\n        JOINT RightLeg\n"
+  },
+  {
+    "file": "take007_chr00.bvh",
+    "size_bytes": 4017152,
+    "source_path": "D:\\Задания, Уроки\\Запись с датчиков\\take007_chr00.bvh",
+    "header_sample": "HIERARCHY\nROOT Hips\n{\n    OFFSET 0.000000 97.120003 0.000000\n    CHANNELS 6 Xposition Yposition Zposition Yrotation Xrotation Zrotation\n    JOINT RightUpLeg\n    {\n        OFFSET -11.000000 -0.000000 0.000000\n        CHANNELS 3 Yrotation Xrotation Zrotation\n        JOINT RightLeg\n"
+  },
+  {
+    "file": "take008_chr00.bvh",
+    "size_bytes": 3696719,
+    "source_path": "D:\\Задания, Уроки\\Запись с датчиков\\take008_chr00.bvh",
+    "header_sample": "HIERARCHY\nROOT Hips\n{\n    OFFSET 0.000000 97.120003 0.000000\n    CHANNELS 6 Xposition Yposition Zposition Yrotation Xrotation Zrotation\n    JOINT RightUpLeg\n    {\n        OFFSET -11.000000 -0.000000 0.000000\n        CHANNELS 3 Yrotation Xrotation Zrotation\n        JOINT RightLeg\n"
+  },
+  {
+    "file": "take010_chr00.bvh",
+    "size_bytes": 5614330,
+    "source_path": "D:\\Задания, Уроки\\Запись с датчиков\\take010_chr00.bvh",
+    "header_sample": "HIERARCHY\nROOT Hips\n{\n    OFFSET 0.000000 97.120003 0.000000\n    CHANNELS 6 Xposition Yposition Zposition Yrotation Xrotation Zrotation\n    JOINT RightUpLeg\n    {\n        OFFSET -11.000000 -0.000000 0.000000\n        CHANNELS 3 Yrotation Xrotation Zrotation\n        JOINT RightLeg\n"
+  },
+  {
+    "file": "walk_chr00.bvh",
+    "size_bytes": 2442093,
+    "source_path": "D:\\Задания, Уроки\\Запись с датчиков\\walk_chr00.bvh",
+    "header_sample": "HIERARCHY\nROOT Hips\n{\n    OFFSET 0.000000 97.120003 0.000000\n    CHANNELS 6 Xposition Yposition Zposition Yrotation Xrotation Zrotation\n    JOINT RightUpLeg\n    {\n        OFFSET -11.000000 -0.000000 0.000000\n        CHANNELS 3 Yrotation Xrotation Zrotation\n        JOINT RightLeg\n"
+  },
+  {
+    "file": "work_chr00.bvh",
+    "size_bytes": 2161931,
+    "source_path": "D:\\Задания, Уроки\\Запись с датчиков\\work_chr00.bvh",
+    "header_sample": "HIERARCHY\nROOT Hips\n{\n    OFFSET 0.000000 97.120003 0.000000\n    CHANNELS 6 Xposition Yposition Zposition Yrotation Xrotation Zrotation\n    JOINT RightUpLeg\n    {\n        OFFSET -11.000000 -0.000000 0.000000\n        CHANNELS 3 Yrotation Xrotation Zrotation\n        JOINT RightLeg\n"
+  },
+  {
+    "file": "пкпу1.bvh",
+    "size_bytes": 3053840,
+    "source_path": "D:\\Задания, Уроки\\Запись с датчиков\\пкпу1.bvh",
+    "header_sample": "HIERARCHY\nROOT Hips\n{\n    OFFSET 0.000000 97.120003 0.000000\n    CHANNELS 6 Xposition Yposition Zposition Yrotation Xrotation Zrotation\n    JOINT RightUpLeg\n    {\n        OFFSET -11.000000 -0.000000 0.000000\n        CHANNELS 3 Yrotation Xrotation Zrotation\n        JOINT RightLeg\n"
+  }
+]
