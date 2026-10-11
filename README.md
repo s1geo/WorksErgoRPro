@@ -90,7 +90,7 @@ To explore all 1,081 topics of official CAD documentation, 28 video analyses, 70
 # Open the master offline portal directly in your default browser:
 Start-Process "knowledge_base\index.html"
 ```
-Or open [`knowledge_base/index.html`](file:///D:/Git/WorksErgoRPro/knowledge_base/index.html) in Chrome / Edge.
+Or open [`knowledge_base/index.html`](file:///D:/Git/WorksErgoRPro/knowledge_base/index.html)
 
 ### 2. Build Solution
 ```powershell
@@ -114,28 +114,5 @@ Or open [`knowledge_base/index.html`](file:///D:/Git/WorksErgoRPro/knowledge_bas
 
 ## Единый Портал Базы Знаний и Документации
 
-Для быстрого погружения в проект, изучения архитектуры Р-Про и Work(s) Ergo в репозитории развернут **автономный офлайн-портал**:
+Для быстрого погружения в проект
 👉 **[`knowledge_base/index.html`](knowledge_base/index.html)** (или `knowledge_base/03_cad_documentation_and_help/documentation_portal.html`)
-
-
-### Содержимое портала (1 101 документ с поиском в реальном времени):
-1. **Конспекты & Анализ (8 документов):** Мастер-Инженерный отчет (86 КБ), 75 КБ анализ 28 видео (@idkfa3), монография 70+ научных источников, энциклопедия DHM, математический вывод CoM и кинематики ног, критическое академическое ревью, интеллектуальная карта знаний.
-2. **Карта действий & Роадмап (4 документа):** Главный журнал прогресса и реальности (Reality Tracker), дорожная карта обучения нейросетевого ИИ-суррогата на MoCap, конвейер извлечения 22 907 кадров Perception Neuron, аудит расхождений и архитектурных пробелов.
-3. **Спецификации & Архитектура (8 документов):** Спецификация пакетов компонентов `.rpro` (`DHM_Worker` и `Barrier`), аутентичная парадигма 3D-взаимодействия (Floating Hands, Interact Cylinders), сравнительный анализ Р-Про vs Visual Components (31 КБ), архитектура .NET MEF, декомпилированные API-дампы `Plugin.Ergonomics.dll` и `Plugin.ErgonomicsWPP.dll`.
-4. **Р-Про CAD Core Manual RU (387 статей):** Полная русскоязычная документация платформы Р-Про v2.2.2 (кинематика, поведение, сигналы, моделирование процессов, свойства).
-5. **CAD EN Manual (363 статьи):** Англоязычная эталонная документация Visual Components Core.
-6. **Python API Reference (222 статьи):** Официальный справочник всех классов и методов vcScript, vcApplication, vcComponent, vcMatrix, vcMotion, vcSimObject.
-7. **Нативные модули Р-Про (30 статей):** Декомпилированная документация встроенных заводских модулей «Эргономика», «Рабочие позы (WPP)» и «Захват движения (MoCap)».
-8. **Work(s) Ergo Руководство пользователя (2 документа):** Интерактивный HTML-гайд v0.1 и официальный 50-страничный PDF-мануал v1.17 со всеми формулами DCR.
-9. **28 Демо-Видео (@idkfa3):** Посекундный инженерный разбор 3D-манипулирования (Floating Hands, Snapping, Body Bracing, Straight Legs, LM-MMH, Office Ergonomics) с просмотром видео прямо в модальном окне портала.
-10. **70+ Научных Первоисточников:** Полные формулы, биомеханические пределы и **26 загруженных PDF-книг и статей** (~180 МБ: Waters NIOSH 1994, NIOSH 1981, Dempster 1955, Grenier 1991, USAF 1964, Robinette CAESAR, de Leva 1996, Potvin 2021, Loper SMPL, Pavlakos SMPL-X, Aristidou FABRIK, Schulman TrajOpt, Delp OpenSim).
-11. **Экспериментальные Датасеты:** 6 068 замеров ANSUR II (CSV), 22 907 кадров MoCap Axis Studio (BVH), многозвенные модели OpenSim Rajagopal (.osim).
-12. **Бинарные Сборки & Контракты:** Сигнатуры и правила интеграции MEF (`UX.Shared.dll`, `Plugin.Ergonomics.dll`, `VisualComponents.Create3D.dll`).
-
-
----
-
-## Лицензия
-
-Copyright (c) 2026. All rights reserved. Разработано для экосистемы цифрового инжиниринга Р-Про.
-
