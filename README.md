@@ -1,12 +1,5 @@
 # WorksErgo R-Pro Edition
 
-[![Platform](https://img.shields.io/badge/Platform-R--Pro%20v2.2.2%20(Visual%20Components)-blue.svg)](https://r-pro.ru/)
-[![Framework](https://img.shields.io/badge/.NET%20Framework-4.8%20%2F%20WPF%20%2F%20MEF-purple.svg)](https://dotnet.microsoft.com/)
-[![Build Status](https://img.shields.io/badge/Build-Passing%20(100%25)-brightgreen.svg)](build.ps1)
-[![Tests](https://img.shields.io/badge/Tests-All%20Passing-brightgreen.svg)](tests/RunAllTests.ps1)
-[![Zero Cloud](https://img.shields.io/badge/Architecture-100%25%20Air--Gapped%20%2F%20Offline-success.svg)](#architecture)
-[![Specification](https://img.shields.io/badge/Standard-Conventional%20Commits-yellow.svg)](CHANGELOG.md)
-
 > **Next-Generation Autonomous Digital Human Modeling (DHM) and Biomechanical Ergonomics System for R-Pro v2.2.2.**  
 > 100% standalone native .NET Framework 4.8 extension. Zero cloud dependencies, zero external subscriptions.
 
