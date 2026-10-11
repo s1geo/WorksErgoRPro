@@ -10,8 +10,6 @@
 > **Next-Generation Autonomous Digital Human Modeling (DHM) and Biomechanical Ergonomics System for R-Pro v2.2.2.**  
 > 100% standalone native .NET Framework 4.8 extension. Zero cloud dependencies, zero external subscriptions.
 
-[English](#overview) | [Русский](#обзор-системы-на-русском)
-
 ---
 
 ## Overview
@@ -121,7 +119,7 @@ Or open [`knowledge_base/index.html`](file:///D:/Git/WorksErgoRPro/knowledge_bas
 
 ---
 
-## Единый Портал Базы Знаний и Документации (Для Коллег)
+## Единый Портал Базы Знаний и Документации
 
 Для быстрого погружения в проект, изучения архитектуры Р-Про и Work(s) Ergo в репозитории развернут **автономный офлайн-портал**:
 👉 **[`knowledge_base/index.html`](knowledge_base/index.html)** (или `knowledge_base/03_cad_documentation_and_help/documentation_portal.html`)
@@ -141,17 +139,6 @@ Or open [`knowledge_base/index.html`](file:///D:/Git/WorksErgoRPro/knowledge_bas
 11. **Экспериментальные Датасеты:** 6 068 замеров ANSUR II (CSV), 22 907 кадров MoCap Axis Studio (BVH), многозвенные модели OpenSim Rajagopal (.osim).
 12. **Бинарные Сборки & Контракты:** Сигнатуры и правила интеграции MEF (`UX.Shared.dll`, `Plugin.Ergonomics.dll`, `VisualComponents.Create3D.dll`).
 
----
-
-## Обзор архитектуры ядра (Zero-Cloud & 6 Дисциплин)
-
-В отличие от упрощенных дискретных таблиц RULA/REBA, ядро **WorksErgo R-Pro Edition** реализует синтез 6 фундаментальных дисциплин:
-1. **Вычислительная кинематика:** FABRIK (Aristidou 2011) + DLS (Buss 2004) + кватернионный QP-IK без сингулярностей.
-2. **Биомеханика позвоночника:** Дортмундский атлас L5/S1 (Jäger 2023) + усталость Вейбулла (Brinckmann 1988, Potvin 2026) + предел выносливости MAE (Potvin 2012).
-3. **Равновесие и центр масс:** Закон сохранения центра тяжести Dempster-Winter ($X_{\text{CoM}} \in \text{BoS} [-70, +180]\text{ мм}$) с поддержкой 3 стилей приседа (Stoop, Semi-Squat, Deep Squat).
-4. **Психофизика MMH:** 14 непрерывных уравнений Liberty Mutual (Snook & Ciriello 1991, Potvin 2021) + 3D-силовое поле руки AFF (LaDelfa 2017) + 23 хвата HandPak.
-5. **Пространственная динамика:** Уравнения Ньютона-Эйлера RNEA (Featherstone 2008, Kingma 1996) с учетом динамического ускорения $F = m(g + a)$.
-6. **Отраслевой аудит:** Стандарты автоконцернов EAWS (Schaub 2012), OCRA (ISO 11228-3) и ГОСТ Р 56644-2015.
 
 ---
 
