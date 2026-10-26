@@ -112,7 +112,3 @@ Or open [`knowledge_base/index.html`](file:///D:/Git/WorksErgoRPro/knowledge_bas
 
 ---
 
-## Единый Портал Базы Знаний и Документации
-
-Для быстрого погружения в проект
-👉 **[`knowledge_base/index.html`](knowledge_base/index.html)** (или `knowledge_base/03_cad_documentation_and_help/documentation_portal.html`)
